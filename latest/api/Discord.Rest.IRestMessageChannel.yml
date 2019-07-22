@@ -10,7 +10,7 @@ items:
   - Discord.Rest.IRestMessageChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)
   - Discord.Rest.IRestMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
   - Discord.Rest.IRestMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  - Discord.Rest.IRestMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.Rest.IRestMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.Rest.IRestMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.Rest.IRestMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   langs:
@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IRestMessageChannel
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -72,7 +72,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendMessageAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -99,7 +99,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.Rest.RestUserMessage}
+      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendMessageAsync(text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of RestUserMessage)
   overload: Discord.Rest.IRestMessageChannel.SendMessageAsync*
@@ -117,7 +117,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendFileAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -126,7 +126,7 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method follows the same behavior as described in \n<see cref=\"!:IMessageChannel.SendFileAsync(string, string, bool, Embed, RequestOptions, bool)\"></see>. Please visit\nits documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in \n<xref href=\"Discord.IMessageChannel.SendFileAsync(System.String%2cSystem.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions%2cSystem.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>. Please visit\nits documentation for more details on this method.\n"
   example: []
   syntax:
     content: Task<RestUserMessage> SendFileAsync(string filePath, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
@@ -149,25 +149,25 @@ items:
     - id: isSpoiler
       type: System.Boolean
     return:
-      type: Task{Discord.Rest.RestUserMessage}
+      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendFileAsync(filePath As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
   overload: Discord.Rest.IRestMessageChannel.SendFileAsync*
-- uid: Discord.Rest.IRestMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.Rest.IRestMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  id: SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.Rest.IRestMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.Rest.IRestMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  id: SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.Rest.IRestMessageChannel
   langs:
   - csharp
   - vb
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: IRestMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.Rest.IRestMessageChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.Rest.IRestMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendFileAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -176,14 +176,14 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.SendFileAsync(Stream, string, string, bool, Embed, RequestOptions, bool)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.SendFileAsync(System.IO.Stream%2cSystem.String%2cSystem.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions%2cSystem.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: Task<RestUserMessage> SendFileAsync(Stream stream, string filename, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
     parameters:
     - id: stream
-      type: Stream
-      description: The <see cref="!:Stream"></see> of the file to be sent.
+      type: System.IO.Stream
+      description: The <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> of the file to be sent.
     - id: filename
       type: System.String
       description: The name of the attachment.
@@ -202,7 +202,7 @@ items:
     - id: isSpoiler
       type: System.Boolean
     return:
-      type: Task{Discord.Rest.RestUserMessage}
+      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendFileAsync(stream As Stream, filename As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
   overload: Discord.Rest.IRestMessageChannel.SendFileAsync*
@@ -220,7 +220,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessageAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -229,7 +229,7 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nGets a message from this message channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessageAsync(ulong, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessageAsync(System.UInt64%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: Task<RestMessage> GetMessageAsync(ulong id, RequestOptions options = null)
@@ -241,7 +241,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.Rest.RestMessage}
+      type: System.Threading.Tasks.Task{Discord.Rest.RestMessage}
       description: "\nA task that represents an asynchronous get operation for retrieving the message. The task result contains\nthe retrieved message; <code>null</code> if no message is found with the specified identifier.\n"
     content.vb: Function GetMessageAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestMessage)
   overload: Discord.Rest.IRestMessageChannel.GetMessageAsync*
@@ -259,7 +259,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -268,10 +268,10 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nGets the last N messages from this message channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(System.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(int limit = null, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(int limit = 100, RequestOptions options = null)
     parameters:
     - id: limit
       type: System.Int32
@@ -280,9 +280,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
+    content.vb: Function GetMessagesAsync(limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
   overload: Discord.Rest.IRestMessageChannel.GetMessagesAsync*
 - uid: Discord.Rest.IRestMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
   commentId: M:Discord.Rest.IRestMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
@@ -298,7 +298,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -307,10 +307,10 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(ulong, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(System.UInt64%2cDiscord.Direction%2cSystem.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = null, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = 100, RequestOptions options = null)
     parameters:
     - id: fromMessageId
       type: System.UInt64
@@ -325,9 +325,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
+    content.vb: Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
   overload: Discord.Rest.IRestMessageChannel.GetMessagesAsync*
 - uid: Discord.Rest.IRestMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
   commentId: M:Discord.Rest.IRestMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
@@ -343,7 +343,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -352,10 +352,10 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(IMessage, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage%2cDiscord.Direction%2cSystem.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = null, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<RestMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = 100, RequestOptions options = null)
     parameters:
     - id: fromMessage
       type: Discord.IMessage
@@ -370,9 +370,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
+    content.vb: Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
   overload: Discord.Rest.IRestMessageChannel.GetMessagesAsync*
 - uid: Discord.Rest.IRestMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
   commentId: M:Discord.Rest.IRestMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
@@ -388,7 +388,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetPinnedMessagesAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/IRestMessageChannel.cs
@@ -406,7 +406,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
       description: "\nA task that represents the asynchronous get operation for retrieving pinned messages in this channel.\nThe task result contains a collection of messages found in the pinned messages.\n"
     content.vb: Function GetPinnedMessagesAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestMessage))
   overload: Discord.Rest.IRestMessageChannel.GetPinnedMessagesAsync*
@@ -1261,11 +1261,15 @@ references:
   nameWithType: IRestMessageChannel.SendMessageAsync
   fullName: Discord.Rest.IRestMessageChannel.SendMessageAsync
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1276,20 +1280,21 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task{Discord.Rest.RestUserMessage}
-  commentId: '!:Task{Discord.Rest.RestUserMessage}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
+  commentId: T:System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<RestUserMessage>
   nameWithType: Task<RestUserMessage>
-  fullName: Task<Discord.Rest.RestUserMessage>
+  fullName: System.Threading.Tasks.Task<Discord.Rest.RestUserMessage>
   nameWithType.vb: Task(Of RestUserMessage)
-  fullName.vb: Task(Of Discord.Rest.RestUserMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.Rest.RestUserMessage)
   name.vb: Task(Of RestUserMessage)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -1302,10 +1307,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1317,41 +1322,169 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task`1
+- uid: System
+  commentId: N:System
   isExternal: true
-  name: Task<>
-  nameWithType: Task<>
-  fullName: Task<>
-  nameWithType.vb: Task(Of )
-  fullName.vb: Task(Of )
-  name.vb: Task(Of )
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.IMessageChannel
+  isExternal: true
+  name: SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.IMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  spec.csharp:
+  - uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: IMessageChannel.SendFileAsync
+    fullName: Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: IMessageChannel.SendFileAsync
+    fullName: Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
   - name: )
     nameWithType: )
     fullName: )
@@ -1360,35 +1493,177 @@ references:
   name: SendFileAsync
   nameWithType: IRestMessageChannel.SendFileAsync
   fullName: Discord.Rest.IRestMessageChannel.SendFileAsync
-- uid: Stream
+- uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.IMessageChannel
+  isExternal: true
+  name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  spec.csharp:
+  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: IMessageChannel.SendFileAsync
+    fullName: Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: IMessageChannel.SendFileAsync
+    fullName: Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
   isExternal: true
   name: Stream
   nameWithType: Stream
-  fullName: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
 - uid: Discord.Rest.IRestMessageChannel.GetMessageAsync*
   commentId: Overload:Discord.Rest.IRestMessageChannel.GetMessageAsync
   name: GetMessageAsync
   nameWithType: IRestMessageChannel.GetMessageAsync
   fullName: Discord.Rest.IRestMessageChannel.GetMessageAsync
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
   fullName: System.UInt64
-- uid: Task{Discord.Rest.RestMessage}
-  commentId: '!:Task{Discord.Rest.RestMessage}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.Rest.RestMessage}
+  commentId: T:System.Threading.Tasks.Task{Discord.Rest.RestMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<RestMessage>
   nameWithType: Task<RestMessage>
-  fullName: Task<Discord.Rest.RestMessage>
+  fullName: System.Threading.Tasks.Task<Discord.Rest.RestMessage>
   nameWithType.vb: Task(Of RestMessage)
-  fullName.vb: Task(Of Discord.Rest.RestMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.Rest.RestMessage)
   name.vb: Task(Of RestMessage)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -1401,10 +1676,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1422,32 +1697,35 @@ references:
   nameWithType: IRestMessageChannel.GetMessagesAsync
   fullName: Discord.Rest.IRestMessageChannel.GetMessagesAsync
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestMessage}}
-  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestMessage}}'
-  definition: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
   name: IAsyncEnumerable<IReadOnlyCollection<RestMessage>>
   nameWithType: IAsyncEnumerable<IReadOnlyCollection<RestMessage>>
-  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.Rest.RestMessage>>
+  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.Rest.RestMessage>>
   nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
-  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.Rest.RestMessage))
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.Rest.RestMessage))
   name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of RestMessage))
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1463,18 +1741,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1489,44 +1767,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
   isExternal: true
-  name: IAsyncEnumerable<>
-  nameWithType: IAsyncEnumerable<>
-  fullName: IAsyncEnumerable<>
-  nameWithType.vb: IAsyncEnumerable(Of )
-  fullName.vb: IAsyncEnumerable(Of )
-  name.vb: IAsyncEnumerable(Of )
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.Direction
   commentId: T:Discord.Direction
   parent: Discord
@@ -1580,28 +1865,29 @@ references:
   name: GetPinnedMessagesAsync
   nameWithType: IRestMessageChannel.GetPinnedMessagesAsync
   fullName: Discord.Rest.IRestMessageChannel.GetPinnedMessagesAsync
-- uid: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestMessage}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<RestMessage>>
   nameWithType: Task<IReadOnlyCollection<RestMessage>>
-  fullName: Task<IReadOnlyCollection<Discord.Rest.RestMessage>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.Rest.RestMessage>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of RestMessage))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestMessage))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.Rest.RestMessage))
   name.vb: Task(Of IReadOnlyCollection(Of RestMessage))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1617,18 +1903,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '

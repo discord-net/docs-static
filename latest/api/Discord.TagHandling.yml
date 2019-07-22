@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: TagHandling
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -33,8 +33,8 @@ items:
   summary: "\nSpecifies the handling type the tag should use.\n"
   example: []
   syntax:
-    content: 'public enum TagHandling : int'
-    content.vb: Public Enum TagHandling As Integer
+    content: public enum TagHandling
+    content.vb: Public Enum TagHandling
   seealso:
   - linkId: Discord.MentionUtils
     commentId: T:Discord.MentionUtils
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Ignore
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -71,10 +71,9 @@ items:
   summary: "\nTag handling is ignored (e.g. &lt;@53905483156684800> -> &lt;@53905483156684800>).\n"
   example: []
   syntax:
-    content: Ignore = null
+    content: Ignore = 0
     return:
       type: Discord.TagHandling
-    content.vb: Ignore = Nothing
   modifiers.csharp:
   - public
   - const
@@ -95,7 +94,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Remove
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -106,10 +105,9 @@ items:
   summary: "\nRemoves the tag entirely. \n"
   example: []
   syntax:
-    content: Remove = null
+    content: Remove = 1
     return:
       type: Discord.TagHandling
-    content.vb: Remove = Nothing
   modifiers.csharp:
   - public
   - const
@@ -130,7 +128,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -141,10 +139,9 @@ items:
   summary: "\nResolves to username (e.g. &lt;@53905483156684800> -> @Voltana). \n"
   example: []
   syntax:
-    content: Name = null
+    content: Name = 2
     return:
       type: Discord.TagHandling
-    content.vb: Name = Nothing
   modifiers.csharp:
   - public
   - const
@@ -165,7 +162,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: NameNoPrefix
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -176,10 +173,9 @@ items:
   summary: "\nResolves to username without mention prefix (e.g. &lt;@53905483156684800> -> Voltana). \n"
   example: []
   syntax:
-    content: NameNoPrefix = null
+    content: NameNoPrefix = 3
     return:
       type: Discord.TagHandling
-    content.vb: NameNoPrefix = Nothing
   modifiers.csharp:
   - public
   - const
@@ -200,7 +196,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FullName
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -211,10 +207,9 @@ items:
   summary: "\nResolves to username with discriminator value. (e.g. &lt;@53905483156684800> -> @Voltana#8252). \n"
   example: []
   syntax:
-    content: FullName = null
+    content: FullName = 4
     return:
       type: Discord.TagHandling
-    content.vb: FullName = Nothing
   modifiers.csharp:
   - public
   - const
@@ -235,7 +230,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FullNameNoPrefix
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -246,10 +241,9 @@ items:
   summary: "\nResolves to username with discriminator value without mention prefix. (e.g. &lt;@53905483156684800> -> Voltana#8252). \n"
   example: []
   syntax:
-    content: FullNameNoPrefix = null
+    content: FullNameNoPrefix = 5
     return:
       type: Discord.TagHandling
-    content.vb: FullNameNoPrefix = Nothing
   modifiers.csharp:
   - public
   - const
@@ -270,7 +264,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/TagHandling.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Sanitize
     path: ../src/Discord.Net.Core/Entities/Messages/TagHandling.cs
@@ -281,10 +275,9 @@ items:
   summary: "\nSanitizes the tag (e.g. &lt;@53905483156684800> -> &lt;@53905483156684800> (w/ nbsp)).\n"
   example: []
   syntax:
-    content: Sanitize = null
+    content: Sanitize = 6
     return:
       type: Discord.TagHandling
-    content.vb: Sanitize = Nothing
   modifiers.csharp:
   - public
   - const
@@ -299,12 +292,107 @@ references:
   fullName: Discord.MentionUtils
 - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
   commentId: M:Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
-  isExternal: true
+  parent: Discord.IUserMessage
+  name: Resolve(TagHandling, TagHandling, TagHandling, TagHandling, TagHandling)
+  nameWithType: IUserMessage.Resolve(TagHandling, TagHandling, TagHandling, TagHandling, TagHandling)
+  fullName: Discord.IUserMessage.Resolve(Discord.TagHandling, Discord.TagHandling, Discord.TagHandling, Discord.TagHandling, Discord.TagHandling)
+  spec.csharp:
+  - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
+    name: Resolve
+    nameWithType: IUserMessage.Resolve
+    fullName: Discord.IUserMessage.Resolve
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
+    name: Resolve
+    nameWithType: IUserMessage.Resolve
+    fullName: Discord.IUserMessage.Resolve
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.TagHandling
+    name: TagHandling
+    nameWithType: TagHandling
+    fullName: Discord.TagHandling
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: Discord.IUserMessage
+  commentId: T:Discord.IUserMessage
+  parent: Discord
+  name: IUserMessage
+  nameWithType: IUserMessage
+  fullName: Discord.IUserMessage
 - uid: Discord.TagHandling
   commentId: T:Discord.TagHandling
   parent: Discord

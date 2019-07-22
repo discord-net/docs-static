@@ -5,7 +5,7 @@ items:
   id: ParameterBuilder
   parent: Discord.Commands.Builders
   children:
-  - Discord.Commands.Builders.ParameterBuilder.AddAttributes(Attribute[])
+  - Discord.Commands.Builders.ParameterBuilder.AddAttributes(System.Attribute[])
   - Discord.Commands.Builders.ParameterBuilder.AddPrecondition(Discord.Commands.ParameterPreconditionAttribute)
   - Discord.Commands.Builders.ParameterBuilder.Attributes
   - Discord.Commands.Builders.ParameterBuilder.Command
@@ -33,7 +33,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ParameterBuilder
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -42,12 +42,18 @@ items:
   - Discord.Net.Commands
   namespace: Discord.Commands.Builders
   syntax:
-    content: 'public class ParameterBuilder : object'
-    content.vb: >-
-      Public Class ParameterBuilder
-          Inherits Object
+    content: public class ParameterBuilder
+    content.vb: Public Class ParameterBuilder
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -68,7 +74,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Command
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -103,7 +109,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -138,7 +144,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ParameterType
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -150,7 +156,7 @@ items:
     content: public Type ParameterType { get; }
     parameters: []
     return:
-      type: Type
+      type: System.Type
     content.vb: Public ReadOnly Property ParameterType As Type
   overload: Discord.Commands.Builders.ParameterBuilder.ParameterType*
   modifiers.csharp:
@@ -173,7 +179,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: TypeReader
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -208,7 +214,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsOptional
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -243,7 +249,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsRemainder
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -278,7 +284,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsMultiple
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -313,7 +319,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DefaultValue
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -348,7 +354,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Summary
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -383,7 +389,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Preconditions
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -395,7 +401,7 @@ items:
     content: public IReadOnlyList<ParameterPreconditionAttribute> Preconditions { get; }
     parameters: []
     return:
-      type: IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}
+      type: System.Collections.Generic.IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}
     content.vb: Public ReadOnly Property Preconditions As IReadOnlyList(Of ParameterPreconditionAttribute)
   overload: Discord.Commands.Builders.ParameterBuilder.Preconditions*
   modifiers.csharp:
@@ -418,7 +424,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Attributes
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -430,7 +436,7 @@ items:
     content: public IReadOnlyList<Attribute> Attributes { get; }
     parameters: []
     return:
-      type: IReadOnlyList{Attribute}
+      type: System.Collections.Generic.IReadOnlyList{System.Attribute}
     content.vb: Public ReadOnly Property Attributes As IReadOnlyList(Of Attribute)
   overload: Discord.Commands.Builders.ParameterBuilder.Attributes*
   modifiers.csharp:
@@ -453,7 +459,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithSummary
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -488,7 +494,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithDefault
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -523,7 +529,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithIsOptional
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -558,7 +564,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithIsRemainder
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -593,7 +599,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithIsMultiple
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -614,21 +620,21 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.Commands.Builders.ParameterBuilder.AddAttributes(Attribute[])
-  commentId: M:Discord.Commands.Builders.ParameterBuilder.AddAttributes(Attribute[])
-  id: AddAttributes(Attribute[])
+- uid: Discord.Commands.Builders.ParameterBuilder.AddAttributes(System.Attribute[])
+  commentId: M:Discord.Commands.Builders.ParameterBuilder.AddAttributes(System.Attribute[])
+  id: AddAttributes(System.Attribute[])
   parent: Discord.Commands.Builders.ParameterBuilder
   langs:
   - csharp
   - vb
   name: AddAttributes(Attribute[])
   nameWithType: ParameterBuilder.AddAttributes(Attribute[])
-  fullName: Discord.Commands.Builders.ParameterBuilder.AddAttributes(Attribute[])
+  fullName: Discord.Commands.Builders.ParameterBuilder.AddAttributes(System.Attribute[])
   type: Method
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddAttributes
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -640,7 +646,7 @@ items:
     content: public ParameterBuilder AddAttributes(params Attribute[] attributes)
     parameters:
     - id: attributes
-      type: Attribute[]
+      type: System.Attribute[]
     return:
       type: Discord.Commands.Builders.ParameterBuilder
     content.vb: Public Function AddAttributes(ParamArray attributes As Attribute()) As ParameterBuilder
@@ -650,7 +656,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Commands.Builders.ParameterBuilder.AddAttributes(Attribute())
+  fullName.vb: Discord.Commands.Builders.ParameterBuilder.AddAttributes(System.Attribute())
   name.vb: AddAttributes(Attribute())
 - uid: Discord.Commands.Builders.ParameterBuilder.AddPrecondition(Discord.Commands.ParameterPreconditionAttribute)
   commentId: M:Discord.Commands.Builders.ParameterBuilder.AddPrecondition(Discord.Commands.ParameterPreconditionAttribute)
@@ -666,7 +672,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Builders/ParameterBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddPrecondition
     path: ../src/Discord.Net.Commands/Builders/ParameterBuilder.cs
@@ -694,10 +700,297 @@ references:
   nameWithType: Discord.Commands.Builders
   fullName: Discord.Commands.Builders
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Commands.Builders.ParameterBuilder.Command*
   commentId: Overload:Discord.Commands.Builders.ParameterBuilder.Command
   name: Command
@@ -715,6 +1008,8 @@ references:
   nameWithType: ParameterBuilder.Name
   fullName: Discord.Commands.Builders.ParameterBuilder.Name
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -724,11 +1019,13 @@ references:
   name: ParameterType
   nameWithType: ParameterBuilder.ParameterType
   fullName: Discord.Commands.Builders.ParameterBuilder.ParameterType
-- uid: Type
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
   isExternal: true
   name: Type
   nameWithType: Type
-  fullName: Type
+  fullName: System.Type
 - uid: Discord.Commands.Builders.ParameterBuilder.TypeReader*
   commentId: Overload:Discord.Commands.Builders.ParameterBuilder.TypeReader
   name: TypeReader
@@ -751,6 +1048,8 @@ references:
   nameWithType: ParameterBuilder.IsOptional
   fullName: Discord.Commands.Builders.ParameterBuilder.IsOptional
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -780,20 +1079,21 @@ references:
   name: Preconditions
   nameWithType: ParameterBuilder.Preconditions
   fullName: Discord.Commands.Builders.ParameterBuilder.Preconditions
-- uid: IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}
-  commentId: '!:IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}'
-  definition: IReadOnlyList`1
+- uid: System.Collections.Generic.IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Discord.Commands.ParameterPreconditionAttribute}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
   name: IReadOnlyList<ParameterPreconditionAttribute>
   nameWithType: IReadOnlyList<ParameterPreconditionAttribute>
-  fullName: IReadOnlyList<Discord.Commands.ParameterPreconditionAttribute>
+  fullName: System.Collections.Generic.IReadOnlyList<Discord.Commands.ParameterPreconditionAttribute>
   nameWithType.vb: IReadOnlyList(Of ParameterPreconditionAttribute)
-  fullName.vb: IReadOnlyList(Of Discord.Commands.ParameterPreconditionAttribute)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Discord.Commands.ParameterPreconditionAttribute)
   name.vb: IReadOnlyList(Of ParameterPreconditionAttribute)
   spec.csharp:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
@@ -806,10 +1106,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -821,88 +1121,96 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyList`1
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
-  name: IReadOnlyList<>
-  nameWithType: IReadOnlyList<>
-  fullName: IReadOnlyList<>
-  nameWithType.vb: IReadOnlyList(Of )
-  fullName.vb: IReadOnlyList(Of )
-  name.vb: IReadOnlyList(Of )
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
   spec.csharp:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.Commands.Builders.ParameterBuilder.Attributes*
   commentId: Overload:Discord.Commands.Builders.ParameterBuilder.Attributes
   name: Attributes
   nameWithType: ParameterBuilder.Attributes
   fullName: Discord.Commands.Builders.ParameterBuilder.Attributes
-- uid: IReadOnlyList{Attribute}
-  commentId: '!:IReadOnlyList{Attribute}'
-  definition: IReadOnlyList`1
+- uid: System.Collections.Generic.IReadOnlyList{System.Attribute}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Attribute}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
   name: IReadOnlyList<Attribute>
   nameWithType: IReadOnlyList<Attribute>
-  fullName: IReadOnlyList<Attribute>
+  fullName: System.Collections.Generic.IReadOnlyList<System.Attribute>
   nameWithType.vb: IReadOnlyList(Of Attribute)
-  fullName.vb: IReadOnlyList(Of Attribute)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.Attribute)
   name.vb: IReadOnlyList(Of Attribute)
   spec.csharp:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: Attribute
+  - uid: System.Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: Attribute
+    fullName: System.Attribute
     isExternal: true
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: Attribute
+  - uid: System.Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: Attribute
+    fullName: System.Attribute
     isExternal: true
   - name: )
     nameWithType: )
@@ -943,28 +1251,28 @@ references:
   name: AddAttributes
   nameWithType: ParameterBuilder.AddAttributes
   fullName: Discord.Commands.Builders.ParameterBuilder.AddAttributes
-- uid: Attribute[]
+- uid: System.Attribute[]
   isExternal: true
   name: Attribute[]
   nameWithType: Attribute[]
-  fullName: Attribute[]
+  fullName: System.Attribute[]
   nameWithType.vb: Attribute()
-  fullName.vb: Attribute()
+  fullName.vb: System.Attribute()
   name.vb: Attribute()
   spec.csharp:
-  - uid: Attribute
+  - uid: System.Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: Attribute
+    fullName: System.Attribute
     isExternal: true
   - name: '[]'
     nameWithType: '[]'
     fullName: '[]'
   spec.vb:
-  - uid: Attribute
+  - uid: System.Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: Attribute
+    fullName: System.Attribute
     isExternal: true
   - name: ()
     nameWithType: ()

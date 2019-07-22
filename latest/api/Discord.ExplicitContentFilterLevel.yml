@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ExplicitContentFilterLevel
     path: ../src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
@@ -27,8 +27,8 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: 'public enum ExplicitContentFilterLevel : int'
-    content.vb: Public Enum ExplicitContentFilterLevel As Integer
+    content: public enum ExplicitContentFilterLevel
+    content.vb: Public Enum ExplicitContentFilterLevel
   modifiers.csharp:
   - public
   - enum
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Disabled
     path: ../src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
@@ -60,10 +60,9 @@ items:
   summary: 'No messages will be scanned. '
   example: []
   syntax:
-    content: Disabled = null
+    content: Disabled = 0
     return:
       type: Discord.ExplicitContentFilterLevel
-    content.vb: Disabled = Nothing
   modifiers.csharp:
   - public
   - const
@@ -84,7 +83,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MembersWithoutRoles
     path: ../src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
@@ -96,10 +95,9 @@ items:
   remarks: 'Recommented option for servers that use roles for trusted membership. '
   example: []
   syntax:
-    content: MembersWithoutRoles = null
+    content: MembersWithoutRoles = 1
     return:
       type: Discord.ExplicitContentFilterLevel
-    content.vb: MembersWithoutRoles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -120,7 +118,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AllMembers
     path: ../src/Discord.Net.Core/Entities/Guilds/ExplicitContentFilterLevel.cs
@@ -131,10 +129,9 @@ items:
   summary: 'Scan messages sent by all guild members. '
   example: []
   syntax:
-    content: AllMembers = null
+    content: AllMembers = 2
     return:
       type: Discord.ExplicitContentFilterLevel
-    content.vb: AllMembers = Nothing
   modifiers.csharp:
   - public
   - const

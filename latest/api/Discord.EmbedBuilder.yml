@@ -6,8 +6,8 @@ items:
   parent: Discord
   children:
   - Discord.EmbedBuilder.#ctor
-  - Discord.EmbedBuilder.AddField(Action{Discord.EmbedFieldBuilder})
   - Discord.EmbedBuilder.AddField(Discord.EmbedFieldBuilder)
+  - Discord.EmbedBuilder.AddField(System.Action{Discord.EmbedFieldBuilder})
   - Discord.EmbedBuilder.AddField(System.String,System.Object,System.Boolean)
   - Discord.EmbedBuilder.Author
   - Discord.EmbedBuilder.Build
@@ -25,18 +25,18 @@ items:
   - Discord.EmbedBuilder.Timestamp
   - Discord.EmbedBuilder.Title
   - Discord.EmbedBuilder.Url
-  - Discord.EmbedBuilder.WithAuthor(Action{Discord.EmbedAuthorBuilder})
   - Discord.EmbedBuilder.WithAuthor(Discord.EmbedAuthorBuilder)
+  - Discord.EmbedBuilder.WithAuthor(System.Action{Discord.EmbedAuthorBuilder})
   - Discord.EmbedBuilder.WithAuthor(System.String,System.String,System.String)
   - Discord.EmbedBuilder.WithColor(Discord.Color)
   - Discord.EmbedBuilder.WithCurrentTimestamp
   - Discord.EmbedBuilder.WithDescription(System.String)
-  - Discord.EmbedBuilder.WithFooter(Action{Discord.EmbedFooterBuilder})
   - Discord.EmbedBuilder.WithFooter(Discord.EmbedFooterBuilder)
+  - Discord.EmbedBuilder.WithFooter(System.Action{Discord.EmbedFooterBuilder})
   - Discord.EmbedBuilder.WithFooter(System.String,System.String)
   - Discord.EmbedBuilder.WithImageUrl(System.String)
   - Discord.EmbedBuilder.WithThumbnailUrl(System.String)
-  - Discord.EmbedBuilder.WithTimestamp(DateTimeOffset)
+  - Discord.EmbedBuilder.WithTimestamp(System.DateTimeOffset)
   - Discord.EmbedBuilder.WithTitle(System.String)
   - Discord.EmbedBuilder.WithUrl(System.String)
   langs:
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedBuilder
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -60,19 +60,25 @@ items:
   summary: "\nRepresents a builder class for creating a <xref href=\"Discord.EmbedType.Rich\" data-throw-if-not-resolved=\"false\"></xref> <xref href=\"Discord.Embed\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: 'public class EmbedBuilder : object'
-    content.vb: >-
-      Public Class EmbedBuilder
-          Inherits Object
+    content: public class EmbedBuilder
+    content.vb: Public Class EmbedBuilder
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   extensionMethods:
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithColor(System.UInt32)
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithColor(System.Byte,System.Byte,System.Byte)
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithColor(System.Int32,System.Int32,System.Int32)
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithColor(System.Single,System.Single,System.Single)
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithAuthor(Discord.IUser)
-  - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithFields(IEnumerable{Discord.EmbedFieldBuilder})
+  - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   - Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedFieldBuilder[])
   modifiers.csharp:
   - public
@@ -94,7 +100,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxFieldCount
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -105,10 +111,10 @@ items:
   summary: "\nReturns the maximum number of fields allowed by Discord. \n"
   example: []
   syntax:
-    content: public const int MaxFieldCount = null
+    content: public const int MaxFieldCount = 25
     return:
       type: System.Int32
-    content.vb: Public Const MaxFieldCount As Integer = Nothing
+    content.vb: Public Const MaxFieldCount As Integer = 25
   modifiers.csharp:
   - public
   - const
@@ -129,7 +135,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxTitleLength
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -140,10 +146,10 @@ items:
   summary: "\nReturns the maximum length of title allowed by Discord. \n"
   example: []
   syntax:
-    content: public const int MaxTitleLength = null
+    content: public const int MaxTitleLength = 256
     return:
       type: System.Int32
-    content.vb: Public Const MaxTitleLength As Integer = Nothing
+    content.vb: Public Const MaxTitleLength As Integer = 256
   modifiers.csharp:
   - public
   - const
@@ -164,7 +170,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxDescriptionLength
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -175,10 +181,10 @@ items:
   summary: "\nReturns the maximum length of description allowed by Discord. \n"
   example: []
   syntax:
-    content: public const int MaxDescriptionLength = null
+    content: public const int MaxDescriptionLength = 2048
     return:
       type: System.Int32
-    content.vb: Public Const MaxDescriptionLength As Integer = Nothing
+    content.vb: Public Const MaxDescriptionLength As Integer = 2048
   modifiers.csharp:
   - public
   - const
@@ -199,7 +205,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxEmbedLength
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -210,10 +216,10 @@ items:
   summary: "\nReturns the maximum length of total characters allowed by Discord. \n"
   example: []
   syntax:
-    content: public const int MaxEmbedLength = null
+    content: public const int MaxEmbedLength = 6000
     return:
       type: System.Int32
-    content.vb: Public Const MaxEmbedLength As Integer = Nothing
+    content.vb: Public Const MaxEmbedLength As Integer = 6000
   modifiers.csharp:
   - public
   - const
@@ -234,7 +240,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -266,7 +272,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Title
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -284,6 +290,11 @@ items:
       description: The title of the embed.
     content.vb: Public Property Title As String
   overload: Discord.EmbedBuilder.Title*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >
+      Title length exceeds <xref href="Discord.EmbedBuilder.MaxTitleLength" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -304,7 +315,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Description
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -322,6 +333,10 @@ items:
       description: The description of the embed.
     content.vb: Public Property Description As String
   overload: Discord.EmbedBuilder.Description*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Description length exceeds <xref href="Discord.EmbedBuilder.MaxDescriptionLength" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -342,7 +357,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Url
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -360,6 +375,10 @@ items:
       description: The URL of the embed.
     content.vb: Public Property Url As String
   overload: Discord.EmbedBuilder.Url*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Url is not a well-formed <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -380,7 +399,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ThumbnailUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -398,6 +417,10 @@ items:
       description: The thumbnail URL of the embed.
     content.vb: Public Property ThumbnailUrl As String
   overload: Discord.EmbedBuilder.ThumbnailUrl*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Url is not a well-formed <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -418,7 +441,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ImageUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -436,6 +459,10 @@ items:
       description: The image URL of the embed.
     content.vb: Public Property ImageUrl As String
   overload: Discord.EmbedBuilder.ImageUrl*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Url is not a well-formed <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -456,7 +483,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Fields
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -470,10 +497,18 @@ items:
     content: public List<EmbedFieldBuilder> Fields { get; set; }
     parameters: []
     return:
-      type: List{Discord.EmbedFieldBuilder}
+      type: System.Collections.Generic.List{Discord.EmbedFieldBuilder}
       description: The list of existing <xref href="Discord.EmbedFieldBuilder" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Property Fields As List(Of EmbedFieldBuilder)
   overload: Discord.EmbedBuilder.Fields*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: "An embed builder&apos;s fields collection is set to \n<code>null</code>."
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >
+      Description length exceeds <xref href="Discord.EmbedBuilder.MaxFieldCount" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -494,7 +529,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Timestamp
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -508,7 +543,7 @@ items:
     content: public DateTimeOffset? Timestamp { get; set; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
+      type: System.Nullable{System.DateTimeOffset}
       description: "\nThe timestamp of the embed, or <code>null</code> if none is set.\n"
     content.vb: Public Property Timestamp As DateTimeOffset?
   overload: Discord.EmbedBuilder.Timestamp*
@@ -532,7 +567,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Color
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -570,7 +605,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Author
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -608,7 +643,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Footer
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -646,7 +681,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Length
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -684,7 +719,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithTitle
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -723,7 +758,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithDescription
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -762,7 +797,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -801,7 +836,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithThumbnailUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -840,7 +875,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithImageUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -879,7 +914,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithCurrentTimestamp
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -900,21 +935,21 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.EmbedBuilder.WithTimestamp(DateTimeOffset)
-  commentId: M:Discord.EmbedBuilder.WithTimestamp(DateTimeOffset)
-  id: WithTimestamp(DateTimeOffset)
+- uid: Discord.EmbedBuilder.WithTimestamp(System.DateTimeOffset)
+  commentId: M:Discord.EmbedBuilder.WithTimestamp(System.DateTimeOffset)
+  id: WithTimestamp(System.DateTimeOffset)
   parent: Discord.EmbedBuilder
   langs:
   - csharp
   - vb
   name: WithTimestamp(DateTimeOffset)
   nameWithType: EmbedBuilder.WithTimestamp(DateTimeOffset)
-  fullName: Discord.EmbedBuilder.WithTimestamp(DateTimeOffset)
+  fullName: Discord.EmbedBuilder.WithTimestamp(System.DateTimeOffset)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithTimestamp
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -928,7 +963,7 @@ items:
     content: public EmbedBuilder WithTimestamp(DateTimeOffset dateTimeOffset)
     parameters:
     - id: dateTimeOffset
-      type: DateTimeOffset
+      type: System.DateTimeOffset
       description: The timestamp to be set.
     return:
       type: Discord.EmbedBuilder
@@ -953,7 +988,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithColor
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -992,7 +1027,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithAuthor
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1017,21 +1052,21 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.EmbedBuilder.WithAuthor(Action{Discord.EmbedAuthorBuilder})
-  commentId: M:Discord.EmbedBuilder.WithAuthor(Action{Discord.EmbedAuthorBuilder})
-  id: WithAuthor(Action{Discord.EmbedAuthorBuilder})
+- uid: Discord.EmbedBuilder.WithAuthor(System.Action{Discord.EmbedAuthorBuilder})
+  commentId: M:Discord.EmbedBuilder.WithAuthor(System.Action{Discord.EmbedAuthorBuilder})
+  id: WithAuthor(System.Action{Discord.EmbedAuthorBuilder})
   parent: Discord.EmbedBuilder
   langs:
   - csharp
   - vb
   name: WithAuthor(Action<EmbedAuthorBuilder>)
   nameWithType: EmbedBuilder.WithAuthor(Action<EmbedAuthorBuilder>)
-  fullName: Discord.EmbedBuilder.WithAuthor(Action<Discord.EmbedAuthorBuilder>)
+  fullName: Discord.EmbedBuilder.WithAuthor(System.Action<Discord.EmbedAuthorBuilder>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithAuthor
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1045,7 +1080,7 @@ items:
     content: public EmbedBuilder WithAuthor(Action<EmbedAuthorBuilder> action)
     parameters:
     - id: action
-      type: Action{Discord.EmbedAuthorBuilder}
+      type: System.Action{Discord.EmbedAuthorBuilder}
       description: The delegate containing the author field properties.
     return:
       type: Discord.EmbedBuilder
@@ -1057,7 +1092,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.EmbedBuilder.WithAuthor(Action(Of Discord.EmbedAuthorBuilder))
+  fullName.vb: Discord.EmbedBuilder.WithAuthor(System.Action(Of Discord.EmbedAuthorBuilder))
   name.vb: WithAuthor(Action(Of EmbedAuthorBuilder))
 - uid: Discord.EmbedBuilder.WithAuthor(System.String,System.String,System.String)
   commentId: M:Discord.EmbedBuilder.WithAuthor(System.String,System.String,System.String)
@@ -1073,7 +1108,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithAuthor
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1118,7 +1153,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithFooter
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1143,21 +1178,21 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.EmbedBuilder.WithFooter(Action{Discord.EmbedFooterBuilder})
-  commentId: M:Discord.EmbedBuilder.WithFooter(Action{Discord.EmbedFooterBuilder})
-  id: WithFooter(Action{Discord.EmbedFooterBuilder})
+- uid: Discord.EmbedBuilder.WithFooter(System.Action{Discord.EmbedFooterBuilder})
+  commentId: M:Discord.EmbedBuilder.WithFooter(System.Action{Discord.EmbedFooterBuilder})
+  id: WithFooter(System.Action{Discord.EmbedFooterBuilder})
   parent: Discord.EmbedBuilder
   langs:
   - csharp
   - vb
   name: WithFooter(Action<EmbedFooterBuilder>)
   nameWithType: EmbedBuilder.WithFooter(Action<EmbedFooterBuilder>)
-  fullName: Discord.EmbedBuilder.WithFooter(Action<Discord.EmbedFooterBuilder>)
+  fullName: Discord.EmbedBuilder.WithFooter(System.Action<Discord.EmbedFooterBuilder>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithFooter
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1171,7 +1206,7 @@ items:
     content: public EmbedBuilder WithFooter(Action<EmbedFooterBuilder> action)
     parameters:
     - id: action
-      type: Action{Discord.EmbedFooterBuilder}
+      type: System.Action{Discord.EmbedFooterBuilder}
       description: The delegate containing the footer field properties.
     return:
       type: Discord.EmbedBuilder
@@ -1183,7 +1218,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.EmbedBuilder.WithFooter(Action(Of Discord.EmbedFooterBuilder))
+  fullName.vb: Discord.EmbedBuilder.WithFooter(System.Action(Of Discord.EmbedFooterBuilder))
   name.vb: WithFooter(Action(Of EmbedFooterBuilder))
 - uid: Discord.EmbedBuilder.WithFooter(System.String,System.String)
   commentId: M:Discord.EmbedBuilder.WithFooter(System.String,System.String)
@@ -1199,7 +1234,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithFooter
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1241,7 +1276,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddField
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1286,7 +1321,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddField
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1307,25 +1342,29 @@ items:
       description: "\nThe current builder.\n"
     content.vb: Public Function AddField(field As EmbedFieldBuilder) As EmbedBuilder
   overload: Discord.EmbedBuilder.AddField*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Field count exceeds <xref href="Discord.EmbedBuilder.MaxFieldCount" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.EmbedBuilder.AddField(Action{Discord.EmbedFieldBuilder})
-  commentId: M:Discord.EmbedBuilder.AddField(Action{Discord.EmbedFieldBuilder})
-  id: AddField(Action{Discord.EmbedFieldBuilder})
+- uid: Discord.EmbedBuilder.AddField(System.Action{Discord.EmbedFieldBuilder})
+  commentId: M:Discord.EmbedBuilder.AddField(System.Action{Discord.EmbedFieldBuilder})
+  id: AddField(System.Action{Discord.EmbedFieldBuilder})
   parent: Discord.EmbedBuilder
   langs:
   - csharp
   - vb
   name: AddField(Action<EmbedFieldBuilder>)
   nameWithType: EmbedBuilder.AddField(Action<EmbedFieldBuilder>)
-  fullName: Discord.EmbedBuilder.AddField(Action<Discord.EmbedFieldBuilder>)
+  fullName: Discord.EmbedBuilder.AddField(System.Action<Discord.EmbedFieldBuilder>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddField
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1339,7 +1378,7 @@ items:
     content: public EmbedBuilder AddField(Action<EmbedFieldBuilder> action)
     parameters:
     - id: action
-      type: Action{Discord.EmbedFieldBuilder}
+      type: System.Action{Discord.EmbedFieldBuilder}
       description: The delegate containing the field properties.
     return:
       type: Discord.EmbedBuilder
@@ -1351,7 +1390,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.EmbedBuilder.AddField(Action(Of Discord.EmbedFieldBuilder))
+  fullName.vb: Discord.EmbedBuilder.AddField(System.Action(Of Discord.EmbedFieldBuilder))
   name.vb: AddField(Action(Of EmbedFieldBuilder))
 - uid: Discord.EmbedBuilder.Build
   commentId: M:Discord.EmbedBuilder.Build
@@ -1367,7 +1406,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Build
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -1384,6 +1423,10 @@ items:
       description: "\nThe built embed object.\n"
     content.vb: Public Function Build As Embed
   overload: Discord.EmbedBuilder.Build*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Total embed length exceeds <xref href="Discord.EmbedBuilder.MaxEmbedLength" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1404,10 +1447,291 @@ references:
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithColor(System.UInt32)
   commentId: M:Discord.EmbedBuilderExtensions.WithColor(Discord.EmbedBuilder,System.UInt32)
   parent: Discord.EmbedBuilderExtensions
@@ -1697,28 +2021,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithFields(IEnumerable{Discord.EmbedFieldBuilder})
-  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+- uid: Discord.EmbedBuilder.Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
+  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   parent: Discord.EmbedBuilderExtensions
-  definition: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+  definition: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   name: WithFields(IEnumerable<EmbedFieldBuilder>)
   nameWithType: EmbedBuilderExtensions.WithFields(IEnumerable<EmbedFieldBuilder>)
-  fullName: Discord.EmbedBuilderExtensions.WithFields(IEnumerable<Discord.EmbedFieldBuilder>)
+  fullName: Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable<Discord.EmbedFieldBuilder>)
   nameWithType.vb: EmbedBuilderExtensions.WithFields(IEnumerable(Of EmbedFieldBuilder))
-  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(IEnumerable(Of Discord.EmbedFieldBuilder))
+  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable(Of Discord.EmbedFieldBuilder))
   name.vb: WithFields(IEnumerable(Of EmbedFieldBuilder))
   spec.csharp:
-  - uid: Discord.EmbedBuilderExtensions.WithFields(IEnumerable{Discord.EmbedFieldBuilder})
+  - uid: Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
     name: WithFields
     nameWithType: EmbedBuilderExtensions.WithFields
     fullName: Discord.EmbedBuilderExtensions.WithFields
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1734,17 +2058,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.EmbedBuilderExtensions.WithFields(IEnumerable{Discord.EmbedFieldBuilder})
+  - uid: Discord.EmbedBuilderExtensions.WithFields(System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
     name: WithFields
     nameWithType: EmbedBuilderExtensions.WithFields
     fullName: Discord.EmbedBuilderExtensions.WithFields
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1805,6 +2129,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.EmbedBuilderExtensions.WithColor(Discord.EmbedBuilder,System.UInt32)
   commentId: M:Discord.EmbedBuilderExtensions.WithColor(Discord.EmbedBuilder,System.UInt32)
   isExternal: true
@@ -2164,17 +2494,17 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
-  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+- uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
+  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   isExternal: true
   name: WithFields(EmbedBuilder, IEnumerable<EmbedFieldBuilder>)
   nameWithType: EmbedBuilderExtensions.WithFields(EmbedBuilder, IEnumerable<EmbedFieldBuilder>)
-  fullName: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, IEnumerable<Discord.EmbedFieldBuilder>)
+  fullName: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, System.Collections.Generic.IEnumerable<Discord.EmbedFieldBuilder>)
   nameWithType.vb: EmbedBuilderExtensions.WithFields(EmbedBuilder, IEnumerable(Of EmbedFieldBuilder))
-  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, IEnumerable(Of Discord.EmbedFieldBuilder))
+  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, System.Collections.Generic.IEnumerable(Of Discord.EmbedFieldBuilder))
   name.vb: WithFields(EmbedBuilder, IEnumerable(Of EmbedFieldBuilder))
   spec.csharp:
-  - uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+  - uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
     name: WithFields
     nameWithType: EmbedBuilderExtensions.WithFields
     fullName: Discord.EmbedBuilderExtensions.WithFields
@@ -2188,10 +2518,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -2207,7 +2537,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+  - uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
     name: WithFields
     nameWithType: EmbedBuilderExtensions.WithFields
     fullName: Discord.EmbedBuilderExtensions.WithFields
@@ -2221,10 +2551,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2298,6 +2628,8 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -2316,12 +2648,17 @@ references:
 - uid: Discord.EmbedBuilder.MaxTitleLength
   commentId: F:Discord.EmbedBuilder.MaxTitleLength
   isExternal: true
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
 - uid: Discord.EmbedBuilder.Title*
   commentId: Overload:Discord.EmbedBuilder.Title
   name: Title
   nameWithType: EmbedBuilder.Title
   fullName: Discord.EmbedBuilder.Title
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -2334,6 +2671,9 @@ references:
   name: Description
   nameWithType: EmbedBuilder.Description
   fullName: Discord.EmbedBuilder.Description
+- uid: System.Uri
+  commentId: T:System.Uri
+  isExternal: true
 - uid: Discord.EmbedBuilder.Url*
   commentId: Overload:Discord.EmbedBuilder.Url
   name: Url
@@ -2358,25 +2698,29 @@ references:
 - uid: Discord.EmbedBuilder.MaxFieldCount
   commentId: F:Discord.EmbedBuilder.MaxFieldCount
   isExternal: true
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
 - uid: Discord.EmbedBuilder.Fields*
   commentId: Overload:Discord.EmbedBuilder.Fields
   name: Fields
   nameWithType: EmbedBuilder.Fields
   fullName: Discord.EmbedBuilder.Fields
-- uid: List{Discord.EmbedFieldBuilder}
-  commentId: '!:List{Discord.EmbedFieldBuilder}'
-  definition: List`1
+- uid: System.Collections.Generic.List{Discord.EmbedFieldBuilder}
+  commentId: T:System.Collections.Generic.List{Discord.EmbedFieldBuilder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
   name: List<EmbedFieldBuilder>
   nameWithType: List<EmbedFieldBuilder>
-  fullName: List<Discord.EmbedFieldBuilder>
+  fullName: System.Collections.Generic.List<Discord.EmbedFieldBuilder>
   nameWithType.vb: List(Of EmbedFieldBuilder)
-  fullName.vb: List(Of Discord.EmbedFieldBuilder)
+  fullName.vb: System.Collections.Generic.List(Of Discord.EmbedFieldBuilder)
   name.vb: List(Of EmbedFieldBuilder)
   spec.csharp:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: <
     nameWithType: <
@@ -2389,10 +2733,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2404,57 +2748,65 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: List`1
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  name: List<>
-  nameWithType: List<>
-  fullName: List<>
-  nameWithType.vb: List(Of )
-  fullName.vb: List(Of )
-  name.vb: List(Of )
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
   spec.csharp:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.EmbedBuilder.Timestamp*
   commentId: Overload:Discord.EmbedBuilder.Timestamp
   name: Timestamp
   nameWithType: EmbedBuilder.Timestamp
   fullName: Discord.EmbedBuilder.Timestamp
-- uid: System.Nullable{DateTimeOffset}
-  commentId: '!:System.Nullable{DateTimeOffset}'
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<DateTimeOffset>
   nameWithType: Nullable<DateTimeOffset>
-  fullName: System.Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
   nameWithType.vb: Nullable(Of DateTimeOffset)
-  fullName.vb: System.Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
   name.vb: Nullable(Of DateTimeOffset)
   spec.csharp:
   - uid: System.Nullable`1
@@ -2465,10 +2817,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -2482,22 +2834,23 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -2507,9 +2860,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -2522,9 +2875,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -2534,7 +2887,8 @@ references:
   nameWithType: EmbedBuilder.Color
   fullName: Discord.EmbedBuilder.Color
 - uid: System.Nullable{Discord.Color}
-  commentId: '!:System.Nullable{Discord.Color}'
+  commentId: T:System.Nullable{Discord.Color}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Color>
   nameWithType: Nullable<Color>
@@ -2654,11 +3008,13 @@ references:
   name: WithTimestamp
   nameWithType: EmbedBuilder.WithTimestamp
   fullName: Discord.EmbedBuilder.WithTimestamp
-- uid: DateTimeOffset
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.EmbedBuilder.WithColor*
   commentId: Overload:Discord.EmbedBuilder.WithColor
   name: WithColor
@@ -2675,20 +3031,21 @@ references:
   name: WithAuthor
   nameWithType: EmbedBuilder.WithAuthor
   fullName: Discord.EmbedBuilder.WithAuthor
-- uid: Action{Discord.EmbedAuthorBuilder}
-  commentId: '!:Action{Discord.EmbedAuthorBuilder}'
-  definition: Action`1
+- uid: System.Action{Discord.EmbedAuthorBuilder}
+  commentId: T:System.Action{Discord.EmbedAuthorBuilder}
+  parent: System
+  definition: System.Action`1
   name: Action<EmbedAuthorBuilder>
   nameWithType: Action<EmbedAuthorBuilder>
-  fullName: Action<Discord.EmbedAuthorBuilder>
+  fullName: System.Action<Discord.EmbedAuthorBuilder>
   nameWithType.vb: Action(Of EmbedAuthorBuilder)
-  fullName.vb: Action(Of Discord.EmbedAuthorBuilder)
+  fullName.vb: System.Action(Of Discord.EmbedAuthorBuilder)
   name.vb: Action(Of EmbedAuthorBuilder)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2701,10 +3058,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2716,41 +3073,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Action`1
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -2759,20 +3117,21 @@ references:
   name: WithFooter
   nameWithType: EmbedBuilder.WithFooter
   fullName: Discord.EmbedBuilder.WithFooter
-- uid: Action{Discord.EmbedFooterBuilder}
-  commentId: '!:Action{Discord.EmbedFooterBuilder}'
-  definition: Action`1
+- uid: System.Action{Discord.EmbedFooterBuilder}
+  commentId: T:System.Action{Discord.EmbedFooterBuilder}
+  parent: System
+  definition: System.Action`1
   name: Action<EmbedFooterBuilder>
   nameWithType: Action<EmbedFooterBuilder>
-  fullName: Action<Discord.EmbedFooterBuilder>
+  fullName: System.Action<Discord.EmbedFooterBuilder>
   nameWithType.vb: Action(Of EmbedFooterBuilder)
-  fullName.vb: Action(Of Discord.EmbedFooterBuilder)
+  fullName.vb: System.Action(Of Discord.EmbedFooterBuilder)
   name.vb: Action(Of EmbedFooterBuilder)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2785,10 +3144,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2806,24 +3165,27 @@ references:
   nameWithType: EmbedBuilder.AddField
   fullName: Discord.EmbedBuilder.AddField
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: Action{Discord.EmbedFieldBuilder}
-  commentId: '!:Action{Discord.EmbedFieldBuilder}'
-  definition: Action`1
+- uid: System.Action{Discord.EmbedFieldBuilder}
+  commentId: T:System.Action{Discord.EmbedFieldBuilder}
+  parent: System
+  definition: System.Action`1
   name: Action<EmbedFieldBuilder>
   nameWithType: Action<EmbedFieldBuilder>
-  fullName: Action<Discord.EmbedFieldBuilder>
+  fullName: System.Action<Discord.EmbedFieldBuilder>
   nameWithType.vb: Action(Of EmbedFieldBuilder)
-  fullName.vb: Action(Of Discord.EmbedFieldBuilder)
+  fullName.vb: System.Action(Of Discord.EmbedFieldBuilder)
   name.vb: Action(Of EmbedFieldBuilder)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2836,10 +3198,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2853,6 +3215,9 @@ references:
     fullName: )
 - uid: Discord.EmbedBuilder.MaxEmbedLength
   commentId: F:Discord.EmbedBuilder.MaxEmbedLength
+  isExternal: true
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
   isExternal: true
 - uid: Discord.EmbedBuilder.Build*
   commentId: Overload:Discord.EmbedBuilder.Build

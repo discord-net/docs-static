@@ -5,7 +5,7 @@ items:
   id: OverrideTypeReaderAttribute
   parent: Discord.Commands
   children:
-  - Discord.Commands.OverrideTypeReaderAttribute.#ctor(Type)
+  - Discord.Commands.OverrideTypeReaderAttribute.#ctor(System.Type)
   - Discord.Commands.OverrideTypeReaderAttribute.TypeReader
   langs:
   - csharp
@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: OverrideTypeReaderAttribute
     path: ../src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
@@ -25,17 +25,44 @@ items:
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
-  summary: "\nMarks the <see cref=\"!:Type\"></see> to be read by the specified <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>.\n"
-  remarks: "\nThis attribute will override the <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to be used when parsing for the\ndesired type in the command. This is useful when one wishes to use a particular \n<xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> without affecting other commands that are using the same target\ntype.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    If the given type reader does not inherit from <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>, an \n<see cref=\"!:ArgumentException\"></see> will be thrown.\n</p></div>\n"
+  summary: "\nMarks the <xref href=\"System.Type\" data-throw-if-not-resolved=\"false\"></xref> to be read by the specified <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nThis attribute will override the <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to be used when parsing for the\ndesired type in the command. This is useful when one wishes to use a particular \n<xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> without affecting other commands that are using the same target\ntype.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    If the given type reader does not inherit from <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>, an \n<xref href=\"System.ArgumentException\" data-throw-if-not-resolved=\"false\"></xref> will be thrown.\n</p></div>\n"
   example:
-  - "\nIn this example, the <see cref=\"!:TimeSpan\"></see> will be read by a custom \n<xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>, <code>FriendlyTimeSpanTypeReader</code>, instead of the \n<xref href=\"Discord.Commands.TimeSpanTypeReader\" data-throw-if-not-resolved=\"false\"></xref> shipped by Discord.Net.\n<pre><code class=\"lang-cs\">[Command(&quot;time&quot;)]\npublic Task GetTimeAsync([OverrideTypeReader(typeof(FriendlyTimeSpanTypeReader))]TimeSpan time)\n    => ReplyAsync(time);</code></pre>\n"
+  - "\nIn this example, the <xref href=\"System.TimeSpan\" data-throw-if-not-resolved=\"false\"></xref> will be read by a custom \n<xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>, <code>FriendlyTimeSpanTypeReader</code>, instead of the \n<xref href=\"Discord.Commands.TimeSpanTypeReader\" data-throw-if-not-resolved=\"false\"></xref> shipped by Discord.Net.\n<pre><code class=\"lang-cs\">[Command(&quot;time&quot;)]\npublic Task GetTimeAsync([OverrideTypeReader(typeof(FriendlyTimeSpanTypeReader))]TimeSpan time)\n    => ReplyAsync(time);</code></pre>\n"
   syntax:
-    content: 'public sealed class OverrideTypeReaderAttribute : Attribute'
+    content: >-
+      [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+
+      public sealed class OverrideTypeReaderAttribute : Attribute
     content.vb: >-
+      <AttributeUsage(AttributeTargets.Parameter Or AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)>
+
       Public NotInheritable Class OverrideTypeReaderAttribute
           Inherits Attribute
   inheritance:
   - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 2176
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: Inherited
+      type: System.Boolean
+      value: true
   modifiers.csharp:
   - public
   - sealed
@@ -58,7 +85,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: TypeReader
     path: ../src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
@@ -72,7 +99,7 @@ items:
     content: public Type TypeReader { get; }
     parameters: []
     return:
-      type: Type
+      type: System.Type
     content.vb: Public ReadOnly Property TypeReader As Type
   overload: Discord.Commands.OverrideTypeReaderAttribute.TypeReader*
   modifiers.csharp:
@@ -81,21 +108,21 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: Discord.Commands.OverrideTypeReaderAttribute.#ctor(Type)
-  commentId: M:Discord.Commands.OverrideTypeReaderAttribute.#ctor(Type)
-  id: '#ctor(Type)'
+- uid: Discord.Commands.OverrideTypeReaderAttribute.#ctor(System.Type)
+  commentId: M:Discord.Commands.OverrideTypeReaderAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
   parent: Discord.Commands.OverrideTypeReaderAttribute
   langs:
   - csharp
   - vb
   name: OverrideTypeReaderAttribute(Type)
   nameWithType: OverrideTypeReaderAttribute.OverrideTypeReaderAttribute(Type)
-  fullName: Discord.Commands.OverrideTypeReaderAttribute.OverrideTypeReaderAttribute(Type)
+  fullName: Discord.Commands.OverrideTypeReaderAttribute.OverrideTypeReaderAttribute(System.Type)
   type: Constructor
   source:
     remote:
       path: src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Commands/Attributes/OverrideTypeReaderAttribute.cs
@@ -108,21 +135,38 @@ items:
     content: public OverrideTypeReaderAttribute(Type overridenTypeReader)
     parameters:
     - id: overridenTypeReader
-      type: Type
+      type: System.Type
       description: 'The <xref href="Discord.Commands.OverrideTypeReaderAttribute.TypeReader" data-throw-if-not-resolved="false"></xref> to be used with the parameter. '
     content.vb: Public Sub New(overridenTypeReader As Type)
   overload: Discord.Commands.OverrideTypeReaderAttribute.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The given <code data-dev-comment-type="paramref" class="paramref">overridenTypeReader</code> does not inherit from <xref href="Discord.Commands.OverrideTypeReaderAttribute.TypeReader" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
 references:
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
 - uid: Discord.Commands.TypeReader
   commentId: T:Discord.Commands.TypeReader
   parent: Discord.Commands
   name: TypeReader
   nameWithType: TypeReader
   fullName: Discord.Commands.TypeReader
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  isExternal: true
 - uid: Discord.Commands.TimeSpanTypeReader
   commentId: T:Discord.Commands.TimeSpanTypeReader
   isExternal: true
@@ -132,10 +176,304 @@ references:
   nameWithType: Discord.Commands
   fullName: Discord.Commands
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System.Attribute.Equals(System.Object)
+  commentId: M:System.Attribute.Equals(System.Object)
+  parent: System.Attribute
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Attribute.Equals(Object)
+  fullName: System.Attribute.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Attribute.Equals(System.Object)
+    name: Equals
+    nameWithType: Attribute.Equals
+    fullName: System.Attribute.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Attribute.Equals(System.Object)
+    name: Equals
+    nameWithType: Attribute.Equals
+    fullName: System.Attribute.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Attribute.GetHashCode
+  commentId: M:System.Attribute.GetHashCode
+  parent: System.Attribute
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Attribute.GetHashCode()
+  fullName: System.Attribute.GetHashCode()
+  spec.csharp:
+  - uid: System.Attribute.GetHashCode
+    name: GetHashCode
+    nameWithType: Attribute.GetHashCode
+    fullName: System.Attribute.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Attribute.GetHashCode
+    name: GetHashCode
+    nameWithType: Attribute.GetHashCode
+    fullName: System.Attribute.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Commands.OverrideTypeReaderAttribute.TypeReader
   commentId: P:Discord.Commands.OverrideTypeReaderAttribute.TypeReader
   isExternal: true
@@ -144,11 +482,6 @@ references:
   name: TypeReader
   nameWithType: OverrideTypeReaderAttribute.TypeReader
   fullName: Discord.Commands.OverrideTypeReaderAttribute.TypeReader
-- uid: Type
-  isExternal: true
-  name: Type
-  nameWithType: Type
-  fullName: Type
 - uid: Discord.Commands.OverrideTypeReaderAttribute.#ctor*
   commentId: Overload:Discord.Commands.OverrideTypeReaderAttribute.#ctor
   name: OverrideTypeReaderAttribute

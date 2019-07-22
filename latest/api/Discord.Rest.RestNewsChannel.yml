@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestNewsChannel
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -33,11 +33,11 @@ items:
   summary: "\nRepresents a REST-based news channel in a guild that has the same properties as a <xref href=\"Discord.Rest.RestTextChannel\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: 'public class RestNewsChannel : RestTextChannel, IEntity<ulong>, IUpdateable, IRestMessageChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity<ulong>, IDeletable'
+    content: 'public class RestNewsChannel : RestTextChannel, IUpdateable, IRestMessageChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity<ulong>, IDeletable'
     content.vb: >-
       Public Class RestNewsChannel
           Inherits RestTextChannel
-          Implements IEntity(Of ULong), IUpdateable, IRestMessageChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong), IDeletable
+          Implements IUpdateable, IRestMessageChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong), IDeletable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
@@ -45,7 +45,6 @@ items:
   - Discord.Rest.RestGuildChannel
   - Discord.Rest.RestTextChannel
   implements:
-  - Discord.IEntity{System.UInt64}
   - Discord.IUpdateable
   - Discord.Rest.IRestMessageChannel
   - Discord.ITextChannel
@@ -62,7 +61,7 @@ items:
   - Discord.Rest.RestTextChannel.CategoryId
   - Discord.Rest.RestTextChannel.Mention
   - Discord.Rest.RestTextChannel.IsNsfw
-  - Discord.Rest.RestTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetUserAsync(System.UInt64,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetUsersAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)
@@ -72,31 +71,60 @@ items:
   - Discord.Rest.RestTextChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.Rest.RestTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.Rest.RestTextChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
-  - Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  - Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.TriggerTypingAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.EnterTypingState(Discord.RequestOptions)
-  - Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetWebhooksAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetCategoryAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.SyncPermissionsAsync(Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.CreateInviteAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)
   - Discord.Rest.RestTextChannel.GetInvitesAsync(Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
   - Discord.Rest.RestGuildChannel.PermissionOverwrites
   - Discord.Rest.RestGuildChannel.Name
   - Discord.Rest.RestGuildChannel.Position
   - Discord.Rest.RestGuildChannel.GuildId
   - Discord.Rest.RestGuildChannel.UpdateAsync(Discord.RequestOptions)
-  - Discord.Rest.RestGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - Discord.Rest.RestGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   - Discord.Rest.RestGuildChannel.DeleteAsync(Discord.RequestOptions)
   - Discord.Rest.RestGuildChannel.ToString
   - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#Guild
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
+  - Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
   - Discord.Rest.RestChannel.CreatedAt
+  - Discord.Rest.RestChannel.Discord#IChannel#Name
   - Discord.Rest.RestEntity{System.UInt64}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -117,7 +145,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SlowModeInterval
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -155,7 +183,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddPermissionOverwriteAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -173,7 +201,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(role As IRole, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.Rest.RestGuildChannel.AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
   overload: Discord.Rest.RestNewsChannel.AddPermissionOverwriteAsync*
@@ -197,7 +225,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddPermissionOverwriteAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -215,7 +243,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(user As IUser, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.Rest.RestGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   overload: Discord.Rest.RestNewsChannel.AddPermissionOverwriteAsync*
@@ -239,7 +267,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetPermissionOverwrite
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -277,7 +305,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetPermissionOverwrite
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -315,7 +343,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemovePermissionOverwriteAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -331,7 +359,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(role As IRole, options As RequestOptions = Nothing) As Task
   overridden: Discord.Rest.RestGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
   overload: Discord.Rest.RestNewsChannel.RemovePermissionOverwriteAsync*
@@ -355,7 +383,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemovePermissionOverwriteAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/RestNewsChannel.cs
@@ -371,7 +399,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(user As IUser, options As RequestOptions = Nothing) As Task
   overridden: Discord.Rest.RestGuildChannel.RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
   overload: Discord.Rest.RestNewsChannel.RemovePermissionOverwriteAsync*
@@ -394,6 +422,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -452,48 +482,6 @@ references:
   name: RestGuildChannel
   nameWithType: RestGuildChannel
   fullName: Discord.Rest.RestGuildChannel
-- uid: Discord.IEntity{System.UInt64}
-  commentId: T:Discord.IEntity{System.UInt64}
-  parent: Discord
-  definition: Discord.IEntity`1
-  name: IEntity<UInt64>
-  nameWithType: IEntity<UInt64>
-  fullName: Discord.IEntity<System.UInt64>
-  nameWithType.vb: IEntity(Of UInt64)
-  fullName.vb: Discord.IEntity(Of System.UInt64)
-  name.vb: IEntity(Of UInt64)
-  spec.csharp:
-  - uid: Discord.IEntity`1
-    name: IEntity
-    nameWithType: IEntity
-    fullName: Discord.IEntity
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: Discord.IEntity`1
-    name: IEntity
-    nameWithType: IEntity
-    fullName: Discord.IEntity
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.IUpdateable
   commentId: T:Discord.IUpdateable
   parent: Discord
@@ -548,6 +536,48 @@ references:
   name: ISnowflakeEntity
   nameWithType: ISnowflakeEntity
   fullName: Discord.ISnowflakeEntity
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.IDeletable
   commentId: T:Discord.IDeletable
   parent: Discord
@@ -578,28 +608,28 @@ references:
   name: IsNsfw
   nameWithType: RestTextChannel.IsNsfw
   fullName: Discord.Rest.RestTextChannel.IsNsfw
-- uid: Discord.Rest.RestTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+- uid: Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
   parent: Discord.Rest.RestTextChannel
   isExternal: true
   name: ModifyAsync(Action<TextChannelProperties>, RequestOptions)
   nameWithType: RestTextChannel.ModifyAsync(Action<TextChannelProperties>, RequestOptions)
-  fullName: Discord.Rest.RestTextChannel.ModifyAsync(Action<Discord.TextChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.ModifyAsync(System.Action<Discord.TextChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: RestTextChannel.ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
-  fullName.vb: Discord.Rest.RestTextChannel.ModifyAsync(Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestTextChannel.ModifyAsync(System.Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.RestTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: RestTextChannel.ModifyAsync
     fullName: Discord.Rest.RestTextChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -622,17 +652,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: RestTextChannel.ModifyAsync
     fullName: Discord.Rest.RestTextChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1247,25 +1277,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.Rest.RestTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.Rest.RestTextChannel
   isExternal: true
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: RestTextChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.Rest.RestTextChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   spec.csharp:
-  - uid: Discord.Rest.RestTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: RestTextChannel.SendFileAsync
     fullName: Discord.Rest.RestTextChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1317,17 +1347,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: RestTextChannel.SendFileAsync
     fullName: Discord.Rest.RestTextChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1481,28 +1511,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+- uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
   parent: Discord.Rest.RestTextChannel
   isExternal: true
   name: DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
   nameWithType: RestTextChannel.DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
-  fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable<Discord.IMessage>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<Discord.IMessage>, Discord.RequestOptions)
   nameWithType.vb: RestTextChannel.DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
-  fullName.vb: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: RestTextChannel.DeleteMessagesAsync
     fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1525,17 +1555,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: RestTextChannel.DeleteMessagesAsync
     fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1557,28 +1587,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+- uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
   parent: Discord.Rest.RestTextChannel
   isExternal: true
   name: DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
   nameWithType: RestTextChannel.DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
-  fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable<System.UInt64>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<System.UInt64>, Discord.RequestOptions)
   nameWithType.vb: RestTextChannel.DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
-  fullName.vb: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable(Of System.UInt64), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of System.UInt64), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: RestTextChannel.DeleteMessagesAsync
     fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1602,17 +1632,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: RestTextChannel.DeleteMessagesAsync
     fullName: Discord.Rest.RestTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1707,15 +1737,15 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+- uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
   parent: Discord.Rest.RestTextChannel
   isExternal: true
   name: CreateWebhookAsync(String, Stream, RequestOptions)
   nameWithType: RestTextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  fullName: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String, Stream, Discord.RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String, System.IO.Stream, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
     name: CreateWebhookAsync
     nameWithType: RestTextChannel.CreateWebhookAsync
     fullName: Discord.Rest.RestTextChannel.CreateWebhookAsync
@@ -1730,10 +1760,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1746,7 +1776,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  - uid: Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
     name: CreateWebhookAsync
     nameWithType: RestTextChannel.CreateWebhookAsync
     fullName: Discord.Rest.RestTextChannel.CreateWebhookAsync
@@ -1761,10 +1791,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -2121,6 +2151,1171 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
+  nameWithType: RestTextChannel.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.CreateWebhookAsync(System.String, System.IO.Stream, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
+  name.vb: Discord.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+    name: ITextChannel.CreateWebhookAsync
+    nameWithType: RestTextChannel.ITextChannel.CreateWebhookAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.CreateWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+    name: Discord.ITextChannel.CreateWebhookAsync
+    nameWithType: RestTextChannel.Discord.ITextChannel.CreateWebhookAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.CreateWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
+  nameWithType: RestTextChannel.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhookAsync(System.UInt64, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
+  name.vb: Discord.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+    name: ITextChannel.GetWebhookAsync
+    nameWithType: RestTextChannel.ITextChannel.GetWebhookAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+    name: Discord.ITextChannel.GetWebhookAsync
+    nameWithType: RestTextChannel.Discord.ITextChannel.GetWebhookAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  name: ITextChannel.GetWebhooksAsync(RequestOptions)
+  nameWithType: RestTextChannel.ITextChannel.GetWebhooksAsync(RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhooksAsync(Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.ITextChannel.GetWebhooksAsync(RequestOptions)
+  name.vb: Discord.ITextChannel.GetWebhooksAsync(RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
+    name: ITextChannel.GetWebhooksAsync
+    nameWithType: RestTextChannel.ITextChannel.GetWebhooksAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhooksAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
+    name: Discord.ITextChannel.GetWebhooksAsync
+    nameWithType: RestTextChannel.Discord.ITextChannel.GetWebhooksAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.ITextChannel.GetWebhooksAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessageAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IMessageChannel.GetMessageAsync
+    nameWithType: RestTextChannel.IMessageChannel.GetMessageAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IMessageChannel.GetMessageAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.GetMessageAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
+  name.vb: Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(System.UInt64, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
+  name.vb: Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
+  name.vb: Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IMessageChannel.GetMessagesAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  name: IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
+  name.vb: Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
+    name: IMessageChannel.GetPinnedMessagesAsync
+    nameWithType: RestTextChannel.IMessageChannel.GetPinnedMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
+    name: Discord.IMessageChannel.GetPinnedMessagesAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: RestTextChannel.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  name.vb: Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: IMessageChannel.SendFileAsync
+    nameWithType: RestTextChannel.IMessageChannel.SendFileAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: Discord.IMessageChannel.SendFileAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.SendFileAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: RestTextChannel.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  name.vb: Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: IMessageChannel.SendFileAsync
+    nameWithType: RestTextChannel.IMessageChannel.SendFileAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: Discord.IMessageChannel.SendFileAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.SendFileAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  nameWithType: RestTextChannel.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  name.vb: Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: IMessageChannel.SendMessageAsync
+    nameWithType: RestTextChannel.IMessageChannel.SendMessageAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: Discord.IMessageChannel.SendMessageAsync
+    nameWithType: RestTextChannel.Discord.IMessageChannel.SendMessageAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IMessageChannel.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IGuildChannel.GetUserAsync
+    nameWithType: RestTextChannel.IGuildChannel.GetUserAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IGuildChannel.GetUserAsync
+    nameWithType: RestTextChannel.Discord.IGuildChannel.GetUserAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  name: IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IGuildChannel.GetUsersAsync
+    nameWithType: RestTextChannel.IGuildChannel.GetUsersAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IGuildChannel.GetUsersAsync
+    nameWithType: RestTextChannel.Discord.IGuildChannel.GetUsersAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IGuildChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  isExternal: true
+  name: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IChannel.GetUserAsync
+    nameWithType: RestTextChannel.IChannel.GetUserAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IChannel.GetUserAsync
+    nameWithType: RestTextChannel.Discord.IChannel.GetUserAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  name: IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IChannel.GetUsersAsync
+    nameWithType: RestTextChannel.IChannel.GetUsersAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IChannel.GetUsersAsync
+    nameWithType: RestTextChannel.Discord.IChannel.GetUsersAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.RestTextChannel
+  name: INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
+  nameWithType: RestTextChannel.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestTextChannel.Discord.INestedChannel.GetCategoryAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: RestTextChannel.Discord.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
+  name.vb: Discord.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: INestedChannel.GetCategoryAsync
+    nameWithType: RestTextChannel.INestedChannel.GetCategoryAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.INestedChannel.GetCategoryAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.INestedChannel.GetCategoryAsync
+    nameWithType: RestTextChannel.Discord.INestedChannel.GetCategoryAsync
+    fullName: Discord.Rest.RestTextChannel.Discord.INestedChannel.GetCategoryAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Rest.RestGuildChannel.PermissionOverwrites
   commentId: P:Discord.Rest.RestGuildChannel.PermissionOverwrites
   parent: Discord.Rest.RestGuildChannel
@@ -2181,28 +3376,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+- uid: Discord.Rest.RestGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   parent: Discord.Rest.RestGuildChannel
   isExternal: true
   name: ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
   nameWithType: RestGuildChannel.ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
-  fullName: Discord.Rest.RestGuildChannel.ModifyAsync(Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestGuildChannel.ModifyAsync(System.Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: RestGuildChannel.ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
-  fullName.vb: Discord.Rest.RestGuildChannel.ModifyAsync(Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestGuildChannel.ModifyAsync(System.Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.RestGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.Rest.RestGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: RestGuildChannel.ModifyAsync
     fullName: Discord.Rest.RestGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2225,17 +3420,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.RestGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.Rest.RestGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: RestGuildChannel.ModifyAsync
     fullName: Discord.Rest.RestGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2329,12 +3524,332 @@ references:
   fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.Guild
   nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.Guild
   name.vb: Discord.IGuildChannel.Guild
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.GetPermissionOverwrite(IRole)
+  nameWithType: RestGuildChannel.IGuildChannel.GetPermissionOverwrite(IRole)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(Discord.IRole)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(IRole)
+  name.vb: Discord.IGuildChannel.GetPermissionOverwrite(IRole)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
+    name: IGuildChannel.GetPermissionOverwrite
+    nameWithType: RestGuildChannel.IGuildChannel.GetPermissionOverwrite
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
+    name: Discord.IGuildChannel.GetPermissionOverwrite
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.GetPermissionOverwrite(IUser)
+  nameWithType: RestGuildChannel.IGuildChannel.GetPermissionOverwrite(IUser)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(Discord.IUser)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(IUser)
+  name.vb: Discord.IGuildChannel.GetPermissionOverwrite(IUser)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
+    name: IGuildChannel.GetPermissionOverwrite
+    nameWithType: RestGuildChannel.IGuildChannel.GetPermissionOverwrite
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
+    name: Discord.IGuildChannel.GetPermissionOverwrite
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
+  nameWithType: RestGuildChannel.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(Discord.IRole, Discord.OverwritePermissions, Discord.RequestOptions)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
+  name.vb: Discord.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
+    name: IGuildChannel.AddPermissionOverwriteAsync
+    nameWithType: RestGuildChannel.IGuildChannel.AddPermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.OverwritePermissions
+    name: OverwritePermissions
+    nameWithType: OverwritePermissions
+    fullName: Discord.OverwritePermissions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
+    name: Discord.IGuildChannel.AddPermissionOverwriteAsync
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.OverwritePermissions
+    name: OverwritePermissions
+    nameWithType: OverwritePermissions
+    fullName: Discord.OverwritePermissions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
+  nameWithType: RestGuildChannel.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(Discord.IUser, Discord.OverwritePermissions, Discord.RequestOptions)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
+  name.vb: Discord.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
+    name: IGuildChannel.AddPermissionOverwriteAsync
+    nameWithType: RestGuildChannel.IGuildChannel.AddPermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.OverwritePermissions
+    name: OverwritePermissions
+    nameWithType: OverwritePermissions
+    fullName: Discord.OverwritePermissions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
+    name: Discord.IGuildChannel.AddPermissionOverwriteAsync
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.OverwritePermissions
+    name: OverwritePermissions
+    nameWithType: OverwritePermissions
+    fullName: Discord.OverwritePermissions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
+  nameWithType: RestGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole, Discord.RequestOptions)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
+  name.vb: Discord.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
+    name: IGuildChannel.RemovePermissionOverwriteAsync
+    nameWithType: RestGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
+    name: Discord.IGuildChannel.RemovePermissionOverwriteAsync
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Discord.IRole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
+  parent: Discord.Rest.RestGuildChannel
+  name: IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
+  nameWithType: RestGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
+  fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IUser, Discord.RequestOptions)
+  nameWithType.vb: RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
+  name.vb: Discord.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
+    name: IGuildChannel.RemovePermissionOverwriteAsync
+    nameWithType: RestGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.RestGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
+    name: Discord.IGuildChannel.RemovePermissionOverwriteAsync
+    nameWithType: RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+    fullName: Discord.Rest.RestGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Rest.RestChannel.CreatedAt
   commentId: P:Discord.Rest.RestChannel.CreatedAt
   parent: Discord.Rest.RestChannel
   name: CreatedAt
   nameWithType: RestChannel.CreatedAt
   fullName: Discord.Rest.RestChannel.CreatedAt
+- uid: Discord.Rest.RestChannel.Discord#IChannel#Name
+  commentId: P:Discord.Rest.RestChannel.Discord#IChannel#Name
+  parent: Discord.Rest.RestChannel
+  name: IChannel.Name
+  nameWithType: RestChannel.IChannel.Name
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.Name
+  nameWithType.vb: RestChannel.Discord.IChannel.Name
+  name.vb: Discord.IChannel.Name
 - uid: Discord.Rest.RestEntity{System.UInt64}.Id
   commentId: P:Discord.Rest.RestEntity{System.UInt64}.Id
   parent: Discord.Rest.RestEntity{System.UInt64}
@@ -2344,6 +3859,260 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -2380,6 +4149,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -2416,11 +4190,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -2440,6 +4209,8 @@ references:
   nameWithType: RestNewsChannel.SlowModeInterval
   fullName: Discord.Rest.RestNewsChannel.SlowModeInterval
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -2531,11 +4302,19 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.Rest.RestGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   commentId: M:Discord.Rest.RestGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   parent: Discord.Rest.RestGuildChannel
@@ -2648,7 +4427,8 @@ references:
   nameWithType: RestNewsChannel.GetPermissionOverwrite
   fullName: Discord.Rest.RestNewsChannel.GetPermissionOverwrite
 - uid: System.Nullable{Discord.OverwritePermissions}
-  commentId: '!:System.Nullable{Discord.OverwritePermissions}'
+  commentId: T:System.Nullable{Discord.OverwritePermissions}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<OverwritePermissions>
   nameWithType: Nullable<OverwritePermissions>
@@ -2689,13 +4469,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -2705,9 +4486,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -2720,9 +4501,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )

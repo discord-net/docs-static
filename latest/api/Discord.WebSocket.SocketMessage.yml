@@ -13,8 +13,13 @@ items:
   - Discord.WebSocket.SocketMessage.Content
   - Discord.WebSocket.SocketMessage.CreatedAt
   - Discord.WebSocket.SocketMessage.DeleteAsync(Discord.RequestOptions)
+  - Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Author
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Channel
+  - Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
+  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
+  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
+  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Type
   - Discord.WebSocket.SocketMessage.EditedTimestamp
   - Discord.WebSocket.SocketMessage.Embeds
@@ -38,7 +43,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SocketMessage
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -49,11 +54,11 @@ items:
   summary: "\nRepresents a WebSocket-based message.\n"
   example: []
   syntax:
-    content: 'public abstract class SocketMessage : SocketEntity<ulong>, IEntity<ulong>, IMessage, ISnowflakeEntity, IEntity<ulong>, IDeletable'
+    content: 'public abstract class SocketMessage : SocketEntity<ulong>, IMessage, ISnowflakeEntity, IEntity<ulong>, IDeletable'
     content.vb: >-
       Public MustInherit Class SocketMessage
           Inherits SocketEntity(Of ULong)
-          Implements IEntity(Of ULong), IMessage, ISnowflakeEntity, IEntity(Of ULong), IDeletable
+          Implements IMessage, ISnowflakeEntity, IEntity(Of ULong), IDeletable
   inheritance:
   - System.Object
   - Discord.WebSocket.SocketEntity{System.UInt64}
@@ -61,13 +66,18 @@ items:
   - Discord.WebSocket.SocketSystemMessage
   - Discord.WebSocket.SocketUserMessage
   implements:
-  - Discord.IEntity{System.UInt64}
   - Discord.IMessage
   - Discord.ISnowflakeEntity
   - Discord.IEntity{System.UInt64}
   - Discord.IDeletable
   inheritedMembers:
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - abstract
@@ -90,7 +100,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Author
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -128,7 +138,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Channel
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -166,7 +176,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Source
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -205,7 +215,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Content
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -213,14 +223,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the content for this message.\n"
   example: []
   syntax:
     content: public string Content { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string that contains the body of the message; note that this field may be empty if there is an embed.\n"
     content.vb: Public ReadOnly Property Content As String
   overload: Discord.WebSocket.SocketMessage.Content*
+  implements:
+  - Discord.IMessage.Content
   modifiers.csharp:
   - public
   - get
@@ -241,7 +255,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreatedAt
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -249,14 +263,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: DateTimeOffset
+      type: System.DateTimeOffset
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.WebSocket.SocketMessage.CreatedAt*
+  implements:
+  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -277,7 +295,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsTTS
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -285,14 +303,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the value that indicates whether this message was meant to be read-aloud by Discord.\n"
   example: []
   syntax:
     content: public virtual bool IsTTS { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this message was sent as a text-to-speech message; otherwise <code>false</code>.\n"
     content.vb: Public Overridable ReadOnly Property IsTTS As Boolean
   overload: Discord.WebSocket.SocketMessage.IsTTS*
+  implements:
+  - Discord.IMessage.IsTTS
   modifiers.csharp:
   - public
   - virtual
@@ -315,7 +337,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsPinned
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -323,14 +345,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the value that indicates whether this message is pinned.\n"
   example: []
   syntax:
     content: public virtual bool IsPinned { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this message was added to its channel&apos;s pinned messages; otherwise <code>false</code>.\n"
     content.vb: Public Overridable ReadOnly Property IsPinned As Boolean
   overload: Discord.WebSocket.SocketMessage.IsPinned*
+  implements:
+  - Discord.IMessage.IsPinned
   modifiers.csharp:
   - public
   - virtual
@@ -353,7 +379,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsSuppressed
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -361,14 +387,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the value that indicates whether or not this message&apos;s embeds are suppressed.\n"
   example: []
   syntax:
     content: public virtual bool IsSuppressed { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if the embeds in this message have been suppressed (made invisible); otherwise <code>false</code>.\n"
     content.vb: Public Overridable ReadOnly Property IsSuppressed As Boolean
   overload: Discord.WebSocket.SocketMessage.IsSuppressed*
+  implements:
+  - Discord.IMessage.IsSuppressed
   modifiers.csharp:
   - public
   - virtual
@@ -391,7 +421,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EditedTimestamp
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -399,14 +429,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the time of this message&apos;s last edit.\n"
   example: []
   syntax:
     content: public virtual DateTimeOffset? EditedTimestamp { get; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
+      type: System.Nullable{System.DateTimeOffset}
+      description: "\nTime of when the message was last edited; <code>null</code> if the message is never edited.\n"
     content.vb: Public Overridable ReadOnly Property EditedTimestamp As DateTimeOffset?
   overload: Discord.WebSocket.SocketMessage.EditedTimestamp*
+  implements:
+  - Discord.IMessage.EditedTimestamp
   modifiers.csharp:
   - public
   - virtual
@@ -429,7 +463,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Activity
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -470,7 +504,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Application
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -511,7 +545,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Attachments
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -525,7 +559,7 @@ items:
     content: public virtual IReadOnlyCollection<Attachment> Attachments { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.Attachment}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.Attachment}
       description: "\nCollection of attachments.\n"
     content.vb: Public Overridable ReadOnly Property Attachments As IReadOnlyCollection(Of Attachment)
   overload: Discord.WebSocket.SocketMessage.Attachments*
@@ -551,7 +585,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Embeds
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -565,7 +599,7 @@ items:
     content: public virtual IReadOnlyCollection<Embed> Embeds { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.Embed}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.Embed}
       description: "\nCollection of embed objects.\n"
     content.vb: Public Overridable ReadOnly Property Embeds As IReadOnlyCollection(Of Embed)
   overload: Discord.WebSocket.SocketMessage.Embeds*
@@ -591,7 +625,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedChannels
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -605,7 +639,7 @@ items:
     content: public virtual IReadOnlyCollection<SocketGuildChannel> MentionedChannels { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}
       description: "\nCollection of WebSocket-based guild channels.\n"
     content.vb: Public Overridable ReadOnly Property MentionedChannels As IReadOnlyCollection(Of SocketGuildChannel)
   overload: Discord.WebSocket.SocketMessage.MentionedChannels*
@@ -631,7 +665,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedRoles
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -645,7 +679,7 @@ items:
     content: public virtual IReadOnlyCollection<SocketRole> MentionedRoles { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.WebSocket.SocketRole}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketRole}
       description: "\nCollection of WebSocket-based roles.\n"
     content.vb: Public Overridable ReadOnly Property MentionedRoles As IReadOnlyCollection(Of SocketRole)
   overload: Discord.WebSocket.SocketMessage.MentionedRoles*
@@ -671,7 +705,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedUsers
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -685,7 +719,7 @@ items:
     content: public virtual IReadOnlyCollection<SocketUser> MentionedUsers { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
       description: "\nCollection of WebSocket-based users.\n"
     content.vb: Public Overridable ReadOnly Property MentionedUsers As IReadOnlyCollection(Of SocketUser)
   overload: Discord.WebSocket.SocketMessage.MentionedUsers*
@@ -711,7 +745,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Tags
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -719,14 +753,17 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets all tags included in this message&apos;s content.\n"
   example: []
   syntax:
     content: public virtual IReadOnlyCollection<ITag> Tags { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.ITag}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.ITag}
     content.vb: Public Overridable ReadOnly Property Tags As IReadOnlyCollection(Of ITag)
   overload: Discord.WebSocket.SocketMessage.Tags*
+  implements:
+  - Discord.IMessage.Tags
   modifiers.csharp:
   - public
   - virtual
@@ -749,7 +786,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Timestamp
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -757,14 +794,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the time this message was sent.\n"
   example: []
   syntax:
     content: public DateTimeOffset Timestamp { get; }
     parameters: []
     return:
-      type: DateTimeOffset
+      type: System.DateTimeOffset
+      description: "\nTime of when the message was sent.\n"
     content.vb: Public ReadOnly Property Timestamp As DateTimeOffset
   overload: Discord.WebSocket.SocketMessage.Timestamp*
+  implements:
+  - Discord.IMessage.Timestamp
   modifiers.csharp:
   - public
   - get
@@ -785,7 +826,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -793,16 +834,20 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nDeletes this object and all its children.\n"
   example: []
   syntax:
     content: public Task DeleteAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketMessage.DeleteAsync*
+  implements:
+  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -821,7 +866,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -837,6 +882,7 @@ items:
       type: System.String
       description: "\nContent of the message.\n"
     content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
   overload: Discord.WebSocket.SocketMessage.ToString*
   modifiers.csharp:
   - public
@@ -859,7 +905,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IMessage.Author
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -899,7 +945,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IMessage.Channel
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -939,7 +985,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IMessage.Type
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
@@ -964,6 +1010,218 @@ items:
   modifiers.vb:
   - ReadOnly
   name.vb: Discord.IMessage.Type
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
+  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
+  id: Discord#IMessage#Attachments
+  isEii: true
+  parent: Discord.WebSocket.SocketMessage
+  langs:
+  - csharp
+  - vb
+  name: IMessage.Attachments
+  nameWithType: SocketMessage.IMessage.Attachments
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Attachments
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IMessage.Attachments
+    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+    startLine: 162
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets all attachments included in this message.\n"
+  remarks: "\nThis property gets a read-only collection of attachments associated with this message. Depending on the\nuser&apos;s end-client, a sent message may contain one or more attachments. For example, mobile users may\nattach more than one file in their message, while the desktop client only allows for one.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IAttachment> IMessage.Attachments { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.IAttachment}
+      description: "\nA read-only collection of attachments.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IMessage.Attachments As IReadOnlyCollection(Of IAttachment) Implements IMessage.Attachments
+  overload: Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments*
+  implements:
+  - Discord.IMessage.Attachments
+  nameWithType.vb: SocketMessage.Discord.IMessage.Attachments
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IMessage.Attachments
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
+  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
+  id: Discord#IMessage#Embeds
+  isEii: true
+  parent: Discord.WebSocket.SocketMessage
+  langs:
+  - csharp
+  - vb
+  name: IMessage.Embeds
+  nameWithType: SocketMessage.IMessage.Embeds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Embeds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IMessage.Embeds
+    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+    startLine: 164
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets all embeds included in this message.\n"
+  remarks: "\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IEmbed> IMessage.Embeds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.IEmbed}
+      description: "\nA read-only collection of embed objects.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IMessage.Embeds As IReadOnlyCollection(Of IEmbed) Implements IMessage.Embeds
+  overload: Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds*
+  see:
+  - linkId: Discord.EmbedType.Rich
+    commentId: F:Discord.EmbedType.Rich
+  - linkId: Discord.Embed
+    commentId: T:Discord.Embed
+  implements:
+  - Discord.IMessage.Embeds
+  nameWithType.vb: SocketMessage.Discord.IMessage.Embeds
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IMessage.Embeds
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
+  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
+  id: Discord#IMessage#MentionedChannelIds
+  isEii: true
+  parent: Discord.WebSocket.SocketMessage
+  langs:
+  - csharp
+  - vb
+  name: IMessage.MentionedChannelIds
+  nameWithType: SocketMessage.IMessage.MentionedChannelIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedChannelIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IMessage.MentionedChannelIds
+    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+    startLine: 166
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the IDs of channels mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> IMessage.MentionedChannelIds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of channel IDs.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IMessage.MentionedChannelIds As IReadOnlyCollection(Of ULong) Implements IMessage.MentionedChannelIds
+  overload: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds*
+  implements:
+  - Discord.IMessage.MentionedChannelIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedChannelIds
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IMessage.MentionedChannelIds
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
+  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
+  id: Discord#IMessage#MentionedRoleIds
+  isEii: true
+  parent: Discord.WebSocket.SocketMessage
+  langs:
+  - csharp
+  - vb
+  name: IMessage.MentionedRoleIds
+  nameWithType: SocketMessage.IMessage.MentionedRoleIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedRoleIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IMessage.MentionedRoleIds
+    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+    startLine: 168
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the IDs of roles mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> IMessage.MentionedRoleIds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of role IDs.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IMessage.MentionedRoleIds As IReadOnlyCollection(Of ULong) Implements IMessage.MentionedRoleIds
+  overload: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds*
+  implements:
+  - Discord.IMessage.MentionedRoleIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedRoleIds
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IMessage.MentionedRoleIds
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
+  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
+  id: Discord#IMessage#MentionedUserIds
+  isEii: true
+  parent: Discord.WebSocket.SocketMessage
+  langs:
+  - csharp
+  - vb
+  name: IMessage.MentionedUserIds
+  nameWithType: SocketMessage.IMessage.MentionedUserIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedUserIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IMessage.MentionedUserIds
+    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs
+    startLine: 170
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the IDs of users mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> IMessage.MentionedUserIds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of user IDs.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IMessage.MentionedUserIds As IReadOnlyCollection(Of ULong) Implements IMessage.MentionedUserIds
+  overload: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds*
+  implements:
+  - Discord.IMessage.MentionedUserIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedUserIds
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IMessage.MentionedUserIds
 references:
 - uid: Discord.WebSocket
   commentId: N:Discord.WebSocket
@@ -971,6 +1229,8 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -1017,6 +1277,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IMessage
+  commentId: T:Discord.IMessage
+  parent: Discord
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Discord.IMessage
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -1059,18 +1331,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IMessage
-  commentId: T:Discord.IMessage
-  parent: Discord
-  name: IMessage
-  nameWithType: IMessage
-  fullName: Discord.IMessage
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IDeletable
   commentId: T:Discord.IDeletable
   parent: Discord
@@ -1086,6 +1346,260 @@ references:
   fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
   nameWithType.vb: SocketEntity(Of UInt64).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.WebSocket.SocketEntity`1
   commentId: T:Discord.WebSocket.SocketEntity`1
   name: SocketEntity<T>
@@ -1122,6 +1636,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -1158,11 +1677,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.WebSocket.SocketEntity`1.Id
   commentId: P:Discord.WebSocket.SocketEntity`1.Id
   name: Id
@@ -1214,7 +1728,15 @@ references:
   name: Content
   nameWithType: SocketMessage.Content
   fullName: Discord.WebSocket.SocketMessage.Content
+- uid: Discord.IMessage.Content
+  commentId: P:Discord.IMessage.Content
+  parent: Discord.IMessage
+  name: Content
+  nameWithType: IMessage.Content
+  fullName: Discord.IMessage.Content
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1224,17 +1746,33 @@ references:
   name: CreatedAt
   nameWithType: SocketMessage.CreatedAt
   fullName: Discord.WebSocket.SocketMessage.CreatedAt
-- uid: DateTimeOffset
+- uid: Discord.ISnowflakeEntity.CreatedAt
+  commentId: P:Discord.ISnowflakeEntity.CreatedAt
+  parent: Discord.ISnowflakeEntity
+  name: CreatedAt
+  nameWithType: ISnowflakeEntity.CreatedAt
+  fullName: Discord.ISnowflakeEntity.CreatedAt
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.WebSocket.SocketMessage.IsTTS*
   commentId: Overload:Discord.WebSocket.SocketMessage.IsTTS
   name: IsTTS
   nameWithType: SocketMessage.IsTTS
   fullName: Discord.WebSocket.SocketMessage.IsTTS
+- uid: Discord.IMessage.IsTTS
+  commentId: P:Discord.IMessage.IsTTS
+  parent: Discord.IMessage
+  name: IsTTS
+  nameWithType: IMessage.IsTTS
+  fullName: Discord.IMessage.IsTTS
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1244,24 +1782,43 @@ references:
   name: IsPinned
   nameWithType: SocketMessage.IsPinned
   fullName: Discord.WebSocket.SocketMessage.IsPinned
+- uid: Discord.IMessage.IsPinned
+  commentId: P:Discord.IMessage.IsPinned
+  parent: Discord.IMessage
+  name: IsPinned
+  nameWithType: IMessage.IsPinned
+  fullName: Discord.IMessage.IsPinned
 - uid: Discord.WebSocket.SocketMessage.IsSuppressed*
   commentId: Overload:Discord.WebSocket.SocketMessage.IsSuppressed
   name: IsSuppressed
   nameWithType: SocketMessage.IsSuppressed
   fullName: Discord.WebSocket.SocketMessage.IsSuppressed
+- uid: Discord.IMessage.IsSuppressed
+  commentId: P:Discord.IMessage.IsSuppressed
+  parent: Discord.IMessage
+  name: IsSuppressed
+  nameWithType: IMessage.IsSuppressed
+  fullName: Discord.IMessage.IsSuppressed
 - uid: Discord.WebSocket.SocketMessage.EditedTimestamp*
   commentId: Overload:Discord.WebSocket.SocketMessage.EditedTimestamp
   name: EditedTimestamp
   nameWithType: SocketMessage.EditedTimestamp
   fullName: Discord.WebSocket.SocketMessage.EditedTimestamp
-- uid: System.Nullable{DateTimeOffset}
-  commentId: '!:System.Nullable{DateTimeOffset}'
+- uid: Discord.IMessage.EditedTimestamp
+  commentId: P:Discord.IMessage.EditedTimestamp
+  parent: Discord.IMessage
+  name: EditedTimestamp
+  nameWithType: IMessage.EditedTimestamp
+  fullName: Discord.IMessage.EditedTimestamp
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<DateTimeOffset>
   nameWithType: Nullable<DateTimeOffset>
-  fullName: System.Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
   nameWithType.vb: Nullable(Of DateTimeOffset)
-  fullName.vb: System.Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
   name.vb: Nullable(Of DateTimeOffset)
   spec.csharp:
   - uid: System.Nullable`1
@@ -1272,10 +1829,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -1289,22 +1846,23 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1314,9 +1872,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1329,9 +1887,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -1374,20 +1932,21 @@ references:
   name: Attachments
   nameWithType: SocketMessage.Attachments
   fullName: Discord.WebSocket.SocketMessage.Attachments
-- uid: IReadOnlyCollection{Discord.Attachment}
-  commentId: '!:IReadOnlyCollection{Discord.Attachment}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.Attachment}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.Attachment}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<Attachment>
   nameWithType: IReadOnlyCollection<Attachment>
-  fullName: IReadOnlyCollection<Discord.Attachment>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.Attachment>
   nameWithType.vb: IReadOnlyCollection(Of Attachment)
-  fullName.vb: IReadOnlyCollection(Of Discord.Attachment)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.Attachment)
   name.vb: IReadOnlyCollection(Of Attachment)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1400,10 +1959,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1415,63 +1974,71 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<>
-  nameWithType: IReadOnlyCollection<>
-  fullName: IReadOnlyCollection<>
-  nameWithType.vb: IReadOnlyCollection(Of )
-  fullName.vb: IReadOnlyCollection(Of )
-  name.vb: IReadOnlyCollection(Of )
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.WebSocket.SocketMessage.Embeds*
   commentId: Overload:Discord.WebSocket.SocketMessage.Embeds
   name: Embeds
   nameWithType: SocketMessage.Embeds
   fullName: Discord.WebSocket.SocketMessage.Embeds
-- uid: IReadOnlyCollection{Discord.Embed}
-  commentId: '!:IReadOnlyCollection{Discord.Embed}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.Embed}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.Embed}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<Embed>
   nameWithType: IReadOnlyCollection<Embed>
-  fullName: IReadOnlyCollection<Discord.Embed>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.Embed>
   nameWithType.vb: IReadOnlyCollection(Of Embed)
-  fullName.vb: IReadOnlyCollection(Of Discord.Embed)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.Embed)
   name.vb: IReadOnlyCollection(Of Embed)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1484,10 +2051,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1504,20 +2071,21 @@ references:
   name: MentionedChannels
   nameWithType: SocketMessage.MentionedChannels
   fullName: Discord.WebSocket.SocketMessage.MentionedChannels
-- uid: IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}
-  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketGuildChannel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<SocketGuildChannel>
   nameWithType: IReadOnlyCollection<SocketGuildChannel>
-  fullName: IReadOnlyCollection<Discord.WebSocket.SocketGuildChannel>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.WebSocket.SocketGuildChannel>
   nameWithType.vb: IReadOnlyCollection(Of SocketGuildChannel)
-  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketGuildChannel)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.WebSocket.SocketGuildChannel)
   name.vb: IReadOnlyCollection(Of SocketGuildChannel)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1530,10 +2098,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1550,20 +2118,21 @@ references:
   name: MentionedRoles
   nameWithType: SocketMessage.MentionedRoles
   fullName: Discord.WebSocket.SocketMessage.MentionedRoles
-- uid: IReadOnlyCollection{Discord.WebSocket.SocketRole}
-  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketRole}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketRole}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketRole}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<SocketRole>
   nameWithType: IReadOnlyCollection<SocketRole>
-  fullName: IReadOnlyCollection<Discord.WebSocket.SocketRole>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.WebSocket.SocketRole>
   nameWithType.vb: IReadOnlyCollection(Of SocketRole)
-  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketRole)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.WebSocket.SocketRole)
   name.vb: IReadOnlyCollection(Of SocketRole)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1576,10 +2145,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1596,20 +2165,21 @@ references:
   name: MentionedUsers
   nameWithType: SocketMessage.MentionedUsers
   fullName: Discord.WebSocket.SocketMessage.MentionedUsers
-- uid: IReadOnlyCollection{Discord.WebSocket.SocketUser}
-  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketUser}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<SocketUser>
   nameWithType: IReadOnlyCollection<SocketUser>
-  fullName: IReadOnlyCollection<Discord.WebSocket.SocketUser>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.WebSocket.SocketUser>
   nameWithType.vb: IReadOnlyCollection(Of SocketUser)
-  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
   name.vb: IReadOnlyCollection(Of SocketUser)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1622,10 +2192,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1642,20 +2212,27 @@ references:
   name: Tags
   nameWithType: SocketMessage.Tags
   fullName: Discord.WebSocket.SocketMessage.Tags
-- uid: IReadOnlyCollection{Discord.ITag}
-  commentId: '!:IReadOnlyCollection{Discord.ITag}'
-  definition: IReadOnlyCollection`1
+- uid: Discord.IMessage.Tags
+  commentId: P:Discord.IMessage.Tags
+  parent: Discord.IMessage
+  name: Tags
+  nameWithType: IMessage.Tags
+  fullName: Discord.IMessage.Tags
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.ITag}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.ITag}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<ITag>
   nameWithType: IReadOnlyCollection<ITag>
-  fullName: IReadOnlyCollection<Discord.ITag>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.ITag>
   nameWithType.vb: IReadOnlyCollection(Of ITag)
-  fullName.vb: IReadOnlyCollection(Of Discord.ITag)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.ITag)
   name.vb: IReadOnlyCollection(Of ITag)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1668,10 +2245,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1688,22 +2265,103 @@ references:
   name: Timestamp
   nameWithType: SocketMessage.Timestamp
   fullName: Discord.WebSocket.SocketMessage.Timestamp
+- uid: Discord.IMessage.Timestamp
+  commentId: P:Discord.IMessage.Timestamp
+  parent: Discord.IMessage
+  name: Timestamp
+  nameWithType: IMessage.Timestamp
+  fullName: Discord.IMessage.Timestamp
 - uid: Discord.WebSocket.SocketMessage.DeleteAsync*
   commentId: Overload:Discord.WebSocket.SocketMessage.DeleteAsync
   name: DeleteAsync
   nameWithType: SocketMessage.DeleteAsync
   fullName: Discord.WebSocket.SocketMessage.DeleteAsync
+- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  parent: Discord.IDeletable
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IDeletable.DeleteAsync(RequestOptions)
+  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.WebSocket.SocketMessage.ToString*
   commentId: Overload:Discord.WebSocket.SocketMessage.ToString
   name: ToString
@@ -1766,3 +2424,205 @@ references:
   name: MessageType
   nameWithType: MessageType
   fullName: Discord.MessageType
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments*
+  commentId: Overload:Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
+  name: IMessage.Attachments
+  nameWithType: SocketMessage.IMessage.Attachments
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Attachments
+  nameWithType.vb: SocketMessage.Discord.IMessage.Attachments
+  name.vb: Discord.IMessage.Attachments
+- uid: Discord.IMessage.Attachments
+  commentId: P:Discord.IMessage.Attachments
+  parent: Discord.IMessage
+  name: Attachments
+  nameWithType: IMessage.Attachments
+  fullName: Discord.IMessage.Attachments
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.IAttachment}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.IAttachment}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  name: IReadOnlyCollection<IAttachment>
+  nameWithType: IReadOnlyCollection<IAttachment>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.IAttachment>
+  nameWithType.vb: IReadOnlyCollection(Of IAttachment)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.IAttachment)
+  name.vb: IReadOnlyCollection(Of IAttachment)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IAttachment
+    name: IAttachment
+    nameWithType: IAttachment
+    fullName: Discord.IAttachment
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IAttachment
+    name: IAttachment
+    nameWithType: IAttachment
+    fullName: Discord.IAttachment
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds*
+  commentId: Overload:Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
+  name: IMessage.Embeds
+  nameWithType: SocketMessage.IMessage.Embeds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Embeds
+  nameWithType.vb: SocketMessage.Discord.IMessage.Embeds
+  name.vb: Discord.IMessage.Embeds
+- uid: Discord.IMessage.Embeds
+  commentId: P:Discord.IMessage.Embeds
+  parent: Discord.IMessage
+  name: Embeds
+  nameWithType: IMessage.Embeds
+  fullName: Discord.IMessage.Embeds
+- uid: Discord.EmbedType.Rich
+  commentId: F:Discord.EmbedType.Rich
+  isExternal: true
+- uid: Discord.Embed
+  commentId: T:Discord.Embed
+  parent: Discord
+  name: Embed
+  nameWithType: Embed
+  fullName: Discord.Embed
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.IEmbed}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.IEmbed}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  name: IReadOnlyCollection<IEmbed>
+  nameWithType: IReadOnlyCollection<IEmbed>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.IEmbed>
+  nameWithType.vb: IReadOnlyCollection(Of IEmbed)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.IEmbed)
+  name.vb: IReadOnlyCollection(Of IEmbed)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IEmbed
+    name: IEmbed
+    nameWithType: IEmbed
+    fullName: Discord.IEmbed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IEmbed
+    name: IEmbed
+    nameWithType: IEmbed
+    fullName: Discord.IEmbed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds*
+  commentId: Overload:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
+  name: IMessage.MentionedChannelIds
+  nameWithType: SocketMessage.IMessage.MentionedChannelIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedChannelIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedChannelIds
+  name.vb: Discord.IMessage.MentionedChannelIds
+- uid: Discord.IMessage.MentionedChannelIds
+  commentId: P:Discord.IMessage.MentionedChannelIds
+  parent: Discord.IMessage
+  name: MentionedChannelIds
+  nameWithType: IMessage.MentionedChannelIds
+  fullName: Discord.IMessage.MentionedChannelIds
+- uid: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  name: IReadOnlyCollection<UInt64>
+  nameWithType: IReadOnlyCollection<UInt64>
+  fullName: System.Collections.Generic.IReadOnlyCollection<System.UInt64>
+  nameWithType.vb: IReadOnlyCollection(Of UInt64)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of System.UInt64)
+  name.vb: IReadOnlyCollection(Of UInt64)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds*
+  commentId: Overload:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
+  name: IMessage.MentionedRoleIds
+  nameWithType: SocketMessage.IMessage.MentionedRoleIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedRoleIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedRoleIds
+  name.vb: Discord.IMessage.MentionedRoleIds
+- uid: Discord.IMessage.MentionedRoleIds
+  commentId: P:Discord.IMessage.MentionedRoleIds
+  parent: Discord.IMessage
+  name: MentionedRoleIds
+  nameWithType: IMessage.MentionedRoleIds
+  fullName: Discord.IMessage.MentionedRoleIds
+- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds*
+  commentId: Overload:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
+  name: IMessage.MentionedUserIds
+  nameWithType: SocketMessage.IMessage.MentionedUserIds
+  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedUserIds
+  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedUserIds
+  name.vb: Discord.IMessage.MentionedUserIds
+- uid: Discord.IMessage.MentionedUserIds
+  commentId: P:Discord.IMessage.MentionedUserIds
+  parent: Discord.IMessage
+  name: MentionedUserIds
+  nameWithType: IMessage.MentionedUserIds
+  fullName: Discord.IMessage.MentionedUserIds

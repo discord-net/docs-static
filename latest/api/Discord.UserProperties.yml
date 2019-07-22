@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UserProperties
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -32,8 +32,18 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: 'public enum UserProperties : int'
-    content.vb: Public Enum UserProperties As Integer
+    content: >-
+      [Flags]
+
+      public enum UserProperties
+    content.vb: >-
+      <Flags>
+
+      Public Enum UserProperties
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
   modifiers.csharp:
   - public
   - enum
@@ -54,7 +64,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: None
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -65,10 +75,9 @@ items:
   summary: "\nDefault value for flags, when none are given to an account.\n"
   example: []
   syntax:
-    content: None = null
+    content: None = 0
     return:
       type: Discord.UserProperties
-    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -89,7 +98,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Staff
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -100,10 +109,9 @@ items:
   summary: "\nFlag given to Discord staff.\n"
   example: []
   syntax:
-    content: Staff = null
+    content: Staff = 1
     return:
       type: Discord.UserProperties
-    content.vb: Staff = Nothing
   modifiers.csharp:
   - public
   - const
@@ -124,7 +132,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Partner
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -135,10 +143,9 @@ items:
   summary: "\nFlag given to Discord partners.\n"
   example: []
   syntax:
-    content: Partner = null
+    content: Partner = 2
     return:
       type: Discord.UserProperties
-    content.vb: Partner = Nothing
   modifiers.csharp:
   - public
   - const
@@ -159,7 +166,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: BugHunter
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -170,10 +177,9 @@ items:
   summary: "\nFlag given to users who have participated in the bug report program.\n"
   example: []
   syntax:
-    content: BugHunter = null
+    content: BugHunter = 8
     return:
       type: Discord.UserProperties
-    content.vb: BugHunter = Nothing
   modifiers.csharp:
   - public
   - const
@@ -194,7 +200,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HypeSquadBravery
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -205,10 +211,9 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Bravery.\n"
   example: []
   syntax:
-    content: HypeSquadBravery = null
+    content: HypeSquadBravery = 64
     return:
       type: Discord.UserProperties
-    content.vb: HypeSquadBravery = Nothing
   modifiers.csharp:
   - public
   - const
@@ -229,7 +234,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HypeSquadBrilliance
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -240,10 +245,9 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Brilliance.\n"
   example: []
   syntax:
-    content: HypeSquadBrilliance = null
+    content: HypeSquadBrilliance = 128
     return:
       type: Discord.UserProperties
-    content.vb: HypeSquadBrilliance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -264,7 +268,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HypeSquadBalance
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -275,10 +279,9 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Balance.\n"
   example: []
   syntax:
-    content: HypeSquadBalance = null
+    content: HypeSquadBalance = 256
     return:
       type: Discord.UserProperties
-    content.vb: HypeSquadBalance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -299,7 +302,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/UserProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EarlySupporter
     path: ../src/Discord.Net.Core/Entities/Users/UserProperties.cs
@@ -310,10 +313,9 @@ items:
   summary: "\nFlag given to users who subscribed to Nitro before games were added.\n"
   example: []
   syntax:
-    content: EarlySupporter = null
+    content: EarlySupporter = 512
     return:
       type: Discord.UserProperties
-    content.vb: EarlySupporter = Nothing
   modifiers.csharp:
   - public
   - const

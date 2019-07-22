@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ChannelPermissions
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -62,6 +62,12 @@ items:
   syntax:
     content: public struct ChannelPermissions
     content.vb: Public Structure ChannelPermissions
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -82,7 +88,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: None
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -120,7 +126,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Text
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -157,7 +163,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Voice
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -194,7 +200,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Category
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -231,7 +237,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DM
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -268,7 +274,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Group
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -305,7 +311,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: All
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -324,6 +330,10 @@ items:
       type: Discord.ChannelPermissions
     content.vb: Public Shared Function All(channel As IChannel) As ChannelPermissions
   overload: Discord.ChannelPermissions.All*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Unknown channel type.
   modifiers.csharp:
   - public
   - static
@@ -344,7 +354,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RawValue
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -381,7 +391,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateInstantInvite
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -418,7 +428,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageChannel
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -455,7 +465,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddReactions
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -492,7 +502,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReadMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -503,12 +513,24 @@ items:
   summary: 'If <code>true</code>, a user may join channels. '
   example: []
   syntax:
-    content: public bool ReadMessages { get; }
+    content: >-
+      [Obsolete("Use ViewChannel instead.")]
+
+      public bool ReadMessages { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property ReadMessages As Boolean
+    content.vb: >-
+      <Obsolete("Use ViewChannel instead.")>
+
+      Public ReadOnly Property ReadMessages As Boolean
   overload: Discord.ChannelPermissions.ReadMessages*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ViewChannel instead.
   modifiers.csharp:
   - public
   - get
@@ -529,7 +551,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ViewChannel
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -566,7 +588,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -603,7 +625,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendTTSMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -640,7 +662,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -677,7 +699,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedLinks
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -714,7 +736,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AttachFiles
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -751,7 +773,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReadMessageHistory
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -788,7 +810,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionEveryone
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -825,7 +847,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UseExternalEmojis
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -862,7 +884,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Connect
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -899,7 +921,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Speak
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -936,7 +958,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MuteMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -973,7 +995,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeafenMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1010,7 +1032,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MoveMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1047,7 +1069,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UseVAD
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1084,7 +1106,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PrioritySpeaker
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1121,7 +1143,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageRoles
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1158,7 +1180,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageWebhooks
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1195,7 +1217,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1230,7 +1252,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1305,7 +1327,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Modify
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1316,7 +1338,7 @@ items:
   summary: 'Creates a new <xref href="Discord.ChannelPermissions" data-throw-if-not-resolved="false"></xref> from this one, changing the provided non-null permissions. '
   example: []
   syntax:
-    content: public ChannelPermissions Modify(bool? createInstantInvite = null, bool? manageChannel = null, bool? addReactions = null, bool? viewChannel = null, bool? sendMessages = null, bool? sendTTSMessages = null, bool? manageMessages = null, bool? embedLinks = null, bool? attachFiles = null, bool? readMessageHistory = null, bool? mentionEveryone = null, bool? useExternalEmojis = null, bool? connect = null, bool? speak = null, bool? muteMembers = null, bool? deafenMembers = null, bool? moveMembers = null, bool? useVoiceActivation = null, bool? prioritySpeaker = null, bool? manageRoles = null, bool? manageWebhooks = null)
+    content: public ChannelPermissions Modify(bool? createInstantInvite = default(bool? ), bool? manageChannel = default(bool? ), bool? addReactions = default(bool? ), bool? viewChannel = default(bool? ), bool? sendMessages = default(bool? ), bool? sendTTSMessages = default(bool? ), bool? manageMessages = default(bool? ), bool? embedLinks = default(bool? ), bool? attachFiles = default(bool? ), bool? readMessageHistory = default(bool? ), bool? mentionEveryone = default(bool? ), bool? useExternalEmojis = default(bool? ), bool? connect = default(bool? ), bool? speak = default(bool? ), bool? muteMembers = default(bool? ), bool? deafenMembers = default(bool? ), bool? moveMembers = default(bool? ), bool? useVoiceActivation = default(bool? ), bool? prioritySpeaker = default(bool? ), bool? manageRoles = default(bool? ), bool? manageWebhooks = default(bool? ))
     parameters:
     - id: createInstantInvite
       type: System.Nullable{System.Boolean}
@@ -1385,7 +1407,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Has
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1420,7 +1442,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToList
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1431,7 +1453,7 @@ items:
   syntax:
     content: public List<ChannelPermission> ToList()
     return:
-      type: List{Discord.ChannelPermission}
+      type: System.Collections.Generic.List{Discord.ChannelPermission}
     content.vb: Public Function ToList As List(Of ChannelPermission)
   overload: Discord.ChannelPermissions.ToList*
   modifiers.csharp:
@@ -1452,7 +1474,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
@@ -1465,6 +1487,7 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
   overload: Discord.ChannelPermissions.ToString*
   modifiers.csharp:
   - public
@@ -1478,12 +1501,252 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.ChannelPermissions
   commentId: T:Discord.ChannelPermissions
   parent: Discord
   name: ChannelPermissions
   nameWithType: ChannelPermissions
   fullName: Discord.ChannelPermissions
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
 - uid: Discord.ChannelPermissions.All*
   commentId: Overload:Discord.ChannelPermissions.All
   name: All
@@ -1501,6 +1764,8 @@ references:
   nameWithType: ChannelPermissions.RawValue
   fullName: Discord.ChannelPermissions.RawValue
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -1511,6 +1776,8 @@ references:
   nameWithType: ChannelPermissions.CreateInstantInvite
   fullName: Discord.ChannelPermissions.CreateInstantInvite
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1631,7 +1898,8 @@ references:
   nameWithType: ChannelPermissions.Modify
   fullName: Discord.ChannelPermissions.Modify
 - uid: System.Nullable{System.Boolean}
-  commentId: '!:System.Nullable{System.Boolean}'
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Boolean>
   nameWithType: Nullable<Boolean>
@@ -1674,13 +1942,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1690,9 +1959,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1705,9 +1974,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -1727,20 +1996,21 @@ references:
   name: ToList
   nameWithType: ChannelPermissions.ToList
   fullName: Discord.ChannelPermissions.ToList
-- uid: List{Discord.ChannelPermission}
-  commentId: '!:List{Discord.ChannelPermission}'
-  definition: List`1
+- uid: System.Collections.Generic.List{Discord.ChannelPermission}
+  commentId: T:System.Collections.Generic.List{Discord.ChannelPermission}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
   name: List<ChannelPermission>
   nameWithType: List<ChannelPermission>
-  fullName: List<Discord.ChannelPermission>
+  fullName: System.Collections.Generic.List<Discord.ChannelPermission>
   nameWithType.vb: List(Of ChannelPermission)
-  fullName.vb: List(Of Discord.ChannelPermission)
+  fullName.vb: System.Collections.Generic.List(Of Discord.ChannelPermission)
   name.vb: List(Of ChannelPermission)
   spec.csharp:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: <
     nameWithType: <
@@ -1753,10 +2023,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1768,41 +2038,79 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: List`1
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  name: List<>
-  nameWithType: List<>
-  fullName: List<>
-  nameWithType.vb: List(Of )
-  fullName.vb: List(Of )
-  name.vb: List(Of )
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
   spec.csharp:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: List`1
+  - uid: System.Collections.Generic.List`1
     name: List
     nameWithType: List
-    fullName: List
+    fullName: System.Collections.Generic.List
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
   - name: )
     nameWithType: )
     fullName: )
@@ -1812,6 +2120,8 @@ references:
   nameWithType: ChannelPermissions.ToString
   fullName: Discord.ChannelPermissions.ToString
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String

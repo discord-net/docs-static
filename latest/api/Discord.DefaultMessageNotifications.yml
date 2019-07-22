@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DefaultMessageNotifications
     path: ../src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
@@ -28,8 +28,8 @@ items:
   summary: "\nSpecifies the default message notification behavior the guild uses.\n"
   example: []
   syntax:
-    content: 'public enum DefaultMessageNotifications : int'
-    content.vb: Public Enum DefaultMessageNotifications As Integer
+    content: public enum DefaultMessageNotifications
+    content.vb: Public Enum DefaultMessageNotifications
   modifiers.csharp:
   - public
   - enum
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AllMessages
     path: ../src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
@@ -61,10 +61,9 @@ items:
   summary: "\nBy default, all messages will trigger notifications.\n"
   example: []
   syntax:
-    content: AllMessages = null
+    content: AllMessages = 0
     return:
       type: Discord.DefaultMessageNotifications
-    content.vb: AllMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -85,7 +84,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionsOnly
     path: ../src/Discord.Net.Core/Entities/Guilds/DefaultMessageNotifications.cs
@@ -96,10 +95,9 @@ items:
   summary: "\nBy default, only mentions will trigger notifications.\n"
   example: []
   syntax:
-    content: MentionsOnly = null
+    content: MentionsOnly = 1
     return:
       type: Discord.DefaultMessageNotifications
-    content.vb: MentionsOnly = Nothing
   modifiers.csharp:
   - public
   - const

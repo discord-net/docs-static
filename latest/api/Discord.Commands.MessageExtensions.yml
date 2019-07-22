@@ -7,7 +7,7 @@ items:
   children:
   - Discord.Commands.MessageExtensions.HasCharPrefix(Discord.IUserMessage,System.Char,System.Int32@)
   - Discord.Commands.MessageExtensions.HasMentionPrefix(Discord.IUserMessage,Discord.IUser,System.Int32@)
-  - Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
+  - Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
   langs:
   - csharp
   - vb
@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/MessageExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MessageExtensions
     path: ../src/Discord.Net.Commands/Extensions/MessageExtensions.cs
@@ -29,12 +29,18 @@ items:
   summary: "\nProvides extension methods for <xref href=\"Discord.IUserMessage\" data-throw-if-not-resolved=\"false\"></xref> that relates to commands.\n"
   example: []
   syntax:
-    content: 'public static class MessageExtensions : object'
-    content.vb: >-
-      Public Module MessageExtensions
-          Inherits Object
+    content: public static class MessageExtensions
+    content.vb: Public Module MessageExtensions
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - static
@@ -57,7 +63,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/MessageExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HasCharPrefix
     path: ../src/Discord.Net.Commands/Extensions/MessageExtensions.cs
@@ -96,9 +102,9 @@ items:
   - Shared
   fullName.vb: Discord.Commands.MessageExtensions.HasCharPrefix(Discord.IUserMessage, System.Char, ByRef System.Int32)
   name.vb: HasCharPrefix(IUserMessage, Char, ByRef Int32)
-- uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
-  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
-  id: HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
+- uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+  id: HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
   isExtensionMethod: true
   parent: Discord.Commands.MessageExtensions
   langs:
@@ -106,12 +112,12 @@ items:
   - vb
   name: HasStringPrefix(IUserMessage, String, ref Int32, StringComparison)
   nameWithType: MessageExtensions.HasStringPrefix(IUserMessage, String, ref Int32, StringComparison)
-  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, ref System.Int32, StringComparison)
+  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, ref System.Int32, System.StringComparison)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/MessageExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HasStringPrefix
     path: ../src/Discord.Net.Commands/Extensions/MessageExtensions.cs
@@ -122,7 +128,7 @@ items:
   summary: "\nGets whether the message starts with the provided string.\n"
   example: []
   syntax:
-    content: public static bool HasStringPrefix(this IUserMessage msg, string str, ref int argPos, StringComparison comparisonType = null)
+    content: public static bool HasStringPrefix(this IUserMessage msg, string str, ref int argPos, StringComparison comparisonType = StringComparison.Ordinal)
     parameters:
     - id: msg
       type: Discord.IUserMessage
@@ -131,13 +137,13 @@ items:
     - id: argPos
       type: System.Int32
     - id: comparisonType
-      type: StringComparison
+      type: System.StringComparison
     return:
       type: System.Boolean
     content.vb: >-
       <ExtensionAttribute>
 
-      Public Shared Function HasStringPrefix(msg As IUserMessage, str As String, ByRef argPos As Integer, comparisonType As StringComparison = Nothing) As Boolean
+      Public Shared Function HasStringPrefix(msg As IUserMessage, str As String, ByRef argPos As Integer, comparisonType As StringComparison = StringComparison.Ordinal) As Boolean
   overload: Discord.Commands.MessageExtensions.HasStringPrefix*
   nameWithType.vb: MessageExtensions.HasStringPrefix(IUserMessage, String, ByRef Int32, StringComparison)
   modifiers.csharp:
@@ -146,7 +152,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, ByRef System.Int32, StringComparison)
+  fullName.vb: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, ByRef System.Int32, System.StringComparison)
   name.vb: HasStringPrefix(IUserMessage, String, ByRef Int32, StringComparison)
 - uid: Discord.Commands.MessageExtensions.HasMentionPrefix(Discord.IUserMessage,Discord.IUser,System.Int32@)
   commentId: M:Discord.Commands.MessageExtensions.HasMentionPrefix(Discord.IUserMessage,Discord.IUser,System.Int32@)
@@ -163,7 +169,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/MessageExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: HasMentionPrefix
     path: ../src/Discord.Net.Commands/Extensions/MessageExtensions.cs
@@ -211,31 +217,324 @@ references:
   nameWithType: Discord.Commands
   fullName: Discord.Commands
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Commands.MessageExtensions.HasCharPrefix*
   commentId: Overload:Discord.Commands.MessageExtensions.HasCharPrefix
   name: HasCharPrefix
   nameWithType: MessageExtensions.HasCharPrefix
   fullName: Discord.Commands.MessageExtensions.HasCharPrefix
 - uid: System.Char
+  commentId: T:System.Char
+  parent: System
   isExternal: true
   name: Char
   nameWithType: Char
   fullName: System.Char
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -246,16 +545,19 @@ references:
   nameWithType: MessageExtensions.HasStringPrefix
   fullName: Discord.Commands.MessageExtensions.HasStringPrefix
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: StringComparison
-  commentId: '!:StringComparison'
+- uid: System.StringComparison
+  commentId: T:System.StringComparison
+  parent: System
   isExternal: true
   name: StringComparison
   nameWithType: StringComparison
-  fullName: StringComparison
+  fullName: System.StringComparison
 - uid: Discord.Commands.MessageExtensions.HasMentionPrefix*
   commentId: Overload:Discord.Commands.MessageExtensions.HasMentionPrefix
   name: HasMentionPrefix

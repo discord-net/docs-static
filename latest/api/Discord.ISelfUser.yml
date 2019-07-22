@@ -10,7 +10,7 @@ items:
   - Discord.ISelfUser.IsMfaEnabled
   - Discord.ISelfUser.IsVerified
   - Discord.ISelfUser.Locale
-  - Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  - Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   - Discord.ISelfUser.PremiumType
   langs:
   - csharp
@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ISelfUser
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -55,7 +55,7 @@ items:
   - Discord.IPresence.ActiveClients
   extensionMethods:
   - Discord.IUser.Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  - Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   modifiers.csharp:
   - public
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Email
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsVerified
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -148,7 +148,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsMfaEnabled
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -184,7 +184,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Flags
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -221,7 +221,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumType
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -258,7 +258,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Locale
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -280,21 +280,21 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
-- uid: Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  id: ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+- uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  id: ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   parent: Discord.ISelfUser
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
   nameWithType: ISelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
-  fullName: Discord.ISelfUser.ModifyAsync(Action<Discord.SelfUserProperties>, Discord.RequestOptions)
+  fullName: Discord.ISelfUser.ModifyAsync(System.Action<Discord.SelfUserProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
@@ -308,15 +308,15 @@ items:
     content: Task ModifyAsync(Action<SelfUserProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.SelfUserProperties}
+      type: System.Action{Discord.SelfUserProperties}
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Function ModifyAsync(func As Action(Of SelfUserProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.ISelfUser.ModifyAsync*
   nameWithType.vb: ISelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
-  fullName.vb: Discord.ISelfUser.ModifyAsync(Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.ISelfUser.ModifyAsync(System.Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
 references:
 - uid: Discord
@@ -599,25 +599,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   parent: Discord.UserExtensions
-  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -661,17 +661,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -988,14 +988,14 @@ references:
   name: UserExtensions
   nameWithType: UserExtensions
   fullName: Discord.UserExtensions
-- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   isExternal: true
   name: SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -1009,10 +1009,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1056,7 +1056,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -1070,10 +1070,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1270,16 +1270,26 @@ references:
   nameWithType: ISelfUser.Email
   fullName: Discord.ISelfUser.Email
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.ISelfUser.IsVerified*
   commentId: Overload:Discord.ISelfUser.IsVerified
   name: IsVerified
   nameWithType: ISelfUser.IsVerified
   fullName: Discord.ISelfUser.IsVerified
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1321,20 +1331,21 @@ references:
   name: ModifyAsync
   nameWithType: ISelfUser.ModifyAsync
   fullName: Discord.ISelfUser.ModifyAsync
-- uid: Action{Discord.SelfUserProperties}
-  commentId: '!:Action{Discord.SelfUserProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.SelfUserProperties}
+  commentId: T:System.Action{Discord.SelfUserProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<SelfUserProperties>
   nameWithType: Action<SelfUserProperties>
-  fullName: Action<Discord.SelfUserProperties>
+  fullName: System.Action<Discord.SelfUserProperties>
   nameWithType.vb: Action(Of SelfUserProperties)
-  fullName.vb: Action(Of Discord.SelfUserProperties)
+  fullName.vb: System.Action(Of Discord.SelfUserProperties)
   name.vb: Action(Of SelfUserProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1347,10 +1358,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1368,46 +1379,55 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
-- uid: Action`1
+  fullName: System.Threading.Tasks.Task
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

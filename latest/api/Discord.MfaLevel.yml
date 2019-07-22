@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MfaLevel
     path: ../src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
@@ -28,8 +28,8 @@ items:
   summary: "\nSpecifies the guild&apos;s Multi-Factor Authentication (MFA) level requirement.\n"
   example: []
   syntax:
-    content: 'public enum MfaLevel : int'
-    content.vb: Public Enum MfaLevel As Integer
+    content: public enum MfaLevel
+    content.vb: Public Enum MfaLevel
   modifiers.csharp:
   - public
   - enum
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Disabled
     path: ../src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
@@ -61,10 +61,9 @@ items:
   summary: "\nUsers have no additional MFA restriction on this guild.\n"
   example: []
   syntax:
-    content: Disabled = null
+    content: Disabled = 0
     return:
       type: Discord.MfaLevel
-    content.vb: Disabled = Nothing
   modifiers.csharp:
   - public
   - const
@@ -85,7 +84,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Enabled
     path: ../src/Discord.Net.Core/Entities/Guilds/MfaLevel.cs
@@ -96,10 +95,9 @@ items:
   summary: "\nUsers must have MFA enabled on their account to perform administrative actions.\n"
   example: []
   syntax:
-    content: Enabled = null
+    content: Enabled = 1
     return:
       type: Discord.MfaLevel
-    content.vb: Enabled = Nothing
   modifiers.csharp:
   - public
   - const

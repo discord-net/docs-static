@@ -12,7 +12,7 @@ items:
   - Discord.EmbedBuilderExtensions.WithColor(Discord.EmbedBuilder,System.Single,System.Single,System.Single)
   - Discord.EmbedBuilderExtensions.WithColor(Discord.EmbedBuilder,System.UInt32)
   - Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,Discord.EmbedFieldBuilder[])
-  - Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+  - Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   langs:
   - csharp
   - vb
@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedBuilderExtensions
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -34,12 +34,18 @@ items:
   summary: 'An extension class for building an embed. '
   example: []
   syntax:
-    content: 'public static class EmbedBuilderExtensions : object'
-    content.vb: >-
-      Public Module EmbedBuilderExtensions
-          Inherits Object
+    content: public static class EmbedBuilderExtensions
+    content.vb: Public Module EmbedBuilderExtensions
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - static
@@ -62,7 +68,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithColor
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -107,7 +113,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithColor
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -115,7 +121,7 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: 'Adds embed color based on the provided RGB <see cref="!:System.Byte"></see> value. '
+  summary: 'Adds embed color based on the provided RGB <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> value. '
   example: []
   syntax:
     content: public static EmbedBuilder WithColor(this EmbedBuilder builder, byte r, byte g, byte b)
@@ -156,7 +162,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithColor
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -164,7 +170,7 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: 'Adds embed color based on the provided RGB <see cref="!:System.Int32"></see> value. '
+  summary: 'Adds embed color based on the provided RGB <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> value. '
   example: []
   syntax:
     content: public static EmbedBuilder WithColor(this EmbedBuilder builder, int r, int g, int b)
@@ -184,6 +190,10 @@ items:
 
       Public Shared Function WithColor(builder As EmbedBuilder, r As Integer, g As Integer, b As Integer) As EmbedBuilder
   overload: Discord.EmbedBuilderExtensions.WithColor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The argument value is not between 0 to 255.
   modifiers.csharp:
   - public
   - static
@@ -205,7 +215,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithColor
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -213,7 +223,7 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: 'Adds embed color based on the provided RGB <see cref="!:System.Single"></see> value. '
+  summary: 'Adds embed color based on the provided RGB <xref href="System.Single" data-throw-if-not-resolved="false"></xref> value. '
   example: []
   syntax:
     content: public static EmbedBuilder WithColor(this EmbedBuilder builder, float r, float g, float b)
@@ -233,6 +243,10 @@ items:
 
       Public Shared Function WithColor(builder As EmbedBuilder, r As Single, g As Single, b As Single) As EmbedBuilder
   overload: Discord.EmbedBuilderExtensions.WithColor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The argument value is not between 0 to 1.
   modifiers.csharp:
   - public
   - static
@@ -254,7 +268,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithAuthor
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -299,7 +313,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToEmbedBuilder
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -321,15 +335,19 @@ items:
 
       Public Shared Function ToEmbedBuilder(embed As IEmbed) As EmbedBuilder
   overload: Discord.EmbedBuilderExtensions.ToEmbedBuilder*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The embed type is not <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
-  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
-  id: WithFields(Discord.EmbedBuilder,IEnumerable{Discord.EmbedFieldBuilder})
+- uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
+  commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
+  id: WithFields(Discord.EmbedBuilder,System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder})
   isExtensionMethod: true
   parent: Discord.EmbedBuilderExtensions
   langs:
@@ -337,12 +355,12 @@ items:
   - vb
   name: WithFields(EmbedBuilder, IEnumerable<EmbedFieldBuilder>)
   nameWithType: EmbedBuilderExtensions.WithFields(EmbedBuilder, IEnumerable<EmbedFieldBuilder>)
-  fullName: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, IEnumerable<Discord.EmbedFieldBuilder>)
+  fullName: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, System.Collections.Generic.IEnumerable<Discord.EmbedFieldBuilder>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithFields
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -358,7 +376,7 @@ items:
     - id: builder
       type: Discord.EmbedBuilder
     - id: fields
-      type: IEnumerable{Discord.EmbedFieldBuilder}
+      type: System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder}
     return:
       type: Discord.EmbedBuilder
     content.vb: >-
@@ -366,6 +384,10 @@ items:
 
       Public Shared Function WithFields(builder As EmbedBuilder, fields As IEnumerable(Of EmbedFieldBuilder)) As EmbedBuilder
   overload: Discord.EmbedBuilderExtensions.WithFields*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Field count exceeds <xref href="Discord.EmbedBuilder.MaxFieldCount" data-throw-if-not-resolved="false"></xref>.
   nameWithType.vb: EmbedBuilderExtensions.WithFields(EmbedBuilder, IEnumerable(Of EmbedFieldBuilder))
   modifiers.csharp:
   - public
@@ -373,7 +395,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, IEnumerable(Of Discord.EmbedFieldBuilder))
+  fullName.vb: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder, System.Collections.Generic.IEnumerable(Of Discord.EmbedFieldBuilder))
   name.vb: WithFields(EmbedBuilder, IEnumerable(Of EmbedFieldBuilder))
 - uid: Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,Discord.EmbedFieldBuilder[])
   commentId: M:Discord.EmbedBuilderExtensions.WithFields(Discord.EmbedBuilder,Discord.EmbedFieldBuilder[])
@@ -390,7 +412,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithFields
     path: ../src/Discord.Net.Core/Extensions/EmbedBuilderExtensions.cs
@@ -430,10 +452,297 @@ references:
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.EmbedBuilderExtensions.WithColor*
   commentId: Overload:Discord.EmbedBuilderExtensions.WithColor
   name: WithColor
@@ -446,21 +755,32 @@ references:
   nameWithType: EmbedBuilder
   fullName: Discord.EmbedBuilder
 - uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
   isExternal: true
   name: UInt32
   nameWithType: UInt32
   fullName: System.UInt32
 - uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
   isExternal: true
   name: Byte
   nameWithType: Byte
   fullName: System.Byte
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
 - uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
   name: Single
   nameWithType: Single
@@ -485,6 +805,9 @@ references:
   name: IEmbed
   nameWithType: IEmbed
   fullName: Discord.IEmbed
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
 - uid: Discord.EmbedBuilderExtensions.ToEmbedBuilder*
   commentId: Overload:Discord.EmbedBuilderExtensions.ToEmbedBuilder
   name: ToEmbedBuilder
@@ -493,25 +816,29 @@ references:
 - uid: Discord.EmbedBuilder.MaxFieldCount
   commentId: F:Discord.EmbedBuilder.MaxFieldCount
   isExternal: true
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
 - uid: Discord.EmbedBuilderExtensions.WithFields*
   commentId: Overload:Discord.EmbedBuilderExtensions.WithFields
   name: WithFields
   nameWithType: EmbedBuilderExtensions.WithFields
   fullName: Discord.EmbedBuilderExtensions.WithFields
-- uid: IEnumerable{Discord.EmbedFieldBuilder}
-  commentId: '!:IEnumerable{Discord.EmbedFieldBuilder}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder}
+  commentId: T:System.Collections.Generic.IEnumerable{Discord.EmbedFieldBuilder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<EmbedFieldBuilder>
   nameWithType: IEnumerable<EmbedFieldBuilder>
-  fullName: IEnumerable<Discord.EmbedFieldBuilder>
+  fullName: System.Collections.Generic.IEnumerable<Discord.EmbedFieldBuilder>
   nameWithType.vb: IEnumerable(Of EmbedFieldBuilder)
-  fullName.vb: IEnumerable(Of Discord.EmbedFieldBuilder)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Discord.EmbedFieldBuilder)
   name.vb: IEnumerable(Of EmbedFieldBuilder)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -524,10 +851,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -539,44 +866,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
-  name: IEnumerable<>
-  nameWithType: IEnumerable<>
-  fullName: IEnumerable<>
-  nameWithType.vb: IEnumerable(Of )
-  fullName.vb: IEnumerable(Of )
-  name.vb: IEnumerable(Of )
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.EmbedFieldBuilder[]
   isExternal: true
   name: EmbedFieldBuilder[]

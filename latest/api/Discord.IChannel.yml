@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IChannel
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetUsersAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
@@ -112,8 +112,8 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IUser}}
-      description: "\nA paged collection containing a collection of users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(IAsyncEnumerable%7bIEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+      description: "\nA paged collection containing a collection of users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
     content.vb: Function GetUsersAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
   overload: Discord.IChannel.GetUsersAsync*
 - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
@@ -130,7 +130,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetUserAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
@@ -153,7 +153,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IUser}
+      type: System.Threading.Tasks.Task{Discord.IUser}
       description: "\nA task that represents the asynchronous get operation. The task result contains a user object that\nrepresents the found user; <code>null</code> if none is found.\n"
     content.vb: Function GetUserAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IUser)
   overload: Discord.IChannel.GetUserAsync*
@@ -275,18 +275,26 @@ references:
   nameWithType: IChannel.Name
   fullName: Discord.IChannel.Name
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.CacheMode
   commentId: T:Discord.CacheMode
   parent: Discord
   name: CacheMode
   nameWithType: CacheMode
   fullName: Discord.CacheMode
-- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(IAsyncEnumerable{IEnumerable{``0}})
-  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(IAsyncEnumerable{IEnumerable{``0}})
+- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
   isExternal: true
 - uid: Discord.IChannel.GetUsersAsync*
   commentId: Overload:Discord.IChannel.GetUsersAsync
@@ -299,28 +307,29 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.IUser}}
-  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.IUser}}'
-  definition: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
   name: IAsyncEnumerable<IReadOnlyCollection<IUser>>
   nameWithType: IAsyncEnumerable<IReadOnlyCollection<IUser>>
-  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.IUser>>
+  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IUser>>
   nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.IUser))
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser))
   name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -336,18 +345,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -362,68 +371,78 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
   isExternal: true
-  name: IAsyncEnumerable<>
-  nameWithType: IAsyncEnumerable<>
-  fullName: IAsyncEnumerable<>
-  nameWithType.vb: IAsyncEnumerable(Of )
-  fullName.vb: IAsyncEnumerable(Of )
-  name.vb: IAsyncEnumerable(Of )
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.IChannel.GetUserAsync*
   commentId: Overload:Discord.IChannel.GetUserAsync
   name: GetUserAsync
   nameWithType: IChannel.GetUserAsync
   fullName: Discord.IChannel.GetUserAsync
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
   fullName: System.UInt64
-- uid: Task{Discord.IUser}
-  commentId: '!:Task{Discord.IUser}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IUser}
+  commentId: T:System.Threading.Tasks.Task{Discord.IUser}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IUser>
   nameWithType: Task<IUser>
-  fullName: Task<Discord.IUser>
+  fullName: System.Threading.Tasks.Task<Discord.IUser>
   nameWithType.vb: Task(Of IUser)
-  fullName.vb: Task(Of Discord.IUser)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IUser)
   name.vb: Task(Of IUser)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -436,10 +455,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -451,41 +470,48 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task`1
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
   isExternal: true
-  name: Task<>
-  nameWithType: Task<>
-  fullName: Task<>
-  nameWithType.vb: Task(Of )
-  fullName.vb: Task(Of )
-  name.vb: Task(Of )
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

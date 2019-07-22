@@ -6,18 +6,18 @@ items:
   parent: Discord
   children:
   - Discord.IGuildUser.AddRoleAsync(Discord.IRole,Discord.RequestOptions)
-  - Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
   - Discord.IGuildUser.GetPermissions(Discord.IGuildChannel)
   - Discord.IGuildUser.Guild
   - Discord.IGuildUser.GuildId
   - Discord.IGuildUser.GuildPermissions
   - Discord.IGuildUser.JoinedAt
   - Discord.IGuildUser.KickAsync(System.String,Discord.RequestOptions)
-  - Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  - Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
   - Discord.IGuildUser.Nickname
   - Discord.IGuildUser.PremiumSince
   - Discord.IGuildUser.RemoveRoleAsync(Discord.IRole,Discord.RequestOptions)
-  - Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
   - Discord.IGuildUser.RoleIds
   langs:
   - csharp
@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IGuildUser
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -69,7 +69,7 @@ items:
   - Discord.IVoiceState.VoiceSessionId
   extensionMethods:
   - Discord.IUser.Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  - Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IGuildUser.Discord.UserExtensions.BanAsync(System.Int32,System.String,Discord.RequestOptions)
   modifiers.csharp:
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: JoinedAt
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -106,8 +106,8 @@ items:
     content: DateTimeOffset? JoinedAt { get; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
-      description: "\nA <see cref=\"!:DateTimeOffset\"></see> representing the time of which the user has joined the guild; \n<code>null</code> when it cannot be obtained.\n"
+      type: System.Nullable{System.DateTimeOffset}
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing the time of which the user has joined the guild; \n<code>null</code> when it cannot be obtained.\n"
     content.vb: ReadOnly Property JoinedAt As DateTimeOffset?
   overload: Discord.IGuildUser.JoinedAt*
   modifiers.csharp:
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Nickname
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -164,7 +164,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildPermissions
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -200,7 +200,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Guild
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -236,7 +236,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildId
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -251,7 +251,7 @@ items:
     parameters: []
     return:
       type: System.UInt64
-      description: "\nAn <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the guild that this user belongs to.\n"
+      description: "\nAn <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the guild that this user belongs to.\n"
     content.vb: ReadOnly Property GuildId As ULong
   overload: Discord.IGuildUser.GuildId*
   modifiers.csharp:
@@ -272,7 +272,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumSince
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -286,8 +286,8 @@ items:
     content: DateTimeOffset? PremiumSince { get; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
-      description: "\nA <see cref=\"!:DateTimeOffset\"></see> for when the user began boosting this guild; <code>null</code> if they are not boosting the guild.\n"
+      type: System.Nullable{System.DateTimeOffset}
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> for when the user began boosting this guild; <code>null</code> if they are not boosting the guild.\n"
     content.vb: ReadOnly Property PremiumSince As DateTimeOffset?
   overload: Discord.IGuildUser.PremiumSince*
   modifiers.csharp:
@@ -308,7 +308,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RoleIds
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -323,8 +323,8 @@ items:
     content: IReadOnlyCollection<ulong> RoleIds { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{System.UInt64}
-      description: "\nA read-only collection of <see cref=\"!:System.UInt64\"></see>, each representing a snowflake identifier for a role that\nthis user possesses.\n"
+      type: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref>, each representing a snowflake identifier for a role that\nthis user possesses.\n"
     content.vb: ReadOnly Property RoleIds As IReadOnlyCollection(Of ULong)
   overload: Discord.IGuildUser.RoleIds*
   modifiers.csharp:
@@ -345,7 +345,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetPermissions
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -381,7 +381,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: KickAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -401,25 +401,25 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous kick operation.\n"
     content.vb: Function KickAsync(reason As String = Nothing, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.KickAsync*
-- uid: Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
-  id: ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
+- uid: Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  id: ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
   parent: Discord.IGuildUser
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<GuildUserProperties>, RequestOptions)
   nameWithType: IGuildUser.ModifyAsync(Action<GuildUserProperties>, RequestOptions)
-  fullName: Discord.IGuildUser.ModifyAsync(Action<Discord.GuildUserProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.ModifyAsync(System.Action<Discord.GuildUserProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -434,18 +434,18 @@ items:
     content: Task ModifyAsync(Action<GuildUserProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.GuildUserProperties}
+      type: System.Action{Discord.GuildUserProperties}
       description: The delegate containing the properties to modify the user with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyAsync(func As Action(Of GuildUserProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.ModifyAsync*
   nameWithType.vb: IGuildUser.ModifyAsync(Action(Of GuildUserProperties), RequestOptions)
-  fullName.vb: Discord.IGuildUser.ModifyAsync(Action(Of Discord.GuildUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.ModifyAsync(System.Action(Of Discord.GuildUserProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildUserProperties), RequestOptions)
 - uid: Discord.IGuildUser.AddRoleAsync(Discord.IRole,Discord.RequestOptions)
   commentId: M:Discord.IGuildUser.AddRoleAsync(Discord.IRole,Discord.RequestOptions)
@@ -461,7 +461,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddRoleAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -481,25 +481,25 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous role addition operation.\n"
     content.vb: Function AddRoleAsync(role As IRole, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.AddRoleAsync*
-- uid: Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
-  id: AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+- uid: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  id: AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
   parent: Discord.IGuildUser
   langs:
   - csharp
   - vb
   name: AddRolesAsync(IEnumerable<IRole>, RequestOptions)
   nameWithType: IGuildUser.AddRolesAsync(IEnumerable<IRole>, RequestOptions)
-  fullName: Discord.IGuildUser.AddRolesAsync(IEnumerable<Discord.IRole>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable<Discord.IRole>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddRolesAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -513,18 +513,18 @@ items:
     content: Task AddRolesAsync(IEnumerable<IRole> roles, RequestOptions options = null)
     parameters:
     - id: roles
-      type: IEnumerable{Discord.IRole}
+      type: System.Collections.Generic.IEnumerable{Discord.IRole}
       description: The roles to be added to the user.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous role addition operation.\n"
     content.vb: Function AddRolesAsync(roles As IEnumerable(Of IRole), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.AddRolesAsync*
   nameWithType.vb: IGuildUser.AddRolesAsync(IEnumerable(Of IRole), RequestOptions)
-  fullName.vb: Discord.IGuildUser.AddRolesAsync(IEnumerable(Of Discord.IRole), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable(Of Discord.IRole), Discord.RequestOptions)
   name.vb: AddRolesAsync(IEnumerable(Of IRole), RequestOptions)
 - uid: Discord.IGuildUser.RemoveRoleAsync(Discord.IRole,Discord.RequestOptions)
   commentId: M:Discord.IGuildUser.RemoveRoleAsync(Discord.IRole,Discord.RequestOptions)
@@ -540,7 +540,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveRoleAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -560,25 +560,25 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous role removal operation.\n"
     content.vb: Function RemoveRoleAsync(role As IRole, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.RemoveRoleAsync*
-- uid: Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
-  id: RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+- uid: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  id: RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
   parent: Discord.IGuildUser
   langs:
   - csharp
   - vb
   name: RemoveRolesAsync(IEnumerable<IRole>, RequestOptions)
   nameWithType: IGuildUser.RemoveRolesAsync(IEnumerable<IRole>, RequestOptions)
-  fullName: Discord.IGuildUser.RemoveRolesAsync(IEnumerable<Discord.IRole>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable<Discord.IRole>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IGuildUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveRolesAsync
     path: ../src/Discord.Net.Core/Entities/Users/IGuildUser.cs
@@ -592,18 +592,18 @@ items:
     content: Task RemoveRolesAsync(IEnumerable<IRole> roles, RequestOptions options = null)
     parameters:
     - id: roles
-      type: IEnumerable{Discord.IRole}
+      type: System.Collections.Generic.IEnumerable{Discord.IRole}
       description: The roles to be removed from the user.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous role removal operation.\n"
     content.vb: Function RemoveRolesAsync(roles As IEnumerable(Of IRole), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuildUser.RemoveRolesAsync*
   nameWithType.vb: IGuildUser.RemoveRolesAsync(IEnumerable(Of IRole), RequestOptions)
-  fullName.vb: Discord.IGuildUser.RemoveRolesAsync(IEnumerable(Of Discord.IRole), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable(Of Discord.IRole), Discord.RequestOptions)
   name.vb: RemoveRolesAsync(IEnumerable(Of IRole), RequestOptions)
 references:
 - uid: Discord
@@ -928,25 +928,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   parent: Discord.UserExtensions
-  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -990,17 +990,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1392,14 +1392,14 @@ references:
   name: UserExtensions
   nameWithType: UserExtensions
   fullName: Discord.UserExtensions
-- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   isExternal: true
   name: SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -1413,10 +1413,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1460,7 +1460,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -1474,10 +1474,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1750,19 +1750,27 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.IGuildUser.JoinedAt*
   commentId: Overload:Discord.IGuildUser.JoinedAt
   name: JoinedAt
   nameWithType: IGuildUser.JoinedAt
   fullName: Discord.IGuildUser.JoinedAt
-- uid: System.Nullable{DateTimeOffset}
-  commentId: '!:System.Nullable{DateTimeOffset}'
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<DateTimeOffset>
   nameWithType: Nullable<DateTimeOffset>
-  fullName: System.Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
   nameWithType.vb: Nullable(Of DateTimeOffset)
-  fullName.vb: System.Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
   name.vb: Nullable(Of DateTimeOffset)
   spec.csharp:
   - uid: System.Nullable`1
@@ -1773,10 +1781,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -1790,22 +1798,29 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Nullable`1
+- uid: System
+  commentId: N:System
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1815,9 +1830,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1830,9 +1845,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -1842,6 +1857,8 @@ references:
   nameWithType: IGuildUser.Nickname
   fullName: Discord.IGuildUser.Nickname
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1868,16 +1885,18 @@ references:
   name: IGuild
   nameWithType: IGuild
   fullName: Discord.IGuild
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
 - uid: Discord.IGuildUser.GuildId*
   commentId: Overload:Discord.IGuildUser.GuildId
   name: GuildId
   nameWithType: IGuildUser.GuildId
   fullName: Discord.IGuildUser.GuildId
-- uid: System.UInt64
-  isExternal: true
-  name: UInt64
-  nameWithType: UInt64
-  fullName: System.UInt64
 - uid: Discord.IGuildUser.PremiumSince*
   commentId: Overload:Discord.IGuildUser.PremiumSince
   name: PremiumSince
@@ -1888,20 +1907,21 @@ references:
   name: RoleIds
   nameWithType: IGuildUser.RoleIds
   fullName: Discord.IGuildUser.RoleIds
-- uid: IReadOnlyCollection{System.UInt64}
-  commentId: '!:IReadOnlyCollection{System.UInt64}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<UInt64>
   nameWithType: IReadOnlyCollection<UInt64>
-  fullName: IReadOnlyCollection<System.UInt64>
+  fullName: System.Collections.Generic.IReadOnlyCollection<System.UInt64>
   nameWithType.vb: IReadOnlyCollection(Of UInt64)
-  fullName.vb: IReadOnlyCollection(Of System.UInt64)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of System.UInt64)
   name.vb: IReadOnlyCollection(Of UInt64)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1915,10 +1935,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1931,44 +1951,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<>
-  nameWithType: IReadOnlyCollection<>
-  fullName: IReadOnlyCollection<>
-  nameWithType.vb: IReadOnlyCollection(Of )
-  fullName.vb: IReadOnlyCollection(Of )
-  name.vb: IReadOnlyCollection(Of )
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   commentId: M:Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.IMessageChannel
@@ -2118,11 +2145,19 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.GuildUserProperties
   commentId: T:Discord.GuildUserProperties
   name: GuildUserProperties
@@ -2133,20 +2168,21 @@ references:
   name: ModifyAsync
   nameWithType: IGuildUser.ModifyAsync
   fullName: Discord.IGuildUser.ModifyAsync
-- uid: Action{Discord.GuildUserProperties}
-  commentId: '!:Action{Discord.GuildUserProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.GuildUserProperties}
+  commentId: T:System.Action{Discord.GuildUserProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<GuildUserProperties>
   nameWithType: Action<GuildUserProperties>
-  fullName: Action<Discord.GuildUserProperties>
+  fullName: System.Action<Discord.GuildUserProperties>
   nameWithType.vb: Action(Of GuildUserProperties)
-  fullName.vb: Action(Of Discord.GuildUserProperties)
+  fullName.vb: System.Action(Of Discord.GuildUserProperties)
   name.vb: Action(Of GuildUserProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2159,10 +2195,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2174,41 +2210,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Action`1
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -2228,20 +2265,21 @@ references:
   name: AddRolesAsync
   nameWithType: IGuildUser.AddRolesAsync
   fullName: Discord.IGuildUser.AddRolesAsync
-- uid: IEnumerable{Discord.IRole}
-  commentId: '!:IEnumerable{Discord.IRole}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{Discord.IRole}
+  commentId: T:System.Collections.Generic.IEnumerable{Discord.IRole}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<IRole>
   nameWithType: IEnumerable<IRole>
-  fullName: IEnumerable<Discord.IRole>
+  fullName: System.Collections.Generic.IEnumerable<Discord.IRole>
   nameWithType.vb: IEnumerable(Of IRole)
-  fullName.vb: IEnumerable(Of Discord.IRole)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Discord.IRole)
   name.vb: IEnumerable(Of IRole)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -2254,10 +2292,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2269,41 +2307,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
-  name: IEnumerable<>
-  nameWithType: IEnumerable<>
-  fullName: IEnumerable<>
-  nameWithType.vb: IEnumerable(Of )
-  fullName.vb: IEnumerable(Of )
-  name.vb: IEnumerable(Of )
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )

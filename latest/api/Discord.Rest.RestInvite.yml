@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestInvite
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -38,24 +38,29 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   syntax:
-    content: 'public class RestInvite : RestEntity<string>, IEntity<string>, IInvite, IEntity<string>, IDeletable, IUpdateable'
+    content: 'public class RestInvite : RestEntity<string>, IInvite, IEntity<string>, IDeletable, IUpdateable'
     content.vb: >-
       Public Class RestInvite
           Inherits RestEntity(Of String)
-          Implements IEntity(Of String), IInvite, IEntity(Of String), IDeletable, IUpdateable
+          Implements IInvite, IEntity(Of String), IDeletable, IUpdateable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.String}
   derivedClasses:
   - Discord.Rest.RestInviteMetadata
   implements:
-  - Discord.IEntity{System.String}
   - Discord.IInvite
   - Discord.IEntity{System.String}
   - Discord.IDeletable
   - Discord.IUpdateable
   inheritedMembers:
   - Discord.Rest.RestEntity{System.String}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -76,7 +81,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ChannelType
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -113,7 +118,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ChannelName
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -121,14 +126,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the name of the channel this invite is linked to.\n"
   example: []
   syntax:
     content: public string ChannelName { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the name of the channel that the invite points to.\n"
     content.vb: Public ReadOnly Property ChannelName As String
   overload: Discord.Rest.RestInvite.ChannelName*
+  implements:
+  - Discord.IInvite.ChannelName
   modifiers.csharp:
   - public
   - get
@@ -149,7 +158,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildName
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -157,14 +166,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the name of the guild this invite is linked to.\n"
   example: []
   syntax:
     content: public string GuildName { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the name of the guild that the invite points to.\n"
     content.vb: Public ReadOnly Property GuildName As String
   overload: Discord.Rest.RestInvite.GuildName*
+  implements:
+  - Discord.IInvite.GuildName
   modifiers.csharp:
   - public
   - get
@@ -185,7 +198,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PresenceCount
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -193,14 +206,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the approximated count of online members in the guild.\n"
   example: []
   syntax:
     content: public int? PresenceCount { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the approximated online member count of the guild that the\ninvite points to; <code>null</code> if one cannot be obtained.\n"
     content.vb: Public ReadOnly Property PresenceCount As Integer?
   overload: Discord.Rest.RestInvite.PresenceCount*
+  implements:
+  - Discord.IInvite.PresenceCount
   modifiers.csharp:
   - public
   - get
@@ -221,7 +238,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MemberCount
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -229,14 +246,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the approximated count of total members in the guild.\n"
   example: []
   syntax:
     content: public int? MemberCount { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the approximated total member count of the guild that the\ninvite points to; <code>null</code> if one cannot be obtained.\n"
     content.vb: Public ReadOnly Property MemberCount As Integer?
   overload: Discord.Rest.RestInvite.MemberCount*
+  implements:
+  - Discord.IInvite.MemberCount
   modifiers.csharp:
   - public
   - get
@@ -257,7 +278,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ChannelId
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -265,14 +286,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the ID of the channel this invite is linked to.\n"
   example: []
   syntax:
     content: public ulong ChannelId { get; }
     parameters: []
     return:
       type: System.UInt64
+      description: "\nAn <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the channel snowflake identifier that the invite points to.\n"
     content.vb: Public ReadOnly Property ChannelId As ULong
   overload: Discord.Rest.RestInvite.ChannelId*
+  implements:
+  - Discord.IInvite.ChannelId
   modifiers.csharp:
   - public
   - get
@@ -293,7 +318,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildId
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -301,14 +326,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the ID of the guild this invite is linked to.\n"
   example: []
   syntax:
     content: public ulong? GuildId { get; }
     parameters: []
     return:
       type: System.Nullable{System.UInt64}
+      description: "\nAn <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the guild snowflake identifier that the invite points to.\n"
     content.vb: Public ReadOnly Property GuildId As ULong?
   overload: Discord.Rest.RestInvite.GuildId*
+  implements:
+  - Discord.IInvite.GuildId
   modifiers.csharp:
   - public
   - get
@@ -329,7 +358,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Code
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -337,14 +366,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the unique identifier for this invite.\n"
   example: []
   syntax:
     content: public string Code { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the invite code (e.g. <code>FTqNnyS</code>).\n"
     content.vb: Public ReadOnly Property Code As String
   overload: Discord.Rest.RestInvite.Code*
+  implements:
+  - Discord.IInvite.Code
   modifiers.csharp:
   - public
   - get
@@ -365,7 +398,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Url
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -373,14 +406,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the URL used to accept this invite using <xref href=\"Discord.IInvite.Code\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
     content: public string Url { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the full invite URL (e.g. <code>https://discord.gg/FTqNnyS</code>).\n"
     content.vb: Public ReadOnly Property Url As String
   overload: Discord.Rest.RestInvite.Url*
+  implements:
+  - Discord.IInvite.Url
   modifiers.csharp:
   - public
   - get
@@ -401,7 +438,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UpdateAsync
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -409,6 +446,7 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nUpdates this object&apos;s properties with its current state.\n"
   example: []
   syntax:
     content: public Task UpdateAsync(RequestOptions options = null)
@@ -416,9 +454,11 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function UpdateAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestInvite.UpdateAsync*
+  implements:
+  - Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -437,7 +477,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteAsync
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -445,16 +485,20 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nDeletes this object and all its children.\n"
   example: []
   syntax:
     content: public Task DeleteAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestInvite.DeleteAsync*
+  implements:
+  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -473,7 +517,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -489,6 +533,7 @@ items:
       type: System.String
       description: "\nA string that resolves to the Url of the invite.\n"
     content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
   overload: Discord.Rest.RestInvite.ToString*
   modifiers.csharp:
   - public
@@ -511,7 +556,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IInvite.Guild
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -552,7 +597,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IInvite.Channel
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInvite.cs
@@ -585,6 +630,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -631,6 +678,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IInvite
+  commentId: T:Discord.IInvite
+  parent: Discord
+  name: IInvite
+  nameWithType: IInvite
+  fullName: Discord.IInvite
 - uid: Discord.IEntity{System.String}
   commentId: T:Discord.IEntity{System.String}
   parent: Discord
@@ -673,12 +726,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IInvite
-  commentId: T:Discord.IInvite
-  parent: Discord
-  name: IInvite
-  nameWithType: IInvite
-  fullName: Discord.IInvite
 - uid: Discord.IDeletable
   commentId: T:Discord.IDeletable
   parent: Discord
@@ -700,6 +747,260 @@ references:
   fullName: Discord.Rest.RestEntity<System.String>.Id
   nameWithType.vb: RestEntity(Of String).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.String).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -736,6 +1037,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -772,11 +1078,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -806,7 +1107,15 @@ references:
   name: ChannelName
   nameWithType: RestInvite.ChannelName
   fullName: Discord.Rest.RestInvite.ChannelName
+- uid: Discord.IInvite.ChannelName
+  commentId: P:Discord.IInvite.ChannelName
+  parent: Discord.IInvite
+  name: ChannelName
+  nameWithType: IInvite.ChannelName
+  fullName: Discord.IInvite.ChannelName
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -816,13 +1125,26 @@ references:
   name: GuildName
   nameWithType: RestInvite.GuildName
   fullName: Discord.Rest.RestInvite.GuildName
+- uid: Discord.IInvite.GuildName
+  commentId: P:Discord.IInvite.GuildName
+  parent: Discord.IInvite
+  name: GuildName
+  nameWithType: IInvite.GuildName
+  fullName: Discord.IInvite.GuildName
 - uid: Discord.Rest.RestInvite.PresenceCount*
   commentId: Overload:Discord.Rest.RestInvite.PresenceCount
   name: PresenceCount
   nameWithType: RestInvite.PresenceCount
   fullName: Discord.Rest.RestInvite.PresenceCount
+- uid: Discord.IInvite.PresenceCount
+  commentId: P:Discord.IInvite.PresenceCount
+  parent: Discord.IInvite
+  name: PresenceCount
+  nameWithType: IInvite.PresenceCount
+  fullName: Discord.IInvite.PresenceCount
 - uid: System.Nullable{System.Int32}
-  commentId: '!:System.Nullable{System.Int32}'
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -865,13 +1187,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -881,9 +1204,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -896,9 +1219,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -907,12 +1230,26 @@ references:
   name: MemberCount
   nameWithType: RestInvite.MemberCount
   fullName: Discord.Rest.RestInvite.MemberCount
+- uid: Discord.IInvite.MemberCount
+  commentId: P:Discord.IInvite.MemberCount
+  parent: Discord.IInvite
+  name: MemberCount
+  nameWithType: IInvite.MemberCount
+  fullName: Discord.IInvite.MemberCount
 - uid: Discord.Rest.RestInvite.ChannelId*
   commentId: Overload:Discord.Rest.RestInvite.ChannelId
   name: ChannelId
   nameWithType: RestInvite.ChannelId
   fullName: Discord.Rest.RestInvite.ChannelId
+- uid: Discord.IInvite.ChannelId
+  commentId: P:Discord.IInvite.ChannelId
+  parent: Discord.IInvite
+  name: ChannelId
+  nameWithType: IInvite.ChannelId
+  fullName: Discord.IInvite.ChannelId
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -922,8 +1259,15 @@ references:
   name: GuildId
   nameWithType: RestInvite.GuildId
   fullName: Discord.Rest.RestInvite.GuildId
+- uid: Discord.IInvite.GuildId
+  commentId: P:Discord.IInvite.GuildId
+  parent: Discord.IInvite
+  name: GuildId
+  nameWithType: IInvite.GuildId
+  fullName: Discord.IInvite.GuildId
 - uid: System.Nullable{System.UInt64}
-  commentId: '!:System.Nullable{System.UInt64}'
+  commentId: T:System.Nullable{System.UInt64}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<UInt64>
   nameWithType: Nullable<UInt64>
@@ -970,32 +1314,155 @@ references:
   name: Code
   nameWithType: RestInvite.Code
   fullName: Discord.Rest.RestInvite.Code
+- uid: Discord.IInvite.Code
+  commentId: P:Discord.IInvite.Code
+  parent: Discord.IInvite
+  name: Code
+  nameWithType: IInvite.Code
+  fullName: Discord.IInvite.Code
 - uid: Discord.Rest.RestInvite.Url*
   commentId: Overload:Discord.Rest.RestInvite.Url
   name: Url
   nameWithType: RestInvite.Url
   fullName: Discord.Rest.RestInvite.Url
+- uid: Discord.IInvite.Url
+  commentId: P:Discord.IInvite.Url
+  parent: Discord.IInvite
+  name: Url
+  nameWithType: IInvite.Url
+  fullName: Discord.IInvite.Url
 - uid: Discord.Rest.RestInvite.UpdateAsync*
   commentId: Overload:Discord.Rest.RestInvite.UpdateAsync
   name: UpdateAsync
   nameWithType: RestInvite.UpdateAsync
   fullName: Discord.Rest.RestInvite.UpdateAsync
+- uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  commentId: M:Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  parent: Discord.IUpdateable
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdateable.UpdateAsync(RequestOptions)
+  fullName: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdateable.UpdateAsync
+    fullName: Discord.IUpdateable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdateable.UpdateAsync
+    fullName: Discord.IUpdateable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.Rest.RestInvite.DeleteAsync*
   commentId: Overload:Discord.Rest.RestInvite.DeleteAsync
   name: DeleteAsync
   nameWithType: RestInvite.DeleteAsync
   fullName: Discord.Rest.RestInvite.DeleteAsync
+- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  parent: Discord.IDeletable
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IDeletable.DeleteAsync(RequestOptions)
+  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Rest.RestInvite.ToString*
   commentId: Overload:Discord.Rest.RestInvite.ToString
   name: ToString

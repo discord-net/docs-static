@@ -5,7 +5,7 @@ items:
   id: IEnumerableExtensions
   parent: Discord.Commands
   children:
-  - Discord.Commands.IEnumerableExtensions.Permutate``3(IEnumerable{``0},IEnumerable{``1},Func{``0,``1,``2})
+  - Discord.Commands.IEnumerableExtensions.Permutate``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})
   langs:
   - csharp
   - vb
@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/IEnumerableExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IEnumerableExtensions
     path: ../src/Discord.Net.Commands/Extensions/IEnumerableExtensions.cs
@@ -25,12 +25,18 @@ items:
   - Discord.Net.Commands
   namespace: Discord.Commands
   syntax:
-    content: 'public static class IEnumerableExtensions : object'
-    content.vb: >-
-      Public Module IEnumerableExtensions
-          Inherits Object
+    content: public static class IEnumerableExtensions
+    content.vb: Public Module IEnumerableExtensions
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - static
@@ -38,9 +44,9 @@ items:
   modifiers.vb:
   - Public
   - Module
-- uid: Discord.Commands.IEnumerableExtensions.Permutate``3(IEnumerable{``0},IEnumerable{``1},Func{``0,``1,``2})
-  commentId: M:Discord.Commands.IEnumerableExtensions.Permutate``3(IEnumerable{``0},IEnumerable{``1},Func{``0,``1,``2})
-  id: Permutate``3(IEnumerable{``0},IEnumerable{``1},Func{``0,``1,``2})
+- uid: Discord.Commands.IEnumerableExtensions.Permutate``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})
+  commentId: M:Discord.Commands.IEnumerableExtensions.Permutate``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})
+  id: Permutate``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})
   isExtensionMethod: true
   parent: Discord.Commands.IEnumerableExtensions
   langs:
@@ -48,12 +54,12 @@ items:
   - vb
   name: Permutate<TFirst, TSecond, TResult>(IEnumerable<TFirst>, IEnumerable<TSecond>, Func<TFirst, TSecond, TResult>)
   nameWithType: IEnumerableExtensions.Permutate<TFirst, TSecond, TResult>(IEnumerable<TFirst>, IEnumerable<TSecond>, Func<TFirst, TSecond, TResult>)
-  fullName: Discord.Commands.IEnumerableExtensions.Permutate<TFirst, TSecond, TResult>(IEnumerable<TFirst>, IEnumerable<TSecond>, Func<TFirst, TSecond, TResult>)
+  fullName: Discord.Commands.IEnumerableExtensions.Permutate<TFirst, TSecond, TResult>(System.Collections.Generic.IEnumerable<TFirst>, System.Collections.Generic.IEnumerable<TSecond>, System.Func<TFirst, TSecond, TResult>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Commands/Extensions/IEnumerableExtensions.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Permutate
     path: ../src/Discord.Net.Commands/Extensions/IEnumerableExtensions.cs
@@ -65,17 +71,17 @@ items:
     content: public static IEnumerable<TResult> Permutate<TFirst, TSecond, TResult>(this IEnumerable<TFirst> set, IEnumerable<TSecond> others, Func<TFirst, TSecond, TResult> func)
     parameters:
     - id: set
-      type: IEnumerable{{TFirst}}
+      type: System.Collections.Generic.IEnumerable{{TFirst}}
     - id: others
-      type: IEnumerable{{TSecond}}
+      type: System.Collections.Generic.IEnumerable{{TSecond}}
     - id: func
-      type: Func{{TFirst},{TSecond},{TResult}}
+      type: System.Func{{TFirst},{TSecond},{TResult}}
     typeParameters:
     - id: TFirst
     - id: TSecond
     - id: TResult
     return:
-      type: IEnumerable{{TResult}}
+      type: System.Collections.Generic.IEnumerable{{TResult}}
     content.vb: >-
       <ExtensionAttribute>
 
@@ -88,7 +94,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.Commands.IEnumerableExtensions.Permutate(Of TFirst, TSecond, TResult)(IEnumerable(Of TFirst), IEnumerable(Of TSecond), Func(Of TFirst, TSecond, TResult))
+  fullName.vb: Discord.Commands.IEnumerableExtensions.Permutate(Of TFirst, TSecond, TResult)(System.Collections.Generic.IEnumerable(Of TFirst), System.Collections.Generic.IEnumerable(Of TSecond), System.Func(Of TFirst, TSecond, TResult))
   name.vb: Permutate(Of TFirst, TSecond, TResult)(IEnumerable(Of TFirst), IEnumerable(Of TSecond), Func(Of TFirst, TSecond, TResult))
 references:
 - uid: Discord.Commands
@@ -97,29 +103,317 @@ references:
   nameWithType: Discord.Commands
   fullName: Discord.Commands
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Commands.IEnumerableExtensions.Permutate*
   commentId: Overload:Discord.Commands.IEnumerableExtensions.Permutate
   name: Permutate
   nameWithType: IEnumerableExtensions.Permutate
   fullName: Discord.Commands.IEnumerableExtensions.Permutate
-- uid: IEnumerable{{TFirst}}
-  commentId: '!:IEnumerable{``0}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{{TFirst}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<TFirst>
   nameWithType: IEnumerable<TFirst>
-  fullName: IEnumerable<TFirst>
+  fullName: System.Collections.Generic.IEnumerable<TFirst>
   nameWithType.vb: IEnumerable(Of TFirst)
-  fullName.vb: IEnumerable(Of TFirst)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TFirst)
   name.vb: IEnumerable(Of TFirst)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -131,10 +425,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -145,20 +439,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable{{TSecond}}
-  commentId: '!:IEnumerable{``1}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{{TSecond}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<TSecond>
   nameWithType: IEnumerable<TSecond>
-  fullName: IEnumerable<TSecond>
+  fullName: System.Collections.Generic.IEnumerable<TSecond>
   nameWithType.vb: IEnumerable(Of TSecond)
-  fullName.vb: IEnumerable(Of TSecond)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TSecond)
   name.vb: IEnumerable(Of TSecond)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -170,10 +465,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -184,20 +479,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Func{{TFirst},{TSecond},{TResult}}
-  commentId: '!:Func{``0,``1,``2}'
-  definition: Func`3
+- uid: System.Func{{TFirst},{TSecond},{TResult}}
+  commentId: T:System.Func{``0,``1,``2}
+  parent: System
+  definition: System.Func`3
   name: Func<TFirst, TSecond, TResult>
   nameWithType: Func<TFirst, TSecond, TResult>
-  fullName: Func<TFirst, TSecond, TResult>
+  fullName: System.Func<TFirst, TSecond, TResult>
   nameWithType.vb: Func(Of TFirst, TSecond, TResult)
-  fullName.vb: Func(Of TFirst, TSecond, TResult)
+  fullName.vb: System.Func(Of TFirst, TSecond, TResult)
   name.vb: Func(Of TFirst, TSecond, TResult)
   spec.csharp:
-  - uid: Func`3
+  - uid: System.Func`3
     name: Func
     nameWithType: Func
-    fullName: Func
+    fullName: System.Func
     isExternal: true
   - name: <
     nameWithType: <
@@ -221,10 +517,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Func`3
+  - uid: System.Func`3
     name: Func
     nameWithType: Func
-    fullName: Func
+    fullName: System.Func
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -247,20 +543,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable{{TResult}}
-  commentId: '!:IEnumerable{``2}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{{TResult}}
+  commentId: T:System.Collections.Generic.IEnumerable{``2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<TResult>
   nameWithType: IEnumerable<TResult>
-  fullName: IEnumerable<TResult>
+  fullName: System.Collections.Generic.IEnumerable<TResult>
   nameWithType.vb: IEnumerable(Of TResult)
-  fullName.vb: IEnumerable(Of TResult)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TResult)
   name.vb: IEnumerable(Of TResult)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -272,10 +569,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -286,103 +583,111 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
-  name: IEnumerable<>
-  nameWithType: IEnumerable<>
-  fullName: IEnumerable<>
-  nameWithType.vb: IEnumerable(Of )
-  fullName.vb: IEnumerable(Of )
-  name.vb: IEnumerable(Of )
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
-- uid: Func`3
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
   isExternal: true
-  name: Func<, , >
-  nameWithType: Func<, , >
-  fullName: Func<, , >
-  nameWithType.vb: Func(Of , , )
-  fullName.vb: Func(Of , , )
-  name.vb: Func(Of , , )
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
   spec.csharp:
-  - uid: Func`3
+  - uid: System.Func`3
     name: Func
     nameWithType: Func
-    fullName: Func
+    fullName: System.Func
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T1
+    nameWithType: T1
+    fullName: T1
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T2
+    nameWithType: T2
+    fullName: T2
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Func`3
+  - uid: System.Func`3
     name: Func
     nameWithType: Func
-    fullName: Func
+    fullName: System.Func
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T1
+    nameWithType: T1
+    fullName: T1
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T2
+    nameWithType: T2
+    fullName: T2
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: )
     nameWithType: )
     fullName: )

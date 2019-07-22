@@ -7,7 +7,7 @@ items:
   children:
   - Discord.IGuild.AddBanAsync(Discord.IUser,System.Int32,System.String,Discord.RequestOptions)
   - Discord.IGuild.AddBanAsync(System.UInt64,System.Int32,System.String,Discord.RequestOptions)
-  - Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  - Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,System.Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
   - Discord.IGuild.AFKChannelId
   - Discord.IGuild.AFKTimeout
   - Discord.IGuild.ApplicationId
@@ -15,12 +15,12 @@ items:
   - Discord.IGuild.Available
   - Discord.IGuild.BannerId
   - Discord.IGuild.BannerUrl
-  - Discord.IGuild.CreateCategoryAsync(System.String,Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  - Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{IEnumerable{Discord.IRole}},Discord.RequestOptions)
+  - Discord.IGuild.CreateCategoryAsync(System.String,System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}},Discord.RequestOptions)
   - Discord.IGuild.CreateIntegrationAsync(System.UInt64,System.String,Discord.RequestOptions)
   - Discord.IGuild.CreateRoleAsync(System.String,System.Nullable{Discord.GuildPermissions},System.Nullable{Discord.Color},System.Boolean,Discord.RequestOptions)
-  - Discord.IGuild.CreateTextChannelAsync(System.String,Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  - Discord.IGuild.CreateVoiceChannelAsync(System.String,Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  - Discord.IGuild.CreateTextChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - Discord.IGuild.CreateVoiceChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
   - Discord.IGuild.DefaultChannelId
   - Discord.IGuild.DefaultMessageNotifications
   - Discord.IGuild.DeleteEmoteAsync(Discord.GuildEmote,Discord.RequestOptions)
@@ -63,9 +63,9 @@ items:
   - Discord.IGuild.IsEmbeddable
   - Discord.IGuild.LeaveAsync(Discord.RequestOptions)
   - Discord.IGuild.MfaLevel
-  - Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
-  - Discord.IGuild.ModifyEmbedAsync(Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
-  - Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,Action{Discord.EmoteProperties},Discord.RequestOptions)
+  - Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
+  - Discord.IGuild.ModifyEmbedAsync(System.Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
+  - Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,System.Action{Discord.EmoteProperties},Discord.RequestOptions)
   - Discord.IGuild.Name
   - Discord.IGuild.OwnerId
   - Discord.IGuild.PremiumSubscriptionCount
@@ -73,8 +73,8 @@ items:
   - Discord.IGuild.PruneUsersAsync(System.Int32,System.Boolean,Discord.RequestOptions)
   - Discord.IGuild.RemoveBanAsync(Discord.IUser,Discord.RequestOptions)
   - Discord.IGuild.RemoveBanAsync(System.UInt64,Discord.RequestOptions)
-  - Discord.IGuild.ReorderChannelsAsync(IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
-  - Discord.IGuild.ReorderRolesAsync(IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
+  - Discord.IGuild.ReorderChannelsAsync(System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
+  - Discord.IGuild.ReorderRolesAsync(System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
   - Discord.IGuild.Roles
   - Discord.IGuild.SplashId
   - Discord.IGuild.SplashUrl
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IGuild
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -171,7 +171,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AFKTimeout
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -186,7 +186,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "\nAn <see cref=\"!:System.Int32\"></see> representing the amount of time in seconds for a user to be marked as inactive\nand moved into the AFK voice channel.\n"
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the amount of time in seconds for a user to be marked as inactive\nand moved into the AFK voice channel.\n"
     content.vb: ReadOnly Property AFKTimeout As Integer
   overload: Discord.IGuild.AFKTimeout*
   modifiers.csharp:
@@ -207,7 +207,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsEmbeddable
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -243,7 +243,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DefaultMessageNotifications
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -278,7 +278,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MfaLevel
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -314,7 +314,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: VerificationLevel
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -350,7 +350,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ExplicitContentFilter
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -386,7 +386,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IconId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -422,7 +422,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IconUrl
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -458,7 +458,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SplashId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -494,7 +494,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SplashUrl
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -530,7 +530,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Available
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -567,7 +567,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AFKChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -582,7 +582,7 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.UInt64}
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the AFK voice channel; <code>null</code> if\nnone is set.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the AFK voice channel; <code>null</code> if\nnone is set.\n"
     content.vb: ReadOnly Property AFKChannelId As ULong?
   overload: Discord.IGuild.AFKChannelId*
   modifiers.csharp:
@@ -603,7 +603,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DefaultChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -619,7 +619,7 @@ items:
     parameters: []
     return:
       type: System.UInt64
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the default text channel; <code>0</code> if\nnone can be found.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the default text channel; <code>0</code> if\nnone can be found.\n"
     content.vb: ReadOnly Property DefaultChannelId As ULong
   overload: Discord.IGuild.DefaultChannelId*
   modifiers.csharp:
@@ -640,7 +640,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -655,7 +655,7 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.UInt64}
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the embedded channel found within the\nwidget settings of this guild; <code>null</code> if none is set.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the embedded channel found within the\nwidget settings of this guild; <code>null</code> if none is set.\n"
     content.vb: ReadOnly Property EmbedChannelId As ULong?
   overload: Discord.IGuild.EmbedChannelId*
   modifiers.csharp:
@@ -676,7 +676,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SystemChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -691,7 +691,7 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.UInt64}
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the system channel where randomized\nwelcome messages are sent; <code>null</code> if none is set.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the system channel where randomized\nwelcome messages are sent; <code>null</code> if none is set.\n"
     content.vb: ReadOnly Property SystemChannelId As ULong?
   overload: Discord.IGuild.SystemChannelId*
   modifiers.csharp:
@@ -712,7 +712,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: OwnerId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -727,7 +727,7 @@ items:
     parameters: []
     return:
       type: System.UInt64
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the user that owns this guild.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the user that owns this guild.\n"
     content.vb: ReadOnly Property OwnerId As ULong
   overload: Discord.IGuild.OwnerId*
   modifiers.csharp:
@@ -748,7 +748,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ApplicationId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -763,7 +763,7 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.UInt64}
-      description: "\nA <see cref=\"!:System.UInt64\"></see> representing the snowflake identifier of the application ID that created this guild, or <code>null</code> if it was not bot-created.\n"
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier of the application ID that created this guild, or <code>null</code> if it was not bot-created.\n"
     content.vb: ReadOnly Property ApplicationId As ULong?
   overload: Discord.IGuild.ApplicationId*
   modifiers.csharp:
@@ -784,7 +784,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: VoiceRegionId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -820,7 +820,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AudioClient
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -856,7 +856,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EveryoneRole
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -892,7 +892,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Emotes
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -906,7 +906,7 @@ items:
     content: IReadOnlyCollection<GuildEmote> Emotes { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.GuildEmote}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.GuildEmote}
       description: "\nA read-only collection of all custom emotes for this guild.\n"
     content.vb: ReadOnly Property Emotes As IReadOnlyCollection(Of GuildEmote)
   overload: Discord.IGuild.Emotes*
@@ -928,7 +928,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Features
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -942,7 +942,7 @@ items:
     content: IReadOnlyCollection<string> Features { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{System.String}
+      type: System.Collections.Generic.IReadOnlyCollection{System.String}
       description: "\nA read-only collection of enabled features in this guild.\n"
     content.vb: ReadOnly Property Features As IReadOnlyCollection(Of String)
   overload: Discord.IGuild.Features*
@@ -964,7 +964,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Roles
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -978,7 +978,7 @@ items:
     content: IReadOnlyCollection<IRole> Roles { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{Discord.IRole}
+      type: System.Collections.Generic.IReadOnlyCollection{Discord.IRole}
       description: "\nA read-only collection of roles found within this guild.\n"
     content.vb: ReadOnly Property Roles As IReadOnlyCollection(Of IRole)
   overload: Discord.IGuild.Roles*
@@ -1000,7 +1000,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumTier
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1036,7 +1036,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: BannerId
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1072,7 +1072,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: BannerUrl
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1108,7 +1108,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: VanityURLCode
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1144,7 +1144,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SystemChannelFlags
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1180,7 +1180,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Description
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1216,7 +1216,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumSubscriptionCount
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1239,21 +1239,21 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
-- uid: Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
-  id: ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
+  id: ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<GuildProperties>, RequestOptions)
   nameWithType: IGuild.ModifyAsync(Action<GuildProperties>, RequestOptions)
-  fullName: Discord.IGuild.ModifyAsync(Action<Discord.GuildProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.ModifyAsync(System.Action<Discord.GuildProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1267,34 +1267,34 @@ items:
     content: Task ModifyAsync(Action<GuildProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.GuildProperties}
+      type: System.Action{Discord.GuildProperties}
       description: The delegate containing the properties to modify the guild with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyAsync(func As Action(Of GuildProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.ModifyAsync*
   nameWithType.vb: IGuild.ModifyAsync(Action(Of GuildProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ModifyAsync(Action(Of Discord.GuildProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.ModifyAsync(System.Action(Of Discord.GuildProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildProperties), RequestOptions)
-- uid: Discord.IGuild.ModifyEmbedAsync(Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ModifyEmbedAsync(Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
-  id: ModifyEmbedAsync(Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.ModifyEmbedAsync(System.Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ModifyEmbedAsync(System.Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
+  id: ModifyEmbedAsync(System.Action{Discord.GuildEmbedProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: ModifyEmbedAsync(Action<GuildEmbedProperties>, RequestOptions)
   nameWithType: IGuild.ModifyEmbedAsync(Action<GuildEmbedProperties>, RequestOptions)
-  fullName: Discord.IGuild.ModifyEmbedAsync(Action<Discord.GuildEmbedProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.ModifyEmbedAsync(System.Action<Discord.GuildEmbedProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyEmbedAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1308,34 +1308,34 @@ items:
     content: Task ModifyEmbedAsync(Action<GuildEmbedProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.GuildEmbedProperties}
+      type: System.Action{Discord.GuildEmbedProperties}
       description: The delegate containing the properties to modify the guild widget with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyEmbedAsync(func As Action(Of GuildEmbedProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.ModifyEmbedAsync*
   nameWithType.vb: IGuild.ModifyEmbedAsync(Action(Of GuildEmbedProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ModifyEmbedAsync(Action(Of Discord.GuildEmbedProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.ModifyEmbedAsync(System.Action(Of Discord.GuildEmbedProperties), Discord.RequestOptions)
   name.vb: ModifyEmbedAsync(Action(Of GuildEmbedProperties), RequestOptions)
-- uid: Discord.IGuild.ReorderChannelsAsync(IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ReorderChannelsAsync(IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
-  id: ReorderChannelsAsync(IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.ReorderChannelsAsync(System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ReorderChannelsAsync(System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
+  id: ReorderChannelsAsync(System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: ReorderChannelsAsync(IEnumerable<ReorderChannelProperties>, RequestOptions)
   nameWithType: IGuild.ReorderChannelsAsync(IEnumerable<ReorderChannelProperties>, RequestOptions)
-  fullName: Discord.IGuild.ReorderChannelsAsync(IEnumerable<Discord.ReorderChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.ReorderChannelsAsync(System.Collections.Generic.IEnumerable<Discord.ReorderChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReorderChannelsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1349,34 +1349,34 @@ items:
     content: Task ReorderChannelsAsync(IEnumerable<ReorderChannelProperties> args, RequestOptions options = null)
     parameters:
     - id: args
-      type: IEnumerable{Discord.ReorderChannelProperties}
+      type: System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties}
       description: The properties used to modify the channel positions with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous reorder operation.\n"
     content.vb: Function ReorderChannelsAsync(args As IEnumerable(Of ReorderChannelProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.ReorderChannelsAsync*
   nameWithType.vb: IGuild.ReorderChannelsAsync(IEnumerable(Of ReorderChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ReorderChannelsAsync(IEnumerable(Of Discord.ReorderChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.ReorderChannelsAsync(System.Collections.Generic.IEnumerable(Of Discord.ReorderChannelProperties), Discord.RequestOptions)
   name.vb: ReorderChannelsAsync(IEnumerable(Of ReorderChannelProperties), RequestOptions)
-- uid: Discord.IGuild.ReorderRolesAsync(IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ReorderRolesAsync(IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
-  id: ReorderRolesAsync(IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.ReorderRolesAsync(System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ReorderRolesAsync(System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
+  id: ReorderRolesAsync(System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: ReorderRolesAsync(IEnumerable<ReorderRoleProperties>, RequestOptions)
   nameWithType: IGuild.ReorderRolesAsync(IEnumerable<ReorderRoleProperties>, RequestOptions)
-  fullName: Discord.IGuild.ReorderRolesAsync(IEnumerable<Discord.ReorderRoleProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.ReorderRolesAsync(System.Collections.Generic.IEnumerable<Discord.ReorderRoleProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReorderRolesAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1390,18 +1390,18 @@ items:
     content: Task ReorderRolesAsync(IEnumerable<ReorderRoleProperties> args, RequestOptions options = null)
     parameters:
     - id: args
-      type: IEnumerable{Discord.ReorderRoleProperties}
+      type: System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties}
       description: The properties used to modify the role positions with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous reorder operation.\n"
     content.vb: Function ReorderRolesAsync(args As IEnumerable(Of ReorderRoleProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.ReorderRolesAsync*
   nameWithType.vb: IGuild.ReorderRolesAsync(IEnumerable(Of ReorderRoleProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ReorderRolesAsync(IEnumerable(Of Discord.ReorderRoleProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.ReorderRolesAsync(System.Collections.Generic.IEnumerable(Of Discord.ReorderRoleProperties), Discord.RequestOptions)
   name.vb: ReorderRolesAsync(IEnumerable(Of ReorderRoleProperties), RequestOptions)
 - uid: Discord.IGuild.LeaveAsync(Discord.RequestOptions)
   commentId: M:Discord.IGuild.LeaveAsync(Discord.RequestOptions)
@@ -1417,7 +1417,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: LeaveAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1435,7 +1435,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous leave operation.\n"
     content.vb: Function LeaveAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.LeaveAsync*
@@ -1453,7 +1453,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetBansAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1470,7 +1470,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IBan}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IBan}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\nban objects that this guild currently possesses, with each object containing the user banned and reason\nbehind the ban.\n"
     content.vb: Function GetBansAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IBan))
   overload: Discord.IGuild.GetBansAsync*
@@ -1488,7 +1488,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1508,7 +1508,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IBan}
+      type: System.Threading.Tasks.Task{Discord.IBan}
       description: "\nA task that represents the asynchronous get operation. The task result contains a ban object, which\ncontains the user information and the reason for the ban; <code>null</code> if the ban entry cannot be found.\n"
     content.vb: Function GetBanAsync(user As IUser, options As RequestOptions = Nothing) As Task(Of IBan)
   overload: Discord.IGuild.GetBanAsync*
@@ -1526,7 +1526,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1546,7 +1546,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IBan}
+      type: System.Threading.Tasks.Task{Discord.IBan}
       description: "\nA task that represents the asynchronous get operation. The task result contains a ban object, which\ncontains the user information and the reason for the ban; <code>null</code> if the ban entry cannot be found.\n"
     content.vb: Function GetBanAsync(userId As ULong, options As RequestOptions = Nothing) As Task(Of IBan)
   overload: Discord.IGuild.GetBanAsync*
@@ -1564,7 +1564,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1590,10 +1590,14 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous add operation for the ban.\n"
     content.vb: Function AddBanAsync(user As IUser, pruneDays As Integer = 0, reason As String = Nothing, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.AddBanAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code data-dev-comment-type="paramref" class="paramref">pruneDays</code> is not between 0 to 7.
 - uid: Discord.IGuild.AddBanAsync(System.UInt64,System.Int32,System.String,Discord.RequestOptions)
   commentId: M:Discord.IGuild.AddBanAsync(System.UInt64,System.Int32,System.String,Discord.RequestOptions)
   id: AddBanAsync(System.UInt64,System.Int32,System.String,Discord.RequestOptions)
@@ -1608,7 +1612,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1634,10 +1638,14 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous add operation for the ban.\n"
     content.vb: Function AddBanAsync(userId As ULong, pruneDays As Integer = 0, reason As String = Nothing, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.AddBanAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code data-dev-comment-type="paramref" class="paramref">pruneDays</code> is not between 0 to 7.
 - uid: Discord.IGuild.RemoveBanAsync(Discord.IUser,Discord.RequestOptions)
   commentId: M:Discord.IGuild.RemoveBanAsync(Discord.IUser,Discord.RequestOptions)
   id: RemoveBanAsync(Discord.IUser,Discord.RequestOptions)
@@ -1652,7 +1660,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1672,7 +1680,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous removal operation for the ban.\n"
     content.vb: Function RemoveBanAsync(user As IUser, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.RemoveBanAsync*
@@ -1690,7 +1698,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveBanAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1710,7 +1718,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous removal operation for the ban.\n"
     content.vb: Function RemoveBanAsync(userId As ULong, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.RemoveBanAsync*
@@ -1728,7 +1736,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetChannelsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1748,7 +1756,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IGuildChannel}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildChannel}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\ngeneric channels found within this guild.\n"
     content.vb: Function GetChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IGuildChannel))
   overload: Discord.IGuild.GetChannelsAsync*
@@ -1766,7 +1774,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1789,7 +1797,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildChannel}
+      type: System.Threading.Tasks.Task{Discord.IGuildChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the generic channel\nassociated with the specified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetChannelAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuildChannel)
   overload: Discord.IGuild.GetChannelAsync*
@@ -1807,7 +1815,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetTextChannelsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1827,7 +1835,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.ITextChannel}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ITextChannel}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\nmessage channels found within this guild.\n"
     content.vb: Function GetTextChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of ITextChannel))
   overload: Discord.IGuild.GetTextChannelsAsync*
@@ -1845,7 +1853,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetTextChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1868,7 +1876,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.ITextChannel}
+      type: System.Threading.Tasks.Task{Discord.ITextChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the text channel\nassociated with the specified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetTextChannelAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of ITextChannel)
   overload: Discord.IGuild.GetTextChannelAsync*
@@ -1886,7 +1894,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetVoiceChannelsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1906,7 +1914,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IVoiceChannel}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceChannel}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\nvoice channels found within this guild.\n"
     content.vb: Function GetVoiceChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IVoiceChannel))
   overload: Discord.IGuild.GetVoiceChannelsAsync*
@@ -1924,7 +1932,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetCategoriesAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1944,7 +1952,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.ICategoryChannel}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ICategoryChannel}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\ncategory channels found within this guild.\n"
     content.vb: Function GetCategoriesAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of ICategoryChannel))
   overload: Discord.IGuild.GetCategoriesAsync*
@@ -1962,7 +1970,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetVoiceChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -1985,7 +1993,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IVoiceChannel}
+      type: System.Threading.Tasks.Task{Discord.IVoiceChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the voice channel associated\nwith the specified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetVoiceChannelAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IVoiceChannel)
   overload: Discord.IGuild.GetVoiceChannelAsync*
@@ -2003,7 +2011,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetAFKChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2023,7 +2031,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IVoiceChannel}
+      type: System.Threading.Tasks.Task{Discord.IVoiceChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the voice channel that the\nAFK users will be moved to after they have idled for too long; <code>null</code> if none is set.\n"
     content.vb: Function GetAFKChannelAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IVoiceChannel)
   overload: Discord.IGuild.GetAFKChannelAsync*
@@ -2041,7 +2049,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetSystemChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2061,7 +2069,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.ITextChannel}
+      type: System.Threading.Tasks.Task{Discord.ITextChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the text channel where\nrandomized welcome messages will be sent to; <code>null</code> if none is set.\n"
     content.vb: Function GetSystemChannelAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of ITextChannel)
   overload: Discord.IGuild.GetSystemChannelAsync*
@@ -2079,7 +2087,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetDefaultChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2099,7 +2107,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.ITextChannel}
+      type: System.Threading.Tasks.Task{Discord.ITextChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the first viewable text\nchannel in this guild; <code>null</code> if none is found.\n"
     content.vb: Function GetDefaultChannelAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of ITextChannel)
   overload: Discord.IGuild.GetDefaultChannelAsync*
@@ -2117,7 +2125,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetEmbedChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2137,25 +2145,25 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildChannel}
+      type: System.Threading.Tasks.Task{Discord.IGuildChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains the embed channel set\nwithin the server&apos;s widget settings; <code>null</code> if none is set.\n"
     content.vb: Function GetEmbedChannelAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuildChannel)
   overload: Discord.IGuild.GetEmbedChannelAsync*
-- uid: Discord.IGuild.CreateTextChannelAsync(System.String,Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.CreateTextChannelAsync(System.String,Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  id: CreateTextChannelAsync(System.String,Action{Discord.TextChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.CreateTextChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.CreateTextChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  id: CreateTextChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: CreateTextChannelAsync(String, Action<TextChannelProperties>, RequestOptions)
   nameWithType: IGuild.CreateTextChannelAsync(String, Action<TextChannelProperties>, RequestOptions)
-  fullName: Discord.IGuild.CreateTextChannelAsync(System.String, Action<Discord.TextChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.CreateTextChannelAsync(System.String, System.Action<Discord.TextChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateTextChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2173,34 +2181,34 @@ items:
       type: System.String
       description: The new name for the text channel.
     - id: func
-      type: Action{Discord.TextChannelProperties}
+      type: System.Action{Discord.TextChannelProperties}
       description: The delegate containing the properties to be applied to the channel upon its creation.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.ITextChannel}
+      type: System.Threading.Tasks.Task{Discord.ITextChannel}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the newly created\ntext channel.\n"
     content.vb: Function CreateTextChannelAsync(name As String, func As Action(Of TextChannelProperties) = Nothing, options As RequestOptions = Nothing) As Task(Of ITextChannel)
   overload: Discord.IGuild.CreateTextChannelAsync*
   nameWithType.vb: IGuild.CreateTextChannelAsync(String, Action(Of TextChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.CreateTextChannelAsync(System.String, Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.CreateTextChannelAsync(System.String, System.Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
   name.vb: CreateTextChannelAsync(String, Action(Of TextChannelProperties), RequestOptions)
-- uid: Discord.IGuild.CreateVoiceChannelAsync(System.String,Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.CreateVoiceChannelAsync(System.String,Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
-  id: CreateVoiceChannelAsync(System.String,Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.CreateVoiceChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.CreateVoiceChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  id: CreateVoiceChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: CreateVoiceChannelAsync(String, Action<VoiceChannelProperties>, RequestOptions)
   nameWithType: IGuild.CreateVoiceChannelAsync(String, Action<VoiceChannelProperties>, RequestOptions)
-  fullName: Discord.IGuild.CreateVoiceChannelAsync(System.String, Action<Discord.VoiceChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.CreateVoiceChannelAsync(System.String, System.Action<Discord.VoiceChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateVoiceChannelAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2217,34 +2225,34 @@ items:
       type: System.String
       description: The new name for the voice channel.
     - id: func
-      type: Action{Discord.VoiceChannelProperties}
+      type: System.Action{Discord.VoiceChannelProperties}
       description: The delegate containing the properties to be applied to the channel upon its creation.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IVoiceChannel}
+      type: System.Threading.Tasks.Task{Discord.IVoiceChannel}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the newly created\nvoice channel.\n"
     content.vb: Function CreateVoiceChannelAsync(name As String, func As Action(Of VoiceChannelProperties) = Nothing, options As RequestOptions = Nothing) As Task(Of IVoiceChannel)
   overload: Discord.IGuild.CreateVoiceChannelAsync*
   nameWithType.vb: IGuild.CreateVoiceChannelAsync(String, Action(Of VoiceChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.CreateVoiceChannelAsync(System.String, Action(Of Discord.VoiceChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.CreateVoiceChannelAsync(System.String, System.Action(Of Discord.VoiceChannelProperties), Discord.RequestOptions)
   name.vb: CreateVoiceChannelAsync(String, Action(Of VoiceChannelProperties), RequestOptions)
-- uid: Discord.IGuild.CreateCategoryAsync(System.String,Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.CreateCategoryAsync(System.String,Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  id: CreateCategoryAsync(System.String,Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.CreateCategoryAsync(System.String,System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.CreateCategoryAsync(System.String,System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  id: CreateCategoryAsync(System.String,System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: CreateCategoryAsync(String, Action<GuildChannelProperties>, RequestOptions)
   nameWithType: IGuild.CreateCategoryAsync(String, Action<GuildChannelProperties>, RequestOptions)
-  fullName: Discord.IGuild.CreateCategoryAsync(System.String, Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.CreateCategoryAsync(System.String, System.Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateCategoryAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2261,18 +2269,18 @@ items:
       type: System.String
       description: The new name for the category.
     - id: func
-      type: Action{Discord.GuildChannelProperties}
+      type: System.Action{Discord.GuildChannelProperties}
       description: The delegate containing the properties to be applied to the channel upon its creation.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.ICategoryChannel}
+      type: System.Threading.Tasks.Task{Discord.ICategoryChannel}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the newly created\ncategory channel.\n"
     content.vb: Function CreateCategoryAsync(name As String, func As Action(Of GuildChannelProperties) = Nothing, options As RequestOptions = Nothing) As Task(Of ICategoryChannel)
   overload: Discord.IGuild.CreateCategoryAsync*
   nameWithType.vb: IGuild.CreateCategoryAsync(String, Action(Of GuildChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.CreateCategoryAsync(System.String, Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.CreateCategoryAsync(System.String, System.Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
   name.vb: CreateCategoryAsync(String, Action(Of GuildChannelProperties), RequestOptions)
 - uid: Discord.IGuild.GetVoiceRegionsAsync(Discord.RequestOptions)
   commentId: M:Discord.IGuild.GetVoiceRegionsAsync(Discord.RequestOptions)
@@ -2288,7 +2296,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetVoiceRegionsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2305,7 +2313,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IVoiceRegion}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceRegion}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\nvoice regions the guild can access.\n"
     content.vb: Function GetVoiceRegionsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IVoiceRegion))
   overload: Discord.IGuild.GetVoiceRegionsAsync*
@@ -2323,7 +2331,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetIntegrationsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2337,7 +2345,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task{IReadOnlyCollection{Discord.IGuildIntegration}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildIntegration}}
     content.vb: Function GetIntegrationsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IGuildIntegration))
   overload: Discord.IGuild.GetIntegrationsAsync*
 - uid: Discord.IGuild.CreateIntegrationAsync(System.UInt64,System.String,Discord.RequestOptions)
@@ -2354,7 +2362,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateIntegrationAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2372,7 +2380,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task{Discord.IGuildIntegration}
+      type: System.Threading.Tasks.Task{Discord.IGuildIntegration}
     content.vb: Function CreateIntegrationAsync(id As ULong, type As String, options As RequestOptions = Nothing) As Task(Of IGuildIntegration)
   overload: Discord.IGuild.CreateIntegrationAsync*
 - uid: Discord.IGuild.GetInvitesAsync(Discord.RequestOptions)
@@ -2389,7 +2397,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetInvitesAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2406,7 +2414,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IInviteMetadata}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IInviteMetadata}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of\ninvite metadata, each representing information for an invite found within this guild.\n"
     content.vb: Function GetInvitesAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IInviteMetadata))
   overload: Discord.IGuild.GetInvitesAsync*
@@ -2424,7 +2432,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetVanityInviteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2441,7 +2449,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IInviteMetadata}
+      type: System.Threading.Tasks.Task{Discord.IInviteMetadata}
       description: "\nA task that represents the asynchronous get operation. The task result contains the partial metadata of\nthe vanity invite found within this guild; <code>null</code> if none is found.\n"
     content.vb: Function GetVanityInviteAsync(options As RequestOptions = Nothing) As Task(Of IInviteMetadata)
   overload: Discord.IGuild.GetVanityInviteAsync*
@@ -2459,7 +2467,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetRole
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2494,7 +2502,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateRoleAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2505,7 +2513,7 @@ items:
   summary: "\nCreates a new role with the provided name.\n"
   example: []
   syntax:
-    content: Task<IRole> CreateRoleAsync(string name, GuildPermissions? permissions = null, Color? color = null, bool isHoisted = false, RequestOptions options = null)
+    content: Task<IRole> CreateRoleAsync(string name, GuildPermissions? permissions = default(GuildPermissions? ), Color? color = default(Color? ), bool isHoisted = false, RequestOptions options = null)
     parameters:
     - id: name
       type: System.String
@@ -2523,28 +2531,28 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IRole}
+      type: System.Threading.Tasks.Task{Discord.IRole}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the newly created\nrole.\n"
     content.vb: Function CreateRoleAsync(name As String, permissions As GuildPermissions? = Nothing, color As Color? = Nothing, isHoisted As Boolean = False, options As RequestOptions = Nothing) As Task(Of IRole)
   overload: Discord.IGuild.CreateRoleAsync*
   nameWithType.vb: IGuild.CreateRoleAsync(String, Nullable(Of GuildPermissions), Nullable(Of Color), Boolean, RequestOptions)
   fullName.vb: Discord.IGuild.CreateRoleAsync(System.String, System.Nullable(Of Discord.GuildPermissions), System.Nullable(Of Discord.Color), System.Boolean, Discord.RequestOptions)
   name.vb: CreateRoleAsync(String, Nullable(Of GuildPermissions), Nullable(Of Color), Boolean, RequestOptions)
-- uid: Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
-  id: AddGuildUserAsync(System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,System.Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.AddGuildUserAsync(System.UInt64,System.String,System.Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  id: AddGuildUserAsync(System.UInt64,System.String,System.Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: AddGuildUserAsync(UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
   nameWithType: IGuild.AddGuildUserAsync(UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
-  fullName: Discord.IGuild.AddGuildUserAsync(System.UInt64, System.String, Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.AddGuildUserAsync(System.UInt64, System.String, System.Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddGuildUserAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2564,18 +2572,18 @@ items:
       type: System.String
       description: The OAuth2 access token for the user, requested with the guilds.join scope.
     - id: func
-      type: Action{Discord.AddGuildUserProperties}
+      type: System.Action{Discord.AddGuildUserProperties}
       description: The delegate containing the properties to be applied to the user upon being added to the guild.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildUser}
+      type: System.Threading.Tasks.Task{Discord.IGuildUser}
       description: A guild user associated with the specified <code data-dev-comment-type="paramref" class="paramref">id</code>; <code>null</code> if the user is already in the guild.
     content.vb: Function AddGuildUserAsync(userId As ULong, accessToken As String, func As Action(Of AddGuildUserProperties) = Nothing, options As RequestOptions = Nothing) As Task(Of IGuildUser)
   overload: Discord.IGuild.AddGuildUserAsync*
   nameWithType.vb: IGuild.AddGuildUserAsync(UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.AddGuildUserAsync(System.UInt64, System.String, Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.AddGuildUserAsync(System.UInt64, System.String, System.Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
   name.vb: AddGuildUserAsync(UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
 - uid: Discord.IGuild.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
   commentId: M:Discord.IGuild.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
@@ -2591,7 +2599,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetUsersAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2612,7 +2620,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IGuildUser}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a collection of guild\nusers found within this guild.\n"
     content.vb: Function GetUsersAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IGuildUser))
   overload: Discord.IGuild.GetUsersAsync*
@@ -2630,7 +2638,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetUserAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2654,7 +2662,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildUser}
+      type: System.Threading.Tasks.Task{Discord.IGuildUser}
       description: "\nA task that represents the asynchronous get operation. The task result contains the guild user\nassociated with the specified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetUserAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuildUser)
   overload: Discord.IGuild.GetUserAsync*
@@ -2672,7 +2680,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetCurrentUserAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2692,7 +2700,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildUser}
+      type: System.Threading.Tasks.Task{Discord.IGuildUser}
       description: "\nA task that represents the asynchronous get operation. The task result contains the currently logged-in\nuser within this guild.\n"
     content.vb: Function GetCurrentUserAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuildUser)
   overload: Discord.IGuild.GetCurrentUserAsync*
@@ -2710,7 +2718,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetOwnerAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2730,7 +2738,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IGuildUser}
+      type: System.Threading.Tasks.Task{Discord.IGuildUser}
       description: "\nA task that represents the asynchronous get operation. The task result contains the owner of this guild.\n"
     content.vb: Function GetOwnerAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuildUser)
   overload: Discord.IGuild.GetOwnerAsync*
@@ -2748,7 +2756,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DownloadUsersAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2761,7 +2769,7 @@ items:
   syntax:
     content: Task DownloadUsersAsync()
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous download operation.\n"
     content.vb: Function DownloadUsersAsync As Task
   overload: Discord.IGuild.DownloadUsersAsync*
@@ -2779,7 +2787,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PruneUsersAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2803,7 +2811,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{System.Int32}
+      type: System.Threading.Tasks.Task{System.Int32}
       description: "\nA task that represents the asynchronous prune operation. The task result contains the number of users to\nbe or has been removed from this guild.\n"
     content.vb: Function PruneUsersAsync(days As Integer = 30, simulate As Boolean = False, options As RequestOptions = Nothing) As Task(Of Integer)
   overload: Discord.IGuild.PruneUsersAsync*
@@ -2821,7 +2829,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetAuditLogsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2832,7 +2840,7 @@ items:
   summary: "\nGets the specified number of audit log entries for this guild.\n"
   example: []
   syntax:
-    content: Task<IReadOnlyCollection<IAuditLogEntry>> GetAuditLogsAsync(int limit = null, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    content: Task<IReadOnlyCollection<IAuditLogEntry>> GetAuditLogsAsync(int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
     parameters:
     - id: limit
       type: System.Int32
@@ -2844,9 +2852,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IAuditLogEntry}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof the requested audit log entries.\n"
-    content.vb: Function GetAuditLogsAsync(limit As Integer = Nothing, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IAuditLogEntry))
+    content.vb: Function GetAuditLogsAsync(limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IAuditLogEntry))
   overload: Discord.IGuild.GetAuditLogsAsync*
 - uid: Discord.IGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   commentId: M:Discord.IGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
@@ -2862,7 +2870,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhookAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2882,7 +2890,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IWebhook}
+      type: System.Threading.Tasks.Task{Discord.IWebhook}
       description: "\nA task that represents the asynchronous get operation. The task result contains the webhook with the\nspecified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetWebhookAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of IWebhook)
   overload: Discord.IGuild.GetWebhookAsync*
@@ -2900,7 +2908,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhooksAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2917,7 +2925,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IWebhook}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof webhooks found within the guild.\n"
     content.vb: Function GetWebhooksAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IWebhook))
   overload: Discord.IGuild.GetWebhooksAsync*
@@ -2935,7 +2943,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2955,25 +2963,25 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.GuildEmote}
+      type: System.Threading.Tasks.Task{Discord.GuildEmote}
       description: "\nA task that represents the asynchronous get operation. The task result contains the emote found with the\nspecified <code data-dev-comment-type=\"paramref\" class=\"paramref\">id</code>; <code>null</code> if none is found.\n"
     content.vb: Function GetEmoteAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of GuildEmote)
   overload: Discord.IGuild.GetEmoteAsync*
-- uid: Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{IEnumerable{Discord.IRole}},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{IEnumerable{Discord.IRole}},Discord.RequestOptions)
-  id: CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{IEnumerable{Discord.IRole}},Discord.RequestOptions)
+- uid: Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}},Discord.RequestOptions)
+  id: CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: CreateEmoteAsync(String, Image, Optional<IEnumerable<IRole>>, RequestOptions)
   nameWithType: IGuild.CreateEmoteAsync(String, Image, Optional<IEnumerable<IRole>>, RequestOptions)
-  fullName: Discord.IGuild.CreateEmoteAsync(System.String, Discord.Image, Discord.Optional<IEnumerable<Discord.IRole>>, Discord.RequestOptions)
+  fullName: Discord.IGuild.CreateEmoteAsync(System.String, Discord.Image, Discord.Optional<System.Collections.Generic.IEnumerable<Discord.IRole>>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -2993,34 +3001,34 @@ items:
       type: Discord.Image
       description: The image of the new emote.
     - id: roles
-      type: Discord.Optional{IEnumerable{Discord.IRole}}
+      type: Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
       description: The roles to limit the emote usage to.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.GuildEmote}
+      type: System.Threading.Tasks.Task{Discord.GuildEmote}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the created emote.\n"
     content.vb: Function CreateEmoteAsync(name As String, image As Image, roles As  Optional  (Of IEnumerable(Of IRole))  = Nothing, options As RequestOptions = Nothing) As Task(Of GuildEmote)
   overload: Discord.IGuild.CreateEmoteAsync*
   nameWithType.vb: IGuild.CreateEmoteAsync(String, Image, Optional(Of IEnumerable(Of IRole)), RequestOptions)
-  fullName.vb: Discord.IGuild.CreateEmoteAsync(System.String, Discord.Image, Discord.Optional(Of IEnumerable(Of Discord.IRole)), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.CreateEmoteAsync(System.String, Discord.Image, Discord.Optional(Of System.Collections.Generic.IEnumerable(Of Discord.IRole)), Discord.RequestOptions)
   name.vb: CreateEmoteAsync(String, Image, Optional(Of IEnumerable(Of IRole)), RequestOptions)
-- uid: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,Action{Discord.EmoteProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,Action{Discord.EmoteProperties},Discord.RequestOptions)
-  id: ModifyEmoteAsync(Discord.GuildEmote,Action{Discord.EmoteProperties},Discord.RequestOptions)
+- uid: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,System.Action{Discord.EmoteProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote,System.Action{Discord.EmoteProperties},Discord.RequestOptions)
+  id: ModifyEmoteAsync(Discord.GuildEmote,System.Action{Discord.EmoteProperties},Discord.RequestOptions)
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
   name: ModifyEmoteAsync(GuildEmote, Action<EmoteProperties>, RequestOptions)
   nameWithType: IGuild.ModifyEmoteAsync(GuildEmote, Action<EmoteProperties>, RequestOptions)
-  fullName: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote, Action<Discord.EmoteProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote, System.Action<Discord.EmoteProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -3037,18 +3045,18 @@ items:
       type: Discord.GuildEmote
       description: The emote to be modified.
     - id: func
-      type: Action{Discord.EmoteProperties}
+      type: System.Action{Discord.EmoteProperties}
       description: The delegate containing the properties to modify the emote with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.GuildEmote}
+      type: System.Threading.Tasks.Task{Discord.GuildEmote}
       description: "\nA task that represents the asynchronous modification operation. The task result contains the modified\nemote.\n"
     content.vb: Function ModifyEmoteAsync(emote As GuildEmote, func As Action(Of EmoteProperties), options As RequestOptions = Nothing) As Task(Of GuildEmote)
   overload: Discord.IGuild.ModifyEmoteAsync*
   nameWithType.vb: IGuild.ModifyEmoteAsync(GuildEmote, Action(Of EmoteProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote, Action(Of Discord.EmoteProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuild.ModifyEmoteAsync(Discord.GuildEmote, System.Action(Of Discord.EmoteProperties), Discord.RequestOptions)
   name.vb: ModifyEmoteAsync(GuildEmote, Action(Of EmoteProperties), RequestOptions)
 - uid: Discord.IGuild.DeleteEmoteAsync(Discord.GuildEmote,Discord.RequestOptions)
   commentId: M:Discord.IGuild.DeleteEmoteAsync(Discord.GuildEmote,Discord.RequestOptions)
@@ -3064,7 +3072,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
@@ -3084,7 +3092,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous removal operation.\n"
     content.vb: Function DeleteEmoteAsync(emote As GuildEmote, options As RequestOptions = Nothing) As Task
   overload: Discord.IGuild.DeleteEmoteAsync*
@@ -3382,26 +3390,38 @@ references:
   nameWithType: IGuild.Name
   fullName: Discord.IGuild.Name
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
 - uid: Discord.IGuild.AFKTimeout*
   commentId: Overload:Discord.IGuild.AFKTimeout
   name: AFKTimeout
   nameWithType: IGuild.AFKTimeout
   fullName: Discord.IGuild.AFKTimeout
-- uid: System.Int32
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
 - uid: Discord.IGuild.IsEmbeddable*
   commentId: Overload:Discord.IGuild.IsEmbeddable
   name: IsEmbeddable
   nameWithType: IGuild.IsEmbeddable
   fullName: Discord.IGuild.IsEmbeddable
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -3475,13 +3495,21 @@ references:
   name: Available
   nameWithType: IGuild.Available
   fullName: Discord.IGuild.Available
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
 - uid: Discord.IGuild.AFKChannelId*
   commentId: Overload:Discord.IGuild.AFKChannelId
   name: AFKChannelId
   nameWithType: IGuild.AFKChannelId
   fullName: Discord.IGuild.AFKChannelId
 - uid: System.Nullable{System.UInt64}
-  commentId: '!:System.Nullable{System.UInt64}'
+  commentId: T:System.Nullable{System.UInt64}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<UInt64>
   nameWithType: Nullable<UInt64>
@@ -3524,13 +3552,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -3540,9 +3569,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -3555,9 +3584,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -3566,11 +3595,6 @@ references:
   name: DefaultChannelId
   nameWithType: IGuild.DefaultChannelId
   fullName: Discord.IGuild.DefaultChannelId
-- uid: System.UInt64
-  isExternal: true
-  name: UInt64
-  nameWithType: UInt64
-  fullName: System.UInt64
 - uid: Discord.IGuild.EmbedChannelId*
   commentId: Overload:Discord.IGuild.EmbedChannelId
   name: EmbedChannelId
@@ -3628,20 +3652,21 @@ references:
   name: Emotes
   nameWithType: IGuild.Emotes
   fullName: Discord.IGuild.Emotes
-- uid: IReadOnlyCollection{Discord.GuildEmote}
-  commentId: '!:IReadOnlyCollection{Discord.GuildEmote}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.GuildEmote}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.GuildEmote}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<GuildEmote>
   nameWithType: IReadOnlyCollection<GuildEmote>
-  fullName: IReadOnlyCollection<Discord.GuildEmote>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.GuildEmote>
   nameWithType.vb: IReadOnlyCollection(Of GuildEmote)
-  fullName.vb: IReadOnlyCollection(Of Discord.GuildEmote)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.GuildEmote)
   name.vb: IReadOnlyCollection(Of GuildEmote)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -3654,10 +3679,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3669,63 +3694,71 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<>
-  nameWithType: IReadOnlyCollection<>
-  fullName: IReadOnlyCollection<>
-  nameWithType.vb: IReadOnlyCollection(Of )
-  fullName.vb: IReadOnlyCollection(Of )
-  name.vb: IReadOnlyCollection(Of )
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.IGuild.Features*
   commentId: Overload:Discord.IGuild.Features
   name: Features
   nameWithType: IGuild.Features
   fullName: Discord.IGuild.Features
-- uid: IReadOnlyCollection{System.String}
-  commentId: '!:IReadOnlyCollection{System.String}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<String>
   nameWithType: IReadOnlyCollection<String>
-  fullName: IReadOnlyCollection<System.String>
+  fullName: System.Collections.Generic.IReadOnlyCollection<System.String>
   nameWithType.vb: IReadOnlyCollection(Of String)
-  fullName.vb: IReadOnlyCollection(Of System.String)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of System.String)
   name.vb: IReadOnlyCollection(Of String)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -3739,10 +3772,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3760,20 +3793,21 @@ references:
   name: Roles
   nameWithType: IGuild.Roles
   fullName: Discord.IGuild.Roles
-- uid: IReadOnlyCollection{Discord.IRole}
-  commentId: '!:IReadOnlyCollection{Discord.IRole}'
-  definition: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection{Discord.IRole}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.IRole}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<IRole>
   nameWithType: IReadOnlyCollection<IRole>
-  fullName: IReadOnlyCollection<Discord.IRole>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.IRole>
   nameWithType.vb: IReadOnlyCollection(Of IRole)
-  fullName.vb: IReadOnlyCollection(Of Discord.IRole)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.IRole)
   name.vb: IReadOnlyCollection(Of IRole)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -3786,10 +3820,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3853,20 +3887,21 @@ references:
   name: ModifyAsync
   nameWithType: IGuild.ModifyAsync
   fullName: Discord.IGuild.ModifyAsync
-- uid: Action{Discord.GuildProperties}
-  commentId: '!:Action{Discord.GuildProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.GuildProperties}
+  commentId: T:System.Action{Discord.GuildProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<GuildProperties>
   nameWithType: Action<GuildProperties>
-  fullName: Action<Discord.GuildProperties>
+  fullName: System.Action<Discord.GuildProperties>
   nameWithType.vb: Action(Of GuildProperties)
-  fullName.vb: Action(Of Discord.GuildProperties)
+  fullName.vb: System.Action(Of Discord.GuildProperties)
   name.vb: Action(Of GuildProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -3879,10 +3914,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3900,68 +3935,78 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
-- uid: Action`1
+  fullName: System.Threading.Tasks.Task
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.IGuild.ModifyEmbedAsync*
   commentId: Overload:Discord.IGuild.ModifyEmbedAsync
   name: ModifyEmbedAsync
   nameWithType: IGuild.ModifyEmbedAsync
   fullName: Discord.IGuild.ModifyEmbedAsync
-- uid: Action{Discord.GuildEmbedProperties}
-  commentId: '!:Action{Discord.GuildEmbedProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.GuildEmbedProperties}
+  commentId: T:System.Action{Discord.GuildEmbedProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<GuildEmbedProperties>
   nameWithType: Action<GuildEmbedProperties>
-  fullName: Action<Discord.GuildEmbedProperties>
+  fullName: System.Action<Discord.GuildEmbedProperties>
   nameWithType.vb: Action(Of GuildEmbedProperties)
-  fullName.vb: Action(Of Discord.GuildEmbedProperties)
+  fullName.vb: System.Action(Of Discord.GuildEmbedProperties)
   name.vb: Action(Of GuildEmbedProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -3974,10 +4019,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3994,20 +4039,21 @@ references:
   name: ReorderChannelsAsync
   nameWithType: IGuild.ReorderChannelsAsync
   fullName: Discord.IGuild.ReorderChannelsAsync
-- uid: IEnumerable{Discord.ReorderChannelProperties}
-  commentId: '!:IEnumerable{Discord.ReorderChannelProperties}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties}
+  commentId: T:System.Collections.Generic.IEnumerable{Discord.ReorderChannelProperties}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<ReorderChannelProperties>
   nameWithType: IEnumerable<ReorderChannelProperties>
-  fullName: IEnumerable<Discord.ReorderChannelProperties>
+  fullName: System.Collections.Generic.IEnumerable<Discord.ReorderChannelProperties>
   nameWithType.vb: IEnumerable(Of ReorderChannelProperties)
-  fullName.vb: IEnumerable(Of Discord.ReorderChannelProperties)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Discord.ReorderChannelProperties)
   name.vb: IEnumerable(Of ReorderChannelProperties)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -4020,10 +4066,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4035,41 +4081,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
-  name: IEnumerable<>
-  nameWithType: IEnumerable<>
-  fullName: IEnumerable<>
-  nameWithType.vb: IEnumerable(Of )
-  fullName.vb: IEnumerable(Of )
-  name.vb: IEnumerable(Of )
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -4078,20 +4125,21 @@ references:
   name: ReorderRolesAsync
   nameWithType: IGuild.ReorderRolesAsync
   fullName: Discord.IGuild.ReorderRolesAsync
-- uid: IEnumerable{Discord.ReorderRoleProperties}
-  commentId: '!:IEnumerable{Discord.ReorderRoleProperties}'
-  definition: IEnumerable`1
+- uid: System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties}
+  commentId: T:System.Collections.Generic.IEnumerable{Discord.ReorderRoleProperties}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
   name: IEnumerable<ReorderRoleProperties>
   nameWithType: IEnumerable<ReorderRoleProperties>
-  fullName: IEnumerable<Discord.ReorderRoleProperties>
+  fullName: System.Collections.Generic.IEnumerable<Discord.ReorderRoleProperties>
   nameWithType.vb: IEnumerable(Of ReorderRoleProperties)
-  fullName.vb: IEnumerable(Of Discord.ReorderRoleProperties)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Discord.ReorderRoleProperties)
   name.vb: IEnumerable(Of ReorderRoleProperties)
   spec.csharp:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -4104,10 +4152,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4129,28 +4177,29 @@ references:
   name: GetBansAsync
   nameWithType: IGuild.GetBansAsync
   fullName: Discord.IGuild.GetBansAsync
-- uid: Task{IReadOnlyCollection{Discord.IBan}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IBan}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IBan}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IBan}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IBan>>
   nameWithType: Task<IReadOnlyCollection<IBan>>
-  fullName: Task<IReadOnlyCollection<Discord.IBan>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IBan>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IBan))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IBan))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IBan))
   name.vb: Task(Of IReadOnlyCollection(Of IBan))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4166,18 +4215,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4192,41 +4241,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task`1
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
   isExternal: true
-  name: Task<>
-  nameWithType: Task<>
-  fullName: Task<>
-  nameWithType.vb: Task(Of )
-  fullName.vb: Task(Of )
-  name.vb: Task(Of )
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: )
     nameWithType: )
     fullName: )
@@ -4241,20 +4291,21 @@ references:
   name: IUser
   nameWithType: IUser
   fullName: Discord.IUser
-- uid: Task{Discord.IBan}
-  commentId: '!:Task{Discord.IBan}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IBan}
+  commentId: T:System.Threading.Tasks.Task{Discord.IBan}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IBan>
   nameWithType: Task<IBan>
-  fullName: Task<Discord.IBan>
+  fullName: System.Threading.Tasks.Task<Discord.IBan>
   nameWithType.vb: Task(Of IBan)
-  fullName.vb: Task(Of Discord.IBan)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IBan)
   name.vb: Task(Of IBan)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -4267,10 +4318,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4282,6 +4333,9 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
 - uid: Discord.IGuild.AddBanAsync*
   commentId: Overload:Discord.IGuild.AddBanAsync
   name: AddBanAsync
@@ -4303,28 +4357,29 @@ references:
   name: GetChannelsAsync
   nameWithType: IGuild.GetChannelsAsync
   fullName: Discord.IGuild.GetChannelsAsync
-- uid: Task{IReadOnlyCollection{Discord.IGuildChannel}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IGuildChannel}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildChannel}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildChannel}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IGuildChannel>>
   nameWithType: Task<IReadOnlyCollection<IGuildChannel>>
-  fullName: Task<IReadOnlyCollection<Discord.IGuildChannel>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IGuildChannel>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IGuildChannel))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IGuildChannel))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IGuildChannel))
   name.vb: Task(Of IReadOnlyCollection(Of IGuildChannel))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4340,18 +4395,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4371,20 +4426,21 @@ references:
   name: GetChannelAsync
   nameWithType: IGuild.GetChannelAsync
   fullName: Discord.IGuild.GetChannelAsync
-- uid: Task{Discord.IGuildChannel}
-  commentId: '!:Task{Discord.IGuildChannel}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IGuildChannel}
+  commentId: T:System.Threading.Tasks.Task{Discord.IGuildChannel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IGuildChannel>
   nameWithType: Task<IGuildChannel>
-  fullName: Task<Discord.IGuildChannel>
+  fullName: System.Threading.Tasks.Task<Discord.IGuildChannel>
   nameWithType.vb: Task(Of IGuildChannel)
-  fullName.vb: Task(Of Discord.IGuildChannel)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IGuildChannel)
   name.vb: Task(Of IGuildChannel)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -4397,10 +4453,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4417,28 +4473,29 @@ references:
   name: GetTextChannelsAsync
   nameWithType: IGuild.GetTextChannelsAsync
   fullName: Discord.IGuild.GetTextChannelsAsync
-- uid: Task{IReadOnlyCollection{Discord.ITextChannel}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.ITextChannel}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ITextChannel}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ITextChannel}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<ITextChannel>>
   nameWithType: Task<IReadOnlyCollection<ITextChannel>>
-  fullName: Task<IReadOnlyCollection<Discord.ITextChannel>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.ITextChannel>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of ITextChannel))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.ITextChannel))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.ITextChannel))
   name.vb: Task(Of IReadOnlyCollection(Of ITextChannel))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4454,18 +4511,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4485,20 +4542,21 @@ references:
   name: GetTextChannelAsync
   nameWithType: IGuild.GetTextChannelAsync
   fullName: Discord.IGuild.GetTextChannelAsync
-- uid: Task{Discord.ITextChannel}
-  commentId: '!:Task{Discord.ITextChannel}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.ITextChannel}
+  commentId: T:System.Threading.Tasks.Task{Discord.ITextChannel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<ITextChannel>
   nameWithType: Task<ITextChannel>
-  fullName: Task<Discord.ITextChannel>
+  fullName: System.Threading.Tasks.Task<Discord.ITextChannel>
   nameWithType.vb: Task(Of ITextChannel)
-  fullName.vb: Task(Of Discord.ITextChannel)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.ITextChannel)
   name.vb: Task(Of ITextChannel)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -4511,10 +4569,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4531,28 +4589,29 @@ references:
   name: GetVoiceChannelsAsync
   nameWithType: IGuild.GetVoiceChannelsAsync
   fullName: Discord.IGuild.GetVoiceChannelsAsync
-- uid: Task{IReadOnlyCollection{Discord.IVoiceChannel}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IVoiceChannel}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceChannel}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceChannel}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IVoiceChannel>>
   nameWithType: Task<IReadOnlyCollection<IVoiceChannel>>
-  fullName: Task<IReadOnlyCollection<Discord.IVoiceChannel>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IVoiceChannel>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IVoiceChannel))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IVoiceChannel))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IVoiceChannel))
   name.vb: Task(Of IReadOnlyCollection(Of IVoiceChannel))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4568,18 +4627,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4599,28 +4658,29 @@ references:
   name: GetCategoriesAsync
   nameWithType: IGuild.GetCategoriesAsync
   fullName: Discord.IGuild.GetCategoriesAsync
-- uid: Task{IReadOnlyCollection{Discord.ICategoryChannel}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.ICategoryChannel}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ICategoryChannel}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.ICategoryChannel}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<ICategoryChannel>>
   nameWithType: Task<IReadOnlyCollection<ICategoryChannel>>
-  fullName: Task<IReadOnlyCollection<Discord.ICategoryChannel>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.ICategoryChannel>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of ICategoryChannel))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.ICategoryChannel))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.ICategoryChannel))
   name.vb: Task(Of IReadOnlyCollection(Of ICategoryChannel))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4636,18 +4696,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4667,20 +4727,21 @@ references:
   name: GetVoiceChannelAsync
   nameWithType: IGuild.GetVoiceChannelAsync
   fullName: Discord.IGuild.GetVoiceChannelAsync
-- uid: Task{Discord.IVoiceChannel}
-  commentId: '!:Task{Discord.IVoiceChannel}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IVoiceChannel}
+  commentId: T:System.Threading.Tasks.Task{Discord.IVoiceChannel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IVoiceChannel>
   nameWithType: Task<IVoiceChannel>
-  fullName: Task<Discord.IVoiceChannel>
+  fullName: System.Threading.Tasks.Task<Discord.IVoiceChannel>
   nameWithType.vb: Task(Of IVoiceChannel)
-  fullName.vb: Task(Of Discord.IVoiceChannel)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IVoiceChannel)
   name.vb: Task(Of IVoiceChannel)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -4693,10 +4754,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4733,20 +4794,21 @@ references:
   name: CreateTextChannelAsync
   nameWithType: IGuild.CreateTextChannelAsync
   fullName: Discord.IGuild.CreateTextChannelAsync
-- uid: Action{Discord.TextChannelProperties}
-  commentId: '!:Action{Discord.TextChannelProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.TextChannelProperties}
+  commentId: T:System.Action{Discord.TextChannelProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<TextChannelProperties>
   nameWithType: Action<TextChannelProperties>
-  fullName: Action<Discord.TextChannelProperties>
+  fullName: System.Action<Discord.TextChannelProperties>
   nameWithType.vb: Action(Of TextChannelProperties)
-  fullName.vb: Action(Of Discord.TextChannelProperties)
+  fullName.vb: System.Action(Of Discord.TextChannelProperties)
   name.vb: Action(Of TextChannelProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -4759,10 +4821,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4779,20 +4841,21 @@ references:
   name: CreateVoiceChannelAsync
   nameWithType: IGuild.CreateVoiceChannelAsync
   fullName: Discord.IGuild.CreateVoiceChannelAsync
-- uid: Action{Discord.VoiceChannelProperties}
-  commentId: '!:Action{Discord.VoiceChannelProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.VoiceChannelProperties}
+  commentId: T:System.Action{Discord.VoiceChannelProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<VoiceChannelProperties>
   nameWithType: Action<VoiceChannelProperties>
-  fullName: Action<Discord.VoiceChannelProperties>
+  fullName: System.Action<Discord.VoiceChannelProperties>
   nameWithType.vb: Action(Of VoiceChannelProperties)
-  fullName.vb: Action(Of Discord.VoiceChannelProperties)
+  fullName.vb: System.Action(Of Discord.VoiceChannelProperties)
   name.vb: Action(Of VoiceChannelProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -4805,10 +4868,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4825,20 +4888,21 @@ references:
   name: CreateCategoryAsync
   nameWithType: IGuild.CreateCategoryAsync
   fullName: Discord.IGuild.CreateCategoryAsync
-- uid: Action{Discord.GuildChannelProperties}
-  commentId: '!:Action{Discord.GuildChannelProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.GuildChannelProperties}
+  commentId: T:System.Action{Discord.GuildChannelProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<GuildChannelProperties>
   nameWithType: Action<GuildChannelProperties>
-  fullName: Action<Discord.GuildChannelProperties>
+  fullName: System.Action<Discord.GuildChannelProperties>
   nameWithType.vb: Action(Of GuildChannelProperties)
-  fullName.vb: Action(Of Discord.GuildChannelProperties)
+  fullName.vb: System.Action(Of Discord.GuildChannelProperties)
   name.vb: Action(Of GuildChannelProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -4851,10 +4915,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4866,20 +4930,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task{Discord.ICategoryChannel}
-  commentId: '!:Task{Discord.ICategoryChannel}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.ICategoryChannel}
+  commentId: T:System.Threading.Tasks.Task{Discord.ICategoryChannel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<ICategoryChannel>
   nameWithType: Task<ICategoryChannel>
-  fullName: Task<Discord.ICategoryChannel>
+  fullName: System.Threading.Tasks.Task<Discord.ICategoryChannel>
   nameWithType.vb: Task(Of ICategoryChannel)
-  fullName.vb: Task(Of Discord.ICategoryChannel)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.ICategoryChannel)
   name.vb: Task(Of ICategoryChannel)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -4892,10 +4957,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4912,28 +4977,29 @@ references:
   name: GetVoiceRegionsAsync
   nameWithType: IGuild.GetVoiceRegionsAsync
   fullName: Discord.IGuild.GetVoiceRegionsAsync
-- uid: Task{IReadOnlyCollection{Discord.IVoiceRegion}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IVoiceRegion}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceRegion}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IVoiceRegion}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IVoiceRegion>>
   nameWithType: Task<IReadOnlyCollection<IVoiceRegion>>
-  fullName: Task<IReadOnlyCollection<Discord.IVoiceRegion>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IVoiceRegion>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IVoiceRegion))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IVoiceRegion))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IVoiceRegion))
   name.vb: Task(Of IReadOnlyCollection(Of IVoiceRegion))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4949,18 +5015,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4980,28 +5046,29 @@ references:
   name: GetIntegrationsAsync
   nameWithType: IGuild.GetIntegrationsAsync
   fullName: Discord.IGuild.GetIntegrationsAsync
-- uid: Task{IReadOnlyCollection{Discord.IGuildIntegration}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IGuildIntegration}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildIntegration}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildIntegration}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IGuildIntegration>>
   nameWithType: Task<IReadOnlyCollection<IGuildIntegration>>
-  fullName: Task<IReadOnlyCollection<Discord.IGuildIntegration>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IGuildIntegration>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IGuildIntegration))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IGuildIntegration))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IGuildIntegration))
   name.vb: Task(Of IReadOnlyCollection(Of IGuildIntegration))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -5017,18 +5084,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5048,20 +5115,21 @@ references:
   name: CreateIntegrationAsync
   nameWithType: IGuild.CreateIntegrationAsync
   fullName: Discord.IGuild.CreateIntegrationAsync
-- uid: Task{Discord.IGuildIntegration}
-  commentId: '!:Task{Discord.IGuildIntegration}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IGuildIntegration}
+  commentId: T:System.Threading.Tasks.Task{Discord.IGuildIntegration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IGuildIntegration>
   nameWithType: Task<IGuildIntegration>
-  fullName: Task<Discord.IGuildIntegration>
+  fullName: System.Threading.Tasks.Task<Discord.IGuildIntegration>
   nameWithType.vb: Task(Of IGuildIntegration)
-  fullName.vb: Task(Of Discord.IGuildIntegration)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IGuildIntegration)
   name.vb: Task(Of IGuildIntegration)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5074,10 +5142,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5094,28 +5162,29 @@ references:
   name: GetInvitesAsync
   nameWithType: IGuild.GetInvitesAsync
   fullName: Discord.IGuild.GetInvitesAsync
-- uid: Task{IReadOnlyCollection{Discord.IInviteMetadata}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IInviteMetadata}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IInviteMetadata}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IInviteMetadata}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IInviteMetadata>>
   nameWithType: Task<IReadOnlyCollection<IInviteMetadata>>
-  fullName: Task<IReadOnlyCollection<Discord.IInviteMetadata>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IInviteMetadata>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IInviteMetadata))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IInviteMetadata))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IInviteMetadata))
   name.vb: Task(Of IReadOnlyCollection(Of IInviteMetadata))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -5131,18 +5200,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5162,20 +5231,21 @@ references:
   name: GetVanityInviteAsync
   nameWithType: IGuild.GetVanityInviteAsync
   fullName: Discord.IGuild.GetVanityInviteAsync
-- uid: Task{Discord.IInviteMetadata}
-  commentId: '!:Task{Discord.IInviteMetadata}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IInviteMetadata}
+  commentId: T:System.Threading.Tasks.Task{Discord.IInviteMetadata}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IInviteMetadata>
   nameWithType: Task<IInviteMetadata>
-  fullName: Task<Discord.IInviteMetadata>
+  fullName: System.Threading.Tasks.Task<Discord.IInviteMetadata>
   nameWithType.vb: Task(Of IInviteMetadata)
-  fullName.vb: Task(Of Discord.IInviteMetadata)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IInviteMetadata)
   name.vb: Task(Of IInviteMetadata)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5188,10 +5258,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5214,7 +5284,8 @@ references:
   nameWithType: IGuild.CreateRoleAsync
   fullName: Discord.IGuild.CreateRoleAsync
 - uid: System.Nullable{Discord.GuildPermissions}
-  commentId: '!:System.Nullable{Discord.GuildPermissions}'
+  commentId: T:System.Nullable{Discord.GuildPermissions}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<GuildPermissions>
   nameWithType: Nullable<GuildPermissions>
@@ -5255,7 +5326,8 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable{Discord.Color}
-  commentId: '!:System.Nullable{Discord.Color}'
+  commentId: T:System.Nullable{Discord.Color}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Color>
   nameWithType: Nullable<Color>
@@ -5295,20 +5367,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task{Discord.IRole}
-  commentId: '!:Task{Discord.IRole}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IRole}
+  commentId: T:System.Threading.Tasks.Task{Discord.IRole}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IRole>
   nameWithType: Task<IRole>
-  fullName: Task<Discord.IRole>
+  fullName: System.Threading.Tasks.Task<Discord.IRole>
   nameWithType.vb: Task(Of IRole)
-  fullName.vb: Task(Of Discord.IRole)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IRole)
   name.vb: Task(Of IRole)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5321,10 +5394,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5341,20 +5414,21 @@ references:
   name: AddGuildUserAsync
   nameWithType: IGuild.AddGuildUserAsync
   fullName: Discord.IGuild.AddGuildUserAsync
-- uid: Action{Discord.AddGuildUserProperties}
-  commentId: '!:Action{Discord.AddGuildUserProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.AddGuildUserProperties}
+  commentId: T:System.Action{Discord.AddGuildUserProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<AddGuildUserProperties>
   nameWithType: Action<AddGuildUserProperties>
-  fullName: Action<Discord.AddGuildUserProperties>
+  fullName: System.Action<Discord.AddGuildUserProperties>
   nameWithType.vb: Action(Of AddGuildUserProperties)
-  fullName.vb: Action(Of Discord.AddGuildUserProperties)
+  fullName.vb: System.Action(Of Discord.AddGuildUserProperties)
   name.vb: Action(Of AddGuildUserProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -5367,10 +5441,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5382,20 +5456,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task{Discord.IGuildUser}
-  commentId: '!:Task{Discord.IGuildUser}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IGuildUser}
+  commentId: T:System.Threading.Tasks.Task{Discord.IGuildUser}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IGuildUser>
   nameWithType: Task<IGuildUser>
-  fullName: Task<Discord.IGuildUser>
+  fullName: System.Threading.Tasks.Task<Discord.IGuildUser>
   nameWithType.vb: Task(Of IGuildUser)
-  fullName.vb: Task(Of Discord.IGuildUser)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IGuildUser)
   name.vb: Task(Of IGuildUser)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5408,10 +5483,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5428,28 +5503,29 @@ references:
   name: GetUsersAsync
   nameWithType: IGuild.GetUsersAsync
   fullName: Discord.IGuild.GetUsersAsync
-- uid: Task{IReadOnlyCollection{Discord.IGuildUser}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IGuildUser}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IGuildUser>>
   nameWithType: Task<IReadOnlyCollection<IGuildUser>>
-  fullName: Task<IReadOnlyCollection<Discord.IGuildUser>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IGuildUser>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IGuildUser))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IGuildUser))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IGuildUser))
   name.vb: Task(Of IReadOnlyCollection(Of IGuildUser))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -5465,18 +5541,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5516,20 +5592,21 @@ references:
   name: PruneUsersAsync
   nameWithType: IGuild.PruneUsersAsync
   fullName: Discord.IGuild.PruneUsersAsync
-- uid: Task{System.Int32}
-  commentId: '!:Task{System.Int32}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<Int32>
   nameWithType: Task<Int32>
-  fullName: Task<System.Int32>
+  fullName: System.Threading.Tasks.Task<System.Int32>
   nameWithType.vb: Task(Of Int32)
-  fullName.vb: Task(Of System.Int32)
+  fullName.vb: System.Threading.Tasks.Task(Of System.Int32)
   name.vb: Task(Of Int32)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5543,10 +5620,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5564,28 +5641,29 @@ references:
   name: GetAuditLogsAsync
   nameWithType: IGuild.GetAuditLogsAsync
   fullName: Discord.IGuild.GetAuditLogsAsync
-- uid: Task{IReadOnlyCollection{Discord.IAuditLogEntry}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IAuditLogEntry}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IAuditLogEntry>>
   nameWithType: Task<IReadOnlyCollection<IAuditLogEntry>>
-  fullName: Task<IReadOnlyCollection<Discord.IAuditLogEntry>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IAuditLogEntry>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IAuditLogEntry))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IAuditLogEntry))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IAuditLogEntry))
   name.vb: Task(Of IReadOnlyCollection(Of IAuditLogEntry))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -5601,18 +5679,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5632,20 +5710,21 @@ references:
   name: GetWebhookAsync
   nameWithType: IGuild.GetWebhookAsync
   fullName: Discord.IGuild.GetWebhookAsync
-- uid: Task{Discord.IWebhook}
-  commentId: '!:Task{Discord.IWebhook}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IWebhook}
+  commentId: T:System.Threading.Tasks.Task{Discord.IWebhook}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IWebhook>
   nameWithType: Task<IWebhook>
-  fullName: Task<Discord.IWebhook>
+  fullName: System.Threading.Tasks.Task<Discord.IWebhook>
   nameWithType.vb: Task(Of IWebhook)
-  fullName.vb: Task(Of Discord.IWebhook)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IWebhook)
   name.vb: Task(Of IWebhook)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5658,10 +5737,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5678,28 +5757,29 @@ references:
   name: GetWebhooksAsync
   nameWithType: IGuild.GetWebhooksAsync
   fullName: Discord.IGuild.GetWebhooksAsync
-- uid: Task{IReadOnlyCollection{Discord.IWebhook}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IWebhook}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IWebhook>>
   nameWithType: Task<IReadOnlyCollection<IWebhook>>
-  fullName: Task<IReadOnlyCollection<Discord.IWebhook>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IWebhook>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IWebhook))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IWebhook))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IWebhook))
   name.vb: Task(Of IReadOnlyCollection(Of IWebhook))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -5715,18 +5795,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5746,20 +5826,21 @@ references:
   name: GetEmoteAsync
   nameWithType: IGuild.GetEmoteAsync
   fullName: Discord.IGuild.GetEmoteAsync
-- uid: Task{Discord.GuildEmote}
-  commentId: '!:Task{Discord.GuildEmote}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.GuildEmote}
+  commentId: T:System.Threading.Tasks.Task{Discord.GuildEmote}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<GuildEmote>
   nameWithType: Task<GuildEmote>
-  fullName: Task<Discord.GuildEmote>
+  fullName: System.Threading.Tasks.Task<Discord.GuildEmote>
   nameWithType.vb: Task(Of GuildEmote)
-  fullName.vb: Task(Of Discord.GuildEmote)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.GuildEmote)
   name.vb: Task(Of GuildEmote)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -5772,10 +5853,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5804,15 +5885,15 @@ references:
   name: Image
   nameWithType: Image
   fullName: Discord.Image
-- uid: Discord.Optional{IEnumerable{Discord.IRole}}
-  commentId: T:Discord.Optional{IEnumerable{Discord.IRole}}
+- uid: Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
+  commentId: T:Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
   parent: Discord
   definition: Discord.Optional`1
   name: Optional<IEnumerable<IRole>>
   nameWithType: Optional<IEnumerable<IRole>>
-  fullName: Discord.Optional<IEnumerable<Discord.IRole>>
+  fullName: Discord.Optional<System.Collections.Generic.IEnumerable<Discord.IRole>>
   nameWithType.vb: Optional(Of IEnumerable(Of IRole))
-  fullName.vb: Discord.Optional(Of IEnumerable(Of Discord.IRole))
+  fullName.vb: Discord.Optional(Of System.Collections.Generic.IEnumerable(Of Discord.IRole))
   name.vb: Optional(Of IEnumerable(Of IRole))
   spec.csharp:
   - uid: Discord.Optional`1
@@ -5822,10 +5903,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -5848,10 +5929,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IEnumerable`1
+  - uid: System.Collections.Generic.IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -5908,20 +5989,21 @@ references:
   name: ModifyEmoteAsync
   nameWithType: IGuild.ModifyEmoteAsync
   fullName: Discord.IGuild.ModifyEmoteAsync
-- uid: Action{Discord.EmoteProperties}
-  commentId: '!:Action{Discord.EmoteProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.EmoteProperties}
+  commentId: T:System.Action{Discord.EmoteProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<EmoteProperties>
   nameWithType: Action<EmoteProperties>
-  fullName: Action<Discord.EmoteProperties>
+  fullName: System.Action<Discord.EmoteProperties>
   nameWithType.vb: Action(Of EmoteProperties)
-  fullName.vb: Action(Of Discord.EmoteProperties)
+  fullName.vb: System.Action(Of Discord.EmoteProperties)
   name.vb: Action(Of EmoteProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -5934,10 +6016,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '

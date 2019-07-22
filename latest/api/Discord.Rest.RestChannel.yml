@@ -6,6 +6,9 @@ items:
   parent: Discord.Rest
   children:
   - Discord.Rest.RestChannel.CreatedAt
+  - Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.RestChannel.Discord#IChannel#Name
   - Discord.Rest.RestChannel.UpdateAsync(Discord.RequestOptions)
   langs:
   - csharp
@@ -17,7 +20,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestChannel
     path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
@@ -28,11 +31,11 @@ items:
   summary: "\nRepresents a generic REST-based channel.\n"
   example: []
   syntax:
-    content: 'public class RestChannel : RestEntity<ulong>, IEntity<ulong>, IChannel, ISnowflakeEntity, IEntity<ulong>, IUpdateable'
+    content: 'public class RestChannel : RestEntity<ulong>, IChannel, ISnowflakeEntity, IEntity<ulong>, IUpdateable'
     content.vb: >-
       Public Class RestChannel
           Inherits RestEntity(Of ULong)
-          Implements IEntity(Of ULong), IChannel, ISnowflakeEntity, IEntity(Of ULong), IUpdateable
+          Implements IChannel, ISnowflakeEntity, IEntity(Of ULong), IUpdateable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
@@ -41,13 +44,19 @@ items:
   - Discord.Rest.RestGroupChannel
   - Discord.Rest.RestGuildChannel
   implements:
-  - Discord.IEntity{System.UInt64}
   - Discord.IChannel
   - Discord.ISnowflakeEntity
   - Discord.IEntity{System.UInt64}
   - Discord.IUpdateable
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -68,7 +77,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreatedAt
     path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
@@ -76,14 +85,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: DateTimeOffset
+      type: System.DateTimeOffset
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.Rest.RestChannel.CreatedAt*
+  implements:
+  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -104,7 +117,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UpdateAsync
     path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
@@ -112,6 +125,7 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nUpdates this object&apos;s properties with its current state.\n"
   example: []
   syntax:
     content: public virtual Task UpdateAsync(RequestOptions options = null)
@@ -119,15 +133,147 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Overridable Function UpdateAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestChannel.UpdateAsync*
+  implements:
+  - Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   - virtual
   modifiers.vb:
   - Public
   - Overridable
+- uid: Discord.Rest.RestChannel.Discord#IChannel#Name
+  commentId: P:Discord.Rest.RestChannel.Discord#IChannel#Name
+  id: Discord#IChannel#Name
+  isEii: true
+  parent: Discord.Rest.RestChannel
+  langs:
+  - csharp
+  - vb
+  name: IChannel.Name
+  nameWithType: RestChannel.IChannel.Name
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.Name
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IChannel.Name
+    path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+    startLine: 58
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the name of this channel.\n"
+  example: []
+  syntax:
+    content: string IChannel.Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nA string containing the name of this channel.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IChannel.Name As String Implements IChannel.Name
+  overload: Discord.Rest.RestChannel.Discord#IChannel#Name*
+  implements:
+  - Discord.IChannel.Name
+  nameWithType.vb: RestChannel.Discord.IChannel.Name
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IChannel.Name
+- uid: Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  id: Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  isEii: true
+  parent: Discord.Rest.RestChannel
+  langs:
+  - csharp
+  - vb
+  name: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: RestChannel.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IChannel.GetUserAsync
+    path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+    startLine: 61
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets a user in this channel.\n"
+  example: []
+  syntax:
+    content: Task<IUser> IChannel.GetUserAsync(ulong id, CacheMode mode, RequestOptions options)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the user (e.g. <code>168693960628371456</code>).
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Threading.Tasks.Task{Discord.IUser}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a user object that\nrepresents the found user; <code>null</code> if none is found.\n"
+    content.vb: Function Discord.IChannel.GetUserAsync(id As ULong, mode As CacheMode, options As RequestOptions) As Task(Of IUser) Implements IChannel.GetUserAsync
+  overload: Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync*
+  implements:
+  - Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  nameWithType.vb: RestChannel.Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+- uid: Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  id: Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  isEii: true
+  parent: Discord.Rest.RestChannel
+  langs:
+  - csharp
+  - vb
+  name: IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  nameWithType: RestChannel.IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IChannel.GetUsersAsync
+    path: ../src/Discord.Net.Rest/Entities/Channels/RestChannel.cs
+    startLine: 64
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets a collection of all users in this channel.\n"
+  example: []
+  syntax:
+    content: IAsyncEnumerable<IReadOnlyCollection<IUser>> IChannel.GetUsersAsync(CacheMode mode, RequestOptions options)
+    parameters:
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+      description: "\nA paged collection containing a collection of users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+    content.vb: Function Discord.IChannel.GetUsersAsync(mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser)) Implements IChannel.GetUsersAsync
+  overload: Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync*
+  implements:
+  - Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  nameWithType.vb: RestChannel.Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
 references:
 - uid: Discord.Rest
   commentId: N:Discord.Rest
@@ -135,6 +281,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -181,6 +329,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IChannel
+  commentId: T:Discord.IChannel
+  parent: Discord
+  name: IChannel
+  nameWithType: IChannel
+  fullName: Discord.IChannel
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -223,18 +383,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IChannel
-  commentId: T:Discord.IChannel
-  parent: Discord
-  name: IChannel
-  nameWithType: IChannel
-  fullName: Discord.IChannel
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IUpdateable
   commentId: T:Discord.IUpdateable
   parent: Discord
@@ -250,6 +398,291 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -286,6 +719,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -322,11 +760,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -339,24 +772,430 @@ references:
   name: CreatedAt
   nameWithType: RestChannel.CreatedAt
   fullName: Discord.Rest.RestChannel.CreatedAt
-- uid: DateTimeOffset
+- uid: Discord.ISnowflakeEntity.CreatedAt
+  commentId: P:Discord.ISnowflakeEntity.CreatedAt
+  parent: Discord.ISnowflakeEntity
+  name: CreatedAt
+  nameWithType: ISnowflakeEntity.CreatedAt
+  fullName: Discord.ISnowflakeEntity.CreatedAt
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.Rest.RestChannel.UpdateAsync*
   commentId: Overload:Discord.Rest.RestChannel.UpdateAsync
   name: UpdateAsync
   nameWithType: RestChannel.UpdateAsync
   fullName: Discord.Rest.RestChannel.UpdateAsync
+- uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  commentId: M:Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  parent: Discord.IUpdateable
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdateable.UpdateAsync(RequestOptions)
+  fullName: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdateable.UpdateAsync
+    fullName: Discord.IUpdateable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdateable.UpdateAsync
+    fullName: Discord.IUpdateable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Discord.Rest.RestChannel.Discord#IChannel#Name*
+  commentId: Overload:Discord.Rest.RestChannel.Discord#IChannel#Name
+  name: IChannel.Name
+  nameWithType: RestChannel.IChannel.Name
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.Name
+  nameWithType.vb: RestChannel.Discord.IChannel.Name
+  name.vb: Discord.IChannel.Name
+- uid: Discord.IChannel.Name
+  commentId: P:Discord.IChannel.Name
+  parent: Discord.IChannel
+  name: Name
+  nameWithType: IChannel.Name
+  fullName: Discord.IChannel.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync*
+  commentId: Overload:Discord.Rest.RestChannel.Discord#IChannel#GetUserAsync
+  name: IChannel.GetUserAsync
+  nameWithType: RestChannel.IChannel.GetUserAsync
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.GetUserAsync
+  nameWithType.vb: RestChannel.Discord.IChannel.GetUserAsync
+  name.vb: Discord.IChannel.GetUserAsync
+- uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IChannel
+  isExternal: true
+  name: GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: GetUserAsync
+    nameWithType: IChannel.GetUserAsync
+    fullName: Discord.IChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: GetUserAsync
+    nameWithType: IChannel.GetUserAsync
+    fullName: Discord.IChannel.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.CacheMode
+  commentId: T:Discord.CacheMode
+  parent: Discord
+  name: CacheMode
+  nameWithType: CacheMode
+  fullName: Discord.CacheMode
+- uid: System.Threading.Tasks.Task{Discord.IUser}
+  commentId: T:System.Threading.Tasks.Task{Discord.IUser}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IUser>
+  nameWithType: Task<IUser>
+  fullName: System.Threading.Tasks.Task<Discord.IUser>
+  nameWithType.vb: Task(Of IUser)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IUser)
+  name.vb: Task(Of IUser)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync*
+  commentId: Overload:Discord.Rest.RestChannel.Discord#IChannel#GetUsersAsync
+  name: IChannel.GetUsersAsync
+  nameWithType: RestChannel.IChannel.GetUsersAsync
+  fullName: Discord.Rest.RestChannel.Discord.IChannel.GetUsersAsync
+  nameWithType.vb: RestChannel.Discord.IChannel.GetUsersAsync
+  name.vb: Discord.IChannel.GetUsersAsync
+- uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IChannel
+  name: GetUsersAsync(CacheMode, RequestOptions)
+  nameWithType: IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  fullName: Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: GetUsersAsync
+    nameWithType: IChannel.GetUsersAsync
+    fullName: Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: GetUsersAsync
+    nameWithType: IChannel.GetUsersAsync
+    fullName: Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
+  name: IAsyncEnumerable<IReadOnlyCollection<IUser>>
+  nameWithType: IAsyncEnumerable<IReadOnlyCollection<IUser>>
+  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IUser>>
+  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser))
+  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

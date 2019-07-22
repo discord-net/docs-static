@@ -14,7 +14,7 @@ items:
   - Discord.Rest.RestGuildIntegration.GuildId
   - Discord.Rest.RestGuildIntegration.IsEnabled
   - Discord.Rest.RestGuildIntegration.IsSyncing
-  - Discord.Rest.RestGuildIntegration.ModifyAsync(Action{Discord.GuildIntegrationProperties})
+  - Discord.Rest.RestGuildIntegration.ModifyAsync(System.Action{Discord.GuildIntegrationProperties})
   - Discord.Rest.RestGuildIntegration.Name
   - Discord.Rest.RestGuildIntegration.RoleId
   - Discord.Rest.RestGuildIntegration.SyncAsync
@@ -32,7 +32,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestGuildIntegration
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -54,6 +54,12 @@ items:
   - Discord.IGuildIntegration
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -74,7 +80,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -82,14 +88,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the integration name.\n"
   example: []
   syntax:
     content: public string Name { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the name of this integration.\n"
     content.vb: Public ReadOnly Property Name As String
   overload: Discord.Rest.RestGuildIntegration.Name*
+  implements:
+  - Discord.IGuildIntegration.Name
   modifiers.csharp:
   - public
   - get
@@ -110,7 +120,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Type
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -118,14 +128,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the integration type (Twitch, YouTube, etc).\n"
   example: []
   syntax:
     content: public string Type { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string containing the name of the type of integration.\n"
     content.vb: Public ReadOnly Property Type As String
   overload: Discord.Rest.RestGuildIntegration.Type*
+  implements:
+  - Discord.IGuildIntegration.Type
   modifiers.csharp:
   - public
   - get
@@ -146,7 +160,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsEnabled
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -154,14 +168,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether this integration is enabled or not.\n"
   example: []
   syntax:
     content: public bool IsEnabled { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this integration is enabled; otherwise <code>false</code>.\n"
     content.vb: Public ReadOnly Property IsEnabled As Boolean
   overload: Discord.Rest.RestGuildIntegration.IsEnabled*
+  implements:
+  - Discord.IGuildIntegration.IsEnabled
   modifiers.csharp:
   - public
   - get
@@ -182,7 +200,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsSyncing
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -190,14 +208,19 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether this integration is syncing or not.\n"
+  remarks: "\nAn integration with syncing enabled will update its &quot;subscribers&quot; on an interval, while one with syncing\ndisabled will not. A user must manually choose when sync the integration if syncing is disabled.\n"
   example: []
   syntax:
     content: public bool IsSyncing { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this integration is syncing; otherwise <code>false</code>.\n"
     content.vb: Public ReadOnly Property IsSyncing As Boolean
   overload: Discord.Rest.RestGuildIntegration.IsSyncing*
+  implements:
+  - Discord.IGuildIntegration.IsSyncing
   modifiers.csharp:
   - public
   - get
@@ -218,7 +241,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ExpireBehavior
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -226,6 +249,7 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the ID that this integration uses for &quot;subscribers&quot;.\n"
   example: []
   syntax:
     content: public ulong ExpireBehavior { get; }
@@ -234,6 +258,8 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property ExpireBehavior As ULong
   overload: Discord.Rest.RestGuildIntegration.ExpireBehavior*
+  implements:
+  - Discord.IGuildIntegration.ExpireBehavior
   modifiers.csharp:
   - public
   - get
@@ -254,7 +280,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ExpireGracePeriod
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -262,6 +288,7 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the grace period before expiring &quot;subscribers&quot;.\n"
   example: []
   syntax:
     content: public ulong ExpireGracePeriod { get; }
@@ -270,6 +297,8 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property ExpireGracePeriod As ULong
   overload: Discord.Rest.RestGuildIntegration.ExpireGracePeriod*
+  implements:
+  - Discord.IGuildIntegration.ExpireGracePeriod
   modifiers.csharp:
   - public
   - get
@@ -290,7 +319,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildId
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -306,6 +335,8 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property GuildId As ULong
   overload: Discord.Rest.RestGuildIntegration.GuildId*
+  implements:
+  - Discord.IGuildIntegration.GuildId
   modifiers.csharp:
   - public
   - get
@@ -326,7 +357,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RoleId
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -342,6 +373,8 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property RoleId As ULong
   overload: Discord.Rest.RestGuildIntegration.RoleId*
+  implements:
+  - Discord.IGuildIntegration.RoleId
   modifiers.csharp:
   - public
   - get
@@ -362,7 +395,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: User
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -397,7 +430,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Account
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -436,7 +469,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SyncedAt
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -444,14 +477,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets when this integration was last synced.\n"
   example: []
   syntax:
     content: public DateTimeOffset SyncedAt { get; }
     parameters: []
     return:
-      type: DateTimeOffset
+      type: System.DateTimeOffset
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> containing a date and time of day when the integration was last synced.\n"
     content.vb: Public ReadOnly Property SyncedAt As DateTimeOffset
   overload: Discord.Rest.RestGuildIntegration.SyncedAt*
+  implements:
+  - Discord.IGuildIntegration.SyncedAt
   modifiers.csharp:
   - public
   - get
@@ -472,7 +509,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteAsync
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -483,28 +520,28 @@ items:
   syntax:
     content: public Task DeleteAsync()
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function DeleteAsync As Task
   overload: Discord.Rest.RestGuildIntegration.DeleteAsync*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.Rest.RestGuildIntegration.ModifyAsync(Action{Discord.GuildIntegrationProperties})
-  commentId: M:Discord.Rest.RestGuildIntegration.ModifyAsync(Action{Discord.GuildIntegrationProperties})
-  id: ModifyAsync(Action{Discord.GuildIntegrationProperties})
+- uid: Discord.Rest.RestGuildIntegration.ModifyAsync(System.Action{Discord.GuildIntegrationProperties})
+  commentId: M:Discord.Rest.RestGuildIntegration.ModifyAsync(System.Action{Discord.GuildIntegrationProperties})
+  id: ModifyAsync(System.Action{Discord.GuildIntegrationProperties})
   parent: Discord.Rest.RestGuildIntegration
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<GuildIntegrationProperties>)
   nameWithType: RestGuildIntegration.ModifyAsync(Action<GuildIntegrationProperties>)
-  fullName: Discord.Rest.RestGuildIntegration.ModifyAsync(Action<Discord.GuildIntegrationProperties>)
+  fullName: Discord.Rest.RestGuildIntegration.ModifyAsync(System.Action<Discord.GuildIntegrationProperties>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -516,9 +553,9 @@ items:
     content: public Task ModifyAsync(Action<GuildIntegrationProperties> func)
     parameters:
     - id: func
-      type: Action{Discord.GuildIntegrationProperties}
+      type: System.Action{Discord.GuildIntegrationProperties}
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function ModifyAsync(func As Action(Of GuildIntegrationProperties)) As Task
   overload: Discord.Rest.RestGuildIntegration.ModifyAsync*
   nameWithType.vb: RestGuildIntegration.ModifyAsync(Action(Of GuildIntegrationProperties))
@@ -526,7 +563,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Rest.RestGuildIntegration.ModifyAsync(Action(Of Discord.GuildIntegrationProperties))
+  fullName.vb: Discord.Rest.RestGuildIntegration.ModifyAsync(System.Action(Of Discord.GuildIntegrationProperties))
   name.vb: ModifyAsync(Action(Of GuildIntegrationProperties))
 - uid: Discord.Rest.RestGuildIntegration.SyncAsync
   commentId: M:Discord.Rest.RestGuildIntegration.SyncAsync
@@ -542,7 +579,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SyncAsync
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -553,7 +590,7 @@ items:
   syntax:
     content: public Task SyncAsync()
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function SyncAsync As Task
   overload: Discord.Rest.RestGuildIntegration.SyncAsync*
   modifiers.csharp:
@@ -574,7 +611,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -587,6 +624,7 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
   overload: Discord.Rest.RestGuildIntegration.ToString*
   modifiers.csharp:
   - public
@@ -609,7 +647,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuildIntegration.Guild
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -648,7 +686,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuildIntegration.User
     path: ../src/Discord.Net.Rest/Entities/Guilds/RestGuildIntegration.cs
@@ -679,6 +717,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -782,6 +822,260 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -871,7 +1165,15 @@ references:
   name: Name
   nameWithType: RestGuildIntegration.Name
   fullName: Discord.Rest.RestGuildIntegration.Name
+- uid: Discord.IGuildIntegration.Name
+  commentId: P:Discord.IGuildIntegration.Name
+  parent: Discord.IGuildIntegration
+  name: Name
+  nameWithType: IGuildIntegration.Name
+  fullName: Discord.IGuildIntegration.Name
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -881,12 +1183,26 @@ references:
   name: Type
   nameWithType: RestGuildIntegration.Type
   fullName: Discord.Rest.RestGuildIntegration.Type
+- uid: Discord.IGuildIntegration.Type
+  commentId: P:Discord.IGuildIntegration.Type
+  parent: Discord.IGuildIntegration
+  name: Type
+  nameWithType: IGuildIntegration.Type
+  fullName: Discord.IGuildIntegration.Type
 - uid: Discord.Rest.RestGuildIntegration.IsEnabled*
   commentId: Overload:Discord.Rest.RestGuildIntegration.IsEnabled
   name: IsEnabled
   nameWithType: RestGuildIntegration.IsEnabled
   fullName: Discord.Rest.RestGuildIntegration.IsEnabled
+- uid: Discord.IGuildIntegration.IsEnabled
+  commentId: P:Discord.IGuildIntegration.IsEnabled
+  parent: Discord.IGuildIntegration
+  name: IsEnabled
+  nameWithType: IGuildIntegration.IsEnabled
+  fullName: Discord.IGuildIntegration.IsEnabled
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -896,12 +1212,26 @@ references:
   name: IsSyncing
   nameWithType: RestGuildIntegration.IsSyncing
   fullName: Discord.Rest.RestGuildIntegration.IsSyncing
+- uid: Discord.IGuildIntegration.IsSyncing
+  commentId: P:Discord.IGuildIntegration.IsSyncing
+  parent: Discord.IGuildIntegration
+  name: IsSyncing
+  nameWithType: IGuildIntegration.IsSyncing
+  fullName: Discord.IGuildIntegration.IsSyncing
 - uid: Discord.Rest.RestGuildIntegration.ExpireBehavior*
   commentId: Overload:Discord.Rest.RestGuildIntegration.ExpireBehavior
   name: ExpireBehavior
   nameWithType: RestGuildIntegration.ExpireBehavior
   fullName: Discord.Rest.RestGuildIntegration.ExpireBehavior
+- uid: Discord.IGuildIntegration.ExpireBehavior
+  commentId: P:Discord.IGuildIntegration.ExpireBehavior
+  parent: Discord.IGuildIntegration
+  name: ExpireBehavior
+  nameWithType: IGuildIntegration.ExpireBehavior
+  fullName: Discord.IGuildIntegration.ExpireBehavior
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -911,16 +1241,34 @@ references:
   name: ExpireGracePeriod
   nameWithType: RestGuildIntegration.ExpireGracePeriod
   fullName: Discord.Rest.RestGuildIntegration.ExpireGracePeriod
+- uid: Discord.IGuildIntegration.ExpireGracePeriod
+  commentId: P:Discord.IGuildIntegration.ExpireGracePeriod
+  parent: Discord.IGuildIntegration
+  name: ExpireGracePeriod
+  nameWithType: IGuildIntegration.ExpireGracePeriod
+  fullName: Discord.IGuildIntegration.ExpireGracePeriod
 - uid: Discord.Rest.RestGuildIntegration.GuildId*
   commentId: Overload:Discord.Rest.RestGuildIntegration.GuildId
   name: GuildId
   nameWithType: RestGuildIntegration.GuildId
   fullName: Discord.Rest.RestGuildIntegration.GuildId
+- uid: Discord.IGuildIntegration.GuildId
+  commentId: P:Discord.IGuildIntegration.GuildId
+  parent: Discord.IGuildIntegration
+  name: GuildId
+  nameWithType: IGuildIntegration.GuildId
+  fullName: Discord.IGuildIntegration.GuildId
 - uid: Discord.Rest.RestGuildIntegration.RoleId*
   commentId: Overload:Discord.Rest.RestGuildIntegration.RoleId
   name: RoleId
   nameWithType: RestGuildIntegration.RoleId
   fullName: Discord.Rest.RestGuildIntegration.RoleId
+- uid: Discord.IGuildIntegration.RoleId
+  commentId: P:Discord.IGuildIntegration.RoleId
+  parent: Discord.IGuildIntegration
+  name: RoleId
+  nameWithType: IGuildIntegration.RoleId
+  fullName: Discord.IGuildIntegration.RoleId
 - uid: Discord.Rest.RestGuildIntegration.User*
   commentId: Overload:Discord.Rest.RestGuildIntegration.User
   name: User
@@ -954,40 +1302,57 @@ references:
   name: SyncedAt
   nameWithType: RestGuildIntegration.SyncedAt
   fullName: Discord.Rest.RestGuildIntegration.SyncedAt
-- uid: DateTimeOffset
+- uid: Discord.IGuildIntegration.SyncedAt
+  commentId: P:Discord.IGuildIntegration.SyncedAt
+  parent: Discord.IGuildIntegration
+  name: SyncedAt
+  nameWithType: IGuildIntegration.SyncedAt
+  fullName: Discord.IGuildIntegration.SyncedAt
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.Rest.RestGuildIntegration.DeleteAsync*
   commentId: Overload:Discord.Rest.RestGuildIntegration.DeleteAsync
   name: DeleteAsync
   nameWithType: RestGuildIntegration.DeleteAsync
   fullName: Discord.Rest.RestGuildIntegration.DeleteAsync
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.Rest.RestGuildIntegration.ModifyAsync*
   commentId: Overload:Discord.Rest.RestGuildIntegration.ModifyAsync
   name: ModifyAsync
   nameWithType: RestGuildIntegration.ModifyAsync
   fullName: Discord.Rest.RestGuildIntegration.ModifyAsync
-- uid: Action{Discord.GuildIntegrationProperties}
-  commentId: '!:Action{Discord.GuildIntegrationProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.GuildIntegrationProperties}
+  commentId: T:System.Action{Discord.GuildIntegrationProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<GuildIntegrationProperties>
   nameWithType: Action<GuildIntegrationProperties>
-  fullName: Action<Discord.GuildIntegrationProperties>
+  fullName: System.Action<Discord.GuildIntegrationProperties>
   nameWithType.vb: Action(Of GuildIntegrationProperties)
-  fullName.vb: Action(Of Discord.GuildIntegrationProperties)
+  fullName.vb: System.Action(Of Discord.GuildIntegrationProperties)
   name.vb: Action(Of GuildIntegrationProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1000,10 +1365,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1015,41 +1380,42 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Action`1
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -1058,6 +1424,37 @@ references:
   name: SyncAsync
   nameWithType: RestGuildIntegration.SyncAsync
   fullName: Discord.Rest.RestGuildIntegration.SyncAsync
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Rest.RestGuildIntegration.ToString*
   commentId: Overload:Discord.Rest.RestGuildIntegration.ToString
   name: ToString

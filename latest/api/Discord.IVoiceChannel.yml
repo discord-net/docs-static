@@ -6,7 +6,7 @@ items:
   parent: Discord
   children:
   - Discord.IVoiceChannel.Bitrate
-  - Discord.IVoiceChannel.ModifyAsync(Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  - Discord.IVoiceChannel.ModifyAsync(System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
   - Discord.IVoiceChannel.UserLimit
   langs:
   - csharp
@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IVoiceChannel
     path: ../src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
@@ -43,7 +43,7 @@ items:
   - Discord.IGuildChannel.Guild
   - Discord.IGuildChannel.GuildId
   - Discord.IGuildChannel.PermissionOverwrites
-  - Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   - Discord.IGuildChannel.GetPermissionOverwrite(Discord.IRole)
   - Discord.IGuildChannel.GetPermissionOverwrite(Discord.IUser)
   - Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Bitrate
     path: ../src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
@@ -93,7 +93,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "\nAn <see cref=\"!:System.Int32\"></see> representing the bit-rate (bps) that this voice channel defines and requests the\nclient(s) to use.\n"
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the bit-rate (bps) that this voice channel defines and requests the\nclient(s) to use.\n"
     content.vb: ReadOnly Property Bitrate As Integer
   overload: Discord.IVoiceChannel.Bitrate*
   modifiers.csharp:
@@ -114,7 +114,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UserLimit
     path: ../src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
@@ -129,28 +129,28 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-      description: "\nAn <see cref=\"!:System.Int32\"></see> representing the maximum number of users that are allowed to be connected to this\nchannel at once; <code>null</code> if a limit is not set.\n"
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the maximum number of users that are allowed to be connected to this\nchannel at once; <code>null</code> if a limit is not set.\n"
     content.vb: ReadOnly Property UserLimit As Integer?
   overload: Discord.IVoiceChannel.UserLimit*
   modifiers.csharp:
   - get
   modifiers.vb:
   - ReadOnly
-- uid: Discord.IVoiceChannel.ModifyAsync(Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IVoiceChannel.ModifyAsync(Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
-  id: ModifyAsync(Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+- uid: Discord.IVoiceChannel.ModifyAsync(System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IVoiceChannel.ModifyAsync(System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
+  id: ModifyAsync(System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)
   parent: Discord.IVoiceChannel
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<VoiceChannelProperties>, RequestOptions)
   nameWithType: IVoiceChannel.ModifyAsync(Action<VoiceChannelProperties>, RequestOptions)
-  fullName: Discord.IVoiceChannel.ModifyAsync(Action<Discord.VoiceChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IVoiceChannel.ModifyAsync(System.Action<Discord.VoiceChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs
@@ -164,13 +164,13 @@ items:
     content: Task ModifyAsync(Action<VoiceChannelProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.VoiceChannelProperties}
+      type: System.Action{Discord.VoiceChannelProperties}
       description: The properties to modify the channel with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyAsync(func As Action(Of VoiceChannelProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IVoiceChannel.ModifyAsync*
@@ -178,7 +178,7 @@ items:
   - linkId: Discord.VoiceChannelProperties
     commentId: T:Discord.VoiceChannelProperties
   nameWithType.vb: IVoiceChannel.ModifyAsync(Action(Of VoiceChannelProperties), RequestOptions)
-  fullName.vb: Discord.IVoiceChannel.ModifyAsync(Action(Of Discord.VoiceChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IVoiceChannel.ModifyAsync(System.Action(Of Discord.VoiceChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of VoiceChannelProperties), RequestOptions)
 references:
 - uid: Discord
@@ -486,28 +486,28 @@ references:
   name: PermissionOverwrites
   nameWithType: IGuildChannel.PermissionOverwrites
   fullName: Discord.IGuildChannel.PermissionOverwrites
-- uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuildChannel
   isExternal: true
   name: ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
   nameWithType: IGuildChannel.ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
-  fullName: Discord.IGuildChannel.ModifyAsync(Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuildChannel.ModifyAsync(System.Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: IGuildChannel.ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuildChannel.ModifyAsync(Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildChannel.ModifyAsync(System.Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildChannel.ModifyAsync
     fullName: Discord.IGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -530,17 +530,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildChannel.ModifyAsync
     fullName: Discord.IGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1256,23 +1256,32 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
 - uid: Discord.IVoiceChannel.Bitrate*
   commentId: Overload:Discord.IVoiceChannel.Bitrate
   name: Bitrate
   nameWithType: IVoiceChannel.Bitrate
   fullName: Discord.IVoiceChannel.Bitrate
-- uid: System.Int32
+- uid: System
+  commentId: N:System
   isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.IVoiceChannel.UserLimit*
   commentId: Overload:Discord.IVoiceChannel.UserLimit
   name: UserLimit
   nameWithType: IVoiceChannel.UserLimit
   fullName: Discord.IVoiceChannel.UserLimit
 - uid: System.Nullable{System.Int32}
-  commentId: '!:System.Nullable{System.Int32}'
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -1315,13 +1324,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1331,9 +1341,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1346,9 +1356,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -1362,20 +1372,21 @@ references:
   name: ModifyAsync
   nameWithType: IVoiceChannel.ModifyAsync
   fullName: Discord.IVoiceChannel.ModifyAsync
-- uid: Action{Discord.VoiceChannelProperties}
-  commentId: '!:Action{Discord.VoiceChannelProperties}'
-  definition: Action`1
+- uid: System.Action{Discord.VoiceChannelProperties}
+  commentId: T:System.Action{Discord.VoiceChannelProperties}
+  parent: System
+  definition: System.Action`1
   name: Action<VoiceChannelProperties>
   nameWithType: Action<VoiceChannelProperties>
-  fullName: Action<Discord.VoiceChannelProperties>
+  fullName: System.Action<Discord.VoiceChannelProperties>
   nameWithType.vb: Action(Of VoiceChannelProperties)
-  fullName.vb: Action(Of Discord.VoiceChannelProperties)
+  fullName.vb: System.Action(Of Discord.VoiceChannelProperties)
   name.vb: Action(Of VoiceChannelProperties)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1388,10 +1399,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1409,46 +1420,55 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
-- uid: Action`1
+  fullName: System.Threading.Tasks.Task
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

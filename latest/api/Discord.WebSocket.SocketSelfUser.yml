@@ -14,7 +14,7 @@ items:
   - Discord.WebSocket.SocketSelfUser.IsVerified
   - Discord.WebSocket.SocketSelfUser.IsWebhook
   - Discord.WebSocket.SocketSelfUser.Locale
-  - Discord.WebSocket.SocketSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  - Discord.WebSocket.SocketSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   - Discord.WebSocket.SocketSelfUser.PremiumType
   - Discord.WebSocket.SocketSelfUser.Username
   langs:
@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SocketSelfUser
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -38,17 +38,16 @@ items:
   summary: "\nRepresents the logged-in WebSocket-based user.\n"
   example: []
   syntax:
-    content: 'public class SocketSelfUser : SocketUser, IEntity<ulong>, ISelfUser, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence'
+    content: 'public class SocketSelfUser : SocketUser, ISelfUser, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence'
     content.vb: >-
       Public Class SocketSelfUser
           Inherits SocketUser
-          Implements IEntity(Of ULong), ISelfUser, IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence
+          Implements ISelfUser, IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence
   inheritance:
   - System.Object
   - Discord.WebSocket.SocketEntity{System.UInt64}
   - Discord.WebSocket.SocketUser
   implements:
-  - Discord.IEntity{System.UInt64}
   - Discord.ISelfUser
   - Discord.IUser
   - Discord.ISnowflakeEntity
@@ -68,6 +67,12 @@ items:
   - Discord.WebSocket.SocketUser.GetDefaultAvatarUrl
   - Discord.WebSocket.SocketUser.ToString
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -88,7 +93,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Email
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -96,6 +101,7 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the email associated with this user.\n"
   example: []
   syntax:
     content: public string Email { get; }
@@ -104,6 +110,8 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Email As String
   overload: Discord.WebSocket.SocketSelfUser.Email*
+  implements:
+  - Discord.ISelfUser.Email
   modifiers.csharp:
   - public
   - get
@@ -124,7 +132,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsVerified
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -132,14 +140,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nIndicates whether or not this user has their email verified.\n"
   example: []
   syntax:
     content: public bool IsVerified { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this user&apos;s email has been verified; <code>false</code> if not.\n"
     content.vb: Public ReadOnly Property IsVerified As Boolean
   overload: Discord.WebSocket.SocketSelfUser.IsVerified*
+  implements:
+  - Discord.ISelfUser.IsVerified
   modifiers.csharp:
   - public
   - get
@@ -160,7 +172,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsMfaEnabled
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -168,14 +180,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nIndicates whether or not this user has MFA enabled on their account.\n"
   example: []
   syntax:
     content: public bool IsMfaEnabled { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this user has enabled multi-factor authentication on their account; <code>false</code> if not.\n"
     content.vb: Public ReadOnly Property IsMfaEnabled As Boolean
   overload: Discord.WebSocket.SocketSelfUser.IsMfaEnabled*
+  implements:
+  - Discord.ISelfUser.IsMfaEnabled
   modifiers.csharp:
   - public
   - get
@@ -196,7 +212,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsBot
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -204,15 +220,20 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets a value that indicates whether this user is identified as a bot.\n"
+  remarks: "\nThis property retrieves a value that indicates whether this user is a registered bot application\n(indicated by the blue BOT tag within the official chat client).\n"
   example: []
   syntax:
     content: public override bool IsBot { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if the user is a bot application; otherwise <code>false</code>.\n"
     content.vb: Public Overrides ReadOnly Property IsBot As Boolean
   overridden: Discord.WebSocket.SocketUser.IsBot
   overload: Discord.WebSocket.SocketSelfUser.IsBot*
+  implements:
+  - Discord.IUser.IsBot
   modifiers.csharp:
   - public
   - override
@@ -235,7 +256,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Username
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -243,6 +264,7 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the username for this user.\n"
   example: []
   syntax:
     content: public override string Username { get; }
@@ -252,6 +274,8 @@ items:
     content.vb: Public Overrides ReadOnly Property Username As String
   overridden: Discord.WebSocket.SocketUser.Username
   overload: Discord.WebSocket.SocketSelfUser.Username*
+  implements:
+  - Discord.IUser.Username
   modifiers.csharp:
   - public
   - override
@@ -274,7 +298,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DiscriminatorValue
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -282,6 +306,7 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the per-username unique ID for this user.\n"
   example: []
   syntax:
     content: public override ushort DiscriminatorValue { get; }
@@ -291,6 +316,8 @@ items:
     content.vb: Public Overrides ReadOnly Property DiscriminatorValue As UShort
   overridden: Discord.WebSocket.SocketUser.DiscriminatorValue
   overload: Discord.WebSocket.SocketSelfUser.DiscriminatorValue*
+  implements:
+  - Discord.IUser.DiscriminatorValue
   modifiers.csharp:
   - public
   - override
@@ -313,7 +340,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AvatarId
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -321,6 +348,7 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the identifier of this user&apos;s avatar.\n"
   example: []
   syntax:
     content: public override string AvatarId { get; }
@@ -330,6 +358,8 @@ items:
     content.vb: Public Overrides ReadOnly Property AvatarId As String
   overridden: Discord.WebSocket.SocketUser.AvatarId
   overload: Discord.WebSocket.SocketSelfUser.AvatarId*
+  implements:
+  - Discord.IUser.AvatarId
   modifiers.csharp:
   - public
   - override
@@ -352,7 +382,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Flags
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -393,7 +423,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumType
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -434,7 +464,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Locale
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -442,14 +472,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the user&apos;s chosen language option.\n"
   example: []
   syntax:
     content: public string Locale { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nThe IETF language tag of the user&apos;s chosen region, if provided.\nFor example, a locale of &quot;English, US&quot; is &quot;en-US&quot;, &quot;Chinese (Taiwan)&quot; is &quot;zh-TW&quot;, etc.\n"
     content.vb: Public ReadOnly Property Locale As String
   overload: Discord.WebSocket.SocketSelfUser.Locale*
+  implements:
+  - Discord.ISelfUser.Locale
   modifiers.csharp:
   - public
   - get
@@ -470,7 +504,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsWebhook
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -478,15 +512,19 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets a value that indicates whether this user is a webhook user.\n"
   example: []
   syntax:
     content: public override bool IsWebhook { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if the user is a webhook; otherwise <code>false</code>.\n"
     content.vb: Public Overrides ReadOnly Property IsWebhook As Boolean
   overridden: Discord.WebSocket.SocketUser.IsWebhook
   overload: Discord.WebSocket.SocketSelfUser.IsWebhook*
+  implements:
+  - Discord.IUser.IsWebhook
   modifiers.csharp:
   - public
   - override
@@ -495,21 +533,21 @@ items:
   - Public
   - Overrides
   - ReadOnly
-- uid: Discord.WebSocket.SocketSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  id: ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  id: ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   parent: Discord.WebSocket.SocketSelfUser
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
   nameWithType: SocketSelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
-  fullName: Discord.WebSocket.SocketSelfUser.ModifyAsync(Action<Discord.SelfUserProperties>, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketSelfUser.ModifyAsync(System.Action<Discord.SelfUserProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
       path: src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketSelfUser.cs
@@ -517,24 +555,27 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nModifies the user&apos;s properties.\n"
   example: []
   syntax:
     content: public Task ModifyAsync(Action<SelfUserProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: Action{Discord.SelfUserProperties}
+      type: System.Action{Discord.SelfUserProperties}
     - id: options
       type: Discord.RequestOptions
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function ModifyAsync(func As Action(Of SelfUserProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketSelfUser.ModifyAsync*
+  implements:
+  - Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   nameWithType.vb: SocketSelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.WebSocket.SocketSelfUser.ModifyAsync(Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.WebSocket.SocketSelfUser.ModifyAsync(System.Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
 references:
 - uid: Discord.WebSocket
@@ -543,6 +584,8 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -595,6 +638,24 @@ references:
   name: SocketUser
   nameWithType: SocketUser
   fullName: Discord.WebSocket.SocketUser
+- uid: Discord.ISelfUser
+  commentId: T:Discord.ISelfUser
+  parent: Discord
+  name: ISelfUser
+  nameWithType: ISelfUser
+  fullName: Discord.ISelfUser
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -637,24 +698,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.ISelfUser
-  commentId: T:Discord.ISelfUser
-  parent: Discord
-  name: ISelfUser
-  nameWithType: ISelfUser
-  fullName: Discord.ISelfUser
-- uid: Discord.IUser
-  commentId: T:Discord.IUser
-  parent: Discord
-  name: IUser
-  nameWithType: IUser
-  fullName: Discord.IUser
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IMentionable
   commentId: T:Discord.IMentionable
   parent: Discord
@@ -863,6 +906,260 @@ references:
   fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
   nameWithType.vb: SocketEntity(Of UInt64).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.WebSocket.SocketEntity`1
   commentId: T:Discord.WebSocket.SocketEntity`1
   name: SocketEntity<T>
@@ -899,6 +1196,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -935,11 +1237,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.WebSocket.SocketEntity`1.Id
   commentId: P:Discord.WebSocket.SocketEntity`1.Id
   name: Id
@@ -952,7 +1249,15 @@ references:
   name: Email
   nameWithType: SocketSelfUser.Email
   fullName: Discord.WebSocket.SocketSelfUser.Email
+- uid: Discord.ISelfUser.Email
+  commentId: P:Discord.ISelfUser.Email
+  parent: Discord.ISelfUser
+  name: Email
+  nameWithType: ISelfUser.Email
+  fullName: Discord.ISelfUser.Email
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -962,7 +1267,15 @@ references:
   name: IsVerified
   nameWithType: SocketSelfUser.IsVerified
   fullName: Discord.WebSocket.SocketSelfUser.IsVerified
+- uid: Discord.ISelfUser.IsVerified
+  commentId: P:Discord.ISelfUser.IsVerified
+  parent: Discord.ISelfUser
+  name: IsVerified
+  nameWithType: ISelfUser.IsVerified
+  fullName: Discord.ISelfUser.IsVerified
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -972,6 +1285,12 @@ references:
   name: IsMfaEnabled
   nameWithType: SocketSelfUser.IsMfaEnabled
   fullName: Discord.WebSocket.SocketSelfUser.IsMfaEnabled
+- uid: Discord.ISelfUser.IsMfaEnabled
+  commentId: P:Discord.ISelfUser.IsMfaEnabled
+  parent: Discord.ISelfUser
+  name: IsMfaEnabled
+  nameWithType: ISelfUser.IsMfaEnabled
+  fullName: Discord.ISelfUser.IsMfaEnabled
 - uid: Discord.WebSocket.SocketUser.IsBot
   commentId: P:Discord.WebSocket.SocketUser.IsBot
   parent: Discord.WebSocket.SocketUser
@@ -983,6 +1302,12 @@ references:
   name: IsBot
   nameWithType: SocketSelfUser.IsBot
   fullName: Discord.WebSocket.SocketSelfUser.IsBot
+- uid: Discord.IUser.IsBot
+  commentId: P:Discord.IUser.IsBot
+  parent: Discord.IUser
+  name: IsBot
+  nameWithType: IUser.IsBot
+  fullName: Discord.IUser.IsBot
 - uid: Discord.WebSocket.SocketUser.Username
   commentId: P:Discord.WebSocket.SocketUser.Username
   parent: Discord.WebSocket.SocketUser
@@ -994,6 +1319,12 @@ references:
   name: Username
   nameWithType: SocketSelfUser.Username
   fullName: Discord.WebSocket.SocketSelfUser.Username
+- uid: Discord.IUser.Username
+  commentId: P:Discord.IUser.Username
+  parent: Discord.IUser
+  name: Username
+  nameWithType: IUser.Username
+  fullName: Discord.IUser.Username
 - uid: Discord.WebSocket.SocketUser.DiscriminatorValue
   commentId: P:Discord.WebSocket.SocketUser.DiscriminatorValue
   parent: Discord.WebSocket.SocketUser
@@ -1005,7 +1336,15 @@ references:
   name: DiscriminatorValue
   nameWithType: SocketSelfUser.DiscriminatorValue
   fullName: Discord.WebSocket.SocketSelfUser.DiscriminatorValue
+- uid: Discord.IUser.DiscriminatorValue
+  commentId: P:Discord.IUser.DiscriminatorValue
+  parent: Discord.IUser
+  name: DiscriminatorValue
+  nameWithType: IUser.DiscriminatorValue
+  fullName: Discord.IUser.DiscriminatorValue
 - uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
@@ -1021,6 +1360,12 @@ references:
   name: AvatarId
   nameWithType: SocketSelfUser.AvatarId
   fullName: Discord.WebSocket.SocketSelfUser.AvatarId
+- uid: Discord.IUser.AvatarId
+  commentId: P:Discord.IUser.AvatarId
+  parent: Discord.IUser
+  name: AvatarId
+  nameWithType: IUser.AvatarId
+  fullName: Discord.IUser.AvatarId
 - uid: Discord.WebSocket.SocketSelfUser.Flags*
   commentId: Overload:Discord.WebSocket.SocketSelfUser.Flags
   name: Flags
@@ -1060,6 +1405,12 @@ references:
   name: Locale
   nameWithType: SocketSelfUser.Locale
   fullName: Discord.WebSocket.SocketSelfUser.Locale
+- uid: Discord.ISelfUser.Locale
+  commentId: P:Discord.ISelfUser.Locale
+  parent: Discord.ISelfUser
+  name: Locale
+  nameWithType: ISelfUser.Locale
+  fullName: Discord.ISelfUser.Locale
 - uid: Discord.WebSocket.SocketUser.IsWebhook
   commentId: P:Discord.WebSocket.SocketUser.IsWebhook
   parent: Discord.WebSocket.SocketUser
@@ -1071,25 +1422,108 @@ references:
   name: IsWebhook
   nameWithType: SocketSelfUser.IsWebhook
   fullName: Discord.WebSocket.SocketSelfUser.IsWebhook
+- uid: Discord.IUser.IsWebhook
+  commentId: P:Discord.IUser.IsWebhook
+  parent: Discord.IUser
+  name: IsWebhook
+  nameWithType: IUser.IsWebhook
+  fullName: Discord.IUser.IsWebhook
 - uid: Discord.WebSocket.SocketSelfUser.ModifyAsync*
   commentId: Overload:Discord.WebSocket.SocketSelfUser.ModifyAsync
   name: ModifyAsync
   nameWithType: SocketSelfUser.ModifyAsync
   fullName: Discord.WebSocket.SocketSelfUser.ModifyAsync
-- uid: Action{Discord.SelfUserProperties}
-  commentId: '!:Action{Discord.SelfUserProperties}'
-  definition: Action`1
-  name: Action<SelfUserProperties>
-  nameWithType: Action<SelfUserProperties>
-  fullName: Action<Discord.SelfUserProperties>
-  nameWithType.vb: Action(Of SelfUserProperties)
-  fullName.vb: Action(Of Discord.SelfUserProperties)
-  name.vb: Action(Of SelfUserProperties)
+- uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  parent: Discord.ISelfUser
+  isExternal: true
+  name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
+  nameWithType: ISelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
+  fullName: Discord.ISelfUser.ModifyAsync(System.Action<Discord.SelfUserProperties>, Discord.RequestOptions)
+  nameWithType.vb: ISelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
+  fullName.vb: Discord.ISelfUser.ModifyAsync(System.Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
+  name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
   spec.csharp:
-  - uid: Action`1
+  - uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+    name: ModifyAsync
+    nameWithType: ISelfUser.ModifyAsync
+    fullName: Discord.ISelfUser.ModifyAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.SelfUserProperties
+    name: SelfUserProperties
+    nameWithType: SelfUserProperties
+    fullName: Discord.SelfUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+    name: ModifyAsync
+    nameWithType: ISelfUser.ModifyAsync
+    fullName: Discord.ISelfUser.ModifyAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.SelfUserProperties
+    name: SelfUserProperties
+    nameWithType: SelfUserProperties
+    fullName: Discord.SelfUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action{Discord.SelfUserProperties}
+  commentId: T:System.Action{Discord.SelfUserProperties}
+  parent: System
+  definition: System.Action`1
+  name: Action<SelfUserProperties>
+  nameWithType: Action<SelfUserProperties>
+  fullName: System.Action<Discord.SelfUserProperties>
+  nameWithType.vb: Action(Of SelfUserProperties)
+  fullName.vb: System.Action(Of Discord.SelfUserProperties)
+  name.vb: Action(Of SelfUserProperties)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1102,10 +1536,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1123,46 +1557,55 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
-- uid: Action`1
+  fullName: System.Threading.Tasks.Task
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  name: Action<>
-  nameWithType: Action<>
-  fullName: Action<>
-  nameWithType.vb: Action(Of )
-  fullName.vb: Action(Of )
-  name.vb: Action(Of )
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
   spec.csharp:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Action`1
+  - uid: System.Action`1
     name: Action
     nameWithType: Action
-    fullName: Action
+    fullName: System.Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

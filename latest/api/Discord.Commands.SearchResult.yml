@@ -10,8 +10,8 @@ items:
   - Discord.Commands.SearchResult.ErrorReason
   - Discord.Commands.SearchResult.FromError(Discord.Commands.CommandError,System.String)
   - Discord.Commands.SearchResult.FromError(Discord.Commands.IResult)
-  - Discord.Commands.SearchResult.FromError(Exception)
-  - Discord.Commands.SearchResult.FromSuccess(System.String,IReadOnlyList{Discord.Commands.CommandMatch})
+  - Discord.Commands.SearchResult.FromError(System.Exception)
+  - Discord.Commands.SearchResult.FromSuccess(System.String,System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch})
   - Discord.Commands.SearchResult.IsSuccess
   - Discord.Commands.SearchResult.Text
   - Discord.Commands.SearchResult.ToString
@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SearchResult
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -40,6 +40,12 @@ items:
           Implements IResult
   implements:
   - Discord.Commands.IResult
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -60,7 +66,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Text
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -95,7 +101,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Commands
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -107,7 +113,7 @@ items:
     content: public IReadOnlyList<CommandMatch> Commands { get; }
     parameters: []
     return:
-      type: IReadOnlyList{Discord.Commands.CommandMatch}
+      type: System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch}
     content.vb: Public ReadOnly Property Commands As IReadOnlyList(Of CommandMatch)
   overload: Discord.Commands.SearchResult.Commands*
   modifiers.csharp:
@@ -130,7 +136,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Error
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -170,7 +176,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ErrorReason
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -210,7 +216,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsSuccess
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -236,21 +242,21 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: Discord.Commands.SearchResult.FromSuccess(System.String,IReadOnlyList{Discord.Commands.CommandMatch})
-  commentId: M:Discord.Commands.SearchResult.FromSuccess(System.String,IReadOnlyList{Discord.Commands.CommandMatch})
-  id: FromSuccess(System.String,IReadOnlyList{Discord.Commands.CommandMatch})
+- uid: Discord.Commands.SearchResult.FromSuccess(System.String,System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch})
+  commentId: M:Discord.Commands.SearchResult.FromSuccess(System.String,System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch})
+  id: FromSuccess(System.String,System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch})
   parent: Discord.Commands.SearchResult
   langs:
   - csharp
   - vb
   name: FromSuccess(String, IReadOnlyList<CommandMatch>)
   nameWithType: SearchResult.FromSuccess(String, IReadOnlyList<CommandMatch>)
-  fullName: Discord.Commands.SearchResult.FromSuccess(System.String, IReadOnlyList<Discord.Commands.CommandMatch>)
+  fullName: Discord.Commands.SearchResult.FromSuccess(System.String, System.Collections.Generic.IReadOnlyList<Discord.Commands.CommandMatch>)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FromSuccess
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -264,7 +270,7 @@ items:
     - id: text
       type: System.String
     - id: commands
-      type: IReadOnlyList{Discord.Commands.CommandMatch}
+      type: System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch}
     return:
       type: Discord.Commands.SearchResult
     content.vb: Public Shared Function FromSuccess(text As String, commands As IReadOnlyList(Of CommandMatch)) As SearchResult
@@ -276,7 +282,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.Commands.SearchResult.FromSuccess(System.String, IReadOnlyList(Of Discord.Commands.CommandMatch))
+  fullName.vb: Discord.Commands.SearchResult.FromSuccess(System.String, System.Collections.Generic.IReadOnlyList(Of Discord.Commands.CommandMatch))
   name.vb: FromSuccess(String, IReadOnlyList(Of CommandMatch))
 - uid: Discord.Commands.SearchResult.FromError(Discord.Commands.CommandError,System.String)
   commentId: M:Discord.Commands.SearchResult.FromError(Discord.Commands.CommandError,System.String)
@@ -292,7 +298,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -317,21 +323,21 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.Commands.SearchResult.FromError(Exception)
-  commentId: M:Discord.Commands.SearchResult.FromError(Exception)
-  id: FromError(Exception)
+- uid: Discord.Commands.SearchResult.FromError(System.Exception)
+  commentId: M:Discord.Commands.SearchResult.FromError(System.Exception)
+  id: FromError(System.Exception)
   parent: Discord.Commands.SearchResult
   langs:
   - csharp
   - vb
   name: FromError(Exception)
   nameWithType: SearchResult.FromError(Exception)
-  fullName: Discord.Commands.SearchResult.FromError(Exception)
+  fullName: Discord.Commands.SearchResult.FromError(System.Exception)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -343,7 +349,7 @@ items:
     content: public static SearchResult FromError(Exception ex)
     parameters:
     - id: ex
-      type: Exception
+      type: System.Exception
     return:
       type: Discord.Commands.SearchResult
     content.vb: Public Shared Function FromError(ex As Exception) As SearchResult
@@ -368,7 +374,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -405,7 +411,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Commands/Results/SearchResult.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Commands/Results/SearchResult.cs
@@ -418,6 +424,7 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
   overload: Discord.Commands.SearchResult.ToString*
   modifiers.csharp:
   - public
@@ -437,12 +444,251 @@ references:
   name: IResult
   nameWithType: IResult
   fullName: Discord.Commands.IResult
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Commands.SearchResult.Text*
   commentId: Overload:Discord.Commands.SearchResult.Text
   name: Text
   nameWithType: SearchResult.Text
   fullName: Discord.Commands.SearchResult.Text
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -452,20 +698,21 @@ references:
   name: Commands
   nameWithType: SearchResult.Commands
   fullName: Discord.Commands.SearchResult.Commands
-- uid: IReadOnlyList{Discord.Commands.CommandMatch}
-  commentId: '!:IReadOnlyList{Discord.Commands.CommandMatch}'
-  definition: IReadOnlyList`1
+- uid: System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Discord.Commands.CommandMatch}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
   name: IReadOnlyList<CommandMatch>
   nameWithType: IReadOnlyList<CommandMatch>
-  fullName: IReadOnlyList<Discord.Commands.CommandMatch>
+  fullName: System.Collections.Generic.IReadOnlyList<Discord.Commands.CommandMatch>
   nameWithType.vb: IReadOnlyList(Of CommandMatch)
-  fullName.vb: IReadOnlyList(Of Discord.Commands.CommandMatch)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Discord.Commands.CommandMatch)
   name.vb: IReadOnlyList(Of CommandMatch)
   spec.csharp:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
@@ -478,10 +725,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -493,44 +740,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyList`1
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
-  name: IReadOnlyList<>
-  nameWithType: IReadOnlyList<>
-  fullName: IReadOnlyList<>
-  nameWithType.vb: IReadOnlyList(Of )
-  fullName.vb: IReadOnlyList(Of )
-  name.vb: IReadOnlyList(Of )
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
   spec.csharp:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyList`1
+  - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.Commands.SearchResult.Error*
   commentId: Overload:Discord.Commands.SearchResult.Error
   name: Error
@@ -543,7 +797,8 @@ references:
   nameWithType: IResult.Error
   fullName: Discord.Commands.IResult.Error
 - uid: System.Nullable{Discord.Commands.CommandError}
-  commentId: '!:System.Nullable{Discord.Commands.CommandError}'
+  commentId: T:System.Nullable{Discord.Commands.CommandError}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<CommandError>
   nameWithType: Nullable<CommandError>
@@ -584,13 +839,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -600,9 +856,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -615,9 +871,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -644,6 +900,8 @@ references:
   nameWithType: IResult.IsSuccess
   fullName: Discord.Commands.IResult.IsSuccess
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -670,11 +928,44 @@ references:
   name: CommandError
   nameWithType: CommandError
   fullName: Discord.Commands.CommandError
-- uid: Exception
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
   isExternal: true
   name: Exception
   nameWithType: Exception
-  fullName: Exception
+  fullName: System.Exception
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Commands.SearchResult.ToString*
   commentId: Overload:Discord.Commands.SearchResult.ToString
   name: ToString

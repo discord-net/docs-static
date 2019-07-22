@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GuildPermission
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -56,8 +56,18 @@ items:
   summary: 'Defines the available permissions for a channel. '
   example: []
   syntax:
-    content: 'public enum GuildPermission : ulong'
-    content.vb: Public Enum GuildPermission As ULong
+    content: >-
+      [Flags]
+
+      public enum GuildPermission : ulong
+    content.vb: >-
+      <Flags>
+
+      Public Enum GuildPermission As ULong
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
   modifiers.csharp:
   - public
   - enum
@@ -78,7 +88,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreateInstantInvite
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -89,10 +99,9 @@ items:
   summary: "\nAllows creation of instant invites.\n"
   example: []
   syntax:
-    content: CreateInstantInvite = null
+    content: CreateInstantInvite = 1UL
     return:
       type: Discord.GuildPermission
-    content.vb: CreateInstantInvite = Nothing
   modifiers.csharp:
   - public
   - const
@@ -113,7 +122,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: KickMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -125,10 +134,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: KickMembers = null
+    content: KickMembers = 2UL
     return:
       type: Discord.GuildPermission
-    content.vb: KickMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -149,7 +157,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: BanMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -161,10 +169,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: BanMembers = null
+    content: BanMembers = 4UL
     return:
       type: Discord.GuildPermission
-    content.vb: BanMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -185,7 +192,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Administrator
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -197,10 +204,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: Administrator = null
+    content: Administrator = 8UL
     return:
       type: Discord.GuildPermission
-    content.vb: Administrator = Nothing
   modifiers.csharp:
   - public
   - const
@@ -221,7 +227,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageChannels
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -233,10 +239,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageChannels = null
+    content: ManageChannels = 16UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageChannels = Nothing
   modifiers.csharp:
   - public
   - const
@@ -257,7 +262,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageGuild
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -269,10 +274,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageGuild = null
+    content: ManageGuild = 32UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageGuild = Nothing
   modifiers.csharp:
   - public
   - const
@@ -293,7 +297,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AddReactions
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -304,10 +308,9 @@ items:
   summary: "\nAllows for the addition of reactions to messages.\n"
   example: []
   syntax:
-    content: AddReactions = null
+    content: AddReactions = 64UL
     return:
       type: Discord.GuildPermission
-    content.vb: AddReactions = Nothing
   modifiers.csharp:
   - public
   - const
@@ -328,7 +331,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ViewAuditLog
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -339,10 +342,9 @@ items:
   summary: "\nAllows for viewing of audit logs.\n"
   example: []
   syntax:
-    content: ViewAuditLog = null
+    content: ViewAuditLog = 128UL
     return:
       type: Discord.GuildPermission
-    content.vb: ViewAuditLog = Nothing
   modifiers.csharp:
   - public
   - const
@@ -363,7 +365,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReadMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -372,10 +374,22 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: ReadMessages = null
+    content: >-
+      [Obsolete("Use ViewChannel instead.")]
+
+      ReadMessages = 1024UL
     return:
       type: Discord.GuildPermission
-    content.vb: ReadMessages = Nothing
+    content.vb: >-
+      <Obsolete("Use ViewChannel instead.")>
+
+      ReadMessages = 1024UL
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ViewChannel instead.
   modifiers.csharp:
   - public
   - const
@@ -396,7 +410,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ViewChannel
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -405,10 +419,9 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: ViewChannel = null
+    content: ViewChannel = 1024UL
     return:
       type: Discord.GuildPermission
-    content.vb: ViewChannel = Nothing
   modifiers.csharp:
   - public
   - const
@@ -429,7 +442,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -438,10 +451,9 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: SendMessages = null
+    content: SendMessages = 2048UL
     return:
       type: Discord.GuildPermission
-    content.vb: SendMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -462,7 +474,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendTTSMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -473,10 +485,9 @@ items:
   summary: "\nAllows for sending of text-to-speech messages.\n"
   example: []
   syntax:
-    content: SendTTSMessages = null
+    content: SendTTSMessages = 4096UL
     return:
       type: Discord.GuildPermission
-    content.vb: SendTTSMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -497,7 +508,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageMessages
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -509,10 +520,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageMessages = null
+    content: ManageMessages = 8192UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -533,7 +543,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedLinks
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -544,10 +554,9 @@ items:
   summary: "\nAllows links sent by users with this permission will be auto-embedded.\n"
   example: []
   syntax:
-    content: EmbedLinks = null
+    content: EmbedLinks = 16384UL
     return:
       type: Discord.GuildPermission
-    content.vb: EmbedLinks = Nothing
   modifiers.csharp:
   - public
   - const
@@ -568,7 +577,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AttachFiles
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -579,10 +588,9 @@ items:
   summary: "\nAllows for uploading images and files.\n"
   example: []
   syntax:
-    content: AttachFiles = null
+    content: AttachFiles = 32768UL
     return:
       type: Discord.GuildPermission
-    content.vb: AttachFiles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -603,7 +611,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ReadMessageHistory
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -614,10 +622,9 @@ items:
   summary: "\nAllows for reading of message history.\n"
   example: []
   syntax:
-    content: ReadMessageHistory = null
+    content: ReadMessageHistory = 65536UL
     return:
       type: Discord.GuildPermission
-    content.vb: ReadMessageHistory = Nothing
   modifiers.csharp:
   - public
   - const
@@ -638,7 +645,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MentionEveryone
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -649,10 +656,9 @@ items:
   summary: "\nAllows for using the @everyone tag to notify all users in a channel, and the @here tag to notify all\nonline users in a channel.\n"
   example: []
   syntax:
-    content: MentionEveryone = null
+    content: MentionEveryone = 131072UL
     return:
       type: Discord.GuildPermission
-    content.vb: MentionEveryone = Nothing
   modifiers.csharp:
   - public
   - const
@@ -673,7 +679,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UseExternalEmojis
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -684,10 +690,9 @@ items:
   summary: "\nAllows the usage of custom emojis from other servers.\n"
   example: []
   syntax:
-    content: UseExternalEmojis = null
+    content: UseExternalEmojis = 262144UL
     return:
       type: Discord.GuildPermission
-    content.vb: UseExternalEmojis = Nothing
   modifiers.csharp:
   - public
   - const
@@ -708,7 +713,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Connect
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -719,10 +724,9 @@ items:
   summary: "\nAllows for joining of a voice channel.\n"
   example: []
   syntax:
-    content: Connect = null
+    content: Connect = 1048576UL
     return:
       type: Discord.GuildPermission
-    content.vb: Connect = Nothing
   modifiers.csharp:
   - public
   - const
@@ -743,7 +747,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Speak
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -754,10 +758,9 @@ items:
   summary: "\nAllows for speaking in a voice channel.\n"
   example: []
   syntax:
-    content: Speak = null
+    content: Speak = 2097152UL
     return:
       type: Discord.GuildPermission
-    content.vb: Speak = Nothing
   modifiers.csharp:
   - public
   - const
@@ -778,7 +781,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MuteMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -789,10 +792,9 @@ items:
   summary: "\nAllows for muting members in a voice channel.\n"
   example: []
   syntax:
-    content: MuteMembers = null
+    content: MuteMembers = 4194304UL
     return:
       type: Discord.GuildPermission
-    content.vb: MuteMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -813,7 +815,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeafenMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -824,10 +826,9 @@ items:
   summary: "\nAllows for deafening of members in a voice channel.\n"
   example: []
   syntax:
-    content: DeafenMembers = null
+    content: DeafenMembers = 8388608UL
     return:
       type: Discord.GuildPermission
-    content.vb: DeafenMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -848,7 +849,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MoveMembers
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -859,10 +860,9 @@ items:
   summary: "\nAllows for moving of members between voice channels.\n"
   example: []
   syntax:
-    content: MoveMembers = null
+    content: MoveMembers = 16777216UL
     return:
       type: Discord.GuildPermission
-    content.vb: MoveMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -883,7 +883,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: UseVAD
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -894,10 +894,9 @@ items:
   summary: "\nAllows for using voice-activity-detection in a voice channel.\n"
   example: []
   syntax:
-    content: UseVAD = null
+    content: UseVAD = 33554432UL
     return:
       type: Discord.GuildPermission
-    content.vb: UseVAD = Nothing
   modifiers.csharp:
   - public
   - const
@@ -918,7 +917,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: PrioritySpeaker
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -927,10 +926,9 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: PrioritySpeaker = null
+    content: PrioritySpeaker = 256UL
     return:
       type: Discord.GuildPermission
-    content.vb: PrioritySpeaker = Nothing
   modifiers.csharp:
   - public
   - const
@@ -951,7 +949,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ChangeNickname
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -962,10 +960,9 @@ items:
   summary: "\nAllows for modification of own nickname.\n"
   example: []
   syntax:
-    content: ChangeNickname = null
+    content: ChangeNickname = 67108864UL
     return:
       type: Discord.GuildPermission
-    content.vb: ChangeNickname = Nothing
   modifiers.csharp:
   - public
   - const
@@ -986,7 +983,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageNicknames
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -997,10 +994,9 @@ items:
   summary: "\nAllows for modification of other users nicknames.\n"
   example: []
   syntax:
-    content: ManageNicknames = null
+    content: ManageNicknames = 134217728UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageNicknames = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1021,7 +1017,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageRoles
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -1033,10 +1029,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageRoles = null
+    content: ManageRoles = 268435456UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageRoles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1057,7 +1052,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageWebhooks
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -1069,10 +1064,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageWebhooks = null
+    content: ManageWebhooks = 536870912UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageWebhooks = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1093,7 +1087,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ManageEmojis
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermission.cs
@@ -1105,10 +1099,9 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageEmojis = null
+    content: ManageEmojis = 1073741824UL
     return:
       type: Discord.GuildPermission
-    content.vb: ManageEmojis = Nothing
   modifiers.csharp:
   - public
   - const

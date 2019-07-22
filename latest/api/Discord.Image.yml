@@ -5,7 +5,7 @@ items:
   id: Image
   parent: Discord
   children:
-  - Discord.Image.#ctor(Stream)
+  - Discord.Image.#ctor(System.IO.Stream)
   - Discord.Image.#ctor(System.String)
   - Discord.Image.Dispose
   - Discord.Image.Stream
@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Image.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Image
     path: ../src/Discord.Net.Core/Entities/Image.cs
@@ -35,7 +35,14 @@ items:
       Public Structure Image
           Implements IDisposable
   implements:
-  - IDisposable
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -56,7 +63,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Image.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Stream
     path: ../src/Discord.Net.Core/Entities/Image.cs
@@ -70,7 +77,7 @@ items:
     content: public Stream Stream { get; }
     parameters: []
     return:
-      type: Stream
+      type: System.IO.Stream
     content.vb: Public ReadOnly Property Stream As Stream
   overload: Discord.Image.Stream*
   modifiers.csharp:
@@ -79,21 +86,21 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: Discord.Image.#ctor(Stream)
-  commentId: M:Discord.Image.#ctor(Stream)
-  id: '#ctor(Stream)'
+- uid: Discord.Image.#ctor(System.IO.Stream)
+  commentId: M:Discord.Image.#ctor(System.IO.Stream)
+  id: '#ctor(System.IO.Stream)'
   parent: Discord.Image
   langs:
   - csharp
   - vb
   name: Image(Stream)
   nameWithType: Image.Image(Stream)
-  fullName: Discord.Image.Image(Stream)
+  fullName: Discord.Image.Image(System.IO.Stream)
   type: Constructor
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Image.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Image.cs
@@ -101,14 +108,14 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: "\nCreate the image with a <see cref=\"!:System.IO.Stream\"></see>.\n"
+  summary: "\nCreate the image with a <xref href=\"System.IO.Stream\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
     content: public Image(Stream stream)
     parameters:
     - id: stream
-      type: Stream
-      description: "\nThe <see cref=\"!:System.IO.Stream\"></see> to create the image with. Note that this must be some type of stream\nwith the contents of a file in it.\n"
+      type: System.IO.Stream
+      description: "\nThe <xref href=\"System.IO.Stream\" data-throw-if-not-resolved=\"false\"></xref> to create the image with. Note that this must be some type of stream\nwith the contents of a file in it.\n"
     content.vb: Public Sub New(stream As Stream)
   overload: Discord.Image.#ctor*
   modifiers.csharp:
@@ -129,7 +136,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Image.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Image.cs
@@ -138,7 +145,7 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nCreate the image from a file path.\n"
-  remarks: "\nThis file path is NOT validated and is passed directly into a\n<see cref=\"!:File.OpenRead\"></see>.\n"
+  remarks: "\nThis file path is NOT validated and is passed directly into a\n<xref href=\"System.IO.File.OpenRead(System.String)\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
     content: public Image(string path)
@@ -148,6 +155,32 @@ items:
       description: The path to the file.
     content.vb: Public Sub New(path As String)
   overload: Discord.Image.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: "\n<code data-dev-comment-type=\"paramref\" class=\"paramref\">path</code> is a zero-length string, contains only white space, or contains one or more invalid\ncharacters as defined by <xref href=\"System.IO.Path.GetInvalidPathChars\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code data-dev-comment-type="paramref" class="paramref">path</code> is <code>null</code>.
+  - type: System.IO.PathTooLongException
+    commentId: T:System.IO.PathTooLongException
+    description: "\nThe specified path, file name, or both exceed the system-defined maximum length. For example, on\nWindows-based platforms, paths must be less than 248 characters, and file names must be less than 260\ncharacters.\n"
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: <code data-dev-comment-type="paramref" class="paramref">path</code> is in an invalid format.
+  - type: System.IO.DirectoryNotFoundException
+    commentId: T:System.IO.DirectoryNotFoundException
+    description: "\nThe specified <code data-dev-comment-type=\"paramref\" class=\"paramref\">path</code> is invalid, (for example, it is on an unmapped drive).\n"
+  - type: System.UnauthorizedAccessException
+    commentId: T:System.UnauthorizedAccessException
+    description: "\n<code data-dev-comment-type=\"paramref\" class=\"paramref\">path</code> specified a directory.-or- The caller does not have the required permission.\n"
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: >
+      The file specified in <code data-dev-comment-type="paramref" class="paramref">path</code> was not found.
+  - type: System.IO.IOException
+    commentId: T:System.IO.IOException
+    description: 'An I/O error occurred while opening the file. '
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -166,7 +199,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Image.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Dispose
     path: ../src/Discord.Net.Core/Entities/Image.cs
@@ -179,6 +212,8 @@ items:
     content: public void Dispose()
     content.vb: Public Sub Dispose
   overload: Discord.Image.Dispose*
+  implements:
+  - System.IDisposable.Dispose
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -189,27 +224,337 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
-- uid: IDisposable
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
   isExternal: true
   name: IDisposable
   nameWithType: IDisposable
-  fullName: IDisposable
+  fullName: System.IDisposable
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
 - uid: Discord.Image.Stream*
   commentId: Overload:Discord.Image.Stream
   name: Stream
   nameWithType: Image.Stream
   fullName: Discord.Image.Stream
-- uid: Stream
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
   isExternal: true
   name: Stream
   nameWithType: Stream
-  fullName: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
 - uid: Discord.Image.#ctor*
   commentId: Overload:Discord.Image.#ctor
   name: Image
   nameWithType: Image.Image
   fullName: Discord.Image.Image
+- uid: System.IO.File.OpenRead(System.String)
+  commentId: M:System.IO.File.OpenRead(System.String)
+  isExternal: true
+- uid: System.IO.Path.GetInvalidPathChars
+  commentId: M:System.IO.Path.GetInvalidPathChars
+  isExternal: true
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+- uid: System.IO.PathTooLongException
+  commentId: T:System.IO.PathTooLongException
+  isExternal: true
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+- uid: System.IO.DirectoryNotFoundException
+  commentId: T:System.IO.DirectoryNotFoundException
+  isExternal: true
+- uid: System.UnauthorizedAccessException
+  commentId: T:System.UnauthorizedAccessException
+  isExternal: true
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+- uid: System.IO.IOException
+  commentId: T:System.IO.IOException
+  isExternal: true
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -219,3 +564,34 @@ references:
   name: Dispose
   nameWithType: Image.Dispose
   fullName: Discord.Image.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )

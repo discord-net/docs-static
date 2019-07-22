@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestInviteMetadata
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -34,17 +34,16 @@ items:
   summary: 'Represents additional information regarding the REST-based invite object. '
   example: []
   syntax:
-    content: 'public class RestInviteMetadata : RestInvite, IEntity<string>, IUpdateable, IInviteMetadata, IInvite, IEntity<string>, IDeletable'
+    content: 'public class RestInviteMetadata : RestInvite, IUpdateable, IInviteMetadata, IInvite, IEntity<string>, IDeletable'
     content.vb: >-
       Public Class RestInviteMetadata
           Inherits RestInvite
-          Implements IEntity(Of String), IUpdateable, IInviteMetadata, IInvite, IEntity(Of String), IDeletable
+          Implements IUpdateable, IInviteMetadata, IInvite, IEntity(Of String), IDeletable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.String}
   - Discord.Rest.RestInvite
   implements:
-  - Discord.IEntity{System.String}
   - Discord.IUpdateable
   - Discord.IInviteMetadata
   - Discord.IInvite
@@ -66,6 +65,12 @@ items:
   - Discord.Rest.RestInvite.Discord#IInvite#Guild
   - Discord.Rest.RestInvite.Discord#IInvite#Channel
   - Discord.Rest.RestEntity{System.String}.Id
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -86,7 +91,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsRevoked
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -94,14 +99,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether the invite has been revoked.\n"
   example: []
   syntax:
     content: public bool IsRevoked { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if this invite was revoked; otherwise <code>false</code>.\n"
     content.vb: Public ReadOnly Property IsRevoked As Boolean
   overload: Discord.Rest.RestInviteMetadata.IsRevoked*
+  implements:
+  - Discord.IInviteMetadata.IsRevoked
   modifiers.csharp:
   - public
   - get
@@ -122,7 +131,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsTemporary
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -130,14 +139,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether the invite is a temporary one.\n"
   example: []
   syntax:
     content: public bool IsTemporary { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: "\n<code>true</code> if users accepting this invite will be removed from the guild when they log off; otherwise \n<code>false</code>.\n"
     content.vb: Public ReadOnly Property IsTemporary As Boolean
   overload: Discord.Rest.RestInviteMetadata.IsTemporary*
+  implements:
+  - Discord.IInviteMetadata.IsTemporary
   modifiers.csharp:
   - public
   - get
@@ -158,7 +171,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxAge
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -166,14 +179,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the time (in seconds) until the invite expires.\n"
   example: []
   syntax:
     content: public int? MaxAge { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the time in seconds until this invite expires; <code>null</code> if this\ninvite never expires.\n"
     content.vb: Public ReadOnly Property MaxAge As Integer?
   overload: Discord.Rest.RestInviteMetadata.MaxAge*
+  implements:
+  - Discord.IInviteMetadata.MaxAge
   modifiers.csharp:
   - public
   - get
@@ -194,7 +211,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxUses
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -202,14 +219,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the max number of uses this invite may have.\n"
   example: []
   syntax:
     content: public int? MaxUses { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the number of uses this invite may be accepted until it is removed\nfrom the guild; <code>null</code> if none is set.\n"
     content.vb: Public ReadOnly Property MaxUses As Integer?
   overload: Discord.Rest.RestInviteMetadata.MaxUses*
+  implements:
+  - Discord.IInviteMetadata.MaxUses
   modifiers.csharp:
   - public
   - get
@@ -230,7 +251,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Uses
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -238,14 +259,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the number of times this invite has been used.\n"
   example: []
   syntax:
     content: public int? Uses { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the number of times this invite has been used.\n"
     content.vb: Public ReadOnly Property Uses As Integer?
   overload: Discord.Rest.RestInviteMetadata.Uses*
+  implements:
+  - Discord.IInviteMetadata.Uses
   modifiers.csharp:
   - public
   - get
@@ -266,7 +291,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Inviter
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -303,7 +328,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: CreatedAt
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -311,14 +336,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets when this invite was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset? CreatedAt { get; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
+      type: System.Nullable{System.DateTimeOffset}
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing the time of which the invite was first created.\n"
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset?
   overload: Discord.Rest.RestInviteMetadata.CreatedAt*
+  implements:
+  - Discord.IInviteMetadata.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -340,7 +369,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IInviteMetadata.Inviter
     path: ../src/Discord.Net.Rest/Entities/Invites/RestInviteMetadata.cs
@@ -373,6 +402,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -425,6 +456,24 @@ references:
   name: RestInvite
   nameWithType: RestInvite
   fullName: Discord.Rest.RestInvite
+- uid: Discord.IUpdateable
+  commentId: T:Discord.IUpdateable
+  parent: Discord
+  name: IUpdateable
+  nameWithType: IUpdateable
+  fullName: Discord.IUpdateable
+- uid: Discord.IInviteMetadata
+  commentId: T:Discord.IInviteMetadata
+  parent: Discord
+  name: IInviteMetadata
+  nameWithType: IInviteMetadata
+  fullName: Discord.IInviteMetadata
+- uid: Discord.IInvite
+  commentId: T:Discord.IInvite
+  parent: Discord
+  name: IInvite
+  nameWithType: IInvite
+  fullName: Discord.IInvite
 - uid: Discord.IEntity{System.String}
   commentId: T:Discord.IEntity{System.String}
   parent: Discord
@@ -467,24 +516,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUpdateable
-  commentId: T:Discord.IUpdateable
-  parent: Discord
-  name: IUpdateable
-  nameWithType: IUpdateable
-  fullName: Discord.IUpdateable
-- uid: Discord.IInviteMetadata
-  commentId: T:Discord.IInviteMetadata
-  parent: Discord
-  name: IInviteMetadata
-  nameWithType: IInviteMetadata
-  fullName: Discord.IInviteMetadata
-- uid: Discord.IInvite
-  commentId: T:Discord.IInvite
-  parent: Discord
-  name: IInvite
-  nameWithType: IInvite
-  fullName: Discord.IInvite
 - uid: Discord.IDeletable
   commentId: T:Discord.IDeletable
   parent: Discord
@@ -670,6 +701,260 @@ references:
   fullName: Discord.Rest.RestEntity<System.String>.Id
   nameWithType.vb: RestEntity(Of String).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.String).Id
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -706,6 +991,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -742,11 +1032,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -759,7 +1044,15 @@ references:
   name: IsRevoked
   nameWithType: RestInviteMetadata.IsRevoked
   fullName: Discord.Rest.RestInviteMetadata.IsRevoked
+- uid: Discord.IInviteMetadata.IsRevoked
+  commentId: P:Discord.IInviteMetadata.IsRevoked
+  parent: Discord.IInviteMetadata
+  name: IsRevoked
+  nameWithType: IInviteMetadata.IsRevoked
+  fullName: Discord.IInviteMetadata.IsRevoked
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -769,13 +1062,26 @@ references:
   name: IsTemporary
   nameWithType: RestInviteMetadata.IsTemporary
   fullName: Discord.Rest.RestInviteMetadata.IsTemporary
+- uid: Discord.IInviteMetadata.IsTemporary
+  commentId: P:Discord.IInviteMetadata.IsTemporary
+  parent: Discord.IInviteMetadata
+  name: IsTemporary
+  nameWithType: IInviteMetadata.IsTemporary
+  fullName: Discord.IInviteMetadata.IsTemporary
 - uid: Discord.Rest.RestInviteMetadata.MaxAge*
   commentId: Overload:Discord.Rest.RestInviteMetadata.MaxAge
   name: MaxAge
   nameWithType: RestInviteMetadata.MaxAge
   fullName: Discord.Rest.RestInviteMetadata.MaxAge
+- uid: Discord.IInviteMetadata.MaxAge
+  commentId: P:Discord.IInviteMetadata.MaxAge
+  parent: Discord.IInviteMetadata
+  name: MaxAge
+  nameWithType: IInviteMetadata.MaxAge
+  fullName: Discord.IInviteMetadata.MaxAge
 - uid: System.Nullable{System.Int32}
-  commentId: '!:System.Nullable{System.Int32}'
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -818,13 +1124,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -834,9 +1141,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -849,9 +1156,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -860,11 +1167,23 @@ references:
   name: MaxUses
   nameWithType: RestInviteMetadata.MaxUses
   fullName: Discord.Rest.RestInviteMetadata.MaxUses
+- uid: Discord.IInviteMetadata.MaxUses
+  commentId: P:Discord.IInviteMetadata.MaxUses
+  parent: Discord.IInviteMetadata
+  name: MaxUses
+  nameWithType: IInviteMetadata.MaxUses
+  fullName: Discord.IInviteMetadata.MaxUses
 - uid: Discord.Rest.RestInviteMetadata.Uses*
   commentId: Overload:Discord.Rest.RestInviteMetadata.Uses
   name: Uses
   nameWithType: RestInviteMetadata.Uses
   fullName: Discord.Rest.RestInviteMetadata.Uses
+- uid: Discord.IInviteMetadata.Uses
+  commentId: P:Discord.IInviteMetadata.Uses
+  parent: Discord.IInviteMetadata
+  name: Uses
+  nameWithType: IInviteMetadata.Uses
+  fullName: Discord.IInviteMetadata.Uses
 - uid: Discord.Rest.RestInviteMetadata.Inviter*
   commentId: Overload:Discord.Rest.RestInviteMetadata.Inviter
   name: Inviter
@@ -881,14 +1200,21 @@ references:
   name: CreatedAt
   nameWithType: RestInviteMetadata.CreatedAt
   fullName: Discord.Rest.RestInviteMetadata.CreatedAt
-- uid: System.Nullable{DateTimeOffset}
-  commentId: '!:System.Nullable{DateTimeOffset}'
+- uid: Discord.IInviteMetadata.CreatedAt
+  commentId: P:Discord.IInviteMetadata.CreatedAt
+  parent: Discord.IInviteMetadata
+  name: CreatedAt
+  nameWithType: IInviteMetadata.CreatedAt
+  fullName: Discord.IInviteMetadata.CreatedAt
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<DateTimeOffset>
   nameWithType: Nullable<DateTimeOffset>
-  fullName: System.Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
   nameWithType.vb: Nullable(Of DateTimeOffset)
-  fullName.vb: System.Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
   name.vb: Nullable(Of DateTimeOffset)
   spec.csharp:
   - uid: System.Nullable`1
@@ -899,10 +1225,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -916,10 +1242,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: )
     nameWithType: )

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DiscordSocketRestClient
     path: ../src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
@@ -37,7 +37,7 @@ items:
   - Discord.Rest.DiscordRestClient
   implements:
   - Discord.IDiscordClient
-  - IDisposable
+  - System.IDisposable
   inheritedMembers:
   - Discord.Rest.DiscordRestClient.CurrentUser
   - Discord.Rest.DiscordRestClient.GetApplicationInfoAsync(Discord.RequestOptions)
@@ -52,12 +52,26 @@ items:
   - Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(System.UInt64,System.Int32,Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetGuildsAsync(Discord.RequestOptions)
-  - Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync(Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
   - Discord.Rest.DiscordRestClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetConnectionsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetInviteAsync(System.String,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   - Discord.Rest.BaseDiscordClient.Log
   - Discord.Rest.BaseDiscordClient.LoggedIn
   - Discord.Rest.BaseDiscordClient.LoggedOut
@@ -67,6 +81,16 @@ items:
   - Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
   - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
   - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StartAsync
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StopAsync
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -87,7 +111,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: LoginAsync
     path: ../src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
@@ -105,7 +129,7 @@ items:
     - id: validateToken
       type: System.Boolean
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function LoginAsync(tokenType As TokenType, token As String, validateToken As Boolean = True) As Task
   overload: Discord.WebSocket.DiscordSocketRestClient.LoginAsync*
   modifiers.csharp:
@@ -126,7 +150,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: LogoutAsync
     path: ../src/Discord.Net.WebSocket/DiscordSocketRestClient.cs
@@ -137,7 +161,7 @@ items:
   syntax:
     content: public Task LogoutAsync()
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
     content.vb: Public Function LogoutAsync As Task
   overload: Discord.WebSocket.DiscordSocketRestClient.LogoutAsync*
   modifiers.csharp:
@@ -151,6 +175,8 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -173,11 +199,13 @@ references:
   name: IDiscordClient
   nameWithType: IDiscordClient
   fullName: Discord.IDiscordClient
-- uid: IDisposable
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
   isExternal: true
   name: IDisposable
   nameWithType: IDisposable
-  fullName: IDisposable
+  fullName: System.IDisposable
 - uid: Discord.Rest.DiscordRestClient.CurrentUser
   commentId: P:Discord.Rest.DiscordRestClient.CurrentUser
   parent: Discord.Rest.DiscordRestClient
@@ -717,15 +745,15 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
-  commentId: M:Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+- uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
   parent: Discord.Rest.DiscordRestClient
   isExternal: true
   name: CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
   nameWithType: DiscordRestClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
-  fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String, Discord.IVoiceRegion, Stream, Discord.RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String, Discord.IVoiceRegion, System.IO.Stream, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  - uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
     name: CreateGuildAsync
     nameWithType: DiscordRestClient.CreateGuildAsync
     fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync
@@ -747,10 +775,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -763,7 +791,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  - uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
     name: CreateGuildAsync
     nameWithType: DiscordRestClient.CreateGuildAsync
     fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync
@@ -785,10 +813,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1064,6 +1092,785 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetApplicationInfoAsync(RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetApplicationInfoAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetApplicationInfoAsync(RequestOptions)
+  name.vb: Discord.IDiscordClient.GetApplicationInfoAsync(RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)
+    name: IDiscordClient.GetApplicationInfoAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetApplicationInfoAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetApplicationInfoAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetApplicationInfoAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetApplicationInfoAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetApplicationInfoAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetChannelAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetChannelAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetChannelAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetChannelAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetChannelAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetPrivateChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetPrivateChannelsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetPrivateChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetPrivateChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetPrivateChannelsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetPrivateChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetPrivateChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetDMChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetDMChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetDMChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetDMChannelsAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetDMChannelsAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetDMChannelsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetDMChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetDMChannelsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetDMChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetGroupChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetGroupChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGroupChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetGroupChannelsAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetGroupChannelsAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetGroupChannelsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetGroupChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetGroupChannelsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetGroupChannelsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetConnectionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetConnectionsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetConnectionsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetConnectionsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetConnectionsAsync(Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetConnectionsAsync(RequestOptions)
+  name.vb: Discord.IDiscordClient.GetConnectionsAsync(RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetConnectionsAsync(Discord.RequestOptions)
+    name: IDiscordClient.GetConnectionsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetConnectionsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetConnectionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetConnectionsAsync(Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetConnectionsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetConnectionsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetConnectionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetInviteAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetInviteAsync(System.String,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetInviteAsync(String, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetInviteAsync(String, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetInviteAsync(System.String, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetInviteAsync(String, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetInviteAsync(String, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetInviteAsync(System.String,Discord.RequestOptions)
+    name: IDiscordClient.GetInviteAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetInviteAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetInviteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetInviteAsync(System.String,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetInviteAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetInviteAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetInviteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetGuildAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetGuildAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetGuildAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetGuildAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetGuildsAsync(CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetGuildsAsync(CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildsAsync(Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetGuildsAsync(CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetGuildsAsync(CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetGuildsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetGuildsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetGuildsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetGuildsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetGuildsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.CreateGuildAsync(System.String, Discord.IVoiceRegion, System.IO.Stream, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  name.vb: Discord.IDiscordClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+    name: IDiscordClient.CreateGuildAsync
+    nameWithType: DiscordRestClient.IDiscordClient.CreateGuildAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.CreateGuildAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#CreateGuildAsync(System.String,Discord.IVoiceRegion,System.IO.Stream,Discord.RequestOptions)
+    name: Discord.IDiscordClient.CreateGuildAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.CreateGuildAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.CreateGuildAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IO.Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: System.IO.Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: IDiscordClient.GetUserAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetUserAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetUserAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetUserAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  name: IDiscordClient.GetVoiceRegionsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetVoiceRegionsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionsAsync(RequestOptions)
+  name.vb: Discord.IDiscordClient.GetVoiceRegionsAsync(RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionsAsync(Discord.RequestOptions)
+    name: IDiscordClient.GetVoiceRegionsAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetVoiceRegionsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionsAsync(Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetVoiceRegionsAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionsAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetVoiceRegionAsync(String, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetVoiceRegionAsync(String, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionAsync(System.String, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionAsync(String, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetVoiceRegionAsync(String, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+    name: IDiscordClient.GetVoiceRegionAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetVoiceRegionAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetVoiceRegionAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  isExternal: true
+  name: IDiscordClient.GetWebhookAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.IDiscordClient.GetWebhookAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetWebhookAsync(System.UInt64, Discord.RequestOptions)
+  nameWithType.vb: DiscordRestClient.Discord.IDiscordClient.GetWebhookAsync(UInt64, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetWebhookAsync(UInt64, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+    name: IDiscordClient.GetWebhookAsync
+    nameWithType: DiscordRestClient.IDiscordClient.GetWebhookAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetWebhookAsync
+    nameWithType: DiscordRestClient.Discord.IDiscordClient.GetWebhookAsync
+    fullName: Discord.Rest.DiscordRestClient.Discord.IDiscordClient.GetWebhookAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Rest.BaseDiscordClient.Log
   commentId: E:Discord.Rest.BaseDiscordClient.Log
   parent: Discord.Rest.BaseDiscordClient
@@ -1174,6 +1981,422 @@ references:
   fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.CurrentUser
   nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.CurrentUser
   name.vb: Discord.IDiscordClient.CurrentUser
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  commentId: M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  parent: Discord.Rest.BaseDiscordClient
+  isExternal: true
+  name: IDiscordClient.GetUserAsync(String, String, RequestOptions)
+  nameWithType: BaseDiscordClient.IDiscordClient.GetUserAsync(String, String, RequestOptions)
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.GetUserAsync(System.String, System.String, Discord.RequestOptions)
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.GetUserAsync(String, String, RequestOptions)
+  name.vb: Discord.IDiscordClient.GetUserAsync(String, String, RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetUserAsync(System.String,System.String,Discord.RequestOptions)
+    name: IDiscordClient.GetUserAsync
+    nameWithType: BaseDiscordClient.IDiscordClient.GetUserAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetUserAsync(System.String,System.String,Discord.RequestOptions)
+    name: Discord.IDiscordClient.GetUserAsync
+    nameWithType: BaseDiscordClient.Discord.IDiscordClient.GetUserAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.GetUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StartAsync
+  commentId: M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StartAsync
+  parent: Discord.Rest.BaseDiscordClient
+  name: IDiscordClient.StartAsync()
+  nameWithType: BaseDiscordClient.IDiscordClient.StartAsync()
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StartAsync()
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.StartAsync()
+  name.vb: Discord.IDiscordClient.StartAsync()
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StartAsync
+    name: IDiscordClient.StartAsync
+    nameWithType: BaseDiscordClient.IDiscordClient.StartAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StartAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StartAsync
+    name: Discord.IDiscordClient.StartAsync
+    nameWithType: BaseDiscordClient.Discord.IDiscordClient.StartAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StartAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StopAsync
+  commentId: M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StopAsync
+  parent: Discord.Rest.BaseDiscordClient
+  name: IDiscordClient.StopAsync()
+  nameWithType: BaseDiscordClient.IDiscordClient.StopAsync()
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StopAsync()
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.StopAsync()
+  name.vb: Discord.IDiscordClient.StopAsync()
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StopAsync
+    name: IDiscordClient.StopAsync
+    nameWithType: BaseDiscordClient.IDiscordClient.StopAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StopAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#StopAsync
+    name: Discord.IDiscordClient.StopAsync
+    nameWithType: BaseDiscordClient.Discord.IDiscordClient.StopAsync
+    fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.StopAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Rest
   commentId: N:Discord.Rest
   name: Discord.Rest
@@ -1196,20 +2419,32 @@ references:
   nameWithType: TokenType
   fullName: Discord.TokenType
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.WebSocket.DiscordSocketRestClient.LogoutAsync*
   commentId: Overload:Discord.WebSocket.DiscordSocketRestClient.LogoutAsync
   name: LogoutAsync

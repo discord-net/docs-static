@@ -28,7 +28,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IEmbed
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Url
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Title
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Description
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -171,7 +171,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Type
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -207,7 +207,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Timestamp
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -221,8 +221,8 @@ items:
     content: DateTimeOffset? Timestamp { get; }
     parameters: []
     return:
-      type: System.Nullable{DateTimeOffset}
-      description: "\nA <see cref=\"!:DateTimeOffset\"></see> based on the timestamp present at the bottom left of the embed, or \n<code>null</code> if none is set.\n"
+      type: System.Nullable{System.DateTimeOffset}
+      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> based on the timestamp present at the bottom left of the embed, or \n<code>null</code> if none is set.\n"
     content.vb: ReadOnly Property Timestamp As DateTimeOffset?
   overload: Discord.IEmbed.Timestamp*
   modifiers.csharp:
@@ -243,7 +243,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Color
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Image
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -315,7 +315,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Video
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -351,7 +351,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Author
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -387,7 +387,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Footer
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -423,7 +423,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Provider
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -459,7 +459,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Thumbnail
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -495,7 +495,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/IEmbed.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Fields
     path: ../src/Discord.Net.Core/Entities/Messages/IEmbed.cs
@@ -509,7 +509,7 @@ items:
     content: ImmutableArray<EmbedField> Fields { get; }
     parameters: []
     return:
-      type: ImmutableArray{Discord.EmbedField}
+      type: System.Collections.Immutable.ImmutableArray{Discord.EmbedField}
       description: "\nAn array of the fields of the embed.\n"
     content.vb: ReadOnly Property Fields As ImmutableArray(Of EmbedField)
   overload: Discord.IEmbed.Fields*
@@ -599,10 +599,18 @@ references:
   nameWithType: IEmbed.Url
   fullName: Discord.IEmbed.Url
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.IEmbed.Title*
   commentId: Overload:Discord.IEmbed.Title
   name: Title
@@ -624,19 +632,27 @@ references:
   name: EmbedType
   nameWithType: EmbedType
   fullName: Discord.EmbedType
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
 - uid: Discord.IEmbed.Timestamp*
   commentId: Overload:Discord.IEmbed.Timestamp
   name: Timestamp
   nameWithType: IEmbed.Timestamp
   fullName: Discord.IEmbed.Timestamp
-- uid: System.Nullable{DateTimeOffset}
-  commentId: '!:System.Nullable{DateTimeOffset}'
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<DateTimeOffset>
   nameWithType: Nullable<DateTimeOffset>
-  fullName: System.Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
   nameWithType.vb: Nullable(Of DateTimeOffset)
-  fullName.vb: System.Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
   name.vb: Nullable(Of DateTimeOffset)
   spec.csharp:
   - uid: System.Nullable`1
@@ -647,10 +663,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -664,22 +680,23 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: DateTimeOffset
+  - uid: System.DateTimeOffset
     name: DateTimeOffset
     nameWithType: DateTimeOffset
-    fullName: DateTimeOffset
+    fullName: System.DateTimeOffset
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -689,9 +706,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -704,9 +721,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
@@ -716,7 +733,8 @@ references:
   nameWithType: IEmbed.Color
   fullName: Discord.IEmbed.Color
 - uid: System.Nullable{Discord.Color}
-  commentId: '!:System.Nullable{Discord.Color}'
+  commentId: T:System.Nullable{Discord.Color}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Color>
   nameWithType: Nullable<Color>
@@ -762,7 +780,8 @@ references:
   nameWithType: IEmbed.Image
   fullName: Discord.IEmbed.Image
 - uid: System.Nullable{Discord.EmbedImage}
-  commentId: '!:System.Nullable{Discord.EmbedImage}'
+  commentId: T:System.Nullable{Discord.EmbedImage}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedImage>
   nameWithType: Nullable<EmbedImage>
@@ -808,7 +827,8 @@ references:
   nameWithType: IEmbed.Video
   fullName: Discord.IEmbed.Video
 - uid: System.Nullable{Discord.EmbedVideo}
-  commentId: '!:System.Nullable{Discord.EmbedVideo}'
+  commentId: T:System.Nullable{Discord.EmbedVideo}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedVideo>
   nameWithType: Nullable<EmbedVideo>
@@ -854,7 +874,8 @@ references:
   nameWithType: IEmbed.Author
   fullName: Discord.IEmbed.Author
 - uid: System.Nullable{Discord.EmbedAuthor}
-  commentId: '!:System.Nullable{Discord.EmbedAuthor}'
+  commentId: T:System.Nullable{Discord.EmbedAuthor}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedAuthor>
   nameWithType: Nullable<EmbedAuthor>
@@ -900,7 +921,8 @@ references:
   nameWithType: IEmbed.Footer
   fullName: Discord.IEmbed.Footer
 - uid: System.Nullable{Discord.EmbedFooter}
-  commentId: '!:System.Nullable{Discord.EmbedFooter}'
+  commentId: T:System.Nullable{Discord.EmbedFooter}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedFooter>
   nameWithType: Nullable<EmbedFooter>
@@ -946,7 +968,8 @@ references:
   nameWithType: IEmbed.Provider
   fullName: Discord.IEmbed.Provider
 - uid: System.Nullable{Discord.EmbedProvider}
-  commentId: '!:System.Nullable{Discord.EmbedProvider}'
+  commentId: T:System.Nullable{Discord.EmbedProvider}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedProvider>
   nameWithType: Nullable<EmbedProvider>
@@ -992,7 +1015,8 @@ references:
   nameWithType: IEmbed.Thumbnail
   fullName: Discord.IEmbed.Thumbnail
 - uid: System.Nullable{Discord.EmbedThumbnail}
-  commentId: '!:System.Nullable{Discord.EmbedThumbnail}'
+  commentId: T:System.Nullable{Discord.EmbedThumbnail}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<EmbedThumbnail>
   nameWithType: Nullable<EmbedThumbnail>
@@ -1037,20 +1061,21 @@ references:
   name: Fields
   nameWithType: IEmbed.Fields
   fullName: Discord.IEmbed.Fields
-- uid: ImmutableArray{Discord.EmbedField}
-  commentId: '!:ImmutableArray{Discord.EmbedField}'
-  definition: ImmutableArray`1
+- uid: System.Collections.Immutable.ImmutableArray{Discord.EmbedField}
+  commentId: T:System.Collections.Immutable.ImmutableArray{Discord.EmbedField}
+  parent: System.Collections.Immutable
+  definition: System.Collections.Immutable.ImmutableArray`1
   name: ImmutableArray<EmbedField>
   nameWithType: ImmutableArray<EmbedField>
-  fullName: ImmutableArray<Discord.EmbedField>
+  fullName: System.Collections.Immutable.ImmutableArray<Discord.EmbedField>
   nameWithType.vb: ImmutableArray(Of EmbedField)
-  fullName.vb: ImmutableArray(Of Discord.EmbedField)
+  fullName.vb: System.Collections.Immutable.ImmutableArray(Of Discord.EmbedField)
   name.vb: ImmutableArray(Of EmbedField)
   spec.csharp:
-  - uid: ImmutableArray`1
+  - uid: System.Collections.Immutable.ImmutableArray`1
     name: ImmutableArray
     nameWithType: ImmutableArray
-    fullName: ImmutableArray
+    fullName: System.Collections.Immutable.ImmutableArray
     isExternal: true
   - name: <
     nameWithType: <
@@ -1063,10 +1088,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: ImmutableArray`1
+  - uid: System.Collections.Immutable.ImmutableArray`1
     name: ImmutableArray
     nameWithType: ImmutableArray
-    fullName: ImmutableArray
+    fullName: System.Collections.Immutable.ImmutableArray
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1078,41 +1103,48 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: ImmutableArray`1
+- uid: System.Collections.Immutable.ImmutableArray`1
+  commentId: T:System.Collections.Immutable.ImmutableArray`1
   isExternal: true
-  name: ImmutableArray<>
-  nameWithType: ImmutableArray<>
-  fullName: ImmutableArray<>
-  nameWithType.vb: ImmutableArray(Of )
-  fullName.vb: ImmutableArray(Of )
-  name.vb: ImmutableArray(Of )
+  name: ImmutableArray<T>
+  nameWithType: ImmutableArray<T>
+  fullName: System.Collections.Immutable.ImmutableArray<T>
+  nameWithType.vb: ImmutableArray(Of T)
+  fullName.vb: System.Collections.Immutable.ImmutableArray(Of T)
+  name.vb: ImmutableArray(Of T)
   spec.csharp:
-  - uid: ImmutableArray`1
+  - uid: System.Collections.Immutable.ImmutableArray`1
     name: ImmutableArray
     nameWithType: ImmutableArray
-    fullName: ImmutableArray
+    fullName: System.Collections.Immutable.ImmutableArray
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: ImmutableArray`1
+  - uid: System.Collections.Immutable.ImmutableArray`1
     name: ImmutableArray
     nameWithType: ImmutableArray
-    fullName: ImmutableArray
+    fullName: System.Collections.Immutable.ImmutableArray
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Immutable
+  commentId: N:System.Collections.Immutable
+  isExternal: true
+  name: System.Collections.Immutable
+  nameWithType: System.Collections.Immutable
+  fullName: System.Collections.Immutable

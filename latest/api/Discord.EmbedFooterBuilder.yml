@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EmbedFooterBuilder
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -32,12 +32,18 @@ items:
   summary: "\nRepresents a builder class for an embed footer.\n"
   example: []
   syntax:
-    content: 'public class EmbedFooterBuilder : object'
-    content.vb: >-
-      Public Class EmbedFooterBuilder
-          Inherits Object
+    content: public class EmbedFooterBuilder
+    content.vb: Public Class EmbedFooterBuilder
   inheritance:
   - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -58,7 +64,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: MaxFooterTextLength
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -69,10 +75,10 @@ items:
   summary: "\nGets the maximum footer length allowed by Discord.\n"
   example: []
   syntax:
-    content: public const int MaxFooterTextLength = null
+    content: public const int MaxFooterTextLength = 2048
     return:
       type: System.Int32
-    content.vb: Public Const MaxFooterTextLength As Integer = Nothing
+    content.vb: Public Const MaxFooterTextLength As Integer = 2048
   modifiers.csharp:
   - public
   - const
@@ -93,7 +99,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Text
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -111,6 +117,10 @@ items:
       description: "\nThe footer text.\n"
     content.vb: Public Property Text As String
   overload: Discord.EmbedFooterBuilder.Text*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: "\nAuthor name length is longer than <xref href=\"Discord.EmbedFooterBuilder.MaxFooterTextLength\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   modifiers.csharp:
   - public
   - get
@@ -131,7 +141,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IconUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -149,6 +159,10 @@ items:
       description: "\nThe icon URL of the footer field.\n"
     content.vb: Public Property IconUrl As String
   overload: Discord.EmbedFooterBuilder.IconUrl*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Url is not a well-formed <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
   modifiers.csharp:
   - public
   - get
@@ -169,7 +183,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithText
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -208,7 +222,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: WithIconUrl
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -247,7 +261,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Build
     path: ../src/Discord.Net.Core/Entities/Messages/EmbedBuilder.cs
@@ -264,6 +278,10 @@ items:
       description: ''
     content.vb: Public Function Build As EmbedFooter
   overload: Discord.EmbedFooterBuilder.Build*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: "\n<p><xref href=\"Discord.EmbedFooterBuilder.Text\" data-throw-if-not-resolved=\"false\"></xref> length is longer than <xref href=\"Discord.EmbedFooterBuilder.MaxFooterTextLength\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p><code>- or -</code></p>\n<p><xref href=\"Discord.EmbedFooterBuilder.IconUrl\" data-throw-if-not-resolved=\"false\"></xref> is not a well-formed <xref href=\"System.Uri\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -275,11 +293,300 @@ references:
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -287,16 +594,24 @@ references:
 - uid: Discord.EmbedFooterBuilder.MaxFooterTextLength
   commentId: F:Discord.EmbedFooterBuilder.MaxFooterTextLength
   isExternal: true
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
 - uid: Discord.EmbedFooterBuilder.Text*
   commentId: Overload:Discord.EmbedFooterBuilder.Text
   name: Text
   nameWithType: EmbedFooterBuilder.Text
   fullName: Discord.EmbedFooterBuilder.Text
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System.Uri
+  commentId: T:System.Uri
+  isExternal: true
 - uid: Discord.EmbedFooterBuilder.IconUrl*
   commentId: Overload:Discord.EmbedFooterBuilder.IconUrl
   name: IconUrl

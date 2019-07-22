@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RestConnection
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -30,15 +30,21 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   syntax:
-    content: 'public class RestConnection : object, IConnection'
+    content: 'public class RestConnection : IConnection'
     content.vb: >-
       Public Class RestConnection
-          Inherits Object
           Implements IConnection
   inheritance:
   - System.Object
   implements:
   - Discord.IConnection
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -59,7 +65,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Id
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -67,14 +73,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: 'Gets the ID of the connection account. '
   example: []
   syntax:
     content: public string Id { get; }
     parameters: []
     return:
       type: System.String
+      description: 'A <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the unique identifier value of this connection. '
     content.vb: Public ReadOnly Property Id As String
   overload: Discord.Rest.RestConnection.Id*
+  implements:
+  - Discord.IConnection.Id
   modifiers.csharp:
   - public
   - get
@@ -95,7 +105,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Type
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -103,14 +113,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: 'Gets the service of the connection (twitch, youtube). '
   example: []
   syntax:
     content: public string Type { get; }
     parameters: []
     return:
       type: System.String
+      description: 'A string containing the name of this type of connection. '
     content.vb: Public ReadOnly Property Type As String
   overload: Discord.Rest.RestConnection.Type*
+  implements:
+  - Discord.IConnection.Type
   modifiers.csharp:
   - public
   - get
@@ -131,7 +145,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -139,14 +153,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: 'Gets the username of the connection account. '
   example: []
   syntax:
     content: public string Name { get; }
     parameters: []
     return:
       type: System.String
+      description: 'A string containing the name of this connection. '
     content.vb: Public ReadOnly Property Name As String
   overload: Discord.Rest.RestConnection.Name*
+  implements:
+  - Discord.IConnection.Name
   modifiers.csharp:
   - public
   - get
@@ -167,7 +185,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsRevoked
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -175,14 +193,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: 'Gets whether the connection is revoked. '
   example: []
   syntax:
     content: public bool IsRevoked { get; }
     parameters: []
     return:
       type: System.Boolean
+      description: 'A value which if true indicates that this connection has been revoked, otherwise false. '
     content.vb: Public ReadOnly Property IsRevoked As Boolean
   overload: Discord.Rest.RestConnection.IsRevoked*
+  implements:
+  - Discord.IConnection.IsRevoked
   modifiers.csharp:
   - public
   - get
@@ -203,7 +225,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IntegrationIds
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -211,14 +233,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: 'Gets a <xref href="System.Collections.Generic.IReadOnlyCollection%601" data-throw-if-not-resolved="false"></xref> of integration IDs. '
   example: []
   syntax:
     content: public IReadOnlyCollection<ulong> IntegrationIds { get; }
     parameters: []
     return:
-      type: IReadOnlyCollection{System.UInt64}
+      type: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+      description: "\nAn <xref href=\"System.Collections.Generic.IReadOnlyCollection%601\" data-throw-if-not-resolved=\"false\"></xref> containing <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref>\nrepresentations of unique identifier values of integrations.\n"
     content.vb: Public ReadOnly Property IntegrationIds As IReadOnlyCollection(Of ULong)
   overload: Discord.Rest.RestConnection.IntegrationIds*
+  implements:
+  - Discord.IConnection.IntegrationIds
   modifiers.csharp:
   - public
   - get
@@ -239,7 +265,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Rest/Entities/Users/RestConnection.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Rest/Entities/Users/RestConnection.cs
@@ -255,6 +281,7 @@ items:
       type: System.String
       description: "\nName of the connection.\n"
     content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
   overload: Discord.Rest.RestConnection.ToString*
   modifiers.csharp:
   - public
@@ -269,6 +296,8 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -279,6 +308,260 @@ references:
   name: IConnection
   nameWithType: IConnection
   fullName: Discord.IConnection
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord
   commentId: N:Discord
   name: Discord
@@ -289,7 +572,15 @@ references:
   name: Id
   nameWithType: RestConnection.Id
   fullName: Discord.Rest.RestConnection.Id
+- uid: Discord.IConnection.Id
+  commentId: P:Discord.IConnection.Id
+  parent: Discord.IConnection
+  name: Id
+  nameWithType: IConnection.Id
+  fullName: Discord.IConnection.Id
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -299,17 +590,37 @@ references:
   name: Type
   nameWithType: RestConnection.Type
   fullName: Discord.Rest.RestConnection.Type
+- uid: Discord.IConnection.Type
+  commentId: P:Discord.IConnection.Type
+  parent: Discord.IConnection
+  name: Type
+  nameWithType: IConnection.Type
+  fullName: Discord.IConnection.Type
 - uid: Discord.Rest.RestConnection.Name*
   commentId: Overload:Discord.Rest.RestConnection.Name
   name: Name
   nameWithType: RestConnection.Name
   fullName: Discord.Rest.RestConnection.Name
+- uid: Discord.IConnection.Name
+  commentId: P:Discord.IConnection.Name
+  parent: Discord.IConnection
+  name: Name
+  nameWithType: IConnection.Name
+  fullName: Discord.IConnection.Name
 - uid: Discord.Rest.RestConnection.IsRevoked*
   commentId: Overload:Discord.Rest.RestConnection.IsRevoked
   name: IsRevoked
   nameWithType: RestConnection.IsRevoked
   fullName: Discord.Rest.RestConnection.IsRevoked
+- uid: Discord.IConnection.IsRevoked
+  commentId: P:Discord.IConnection.IsRevoked
+  parent: Discord.IConnection
+  name: IsRevoked
+  nameWithType: IConnection.IsRevoked
+  fullName: Discord.IConnection.IsRevoked
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -319,20 +630,27 @@ references:
   name: IntegrationIds
   nameWithType: RestConnection.IntegrationIds
   fullName: Discord.Rest.RestConnection.IntegrationIds
-- uid: IReadOnlyCollection{System.UInt64}
-  commentId: '!:IReadOnlyCollection{System.UInt64}'
-  definition: IReadOnlyCollection`1
+- uid: Discord.IConnection.IntegrationIds
+  commentId: P:Discord.IConnection.IntegrationIds
+  parent: Discord.IConnection
+  name: IntegrationIds
+  nameWithType: IConnection.IntegrationIds
+  fullName: Discord.IConnection.IntegrationIds
+- uid: System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.UInt64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
   name: IReadOnlyCollection<UInt64>
   nameWithType: IReadOnlyCollection<UInt64>
-  fullName: IReadOnlyCollection<System.UInt64>
+  fullName: System.Collections.Generic.IReadOnlyCollection<System.UInt64>
   nameWithType.vb: IReadOnlyCollection(Of UInt64)
-  fullName.vb: IReadOnlyCollection(Of System.UInt64)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of System.UInt64)
   name.vb: IReadOnlyCollection(Of UInt64)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -346,10 +664,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -362,41 +680,79 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IReadOnlyCollection`1
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<>
-  nameWithType: IReadOnlyCollection<>
-  fullName: IReadOnlyCollection<>
-  nameWithType.vb: IReadOnlyCollection(Of )
-  fullName.vb: IReadOnlyCollection(Of )
-  name.vb: IReadOnlyCollection(Of )
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
   spec.csharp:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
   - name: )
     nameWithType: )
     fullName: )

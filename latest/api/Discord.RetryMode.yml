@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RetryMode
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -31,8 +31,18 @@ items:
   summary: 'Specifies how a request should act in the case of an error. '
   example: []
   syntax:
-    content: 'public enum RetryMode : int'
-    content.vb: Public Enum RetryMode As Integer
+    content: >-
+      [Flags]
+
+      public enum RetryMode
+    content.vb: >-
+      <Flags>
+
+      Public Enum RetryMode
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
   modifiers.csharp:
   - public
   - enum
@@ -53,7 +63,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AlwaysFail
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -64,10 +74,9 @@ items:
   summary: 'If a request fails, an exception is thrown immediately. '
   example: []
   syntax:
-    content: AlwaysFail = null
+    content: AlwaysFail = 0
     return:
       type: Discord.RetryMode
-    content.vb: AlwaysFail = Nothing
   modifiers.csharp:
   - public
   - const
@@ -88,7 +97,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RetryTimeouts
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -99,10 +108,9 @@ items:
   summary: 'Retry if a request timed out. '
   example: []
   syntax:
-    content: RetryTimeouts = null
+    content: RetryTimeouts = 1
     return:
       type: Discord.RetryMode
-    content.vb: RetryTimeouts = Nothing
   modifiers.csharp:
   - public
   - const
@@ -123,7 +131,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: RetryRatelimit
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -134,10 +142,9 @@ items:
   summary: 'Retry if a request failed due to a rate-limit. '
   example: []
   syntax:
-    content: RetryRatelimit = null
+    content: RetryRatelimit = 4
     return:
       type: Discord.RetryMode
-    content.vb: RetryRatelimit = Nothing
   modifiers.csharp:
   - public
   - const
@@ -158,7 +165,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Retry502
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -169,10 +176,9 @@ items:
   summary: 'Retry if a request failed due to an HTTP error 502. '
   example: []
   syntax:
-    content: Retry502 = null
+    content: Retry502 = 8
     return:
       type: Discord.RetryMode
-    content.vb: Retry502 = Nothing
   modifiers.csharp:
   - public
   - const
@@ -193,7 +199,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/RetryMode.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AlwaysRetry
     path: ../src/Discord.Net.Core/RetryMode.cs
@@ -204,10 +210,9 @@ items:
   summary: 'Continuously retry a request until it times out, its cancel token is triggered, or the server responds with a non-502 error. '
   example: []
   syntax:
-    content: AlwaysRetry = null
+    content: AlwaysRetry = 13
     return:
       type: Discord.RetryMode
-    content.vb: AlwaysRetry = Nothing
   modifiers.csharp:
   - public
   - const

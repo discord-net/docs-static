@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IUser
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -48,7 +48,7 @@ items:
   - Discord.IPresence.ActiveClients
   extensionMethods:
   - Discord.IUser.Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  - Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   modifiers.csharp:
   - public
@@ -70,7 +70,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: AvatarId
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -105,7 +105,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetAvatarUrl
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -118,7 +118,7 @@ items:
   example:
   - "\n    The following example attempts to retrieve the user&apos;s current avatar and send it to a channel; if one is\n    not set, a default avatar for this user will be returned instead.\n<pre><code class=\"lang-cs\" region=\"GetAvatarUrl\" source=\"..\\..\\..\\Discord.Net.Examples\\Core\\Entities\\Users\\IUser.Examples.cs\">public async Task GetAvatarAsync(IUser user, ITextChannel textChannel)\n{\n    var userAvatarUrl = user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl();\n    await textChannel.SendMessageAsync(userAvatarUrl);\n}</code></pre>\n"
   syntax:
-    content: string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = null)
+    content: string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = 128)
     parameters:
     - id: format
       type: Discord.ImageFormat
@@ -130,7 +130,7 @@ items:
     return:
       type: System.String
       description: "\nA string representing the user&apos;s avatar URL; <code>null</code> if the user does not have an avatar in place.\n"
-    content.vb: Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = Nothing) As String
+    content.vb: Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = 128) As String
   overload: Discord.IUser.GetAvatarUrl*
 - uid: Discord.IUser.GetDefaultAvatarUrl
   commentId: M:Discord.IUser.GetDefaultAvatarUrl
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetDefaultAvatarUrl
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -178,7 +178,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Discriminator
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -213,7 +213,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DiscriminatorValue
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsBot
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -285,7 +285,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsWebhook
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -321,7 +321,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Username
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -356,7 +356,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Users/IUser.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetOrCreateDMChannelAsync
     path: ../src/Discord.Net.Core/Entities/Users/IUser.cs
@@ -375,7 +375,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IDMChannel}
+      type: System.Threading.Tasks.Task{Discord.IDMChannel}
       description: "\nA task that represents the asynchronous operation for getting or creating a DM channel. The task result\ncontains the DM channel associated with this user.\n"
     content.vb: Function GetOrCreateDMChannelAsync(options As RequestOptions = Nothing) As Task(Of IDMChannel)
   overload: Discord.IUser.GetOrCreateDMChannelAsync*
@@ -507,25 +507,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   parent: Discord.UserExtensions
-  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -569,17 +569,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -890,14 +890,14 @@ references:
   name: UserExtensions
   nameWithType: UserExtensions
   fullName: Discord.UserExtensions
-- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   isExternal: true
   name: SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
   nameWithType: UserExtensions.SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
-  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -911,10 +911,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -958,7 +958,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
     name: SendFileAsync
     nameWithType: UserExtensions.SendFileAsync
     fullName: Discord.UserExtensions.SendFileAsync
@@ -972,10 +972,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: Stream
+  - uid: System.IO.Stream
     name: Stream
     nameWithType: Stream
-    fullName: Stream
+    fullName: System.IO.Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1172,10 +1172,18 @@ references:
   nameWithType: IUser.AvatarId
   fullName: Discord.IUser.AvatarId
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.IUser.GetDefaultAvatarUrl
   commentId: M:Discord.IUser.GetDefaultAvatarUrl
   parent: Discord.IUser
@@ -1216,6 +1224,8 @@ references:
   nameWithType: ImageFormat
   fullName: Discord.ImageFormat
 - uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
@@ -1253,6 +1263,8 @@ references:
   nameWithType: IUser.IsBot
   fullName: Discord.IUser.IsBot
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1286,20 +1298,21 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task{Discord.IDMChannel}
-  commentId: '!:Task{Discord.IDMChannel}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IDMChannel}
+  commentId: T:System.Threading.Tasks.Task{Discord.IDMChannel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IDMChannel>
   nameWithType: Task<IDMChannel>
-  fullName: Task<Discord.IDMChannel>
+  fullName: System.Threading.Tasks.Task<Discord.IDMChannel>
   nameWithType.vb: Task(Of IDMChannel)
-  fullName.vb: Task(Of Discord.IDMChannel)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IDMChannel)
   name.vb: Task(Of IDMChannel)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -1312,10 +1325,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1327,41 +1340,48 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task`1
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
   isExternal: true
-  name: Task<>
-  nameWithType: Task<>
-  fullName: Task<>
-  nameWithType.vb: Task(Of )
-  fullName.vb: Task(Of )
-  name.vb: Task(Of )
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

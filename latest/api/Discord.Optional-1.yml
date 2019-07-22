@@ -26,7 +26,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Optional
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -39,6 +39,10 @@ items:
     typeParameters:
     - id: T
     content.vb: Public Structure Optional(Of T)
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   nameWithType.vb: Optional(Of T)
   modifiers.csharp:
   - public
@@ -62,7 +66,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Unspecified
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -101,7 +105,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Value
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -118,6 +122,10 @@ items:
       type: '{T}'
     content.vb: Public ReadOnly Property Value As T
   overload: Discord.Optional`1.Value*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: This property has no value set.
   nameWithType.vb: Optional(Of T).Value
   modifiers.csharp:
   - public
@@ -140,7 +148,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IsSpecified
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -179,7 +187,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -216,7 +224,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetValueOrDefault
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -250,7 +258,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetValueOrDefault
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -287,7 +295,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Equals
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -303,6 +311,7 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
   overload: Discord.Optional`1.Equals*
   nameWithType.vb: Optional(Of T).Equals(Object)
   modifiers.csharp:
@@ -326,7 +335,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetHashCode
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -339,6 +348,7 @@ items:
     return:
       type: System.Int32
     content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
   overload: Discord.Optional`1.GetHashCode*
   nameWithType.vb: Optional(Of T).GetHashCode()
   modifiers.csharp:
@@ -362,7 +372,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -375,6 +385,7 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
   overload: Discord.Optional`1.ToString*
   nameWithType.vb: Optional(Of T).ToString()
   modifiers.csharp:
@@ -398,7 +409,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: op_Implicit
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -438,7 +449,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Utils/Optional.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: op_Explicit
     path: ../src/Discord.Net.Core/Utils/Optional.cs
@@ -470,6 +481,164 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Discord.Optional`1.Unspecified*
   commentId: Overload:Discord.Optional`1.Unspecified
   name: Unspecified
@@ -514,6 +683,9 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
 - uid: Discord.Optional`1.Value*
   commentId: Overload:Discord.Optional`1.Value
   name: Value
@@ -539,6 +711,8 @@ references:
   nameWithType.vb: Optional(Of T).IsSpecified
   fullName.vb: Discord.Optional(Of T).IsSpecified
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -557,6 +731,47 @@ references:
   fullName: Discord.Optional<T>.GetValueOrDefault
   nameWithType.vb: Optional(Of T).GetValueOrDefault
   fullName.vb: Discord.Optional(Of T).GetValueOrDefault
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Optional`1.Equals*
   commentId: Overload:Discord.Optional`1.Equals
   name: Equals
@@ -564,11 +779,44 @@ references:
   fullName: Discord.Optional<T>.Equals
   nameWithType.vb: Optional(Of T).Equals
   fullName.vb: Discord.Optional(Of T).Equals
-- uid: System.Object
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
   isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Optional`1.GetHashCode*
   commentId: Overload:Discord.Optional`1.GetHashCode
   name: GetHashCode
@@ -577,10 +825,43 @@ references:
   nameWithType.vb: Optional(Of T).GetHashCode
   fullName.vb: Discord.Optional(Of T).GetHashCode
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.Optional`1.ToString*
   commentId: Overload:Discord.Optional`1.ToString
   name: ToString
@@ -589,6 +870,8 @@ references:
   nameWithType.vb: Optional(Of T).ToString
   fullName.vb: Discord.Optional(Of T).ToString
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String

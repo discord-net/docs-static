@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: ActivityProperties
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -33,8 +33,18 @@ items:
   summary: "\nFlags for the <xref href=\"Discord.IActivity.Flags\" data-throw-if-not-resolved=\"false\"></xref> property, that are ORd together.\nThese describe what the activity payload includes.\n"
   example: []
   syntax:
-    content: 'public enum ActivityProperties : int'
-    content.vb: Public Enum ActivityProperties As Integer
+    content: >-
+      [Flags]
+
+      public enum ActivityProperties
+    content.vb: >-
+      <Flags>
+
+      Public Enum ActivityProperties
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
   modifiers.csharp:
   - public
   - enum
@@ -55,7 +65,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: None
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -66,10 +76,9 @@ items:
   summary: "\nIndicates that no actions on this activity can be taken.\n"
   example: []
   syntax:
-    content: None = null
+    content: None = 0
     return:
       type: Discord.ActivityProperties
-    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -90,7 +99,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Instance
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -99,10 +108,9 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: Instance = null
+    content: Instance = 1
     return:
       type: Discord.ActivityProperties
-    content.vb: Instance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -123,7 +131,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Join
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -134,10 +142,9 @@ items:
   summary: "\nIndicates that this activity can be joined.\n"
   example: []
   syntax:
-    content: Join = null
+    content: Join = 2
     return:
       type: Discord.ActivityProperties
-    content.vb: Join = Nothing
   modifiers.csharp:
   - public
   - const
@@ -158,7 +165,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Spectate
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -169,10 +176,9 @@ items:
   summary: "\nIndicates that this activity can be spectated.\n"
   example: []
   syntax:
-    content: Spectate = null
+    content: Spectate = 4
     return:
       type: Discord.ActivityProperties
-    content.vb: Spectate = Nothing
   modifiers.csharp:
   - public
   - const
@@ -193,7 +199,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: JoinRequest
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -204,10 +210,9 @@ items:
   summary: "\nIndicates that a user may request to join an activity.\n"
   example: []
   syntax:
-    content: JoinRequest = null
+    content: JoinRequest = 8
     return:
       type: Discord.ActivityProperties
-    content.vb: JoinRequest = Nothing
   modifiers.csharp:
   - public
   - const
@@ -228,7 +233,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Sync
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -239,10 +244,9 @@ items:
   summary: "\nIndicates that a user can listen along in Spotify.\n"
   example: []
   syntax:
-    content: Sync = null
+    content: Sync = 16
     return:
       type: Discord.ActivityProperties
-    content.vb: Sync = Nothing
   modifiers.csharp:
   - public
   - const
@@ -263,7 +267,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: Play
     path: ../src/Discord.Net.Core/Entities/Activities/ActivityProperties.cs
@@ -274,10 +278,9 @@ items:
   summary: "\nIndicates that a user can play this song.\n"
   example: []
   syntax:
-    content: Play = null
+    content: Play = 32
     return:
       type: Discord.ActivityProperties
-    content.vb: Play = Nothing
   modifiers.csharp:
   - public
   - const

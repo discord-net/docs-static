@@ -13,7 +13,7 @@ items:
   - Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
   - Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
   - Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  - Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: IMessageChannel
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -68,7 +68,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendMessageAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -95,7 +95,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IUserMessage}
+      type: System.Threading.Tasks.Task{Discord.IUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendMessageAsync(text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of IUserMessage)
   overload: Discord.IMessageChannel.SendMessageAsync*
@@ -113,7 +113,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendFileAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -147,25 +147,25 @@ items:
       type: System.Boolean
       description: Whether the message attachment should be hidden as a spoiler.
     return:
-      type: Task{Discord.IUserMessage}
+      type: System.Threading.Tasks.Task{Discord.IUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendFileAsync(filePath As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of IUserMessage)
   overload: Discord.IMessageChannel.SendFileAsync*
-- uid: Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  id: SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  id: SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.IMessageChannel
   langs:
   - csharp
   - vb
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.IMessageChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   type: Method
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: SendFileAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -181,8 +181,8 @@ items:
     content: Task<IUserMessage> SendFileAsync(Stream stream, string filename, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
     parameters:
     - id: stream
-      type: Stream
-      description: The <see cref="!:Stream"></see> of the file to be sent.
+      type: System.IO.Stream
+      description: The <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> of the file to be sent.
     - id: filename
       type: System.String
       description: The name of the attachment.
@@ -202,7 +202,7 @@ items:
       type: System.Boolean
       description: Whether the message attachment should be hidden as a spoiler.
     return:
-      type: Task{Discord.IUserMessage}
+      type: System.Threading.Tasks.Task{Discord.IUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Function SendFileAsync(stream As Stream, filename As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of IUserMessage)
   overload: Discord.IMessageChannel.SendFileAsync*
@@ -220,7 +220,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessageAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -243,7 +243,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{Discord.IMessage}
+      type: System.Threading.Tasks.Task{Discord.IMessage}
       description: "\nA task that represents an asynchronous get operation for retrieving the message. The task result contains\nthe retrieved message; <code>null</code> if no message is found with the specified identifier.\n"
     content.vb: Function GetMessageAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IMessage)
   overload: Discord.IMessageChannel.GetMessageAsync*
@@ -261,7 +261,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -270,11 +270,11 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets the last N messages from this message channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(IAsyncEnumerable%7bIEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code>. The\nlibrary will attempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code>. The\nlibrary will attempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
   example:
   - "\n<p>The following example downloads 300 messages and gets messages that belong to the user \n<code>53905483156684800</code>.</p>\n<pre><code class=\"lang-cs\" region=\"GetMessagesAsync.FromLimit.Standard\" source=\"..\\..\\..\\Discord.Net.Examples\\Core\\Entities\\Channels\\IMessageChannel.Examples.cs\">    var messages = await channel.GetMessagesAsync(300).FlattenAsync();\n    var userMessages = messages.Where(x => x.Author.Id == 53905483156684800);</code></pre>\n"
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(int limit = null, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
     parameters:
     - id: limit
       type: System.Int32
@@ -289,9 +289,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(limit As Integer = Nothing, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Function GetMessagesAsync(limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.IMessageChannel.GetMessagesAsync*
 - uid: Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
   commentId: M:Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
@@ -307,7 +307,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -316,11 +316,11 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(IAsyncEnumerable%7bIEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessageId</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessageId</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
   example:
   - "\n<p>The following example gets 5 message prior to the message identifier <code>442012544660537354</code>.</p>\n<pre><code class=\"lang-cs\" region=\"GetMessagesAsync.FromId.FromMessage\" source=\"..\\..\\..\\Discord.Net.Examples\\Core\\Entities\\Channels\\IMessageChannel.Examples.cs\">    await channel.GetMessagesAsync(442012544660537354, Direction.Before, 5).FlattenAsync();</code></pre>\n<p>The following example attempts to retrieve <code>messageCount</code> number of messages from the \nbeginning of the channel and prints them to the console.</p>\n<pre><code class=\"lang-cs\" region=\"GetMessagesAsync.FromId.BeginningMessages\" source=\"..\\..\\..\\Discord.Net.Examples\\Core\\Entities\\Channels\\IMessageChannel.Examples.cs\">public async Task PrintFirstMessages(IMessageChannel channel, int messageCount)\n{\n    // Although the library does attempt to divide the messageCount by 100\n    // to comply to Discord&apos;s maximum message limit per request, sending\n    // too many could still cause the queue to clog up.\n    // The purpose of this exception is to discourage users from sending\n    // too many requests at once.\n    if (messageCount > 1000)\n        throw new InvalidOperationException(&quot;Too many messages requested.&quot;);\n\n    // Setting fromMessageId to 0 will make Discord\n    // default to the first message in channel.\n    var messages = await channel.GetMessagesAsync(\n            0, Direction.After, messageCount)\n        .FlattenAsync();\n\n    // Print message content\n    foreach (var message in messages)\n        Console.WriteLine($&quot;{message.Author} posted &apos;{message.Content}&apos; at {message.CreatedAt}.&quot;);\n}</code></pre>\n"
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = null, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
     parameters:
     - id: fromMessageId
       type: System.UInt64
@@ -341,9 +341,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.IMessageChannel.GetMessagesAsync*
 - uid: Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
   commentId: M:Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
@@ -359,7 +359,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetMessagesAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -368,11 +368,11 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(IAsyncEnumerable%7bIEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessage</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessage</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
   example:
   - "\n<p>The following example gets 5 message prior to a specific message, <code>oldMessage</code>.</p>\n<pre><code class=\"lang-cs\" region=\"GetMessagesAsync.FromMessage\" source=\"..\\..\\..\\Discord.Net.Examples\\Core\\Entities\\Channels\\IMessageChannel.Examples.cs\">    var oldMessage = await channel.SendMessageAsync(&quot;boi&quot;);\n    var messagesFromMsg = await channel.GetMessagesAsync(oldMessage, Direction.Before, 5).FlattenAsync();</code></pre>\n"
   syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = null, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
     parameters:
     - id: fromMessage
       type: Discord.IMessage
@@ -393,9 +393,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.IMessageChannel.GetMessagesAsync*
 - uid: Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
   commentId: M:Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
@@ -411,7 +411,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: GetPinnedMessagesAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -428,7 +428,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task{IReadOnlyCollection{Discord.IMessage}}
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
       description: "\nA task that represents the asynchronous get operation for retrieving pinned messages in this channel.\nThe task result contains a collection of messages found in the pinned messages.\n"
     content.vb: Function GetPinnedMessagesAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.IMessageChannel.GetPinnedMessagesAsync*
@@ -446,7 +446,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteMessageAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -466,7 +466,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous removal operation.\n"
     content.vb: Function DeleteMessageAsync(messageId As ULong, options As RequestOptions = Nothing) As Task
   overload: Discord.IMessageChannel.DeleteMessageAsync*
@@ -484,7 +484,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteMessageAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -504,7 +504,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous removal operation.\n"
     content.vb: Function DeleteMessageAsync(message As IMessage, options As RequestOptions = Nothing) As Task
   overload: Discord.IMessageChannel.DeleteMessageAsync*
@@ -522,7 +522,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: TriggerTypingAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -539,7 +539,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: Task
+      type: System.Threading.Tasks.Task
       description: "\nA task that represents the asynchronous operation that triggers the broadcast.\n"
     content.vb: Function TriggerTypingAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.IMessageChannel.TriggerTypingAsync*
@@ -557,7 +557,7 @@ items:
   source:
     remote:
       path: src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
-      branch: docs
+      branch: dev
       repo: https://github.com/discord-net/Discord.Net
     id: EnterTypingState
     path: ../src/Discord.Net.Core/Entities/Channels/IMessageChannel.cs
@@ -575,7 +575,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: IDisposable
+      type: System.IDisposable
       description: "\nA disposable object that, upon its disposal, will stop the client from broadcasting its typing state in\nthis channel.\n"
     content.vb: Function EnterTypingState(options As RequestOptions = Nothing) As IDisposable
   overload: Discord.IMessageChannel.EnterTypingState*
@@ -835,11 +835,15 @@ references:
   nameWithType: IMessageChannel.SendMessageAsync
   fullName: Discord.IMessageChannel.SendMessageAsync
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -850,20 +854,21 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: Task{Discord.IUserMessage}
-  commentId: '!:Task{Discord.IUserMessage}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IUserMessage}
+  commentId: T:System.Threading.Tasks.Task{Discord.IUserMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IUserMessage>
   nameWithType: Task<IUserMessage>
-  fullName: Task<Discord.IUserMessage>
+  fullName: System.Threading.Tasks.Task<Discord.IUserMessage>
   nameWithType.vb: Task(Of IUserMessage)
-  fullName.vb: Task(Of Discord.IUserMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IUserMessage)
   name.vb: Task(Of IUserMessage)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -876,10 +881,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -891,44 +896,57 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Task`1
+- uid: System
+  commentId: N:System
   isExternal: true
-  name: Task<>
-  nameWithType: Task<>
-  fullName: Task<>
-  nameWithType.vb: Task(Of )
-  fullName.vb: Task(Of )
-  name.vb: Task(Of )
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
 - uid: Discord.EmbedBuilder.ImageUrl
   commentId: P:Discord.EmbedBuilder.ImageUrl
   isExternal: true
@@ -937,11 +955,19 @@ references:
   name: SendFileAsync
   nameWithType: IMessageChannel.SendFileAsync
   fullName: Discord.IMessageChannel.SendFileAsync
-- uid: Stream
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
   isExternal: true
   name: Stream
   nameWithType: Stream
-  fullName: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
 - uid: Discord.CacheMode
   commentId: T:Discord.CacheMode
   parent: Discord
@@ -954,24 +980,27 @@ references:
   nameWithType: IMessageChannel.GetMessageAsync
   fullName: Discord.IMessageChannel.GetMessageAsync
 - uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
   fullName: System.UInt64
-- uid: Task{Discord.IMessage}
-  commentId: '!:Task{Discord.IMessage}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{Discord.IMessage}
+  commentId: T:System.Threading.Tasks.Task{Discord.IMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IMessage>
   nameWithType: Task<IMessage>
-  fullName: Task<Discord.IMessage>
+  fullName: System.Threading.Tasks.Task<Discord.IMessage>
   nameWithType.vb: Task(Of IMessage)
-  fullName.vb: Task(Of Discord.IMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of Discord.IMessage)
   name.vb: Task(Of IMessage)
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -984,10 +1013,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -999,8 +1028,8 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(IAsyncEnumerable{IEnumerable{``0}})
-  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(IAsyncEnumerable{IEnumerable{``0}})
+- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
   isExternal: true
 - uid: Discord.DiscordConfig.MaxMessagesPerBatch
   commentId: F:Discord.DiscordConfig.MaxMessagesPerBatch
@@ -1014,32 +1043,35 @@ references:
   nameWithType: IMessageChannel.GetMessagesAsync
   fullName: Discord.IMessageChannel.GetMessagesAsync
 - uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
-  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}'
-  definition: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
   name: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
   nameWithType: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
-  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.IMessage>>
+  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IMessage>>
   nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
-  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.IMessage))
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IMessage))
   name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1055,18 +1087,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1087,44 +1119,51 @@ references:
   name: DiscordConfig
   nameWithType: DiscordConfig
   fullName: Discord.DiscordConfig
-- uid: IAsyncEnumerable`1
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
   isExternal: true
-  name: IAsyncEnumerable<>
-  nameWithType: IAsyncEnumerable<>
-  fullName: IAsyncEnumerable<>
-  nameWithType.vb: IAsyncEnumerable(Of )
-  fullName.vb: IAsyncEnumerable(Of )
-  name.vb: IAsyncEnumerable(Of )
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
   spec.csharp:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IAsyncEnumerable`1
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: Discord.Direction
   commentId: T:Discord.Direction
   parent: Discord
@@ -1142,28 +1181,29 @@ references:
   name: GetPinnedMessagesAsync
   nameWithType: IMessageChannel.GetPinnedMessagesAsync
   fullName: Discord.IMessageChannel.GetPinnedMessagesAsync
-- uid: Task{IReadOnlyCollection{Discord.IMessage}}
-  commentId: '!:Task{IReadOnlyCollection{Discord.IMessage}}'
-  definition: Task`1
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
   name: Task<IReadOnlyCollection<IMessage>>
   nameWithType: Task<IReadOnlyCollection<IMessage>>
-  fullName: Task<IReadOnlyCollection<Discord.IMessage>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IMessage>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IMessage))
-  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IMessage))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IMessage))
   name.vb: Task(Of IReadOnlyCollection(Of IMessage))
   spec.csharp:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -1179,18 +1219,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Task`1
+  - uid: System.Threading.Tasks.Task`1
     name: Task
     nameWithType: Task
-    fullName: Task
+    fullName: System.Threading.Tasks.Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: IReadOnlyCollection`1
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1210,11 +1250,13 @@ references:
   name: DeleteMessageAsync
   nameWithType: IMessageChannel.DeleteMessageAsync
   fullName: Discord.IMessageChannel.DeleteMessageAsync
-- uid: Task
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: Task
+  fullName: System.Threading.Tasks.Task
 - uid: Discord.IMessageChannel.TriggerTypingAsync*
   commentId: Overload:Discord.IMessageChannel.TriggerTypingAsync
   name: TriggerTypingAsync
@@ -1225,8 +1267,10 @@ references:
   name: EnterTypingState
   nameWithType: IMessageChannel.EnterTypingState
   fullName: Discord.IMessageChannel.EnterTypingState
-- uid: IDisposable
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
   isExternal: true
   name: IDisposable
   nameWithType: IDisposable
-  fullName: IDisposable
+  fullName: System.IDisposable
