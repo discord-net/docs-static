@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.MessageExtensions
+  commentId: T:Discord.MessageExtensions
+  id: MessageExtensions
+  parent: Discord
+  children:
+  - Discord.MessageExtensions.AddReactionsAsync(Discord.IUserMessage,Discord.IEmote[],Discord.RequestOptions)
+  - Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  - Discord.MessageExtensions.RemoveReactionsAsync(Discord.IUserMessage,Discord.IUser,Discord.IEmote[],Discord.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: MessageExtensions
+  nameWithType: MessageExtensions
+  fullName: Discord.MessageExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/MessageExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: MessageExtensions
+    path: ../src/Discord.Net.Core/Extensions/MessageExtensions.cs
+    startLine: 7
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nProvides extension methods for <xref href=\"Discord.IMessage\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: 'public static class MessageExtensions : object'
+    content.vb: >-
+      Public Module MessageExtensions
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  commentId: M:Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  id: GetJumpUrl(Discord.IMessage)
+  isExtensionMethod: true
+  parent: Discord.MessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetJumpUrl(IMessage)
+  nameWithType: MessageExtensions.GetJumpUrl(IMessage)
+  fullName: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/MessageExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetJumpUrl
+    path: ../src/Discord.Net.Core/Extensions/MessageExtensions.cs
+    startLine: 16
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a URL that jumps to the message.\n"
+  example: []
+  syntax:
+    content: public static string GetJumpUrl(this IMessage msg)
+    parameters:
+    - id: msg
+      type: Discord.IMessage
+      description: The message to jump to.
+    return:
+      type: System.String
+      description: "\nA string that contains a URL for jumping to the message in chat.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetJumpUrl(msg As IMessage) As String
+  overload: Discord.MessageExtensions.GetJumpUrl*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.MessageExtensions.AddReactionsAsync(Discord.IUserMessage,Discord.IEmote[],Discord.RequestOptions)
+  commentId: M:Discord.MessageExtensions.AddReactionsAsync(Discord.IUserMessage,Discord.IEmote[],Discord.RequestOptions)
+  id: AddReactionsAsync(Discord.IUserMessage,Discord.IEmote[],Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.MessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddReactionsAsync(IUserMessage, IEmote[], RequestOptions)
+  nameWithType: MessageExtensions.AddReactionsAsync(IUserMessage, IEmote[], RequestOptions)
+  fullName: Discord.MessageExtensions.AddReactionsAsync(Discord.IUserMessage, Discord.IEmote[], Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/MessageExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddReactionsAsync
+    path: ../src/Discord.Net.Core/Extensions/MessageExtensions.cs
+    startLine: 43
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nAdd multiple reactions to a message.\n"
+  remarks: "\nThis method does not bulk add reactions! It will send a request for each reaction inculded.\n"
+  example:
+  - "\n<pre><code class=\"lang-cs\">IEmote A = new Emoji(&quot;\U0001F170&quot;);\nIEmote B = new Emoji(&quot;\U0001F171&quot;);\nawait msg.AddReactionsAsync(new[] { A, B });</code></pre>\n"
+  syntax:
+    content: public static Task AddReactionsAsync(this IUserMessage msg, IEmote[] reactions, RequestOptions options = null)
+    parameters:
+    - id: msg
+      type: Discord.IUserMessage
+      description: The message to add reactions to.
+    - id: reactions
+      type: Discord.IEmote[]
+      description: An array of reactions to add to the message
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous operation for adding a reaction to this message.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function AddReactionsAsync(msg As IUserMessage, reactions As IEmote(), options As RequestOptions = Nothing) As Task
+  overload: Discord.MessageExtensions.AddReactionsAsync*
+  seealso:
+  - linkId: Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+    commentId: M:Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  - linkId: Discord.IEmote
+    commentId: T:Discord.IEmote
+  nameWithType.vb: MessageExtensions.AddReactionsAsync(IUserMessage, IEmote(), RequestOptions)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Discord.MessageExtensions.AddReactionsAsync(Discord.IUserMessage, Discord.IEmote(), Discord.RequestOptions)
+  name.vb: AddReactionsAsync(IUserMessage, IEmote(), RequestOptions)
+- uid: Discord.MessageExtensions.RemoveReactionsAsync(Discord.IUserMessage,Discord.IUser,Discord.IEmote[],Discord.RequestOptions)
+  commentId: M:Discord.MessageExtensions.RemoveReactionsAsync(Discord.IUserMessage,Discord.IUser,Discord.IEmote[],Discord.RequestOptions)
+  id: RemoveReactionsAsync(Discord.IUserMessage,Discord.IUser,Discord.IEmote[],Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.MessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveReactionsAsync(IUserMessage, IUser, IEmote[], RequestOptions)
+  nameWithType: MessageExtensions.RemoveReactionsAsync(IUserMessage, IUser, IEmote[], RequestOptions)
+  fullName: Discord.MessageExtensions.RemoveReactionsAsync(Discord.IUserMessage, Discord.IUser, Discord.IEmote[], Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/MessageExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveReactionsAsync
+    path: ../src/Discord.Net.Core/Extensions/MessageExtensions.cs
+    startLine: 68
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRemove multiple reactions from a message.\n"
+  remarks: "\nThis method does not bulk remove reactions! If you want to clear reactions from a message,\n<xref href=\"Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example:
+  - "\n<pre><code class=\"lang-cs\">await msg.RemoveReactionsAsync(currentUser, new[] { A, B });</code></pre>\n"
+  syntax:
+    content: public static Task RemoveReactionsAsync(this IUserMessage msg, IUser user, IEmote[] reactions, RequestOptions options = null)
+    parameters:
+    - id: msg
+      type: Discord.IUserMessage
+      description: The message to remove reactions from.
+    - id: user
+      type: Discord.IUser
+    - id: reactions
+      type: Discord.IEmote[]
+      description: An array of reactions to remove from the message
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous operation for removing a reaction to this message.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function RemoveReactionsAsync(msg As IUserMessage, user As IUser, reactions As IEmote(), options As RequestOptions = Nothing) As Task
+  overload: Discord.MessageExtensions.RemoveReactionsAsync*
+  seealso:
+  - linkId: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+    commentId: M:Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  - linkId: Discord.IEmote
+    commentId: T:Discord.IEmote
+  nameWithType.vb: MessageExtensions.RemoveReactionsAsync(IUserMessage, IUser, IEmote(), RequestOptions)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Discord.MessageExtensions.RemoveReactionsAsync(Discord.IUserMessage, Discord.IUser, Discord.IEmote(), Discord.RequestOptions)
+  name.vb: RemoveReactionsAsync(IUserMessage, IUser, IEmote(), RequestOptions)
+references:
+- uid: Discord.IMessage
+  commentId: T:Discord.IMessage
+  parent: Discord
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Discord.IMessage
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.MessageExtensions.GetJumpUrl*
+  commentId: Overload:Discord.MessageExtensions.GetJumpUrl
+  name: GetJumpUrl
+  nameWithType: MessageExtensions.GetJumpUrl
+  fullName: Discord.MessageExtensions.GetJumpUrl
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  commentId: M:Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  isExternal: true
+- uid: Discord.IEmote
+  commentId: T:Discord.IEmote
+  parent: Discord
+  name: IEmote
+  nameWithType: IEmote
+  fullName: Discord.IEmote
+- uid: Discord.MessageExtensions.AddReactionsAsync*
+  commentId: Overload:Discord.MessageExtensions.AddReactionsAsync
+  name: AddReactionsAsync
+  nameWithType: MessageExtensions.AddReactionsAsync
+  fullName: Discord.MessageExtensions.AddReactionsAsync
+- uid: Discord.IUserMessage
+  commentId: T:Discord.IUserMessage
+  parent: Discord
+  name: IUserMessage
+  nameWithType: IUserMessage
+  fullName: Discord.IUserMessage
+- uid: Discord.IEmote[]
+  isExternal: true
+  name: IEmote[]
+  nameWithType: IEmote[]
+  fullName: Discord.IEmote[]
+  nameWithType.vb: IEmote()
+  fullName.vb: Discord.IEmote()
+  name.vb: IEmote()
+  spec.csharp:
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  isExternal: true
+- uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  commentId: M:Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  isExternal: true
+- uid: Discord.MessageExtensions.RemoveReactionsAsync*
+  commentId: Overload:Discord.MessageExtensions.RemoveReactionsAsync
+  name: RemoveReactionsAsync
+  nameWithType: MessageExtensions.RemoveReactionsAsync
+  fullName: Discord.MessageExtensions.RemoveReactionsAsync
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser

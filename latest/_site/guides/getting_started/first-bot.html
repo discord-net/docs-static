@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Start making a bot | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Start making a bot | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta name="description" content="One of the ways to get started with the Discord API is to write a
+basic ping-pong bot."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.GettingStarted.FirstBot">
+<h1 id="making-your-first-bot-with-discordnet">Making Your First Bot with Discord.Net</h1>
+
+<p>One of the ways to get started with the Discord API is to write a
+basic ping-pong bot. This bot will respond to a simple command &quot;ping.&quot;
+We will expand on this to create more diverse commands later, but for
+now, it is a good starting point.</p>
+<h2 id="creating-a-discord-bot">Creating a Discord Bot</h2>
+<p>Before writing your bot, it is necessary to create a bot account via
+the Discord Applications Portal first.</p>
+<ol>
+<li>Visit the <a href="https://discordapp.com/developers/applications/">Discord Applications Portal</a>.</li>
+<li>Create a new application.</li>
+<li>Give the application a name (this will be the bot&#39;s initial username).</li>
+<li><p>On the left-hand side, under <code>Settings</code>, click <code>Bot</code>.</p>
+<p> <img src="images/intro-bot-settings.png" alt="Step 4"></p>
+</li>
+<li><p>Click on <code>Add Bot</code>.</p>
+<p> <img src="images/intro-add-bot.png" alt="Step 5"></p>
+</li>
+<li><p>Confirm the popup.</p>
+</li>
+<li><p>(Optional) If this bot will be public, tick <code>Public Bot</code>.</p>
+<p> <img src="images/intro-public-bot.png" alt="Step 7"></p>
+</li>
+</ol>
+<h2 id="adding-your-bot-to-a-server">Adding your bot to a server</h2>
+<p>Bots <strong>cannot</strong> use invite links; they must be explicitly invited
+through the OAuth2 flow.</p>
+<ol>
+<li>Open your bot&#39;s application on the <a href="https://discordapp.com/developers/applications/">Discord Applications Portal</a>.</li>
+<li><p>On the left-hand side, under <code>Settings</code>, click <code>OAuth2</code>.</p>
+<p> <img src="images/intro-oauth-settings.png" alt="Step 2"></p>
+</li>
+<li><p>Scroll down to <code>OAuth2 URL Generator</code> and under <code>Scopes</code> tick <code>bot</code>.</p>
+<p> <img src="images/intro-scopes-bot.png" alt="Step 3"></p>
+</li>
+<li><p>Scroll down further to <code>Bot Permissions</code> and select the
+permissions that you wish to assign your bot with.</p>
+<div class="NOTE"><h5>Note</h5><p>This will assign the bot with a special &quot;managed&quot; role that no
+one else can use. The permissions can be changed later in the
+roles settings if you ever change your mind!</p>
+</div>
+</li>
+<li><p>Open the generated authorization URL in your browser.</p>
+</li>
+<li>Select a server.</li>
+<li><p>Click on Authorize.</p>
+<div class="NOTE"><h5>Note</h5><p>Only servers where you have the <code>MANAGE_SERVER</code> permission will be
+present in this list.</p>
+</div>
+<p> <img src="images/intro-authorize.png" alt="Step 6"></p>
+</li>
+</ol>
+<h2 id="connecting-to-discord">Connecting to Discord</h2>
+<p>If you have not already created a project and installed Discord.Net,
+do that now.</p>
+<p>For more information, see <a class="xref" href="installing.html">Installing Discord.Net</a>.</p>
+<h3 id="async">Async</h3>
+<p>Discord.Net uses .NET&#39;s <a href="https://docs.microsoft.com/en-us/dotnet/articles/csharp/async">Task-based Asynchronous Pattern (TAP)</a>
+extensively - nearly every operation is asynchronous. It is highly
+recommended for these operations to be awaited in a
+properly established async context whenever possible.</p>
+<p>To establish an async context, we will be creating an async main method
+in your console application, and rewriting the static main method to
+invoke the new async main.</p>
+<pre><code class="lang-csharp" name="Async Context">public class Program
+{
+	public static void Main(string[] args)
+		=&gt; new Program().MainAsync().GetAwaiter().GetResult();
+
+	public async Task MainAsync()
+	{
+	}
+}
+</code></pre><p>As a result of this, your program will now start and immediately
+jump into an async context. This allows us to create a connection
+to Discord later on without having to worry about setting up the
+correct async implementation.</p>
+<div class="WARNING"><h5>Warning</h5><p>If your application throws any exceptions within an async context,
+they will be thrown all the way back up to the first non-async method;
+since our first non-async method is the program&#39;s <code>Main</code> method, this
+means that <strong>all</strong> unhandled exceptions will be thrown up there, which
+will crash your application.</p>
+<p>Discord.Net will prevent exceptions in event handlers from crashing
+your program, but any exceptions in your async main <strong>will</strong> cause
+the application to crash.</p>
+</div>
+<h3 id="creating-a-logging-method">Creating a logging method</h3>
+<p>Before we create and configure a Discord client, we will add a method
+to handle Discord.Net&#39;s log events.</p>
+<p>To allow agnostic support of as many log providers as possible, we
+log information through a <code>Log</code> event with a proprietary <code>LogMessage</code>
+parameter. See the <a href="xref:Discord.Rest.BaseDiscordClient.Log">API Documentation</a> for this event.</p>
+<p>If you are using your own logging framework, this is where you would
+invoke it. For the sake of simplicity, we will only be logging to
+the console.</p>
+<p>You may learn more about this concept in <a class="xref" href="../concepts/logging.html">Logging Events/Data</a>.</p>
+<pre><code class="lang-csharp" name="Async Context">private Task Log(LogMessage msg)
+{
+	Console.WriteLine(msg.ToString());
+	return Task.CompletedTask;
+}
+</code></pre><h3 id="creating-a-discord-client">Creating a Discord Client</h3>
+<p>Finally, we can create a new connection to Discord.</p>
+<p>Since we are writing a bot, we will be using a <a href="xref:Discord.WebSocket.DiscordSocketClient">DiscordSocketClient</a>
+along with socket entities. See <a class="xref" href="terminology.html">Terminology</a>
+if you are unsure of the differences. To establish a new connection,
+we will create an instance of <a href="xref:Discord.WebSocket.DiscordSocketClient">DiscordSocketClient</a> in the new async
+main. You may pass in an optional @Discord.WebSocket.DiscordSocketConfig
+if necessary. For most users, the default will work fine.</p>
+<p>Before connecting, we should hook the client&#39;s <code>Log</code> event to the
+log handler that we had just created. Events in Discord.Net work
+similarly to any other events in C#.</p>
+<p>Next, you will need to &quot;log in to Discord&quot; with the <a href="xref:Discord.Rest.BaseDiscordClient.LoginAsync*">LoginAsync</a>
+method with the application&#39;s &quot;token.&quot;</p>
+<p><img src="images/intro-token.png" alt="Token"></p>
+<div class="NOTE"><h5>Note</h5><p>Pay attention to what you are copying from the developer portal!
+A token is not the same as the application&#39;s &quot;client secret.&quot;</p>
+</div>
+<div class="IMPORTANT"><h5>Important</h5><p>Your bot&#39;s token can be used to gain total access to your bot, so
+<strong>do not</strong> share this token with anyone else! You should store this
+token in an external source if you plan on distributing
+the source code for your bot.</p>
+<p>In the following example, we retrieve the token from the environment
+variable <code>DiscordToken</code>. Please note that this is <em>not</em> designed to
+be used in a production environment, as the secrets are stored in
+plain-text.</p>
+<p>For information on how to set an environment variable, please see
+instructions below,</p>
+<ul>
+<li>Windows: <a href="https://www.tenforums.com/tutorials/121742-create-environment-variables-shortcut-windows.html">How to Create Environment Variables Shortcut in Windows</a></li>
+<li>Linux: <a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps">How To Read and Set Environmental and Shell Variables on a Linux VPS</a></li>
+<li>macOS: <a href="https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x">How do I set environment variables on OS X?</a></li>
+</ul>
+</div>
+<p>We may now invoke the client&#39;s <a href="xref:Discord.WebSocket.DiscordSocketClient.StartAsync*">StartAsync</a> method, which will
+start connection/reconnection logic. It is important to note that
+<strong>this method will return as soon as connection logic has been started!</strong>
+Any methods that rely on the client&#39;s state should go in an event
+handler. This means that you should <strong>not</strong> directly be interacting with
+the client before it is fully ready.</p>
+<p>Finally, we will want to block the async main method from returning
+when running the application. To do this, we can await an infinite delay
+or any other blocking method, such as reading from the console.</p>
+<p>The following lines can now be added:</p>
+<pre><code class="lang-csharp" name="Create client">private DiscordSocketClient _client;
+
+public async Task MainAsync()
+{
+	_client = new DiscordSocketClient();
+
+	_client.Log += Log;
+    
+    // You can assign your bot token to a string, and pass that in to connect.
+    // This however is insecure, particularly if you plan to have your code hosted in a repository.
+    var token = &quot;token&quot;;
+    
+    // Some alternative  options would be to keep your token in an Environment Variable or a standalone file.
+    // var token = Environment.GetEnvironmentVariable(&quot;NameOfYourEnvironmentVariable&quot;);
+    // var token = File.ReadAllText(&quot;token.txt&quot;);
+    // var token = JsonConvert.DeserializeObject&lt;AConfigurationClass&gt;(File.ReadAllText(&quot;config.json&quot;)).Token;
+
+	await _client.LoginAsync(TokenType.Bot, token);
+	await _client.StartAsync();
+
+	// Block this task until the program is closed.
+	await Task.Delay(-1);
+}
+</code></pre><p>At this point, feel free to start your program and see your bot come
+online in Discord.</p>
+<div class="WARNING"><h5>Warning</h5><p>Getting a warning about <code>A supplied token was invalid.</code> and/or
+having trouble logging in? Double-check whether you have put in
+the correct credentials and make sure that it is <em>not</em> a client
+secret, which is different from a token.</p>
+</div>
+<div class="WARNING"><h5>Warning</h5><p>Encountering a <code>PlatformNotSupportedException</code> when starting your bot?
+This means that you are targeting a platform where .NET&#39;s default
+WebSocket client is not supported. Refer to the <a class="xref" href="installing.html">installation guide</a>
+for how to fix this.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>For your reference, you may view the <a href="samples/first-bot/complete.cs">completed program</a>.</p>
+</div>
+<h1 id="building-a-bot-with-commands">Building a bot with commands</h1>
+<p>To create commands for your bot, you may choose from a variety of
+command processors available. Throughout the guides, we will be using
+the one that Discord.Net ships with. <a class="xref" href="../commands/intro.html">Introduction to Command Service</a> will
+guide you through how to setup a program that is ready for
+<a href="xref:Discord.Commands.CommandService">CommandService</a>.</p>
+<p>For reference, view an <a href="samples/first-bot/structure.cs">annotated example</a> of this structure.</p>
+<p>It is important to know that the recommended design pattern of bots
+should be to separate...</p>
+<ol>
+<li>the program (initialization and command handler)</li>
+<li>the modules (handle commands)</li>
+<li>the services (persistent storage, pure functions, data manipulation)</li>
+</ol>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/guides/getting_started/first-bot.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

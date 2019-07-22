@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logging Events/Data | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Logging Events/Data | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jordnkr/collapsible/master/collapsible.css"><meta name="description" content="Discord.Net&#39;s clients provide a log event that all messages will be
+dispatched over."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Concepts.Logging">
+<h1 id="logging-in-discordnet">Logging in Discord.Net</h1>
+
+<p>Discord.Net&#39;s clients provide a log event that all messages will be
+dispatched over.</p>
+<p>For more information about events in Discord.Net, see the <a class="xref" href="events.html">Events</a>
+section.</p>
+<div class="WARNING"><h5>Warning</h5><p>Due to the nature of Discord.Net&#39;s event system, all log event
+handlers will be executed synchronously on the gateway thread. If your
+log output will be dumped to a Web API (e.g., Sentry), you are advised
+to wrap your output in a <code>Task.Run</code> so the gateway thread does not
+become blocked while waiting for logging data to be written.</p>
+</div>
+<h2 id="usage-in-clients">Usage in Client(s)</h2>
+<p>To receive log events, simply hook the Discord client&#39;s @Discord.Rest.BaseDiscordClient.Log
+to a <code>Task</code> with a single parameter of type <a href="xref:Discord.LogMessage">LogMessage</a>.</p>
+<p>It is recommended that you use an established function instead of a
+lambda for handling logs, because most addons accept a reference
+to a logging function to write their own messages.</p>
+<h2 id="usage-in-commands">Usage in Commands</h2>
+<p>Discord.Net&#39;s <a href="xref:Discord.Commands.CommandService">CommandService</a> also provides a @Discord.Commands.CommandService.Log
+event, identical in signature to other log events.</p>
+<p>Data logged through this event is typically coupled with a
+<a href="xref:Discord.Commands.CommandException">CommandException</a>, where information about the command&#39;s context
+and error can be found and handled.</p>
+<h2 id="sample">Sample</h2>
+<pre><code class="lang-csharp" name="Logging Sample">using Discord;
+using Discord.WebSocket;
+
+public class LoggingService
+{
+	public LoggingService(DiscordSocketClient client, CommandService command)
+	{
+		client.Log += LogAsync;
+		command.Log += LogAsync;
+	}
+	private Task LogAsync(LogMessage message)
+	{
+		if (message.Exception is CommandException cmdException)
+		{
+			Console.WriteLine($&quot;[Command/{message.Severity}] {cmdException.Command.Aliases.First()}&quot;
+				+ $&quot; failed to execute in {cmdException.Context.Channel}.&quot;);
+			Console.WriteLine(cmdException);
+		}
+		else 
+			Console.WriteLine($&quot;[General/{message.Severity}] {message}&quot;);
+
+		return Task.CompletedTask;
+	}
+}
+</code></pre><hr><p>This page was last modified at 10/1/2018 5:44:33 AM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
+Commit:    ff0fea98a65d907fbce07856f1a9ef4aebb9108b
+</code></pre><pre><code class="xml">Documentation Overhaul (#1161)
+
+* Add XML docs
+
+* Clean up style switcher
+
+* Squash commits on branch docs/faq-n-patches
+
+* Fix broken theme selector
+
+* Add local image embed instruction
+
+* Add a bunch of XML docs
+
+* Add a bunch of XML docs
+
+* Fix broken search
++ DocFX by default ships with an older version of jQuery, switching to a newer version confuses parts of the DocFX Javascript.
+
+* Mi...</code></pre></div></div></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/guides/concepts/logging.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  <script>
+  $( function() {
+    $( "#accordion" ).collapsible();
+  } );</script><script type="text/javascript" src="https://cdn.rawgit.com/jordnkr/collapsible/master/jquery.collapsible.min.js"></script></body>
+</html>

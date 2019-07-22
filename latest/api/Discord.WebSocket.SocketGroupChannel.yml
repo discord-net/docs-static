@@ -1,0 +1,2712 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.WebSocket.SocketGroupChannel
+  commentId: T:Discord.WebSocket.SocketGroupChannel
+  id: SocketGroupChannel
+  parent: Discord.WebSocket
+  children:
+  - Discord.WebSocket.SocketGroupChannel.CachedMessages
+  - Discord.WebSocket.SocketGroupChannel.ConnectAsync
+  - Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients
+  - Discord.WebSocket.SocketGroupChannel.EnterTypingState(Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetCachedMessage(System.UInt64)
+  - Discord.WebSocket.SocketGroupChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  - Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.Int32)
+  - Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  - Discord.WebSocket.SocketGroupChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.GetUser(System.UInt64)
+  - Discord.WebSocket.SocketGroupChannel.LeaveAsync(Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.Name
+  - Discord.WebSocket.SocketGroupChannel.Recipients
+  - Discord.WebSocket.SocketGroupChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.WebSocket.SocketGroupChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.WebSocket.SocketGroupChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.ToString
+  - Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync(Discord.RequestOptions)
+  - Discord.WebSocket.SocketGroupChannel.Users
+  langs:
+  - csharp
+  - vb
+  name: SocketGroupChannel
+  nameWithType: SocketGroupChannel
+  fullName: Discord.WebSocket.SocketGroupChannel
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SocketGroupChannel
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 19
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nRepresents a WebSocket-based private group channel.\n"
+  example: []
+  syntax:
+    content: 'public class SocketGroupChannel : SocketChannel, IEntity<ulong>, IGroupChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, ISocketAudioChannel, IAudioChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
+    content.vb: >-
+      Public Class SocketGroupChannel
+          Inherits SocketChannel
+          Implements IEntity(Of ULong), IGroupChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, ISocketAudioChannel, IAudioChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong)
+  inheritance:
+  - System.Object
+  - Discord.WebSocket.SocketEntity{System.UInt64}
+  - Discord.WebSocket.SocketChannel
+  implements:
+  - Discord.IEntity{System.UInt64}
+  - Discord.IGroupChannel
+  - Discord.WebSocket.ISocketPrivateChannel
+  - Discord.IPrivateChannel
+  - Discord.WebSocket.ISocketMessageChannel
+  - Discord.IMessageChannel
+  - Discord.WebSocket.ISocketAudioChannel
+  - Discord.IAudioChannel
+  - Discord.IChannel
+  - Discord.ISnowflakeEntity
+  - Discord.IEntity{System.UInt64}
+  inheritedMembers:
+  - Discord.WebSocket.SocketChannel.CreatedAt
+  - Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Discord.WebSocket.SocketGroupChannel.Name
+  commentId: P:Discord.WebSocket.SocketGroupChannel.Name
+  id: Name
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SocketGroupChannel.Name
+  fullName: Discord.WebSocket.SocketGroupChannel.Name
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Name
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 29
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Discord.WebSocket.SocketGroupChannel.Name*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketGroupChannel.CachedMessages
+  commentId: P:Discord.WebSocket.SocketGroupChannel.CachedMessages
+  id: CachedMessages
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: CachedMessages
+  nameWithType: SocketGroupChannel.CachedMessages
+  fullName: Discord.WebSocket.SocketGroupChannel.CachedMessages
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CachedMessages
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 32
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets all messages in this channel&apos;s cache.\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SocketMessage> CachedMessages { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      description: "\nA read-only collection of WebSocket-based messages.\n"
+    content.vb: Public ReadOnly Property CachedMessages As IReadOnlyCollection(Of SocketMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.CachedMessages*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.CachedMessages
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketGroupChannel.Users
+  commentId: P:Discord.WebSocket.SocketGroupChannel.Users
+  id: Users
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: SocketGroupChannel.Users
+  fullName: Discord.WebSocket.SocketGroupChannel.Users
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Users
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 33
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  syntax:
+    content: public IReadOnlyCollection<SocketGroupUser> Users { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketGroupUser}
+    content.vb: Public ReadOnly Property Users As IReadOnlyCollection(Of SocketGroupUser)
+  overload: Discord.WebSocket.SocketGroupChannel.Users*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketGroupChannel.Recipients
+  commentId: P:Discord.WebSocket.SocketGroupChannel.Recipients
+  id: Recipients
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: Recipients
+  nameWithType: SocketGroupChannel.Recipients
+  fullName: Discord.WebSocket.SocketGroupChannel.Recipients
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Recipients
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 34
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  syntax:
+    content: public IReadOnlyCollection<SocketGroupUser> Recipients { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketGroupUser}
+    content.vb: Public ReadOnly Property Recipients As IReadOnlyCollection(Of SocketGroupUser)
+  overload: Discord.WebSocket.SocketGroupChannel.Recipients*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketGroupChannel.LeaveAsync(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.LeaveAsync(Discord.RequestOptions)
+  id: LeaveAsync(Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: LeaveAsync(RequestOptions)
+  nameWithType: SocketGroupChannel.LeaveAsync(RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.LeaveAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LeaveAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 70
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public Task LeaveAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task
+    content.vb: Public Function LeaveAsync(options As RequestOptions = Nothing) As Task
+  overload: Discord.WebSocket.SocketGroupChannel.LeaveAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.ConnectAsync
+  commentId: M:Discord.WebSocket.SocketGroupChannel.ConnectAsync
+  id: ConnectAsync
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: ConnectAsync()
+  nameWithType: SocketGroupChannel.ConnectAsync()
+  fullName: Discord.WebSocket.SocketGroupChannel.ConnectAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ConnectAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 74
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public Task<IAudioClient> ConnectAsync()
+    return:
+      type: Task{Discord.Audio.IAudioClient}
+    content.vb: Public Function ConnectAsync As Task(Of IAudioClient)
+  overload: Discord.WebSocket.SocketGroupChannel.ConnectAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessage(System.UInt64)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetCachedMessage(System.UInt64)
+  id: GetCachedMessage(System.UInt64)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetCachedMessage(UInt64)
+  nameWithType: SocketGroupChannel.GetCachedMessage(UInt64)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessage(System.UInt64)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetCachedMessage
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 81
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a cached message from this channel.\n"
+  remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return <code>null</code>. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message from the local WebSocket cache and does not send any additional\n    request to Discord. This message may be a message that has been deleted.\n</p>\n"
+  example: []
+  syntax:
+    content: public SocketMessage GetCachedMessage(ulong id)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the message.
+    return:
+      type: Discord.WebSocket.SocketMessage
+      description: "\nA WebSocket-based message object; <code>null</code> if it does not exist in the cache or if caching is not\nenabled.\n"
+    content.vb: Public Function GetCachedMessage(id As ULong) As SocketMessage
+  overload: Discord.WebSocket.SocketGroupChannel.GetCachedMessage*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)
+  id: GetMessageAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetMessageAsync(UInt64, RequestOptions)
+  nameWithType: SocketGroupChannel.GetMessageAsync(UInt64, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessageAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetMessageAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 96
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a message from this message channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessageAsync(System.UInt64%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public Task<IMessage> GetMessageAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the message.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IMessage}
+      description: "\nA task that represents an asynchronous get operation for retrieving the message. The task result contains\nthe retrieved message; <code>null</code> if no message is found with the specified identifier.\n"
+    content.vb: Public Function GetMessageAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of IMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.GetMessageAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)
+  id: GetMessagesAsync(System.Int32,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetMessagesAsync(Int32, RequestOptions)
+  nameWithType: SocketGroupChannel.GetMessagesAsync(Int32, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.Int32, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetMessagesAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 116
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the last N messages from this message channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(int limit = null, RequestOptions options = null)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: The numbers of message to be gotten from.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      description: "\nPaged collection of messages.\n"
+    content.vb: Public Function GetMessagesAsync(limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+  overload: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
+  id: GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetMessagesAsync(UInt64, Direction, Int32, RequestOptions)
+  nameWithType: SocketGroupChannel.GetMessagesAsync(UInt64, Direction, Int32, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(System.UInt64, Discord.Direction, System.Int32, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetMessagesAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 132
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a collection of messages in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(ulong, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = null, RequestOptions options = null)
+    parameters:
+    - id: fromMessageId
+      type: System.UInt64
+      description: The ID of the starting message to get the messages from.
+    - id: dir
+      type: Discord.Direction
+      description: The direction of the messages to be gotten from.
+    - id: limit
+      type: System.Int32
+      description: The numbers of message to be gotten from.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      description: "\nPaged collection of messages.\n"
+    content.vb: Public Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+  overload: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
+  id: GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetMessagesAsync(IMessage, Direction, Int32, RequestOptions)
+  nameWithType: SocketGroupChannel.GetMessagesAsync(IMessage, Direction, Int32, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync(Discord.IMessage, Discord.Direction, System.Int32, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetMessagesAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 148
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a collection of messages in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(IMessage, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = null, RequestOptions options = null)
+    parameters:
+    - id: fromMessage
+      type: Discord.IMessage
+      description: The starting message to get the messages from.
+    - id: dir
+      type: Discord.Direction
+      description: The direction of the messages to be gotten from.
+    - id: limit
+      type: System.Int32
+      description: The numbers of message to be gotten from.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+      description: "\nPaged collection of messages.\n"
+    content.vb: Public Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+  overload: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.Int32)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.Int32)
+  id: GetCachedMessages(System.Int32)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetCachedMessages(Int32)
+  nameWithType: SocketGroupChannel.GetCachedMessages(Int32)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetCachedMessages
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 151
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the last N cached messages from this message channel.\n"
+  remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(int limit = null)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: The number of messages to get.
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      description: "\nA read-only collection of WebSocket-based messages.\n"
+    content.vb: Public Function GetCachedMessages(limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.GetCachedMessages*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  id: GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetCachedMessages(UInt64, Direction, Int32)
+  nameWithType: SocketGroupChannel.GetCachedMessages(UInt64, Direction, Int32)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(System.UInt64, Discord.Direction, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetCachedMessages
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 154
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the last N cached messages starting from a certain message in this message channel.\n"
+  remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(ulong fromMessageId, Direction dir, int limit = null)
+    parameters:
+    - id: fromMessageId
+      type: System.UInt64
+      description: The message ID to start the fetching from.
+    - id: dir
+      type: Discord.Direction
+      description: The direction of which the message should be gotten from.
+    - id: limit
+      type: System.Int32
+      description: The number of messages to get.
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      description: "\nA read-only collection of WebSocket-based messages.\n"
+    content.vb: Public Function GetCachedMessages(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.GetCachedMessages*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  id: GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetCachedMessages(IMessage, Direction, Int32)
+  nameWithType: SocketGroupChannel.GetCachedMessages(IMessage, Direction, Int32)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessages(Discord.IMessage, Discord.Direction, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetCachedMessages
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 157
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets the last N cached messages starting from a certain message in this message channel.\n"
+  remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(IMessage fromMessage, Direction dir, int limit = null)
+    parameters:
+    - id: fromMessage
+      type: Discord.IMessage
+      description: The message to start the fetching from.
+    - id: dir
+      type: Discord.Direction
+      description: The direction of which the message should be gotten from.
+    - id: limit
+      type: System.Int32
+      description: The number of messages to get.
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      description: "\nA read-only collection of WebSocket-based messages.\n"
+    content.vb: Public Function GetCachedMessages(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.GetCachedMessages*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  id: GetPinnedMessagesAsync(Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetPinnedMessagesAsync(RequestOptions)
+  nameWithType: SocketGroupChannel.GetPinnedMessagesAsync(RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetPinnedMessagesAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 160
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a read-only collection of pinned messages in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public Task<IReadOnlyCollection<RestMessage>> GetPinnedMessagesAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
+      description: "\nA task that represents the asynchronous get operation for retrieving pinned messages in this channel.\nThe task result contains a read-only collection of messages found in the pinned messages.\n"
+    content.vb: Public Function GetPinnedMessagesAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestMessage))
+  overload: Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  id: SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  nameWithType: SocketGroupChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendMessageAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 165
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nSends a message to this message channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.SendMessageAsync(System.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public Task<RestUserMessage> SendMessageAsync(string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null)
+    parameters:
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Determines whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.Rest.RestUserMessage}
+      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
+    content.vb: Public Function SendMessageAsync(text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of RestUserMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.SendMessageAsync*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  id: SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: SocketGroupChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.WebSocket.SocketGroupChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendFileAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 169
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nSends a file to this message channel with an optional caption.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.SendFileAsync(string, string, bool, Embed, RequestOptions, bool)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public Task<RestUserMessage> SendFileAsync(string filePath, string text, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: The file path of the file.
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    - id: isSpoiler
+      type: System.Boolean
+      description: Whether the message attachment should be hidden as a spoiler.
+    return:
+      type: Task{Discord.Rest.RestUserMessage}
+      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
+    content.vb: Public Function SendFileAsync(filePath As String, text As String, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.SendFileAsync*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  id: SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: SocketGroupChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.WebSocket.SocketGroupChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendFileAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 172
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nSends a file to this message channel with an optional caption.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.SendFileAsync(Stream, string, string, bool, Embed, RequestOptions, bool)\"></see>.\nPlease visit its documentation for more details on this method.\n"
+  example: []
+  syntax:
+    content: public Task<RestUserMessage> SendFileAsync(Stream stream, string filename, string text, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
+    parameters:
+    - id: stream
+      type: Stream
+      description: The <see cref="!:Stream"></see> of the file to be sent.
+    - id: filename
+      type: System.String
+      description: The name of the attachment.
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    - id: isSpoiler
+      type: System.Boolean
+      description: Whether the message attachment should be hidden as a spoiler.
+    return:
+      type: Task{Discord.Rest.RestUserMessage}
+      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
+    content.vb: Public Function SendFileAsync(stream As Stream, filename As String, text As String, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
+  overload: Discord.WebSocket.SocketGroupChannel.SendFileAsync*
+  implements:
+  - Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
+  id: DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: DeleteMessageAsync(UInt64, RequestOptions)
+  nameWithType: SocketGroupChannel.DeleteMessageAsync(UInt64, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: DeleteMessageAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 176
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public Task DeleteMessageAsync(ulong messageId, RequestOptions options = null)
+    parameters:
+    - id: messageId
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task
+    content.vb: Public Function DeleteMessageAsync(messageId As ULong, options As RequestOptions = Nothing) As Task
+  overload: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
+  id: DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: DeleteMessageAsync(IMessage, RequestOptions)
+  nameWithType: SocketGroupChannel.DeleteMessageAsync(IMessage, RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync(Discord.IMessage, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: DeleteMessageAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 179
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public Task DeleteMessageAsync(IMessage message, RequestOptions options = null)
+    parameters:
+    - id: message
+      type: Discord.IMessage
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task
+    content.vb: Public Function DeleteMessageAsync(message As IMessage, options As RequestOptions = Nothing) As Task
+  overload: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync(Discord.RequestOptions)
+  id: TriggerTypingAsync(Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: TriggerTypingAsync(RequestOptions)
+  nameWithType: SocketGroupChannel.TriggerTypingAsync(RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: TriggerTypingAsync
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 183
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public Task TriggerTypingAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task
+    content.vb: Public Function TriggerTypingAsync(options As RequestOptions = Nothing) As Task
+  overload: Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.EnterTypingState(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.EnterTypingState(Discord.RequestOptions)
+  id: EnterTypingState(Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: EnterTypingState(RequestOptions)
+  nameWithType: SocketGroupChannel.EnterTypingState(RequestOptions)
+  fullName: Discord.WebSocket.SocketGroupChannel.EnterTypingState(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: EnterTypingState
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 186
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: public IDisposable EnterTypingState(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: IDisposable
+    content.vb: Public Function EnterTypingState(options As RequestOptions = Nothing) As IDisposable
+  overload: Discord.WebSocket.SocketGroupChannel.EnterTypingState*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.GetUser(System.UInt64)
+  commentId: M:Discord.WebSocket.SocketGroupChannel.GetUser(System.UInt64)
+  id: GetUser(System.UInt64)
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: GetUser(UInt64)
+  nameWithType: SocketGroupChannel.GetUser(UInt64)
+  fullName: Discord.WebSocket.SocketGroupChannel.GetUser(System.UInt64)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetUser
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 202
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a user from this group.\n"
+  example: []
+  syntax:
+    content: public SocketGroupUser GetUser(ulong id)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the user.
+    return:
+      type: Discord.WebSocket.SocketGroupUser
+      description: "\nA WebSocket-based group user associated with the snowflake identifier.\n"
+    content.vb: Public Function GetUser(id As ULong) As SocketGroupUser
+  overload: Discord.WebSocket.SocketGroupChannel.GetUser*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.WebSocket.SocketGroupChannel.ToString
+  commentId: M:Discord.WebSocket.SocketGroupChannel.ToString
+  id: ToString
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SocketGroupChannel.ToString()
+  fullName: Discord.WebSocket.SocketGroupChannel.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ToString
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 254
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nReturns the name of the group.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: Discord.WebSocket.SocketGroupChannel.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients
+  commentId: P:Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients
+  id: Discord#WebSocket#ISocketPrivateChannel#Recipients
+  isEii: true
+  parent: Discord.WebSocket.SocketGroupChannel
+  langs:
+  - csharp
+  - vb
+  name: ISocketPrivateChannel.Recipients
+  nameWithType: SocketGroupChannel.ISocketPrivateChannel.Recipients
+  fullName: Discord.WebSocket.SocketGroupChannel.Discord.WebSocket.ISocketPrivateChannel.Recipients
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.WebSocket.ISocketPrivateChannel.Recipients
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketGroupChannel.cs
+    startLine: 266
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  example: []
+  syntax:
+    content: IReadOnlyCollection<SocketUser> ISocketPrivateChannel.Recipients { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+    content.vb: ReadOnly WriteOnly Property Discord.WebSocket.ISocketPrivateChannel.Recipients As IReadOnlyCollection(Of SocketUser) Implements ISocketPrivateChannel.Recipients
+  overload: Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients*
+  implements:
+  - Discord.WebSocket.ISocketPrivateChannel.Recipients
+  nameWithType.vb: SocketGroupChannel.Discord.WebSocket.ISocketPrivateChannel.Recipients
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.WebSocket.ISocketPrivateChannel.Recipients
+references:
+- uid: Discord.WebSocket
+  commentId: N:Discord.WebSocket
+  name: Discord.WebSocket
+  nameWithType: Discord.WebSocket
+  fullName: Discord.WebSocket
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.WebSocket.SocketEntity{System.UInt64}
+  commentId: T:Discord.WebSocket.SocketEntity{System.UInt64}
+  parent: Discord.WebSocket
+  definition: Discord.WebSocket.SocketEntity`1
+  name: SocketEntity<UInt64>
+  nameWithType: SocketEntity<UInt64>
+  fullName: Discord.WebSocket.SocketEntity<System.UInt64>
+  nameWithType.vb: SocketEntity(Of UInt64)
+  fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64)
+  name.vb: SocketEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketChannel
+  commentId: T:Discord.WebSocket.SocketChannel
+  parent: Discord.WebSocket
+  name: SocketChannel
+  nameWithType: SocketChannel
+  fullName: Discord.WebSocket.SocketChannel
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IGroupChannel
+  commentId: T:Discord.IGroupChannel
+  parent: Discord
+  name: IGroupChannel
+  nameWithType: IGroupChannel
+  fullName: Discord.IGroupChannel
+- uid: Discord.WebSocket.ISocketPrivateChannel
+  commentId: T:Discord.WebSocket.ISocketPrivateChannel
+  parent: Discord.WebSocket
+  name: ISocketPrivateChannel
+  nameWithType: ISocketPrivateChannel
+  fullName: Discord.WebSocket.ISocketPrivateChannel
+- uid: Discord.IPrivateChannel
+  commentId: T:Discord.IPrivateChannel
+  parent: Discord
+  name: IPrivateChannel
+  nameWithType: IPrivateChannel
+  fullName: Discord.IPrivateChannel
+- uid: Discord.WebSocket.ISocketMessageChannel
+  commentId: T:Discord.WebSocket.ISocketMessageChannel
+  parent: Discord.WebSocket
+  name: ISocketMessageChannel
+  nameWithType: ISocketMessageChannel
+  fullName: Discord.WebSocket.ISocketMessageChannel
+- uid: Discord.IMessageChannel
+  commentId: T:Discord.IMessageChannel
+  parent: Discord
+  name: IMessageChannel
+  nameWithType: IMessageChannel
+  fullName: Discord.IMessageChannel
+- uid: Discord.WebSocket.ISocketAudioChannel
+  commentId: T:Discord.WebSocket.ISocketAudioChannel
+  parent: Discord.WebSocket
+  name: ISocketAudioChannel
+  nameWithType: ISocketAudioChannel
+  fullName: Discord.WebSocket.ISocketAudioChannel
+- uid: Discord.IAudioChannel
+  commentId: T:Discord.IAudioChannel
+  parent: Discord
+  name: IAudioChannel
+  nameWithType: IAudioChannel
+  fullName: Discord.IAudioChannel
+- uid: Discord.IChannel
+  commentId: T:Discord.IChannel
+  parent: Discord
+  name: IChannel
+  nameWithType: IChannel
+  fullName: Discord.IChannel
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
+- uid: Discord.WebSocket.SocketChannel.CreatedAt
+  commentId: P:Discord.WebSocket.SocketChannel.CreatedAt
+  parent: Discord.WebSocket.SocketChannel
+  name: CreatedAt
+  nameWithType: SocketChannel.CreatedAt
+  fullName: Discord.WebSocket.SocketChannel.CreatedAt
+- uid: Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  commentId: P:Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  parent: Discord.WebSocket.SocketEntity{System.UInt64}
+  definition: Discord.WebSocket.SocketEntity`1.Id
+  name: Id
+  nameWithType: SocketEntity<UInt64>.Id
+  fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
+  nameWithType.vb: SocketEntity(Of UInt64).Id
+  fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
+- uid: Discord.WebSocket.SocketEntity`1
+  commentId: T:Discord.WebSocket.SocketEntity`1
+  name: SocketEntity<T>
+  nameWithType: SocketEntity<T>
+  fullName: Discord.WebSocket.SocketEntity<T>
+  nameWithType.vb: SocketEntity(Of T)
+  fullName.vb: Discord.WebSocket.SocketEntity(Of T)
+  name.vb: SocketEntity(Of T)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IEntity`1
+  commentId: T:Discord.IEntity`1
+  name: IEntity<TId>
+  nameWithType: IEntity<TId>
+  fullName: Discord.IEntity<TId>
+  nameWithType.vb: IEntity(Of TId)
+  fullName.vb: Discord.IEntity(Of TId)
+  name.vb: IEntity(Of TId)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.WebSocket.SocketEntity`1.Id
+  commentId: P:Discord.WebSocket.SocketEntity`1.Id
+  name: Id
+  nameWithType: SocketEntity<T>.Id
+  fullName: Discord.WebSocket.SocketEntity<T>.Id
+  nameWithType.vb: SocketEntity(Of T).Id
+  fullName.vb: Discord.WebSocket.SocketEntity(Of T).Id
+- uid: Discord.WebSocket.SocketGroupChannel.Name*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.Name
+  name: Name
+  nameWithType: SocketGroupChannel.Name
+  fullName: Discord.WebSocket.SocketGroupChannel.Name
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.WebSocket.SocketGroupChannel.CachedMessages*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.CachedMessages
+  name: CachedMessages
+  nameWithType: SocketGroupChannel.CachedMessages
+  fullName: Discord.WebSocket.SocketGroupChannel.CachedMessages
+- uid: Discord.WebSocket.ISocketMessageChannel.CachedMessages
+  commentId: P:Discord.WebSocket.ISocketMessageChannel.CachedMessages
+  parent: Discord.WebSocket.ISocketMessageChannel
+  name: CachedMessages
+  nameWithType: ISocketMessageChannel.CachedMessages
+  fullName: Discord.WebSocket.ISocketMessageChannel.CachedMessages
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketMessage}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<SocketMessage>
+  nameWithType: IReadOnlyCollection<SocketMessage>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketMessage>
+  nameWithType.vb: IReadOnlyCollection(Of SocketMessage)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketMessage)
+  name.vb: IReadOnlyCollection(Of SocketMessage)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.WebSocket.SocketMessage
+    name: SocketMessage
+    nameWithType: SocketMessage
+    fullName: Discord.WebSocket.SocketMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.WebSocket.SocketMessage
+    name: SocketMessage
+    nameWithType: SocketMessage
+    fullName: Discord.WebSocket.SocketMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.Users*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.Users
+  name: Users
+  nameWithType: SocketGroupChannel.Users
+  fullName: Discord.WebSocket.SocketGroupChannel.Users
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketGroupUser}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketGroupUser}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<SocketGroupUser>
+  nameWithType: IReadOnlyCollection<SocketGroupUser>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketGroupUser>
+  nameWithType.vb: IReadOnlyCollection(Of SocketGroupUser)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketGroupUser)
+  name.vb: IReadOnlyCollection(Of SocketGroupUser)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.WebSocket.SocketGroupUser
+    name: SocketGroupUser
+    nameWithType: SocketGroupUser
+    fullName: Discord.WebSocket.SocketGroupUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.WebSocket.SocketGroupUser
+    name: SocketGroupUser
+    nameWithType: SocketGroupUser
+    fullName: Discord.WebSocket.SocketGroupUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.Recipients*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.Recipients
+  name: Recipients
+  nameWithType: SocketGroupChannel.Recipients
+  fullName: Discord.WebSocket.SocketGroupChannel.Recipients
+- uid: Discord.WebSocket.SocketGroupChannel.LeaveAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.LeaveAsync
+  name: LeaveAsync
+  nameWithType: SocketGroupChannel.LeaveAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.LeaveAsync
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Discord.WebSocket.SocketGroupChannel.ConnectAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.ConnectAsync
+  name: ConnectAsync
+  nameWithType: SocketGroupChannel.ConnectAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.ConnectAsync
+- uid: Task{Discord.Audio.IAudioClient}
+  commentId: '!:Task{Discord.Audio.IAudioClient}'
+  definition: Task`1
+  name: Task<IAudioClient>
+  nameWithType: Task<IAudioClient>
+  fullName: Task<Discord.Audio.IAudioClient>
+  nameWithType.vb: Task(Of IAudioClient)
+  fullName.vb: Task(Of Discord.Audio.IAudioClient)
+  name.vb: Task(Of IAudioClient)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Audio.IAudioClient
+    name: IAudioClient
+    nameWithType: IAudioClient
+    fullName: Discord.Audio.IAudioClient
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Audio.IAudioClient
+    name: IAudioClient
+    nameWithType: IAudioClient
+    fullName: Discord.Audio.IAudioClient
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessage*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetCachedMessage
+  name: GetCachedMessage
+  nameWithType: SocketGroupChannel.GetCachedMessage
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessage
+- uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: GetCachedMessage(UInt64)
+  nameWithType: ISocketMessageChannel.GetCachedMessage(UInt64)
+  fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+    name: GetCachedMessage
+    nameWithType: ISocketMessageChannel.GetCachedMessage
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage(System.UInt64)
+    name: GetCachedMessage
+    nameWithType: ISocketMessageChannel.GetCachedMessage
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.UInt64
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.WebSocket.SocketMessage
+  commentId: T:Discord.WebSocket.SocketMessage
+  parent: Discord.WebSocket
+  name: SocketMessage
+  nameWithType: SocketMessage
+  fullName: Discord.WebSocket.SocketMessage
+- uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IMessageChannel
+  isExternal: true
+  name: GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.IMessageChannel.GetMessageAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: GetMessageAsync
+    nameWithType: IMessageChannel.GetMessageAsync
+    fullName: Discord.IMessageChannel.GetMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+    name: GetMessageAsync
+    nameWithType: IMessageChannel.GetMessageAsync
+    fullName: Discord.IMessageChannel.GetMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessageAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetMessageAsync
+  name: GetMessageAsync
+  nameWithType: SocketGroupChannel.GetMessageAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessageAsync
+- uid: Task{Discord.IMessage}
+  commentId: '!:Task{Discord.IMessage}'
+  definition: Task`1
+  name: Task<IMessage>
+  nameWithType: Task<IMessage>
+  fullName: Task<Discord.IMessage>
+  nameWithType.vb: Task(Of IMessage)
+  fullName.vb: Task(Of Discord.IMessage)
+  name.vb: Task(Of IMessage)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetMessagesAsync
+  name: GetMessagesAsync
+  nameWithType: SocketGroupChannel.GetMessagesAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.GetMessagesAsync
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}'
+  definition: IAsyncEnumerable`1
+  name: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
+  nameWithType: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
+  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.IMessage>>
+  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.IMessage))
+  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+  spec.csharp:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<>
+  nameWithType: IAsyncEnumerable<>
+  fullName: IAsyncEnumerable<>
+  nameWithType.vb: IAsyncEnumerable(Of )
+  fullName.vb: IAsyncEnumerable(Of )
+  name.vb: IAsyncEnumerable(Of )
+  spec.csharp:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Direction
+  commentId: T:Discord.Direction
+  parent: Discord
+  name: Direction
+  nameWithType: Direction
+  fullName: Discord.Direction
+- uid: Discord.IMessage
+  commentId: T:Discord.IMessage
+  parent: Discord
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Discord.IMessage
+- uid: Discord.WebSocket.SocketGroupChannel.GetCachedMessages*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetCachedMessages
+  name: GetCachedMessages
+  nameWithType: SocketGroupChannel.GetCachedMessages
+  fullName: Discord.WebSocket.SocketGroupChannel.GetCachedMessages
+- uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: GetCachedMessages(Int32)
+  nameWithType: ISocketMessageChannel.GetCachedMessages(Int32)
+  fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: GetCachedMessages(UInt64, Direction, Int32)
+  nameWithType: ISocketMessageChannel.GetCachedMessages(UInt64, Direction, Int32)
+  fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64, Discord.Direction, System.Int32)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: GetCachedMessages(IMessage, Direction, Int32)
+  nameWithType: ISocketMessageChannel.GetCachedMessages(IMessage, Direction, Int32)
+  fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage, Discord.Direction, System.Int32)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
+    name: GetCachedMessages
+    nameWithType: ISocketMessageChannel.GetCachedMessages
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetCachedMessages
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Direction
+    name: Direction
+    nameWithType: Direction
+    fullName: Discord.Direction
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync
+  name: GetPinnedMessagesAsync
+  nameWithType: SocketGroupChannel.GetPinnedMessagesAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.GetPinnedMessagesAsync
+- uid: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  name: GetPinnedMessagesAsync(RequestOptions)
+  nameWithType: ISocketMessageChannel.GetPinnedMessagesAsync(RequestOptions)
+  fullName: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+    name: GetPinnedMessagesAsync
+    nameWithType: ISocketMessageChannel.GetPinnedMessagesAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
+    name: GetPinnedMessagesAsync
+    nameWithType: ISocketMessageChannel.GetPinnedMessagesAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.GetPinnedMessagesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestMessage}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestMessage>>
+  nameWithType: Task<IReadOnlyCollection<RestMessage>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestMessage>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestMessage))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestMessage))
+  name.vb: Task(Of IReadOnlyCollection(Of RestMessage))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestMessage
+    name: RestMessage
+    nameWithType: RestMessage
+    fullName: Discord.Rest.RestMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestMessage
+    name: RestMessage
+    nameWithType: RestMessage
+    fullName: Discord.Rest.RestMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordConfig.MaxMessageSize
+  commentId: F:Discord.DiscordConfig.MaxMessageSize
+  parent: Discord.DiscordConfig
+  name: MaxMessageSize
+  nameWithType: DiscordConfig.MaxMessageSize
+  fullName: Discord.DiscordConfig.MaxMessageSize
+- uid: Discord.WebSocket.SocketGroupChannel.SendMessageAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.SendMessageAsync
+  name: SendMessageAsync
+  nameWithType: SocketGroupChannel.SendMessageAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.SendMessageAsync
+- uid: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  nameWithType: ISocketMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  fullName: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: ISocketMessageChannel.SendMessageAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: ISocketMessageChannel.SendMessageAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.Embed
+  commentId: T:Discord.Embed
+  parent: Discord
+  name: Embed
+  nameWithType: Embed
+  fullName: Discord.Embed
+- uid: Task{Discord.Rest.RestUserMessage}
+  commentId: '!:Task{Discord.Rest.RestUserMessage}'
+  definition: Task`1
+  name: Task<RestUserMessage>
+  nameWithType: Task<RestUserMessage>
+  fullName: Task<Discord.Rest.RestUserMessage>
+  nameWithType.vb: Task(Of RestUserMessage)
+  fullName.vb: Task(Of Discord.Rest.RestUserMessage)
+  name.vb: Task(Of RestUserMessage)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestUserMessage
+    name: RestUserMessage
+    nameWithType: RestUserMessage
+    fullName: Discord.Rest.RestUserMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestUserMessage
+    name: RestUserMessage
+    nameWithType: RestUserMessage
+    fullName: Discord.Rest.RestUserMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordConfig
+  commentId: T:Discord.DiscordConfig
+  parent: Discord
+  name: DiscordConfig
+  nameWithType: DiscordConfig
+  fullName: Discord.DiscordConfig
+- uid: Discord.WebSocket.SocketGroupChannel.SendFileAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.SendFileAsync
+  name: SendFileAsync
+  nameWithType: SocketGroupChannel.SendFileAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.SendFileAsync
+- uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: ISocketMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: ISocketMessageChannel.SendFileAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: ISocketMessageChannel.SendFileAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  parent: Discord.WebSocket.ISocketMessageChannel
+  isExternal: true
+  name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  nameWithType: ISocketMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
+  fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  spec.csharp:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: ISocketMessageChannel.SendFileAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+    name: SendFileAsync
+    nameWithType: ISocketMessageChannel.SendFileAsync
+    fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync
+  name: DeleteMessageAsync
+  nameWithType: SocketGroupChannel.DeleteMessageAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.DeleteMessageAsync
+- uid: Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync
+  name: TriggerTypingAsync
+  nameWithType: SocketGroupChannel.TriggerTypingAsync
+  fullName: Discord.WebSocket.SocketGroupChannel.TriggerTypingAsync
+- uid: Discord.WebSocket.SocketGroupChannel.EnterTypingState*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.EnterTypingState
+  name: EnterTypingState
+  nameWithType: SocketGroupChannel.EnterTypingState
+  fullName: Discord.WebSocket.SocketGroupChannel.EnterTypingState
+- uid: IDisposable
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: IDisposable
+- uid: Discord.WebSocket.SocketGroupChannel.GetUser*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.GetUser
+  name: GetUser
+  nameWithType: SocketGroupChannel.GetUser
+  fullName: Discord.WebSocket.SocketGroupChannel.GetUser
+- uid: Discord.WebSocket.SocketGroupUser
+  commentId: T:Discord.WebSocket.SocketGroupUser
+  parent: Discord.WebSocket
+  name: SocketGroupUser
+  nameWithType: SocketGroupUser
+  fullName: Discord.WebSocket.SocketGroupUser
+- uid: Discord.WebSocket.SocketGroupChannel.ToString*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.ToString
+  name: ToString
+  nameWithType: SocketGroupChannel.ToString
+  fullName: Discord.WebSocket.SocketGroupChannel.ToString
+- uid: Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients*
+  commentId: Overload:Discord.WebSocket.SocketGroupChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients
+  name: ISocketPrivateChannel.Recipients
+  nameWithType: SocketGroupChannel.ISocketPrivateChannel.Recipients
+  fullName: Discord.WebSocket.SocketGroupChannel.Discord.WebSocket.ISocketPrivateChannel.Recipients
+  nameWithType.vb: SocketGroupChannel.Discord.WebSocket.ISocketPrivateChannel.Recipients
+  name.vb: Discord.WebSocket.ISocketPrivateChannel.Recipients
+- uid: Discord.WebSocket.ISocketPrivateChannel.Recipients
+  commentId: P:Discord.WebSocket.ISocketPrivateChannel.Recipients
+  parent: Discord.WebSocket.ISocketPrivateChannel
+  name: Recipients
+  nameWithType: ISocketPrivateChannel.Recipients
+  fullName: Discord.WebSocket.ISocketPrivateChannel.Recipients
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketUser}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<SocketUser>
+  nameWithType: IReadOnlyCollection<SocketUser>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketUser>
+  nameWithType.vb: IReadOnlyCollection(Of SocketUser)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
+  name.vb: IReadOnlyCollection(Of SocketUser)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.WebSocket.SocketUser
+    name: SocketUser
+    nameWithType: SocketUser
+    fullName: Discord.WebSocket.SocketUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.WebSocket.SocketUser
+    name: SocketUser
+    nameWithType: SocketUser
+    fullName: Discord.WebSocket.SocketUser
+  - name: )
+    nameWithType: )
+    fullName: )

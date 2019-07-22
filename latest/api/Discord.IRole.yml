@@ -1,0 +1,733 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.IRole
+  commentId: T:Discord.IRole
+  id: IRole
+  parent: Discord
+  children:
+  - Discord.IRole.Color
+  - Discord.IRole.Guild
+  - Discord.IRole.IsHoisted
+  - Discord.IRole.IsManaged
+  - Discord.IRole.IsMentionable
+  - Discord.IRole.ModifyAsync(Action{Discord.RoleProperties},Discord.RequestOptions)
+  - Discord.IRole.Name
+  - Discord.IRole.Permissions
+  - Discord.IRole.Position
+  langs:
+  - csharp
+  - vb
+  name: IRole
+  nameWithType: IRole
+  fullName: Discord.IRole
+  type: Interface
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IRole
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 8
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRepresents a generic role object to be given to a guild user.\n"
+  example: []
+  syntax:
+    content: 'public interface IRole : ISnowflakeEntity, IEntity<ulong>, IDeletable, IMentionable, IComparable<IRole>'
+    content.vb: >-
+      Public Interface IRole
+          Inherits ISnowflakeEntity, IDeletable, IMentionable, IComparable(Of IRole)
+  inheritedMembers:
+  - Discord.ISnowflakeEntity.CreatedAt
+  - Discord.IEntity{System.UInt64}.Id
+  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  - Discord.IMentionable.Mention
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Discord.IRole.Guild
+  commentId: P:Discord.IRole.Guild
+  id: Guild
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: Guild
+  nameWithType: IRole.Guild
+  fullName: Discord.IRole.Guild
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Guild
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 16
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the guild that owns this role.\n"
+  example: []
+  syntax:
+    content: IGuild Guild { get; }
+    parameters: []
+    return:
+      type: Discord.IGuild
+      description: "\nA guild representing the parent guild of this role.\n"
+    content.vb: ReadOnly Property Guild As IGuild
+  overload: Discord.IRole.Guild*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.Color
+  commentId: P:Discord.IRole.Color
+  id: Color
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: IRole.Color
+  fullName: Discord.IRole.Color
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Color
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 24
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the color given to users of this role.\n"
+  example: []
+  syntax:
+    content: Color Color { get; }
+    parameters: []
+    return:
+      type: Discord.Color
+      description: "\nA <xref href=\"Discord.IRole.Color\" data-throw-if-not-resolved=\"false\"></xref> struct representing the color of this role.\n"
+    content.vb: ReadOnly Property Color As Color
+  overload: Discord.IRole.Color*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.IsHoisted
+  commentId: P:Discord.IRole.IsHoisted
+  id: IsHoisted
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: IsHoisted
+  nameWithType: IRole.IsHoisted
+  fullName: Discord.IRole.IsHoisted
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsHoisted
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 31
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a value that indicates whether the role can be separated in the user list.\n"
+  example: []
+  syntax:
+    content: bool IsHoisted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if users of this role are separated in the user list; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsHoisted As Boolean
+  overload: Discord.IRole.IsHoisted*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.IsManaged
+  commentId: P:Discord.IRole.IsManaged
+  id: IsManaged
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: IsManaged
+  nameWithType: IRole.IsManaged
+  fullName: Discord.IRole.IsManaged
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsManaged
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 38
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a value that indicates whether the role is managed by Discord.\n"
+  example: []
+  syntax:
+    content: bool IsManaged { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this role is automatically managed by Discord; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsManaged As Boolean
+  overload: Discord.IRole.IsManaged*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.IsMentionable
+  commentId: P:Discord.IRole.IsMentionable
+  id: IsMentionable
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: IsMentionable
+  nameWithType: IRole.IsMentionable
+  fullName: Discord.IRole.IsMentionable
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsMentionable
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 45
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a value that indicates whether the role is mentionable.\n"
+  example: []
+  syntax:
+    content: bool IsMentionable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this role may be mentioned in messages; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsMentionable As Boolean
+  overload: Discord.IRole.IsMentionable*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.Name
+  commentId: P:Discord.IRole.Name
+  id: Name
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IRole.Name
+  fullName: Discord.IRole.Name
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Name
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 52
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the name of this role.\n"
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nA string containing the name of this role.\n"
+    content.vb: ReadOnly Property Name As String
+  overload: Discord.IRole.Name*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.Permissions
+  commentId: P:Discord.IRole.Permissions
+  id: Permissions
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: Permissions
+  nameWithType: IRole.Permissions
+  fullName: Discord.IRole.Permissions
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Permissions
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 59
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the permissions granted to members of this role.\n"
+  example: []
+  syntax:
+    content: GuildPermissions Permissions { get; }
+    parameters: []
+    return:
+      type: Discord.GuildPermissions
+      description: "\nA <xref href=\"Discord.GuildPermissions\" data-throw-if-not-resolved=\"false\"></xref> struct that this role possesses.\n"
+    content.vb: ReadOnly Property Permissions As GuildPermissions
+  overload: Discord.IRole.Permissions*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.Position
+  commentId: P:Discord.IRole.Position
+  id: Position
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: IRole.Position
+  fullName: Discord.IRole.Position
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Position
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 66
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets this role&apos;s position relative to other roles in the same guild.\n"
+  example: []
+  syntax:
+    content: int Position { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: "\nAn <see cref=\"!:System.Int32\"></see> representing the position of the role in the role list of the guild.\n"
+    content.vb: ReadOnly Property Position As Integer
+  overload: Discord.IRole.Position*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IRole.ModifyAsync(Action{Discord.RoleProperties},Discord.RequestOptions)
+  commentId: M:Discord.IRole.ModifyAsync(Action{Discord.RoleProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.RoleProperties},Discord.RequestOptions)
+  parent: Discord.IRole
+  langs:
+  - csharp
+  - vb
+  name: ModifyAsync(Action<RoleProperties>, RequestOptions)
+  nameWithType: IRole.ModifyAsync(Action<RoleProperties>, RequestOptions)
+  fullName: Discord.IRole.ModifyAsync(Action<Discord.RoleProperties>, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Roles/IRole.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ModifyAsync
+    path: ../src/Discord.Net.Core/Entities/Roles/IRole.cs
+    startLine: 80
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nModifies this role.\n"
+  remarks: "\nThis method modifies this role with the specified properties. To see an example of this\nmethod and what properties are available, please refer to <xref href=\"Discord.RoleProperties\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: Task ModifyAsync(Action<RoleProperties> func, RequestOptions options = null)
+    parameters:
+    - id: func
+      type: Action{Discord.RoleProperties}
+      description: A delegate containing the properties to modify the role with.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous modification operation.\n"
+    content.vb: Function ModifyAsync(func As Action(Of RoleProperties), options As RequestOptions = Nothing) As Task
+  overload: Discord.IRole.ModifyAsync*
+  nameWithType.vb: IRole.ModifyAsync(Action(Of RoleProperties), RequestOptions)
+  fullName.vb: Discord.IRole.ModifyAsync(Action(Of Discord.RoleProperties), Discord.RequestOptions)
+  name.vb: ModifyAsync(Action(Of RoleProperties), RequestOptions)
+references:
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.ISnowflakeEntity.CreatedAt
+  commentId: P:Discord.ISnowflakeEntity.CreatedAt
+  parent: Discord.ISnowflakeEntity
+  name: CreatedAt
+  nameWithType: ISnowflakeEntity.CreatedAt
+  fullName: Discord.ISnowflakeEntity.CreatedAt
+- uid: Discord.IEntity{System.UInt64}.Id
+  commentId: P:Discord.IEntity{System.UInt64}.Id
+  parent: Discord.IEntity{System.UInt64}
+  definition: Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<UInt64>.Id
+  fullName: Discord.IEntity<System.UInt64>.Id
+  nameWithType.vb: IEntity(Of UInt64).Id
+  fullName.vb: Discord.IEntity(Of System.UInt64).Id
+- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  parent: Discord.IDeletable
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IDeletable.DeleteAsync(RequestOptions)
+  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMentionable.Mention
+  commentId: P:Discord.IMentionable.Mention
+  parent: Discord.IMentionable
+  name: Mention
+  nameWithType: IMentionable.Mention
+  fullName: Discord.IMentionable.Mention
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
+- uid: Discord.IEntity`1.Id
+  commentId: P:Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<TId>.Id
+  fullName: Discord.IEntity<TId>.Id
+  nameWithType.vb: IEntity(Of TId).Id
+  fullName.vb: Discord.IEntity(Of TId).Id
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDeletable
+  commentId: T:Discord.IDeletable
+  parent: Discord
+  name: IDeletable
+  nameWithType: IDeletable
+  fullName: Discord.IDeletable
+- uid: Discord.IMentionable
+  commentId: T:Discord.IMentionable
+  parent: Discord
+  name: IMentionable
+  nameWithType: IMentionable
+  fullName: Discord.IMentionable
+- uid: Discord.IEntity`1
+  commentId: T:Discord.IEntity`1
+  name: IEntity<TId>
+  nameWithType: IEntity<TId>
+  fullName: Discord.IEntity<TId>
+  nameWithType.vb: IEntity(Of TId)
+  fullName.vb: Discord.IEntity(Of TId)
+  name.vb: IEntity(Of TId)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IRole.Guild*
+  commentId: Overload:Discord.IRole.Guild
+  name: Guild
+  nameWithType: IRole.Guild
+  fullName: Discord.IRole.Guild
+- uid: Discord.IGuild
+  commentId: T:Discord.IGuild
+  parent: Discord
+  name: IGuild
+  nameWithType: IGuild
+  fullName: Discord.IGuild
+- uid: Discord.IRole.Color
+  commentId: P:Discord.IRole.Color
+  parent: Discord.IRole
+  name: Color
+  nameWithType: IRole.Color
+  fullName: Discord.IRole.Color
+- uid: Discord.IRole.Color*
+  commentId: Overload:Discord.IRole.Color
+  name: Color
+  nameWithType: IRole.Color
+  fullName: Discord.IRole.Color
+- uid: Discord.Color
+  commentId: T:Discord.Color
+  parent: Discord
+  name: Color
+  nameWithType: Color
+  fullName: Discord.Color
+- uid: Discord.IRole
+  commentId: T:Discord.IRole
+  parent: Discord
+  name: IRole
+  nameWithType: IRole
+  fullName: Discord.IRole
+- uid: Discord.IRole.IsHoisted*
+  commentId: Overload:Discord.IRole.IsHoisted
+  name: IsHoisted
+  nameWithType: IRole.IsHoisted
+  fullName: Discord.IRole.IsHoisted
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.IRole.IsManaged*
+  commentId: Overload:Discord.IRole.IsManaged
+  name: IsManaged
+  nameWithType: IRole.IsManaged
+  fullName: Discord.IRole.IsManaged
+- uid: Discord.IRole.IsMentionable*
+  commentId: Overload:Discord.IRole.IsMentionable
+  name: IsMentionable
+  nameWithType: IRole.IsMentionable
+  fullName: Discord.IRole.IsMentionable
+- uid: Discord.IRole.Name*
+  commentId: Overload:Discord.IRole.Name
+  name: Name
+  nameWithType: IRole.Name
+  fullName: Discord.IRole.Name
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.GuildPermissions
+  commentId: T:Discord.GuildPermissions
+  parent: Discord
+  name: GuildPermissions
+  nameWithType: GuildPermissions
+  fullName: Discord.GuildPermissions
+- uid: Discord.IRole.Permissions*
+  commentId: Overload:Discord.IRole.Permissions
+  name: Permissions
+  nameWithType: IRole.Permissions
+  fullName: Discord.IRole.Permissions
+- uid: Discord.IRole.Position*
+  commentId: Overload:Discord.IRole.Position
+  name: Position
+  nameWithType: IRole.Position
+  fullName: Discord.IRole.Position
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Discord.RoleProperties
+  commentId: T:Discord.RoleProperties
+  name: RoleProperties
+  nameWithType: RoleProperties
+  fullName: Discord.RoleProperties
+- uid: Discord.IRole.ModifyAsync*
+  commentId: Overload:Discord.IRole.ModifyAsync
+  name: ModifyAsync
+  nameWithType: IRole.ModifyAsync
+  fullName: Discord.IRole.ModifyAsync
+- uid: Action{Discord.RoleProperties}
+  commentId: '!:Action{Discord.RoleProperties}'
+  definition: Action`1
+  name: Action<RoleProperties>
+  nameWithType: Action<RoleProperties>
+  fullName: Action<Discord.RoleProperties>
+  nameWithType.vb: Action(Of RoleProperties)
+  fullName.vb: Action(Of Discord.RoleProperties)
+  name.vb: Action(Of RoleProperties)
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.RoleProperties
+    name: RoleProperties
+    nameWithType: RoleProperties
+    fullName: Discord.RoleProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.RoleProperties
+    name: RoleProperties
+    nameWithType: RoleProperties
+    fullName: Discord.RoleProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

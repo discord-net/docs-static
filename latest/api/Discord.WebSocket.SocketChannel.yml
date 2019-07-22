@@ -1,0 +1,481 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.WebSocket.SocketChannel
+  commentId: T:Discord.WebSocket.SocketChannel
+  id: SocketChannel
+  parent: Discord.WebSocket
+  children:
+  - Discord.WebSocket.SocketChannel.CreatedAt
+  - Discord.WebSocket.SocketChannel.GetUser(System.UInt64)
+  - Discord.WebSocket.SocketChannel.Users
+  langs:
+  - csharp
+  - vb
+  name: SocketChannel
+  nameWithType: SocketChannel
+  fullName: Discord.WebSocket.SocketChannel
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SocketChannel
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+    startLine: 12
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nRepresents a WebSocket-based channel.\n"
+  example: []
+  syntax:
+    content: 'public abstract class SocketChannel : SocketEntity<ulong>, IEntity<ulong>, IChannel, ISnowflakeEntity, IEntity<ulong>'
+    content.vb: >-
+      Public MustInherit Class SocketChannel
+          Inherits SocketEntity(Of ULong)
+          Implements IEntity(Of ULong), IChannel, ISnowflakeEntity, IEntity(Of ULong)
+  inheritance:
+  - System.Object
+  - Discord.WebSocket.SocketEntity{System.UInt64}
+  derivedClasses:
+  - Discord.WebSocket.SocketDMChannel
+  - Discord.WebSocket.SocketGroupChannel
+  - Discord.WebSocket.SocketGuildChannel
+  implements:
+  - Discord.IEntity{System.UInt64}
+  - Discord.IChannel
+  - Discord.ISnowflakeEntity
+  - Discord.IEntity{System.UInt64}
+  inheritedMembers:
+  - Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Discord.WebSocket.SocketChannel.CreatedAt
+  commentId: P:Discord.WebSocket.SocketChannel.CreatedAt
+  id: CreatedAt
+  parent: Discord.WebSocket.SocketChannel
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: SocketChannel.CreatedAt
+  fullName: Discord.WebSocket.SocketChannel.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CreatedAt
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+    startLine: 18
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets when the channel is created.\n"
+  example: []
+  syntax:
+    content: public DateTimeOffset CreatedAt { get; }
+    parameters: []
+    return:
+      type: DateTimeOffset
+    content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
+  overload: Discord.WebSocket.SocketChannel.CreatedAt*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketChannel.Users
+  commentId: P:Discord.WebSocket.SocketChannel.Users
+  id: Users
+  parent: Discord.WebSocket.SocketChannel
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: SocketChannel.Users
+  fullName: Discord.WebSocket.SocketChannel.Users
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Users
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+    startLine: 22
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a collection of users from the WebSocket cache.\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<SocketUser> Users { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+    content.vb: Public ReadOnly Property Users As IReadOnlyCollection(Of SocketUser)
+  overload: Discord.WebSocket.SocketChannel.Users*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.WebSocket.SocketChannel.GetUser(System.UInt64)
+  commentId: M:Discord.WebSocket.SocketChannel.GetUser(System.UInt64)
+  id: GetUser(System.UInt64)
+  parent: Discord.WebSocket.SocketChannel
+  langs:
+  - csharp
+  - vb
+  name: GetUser(UInt64)
+  nameWithType: SocketChannel.GetUser(UInt64)
+  fullName: Discord.WebSocket.SocketChannel.GetUser(System.UInt64)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetUser
+    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketChannel.cs
+    startLine: 52
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a generic user from this channel.\n"
+  example: []
+  syntax:
+    content: public SocketUser GetUser(ulong id)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the user.
+    return:
+      type: Discord.WebSocket.SocketUser
+      description: "\nA generic WebSocket-based user associated with the snowflake identifier.\n"
+    content.vb: Public Function GetUser(id As ULong) As SocketUser
+  overload: Discord.WebSocket.SocketChannel.GetUser*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Discord.WebSocket
+  commentId: N:Discord.WebSocket
+  name: Discord.WebSocket
+  nameWithType: Discord.WebSocket
+  fullName: Discord.WebSocket
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.WebSocket.SocketEntity{System.UInt64}
+  commentId: T:Discord.WebSocket.SocketEntity{System.UInt64}
+  parent: Discord.WebSocket
+  definition: Discord.WebSocket.SocketEntity`1
+  name: SocketEntity<UInt64>
+  nameWithType: SocketEntity<UInt64>
+  fullName: Discord.WebSocket.SocketEntity<System.UInt64>
+  nameWithType.vb: SocketEntity(Of UInt64)
+  fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64)
+  name.vb: SocketEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IChannel
+  commentId: T:Discord.IChannel
+  parent: Discord
+  name: IChannel
+  nameWithType: IChannel
+  fullName: Discord.IChannel
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
+- uid: Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  commentId: P:Discord.WebSocket.SocketEntity{System.UInt64}.Id
+  parent: Discord.WebSocket.SocketEntity{System.UInt64}
+  definition: Discord.WebSocket.SocketEntity`1.Id
+  name: Id
+  nameWithType: SocketEntity<UInt64>.Id
+  fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
+  nameWithType.vb: SocketEntity(Of UInt64).Id
+  fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
+- uid: Discord.WebSocket.SocketEntity`1
+  commentId: T:Discord.WebSocket.SocketEntity`1
+  name: SocketEntity<T>
+  nameWithType: SocketEntity<T>
+  fullName: Discord.WebSocket.SocketEntity<T>
+  nameWithType.vb: SocketEntity(Of T)
+  fullName.vb: Discord.WebSocket.SocketEntity(Of T)
+  name.vb: SocketEntity(Of T)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.WebSocket.SocketEntity`1
+    name: SocketEntity
+    nameWithType: SocketEntity
+    fullName: Discord.WebSocket.SocketEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IEntity`1
+  commentId: T:Discord.IEntity`1
+  name: IEntity<TId>
+  nameWithType: IEntity<TId>
+  fullName: Discord.IEntity<TId>
+  nameWithType.vb: IEntity(Of TId)
+  fullName.vb: Discord.IEntity(Of TId)
+  name.vb: IEntity(Of TId)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.WebSocket.SocketEntity`1.Id
+  commentId: P:Discord.WebSocket.SocketEntity`1.Id
+  name: Id
+  nameWithType: SocketEntity<T>.Id
+  fullName: Discord.WebSocket.SocketEntity<T>.Id
+  nameWithType.vb: SocketEntity(Of T).Id
+  fullName.vb: Discord.WebSocket.SocketEntity(Of T).Id
+- uid: Discord.WebSocket.SocketChannel.CreatedAt*
+  commentId: Overload:Discord.WebSocket.SocketChannel.CreatedAt
+  name: CreatedAt
+  nameWithType: SocketChannel.CreatedAt
+  fullName: Discord.WebSocket.SocketChannel.CreatedAt
+- uid: DateTimeOffset
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: DateTimeOffset
+- uid: Discord.WebSocket.SocketChannel.Users*
+  commentId: Overload:Discord.WebSocket.SocketChannel.Users
+  name: Users
+  nameWithType: SocketChannel.Users
+  fullName: Discord.WebSocket.SocketChannel.Users
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketUser}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<SocketUser>
+  nameWithType: IReadOnlyCollection<SocketUser>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketUser>
+  nameWithType.vb: IReadOnlyCollection(Of SocketUser)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
+  name.vb: IReadOnlyCollection(Of SocketUser)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.WebSocket.SocketUser
+    name: SocketUser
+    nameWithType: SocketUser
+    fullName: Discord.WebSocket.SocketUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.WebSocket.SocketUser
+    name: SocketUser
+    nameWithType: SocketUser
+    fullName: Discord.WebSocket.SocketUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketChannel.GetUser*
+  commentId: Overload:Discord.WebSocket.SocketChannel.GetUser
+  name: GetUser
+  nameWithType: SocketChannel.GetUser
+  fullName: Discord.WebSocket.SocketChannel.GetUser
+- uid: System.UInt64
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.WebSocket.SocketUser
+  commentId: T:Discord.WebSocket.SocketUser
+  parent: Discord.WebSocket
+  name: SocketUser
+  nameWithType: SocketUser
+  fullName: Discord.WebSocket.SocketUser

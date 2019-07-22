@@ -1,0 +1,361 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Commands.RequireOwnerAttribute
+  commentId: T:Discord.Commands.RequireOwnerAttribute
+  id: RequireOwnerAttribute
+  parent: Discord.Commands
+  children:
+  - Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  - Discord.Commands.RequireOwnerAttribute.ErrorMessage
+  langs:
+  - csharp
+  - vb
+  name: RequireOwnerAttribute
+  nameWithType: RequireOwnerAttribute
+  fullName: Discord.Commands.RequireOwnerAttribute
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: RequireOwnerAttribute
+    path: ../src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+    startLine: 33
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRequires the command to be invoked by the owner of the bot.\n"
+  remarks: "\nThis precondition will restrict the access of the command or module to the owner of the Discord application.\nIf the precondition fails to be met, an erroneous <xref href=\"Discord.Commands.PreconditionResult\" data-throw-if-not-resolved=\"false\"></xref> will be returned with the\nmessage &quot;Command can only be run by the owner of the bot.&quot;\n<div class=\"NOTE\"><h5>note</h5><p>\nThis precondition will only work if the account has a <xref href=\"Discord.TokenType\" data-throw-if-not-resolved=\"false\"></xref> of <xref href=\"Discord.TokenType.Bot\" data-throw-if-not-resolved=\"false\"></xref>\n;otherwise, this precondition will always fail.\n</p></div>\n"
+  example:
+  - "\nThe following example restricts the command to a set of sensitive commands that only the owner of the bot\napplication should be able to access.\n<pre><code class=\"lang-cs\">[RequireOwner]\n[Group(&quot;admin&quot;)]\npublic class AdminModule : ModuleBase\n{\n    [Command(&quot;exit&quot;)]\n    public async Task ExitAsync()\n    {\n        Environment.Exit(0);\n    }\n}</code></pre>\n"
+  syntax:
+    content: 'public class RequireOwnerAttribute : PreconditionAttribute'
+    content.vb: >-
+      Public Class RequireOwnerAttribute
+          Inherits PreconditionAttribute
+  inheritance:
+  - System.Object
+  - Discord.Commands.PreconditionAttribute
+  inheritedMembers:
+  - Discord.Commands.PreconditionAttribute.Group
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Discord.Commands.RequireOwnerAttribute.ErrorMessage
+  commentId: P:Discord.Commands.RequireOwnerAttribute.ErrorMessage
+  id: ErrorMessage
+  parent: Discord.Commands.RequireOwnerAttribute
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: RequireOwnerAttribute.ErrorMessage
+  fullName: Discord.Commands.RequireOwnerAttribute.ErrorMessage
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ErrorMessage
+    path: ../src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+    startLine: 37
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nWhen overridden in a derived class, uses the supplied string\nas the error message if the precondition doesn&apos;t pass.\nSetting this for a class that doesn&apos;t override\nthis property is a no-op.\n"
+  example: []
+  syntax:
+    content: public override string ErrorMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides Property ErrorMessage As String
+  overridden: Discord.Commands.PreconditionAttribute.ErrorMessage
+  overload: Discord.Commands.RequireOwnerAttribute.ErrorMessage*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  commentId: M:Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  id: CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  parent: Discord.Commands.RequireOwnerAttribute
+  langs:
+  - csharp
+  - vb
+  name: CheckPermissionsAsync(ICommandContext, CommandInfo, IServiceProvider)
+  nameWithType: RequireOwnerAttribute.CheckPermissionsAsync(ICommandContext, CommandInfo, IServiceProvider)
+  fullName: Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext, Discord.Commands.CommandInfo, IServiceProvider)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CheckPermissionsAsync
+    path: ../src/Discord.Net.Commands/Attributes/Preconditions/RequireOwnerAttribute.cs
+    startLine: 40
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nChecks if the <code data-dev-comment-type=\"paramref\" class=\"paramref\">command</code> has the sufficient permission to be executed.\n"
+  example: []
+  syntax:
+    content: public override Task<PreconditionResult> CheckPermissionsAsync(ICommandContext context, CommandInfo command, IServiceProvider services)
+    parameters:
+    - id: context
+      type: Discord.Commands.ICommandContext
+      description: The context of the command.
+    - id: command
+      type: Discord.Commands.CommandInfo
+      description: The command being executed.
+    - id: services
+      type: IServiceProvider
+      description: The service collection used for dependency injection.
+    return:
+      type: Task{Discord.Commands.PreconditionResult}
+    content.vb: Public Overrides Function CheckPermissionsAsync(context As ICommandContext, command As CommandInfo, services As IServiceProvider) As Task(Of PreconditionResult)
+  overridden: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  overload: Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Discord.Commands.PreconditionResult
+  commentId: T:Discord.Commands.PreconditionResult
+  parent: Discord.Commands
+  name: PreconditionResult
+  nameWithType: PreconditionResult
+  fullName: Discord.Commands.PreconditionResult
+- uid: Discord.TokenType
+  commentId: T:Discord.TokenType
+  parent: Discord
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Discord.TokenType
+- uid: Discord.TokenType.Bot
+  commentId: F:Discord.TokenType.Bot
+  isExternal: true
+- uid: Discord.Commands
+  commentId: N:Discord.Commands
+  name: Discord.Commands
+  nameWithType: Discord.Commands
+  fullName: Discord.Commands
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.Commands.PreconditionAttribute
+  commentId: T:Discord.Commands.PreconditionAttribute
+  parent: Discord.Commands
+  name: PreconditionAttribute
+  nameWithType: PreconditionAttribute
+  fullName: Discord.Commands.PreconditionAttribute
+- uid: Discord.Commands.PreconditionAttribute.Group
+  commentId: P:Discord.Commands.PreconditionAttribute.Group
+  parent: Discord.Commands.PreconditionAttribute
+  name: Group
+  nameWithType: PreconditionAttribute.Group
+  fullName: Discord.Commands.PreconditionAttribute.Group
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.Commands.PreconditionAttribute.ErrorMessage
+  commentId: P:Discord.Commands.PreconditionAttribute.ErrorMessage
+  parent: Discord.Commands.PreconditionAttribute
+  name: ErrorMessage
+  nameWithType: PreconditionAttribute.ErrorMessage
+  fullName: Discord.Commands.PreconditionAttribute.ErrorMessage
+- uid: Discord.Commands.RequireOwnerAttribute.ErrorMessage*
+  commentId: Overload:Discord.Commands.RequireOwnerAttribute.ErrorMessage
+  name: ErrorMessage
+  nameWithType: RequireOwnerAttribute.ErrorMessage
+  fullName: Discord.Commands.RequireOwnerAttribute.ErrorMessage
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  commentId: M:Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+  parent: Discord.Commands.PreconditionAttribute
+  isExternal: true
+  name: CheckPermissionsAsync(ICommandContext, CommandInfo, IServiceProvider)
+  nameWithType: PreconditionAttribute.CheckPermissionsAsync(ICommandContext, CommandInfo, IServiceProvider)
+  fullName: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext, Discord.Commands.CommandInfo, IServiceProvider)
+  spec.csharp:
+  - uid: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+    name: CheckPermissionsAsync
+    nameWithType: PreconditionAttribute.CheckPermissionsAsync
+    fullName: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync(Discord.Commands.ICommandContext,Discord.Commands.CommandInfo,IServiceProvider)
+    name: CheckPermissionsAsync
+    nameWithType: PreconditionAttribute.CheckPermissionsAsync
+    fullName: Discord.Commands.PreconditionAttribute.CheckPermissionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync*
+  commentId: Overload:Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync
+  name: CheckPermissionsAsync
+  nameWithType: RequireOwnerAttribute.CheckPermissionsAsync
+  fullName: Discord.Commands.RequireOwnerAttribute.CheckPermissionsAsync
+- uid: Discord.Commands.ICommandContext
+  commentId: T:Discord.Commands.ICommandContext
+  parent: Discord.Commands
+  name: ICommandContext
+  nameWithType: ICommandContext
+  fullName: Discord.Commands.ICommandContext
+- uid: Discord.Commands.CommandInfo
+  commentId: T:Discord.Commands.CommandInfo
+  parent: Discord.Commands
+  name: CommandInfo
+  nameWithType: CommandInfo
+  fullName: Discord.Commands.CommandInfo
+- uid: IServiceProvider
+  isExternal: true
+  name: IServiceProvider
+  nameWithType: IServiceProvider
+  fullName: IServiceProvider
+- uid: Task{Discord.Commands.PreconditionResult}
+  commentId: '!:Task{Discord.Commands.PreconditionResult}'
+  definition: Task`1
+  name: Task<PreconditionResult>
+  nameWithType: Task<PreconditionResult>
+  fullName: Task<Discord.Commands.PreconditionResult>
+  nameWithType.vb: Task(Of PreconditionResult)
+  fullName.vb: Task(Of Discord.Commands.PreconditionResult)
+  name.vb: Task(Of PreconditionResult)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.PreconditionResult
+    name: PreconditionResult
+    nameWithType: PreconditionResult
+    fullName: Discord.Commands.PreconditionResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.PreconditionResult
+    name: PreconditionResult
+    nameWithType: PreconditionResult
+    fullName: Discord.Commands.PreconditionResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

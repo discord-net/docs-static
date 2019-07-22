@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Changelog | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Changelog | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="styles/search-worker.js" as="script">
+    <link rel="preload" href="fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/master.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/material.css">
+    <link rel="stylesheet" href="styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta id="docfx-style:rel" content="">
+    
+    <meta property="docfx:rel" content="">
+    
+  <meta name="description" content="This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC)."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="changelog">Changelog</h1>
+
+<h2 id="211---2019-06-08">[2.1.1] - 2019-06-08</h2>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>#994: Remainder parameters now ignore character escaping, as there is no reason to escape characters here (2e95c49)</li>
+<li>#1316: <code>Emote.Equals</code> now pays no respect to the Name property, since Discord&#39;s API does not care about an emote&#39;s name (abf3e90)</li>
+<li>#1317: <code>Emote.GetHashCode</code> now pays no respect to the Name property, see above (1b54883)</li>
+<li>#1323: Optionals will no longer claim to be specified when a reaction message was not cached (1cc5d73)</li>
+<li>Log messages sourcing from REST events will no longer be raised twice (c78a679)</li>
+<li>News embeds will be processed as <code>EmbedType.Unknown</code>, rather than throwing an error and dropping the message (d287ed1)</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>#1311: Members may now be disconnected from voice channels by passing <code>null</code> as <code>GuildUserProperties.Channel</code> (fc48c66)</li>
+<li>#1313: <code>IMessage.Tags</code> now includes the EveryoneRole on @everyone and @here mentions (1f55f01)</li>
+<li>#1320: The maximum value for setting slow-mode has been updated to 6 hours, per the new API limit (4433ca7)</li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul>
+<li>This library&#39;s compatibility with Semantic Versioning has been clarified. Please see the README (4d7de17)</li>
+<li>The depency on System.Interactive.Async has been bumped to <code>3.2.0</code> (3e65e03)</li>
+</ul>
+<h2 id="210---2019-05-18">[2.1.0] - 2019-05-18</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>#1236: Bulk deletes (for messages) may now be accessed via the <code>MessagesBulkDeleted</code> event (dec353e)</li>
+<li>#1240: OAuth applications utilizing the <code>guilds.join</code> scope may now add users to guilds through any client (1356ea9)</li>
+<li>#1255: Message and attachment spoilers may now be set or detected (f3b20b2)</li>
+<li>#1260: DiscordWebhookClient may be created from a Webhook URL (f2113c7)</li>
+<li>#1261: A <code>GetCategoryChannel</code> helper may now be used to retrieve category channels directly from socket guilds (e03c527)</li>
+<li>#1263: &quot;user joined the guild&quot; messages are now supported (00d3f5a)</li>
+<li>#1271: AuthorID may now be retrieved from message delete audit log entries (1ae4220)</li>
+<li>#1293: News Channels are now supported 📰 (9084c42)</li>
+<li><code>ExclusiveBulkDelete</code> configuration setting can be used to control bulk delete event behavior (03e6401)</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>#1294: The <code>IGuildUser</code> overload of <code>EmbedBuilder.WithAuthor</code> no longer exists (b52b54d)</li>
+</ul>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+<li>#1256: Fetching audit logs no longer raises null reference exceptions when a webhook has been deleted (049b014)</li>
+<li>#1268: Null reference exceptions on <code>MESSAGE_CREATE</code> concerning partial member objects no longer occur (377622b)</li>
+<li>#1278: The token validator now internally pads tokens to the proper length (48b327b)</li>
+<li>#1292: Messages now properly initialize empty collections (b2ebc03)</li>
+<li>The <code>DiscordSocketRestClient</code> is now properly initialized (a44c13a)</li>
+<li>Exceptions in event handlers are now always logged (f6e3200)</li>
+</ul>
+<h3 id="changed-1">Changed</h3>
+<ul>
+<li>#1305: Token validation will fail when tokens contain whitespace (bb61efa)</li>
+</ul>
+<h3 id="misc-1">Misc</h3>
+<ul>
+<li>#1241: Added documentation samples for Webhooks (655a006)</li>
+<li>#1243: Happy new year 🎉 (0275f7d)</li>
+<li>#1257: Improved clarity in comments in the command samples (2473619)</li>
+<li>#1276: Documentation uses a relative path for the logo asset (b80f0e8)</li>
+<li>#1303: EmbedBuilder documentation now builds in the correct spot (51618e6)</li>
+<li>#1304: Updated documentation (4309550)</li>
+<li>CI for this project is now powered by Azure DevOps (this is not a sponsored message 🚀) (9b2bc18)</li>
+<li>IDisposableAnalyzers should now be a development dependency (8003ac8)</li>
+</ul>
+<h2 id="201---2019-01-04">[2.0.1] - 2019-01-04</h2>
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+<li>#1226: Only escape the closing quotation mark of non-remainder strings (65b8c09)</li>
+<li>Commands with async RunModes will now propagate exceptions up to CommandExecuted (497918e)</li>
+</ul>
+<h3 id="misc-2">Misc</h3>
+<ul>
+<li>#1225: Commands sample no longer hooks the log event twice (552f34c)</li>
+<li>#1227: The logo on the docs index page should scale responsively (d39bf6e)</li>
+<li>#1230: Replaced precondition sample on docs (feed4fd)</li>
+</ul>
+<h2 id="200---2018-12-28">[2.0.0] - 2018-12-28</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+<li>#747: <code>CommandService</code> now has a <code>CommandExecuted</code> event (e991715)</li>
+<li>#765: Parameters may have a name specified via <code>NameAttribute</code> (9c81ab9)</li>
+<li>#773: Both socket clients inherit from <code>BaseSocketClient</code> (9b7afec)</li>
+<li>#785: Primitives now automatically load a NullableTypeReader (cb0ff78)</li>
+<li>#819: Support for Welcome Message channels (30e867a)</li>
+<li>#835: Emoji may now be managed from a bot (b4bf046)</li>
+<li>#843: Webhooks may now be managed from a bot (7b2ddd0)</li>
+<li>#863: An embed may be converted to an <code>EmbedBuilder</code> using the <code>.ToEmbedBuilder()</code> method (5218e6b)</li>
+<li>#877: Support for reading rich presences (34b4e5a)</li>
+<li>#888: Users may now opt-in to using a proxy (678a723)</li>
+<li>#906: API Analyzers to assist users when writing their bot (f69ef2a)</li>
+<li>#907: Full support for channel categories (030422f)</li>
+<li>#913: Animated emoji may be read and written (a19ff18)</li>
+<li>#915: Unused parameters may be discarded, rather than failing the command (5f46aef)</li>
+<li>#929: Standard EqualityComparers for use in LINQ operations with the library&#39;s entities (b5e7548)</li>
+<li>#934: Modules now contain an <code>OnModuleBuilding</code> method, which is invoked when the module is built (bb8ebc1)</li>
+<li>#952: Added &#39;All&#39; permission set for categories (6d58796)</li>
+<li>#957: Ratelimit related objects now include request information (500f5f4)</li>
+<li>#962: Add <code>GetRecommendedShardCountAsync</code> (fc5e70c)</li>
+<li>#970: Add Spotify track support to user Activities (64b9cc7)</li>
+<li>#973: Added <code>GetDefaultAvatarUrl</code> to user (109f663)</li>
+<li>#978: Embeds can be attached alongside a file upload (e9f9b48)</li>
+<li>#984, #1089: <code>VoiceServerUpdate</code> events are now publically accessible (e775853, 48fed06)</li>
+<li>#996: Added <code>DeleteMessageAsync</code> to <code>IMessageChannel</code> (bc6009e)</li>
+<li>#1005: Added dedicated <code>TimeSpan</code> TypeReader which &quot;doesn&#39;t suck&quot; (b52af7a)</li>
+<li>#1009: Users can now specify the replacement behavior or default typereaders (6b7c6e9)</li>
+<li>#1020: Users can now specify parameters when creating channels (bf5275e)</li>
+<li>#1030: Added <code>IsDeprecated</code>, <code>IsCustom</code> properties to <code>VoiceRegion</code> (510f474)</li>
+<li>#1037: Added <code>SocketUser.MutualGuilds</code>, various extension methods to commands (637d9fc)</li>
+<li>#1043: <code>Discord.Color</code> is now compatible with <code>System.Drawing.Color</code> (c275e57)</li>
+<li>#1055: Added audit logs (39dffe8)</li>
+<li>#1056: Added <code>GetBanAsync</code> (97c8931)</li>
+<li>#1102: Added <code>GetJumpUrl()</code> to messages (afc3a9d)</li>
+<li>#1123: Commands can now accept named parameters (419c0a5)</li>
+<li>#1124: Preconditions can now set custom error messages (5677f23)</li>
+<li>#1126: <code>Color</code> now has equality (a2d8800)</li>
+<li>#1159: Guild channels can now by synced with their parent category (5ea1fb3)</li>
+<li>#1165: Bring Guild and Message models up to date with the API (d30d122)</li>
+<li>#1166: Added <code>GetVoiceRegionsAsync</code> to <code>IGuild</code> (00717cf)</li>
+<li>#1183: Added Add Guild Member endpoint for OAuth clients (8ef5f81)</li>
+<li>#1196: Channel position can now be specified when creating a channel (a64ab60)</li>
+<li>#1198: The Socket client can now access its underlying REST client (65afd37)</li>
+<li>#1213: Added <code>GuildEmote#CreatorId</code> (92bf836)</li>
+<li>&#39;html&#39; variant added to the <code>EmbedType</code> enum (42c879c)</li>
+<li>Modules can now be nested in non-module classes (4edbd8d)</li>
+<li>Added <code>BanAsync</code> to guild members (1905fde)</li>
+<li>Added the permisison bit for priority speaker (c1d7818)</li>
+<li>All result types can use <code>FromError</code> (748e92b)</li>
+<li>Added support for reading/writing slow mode (97d17cf)</li>
+<li>Added markdown format for URLs (f005af3)</li>
+<li>Reactions can now be added to messages in bulk (5421df1)</li>
+</ul>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+<li>#742: <code>DiscordShardedClient#GetGuildFor</code> will now direct null guilds to Shard 0 (d5e9d6f)</li>
+<li>#743: Various issues with permissions and inheritance of permissions (f996338)</li>
+<li>#755: <code>IRole.Mention</code> will correctly tag the @everyone role (6b5a6e7)</li>
+<li>#768: <code>CreateGuildAsync</code> will include the icon stream (865080a)</li>
+<li>#866: Revised permissions constants and behavior (dec7cb2)</li>
+<li>#872: Bulk message deletion should no longer fail for incomplete batch sizes (804d918)</li>
+<li>#923: A null value should properly reset a user&#39;s nickname (227f61a)</li>
+<li>#938: The reconnect handler should no longer deadlock during Discord outages (73ac9d7)</li>
+<li>#941: Fix behavior of OverrideTypeReader (170a2e0)</li>
+<li>#945: Fix properties on SocketCategoryChannel (810f6d6)</li>
+<li>#959: Webhooks now use the correct parameter when assigning to the Avatar URL (8876597)</li>
+<li>#966: Correct the implementation of HasFlag and ResolveChannel in permissions (32ebdd5)</li>
+<li>#968: Add missing parameter in WebSocket4Net constructor (8537924)</li>
+<li>#981: Enforce a maximum value when parsing timestamps from Discord (bfaa6fc)</li>
+<li>#993: Null content will no longer null-ref on message sends/edits (55299ff)</li>
+<li>#1003: Fixed ordering of parameters in permissions classes (a06e212)</li>
+<li>#1010: EmbedBuilder no longer produces mutable embeds (2988b38)</li>
+<li>#1012: <code>Embed.Length</code> should now yield the correct results (a3ce80c)</li>
+<li>#1017: GetReactionUsersAsync includes query parameters (9b29c00)</li>
+<li>#1022: GetReactionUsersAsync is now correctly paginated (79811d0)</li>
+<li>#1023: Fix/update invite-related behaviors (7022149)</li>
+<li>#1031: Messages with no guild-specific data should no longer be lost (3631886)</li>
+<li>#1036: Fixed cases where <code>RetryMode.RetryRatelimit</code> were ignored (c618cb3)</li>
+<li>#1044: Populate the guild in <code>SocketWebhookUser</code> (6a7810b)</li>
+<li>#1048: The REST client will now create a full GuildUser object (033d312)</li>
+<li>#1049: Fixed null-ref in <code>GetShardIdFor</code> (7cfed7f)</li>
+<li>#1059: Include &#39;view channel&#39; in voice channel&#39;s All permissions set (e764daf)</li>
+<li>#1083: Default type readers will now be properly replaced (4bc06a0)</li>
+<li>#1093: Fixed race condition in audio client authentication (322d46e)</li>
+<li>#1139: Fixed consistency in exceptions (9e9a11d)</li>
+<li>#1151: <code>GetReactionUsersAsync</code> now uses the correct pagination constant (c898325)</li>
+<li>#1163: Reaction ratelimits are now placed in the same bucket, treated correctly (5ea1fb3)</li>
+<li>#1186: Webhooks can now send files with embeds correctly (c1d5152)</li>
+<li>#1192: CommandExecuted no longer fires twice for RuntimeResults (10233f3)</li>
+<li>#1195: Channel Create audit log events properly deserialize (dca6c33)</li>
+<li>#1202: The UDP client should no longer be used after disposed (ccb16e4)</li>
+<li>#1203: The Audio client should no longer lock up on disconnect (2c93363)</li>
+<li>#1209: MessageUpdated should no longer pass a null after object (91e0f03)</li>
+<li>Ignore messages with no ID in bulk delete (676be40)</li>
+<li>No longer attempt to load generic types as modules (b1eaa44)</li>
+<li>No longer complain when a <code>PRESENCES_REPLACE</code> update is received (beb3d46)</li>
+<li>CommandExecuted will be raised on async exception failures (6260749)</li>
+<li>ExecuteResult now contains the entire exception, not an abridged message (f549da5)</li>
+<li>CommandExecuted will no longer be raised twice for exceptions (aec7105)</li>
+<li>The default WebSocket will now close correctly (ac389f5)</li>
+</ul>
+<h3 id="changed-2">Changed</h3>
+<ul>
+<li>#731: <code>IUserMessage#GetReactionUsersAsync</code> now takes an <code>IEmote</code> instead of a <code>string</code> (5d7f2fc)</li>
+<li>#744: IAsyncEnumerable has been redesigned (5bbd9bb)</li>
+<li>#777: <code>IGuild#DefaultChannel</code> will now resolve the first accessible channel, per changes to Discord (1ffcd4b)</li>
+<li>#781: Attempting to add or remove a member&#39;s EveryoneRole will throw (506a6c9)</li>
+<li>#801: <code>EmbedBuilder</code> will no longer implicitly convert to <code>Embed</code>, you must build manually (94f7dd2)</li>
+<li>#804: Command-related tasks will have the &#39;async&#39; suffix (14fbe40)</li>
+<li>#812: The WebSocket4Net provider has been bumped to version 0.15, allowing support for .NET Standard apps (e25054b)</li>
+<li>#829: DeleteMessagesAsync moved from IMessageChannel to ITextChannel (e00f17f)</li>
+<li>#853: WebSocket will now use <code>zlib-stream</code> compression (759db34)</li>
+<li>#874: The <code>ReadMessages</code> permission is moving to <code>ViewChannel</code> (edfbd05)</li>
+<li>#877: Refactored Games into Activities (34b4e5a)</li>
+<li>#943: Multiple types of quotation marks can now be parsed (thanks 🍎) (cee71ef)</li>
+<li>#955: The <code>GameParty</code> model will now use long values (178ea8d)</li>
+<li>#986: Expose the internal entity TypeReaders (660fec0)</li>
+<li>#992: Throw an exception when trying to modify someone else&#39;s message (d50fc3b)</li>
+<li>#998: Commands can specify their own <code>IgnoreExtraArgs</code> behavior (6d30100)</li>
+<li>#1033: The <code>ReadMessages</code> permission bit is now named <code>ViewChannel</code> (5f084ad)</li>
+<li>#1042: Content parameter of <code>SendMessageAsync</code> is now optional (0ba8b06)</li>
+<li>#1057: An audio channel&#39;s <code>ConnectAsync</code> now allows users to handle the voice connection elsewhere, such as in Lavalink (890904f)</li>
+<li>#1094: Overhauled invites, added vanity invite support (ffe994a)</li>
+<li>#1108: Reactions now use the undocumented 1/.25 ratelimit, making them 4x faster (6b21b11)</li>
+<li>#1128: Bot tokens will now be validated for common mishaps before use (2de6cef)</li>
+<li>#1140: Check the invite <code>maxAge</code> parameter before making the request (649a779)</li>
+<li>#1164: All command results will now be raised in <code>CommandExecuted</code> (10f67a8)</li>
+<li>#1171: Clients have been changed to properly make use of <code>IDisposable</code> (7366cd4)</li>
+<li>#1172: Invite related methods were moved from <code>IGuildChannel</code> to <code>INestedChannel</code> (a3f5e0b)</li>
+<li>#1200: HasPrefix extensions now check for null values first (46e2674)</li>
+<li><code>IGuildChannel#Nsfw</code> moved to <code>ITextChannel</code>, now maps to the API property (608bc35)</li>
+<li>Preemptive ratelimits are now logged under verbose, rather than warning. (3c1e766)</li>
+<li>The default InviteAge when creating Invites is now 24 hours (9979a02)</li>
+<li>All parameters to <code>ReplyAsync</code> have been made optional (b38dca7)</li>
+<li>The socket client will now use additional fields to fill in member/guild information on messages (8fb2c71)</li>
+<li>The Audio Client now uses Voice WS v3 (9ba38d7)</li>
+</ul>
+<h3 id="removed-1">Removed</h3>
+<ul>
+<li>#790: Redundant overloads for <code>AddField</code> removed from EmbedBuilder (479361b)</li>
+<li>#925: RPC is no longer being maintained nor packaged (b30af57)</li>
+<li>#958: Remove support for user tokens (2fd4f56)</li>
+<li>User logins (including selfbots) are no longer supported (fc5adca)</li>
+</ul>
+<h3 id="misc-3">Misc</h3>
+<ul>
+<li>#786: Unit tests for the Color structure (22b969c)</li>
+<li>#828: We now include a contributing guide (cd82a0f)</li>
+<li>#876: We now include a standard editorconfig (5c8c784)</li>
+<li>#963: Docs now include a release version, build instructions (88e6244)</li>
+<li>#964: Fix documentation spelling of &#39;echoes&#39; (fda19b5)</li>
+<li>#967: Unit test permissions (63e6704)</li>
+<li>#968: Bumped version of WebSocket4Net to 0.15.2 (8537924)</li>
+<li>#972: Include sample bots in the source repository (217ec34)</li>
+<li>#1046: We now support .NET Standard 2.0 (bbbac85)</li>
+<li>#1114: Various performance optimizations (82cfdff)</li>
+<li>#1149: The CI will now test on Ubuntu as well as Windows (674a0fc)</li>
+<li>#1161: The entire documentation has been rewritten, all core entities were docstringed (ff0fea9)</li>
+<li>#1175: Documentation changes in command samples (fb8dbca)</li>
+<li>#1177: Added documentation for sharded bots (00097d3)</li>
+<li>#1219: The project now has a logo! 🎉 (5750c3e)</li>
+<li>This project is now licensed to the Discord.Net contributors (710e182)</li>
+<li>Added templates for pull requests (f2ddf51)</li>
+<li>Fixed documentation layout for the logo (bafdce4)</li>
+</ul>
+<h2 id="102---2017-09-09">[1.0.2] - 2017-09-09</h2>
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+<li>Guilds utilizing Channel Categories will no longer crash bots on the <code>READY</code> event.</li>
+</ul>
+<h2 id="101---2017-07-05">[1.0.1] - 2017-07-05</h2>
+<h3 id="fixed-5">Fixed</h3>
+<ul>
+<li>#732: Fixed parameter preconditions not being loaded from class-based modules (b6dcc9e)</li>
+<li>#726: Fixed CalculateScore throwing an ArgumentException for missing parameters (7597cf5)</li>
+<li>EmbedBuilder URI validation should no longer throw NullReferenceExceptions in certain edge cases (d89804d)</li>
+<li>Fixed module auto-detection for nested modules (d2afb06)</li>
+</ul>
+<h3 id="changed-3">Changed</h3>
+<ul>
+<li>ShardedCommandContext now inherits from SocketCommandContext (8cd99be)</li>
+</ul>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/CHANGELOG.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="styles/cornerify.js"></script>  </body>
+</html>

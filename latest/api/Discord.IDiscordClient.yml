@@ -1,0 +1,2236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.IDiscordClient
+  commentId: T:Discord.IDiscordClient
+  id: IDiscordClient
+  parent: Discord
+  children:
+  - Discord.IDiscordClient.ConnectionState
+  - Discord.IDiscordClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  - Discord.IDiscordClient.CurrentUser
+  - Discord.IDiscordClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  - Discord.IDiscordClient.GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetConnectionsAsync(Discord.RequestOptions)
+  - Discord.IDiscordClient.GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  - Discord.IDiscordClient.GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  - Discord.IDiscordClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  - Discord.IDiscordClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.IDiscordClient.StartAsync
+  - Discord.IDiscordClient.StopAsync
+  - Discord.IDiscordClient.TokenType
+  langs:
+  - csharp
+  - vb
+  name: IDiscordClient
+  nameWithType: IDiscordClient
+  fullName: Discord.IDiscordClient
+  type: Interface
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IDiscordClient
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 10
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRepresents a generic Discord client.\n"
+  example: []
+  syntax:
+    content: 'public interface IDiscordClient : IDisposable'
+    content.vb: >-
+      Public Interface IDiscordClient
+          Inherits IDisposable
+  extensionMethods:
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetPrivateChannelAsync(System.UInt64)
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetDMChannelAsync(System.UInt64)
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetDMChannelsAsync
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetGroupChannelAsync(System.UInt64)
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  - Discord.IDiscordClient.Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Discord.IDiscordClient.ConnectionState
+  commentId: P:Discord.IDiscordClient.ConnectionState
+  id: ConnectionState
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectionState
+  nameWithType: IDiscordClient.ConnectionState
+  fullName: Discord.IDiscordClient.ConnectionState
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ConnectionState
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 15
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the current state of connection.\n"
+  example: []
+  syntax:
+    content: ConnectionState ConnectionState { get; }
+    parameters: []
+    return:
+      type: Discord.ConnectionState
+    content.vb: ReadOnly Property ConnectionState As ConnectionState
+  overload: Discord.IDiscordClient.ConnectionState*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IDiscordClient.CurrentUser
+  commentId: P:Discord.IDiscordClient.CurrentUser
+  id: CurrentUser
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: CurrentUser
+  nameWithType: IDiscordClient.CurrentUser
+  fullName: Discord.IDiscordClient.CurrentUser
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CurrentUser
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 19
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the currently logged-in user.\n"
+  example: []
+  syntax:
+    content: ISelfUser CurrentUser { get; }
+    parameters: []
+    return:
+      type: Discord.ISelfUser
+    content.vb: ReadOnly Property CurrentUser As ISelfUser
+  overload: Discord.IDiscordClient.CurrentUser*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IDiscordClient.TokenType
+  commentId: P:Discord.IDiscordClient.TokenType
+  id: TokenType
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: TokenType
+  nameWithType: IDiscordClient.TokenType
+  fullName: Discord.IDiscordClient.TokenType
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: TokenType
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 23
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the token type of the logged-in user.\n"
+  example: []
+  syntax:
+    content: TokenType TokenType { get; }
+    parameters: []
+    return:
+      type: Discord.TokenType
+    content.vb: ReadOnly Property TokenType As TokenType
+  overload: Discord.IDiscordClient.TokenType*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IDiscordClient.StartAsync
+  commentId: M:Discord.IDiscordClient.StartAsync
+  id: StartAsync
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: StartAsync()
+  nameWithType: IDiscordClient.StartAsync()
+  fullName: Discord.IDiscordClient.StartAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: StartAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 38
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nStarts the connection between Discord and the client..\n"
+  remarks: "\nThis method will initialize the connection between the client and Discord.\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    This method will immediately return after it is called, as it will initialize the connection on\n    another thread.\n</p></div>\n"
+  example: []
+  syntax:
+    content: Task StartAsync()
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous start operation.\n"
+    content.vb: Function StartAsync As Task
+  overload: Discord.IDiscordClient.StartAsync*
+- uid: Discord.IDiscordClient.StopAsync
+  commentId: M:Discord.IDiscordClient.StopAsync
+  id: StopAsync
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: StopAsync()
+  nameWithType: IDiscordClient.StopAsync()
+  fullName: Discord.IDiscordClient.StopAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: StopAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 45
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nStops the connection between Discord and the client.\n"
+  example: []
+  syntax:
+    content: Task StopAsync()
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous stop operation.\n"
+    content.vb: Function StopAsync As Task
+  overload: Discord.IDiscordClient.StopAsync*
+- uid: Discord.IDiscordClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  id: GetApplicationInfoAsync(Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetApplicationInfoAsync(RequestOptions)
+  nameWithType: IDiscordClient.GetApplicationInfoAsync(RequestOptions)
+  fullName: Discord.IDiscordClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetApplicationInfoAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 59
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a Discord application information for the logged-in user.\n"
+  remarks: "\nThis method reflects your application information you submitted when creating a Discord application via\nthe Developer Portal.\n"
+  example: []
+  syntax:
+    content: Task<IApplication> GetApplicationInfoAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IApplication}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the application\ninformation.\n"
+    content.vb: Function GetApplicationInfoAsync(options As RequestOptions = Nothing) As Task(Of IApplication)
+  overload: Discord.IDiscordClient.GetApplicationInfoAsync*
+- uid: Discord.IDiscordClient.GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  id: GetChannelAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetChannelAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetChannelAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetChannelAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 80
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a generic channel.\n"
+  example:
+  - "\n<pre><code class=\"lang-cs\">var channel = await _client.GetChannelAsync(381889909113225237);\nif (channel != null &amp;&amp; channel is IMessageChannel msgChannel)\n{\n    await msgChannel.SendMessageAsync($&quot;{msgChannel} is created at {msgChannel.CreatedAt}&quot;);\n}</code></pre>\n"
+  syntax:
+    content: Task<IChannel> GetChannelAsync(ulong id, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the channel (e.g. `381889909113225237`).
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IChannel}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the channel associated\nwith the snowflake identifier; <code>null</code> when the channel cannot be found.\n"
+    content.vb: Function GetChannelAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IChannel)
+  overload: Discord.IDiscordClient.GetChannelAsync*
+- uid: Discord.IDiscordClient.GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  id: GetPrivateChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetPrivateChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetPrivateChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetPrivateChannelsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 98
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a collection of private channels opened in this session.\n"
+  remarks: "\nThis method will retrieve all private channels (including direct-message, group channel and such) that\nare currently opened in this session.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method will not return previously opened private channels outside of the current session! If\n    you have just started the client, this may return an empty collection.\n</p></div>\n"
+  example: []
+  syntax:
+    content: Task<IReadOnlyCollection<IPrivateChannel>> GetPrivateChannelsAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IPrivateChannel}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof private channels that the user currently partakes in.\n"
+    content.vb: Function GetPrivateChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IPrivateChannel))
+  overload: Discord.IDiscordClient.GetPrivateChannelsAsync*
+- uid: Discord.IDiscordClient.GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  id: GetDMChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetDMChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetDMChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetDMChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetDMChannelsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 115
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a collection of direct message channels opened in this session.\n"
+  remarks: "\nThis method returns a collection of currently opened direct message channels.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method will not return previously opened DM channels outside of the current session! If you\n    have just started the client, this may return an empty collection.\n</p></div>\n"
+  example: []
+  syntax:
+    content: Task<IReadOnlyCollection<IDMChannel>> GetDMChannelsAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IDMChannel}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof direct-message channels that the user currently partakes in.\n"
+    content.vb: Function GetDMChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IDMChannel))
+  overload: Discord.IDiscordClient.GetDMChannelsAsync*
+- uid: Discord.IDiscordClient.GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  id: GetGroupChannelsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetGroupChannelsAsync(CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetGroupChannelsAsync(CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetGroupChannelsAsync(Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGroupChannelsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 132
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a collection of group channels opened in this session.\n"
+  remarks: "\nThis method returns a collection of currently opened group channels.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method will not return previously opened group channels outside of the current session! If you\n    have just started the client, this may return an empty collection.\n</p></div>\n"
+  example: []
+  syntax:
+    content: Task<IReadOnlyCollection<IGroupChannel>> GetGroupChannelsAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IGroupChannel}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof group channels that the user currently partakes in.\n"
+    content.vb: Function GetGroupChannelsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IGroupChannel))
+  overload: Discord.IDiscordClient.GetGroupChannelsAsync*
+- uid: Discord.IDiscordClient.GetConnectionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetConnectionsAsync(Discord.RequestOptions)
+  id: GetConnectionsAsync(Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionsAsync(RequestOptions)
+  nameWithType: IDiscordClient.GetConnectionsAsync(RequestOptions)
+  fullName: Discord.IDiscordClient.GetConnectionsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetConnectionsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 141
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the connections that the user has set up.\n"
+  example: []
+  syntax:
+    content: Task<IReadOnlyCollection<IConnection>> GetConnectionsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IConnection}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection of connections.\n"
+    content.vb: Function GetConnectionsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IConnection))
+  overload: Discord.IDiscordClient.GetConnectionsAsync*
+- uid: Discord.IDiscordClient.GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  id: GetGuildAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetGuildAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetGuildAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 153
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a guild.\n"
+  example: []
+  syntax:
+    content: Task<IGuild> GetGuildAsync(ulong id, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The guild snowflake identifier.
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IGuild}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the guild associated\nwith the snowflake identifier; <code>null</code> when the guild cannot be found.\n"
+    content.vb: Function GetGuildAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IGuild)
+  overload: Discord.IDiscordClient.GetGuildAsync*
+- uid: Discord.IDiscordClient.GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  id: GetGuildsAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildsAsync(CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetGuildsAsync(CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetGuildsAsync(Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 163
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a collection of guilds that the user is currently in.\n"
+  example: []
+  syntax:
+    content: Task<IReadOnlyCollection<IGuild>> GetGuildsAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IGuild}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof guilds that the current user is in.\n"
+    content.vb: Function GetGuildsAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IGuild))
+  overload: Discord.IDiscordClient.GetGuildsAsync*
+- uid: Discord.IDiscordClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  id: CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  nameWithType: IDiscordClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  fullName: Discord.IDiscordClient.CreateGuildAsync(System.String, Discord.IVoiceRegion, Stream, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CreateGuildAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 180
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nCreates a guild for the logged-in user who is in less than 10 active guilds.\n"
+  remarks: "\nThis method creates a new guild on behalf of the logged-in user.\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Due to Discord&apos;s limitation, this method will only work for users that are in less than 10 guilds.\n</p></div>\n"
+  example: []
+  syntax:
+    content: Task<IGuild> CreateGuildAsync(string name, IVoiceRegion region, Stream jpegIcon = null, RequestOptions options = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the new guild.
+    - id: region
+      type: Discord.IVoiceRegion
+      description: The voice region to create the guild with.
+    - id: jpegIcon
+      type: Stream
+      description: The icon of the guild.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IGuild}
+      description: "\nA task that represents the asynchronous creation operation. The task result contains the created guild.\n"
+    content.vb: Function CreateGuildAsync(name As String, region As IVoiceRegion, jpegIcon As Stream = Nothing, options As RequestOptions = Nothing) As Task(Of IGuild)
+  overload: Discord.IDiscordClient.CreateGuildAsync*
+- uid: Discord.IDiscordClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  id: GetInviteAsync(System.String,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetInviteAsync(String, RequestOptions)
+  nameWithType: IDiscordClient.GetInviteAsync(String, RequestOptions)
+  fullName: Discord.IDiscordClient.GetInviteAsync(System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetInviteAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 190
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets an invite.\n"
+  example: []
+  syntax:
+    content: Task<IInvite> GetInviteAsync(string inviteId, RequestOptions options = null)
+    parameters:
+    - id: inviteId
+      type: System.String
+      description: The invitation identifier.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IInvite}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the invite information.\n"
+    content.vb: Function GetInviteAsync(inviteId As String, options As RequestOptions = Nothing) As Task(Of IInvite)
+  overload: Discord.IDiscordClient.GetInviteAsync*
+- uid: Discord.IDiscordClient.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  id: GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(UInt64, CacheMode, RequestOptions)
+  nameWithType: IDiscordClient.GetUserAsync(UInt64, CacheMode, RequestOptions)
+  fullName: Discord.IDiscordClient.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetUserAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 209
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a user.\n"
+  example:
+  - "\n<pre><code class=\"lang-cs\">var user = await _client.GetUserAsync(168693960628371456);\nif (user != null)\n    Console.WriteLine($&quot;{user} is created at {user.CreatedAt}.&quot;;</code></pre>\n"
+  syntax:
+    content: Task<IUser> GetUserAsync(ulong id, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The snowflake identifier of the user (e.g. `168693960628371456`).
+    - id: mode
+      type: Discord.CacheMode
+      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IUser}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the user associated with\nthe snowflake identifier; <code>null</code> if the user is not found.\n"
+    content.vb: Function GetUserAsync(id As ULong, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IUser)
+  overload: Discord.IDiscordClient.GetUserAsync*
+- uid: Discord.IDiscordClient.GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  id: GetUserAsync(System.String,System.String,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(String, String, RequestOptions)
+  nameWithType: IDiscordClient.GetUserAsync(String, String, RequestOptions)
+  fullName: Discord.IDiscordClient.GetUserAsync(System.String, System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetUserAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 227
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a user.\n"
+  example:
+  - "\n<pre><code class=\"lang-cs\">var user = await _client.GetUserAsync(&quot;Still&quot;, &quot;2876&quot;);\nif (user != null)\n   Console.WriteLine($&quot;{user} is created at {user.CreatedAt}.&quot;;</code></pre>\n"
+  syntax:
+    content: Task<IUser> GetUserAsync(string username, string discriminator, RequestOptions options = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: The name of the user (e.g. `Still`).
+    - id: discriminator
+      type: System.String
+      description: The discriminator value of the user (e.g. `2876`).
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IUser}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the user associated with\nthe name and the discriminator; <code>null</code> if the user is not found.\n"
+    content.vb: Function GetUserAsync(username As String, discriminator As String, options As RequestOptions = Nothing) As Task(Of IUser)
+  overload: Discord.IDiscordClient.GetUserAsync*
+- uid: Discord.IDiscordClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  id: GetVoiceRegionsAsync(Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetVoiceRegionsAsync(RequestOptions)
+  nameWithType: IDiscordClient.GetVoiceRegionsAsync(RequestOptions)
+  fullName: Discord.IDiscordClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetVoiceRegionsAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 244
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a collection of the available voice regions.\n"
+  example:
+  - "\nThe following example gets the most optimal voice region from the collection.\n<pre><code class=\"lang-cs\">    var regions = await client.GetVoiceRegionsAsync();\n    var optimalRegion = regions.FirstOrDefault(x => x.IsOptimal);</code></pre>\n"
+  syntax:
+    content: Task<IReadOnlyCollection<IVoiceRegion>> GetVoiceRegionsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{IReadOnlyCollection{Discord.IVoiceRegion}}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nwith all of the available voice regions in this session.\n"
+    content.vb: Function GetVoiceRegionsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IVoiceRegion))
+  overload: Discord.IDiscordClient.GetVoiceRegionsAsync*
+- uid: Discord.IDiscordClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  id: GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetVoiceRegionAsync(String, RequestOptions)
+  nameWithType: IDiscordClient.GetVoiceRegionAsync(String, RequestOptions)
+  fullName: Discord.IDiscordClient.GetVoiceRegionAsync(System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetVoiceRegionAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 254
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a voice region.\n"
+  example: []
+  syntax:
+    content: Task<IVoiceRegion> GetVoiceRegionAsync(string id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.String
+      description: The identifier of the voice region (e.g. <code>eu-central</code> ).
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IVoiceRegion}
+      description: "\nA task that represents the asynchronous get operation. The task result contains the voice region\nassociated with the identifier; <code>null</code> if the voice region is not found.\n"
+    content.vb: Function GetVoiceRegionAsync(id As String, options As RequestOptions = Nothing) As Task(Of IVoiceRegion)
+  overload: Discord.IDiscordClient.GetVoiceRegionAsync*
+- uid: Discord.IDiscordClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  id: GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetWebhookAsync(UInt64, RequestOptions)
+  nameWithType: IDiscordClient.GetWebhookAsync(UInt64, RequestOptions)
+  fullName: Discord.IDiscordClient.GetWebhookAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetWebhookAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 265
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a webhook available.\n"
+  example: []
+  syntax:
+    content: Task<IWebhook> GetWebhookAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+      description: The identifier of the webhook.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IWebhook}
+      description: "\nA task that represents the asynchronous get operation. The task result contains a webhook associated\nwith the identifier; <code>null</code> if the webhook is not found.\n"
+    content.vb: Function GetWebhookAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of IWebhook)
+  overload: Discord.IDiscordClient.GetWebhookAsync*
+- uid: Discord.IDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  id: GetRecommendedShardCountAsync(Discord.RequestOptions)
+  parent: Discord.IDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetRecommendedShardCountAsync(RequestOptions)
+  nameWithType: IDiscordClient.GetRecommendedShardCountAsync(RequestOptions)
+  fullName: Discord.IDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/IDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetRecommendedShardCountAsync
+    path: ../src/Discord.Net.Core/IDiscordClient.cs
+    startLine: 275
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the recommended shard count as suggested by Discord.\n"
+  example: []
+  syntax:
+    content: Task<int> GetRecommendedShardCountAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{System.Int32}
+      description: "\nA task that represents the asynchronous get operation. The task result contains an <see cref=\"!:Int32\"></see>\nthat represents the number of shards that should be used with this account.\n"
+    content.vb: Function GetRecommendedShardCountAsync(options As RequestOptions = Nothing) As Task(Of Integer)
+  overload: Discord.IDiscordClient.GetRecommendedShardCountAsync*
+references:
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetPrivateChannelAsync(System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+  name: GetPrivateChannelAsync(UInt64)
+  nameWithType: DiscordClientExtensions.GetPrivateChannelAsync(UInt64)
+  fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync(System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetPrivateChannelAsync(System.UInt64)
+    name: GetPrivateChannelAsync
+    nameWithType: DiscordClientExtensions.GetPrivateChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetPrivateChannelAsync(System.UInt64)
+    name: GetPrivateChannelAsync
+    nameWithType: DiscordClientExtensions.GetPrivateChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetDMChannelAsync(System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+  name: GetDMChannelAsync(UInt64)
+  nameWithType: DiscordClientExtensions.GetDMChannelAsync(UInt64)
+  fullName: Discord.DiscordClientExtensions.GetDMChannelAsync(System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelAsync(System.UInt64)
+    name: GetDMChannelAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelAsync(System.UInt64)
+    name: GetDMChannelAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetDMChannelsAsync
+  commentId: M:Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+  name: GetDMChannelsAsync()
+  nameWithType: DiscordClientExtensions.GetDMChannelsAsync()
+  fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync()
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelsAsync
+    name: GetDMChannelsAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelsAsync
+    name: GetDMChannelsAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetGroupChannelAsync(System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+  name: GetGroupChannelAsync(UInt64)
+  nameWithType: DiscordClientExtensions.GetGroupChannelAsync(UInt64)
+  fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync(System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelAsync(System.UInt64)
+    name: GetGroupChannelAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelAsync(System.UInt64)
+    name: GetGroupChannelAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  commentId: M:Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+  name: GetGroupChannelsAsync()
+  nameWithType: DiscordClientExtensions.GetGroupChannelsAsync()
+  fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync()
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+    name: GetGroupChannelsAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+    name: GetGroupChannelsAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  commentId: M:Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+  parent: Discord.DiscordClientExtensions
+  definition: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+  name: GetOptimalVoiceRegionAsync()
+  nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync()
+  fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync()
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    name: GetOptimalVoiceRegionAsync
+    nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    name: GetOptimalVoiceRegionAsync
+    nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+  isExternal: true
+  name: GetPrivateChannelAsync(IDiscordClient, UInt64)
+  nameWithType: DiscordClientExtensions.GetPrivateChannelAsync(IDiscordClient, UInt64)
+  fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient, System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetPrivateChannelAsync
+    nameWithType: DiscordClientExtensions.GetPrivateChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetPrivateChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetPrivateChannelAsync
+    nameWithType: DiscordClientExtensions.GetPrivateChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetPrivateChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions
+  commentId: T:Discord.DiscordClientExtensions
+  parent: Discord
+  name: DiscordClientExtensions
+  nameWithType: DiscordClientExtensions
+  fullName: Discord.DiscordClientExtensions
+- uid: Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+  isExternal: true
+  name: GetDMChannelAsync(IDiscordClient, UInt64)
+  nameWithType: DiscordClientExtensions.GetDMChannelAsync(IDiscordClient, UInt64)
+  fullName: Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient, System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetDMChannelAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetDMChannelAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+  commentId: M:Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+  name: GetDMChannelsAsync(IDiscordClient)
+  nameWithType: DiscordClientExtensions.GetDMChannelsAsync(IDiscordClient)
+  fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+    name: GetDMChannelsAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetDMChannelsAsync(Discord.IDiscordClient)
+    name: GetDMChannelsAsync
+    nameWithType: DiscordClientExtensions.GetDMChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetDMChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+  commentId: M:Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+  isExternal: true
+  name: GetGroupChannelAsync(IDiscordClient, UInt64)
+  nameWithType: DiscordClientExtensions.GetGroupChannelAsync(IDiscordClient, UInt64)
+  fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient, System.UInt64)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetGroupChannelAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelAsync(Discord.IDiscordClient,System.UInt64)
+    name: GetGroupChannelAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+  commentId: M:Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+  name: GetGroupChannelsAsync(IDiscordClient)
+  nameWithType: DiscordClientExtensions.GetGroupChannelsAsync(IDiscordClient)
+  fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+    name: GetGroupChannelsAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetGroupChannelsAsync(Discord.IDiscordClient)
+    name: GetGroupChannelsAsync
+    nameWithType: DiscordClientExtensions.GetGroupChannelsAsync
+    fullName: Discord.DiscordClientExtensions.GetGroupChannelsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+  commentId: M:Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+  name: GetOptimalVoiceRegionAsync(IDiscordClient)
+  nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync(IDiscordClient)
+  fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+  spec.csharp:
+  - uid: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+    name: GetOptimalVoiceRegionAsync
+    nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync(Discord.IDiscordClient)
+    name: GetOptimalVoiceRegionAsync
+    nameWithType: DiscordClientExtensions.GetOptimalVoiceRegionAsync
+    fullName: Discord.DiscordClientExtensions.GetOptimalVoiceRegionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IDiscordClient
+    name: IDiscordClient
+    nameWithType: IDiscordClient
+    fullName: Discord.IDiscordClient
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.ConnectionState*
+  commentId: Overload:Discord.IDiscordClient.ConnectionState
+  name: ConnectionState
+  nameWithType: IDiscordClient.ConnectionState
+  fullName: Discord.IDiscordClient.ConnectionState
+- uid: Discord.ConnectionState
+  commentId: T:Discord.ConnectionState
+  parent: Discord
+  name: ConnectionState
+  nameWithType: ConnectionState
+  fullName: Discord.ConnectionState
+- uid: Discord.IDiscordClient.CurrentUser*
+  commentId: Overload:Discord.IDiscordClient.CurrentUser
+  name: CurrentUser
+  nameWithType: IDiscordClient.CurrentUser
+  fullName: Discord.IDiscordClient.CurrentUser
+- uid: Discord.ISelfUser
+  commentId: T:Discord.ISelfUser
+  parent: Discord
+  name: ISelfUser
+  nameWithType: ISelfUser
+  fullName: Discord.ISelfUser
+- uid: Discord.IDiscordClient.TokenType*
+  commentId: Overload:Discord.IDiscordClient.TokenType
+  name: TokenType
+  nameWithType: IDiscordClient.TokenType
+  fullName: Discord.IDiscordClient.TokenType
+- uid: Discord.TokenType
+  commentId: T:Discord.TokenType
+  parent: Discord
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Discord.TokenType
+- uid: Discord.IDiscordClient.StartAsync*
+  commentId: Overload:Discord.IDiscordClient.StartAsync
+  name: StartAsync
+  nameWithType: IDiscordClient.StartAsync
+  fullName: Discord.IDiscordClient.StartAsync
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Discord.IDiscordClient.StopAsync*
+  commentId: Overload:Discord.IDiscordClient.StopAsync
+  name: StopAsync
+  nameWithType: IDiscordClient.StopAsync
+  fullName: Discord.IDiscordClient.StopAsync
+- uid: Discord.IDiscordClient.GetApplicationInfoAsync*
+  commentId: Overload:Discord.IDiscordClient.GetApplicationInfoAsync
+  name: GetApplicationInfoAsync
+  nameWithType: IDiscordClient.GetApplicationInfoAsync
+  fullName: Discord.IDiscordClient.GetApplicationInfoAsync
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task{Discord.IApplication}
+  commentId: '!:Task{Discord.IApplication}'
+  definition: Task`1
+  name: Task<IApplication>
+  nameWithType: Task<IApplication>
+  fullName: Task<Discord.IApplication>
+  nameWithType.vb: Task(Of IApplication)
+  fullName.vb: Task(Of Discord.IApplication)
+  name.vb: Task(Of IApplication)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Discord.IApplication
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Discord.IApplication
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.CacheMode
+  commentId: T:Discord.CacheMode
+  parent: Discord
+  name: CacheMode
+  nameWithType: CacheMode
+  fullName: Discord.CacheMode
+- uid: Discord.IDiscordClient.GetChannelAsync*
+  commentId: Overload:Discord.IDiscordClient.GetChannelAsync
+  name: GetChannelAsync
+  nameWithType: IDiscordClient.GetChannelAsync
+  fullName: Discord.IDiscordClient.GetChannelAsync
+- uid: System.UInt64
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Task{Discord.IChannel}
+  commentId: '!:Task{Discord.IChannel}'
+  definition: Task`1
+  name: Task<IChannel>
+  nameWithType: Task<IChannel>
+  fullName: Task<Discord.IChannel>
+  nameWithType.vb: Task(Of IChannel)
+  fullName.vb: Task(Of Discord.IChannel)
+  name.vb: Task(Of IChannel)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IChannel
+    name: IChannel
+    nameWithType: IChannel
+    fullName: Discord.IChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IChannel
+    name: IChannel
+    nameWithType: IChannel
+    fullName: Discord.IChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetPrivateChannelsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetPrivateChannelsAsync
+  name: GetPrivateChannelsAsync
+  nameWithType: IDiscordClient.GetPrivateChannelsAsync
+  fullName: Discord.IDiscordClient.GetPrivateChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.IPrivateChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IPrivateChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IPrivateChannel>>
+  nameWithType: Task<IReadOnlyCollection<IPrivateChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.IPrivateChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IPrivateChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IPrivateChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of IPrivateChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IPrivateChannel
+    name: IPrivateChannel
+    nameWithType: IPrivateChannel
+    fullName: Discord.IPrivateChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IPrivateChannel
+    name: IPrivateChannel
+    nameWithType: IPrivateChannel
+    fullName: Discord.IPrivateChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetDMChannelsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetDMChannelsAsync
+  name: GetDMChannelsAsync
+  nameWithType: IDiscordClient.GetDMChannelsAsync
+  fullName: Discord.IDiscordClient.GetDMChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.IDMChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IDMChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IDMChannel>>
+  nameWithType: Task<IReadOnlyCollection<IDMChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.IDMChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IDMChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IDMChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of IDMChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IDMChannel
+    name: IDMChannel
+    nameWithType: IDMChannel
+    fullName: Discord.IDMChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IDMChannel
+    name: IDMChannel
+    nameWithType: IDMChannel
+    fullName: Discord.IDMChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetGroupChannelsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetGroupChannelsAsync
+  name: GetGroupChannelsAsync
+  nameWithType: IDiscordClient.GetGroupChannelsAsync
+  fullName: Discord.IDiscordClient.GetGroupChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.IGroupChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IGroupChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IGroupChannel>>
+  nameWithType: Task<IReadOnlyCollection<IGroupChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.IGroupChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IGroupChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IGroupChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of IGroupChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IGroupChannel
+    name: IGroupChannel
+    nameWithType: IGroupChannel
+    fullName: Discord.IGroupChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IGroupChannel
+    name: IGroupChannel
+    nameWithType: IGroupChannel
+    fullName: Discord.IGroupChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetConnectionsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetConnectionsAsync
+  name: GetConnectionsAsync
+  nameWithType: IDiscordClient.GetConnectionsAsync
+  fullName: Discord.IDiscordClient.GetConnectionsAsync
+- uid: Task{IReadOnlyCollection{Discord.IConnection}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IConnection}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IConnection>>
+  nameWithType: Task<IReadOnlyCollection<IConnection>>
+  fullName: Task<IReadOnlyCollection<Discord.IConnection>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IConnection))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IConnection))
+  name.vb: Task(Of IReadOnlyCollection(Of IConnection))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IConnection
+    name: IConnection
+    nameWithType: IConnection
+    fullName: Discord.IConnection
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IConnection
+    name: IConnection
+    nameWithType: IConnection
+    fullName: Discord.IConnection
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetGuildAsync*
+  commentId: Overload:Discord.IDiscordClient.GetGuildAsync
+  name: GetGuildAsync
+  nameWithType: IDiscordClient.GetGuildAsync
+  fullName: Discord.IDiscordClient.GetGuildAsync
+- uid: Task{Discord.IGuild}
+  commentId: '!:Task{Discord.IGuild}'
+  definition: Task`1
+  name: Task<IGuild>
+  nameWithType: Task<IGuild>
+  fullName: Task<Discord.IGuild>
+  nameWithType.vb: Task(Of IGuild)
+  fullName.vb: Task(Of Discord.IGuild)
+  name.vb: Task(Of IGuild)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IGuild
+    name: IGuild
+    nameWithType: IGuild
+    fullName: Discord.IGuild
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IGuild
+    name: IGuild
+    nameWithType: IGuild
+    fullName: Discord.IGuild
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetGuildsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetGuildsAsync
+  name: GetGuildsAsync
+  nameWithType: IDiscordClient.GetGuildsAsync
+  fullName: Discord.IDiscordClient.GetGuildsAsync
+- uid: Task{IReadOnlyCollection{Discord.IGuild}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IGuild}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IGuild>>
+  nameWithType: Task<IReadOnlyCollection<IGuild>>
+  fullName: Task<IReadOnlyCollection<Discord.IGuild>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IGuild))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IGuild))
+  name.vb: Task(Of IReadOnlyCollection(Of IGuild))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IGuild
+    name: IGuild
+    nameWithType: IGuild
+    fullName: Discord.IGuild
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IGuild
+    name: IGuild
+    nameWithType: IGuild
+    fullName: Discord.IGuild
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.CreateGuildAsync*
+  commentId: Overload:Discord.IDiscordClient.CreateGuildAsync
+  name: CreateGuildAsync
+  nameWithType: IDiscordClient.CreateGuildAsync
+  fullName: Discord.IDiscordClient.CreateGuildAsync
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.IVoiceRegion
+  commentId: T:Discord.IVoiceRegion
+  parent: Discord
+  name: IVoiceRegion
+  nameWithType: IVoiceRegion
+  fullName: Discord.IVoiceRegion
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Discord.IDiscordClient.GetInviteAsync*
+  commentId: Overload:Discord.IDiscordClient.GetInviteAsync
+  name: GetInviteAsync
+  nameWithType: IDiscordClient.GetInviteAsync
+  fullName: Discord.IDiscordClient.GetInviteAsync
+- uid: Task{Discord.IInvite}
+  commentId: '!:Task{Discord.IInvite}'
+  definition: Task`1
+  name: Task<IInvite>
+  nameWithType: Task<IInvite>
+  fullName: Task<Discord.IInvite>
+  nameWithType.vb: Task(Of IInvite)
+  fullName.vb: Task(Of Discord.IInvite)
+  name.vb: Task(Of IInvite)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IInvite
+    name: IInvite
+    nameWithType: IInvite
+    fullName: Discord.IInvite
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IInvite
+    name: IInvite
+    nameWithType: IInvite
+    fullName: Discord.IInvite
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetUserAsync*
+  commentId: Overload:Discord.IDiscordClient.GetUserAsync
+  name: GetUserAsync
+  nameWithType: IDiscordClient.GetUserAsync
+  fullName: Discord.IDiscordClient.GetUserAsync
+- uid: Task{Discord.IUser}
+  commentId: '!:Task{Discord.IUser}'
+  definition: Task`1
+  name: Task<IUser>
+  nameWithType: Task<IUser>
+  fullName: Task<Discord.IUser>
+  nameWithType.vb: Task(Of IUser)
+  fullName.vb: Task(Of Discord.IUser)
+  name.vb: Task(Of IUser)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetVoiceRegionsAsync*
+  commentId: Overload:Discord.IDiscordClient.GetVoiceRegionsAsync
+  name: GetVoiceRegionsAsync
+  nameWithType: IDiscordClient.GetVoiceRegionsAsync
+  fullName: Discord.IDiscordClient.GetVoiceRegionsAsync
+- uid: Task{IReadOnlyCollection{Discord.IVoiceRegion}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IVoiceRegion}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IVoiceRegion>>
+  nameWithType: Task<IReadOnlyCollection<IVoiceRegion>>
+  fullName: Task<IReadOnlyCollection<Discord.IVoiceRegion>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IVoiceRegion))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IVoiceRegion))
+  name.vb: Task(Of IReadOnlyCollection(Of IVoiceRegion))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetVoiceRegionAsync*
+  commentId: Overload:Discord.IDiscordClient.GetVoiceRegionAsync
+  name: GetVoiceRegionAsync
+  nameWithType: IDiscordClient.GetVoiceRegionAsync
+  fullName: Discord.IDiscordClient.GetVoiceRegionAsync
+- uid: Task{Discord.IVoiceRegion}
+  commentId: '!:Task{Discord.IVoiceRegion}'
+  definition: Task`1
+  name: Task<IVoiceRegion>
+  nameWithType: Task<IVoiceRegion>
+  fullName: Task<Discord.IVoiceRegion>
+  nameWithType.vb: Task(Of IVoiceRegion)
+  fullName.vb: Task(Of Discord.IVoiceRegion)
+  name.vb: Task(Of IVoiceRegion)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IVoiceRegion
+    name: IVoiceRegion
+    nameWithType: IVoiceRegion
+    fullName: Discord.IVoiceRegion
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetWebhookAsync*
+  commentId: Overload:Discord.IDiscordClient.GetWebhookAsync
+  name: GetWebhookAsync
+  nameWithType: IDiscordClient.GetWebhookAsync
+  fullName: Discord.IDiscordClient.GetWebhookAsync
+- uid: Task{Discord.IWebhook}
+  commentId: '!:Task{Discord.IWebhook}'
+  definition: Task`1
+  name: Task<IWebhook>
+  nameWithType: Task<IWebhook>
+  fullName: Task<Discord.IWebhook>
+  nameWithType.vb: Task(Of IWebhook)
+  fullName.vb: Task(Of Discord.IWebhook)
+  name.vb: Task(Of IWebhook)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IWebhook
+    name: IWebhook
+    nameWithType: IWebhook
+    fullName: Discord.IWebhook
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IWebhook
+    name: IWebhook
+    nameWithType: IWebhook
+    fullName: Discord.IWebhook
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDiscordClient.GetRecommendedShardCountAsync*
+  commentId: Overload:Discord.IDiscordClient.GetRecommendedShardCountAsync
+  name: GetRecommendedShardCountAsync
+  nameWithType: IDiscordClient.GetRecommendedShardCountAsync
+  fullName: Discord.IDiscordClient.GetRecommendedShardCountAsync
+- uid: Task{System.Int32}
+  commentId: '!:Task{System.Int32}'
+  definition: Task`1
+  name: Task<Int32>
+  nameWithType: Task<Int32>
+  fullName: Task<System.Int32>
+  nameWithType.vb: Task(Of Int32)
+  fullName.vb: Task(Of System.Int32)
+  name.vb: Task(Of Int32)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

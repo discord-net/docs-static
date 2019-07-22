@@ -1,0 +1,1373 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.IMessage
+  commentId: T:Discord.IMessage
+  id: IMessage
+  parent: Discord
+  children:
+  - Discord.IMessage.Activity
+  - Discord.IMessage.Application
+  - Discord.IMessage.Attachments
+  - Discord.IMessage.Author
+  - Discord.IMessage.Channel
+  - Discord.IMessage.Content
+  - Discord.IMessage.EditedTimestamp
+  - Discord.IMessage.Embeds
+  - Discord.IMessage.IsPinned
+  - Discord.IMessage.IsSuppressed
+  - Discord.IMessage.IsTTS
+  - Discord.IMessage.MentionedChannelIds
+  - Discord.IMessage.MentionedRoleIds
+  - Discord.IMessage.MentionedUserIds
+  - Discord.IMessage.Source
+  - Discord.IMessage.Tags
+  - Discord.IMessage.Timestamp
+  - Discord.IMessage.Type
+  langs:
+  - csharp
+  - vb
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Discord.IMessage
+  type: Interface
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IMessage
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 8
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRepresents a message object.\n"
+  example: []
+  syntax:
+    content: 'public interface IMessage : ISnowflakeEntity, IEntity<ulong>, IDeletable'
+    content.vb: >-
+      Public Interface IMessage
+          Inherits ISnowflakeEntity, IDeletable
+  inheritedMembers:
+  - Discord.ISnowflakeEntity.CreatedAt
+  - Discord.IEntity{System.UInt64}.Id
+  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  extensionMethods:
+  - Discord.IMessage.Discord.MessageExtensions.GetJumpUrl
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Discord.IMessage.Type
+  commentId: P:Discord.IMessage.Type
+  id: Type
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IMessage.Type
+  fullName: Discord.IMessage.Type
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Type
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 13
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the type of this system message.\n"
+  example: []
+  syntax:
+    content: MessageType Type { get; }
+    parameters: []
+    return:
+      type: Discord.MessageType
+    content.vb: ReadOnly Property Type As MessageType
+  overload: Discord.IMessage.Type*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Source
+  commentId: P:Discord.IMessage.Source
+  id: Source
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: IMessage.Source
+  fullName: Discord.IMessage.Source
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Source
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 17
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the source type of this message.\n"
+  example: []
+  syntax:
+    content: MessageSource Source { get; }
+    parameters: []
+    return:
+      type: Discord.MessageSource
+    content.vb: ReadOnly Property Source As MessageSource
+  overload: Discord.IMessage.Source*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.IsTTS
+  commentId: P:Discord.IMessage.IsTTS
+  id: IsTTS
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: IsTTS
+  nameWithType: IMessage.IsTTS
+  fullName: Discord.IMessage.IsTTS
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsTTS
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 24
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the value that indicates whether this message was meant to be read-aloud by Discord.\n"
+  example: []
+  syntax:
+    content: bool IsTTS { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this message was sent as a text-to-speech message; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsTTS As Boolean
+  overload: Discord.IMessage.IsTTS*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.IsPinned
+  commentId: P:Discord.IMessage.IsPinned
+  id: IsPinned
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: IsPinned
+  nameWithType: IMessage.IsPinned
+  fullName: Discord.IMessage.IsPinned
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsPinned
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 31
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the value that indicates whether this message is pinned.\n"
+  example: []
+  syntax:
+    content: bool IsPinned { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this message was added to its channel&apos;s pinned messages; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsPinned As Boolean
+  overload: Discord.IMessage.IsPinned*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.IsSuppressed
+  commentId: P:Discord.IMessage.IsSuppressed
+  id: IsSuppressed
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: IsSuppressed
+  nameWithType: IMessage.IsSuppressed
+  fullName: Discord.IMessage.IsSuppressed
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsSuppressed
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 38
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the value that indicates whether or not this message&apos;s embeds are suppressed.\n"
+  example: []
+  syntax:
+    content: bool IsSuppressed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if the embeds in this message have been suppressed (made invisible); otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsSuppressed As Boolean
+  overload: Discord.IMessage.IsSuppressed*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Content
+  commentId: P:Discord.IMessage.Content
+  id: Content
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: IMessage.Content
+  fullName: Discord.IMessage.Content
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Content
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 45
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the content for this message.\n"
+  example: []
+  syntax:
+    content: string Content { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nA string that contains the body of the message; note that this field may be empty if there is an embed.\n"
+    content.vb: ReadOnly Property Content As String
+  overload: Discord.IMessage.Content*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Timestamp
+  commentId: P:Discord.IMessage.Timestamp
+  id: Timestamp
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: IMessage.Timestamp
+  fullName: Discord.IMessage.Timestamp
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Timestamp
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 52
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the time this message was sent.\n"
+  example: []
+  syntax:
+    content: DateTimeOffset Timestamp { get; }
+    parameters: []
+    return:
+      type: DateTimeOffset
+      description: "\nTime of when the message was sent.\n"
+    content.vb: ReadOnly Property Timestamp As DateTimeOffset
+  overload: Discord.IMessage.Timestamp*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.EditedTimestamp
+  commentId: P:Discord.IMessage.EditedTimestamp
+  id: EditedTimestamp
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: EditedTimestamp
+  nameWithType: IMessage.EditedTimestamp
+  fullName: Discord.IMessage.EditedTimestamp
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: EditedTimestamp
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 59
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the time of this message&apos;s last edit.\n"
+  example: []
+  syntax:
+    content: DateTimeOffset? EditedTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Nullable{DateTimeOffset}
+      description: "\nTime of when the message was last edited; <code>null</code> if the message is never edited.\n"
+    content.vb: ReadOnly Property EditedTimestamp As DateTimeOffset?
+  overload: Discord.IMessage.EditedTimestamp*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Channel
+  commentId: P:Discord.IMessage.Channel
+  id: Channel
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Channel
+  nameWithType: IMessage.Channel
+  fullName: Discord.IMessage.Channel
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Channel
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 64
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the source channel of the message.\n"
+  example: []
+  syntax:
+    content: IMessageChannel Channel { get; }
+    parameters: []
+    return:
+      type: Discord.IMessageChannel
+    content.vb: ReadOnly Property Channel As IMessageChannel
+  overload: Discord.IMessage.Channel*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Author
+  commentId: P:Discord.IMessage.Author
+  id: Author
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Author
+  nameWithType: IMessage.Author
+  fullName: Discord.IMessage.Author
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Author
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 68
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the author of this message.\n"
+  example: []
+  syntax:
+    content: IUser Author { get; }
+    parameters: []
+    return:
+      type: Discord.IUser
+    content.vb: ReadOnly Property Author As IUser
+  overload: Discord.IMessage.Author*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Attachments
+  commentId: P:Discord.IMessage.Attachments
+  id: Attachments
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Attachments
+  nameWithType: IMessage.Attachments
+  fullName: Discord.IMessage.Attachments
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Attachments
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 81
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets all attachments included in this message.\n"
+  remarks: "\nThis property gets a read-only collection of attachments associated with this message. Depending on the\nuser&apos;s end-client, a sent message may contain one or more attachments. For example, mobile users may\nattach more than one file in their message, while the desktop client only allows for one.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IAttachment> Attachments { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.IAttachment}
+      description: "\nA read-only collection of attachments.\n"
+    content.vb: ReadOnly Property Attachments As IReadOnlyCollection(Of IAttachment)
+  overload: Discord.IMessage.Attachments*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Embeds
+  commentId: P:Discord.IMessage.Embeds
+  id: Embeds
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Embeds
+  nameWithType: IMessage.Embeds
+  fullName: Discord.IMessage.Embeds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Embeds
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 93
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets all embeds included in this message.\n"
+  remarks: "\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IEmbed> Embeds { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.IEmbed}
+      description: "\nA read-only collection of embed objects.\n"
+    content.vb: ReadOnly Property Embeds As IReadOnlyCollection(Of IEmbed)
+  overload: Discord.IMessage.Embeds*
+  see:
+  - linkId: Discord.EmbedType.Rich
+    commentId: F:Discord.EmbedType.Rich
+  - linkId: Discord.Embed
+    commentId: T:Discord.Embed
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Tags
+  commentId: P:Discord.IMessage.Tags
+  id: Tags
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: IMessage.Tags
+  fullName: Discord.IMessage.Tags
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Tags
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 97
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets all tags included in this message&apos;s content.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ITag> Tags { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Discord.ITag}
+    content.vb: ReadOnly Property Tags As IReadOnlyCollection(Of ITag)
+  overload: Discord.IMessage.Tags*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.MentionedChannelIds
+  commentId: P:Discord.IMessage.MentionedChannelIds
+  id: MentionedChannelIds
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: MentionedChannelIds
+  nameWithType: IMessage.MentionedChannelIds
+  fullName: Discord.IMessage.MentionedChannelIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: MentionedChannelIds
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 104
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the IDs of channels mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> MentionedChannelIds { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of channel IDs.\n"
+    content.vb: ReadOnly Property MentionedChannelIds As IReadOnlyCollection(Of ULong)
+  overload: Discord.IMessage.MentionedChannelIds*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.MentionedRoleIds
+  commentId: P:Discord.IMessage.MentionedRoleIds
+  id: MentionedRoleIds
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: MentionedRoleIds
+  nameWithType: IMessage.MentionedRoleIds
+  fullName: Discord.IMessage.MentionedRoleIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: MentionedRoleIds
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 111
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the IDs of roles mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> MentionedRoleIds { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of role IDs.\n"
+    content.vb: ReadOnly Property MentionedRoleIds As IReadOnlyCollection(Of ULong)
+  overload: Discord.IMessage.MentionedRoleIds*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.MentionedUserIds
+  commentId: P:Discord.IMessage.MentionedUserIds
+  id: MentionedUserIds
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: MentionedUserIds
+  nameWithType: IMessage.MentionedUserIds
+  fullName: Discord.IMessage.MentionedUserIds
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: MentionedUserIds
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 118
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the IDs of users mentioned in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<ulong> MentionedUserIds { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{System.UInt64}
+      description: "\nA read-only collection of user IDs.\n"
+    content.vb: ReadOnly Property MentionedUserIds As IReadOnlyCollection(Of ULong)
+  overload: Discord.IMessage.MentionedUserIds*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Activity
+  commentId: P:Discord.IMessage.Activity
+  id: Activity
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Activity
+  nameWithType: IMessage.Activity
+  fullName: Discord.IMessage.Activity
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Activity
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 129
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the activity associated with a message.\n"
+  remarks: "\nSent with Rich Presence-related chat embeds. This often refers to activity that requires end-user&apos;s\ninteraction, such as a Spotify Invite activity.\n"
+  example: []
+  syntax:
+    content: MessageActivity Activity { get; }
+    parameters: []
+    return:
+      type: Discord.MessageActivity
+      description: "\nA message&apos;s activity, if any is associated.\n"
+    content.vb: ReadOnly Property Activity As MessageActivity
+  overload: Discord.IMessage.Activity*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.Application
+  commentId: P:Discord.IMessage.Application
+  id: Application
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Application
+  nameWithType: IMessage.Application
+  fullName: Discord.IMessage.Application
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Application
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 139
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the application associated with a message.\n"
+  remarks: "\nSent with Rich-Presence-related chat embeds.\n"
+  example: []
+  syntax:
+    content: MessageApplication Application { get; }
+    parameters: []
+    return:
+      type: Discord.MessageApplication
+      description: "\nA message&apos;s application, if any is associated.\n"
+    content.vb: ReadOnly Property Application As MessageApplication
+  overload: Discord.IMessage.Application*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.ISnowflakeEntity.CreatedAt
+  commentId: P:Discord.ISnowflakeEntity.CreatedAt
+  parent: Discord.ISnowflakeEntity
+  name: CreatedAt
+  nameWithType: ISnowflakeEntity.CreatedAt
+  fullName: Discord.ISnowflakeEntity.CreatedAt
+- uid: Discord.IEntity{System.UInt64}.Id
+  commentId: P:Discord.IEntity{System.UInt64}.Id
+  parent: Discord.IEntity{System.UInt64}
+  definition: Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<UInt64>.Id
+  fullName: Discord.IEntity<System.UInt64>.Id
+  nameWithType.vb: IEntity(Of UInt64).Id
+  fullName.vb: Discord.IEntity(Of System.UInt64).Id
+- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  parent: Discord.IDeletable
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IDeletable.DeleteAsync(RequestOptions)
+  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IDeletable.DeleteAsync
+    fullName: Discord.IDeletable.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.Discord.MessageExtensions.GetJumpUrl
+  commentId: M:Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  parent: Discord.MessageExtensions
+  definition: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  name: GetJumpUrl()
+  nameWithType: MessageExtensions.GetJumpUrl()
+  fullName: Discord.MessageExtensions.GetJumpUrl()
+  spec.csharp:
+  - uid: Discord.MessageExtensions.GetJumpUrl
+    name: GetJumpUrl
+    nameWithType: MessageExtensions.GetJumpUrl
+    fullName: Discord.MessageExtensions.GetJumpUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.MessageExtensions.GetJumpUrl
+    name: GetJumpUrl
+    nameWithType: MessageExtensions.GetJumpUrl
+    fullName: Discord.MessageExtensions.GetJumpUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
+- uid: Discord.IEntity`1.Id
+  commentId: P:Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<TId>.Id
+  fullName: Discord.IEntity<TId>.Id
+  nameWithType.vb: IEntity(Of TId).Id
+  fullName.vb: Discord.IEntity(Of TId).Id
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IDeletable
+  commentId: T:Discord.IDeletable
+  parent: Discord
+  name: IDeletable
+  nameWithType: IDeletable
+  fullName: Discord.IDeletable
+- uid: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  commentId: M:Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  name: GetJumpUrl(IMessage)
+  nameWithType: MessageExtensions.GetJumpUrl(IMessage)
+  fullName: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+  spec.csharp:
+  - uid: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+    name: GetJumpUrl
+    nameWithType: MessageExtensions.GetJumpUrl
+    fullName: Discord.MessageExtensions.GetJumpUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.MessageExtensions.GetJumpUrl(Discord.IMessage)
+    name: GetJumpUrl
+    nameWithType: MessageExtensions.GetJumpUrl
+    fullName: Discord.MessageExtensions.GetJumpUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IMessage
+    name: IMessage
+    nameWithType: IMessage
+    fullName: Discord.IMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.MessageExtensions
+  commentId: T:Discord.MessageExtensions
+  parent: Discord
+  name: MessageExtensions
+  nameWithType: MessageExtensions
+  fullName: Discord.MessageExtensions
+- uid: Discord.IEntity`1
+  commentId: T:Discord.IEntity`1
+  name: IEntity<TId>
+  nameWithType: IEntity<TId>
+  fullName: Discord.IEntity<TId>
+  nameWithType.vb: IEntity(Of TId)
+  fullName.vb: Discord.IEntity(Of TId)
+  name.vb: IEntity(Of TId)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.Type*
+  commentId: Overload:Discord.IMessage.Type
+  name: Type
+  nameWithType: IMessage.Type
+  fullName: Discord.IMessage.Type
+- uid: Discord.MessageType
+  commentId: T:Discord.MessageType
+  parent: Discord
+  name: MessageType
+  nameWithType: MessageType
+  fullName: Discord.MessageType
+- uid: Discord.IMessage.Source*
+  commentId: Overload:Discord.IMessage.Source
+  name: Source
+  nameWithType: IMessage.Source
+  fullName: Discord.IMessage.Source
+- uid: Discord.MessageSource
+  commentId: T:Discord.MessageSource
+  parent: Discord
+  name: MessageSource
+  nameWithType: MessageSource
+  fullName: Discord.MessageSource
+- uid: Discord.IMessage.IsTTS*
+  commentId: Overload:Discord.IMessage.IsTTS
+  name: IsTTS
+  nameWithType: IMessage.IsTTS
+  fullName: Discord.IMessage.IsTTS
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.IMessage.IsPinned*
+  commentId: Overload:Discord.IMessage.IsPinned
+  name: IsPinned
+  nameWithType: IMessage.IsPinned
+  fullName: Discord.IMessage.IsPinned
+- uid: Discord.IMessage.IsSuppressed*
+  commentId: Overload:Discord.IMessage.IsSuppressed
+  name: IsSuppressed
+  nameWithType: IMessage.IsSuppressed
+  fullName: Discord.IMessage.IsSuppressed
+- uid: Discord.IMessage.Content*
+  commentId: Overload:Discord.IMessage.Content
+  name: Content
+  nameWithType: IMessage.Content
+  fullName: Discord.IMessage.Content
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.IMessage.Timestamp*
+  commentId: Overload:Discord.IMessage.Timestamp
+  name: Timestamp
+  nameWithType: IMessage.Timestamp
+  fullName: Discord.IMessage.Timestamp
+- uid: DateTimeOffset
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: DateTimeOffset
+- uid: Discord.IMessage.EditedTimestamp*
+  commentId: Overload:Discord.IMessage.EditedTimestamp
+  name: EditedTimestamp
+  nameWithType: IMessage.EditedTimestamp
+  fullName: Discord.IMessage.EditedTimestamp
+- uid: System.Nullable{DateTimeOffset}
+  commentId: '!:System.Nullable{DateTimeOffset}'
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.Channel*
+  commentId: Overload:Discord.IMessage.Channel
+  name: Channel
+  nameWithType: IMessage.Channel
+  fullName: Discord.IMessage.Channel
+- uid: Discord.IMessageChannel
+  commentId: T:Discord.IMessageChannel
+  parent: Discord
+  name: IMessageChannel
+  nameWithType: IMessageChannel
+  fullName: Discord.IMessageChannel
+- uid: Discord.IMessage.Author*
+  commentId: Overload:Discord.IMessage.Author
+  name: Author
+  nameWithType: IMessage.Author
+  fullName: Discord.IMessage.Author
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: Discord.IMessage.Attachments*
+  commentId: Overload:Discord.IMessage.Attachments
+  name: Attachments
+  nameWithType: IMessage.Attachments
+  fullName: Discord.IMessage.Attachments
+- uid: IReadOnlyCollection{Discord.IAttachment}
+  commentId: '!:IReadOnlyCollection{Discord.IAttachment}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<IAttachment>
+  nameWithType: IReadOnlyCollection<IAttachment>
+  fullName: IReadOnlyCollection<Discord.IAttachment>
+  nameWithType.vb: IReadOnlyCollection(Of IAttachment)
+  fullName.vb: IReadOnlyCollection(Of Discord.IAttachment)
+  name.vb: IReadOnlyCollection(Of IAttachment)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IAttachment
+    name: IAttachment
+    nameWithType: IAttachment
+    fullName: Discord.IAttachment
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IAttachment
+    name: IAttachment
+    nameWithType: IAttachment
+    fullName: Discord.IAttachment
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.EmbedType.Rich
+  commentId: F:Discord.EmbedType.Rich
+  isExternal: true
+- uid: Discord.Embed
+  commentId: T:Discord.Embed
+  parent: Discord
+  name: Embed
+  nameWithType: Embed
+  fullName: Discord.Embed
+- uid: Discord.IMessage.Embeds*
+  commentId: Overload:Discord.IMessage.Embeds
+  name: Embeds
+  nameWithType: IMessage.Embeds
+  fullName: Discord.IMessage.Embeds
+- uid: IReadOnlyCollection{Discord.IEmbed}
+  commentId: '!:IReadOnlyCollection{Discord.IEmbed}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<IEmbed>
+  nameWithType: IReadOnlyCollection<IEmbed>
+  fullName: IReadOnlyCollection<Discord.IEmbed>
+  nameWithType.vb: IReadOnlyCollection(Of IEmbed)
+  fullName.vb: IReadOnlyCollection(Of Discord.IEmbed)
+  name.vb: IReadOnlyCollection(Of IEmbed)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IEmbed
+    name: IEmbed
+    nameWithType: IEmbed
+    fullName: Discord.IEmbed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IEmbed
+    name: IEmbed
+    nameWithType: IEmbed
+    fullName: Discord.IEmbed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.Tags*
+  commentId: Overload:Discord.IMessage.Tags
+  name: Tags
+  nameWithType: IMessage.Tags
+  fullName: Discord.IMessage.Tags
+- uid: IReadOnlyCollection{Discord.ITag}
+  commentId: '!:IReadOnlyCollection{Discord.ITag}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<ITag>
+  nameWithType: IReadOnlyCollection<ITag>
+  fullName: IReadOnlyCollection<Discord.ITag>
+  nameWithType.vb: IReadOnlyCollection(Of ITag)
+  fullName.vb: IReadOnlyCollection(Of Discord.ITag)
+  name.vb: IReadOnlyCollection(Of ITag)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.ITag
+    name: ITag
+    nameWithType: ITag
+    fullName: Discord.ITag
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.ITag
+    name: ITag
+    nameWithType: ITag
+    fullName: Discord.ITag
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.MentionedChannelIds*
+  commentId: Overload:Discord.IMessage.MentionedChannelIds
+  name: MentionedChannelIds
+  nameWithType: IMessage.MentionedChannelIds
+  fullName: Discord.IMessage.MentionedChannelIds
+- uid: IReadOnlyCollection{System.UInt64}
+  commentId: '!:IReadOnlyCollection{System.UInt64}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<UInt64>
+  nameWithType: IReadOnlyCollection<UInt64>
+  fullName: IReadOnlyCollection<System.UInt64>
+  nameWithType.vb: IReadOnlyCollection(Of UInt64)
+  fullName.vb: IReadOnlyCollection(Of System.UInt64)
+  name.vb: IReadOnlyCollection(Of UInt64)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMessage.MentionedRoleIds*
+  commentId: Overload:Discord.IMessage.MentionedRoleIds
+  name: MentionedRoleIds
+  nameWithType: IMessage.MentionedRoleIds
+  fullName: Discord.IMessage.MentionedRoleIds
+- uid: Discord.IMessage.MentionedUserIds*
+  commentId: Overload:Discord.IMessage.MentionedUserIds
+  name: MentionedUserIds
+  nameWithType: IMessage.MentionedUserIds
+  fullName: Discord.IMessage.MentionedUserIds
+- uid: Discord.IMessage.Activity*
+  commentId: Overload:Discord.IMessage.Activity
+  name: Activity
+  nameWithType: IMessage.Activity
+  fullName: Discord.IMessage.Activity
+- uid: Discord.MessageActivity
+  commentId: T:Discord.MessageActivity
+  parent: Discord
+  name: MessageActivity
+  nameWithType: MessageActivity
+  fullName: Discord.MessageActivity
+- uid: Discord.IMessage.Application*
+  commentId: Overload:Discord.IMessage.Application
+  name: Application
+  nameWithType: IMessage.Application
+  fullName: Discord.IMessage.Application
+- uid: Discord.MessageApplication
+  commentId: T:Discord.MessageApplication
+  parent: Discord
+  name: MessageApplication
+  nameWithType: MessageApplication
+  fullName: Discord.MessageApplication

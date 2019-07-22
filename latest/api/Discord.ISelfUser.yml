@@ -1,0 +1,1413 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.ISelfUser
+  commentId: T:Discord.ISelfUser
+  id: ISelfUser
+  parent: Discord
+  children:
+  - Discord.ISelfUser.Email
+  - Discord.ISelfUser.Flags
+  - Discord.ISelfUser.IsMfaEnabled
+  - Discord.ISelfUser.IsVerified
+  - Discord.ISelfUser.Locale
+  - Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  - Discord.ISelfUser.PremiumType
+  langs:
+  - csharp
+  - vb
+  name: ISelfUser
+  nameWithType: ISelfUser
+  fullName: Discord.ISelfUser
+  type: Interface
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ISelfUser
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 8
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRepresents the logged-in Discord user.\n"
+  example: []
+  syntax:
+    content: 'public interface ISelfUser : IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence'
+    content.vb: >-
+      Public Interface ISelfUser
+          Inherits IUser
+  inheritedMembers:
+  - Discord.IUser.AvatarId
+  - Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
+  - Discord.IUser.GetDefaultAvatarUrl
+  - Discord.IUser.Discriminator
+  - Discord.IUser.DiscriminatorValue
+  - Discord.IUser.IsBot
+  - Discord.IUser.IsWebhook
+  - Discord.IUser.Username
+  - Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+  - Discord.ISnowflakeEntity.CreatedAt
+  - Discord.IEntity{System.UInt64}.Id
+  - Discord.IMentionable.Mention
+  - Discord.IPresence.Activity
+  - Discord.IPresence.Status
+  - Discord.IPresence.ActiveClients
+  extensionMethods:
+  - Discord.IUser.Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.IUser.Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Discord.ISelfUser.Email
+  commentId: P:Discord.ISelfUser.Email
+  id: Email
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: ISelfUser.Email
+  fullName: Discord.ISelfUser.Email
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Email
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 13
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the email associated with this user.\n"
+  example: []
+  syntax:
+    content: string Email { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Email As String
+  overload: Discord.ISelfUser.Email*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.IsVerified
+  commentId: P:Discord.ISelfUser.IsVerified
+  id: IsVerified
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: IsVerified
+  nameWithType: ISelfUser.IsVerified
+  fullName: Discord.ISelfUser.IsVerified
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsVerified
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 20
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nIndicates whether or not this user has their email verified.\n"
+  example: []
+  syntax:
+    content: bool IsVerified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this user&apos;s email has been verified; <code>false</code> if not.\n"
+    content.vb: ReadOnly Property IsVerified As Boolean
+  overload: Discord.ISelfUser.IsVerified*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.IsMfaEnabled
+  commentId: P:Discord.ISelfUser.IsMfaEnabled
+  id: IsMfaEnabled
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: IsMfaEnabled
+  nameWithType: ISelfUser.IsMfaEnabled
+  fullName: Discord.ISelfUser.IsMfaEnabled
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsMfaEnabled
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 27
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nIndicates whether or not this user has MFA enabled on their account.\n"
+  example: []
+  syntax:
+    content: bool IsMfaEnabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this user has enabled multi-factor authentication on their account; <code>false</code> if not.\n"
+    content.vb: ReadOnly Property IsMfaEnabled As Boolean
+  overload: Discord.ISelfUser.IsMfaEnabled*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.Flags
+  commentId: P:Discord.ISelfUser.Flags
+  id: Flags
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: ISelfUser.Flags
+  fullName: Discord.ISelfUser.Flags
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Flags
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 37
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the flags that are applied to a user&apos;s account.\n"
+  remarks: "\nThis value is determined by bitwise OR-ing <xref href=\"Discord.UserProperties\" data-throw-if-not-resolved=\"false\"></xref> values together.\n"
+  example: []
+  syntax:
+    content: UserProperties Flags { get; }
+    parameters: []
+    return:
+      type: Discord.UserProperties
+      description: "\nThe value of flags for this user.\n"
+    content.vb: ReadOnly Property Flags As UserProperties
+  overload: Discord.ISelfUser.Flags*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.PremiumType
+  commentId: P:Discord.ISelfUser.PremiumType
+  id: PremiumType
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: PremiumType
+  nameWithType: ISelfUser.PremiumType
+  fullName: Discord.ISelfUser.PremiumType
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: PremiumType
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 47
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the type of Nitro subscription that is active on this user&apos;s account.\n"
+  remarks: "\nThis information may only be available with the identify OAuth scope.\n"
+  example: []
+  syntax:
+    content: PremiumType PremiumType { get; }
+    parameters: []
+    return:
+      type: Discord.PremiumType
+      description: "\nThe type of Nitro subscription the user subscribes to, if any.\n"
+    content.vb: ReadOnly Property PremiumType As PremiumType
+  overload: Discord.ISelfUser.PremiumType*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.Locale
+  commentId: P:Discord.ISelfUser.Locale
+  id: Locale
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: Locale
+  nameWithType: ISelfUser.Locale
+  fullName: Discord.ISelfUser.Locale
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Locale
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 55
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets the user&apos;s chosen language option.\n"
+  example: []
+  syntax:
+    content: string Locale { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe IETF language tag of the user&apos;s chosen region, if provided.\nFor example, a locale of &quot;English, US&quot; is &quot;en-US&quot;, &quot;Chinese (Taiwan)&quot; is &quot;zh-TW&quot;, etc.\n"
+    content.vb: ReadOnly Property Locale As String
+  overload: Discord.ISelfUser.Locale*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.ISelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  parent: Discord.ISelfUser
+  langs:
+  - csharp
+  - vb
+  name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
+  nameWithType: ISelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
+  fullName: Discord.ISelfUser.ModifyAsync(Action<Discord.SelfUserProperties>, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ModifyAsync
+    path: ../src/Discord.Net.Core/Entities/Users/ISelfUser.cs
+    startLine: 60
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nModifies the user&apos;s properties.\n"
+  example: []
+  syntax:
+    content: Task ModifyAsync(Action<SelfUserProperties> func, RequestOptions options = null)
+    parameters:
+    - id: func
+      type: Action{Discord.SelfUserProperties}
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task
+    content.vb: Function ModifyAsync(func As Action(Of SelfUserProperties), options As RequestOptions = Nothing) As Task
+  overload: Discord.ISelfUser.ModifyAsync*
+  nameWithType.vb: ISelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
+  fullName.vb: Discord.ISelfUser.ModifyAsync(Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
+  name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
+references:
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.IUser.AvatarId
+  commentId: P:Discord.IUser.AvatarId
+  parent: Discord.IUser
+  name: AvatarId
+  nameWithType: IUser.AvatarId
+  fullName: Discord.IUser.AvatarId
+- uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
+  commentId: M:Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
+  parent: Discord.IUser
+  isExternal: true
+  name: GetAvatarUrl(ImageFormat, UInt16)
+  nameWithType: IUser.GetAvatarUrl(ImageFormat, UInt16)
+  fullName: Discord.IUser.GetAvatarUrl(Discord.ImageFormat, System.UInt16)
+  spec.csharp:
+  - uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
+    name: GetAvatarUrl
+    nameWithType: IUser.GetAvatarUrl
+    fullName: Discord.IUser.GetAvatarUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.ImageFormat
+    name: ImageFormat
+    nameWithType: ImageFormat
+    fullName: Discord.ImageFormat
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt16
+    name: UInt16
+    nameWithType: UInt16
+    fullName: System.UInt16
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
+    name: GetAvatarUrl
+    nameWithType: IUser.GetAvatarUrl
+    fullName: Discord.IUser.GetAvatarUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.ImageFormat
+    name: ImageFormat
+    nameWithType: ImageFormat
+    fullName: Discord.ImageFormat
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt16
+    name: UInt16
+    nameWithType: UInt16
+    fullName: System.UInt16
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IUser.GetDefaultAvatarUrl
+  commentId: M:Discord.IUser.GetDefaultAvatarUrl
+  parent: Discord.IUser
+  name: GetDefaultAvatarUrl()
+  nameWithType: IUser.GetDefaultAvatarUrl()
+  fullName: Discord.IUser.GetDefaultAvatarUrl()
+  spec.csharp:
+  - uid: Discord.IUser.GetDefaultAvatarUrl
+    name: GetDefaultAvatarUrl
+    nameWithType: IUser.GetDefaultAvatarUrl
+    fullName: Discord.IUser.GetDefaultAvatarUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUser.GetDefaultAvatarUrl
+    name: GetDefaultAvatarUrl
+    nameWithType: IUser.GetDefaultAvatarUrl
+    fullName: Discord.IUser.GetDefaultAvatarUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IUser.Discriminator
+  commentId: P:Discord.IUser.Discriminator
+  parent: Discord.IUser
+  name: Discriminator
+  nameWithType: IUser.Discriminator
+  fullName: Discord.IUser.Discriminator
+- uid: Discord.IUser.DiscriminatorValue
+  commentId: P:Discord.IUser.DiscriminatorValue
+  parent: Discord.IUser
+  name: DiscriminatorValue
+  nameWithType: IUser.DiscriminatorValue
+  fullName: Discord.IUser.DiscriminatorValue
+- uid: Discord.IUser.IsBot
+  commentId: P:Discord.IUser.IsBot
+  parent: Discord.IUser
+  name: IsBot
+  nameWithType: IUser.IsBot
+  fullName: Discord.IUser.IsBot
+- uid: Discord.IUser.IsWebhook
+  commentId: P:Discord.IUser.IsWebhook
+  parent: Discord.IUser
+  name: IsWebhook
+  nameWithType: IUser.IsWebhook
+  fullName: Discord.IUser.IsWebhook
+- uid: Discord.IUser.Username
+  commentId: P:Discord.IUser.Username
+  parent: Discord.IUser
+  name: Username
+  nameWithType: IUser.Username
+  fullName: Discord.IUser.Username
+- uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+  commentId: M:Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+  parent: Discord.IUser
+  name: GetOrCreateDMChannelAsync(RequestOptions)
+  nameWithType: IUser.GetOrCreateDMChannelAsync(RequestOptions)
+  fullName: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+    name: GetOrCreateDMChannelAsync
+    nameWithType: IUser.GetOrCreateDMChannelAsync
+    fullName: Discord.IUser.GetOrCreateDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
+    name: GetOrCreateDMChannelAsync
+    nameWithType: IUser.GetOrCreateDMChannelAsync
+    fullName: Discord.IUser.GetOrCreateDMChannelAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.ISnowflakeEntity.CreatedAt
+  commentId: P:Discord.ISnowflakeEntity.CreatedAt
+  parent: Discord.ISnowflakeEntity
+  name: CreatedAt
+  nameWithType: ISnowflakeEntity.CreatedAt
+  fullName: Discord.ISnowflakeEntity.CreatedAt
+- uid: Discord.IEntity{System.UInt64}.Id
+  commentId: P:Discord.IEntity{System.UInt64}.Id
+  parent: Discord.IEntity{System.UInt64}
+  definition: Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<UInt64>.Id
+  fullName: Discord.IEntity<System.UInt64>.Id
+  nameWithType.vb: IEntity(Of UInt64).Id
+  fullName.vb: Discord.IEntity(Of System.UInt64).Id
+- uid: Discord.IMentionable.Mention
+  commentId: P:Discord.IMentionable.Mention
+  parent: Discord.IMentionable
+  name: Mention
+  nameWithType: IMentionable.Mention
+  fullName: Discord.IMentionable.Mention
+- uid: Discord.IPresence.Activity
+  commentId: P:Discord.IPresence.Activity
+  parent: Discord.IPresence
+  name: Activity
+  nameWithType: IPresence.Activity
+  fullName: Discord.IPresence.Activity
+- uid: Discord.IPresence.Status
+  commentId: P:Discord.IPresence.Status
+  parent: Discord.IPresence
+  name: Status
+  nameWithType: IPresence.Status
+  fullName: Discord.IPresence.Status
+- uid: Discord.IPresence.ActiveClients
+  commentId: P:Discord.IPresence.ActiveClients
+  parent: Discord.IPresence
+  name: ActiveClients
+  nameWithType: IPresence.ActiveClients
+  fullName: Discord.IPresence.ActiveClients
+- uid: Discord.IUser.Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.UserExtensions
+  definition: Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  name: SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendMessageAsync(String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: UserExtensions.SendMessageAsync
+    fullName: Discord.UserExtensions.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: UserExtensions.SendMessageAsync
+    fullName: Discord.UserExtensions.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.UserExtensions
+  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IUser.Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  parent: Discord.UserExtensions
+  definition: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  name: SendFileAsync(String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
+- uid: Discord.IEntity`1.Id
+  commentId: P:Discord.IEntity`1.Id
+  name: Id
+  nameWithType: IEntity<TId>.Id
+  fullName: Discord.IEntity<TId>.Id
+  nameWithType.vb: IEntity(Of TId).Id
+  fullName.vb: Discord.IEntity(Of TId).Id
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IMentionable
+  commentId: T:Discord.IMentionable
+  parent: Discord
+  name: IMentionable
+  nameWithType: IMentionable
+  fullName: Discord.IMentionable
+- uid: Discord.IPresence
+  commentId: T:Discord.IPresence
+  parent: Discord
+  name: IPresence
+  nameWithType: IPresence
+  fullName: Discord.IPresence
+- uid: Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExternal: true
+  name: SendMessageAsync(IUser, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendMessageAsync(IUser, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendMessageAsync(Discord.IUser, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: UserExtensions.SendMessageAsync
+    fullName: Discord.UserExtensions.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendMessageAsync
+    nameWithType: UserExtensions.SendMessageAsync
+    fullName: Discord.UserExtensions.SendMessageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.UserExtensions
+  commentId: T:Discord.UserExtensions
+  parent: Discord
+  name: UserExtensions
+  nameWithType: UserExtensions
+  fullName: Discord.UserExtensions
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExternal: true
+  name: SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Stream
+    name: Stream
+    nameWithType: Stream
+    fullName: Stream
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExternal: true
+  name: SendFileAsync(IUser, String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(IUser, String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+    name: SendFileAsync
+    nameWithType: UserExtensions.SendFileAsync
+    fullName: Discord.UserExtensions.SendFileAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Embed
+    name: Embed
+    nameWithType: Embed
+    fullName: Discord.Embed
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IEntity`1
+  commentId: T:Discord.IEntity`1
+  name: IEntity<TId>
+  nameWithType: IEntity<TId>
+  fullName: Discord.IEntity<TId>
+  nameWithType.vb: IEntity(Of TId)
+  fullName.vb: Discord.IEntity(Of TId)
+  name.vb: IEntity(Of TId)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TId
+    nameWithType: TId
+    fullName: TId
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.ISelfUser.Email*
+  commentId: Overload:Discord.ISelfUser.Email
+  name: Email
+  nameWithType: ISelfUser.Email
+  fullName: Discord.ISelfUser.Email
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Discord.ISelfUser.IsVerified*
+  commentId: Overload:Discord.ISelfUser.IsVerified
+  name: IsVerified
+  nameWithType: ISelfUser.IsVerified
+  fullName: Discord.ISelfUser.IsVerified
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.ISelfUser.IsMfaEnabled*
+  commentId: Overload:Discord.ISelfUser.IsMfaEnabled
+  name: IsMfaEnabled
+  nameWithType: ISelfUser.IsMfaEnabled
+  fullName: Discord.ISelfUser.IsMfaEnabled
+- uid: Discord.UserProperties
+  commentId: T:Discord.UserProperties
+  parent: Discord
+  name: UserProperties
+  nameWithType: UserProperties
+  fullName: Discord.UserProperties
+- uid: Discord.ISelfUser.Flags*
+  commentId: Overload:Discord.ISelfUser.Flags
+  name: Flags
+  nameWithType: ISelfUser.Flags
+  fullName: Discord.ISelfUser.Flags
+- uid: Discord.ISelfUser.PremiumType*
+  commentId: Overload:Discord.ISelfUser.PremiumType
+  name: PremiumType
+  nameWithType: ISelfUser.PremiumType
+  fullName: Discord.ISelfUser.PremiumType
+- uid: Discord.PremiumType
+  commentId: T:Discord.PremiumType
+  parent: Discord
+  name: PremiumType
+  nameWithType: PremiumType
+  fullName: Discord.PremiumType
+- uid: Discord.ISelfUser.Locale*
+  commentId: Overload:Discord.ISelfUser.Locale
+  name: Locale
+  nameWithType: ISelfUser.Locale
+  fullName: Discord.ISelfUser.Locale
+- uid: Discord.ISelfUser.ModifyAsync*
+  commentId: Overload:Discord.ISelfUser.ModifyAsync
+  name: ModifyAsync
+  nameWithType: ISelfUser.ModifyAsync
+  fullName: Discord.ISelfUser.ModifyAsync
+- uid: Action{Discord.SelfUserProperties}
+  commentId: '!:Action{Discord.SelfUserProperties}'
+  definition: Action`1
+  name: Action<SelfUserProperties>
+  nameWithType: Action<SelfUserProperties>
+  fullName: Action<Discord.SelfUserProperties>
+  nameWithType.vb: Action(Of SelfUserProperties)
+  fullName.vb: Action(Of Discord.SelfUserProperties)
+  name.vb: Action(Of SelfUserProperties)
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.SelfUserProperties
+    name: SelfUserProperties
+    nameWithType: SelfUserProperties
+    fullName: Discord.SelfUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.SelfUserProperties
+    name: SelfUserProperties
+    nameWithType: SelfUserProperties
+    fullName: Discord.SelfUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

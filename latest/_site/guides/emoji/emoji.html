@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Emoji | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Emoji | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta name="description" content="Before we delve into the difference between an @Discord.Emoji and an
+@Discord.Emote in Discord.Net, it is crucial to understand what
+they both look..."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Emoji">
+<h1 id="emoji-in-discordnet">Emoji in Discord.Net</h1>
+
+<p>Before we delve into the difference between an @Discord.Emoji and an
+@Discord.Emote in Discord.Net, it is <strong>crucial</strong> to understand what
+they both look like behind the scene. When the end-users are sending
+or receiving an emoji or emote, they are typically in the form of
+<code>:ok_hand:</code> or <code>:reeee:</code>; however, what goes under the hood is that,
+depending on the type of emoji, they are sent in an entirely
+different format.</p>
+<p>What does this all mean? It means that you should know that by
+reacting with a string like <code>“:ok_hand:”</code> will <strong>NOT</strong> automatically
+translate to <code>👌</code>; rather, it will be treated as-is,
+like <code>:ok_hand:</code>, thus the server will return a <code>400 Bad Request</code>.</p>
+<h2 id="emoji">Emoji</h2>
+<p>An emoji is a standard emoji that can be found anywhere else outside
+of Discord, which means strings like <code>👌</code>, <code>♥</code>, <code>👀</code> are all
+considered an emoji in Discord. However, from the
+introduction paragraph we have learned that we cannot
+simply send <code>:ok_hand:</code> and have Discord take
+care of it, but what do we need to send exactly?</p>
+<p>To send an emoji correctly, one must send the emoji in its Unicode
+form; this can be obtained in several different ways.</p>
+<ol>
+<li>(Easiest) Escape the emoji by using the escape character, <code>\</code>, in
+your Discord chat client; this will reveal the emoji’s pure Unicode
+form, which will allow you to copy-paste into your code.</li>
+<li>Look it up on Emojipedia, from which you can copy the emoji
+easily into your code.
+<img src="images/emojipedia.png" alt="Emojipedia"></li>
+<li>(Recommended) Look it up in the Emoji list from <a href="https://www.fileformat.info/info/emoji/list.htm">FileFormat.Info</a>;
+this will give you the .NET-compatible code that
+represents the emoji.<ul>
+<li>This is the most recommended method because some systems or
+IDE sometimes do not render the Unicode emoji correctly.
+<img src="images/fileformat-emoji-src.png" alt="Fileformat Emoji Source Code"></li>
+</ul>
+</li>
+</ol>
+<h3 id="emoji-declaration">Emoji Declaration</h3>
+<p>After obtaining the Unicode representation of the emoji, you may
+create the @Discord.Emoji object by passing the string into its
+constructor (e.g. <code>new Emoji(&quot;👌&quot;);</code> or <code>new Emoji(&quot;\uD83D\uDC4C&quot;);</code>).</p>
+<p>Your method of declaring an @Discord.Emoji should look similar to
+this:</p>
+<pre><code class="lang-csharp" name="Emoji Sample">public async Task ReactAsync(SocketUserMessage userMsg)
+{
+    // equivalent to &quot;&#128076;&quot;
+    var emoji = new Emoji(&quot;\uD83D\uDC4C&quot;);
+    await userMsg.AddReactionAsync(emoji);
+}
+</code></pre><h2 id="emote">Emote</h2>
+<p>The meat of the debate is here; what is an emote and how does it
+differ from an emoji? An emote refers to a <strong>custom emoji</strong>
+created on Discord.</p>
+<p>The underlying structure of an emote also differs drastically; an
+emote looks sort-of like a mention on Discord. It consists of two
+main elements as illustrated below:</p>
+<p><img src="images/emote-format.png" alt="Emote illustration"></p>
+<p>As you can see, emote uses a completely different format. To obtain
+the raw string as shown above for your emote, you would need to
+escape the emote using the escape character <code>\</code> in chat somewhere.</p>
+<h3 id="emote-declaration">Emote Declaration</h3>
+<p>After obtaining the raw emote string, you would need to use
+@Discord.Emote.Parse* or @Discord.Emote.TryParse* to create a valid
+emote object.</p>
+<p>Your method of declaring an @Discord.Emote should look similar to
+this:</p>
+<pre><code name="Emote Sample">public async Task ReactWithEmoteAsync(SocketUserMessage userMsg, string escapedEmote)
+{
+    if (Emote.TryParse(escapedEmote, out var emote))
+    {
+        await userMsg.AddReactionAsync(emote);
+    }
+}
+</code></pre><div class="TIP"><h5>Tip</h5><p>For WebSocket users, you may also consider fetching the Emote
+via the @Discord.WebSocket.SocketGuild.Emotes collection.</p>
+<pre><code class="lang-csharp" name="Socket emote sample">private readonly DiscordSocketClient _client;
+
+public async Task ReactAsync(SocketUserMessage userMsg, string emoteName)
+{
+    var emote = _client.Guilds
+            .SelectMany(x =&gt; x.Emotes)
+            .FirstOrDefault(x =&gt; x.Name.IndexOf(
+                emoteName, StringComparison.OrdinalIgnoreCase) != -1);
+    if (emote == null) return;
+    await userMsg.AddReactionAsync(emote);
+}
+</code></pre></div>
+<div class="TIP"><h5>Tip</h5><p>On Discord, any user with Discord Nitro subscription may use
+custom emotes from any guilds they are currently in. This is also
+true for <em>any</em> standard bot accounts; this does not require
+the bot owner to have a Nitro subscription.</p>
+</div>
+<h2 id="additional-information">Additional Information</h2>
+<p>To learn more about emote and emojis and how they could be used,
+see the documentation of @Discord.IEmote.</p>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/guides/emoji/emoji.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

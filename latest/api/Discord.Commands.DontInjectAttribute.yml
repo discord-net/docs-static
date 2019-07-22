@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Commands.DontInjectAttribute
+  commentId: T:Discord.Commands.DontInjectAttribute
+  id: DontInjectAttribute
+  parent: Discord.Commands
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: DontInjectAttribute
+  nameWithType: DontInjectAttribute
+  fullName: Discord.Commands.DontInjectAttribute
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Attributes/DontInjectAttribute.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: DontInjectAttribute
+    path: ../src/Discord.Net.Commands/Attributes/DontInjectAttribute.cs
+    startLine: 26
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nPrevents the marked property from being injected into a module.\n"
+  remarks: "\nThis attribute prevents the marked member from being injected into its parent module. Useful when you have a\npublic property that you do not wish to invoke the library&apos;s dependency injection service.\n"
+  example:
+  - "\nIn the following example, <code>DatabaseService</code> will not be automatically injected into the module and will\nnot throw an error message if the dependency fails to be resolved.\n<pre><code class=\"lang-cs\">public class MyModule : ModuleBase\n{\n    [DontInject]\n    public DatabaseService DatabaseService;\n    public MyModule()\n    {\n        DatabaseService = DatabaseFactory.Generate();\n    }\n}</code></pre>\n"
+  syntax:
+    content: 'public class DontInjectAttribute : Attribute'
+    content.vb: >-
+      Public Class DontInjectAttribute
+          Inherits Attribute
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Discord.Commands
+  commentId: N:Discord.Commands
+  name: Discord.Commands
+  nameWithType: Discord.Commands
+  fullName: Discord.Commands
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

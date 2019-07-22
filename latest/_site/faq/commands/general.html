@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>General Questions about Commands | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="General Questions about Commands | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta name="description" content="In the following section, you will find commonly asked questions and
+answered regarding general command usage when using @Discord.Commands."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FAQ.Commands.General">
+<h1 id="command-related-questions">Command-related Questions</h1>
+
+<p>In the following section, you will find commonly asked questions and
+answered regarding general command usage when using @Discord.Commands.</p>
+<h2 id="how-can-i-restrict-some-of-my-commands-so-only-specific-users-can-execute-them">How can I restrict some of my commands so only specific users can execute them?</h2>
+<p>Based on how you want to implement the restrictions, you can use the
+built-in <a href="xref:Discord.Commands.RequireUserPermissionAttribute">RequireUserPermission</a> precondition, which allows you to
+restrict the command based on the user&#39;s current permissions in the
+guild or channel (<em>e.g., <code>GuildPermission.Administrator</code>,
+<code>ChannelPermission.ManageMessages</code></em>).</p>
+<p>If, however, you wish to restrict the commands based on the user&#39;s
+role, you can either create your custom precondition or use
+Joe4evr&#39;s <a href="https://github.com/Joe4evr/Discord.Addons/tree/master/src/Discord.Addons.Preconditions">Preconditions Addons</a> that provides a few custom
+preconditions that aren&#39;t provided in the stock library.
+Its source can also be used as an example for creating your
+custom preconditions.</p>
+<h2 id="why-am-i-getting-an-error-about-assemblygetentryassembly">Why am I getting an error about <code>Assembly.GetEntryAssembly</code>?</h2>
+<p>You may be confusing @Discord.Commands.CommandService.AddModulesAsync*
+with @Discord.Commands.CommandService.AddModuleAsync*. The former
+is used to add modules via the assembly, while the latter is used to
+add a single module.</p>
+<h2 id="what-does-remainder-do-in-the-command-signature">What does [Remainder] do in the command signature?</h2>
+<p>The <a href="xref:Discord.Commands.RemainderAttribute">RemainderAttribute</a> leaves the string unparsed, meaning you
+do not have to add quotes around the text for the text to be
+recognized as a single object. Please note that if your method has
+multiple parameters, the remainder attribute can only be applied to
+the last parameter.</p>
+<pre><code class="lang-csharp" name="Remainder">//	Input: 
+//		!echo Coffee Cake
+
+//	Output:
+//		Coffee Cake
+[Command(&quot;echo&quot;)]
+public Task EchoRemainderAsync([Remainder]string text) =&gt; ReplyAsync(text);  
+
+//	Output:
+//		CommandError.BadArgCount
+[Command(&quot;echo-hassle&quot;)]
+public Task EchoAsync(string text) =&gt; ReplyAsync(text);
+
+//	The message would be seen as having multiple parameters, 
+//	while the method only accepts one. 
+//	Wrapping the message in quotes solves this.
+//	This way, the system knows the entire message is to be parsed as a 
+//	single String.
+//	e.g., 
+//		!echo &quot;Coffee Cake&quot;
+</code></pre><h2 id="discordnet-keeps-saying-that-a-messagereceived-handler-is-blocking-the-gateway-what-should-i-do">Discord.Net keeps saying that a <code>MessageReceived</code> handler is blocking the gateway, what should I do?</h2>
+<p>By default, the library warns the user about any long-running event
+handler that persists for <strong>more than 3 seconds</strong>. Any event
+handlers that are run on the same thread as the gateway task, the task
+in charge of keeping the connection alive, may block the processing of
+heartbeat, and thus terminating the connection.</p>
+<p>In this case, the library detects that a <code>MessageReceived</code>
+event handler is blocking the gateway thread. This warning is
+typically associated with the command handler as it listens for that
+particular event. If the command handler is blocking the thread, then
+this <strong>might</strong> mean that you have a long-running command.</p>
+<div class="NOTE"><h5>Note</h5><p>In rare cases, runtime errors can also cause blockage, usually
+associated with Mono, which is not supported by this library.</p>
+</div>
+<p>To prevent a long-running command from blocking the gateway
+thread, a flag called <a href="xref:Discord.Commands.RunMode">RunMode</a> is explicitly designed to resolve
+this issue.</p>
+<p>There are 2 main <code>RunMode</code>s.</p>
+<ol>
+<li><code>RunMode.Sync</code></li>
+<li><code>RunMode.Async</code></li>
+</ol>
+<p><code>Sync</code> is the default behavior and makes the command to be run on the
+same thread as the gateway one. <code>Async</code> will spin the task off to a
+different thread from the gateway one.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>While specifying <code>RunMode.Async</code> allows the command to be spun off
+to a different thread, keep in mind that by doing so, there will be
+<strong>potentially unwanted consequences</strong>. Before applying this flag,
+please consider whether it is necessary to do so.</p>
+<p>Further details regarding <code>RunMode.Async</code> can be found below.</p>
+</div>
+<p>You can set the <code>RunMode</code> either by specifying it individually via
+the <code>CommandAttribute</code> or by setting the global default with
+the <a href="xref:Discord.Commands.CommandServiceConfig.DefaultRunMode">DefaultRunMode</a> flag under <code>CommandServiceConfig</code>.</p>
+<div class="tabGroup" id="tabgroup_py01mXFUx2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_py01mXFUx2_cmdattrib" role="tab" aria-controls="tabpanel_py01mXFUx2_cmdattrib" data-tab="cmdattrib" tabindex="0" aria-selected="true">CommandAttribute</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_py01mXFUx2_cmdconfig" role="tab" aria-controls="tabpanel_py01mXFUx2_cmdconfig" data-tab="cmdconfig" tabindex="-1">CommandServiceConfig</a>
+</li>
+</ul>
+<section id="tabpanel_py01mXFUx2_cmdattrib" role="tabpanel" data-tab="cmdattrib">
+<pre><code class="lang-csharp" name="Command Attribute">[Command(&quot;process&quot;, RunMode = RunMode.Async)]
+public async Task ProcessAsync(string input)
+{
+	// Does heavy calculation here.
+	await Task.Delay(TimeSpan.FromMinute(1));
+	await ReplyAsync(input);
+}
+</code></pre></section>
+<section id="tabpanel_py01mXFUx2_cmdconfig" role="tabpanel" data-tab="cmdconfig" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-csharp" name="Command Service Config">public class Setup
+{
+	private readonly CommandService _command;
+	
+	public Setup()
+	{
+		var config = new CommandServiceConfig{ DefaultRunMode = RunMode.Async };
+		_command = new CommandService(config);
+	}
+}
+</code></pre></section>
+</div>
+<hr>
+<h2 id="how-does-runmodeasync-work-and-why-is-discordnet-not-using-it-by-default">How does <code>RunMode.Async</code> work, and why is Discord.Net <em>not</em> using it by default?</h2>
+<p><code>RunMode.Async</code> works by spawning a new <code>Task</code> with an unawaited
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.run">Task.Run</a>, essentially making the task that is used to invoke the
+command task to be finished on a different thread. This design means
+that <a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a> will be forced to return a successful
+<a href="xref:Discord.Commands.ExecuteResult">ExecuteResult</a> regardless of the actual execution result.</p>
+<p>The following are the known caveats with <code>RunMode.Async</code>,</p>
+<ol>
+<li>You can potentially introduce a race condition.</li>
+<li>Unnecessary overhead caused by the <a href="https://www.red-gate.com/simple-talk/dotnet/net-tools/c-async-what-is-it-and-how-does-it-work/">async state machine</a>.</li>
+<li><a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a> will immediately return <a href="xref:Discord.Commands.ExecuteResult">ExecuteResult</a> instead of
+other result types (this is particularly important for those who wish
+to utilize <a href="xref:Discord.Commands.RuntimeResult">RuntimeResult</a> in 2.0).</li>
+<li>Exceptions are swallowed in the <code>ExecuteAsync</code> result.</li>
+</ol>
+<p>However, there are ways to remedy some of these.</p>
+<p>For #3, in Discord.Net 2.0, the library introduces a new event called
+<a href="xref:Discord.Commands.CommandService.CommandExecuted">CommandService.CommandExecuted</a>, which is raised whenever the command is executed. 
+This event will be raised regardless of
+the <code>RunMode</code> type and will return the appropriate execution result
+and the associated @Discord.Commands.CommandInfo if applicable.</p>
+<p>For #4, exceptions are caught in <a href="xref:Discord.Commands.CommandService.Log">CommandService.Log</a> event under
+<a href="xref:Discord.LogMessage.Exception*">LogMessage.Exception</a> as <a href="xref:Discord.Commands.CommandException">CommandException</a> and in the 
+<a href="xref:Discord.Commands.CommandService.CommandExecuted">CommandService.CommandExecuted</a> event under the <a href="xref:Discord.Commands.IResult">IResult</a> as 
+<a href="xref:Discord.Commands.ExecuteResult.Exception*">ExecuteResult.Exception</a>.</p>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/faq/commands/general.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

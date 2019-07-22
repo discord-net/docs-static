@@ -1,0 +1,2404 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Rest.DiscordRestClient
+  commentId: T:Discord.Rest.DiscordRestClient
+  id: DiscordRestClient
+  parent: Discord.Rest
+  children:
+  - Discord.Rest.DiscordRestClient.#ctor
+  - Discord.Rest.DiscordRestClient.#ctor(Discord.Rest.DiscordRestConfig)
+  - Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.CurrentUser
+  - Discord.Rest.DiscordRestClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetChannelAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetConnectionsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetDMChannelsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGroupChannelsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildEmbedAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(System.UInt64,System.Int32,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  - Discord.Rest.DiscordRestClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: DiscordRestClient
+  nameWithType: DiscordRestClient
+  fullName: Discord.Rest.DiscordRestClient
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: DiscordRestClient
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 10
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nProvides a client to send REST-based requests to Discord.\n"
+  example: []
+  syntax:
+    content: 'public class DiscordRestClient : BaseDiscordClient, IDiscordClient, IDisposable'
+    content.vb: >-
+      Public Class DiscordRestClient
+          Inherits BaseDiscordClient
+          Implements IDiscordClient, IDisposable
+  inheritance:
+  - System.Object
+  - Discord.Rest.BaseDiscordClient
+  derivedClasses:
+  - Discord.WebSocket.DiscordSocketRestClient
+  implements:
+  - Discord.IDiscordClient
+  - IDisposable
+  inheritedMembers:
+  - Discord.Rest.BaseDiscordClient.Log
+  - Discord.Rest.BaseDiscordClient.LoggedIn
+  - Discord.Rest.BaseDiscordClient.LoggedOut
+  - Discord.Rest.BaseDiscordClient.LoginState
+  - Discord.Rest.BaseDiscordClient.TokenType
+  - Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  - Discord.Rest.BaseDiscordClient.LogoutAsync
+  - Discord.Rest.BaseDiscordClient.Dispose
+  - Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  extensionMethods:
+  - Discord.Rest.BaseDiscordClient.Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Discord.Rest.DiscordRestClient.CurrentUser
+  commentId: P:Discord.Rest.DiscordRestClient.CurrentUser
+  id: CurrentUser
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: CurrentUser
+  nameWithType: DiscordRestClient.CurrentUser
+  fullName: Discord.Rest.DiscordRestClient.CurrentUser
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CurrentUser
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 17
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the logged-in user.\n"
+  example: []
+  syntax:
+    content: public RestSelfUser CurrentUser { get; }
+    parameters: []
+    return:
+      type: Discord.Rest.RestSelfUser
+    content.vb: Public ReadOnly Property CurrentUser As RestSelfUser
+  overload: Discord.Rest.DiscordRestClient.CurrentUser*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Rest.DiscordRestClient.#ctor
+  commentId: M:Discord.Rest.DiscordRestClient.#ctor
+  id: '#ctor'
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: DiscordRestClient()
+  nameWithType: DiscordRestClient.DiscordRestClient()
+  fullName: Discord.Rest.DiscordRestClient.DiscordRestClient()
+  type: Constructor
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: .ctor
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 20
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  example: []
+  syntax:
+    content: public DiscordRestClient()
+    content.vb: Public Sub New
+  overload: Discord.Rest.DiscordRestClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.#ctor(Discord.Rest.DiscordRestConfig)
+  commentId: M:Discord.Rest.DiscordRestClient.#ctor(Discord.Rest.DiscordRestConfig)
+  id: '#ctor(Discord.Rest.DiscordRestConfig)'
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: DiscordRestClient(DiscordRestConfig)
+  nameWithType: DiscordRestClient.DiscordRestClient(DiscordRestConfig)
+  fullName: Discord.Rest.DiscordRestClient.DiscordRestClient(Discord.Rest.DiscordRestConfig)
+  type: Constructor
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: .ctor
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 25
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nInitializes a new <xref href=\"Discord.Rest.DiscordRestClient\" data-throw-if-not-resolved=\"false\"></xref> with the provided configuration.\n"
+  example: []
+  syntax:
+    content: public DiscordRestClient(DiscordRestConfig config)
+    parameters:
+    - id: config
+      type: Discord.Rest.DiscordRestConfig
+      description: The configuration to be used with the client.
+    content.vb: Public Sub New(config As DiscordRestConfig)
+  overload: Discord.Rest.DiscordRestClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  id: GetApplicationInfoAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetApplicationInfoAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetApplicationInfoAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetApplicationInfoAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetApplicationInfoAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 53
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestApplication> GetApplicationInfoAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestApplication}
+    content.vb: Public Function GetApplicationInfoAsync(options As RequestOptions = Nothing) As Task(Of RestApplication)
+  overload: Discord.Rest.DiscordRestClient.GetApplicationInfoAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetChannelAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetChannelAsync(System.UInt64,Discord.RequestOptions)
+  id: GetChannelAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetChannelAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetChannelAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetChannelAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetChannelAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 58
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestChannel> GetChannelAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestChannel}
+    content.vb: Public Function GetChannelAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestChannel)
+  overload: Discord.Rest.DiscordRestClient.GetChannelAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync(Discord.RequestOptions)
+  id: GetPrivateChannelsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetPrivateChannelsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetPrivateChannelsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetPrivateChannelsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 60
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<IRestPrivateChannel>> GetPrivateChannelsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.IRestPrivateChannel}}
+    content.vb: Public Function GetPrivateChannelsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IRestPrivateChannel))
+  overload: Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetDMChannelsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetDMChannelsAsync(Discord.RequestOptions)
+  id: GetDMChannelsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetDMChannelsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetDMChannelsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetDMChannelsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetDMChannelsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 62
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<RestDMChannel>> GetDMChannelsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestDMChannel}}
+    content.vb: Public Function GetDMChannelsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestDMChannel))
+  overload: Discord.Rest.DiscordRestClient.GetDMChannelsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGroupChannelsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGroupChannelsAsync(Discord.RequestOptions)
+  id: GetGroupChannelsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGroupChannelsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetGroupChannelsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGroupChannelsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGroupChannelsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 64
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<RestGroupChannel>> GetGroupChannelsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestGroupChannel}}
+    content.vb: Public Function GetGroupChannelsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestGroupChannel))
+  overload: Discord.Rest.DiscordRestClient.GetGroupChannelsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetConnectionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetConnectionsAsync(Discord.RequestOptions)
+  id: GetConnectionsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetConnectionsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetConnectionsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetConnectionsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 67
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<RestConnection>> GetConnectionsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestConnection}}
+    content.vb: Public Function GetConnectionsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestConnection))
+  overload: Discord.Rest.DiscordRestClient.GetConnectionsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetInviteAsync(System.String,Discord.RequestOptions)
+  id: GetInviteAsync(System.String,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetInviteAsync(String, RequestOptions)
+  nameWithType: DiscordRestClient.GetInviteAsync(String, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetInviteAsync(System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetInviteAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 70
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestInviteMetadata> GetInviteAsync(string inviteId, RequestOptions options = null)
+    parameters:
+    - id: inviteId
+      type: System.String
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestInviteMetadata}
+    content.vb: Public Function GetInviteAsync(inviteId As String, options As RequestOptions = Nothing) As Task(Of RestInviteMetadata)
+  overload: Discord.Rest.DiscordRestClient.GetInviteAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildAsync(System.UInt64,Discord.RequestOptions)
+  id: GetGuildAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 73
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestGuild> GetGuildAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestGuild}
+    content.vb: Public Function GetGuildAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestGuild)
+  overload: Discord.Rest.DiscordRestClient.GetGuildAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildEmbedAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildEmbedAsync(System.UInt64,Discord.RequestOptions)
+  id: GetGuildEmbedAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildEmbedAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildEmbedAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildEmbedAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildEmbedAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 75
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestGuildEmbed? > GetGuildEmbedAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{System.Nullable{Discord.Rest.RestGuildEmbed}}
+    content.vb: Public Function GetGuildEmbedAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestGuildEmbed?)
+  overload: Discord.Rest.DiscordRestClient.GetGuildEmbedAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(Discord.RequestOptions)
+  id: GetGuildSummariesAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildSummariesAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildSummariesAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildSummariesAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 77
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public IAsyncEnumerable<IReadOnlyCollection<RestUserGuild>> GetGuildSummariesAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestUserGuild}}
+    content.vb: Public Function GetGuildSummariesAsync(options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestUserGuild))
+  overload: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(System.UInt64,System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(System.UInt64,System.Int32,Discord.RequestOptions)
+  id: GetGuildSummariesAsync(System.UInt64,System.Int32,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildSummariesAsync(UInt64, Int32, RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildSummariesAsync(UInt64, Int32, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync(System.UInt64, System.Int32, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildSummariesAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 79
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public IAsyncEnumerable<IReadOnlyCollection<RestUserGuild>> GetGuildSummariesAsync(ulong fromGuildId, int limit, RequestOptions options = null)
+    parameters:
+    - id: fromGuildId
+      type: System.UInt64
+    - id: limit
+      type: System.Int32
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestUserGuild}}
+    content.vb: Public Function GetGuildSummariesAsync(fromGuildId As ULong, limit As Integer, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestUserGuild))
+  overload: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildsAsync(Discord.RequestOptions)
+  id: GetGuildsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 81
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<RestGuild>> GetGuildsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestGuild}}
+    content.vb: Public Function GetGuildsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestGuild))
+  overload: Discord.Rest.DiscordRestClient.GetGuildsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  id: CreateGuildAsync(System.String,Discord.IVoiceRegion,Stream,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  nameWithType: DiscordRestClient.CreateGuildAsync(String, IVoiceRegion, Stream, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync(System.String, Discord.IVoiceRegion, Stream, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CreateGuildAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 83
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestGuild> CreateGuildAsync(string name, IVoiceRegion region, Stream jpegIcon = null, RequestOptions options = null)
+    parameters:
+    - id: name
+      type: System.String
+    - id: region
+      type: Discord.IVoiceRegion
+    - id: jpegIcon
+      type: Stream
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestGuild}
+    content.vb: Public Function CreateGuildAsync(name As String, region As IVoiceRegion, jpegIcon As Stream = Nothing, options As RequestOptions = Nothing) As Task(Of RestGuild)
+  overload: Discord.Rest.DiscordRestClient.CreateGuildAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
+  id: GetUserAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetUserAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetUserAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 86
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestUser> GetUserAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestUser}
+    content.vb: Public Function GetUserAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestUser)
+  overload: Discord.Rest.DiscordRestClient.GetUserAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
+  id: GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetGuildUserAsync(UInt64, UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetGuildUserAsync(UInt64, UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64, System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetGuildUserAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 88
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestGuildUser> GetGuildUserAsync(ulong guildId, ulong id, RequestOptions options = null)
+    parameters:
+    - id: guildId
+      type: System.UInt64
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestGuildUser}
+    content.vb: Public Function GetGuildUserAsync(guildId As ULong, id As ULong, options As RequestOptions = Nothing) As Task(Of RestGuildUser)
+  overload: Discord.Rest.DiscordRestClient.GetGuildUserAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  id: GetVoiceRegionsAsync(Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetVoiceRegionsAsync(RequestOptions)
+  nameWithType: DiscordRestClient.GetVoiceRegionsAsync(RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetVoiceRegionsAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 91
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<IReadOnlyCollection<RestVoiceRegion>> GetVoiceRegionsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{IReadOnlyCollection{Discord.Rest.RestVoiceRegion}}
+    content.vb: Public Function GetVoiceRegionsAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestVoiceRegion))
+  overload: Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  id: GetVoiceRegionAsync(System.String,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetVoiceRegionAsync(String, RequestOptions)
+  nameWithType: DiscordRestClient.GetVoiceRegionAsync(String, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetVoiceRegionAsync(System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetVoiceRegionAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 93
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestVoiceRegion> GetVoiceRegionAsync(string id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.String
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestVoiceRegion}
+    content.vb: Public Function GetVoiceRegionAsync(id As String, options As RequestOptions = Nothing) As Task(Of RestVoiceRegion)
+  overload: Discord.Rest.DiscordRestClient.GetVoiceRegionAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.DiscordRestClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.Rest.DiscordRestClient.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  id: GetWebhookAsync(System.UInt64,Discord.RequestOptions)
+  parent: Discord.Rest.DiscordRestClient
+  langs:
+  - csharp
+  - vb
+  name: GetWebhookAsync(UInt64, RequestOptions)
+  nameWithType: DiscordRestClient.GetWebhookAsync(UInt64, RequestOptions)
+  fullName: Discord.Rest.DiscordRestClient.GetWebhookAsync(System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/DiscordRestClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetWebhookAsync
+    path: ../src/Discord.Net.Rest/DiscordRestClient.cs
+    startLine: 95
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task<RestWebhook> GetWebhookAsync(ulong id, RequestOptions options = null)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{Discord.Rest.RestWebhook}
+    content.vb: Public Function GetWebhookAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of RestWebhook)
+  overload: Discord.Rest.DiscordRestClient.GetWebhookAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Discord.Rest
+  commentId: N:Discord.Rest
+  name: Discord.Rest
+  nameWithType: Discord.Rest
+  fullName: Discord.Rest
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.Rest.BaseDiscordClient
+  commentId: T:Discord.Rest.BaseDiscordClient
+  parent: Discord.Rest
+  name: BaseDiscordClient
+  nameWithType: BaseDiscordClient
+  fullName: Discord.Rest.BaseDiscordClient
+- uid: Discord.IDiscordClient
+  commentId: T:Discord.IDiscordClient
+  parent: Discord
+  name: IDiscordClient
+  nameWithType: IDiscordClient
+  fullName: Discord.IDiscordClient
+- uid: IDisposable
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: IDisposable
+- uid: Discord.Rest.BaseDiscordClient.Log
+  commentId: E:Discord.Rest.BaseDiscordClient.Log
+  parent: Discord.Rest.BaseDiscordClient
+  name: Log
+  nameWithType: BaseDiscordClient.Log
+  fullName: Discord.Rest.BaseDiscordClient.Log
+- uid: Discord.Rest.BaseDiscordClient.LoggedIn
+  commentId: E:Discord.Rest.BaseDiscordClient.LoggedIn
+  parent: Discord.Rest.BaseDiscordClient
+  name: LoggedIn
+  nameWithType: BaseDiscordClient.LoggedIn
+  fullName: Discord.Rest.BaseDiscordClient.LoggedIn
+- uid: Discord.Rest.BaseDiscordClient.LoggedOut
+  commentId: E:Discord.Rest.BaseDiscordClient.LoggedOut
+  parent: Discord.Rest.BaseDiscordClient
+  name: LoggedOut
+  nameWithType: BaseDiscordClient.LoggedOut
+  fullName: Discord.Rest.BaseDiscordClient.LoggedOut
+- uid: Discord.Rest.BaseDiscordClient.LoginState
+  commentId: P:Discord.Rest.BaseDiscordClient.LoginState
+  parent: Discord.Rest.BaseDiscordClient
+  name: LoginState
+  nameWithType: BaseDiscordClient.LoginState
+  fullName: Discord.Rest.BaseDiscordClient.LoginState
+- uid: Discord.Rest.BaseDiscordClient.TokenType
+  commentId: P:Discord.Rest.BaseDiscordClient.TokenType
+  parent: Discord.Rest.BaseDiscordClient
+  name: TokenType
+  nameWithType: BaseDiscordClient.TokenType
+  fullName: Discord.Rest.BaseDiscordClient.TokenType
+- uid: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  commentId: M:Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  parent: Discord.Rest.BaseDiscordClient
+  isExternal: true
+  name: LoginAsync(TokenType, String, Boolean)
+  nameWithType: BaseDiscordClient.LoginAsync(TokenType, String, Boolean)
+  fullName: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType, System.String, System.Boolean)
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+    name: LoginAsync
+    nameWithType: BaseDiscordClient.LoginAsync
+    fullName: Discord.Rest.BaseDiscordClient.LoginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.TokenType
+    name: TokenType
+    nameWithType: TokenType
+    fullName: Discord.TokenType
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+    name: LoginAsync
+    nameWithType: BaseDiscordClient.LoginAsync
+    fullName: Discord.Rest.BaseDiscordClient.LoginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.TokenType
+    name: TokenType
+    nameWithType: TokenType
+    fullName: Discord.TokenType
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.LogoutAsync
+  commentId: M:Discord.Rest.BaseDiscordClient.LogoutAsync
+  parent: Discord.Rest.BaseDiscordClient
+  name: LogoutAsync()
+  nameWithType: BaseDiscordClient.LogoutAsync()
+  fullName: Discord.Rest.BaseDiscordClient.LogoutAsync()
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.LogoutAsync
+    name: LogoutAsync
+    nameWithType: BaseDiscordClient.LogoutAsync
+    fullName: Discord.Rest.BaseDiscordClient.LogoutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.LogoutAsync
+    name: LogoutAsync
+    nameWithType: BaseDiscordClient.LogoutAsync
+    fullName: Discord.Rest.BaseDiscordClient.LogoutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.Dispose
+  commentId: M:Discord.Rest.BaseDiscordClient.Dispose
+  parent: Discord.Rest.BaseDiscordClient
+  name: Dispose()
+  nameWithType: BaseDiscordClient.Dispose()
+  fullName: Discord.Rest.BaseDiscordClient.Dispose()
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.Dispose
+    name: Dispose
+    nameWithType: BaseDiscordClient.Dispose
+    fullName: Discord.Rest.BaseDiscordClient.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.Dispose
+    name: Dispose
+    nameWithType: BaseDiscordClient.Dispose
+    fullName: Discord.Rest.BaseDiscordClient.Dispose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  parent: Discord.Rest.BaseDiscordClient
+  name: GetRecommendedShardCountAsync(RequestOptions)
+  nameWithType: BaseDiscordClient.GetRecommendedShardCountAsync(RequestOptions)
+  fullName: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+    name: GetRecommendedShardCountAsync
+    nameWithType: BaseDiscordClient.GetRecommendedShardCountAsync
+    fullName: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+    name: GetRecommendedShardCountAsync
+    nameWithType: BaseDiscordClient.GetRecommendedShardCountAsync
+    fullName: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  commentId: P:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  parent: Discord.Rest.BaseDiscordClient
+  name: IDiscordClient.ConnectionState
+  nameWithType: BaseDiscordClient.IDiscordClient.ConnectionState
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  name.vb: Discord.IDiscordClient.ConnectionState
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  commentId: P:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  parent: Discord.Rest.BaseDiscordClient
+  name: IDiscordClient.CurrentUser
+  nameWithType: BaseDiscordClient.IDiscordClient.CurrentUser
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  name.vb: Discord.IDiscordClient.CurrentUser
+- uid: Discord.Rest.BaseDiscordClient.Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  parent: Discord.Rest.ClientExtensions
+  definition: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  name: AddGuildUserAsync(UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  nameWithType: ClientExtensions.AddGuildUserAsync(UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64, System.UInt64, System.String, Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
+  nameWithType.vb: ClientExtensions.AddGuildUserAsync(UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  fullName.vb: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64, System.UInt64, System.String, Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
+  name.vb: AddGuildUserAsync(UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  isExternal: true
+  name: AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  nameWithType: ClientExtensions.AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient, System.UInt64, System.UInt64, System.String, Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
+  nameWithType.vb: ClientExtensions.AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  fullName.vb: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient, System.UInt64, System.UInt64, System.String, Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
+  name.vb: AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Rest.BaseDiscordClient
+    name: BaseDiscordClient
+    nameWithType: BaseDiscordClient
+    fullName: Discord.Rest.BaseDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Rest.BaseDiscordClient
+    name: BaseDiscordClient
+    nameWithType: BaseDiscordClient
+    fullName: Discord.Rest.BaseDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.ClientExtensions
+  commentId: T:Discord.Rest.ClientExtensions
+  parent: Discord.Rest
+  name: ClientExtensions
+  nameWithType: ClientExtensions
+  fullName: Discord.Rest.ClientExtensions
+- uid: Discord.Rest.DiscordRestClient.CurrentUser*
+  commentId: Overload:Discord.Rest.DiscordRestClient.CurrentUser
+  name: CurrentUser
+  nameWithType: DiscordRestClient.CurrentUser
+  fullName: Discord.Rest.DiscordRestClient.CurrentUser
+- uid: Discord.Rest.RestSelfUser
+  commentId: T:Discord.Rest.RestSelfUser
+  parent: Discord.Rest
+  name: RestSelfUser
+  nameWithType: RestSelfUser
+  fullName: Discord.Rest.RestSelfUser
+- uid: Discord.Rest.DiscordRestClient.#ctor*
+  commentId: Overload:Discord.Rest.DiscordRestClient.#ctor
+  name: DiscordRestClient
+  nameWithType: DiscordRestClient.DiscordRestClient
+  fullName: Discord.Rest.DiscordRestClient.DiscordRestClient
+- uid: Discord.Rest.DiscordRestClient
+  commentId: T:Discord.Rest.DiscordRestClient
+  parent: Discord.Rest
+  name: DiscordRestClient
+  nameWithType: DiscordRestClient
+  fullName: Discord.Rest.DiscordRestClient
+- uid: Discord.Rest.DiscordRestConfig
+  commentId: T:Discord.Rest.DiscordRestConfig
+  parent: Discord.Rest
+  name: DiscordRestConfig
+  nameWithType: DiscordRestConfig
+  fullName: Discord.Rest.DiscordRestConfig
+- uid: Discord.Rest.DiscordRestClient.GetApplicationInfoAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetApplicationInfoAsync
+  name: GetApplicationInfoAsync
+  nameWithType: DiscordRestClient.GetApplicationInfoAsync
+  fullName: Discord.Rest.DiscordRestClient.GetApplicationInfoAsync
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task{Discord.Rest.RestApplication}
+  commentId: '!:Task{Discord.Rest.RestApplication}'
+  definition: Task`1
+  name: Task<RestApplication>
+  nameWithType: Task<RestApplication>
+  fullName: Task<Discord.Rest.RestApplication>
+  nameWithType.vb: Task(Of RestApplication)
+  fullName.vb: Task(Of Discord.Rest.RestApplication)
+  name.vb: Task(Of RestApplication)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestApplication
+    name: RestApplication
+    nameWithType: RestApplication
+    fullName: Discord.Rest.RestApplication
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestApplication
+    name: RestApplication
+    nameWithType: RestApplication
+    fullName: Discord.Rest.RestApplication
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetChannelAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetChannelAsync
+  name: GetChannelAsync
+  nameWithType: DiscordRestClient.GetChannelAsync
+  fullName: Discord.Rest.DiscordRestClient.GetChannelAsync
+- uid: System.UInt64
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Task{Discord.Rest.RestChannel}
+  commentId: '!:Task{Discord.Rest.RestChannel}'
+  definition: Task`1
+  name: Task<RestChannel>
+  nameWithType: Task<RestChannel>
+  fullName: Task<Discord.Rest.RestChannel>
+  nameWithType.vb: Task(Of RestChannel)
+  fullName.vb: Task(Of Discord.Rest.RestChannel)
+  name.vb: Task(Of RestChannel)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestChannel
+    name: RestChannel
+    nameWithType: RestChannel
+    fullName: Discord.Rest.RestChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestChannel
+    name: RestChannel
+    nameWithType: RestChannel
+    fullName: Discord.Rest.RestChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync
+  name: GetPrivateChannelsAsync
+  nameWithType: DiscordRestClient.GetPrivateChannelsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetPrivateChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.IRestPrivateChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.IRestPrivateChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<IRestPrivateChannel>>
+  nameWithType: Task<IReadOnlyCollection<IRestPrivateChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.IRestPrivateChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of IRestPrivateChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.IRestPrivateChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of IRestPrivateChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.IRestPrivateChannel
+    name: IRestPrivateChannel
+    nameWithType: IRestPrivateChannel
+    fullName: Discord.Rest.IRestPrivateChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.IRestPrivateChannel
+    name: IRestPrivateChannel
+    nameWithType: IRestPrivateChannel
+    fullName: Discord.Rest.IRestPrivateChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetDMChannelsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetDMChannelsAsync
+  name: GetDMChannelsAsync
+  nameWithType: DiscordRestClient.GetDMChannelsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetDMChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestDMChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestDMChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestDMChannel>>
+  nameWithType: Task<IReadOnlyCollection<RestDMChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestDMChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestDMChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestDMChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of RestDMChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestDMChannel
+    name: RestDMChannel
+    nameWithType: RestDMChannel
+    fullName: Discord.Rest.RestDMChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestDMChannel
+    name: RestDMChannel
+    nameWithType: RestDMChannel
+    fullName: Discord.Rest.RestDMChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetGroupChannelsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGroupChannelsAsync
+  name: GetGroupChannelsAsync
+  nameWithType: DiscordRestClient.GetGroupChannelsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGroupChannelsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestGroupChannel}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestGroupChannel}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestGroupChannel>>
+  nameWithType: Task<IReadOnlyCollection<RestGroupChannel>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestGroupChannel>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestGroupChannel))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestGroupChannel))
+  name.vb: Task(Of IReadOnlyCollection(Of RestGroupChannel))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestGroupChannel
+    name: RestGroupChannel
+    nameWithType: RestGroupChannel
+    fullName: Discord.Rest.RestGroupChannel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestGroupChannel
+    name: RestGroupChannel
+    nameWithType: RestGroupChannel
+    fullName: Discord.Rest.RestGroupChannel
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetConnectionsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetConnectionsAsync
+  name: GetConnectionsAsync
+  nameWithType: DiscordRestClient.GetConnectionsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetConnectionsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestConnection}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestConnection}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestConnection>>
+  nameWithType: Task<IReadOnlyCollection<RestConnection>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestConnection>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestConnection))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestConnection))
+  name.vb: Task(Of IReadOnlyCollection(Of RestConnection))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestConnection
+    name: RestConnection
+    nameWithType: RestConnection
+    fullName: Discord.Rest.RestConnection
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestConnection
+    name: RestConnection
+    nameWithType: RestConnection
+    fullName: Discord.Rest.RestConnection
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetInviteAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetInviteAsync
+  name: GetInviteAsync
+  nameWithType: DiscordRestClient.GetInviteAsync
+  fullName: Discord.Rest.DiscordRestClient.GetInviteAsync
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Task{Discord.Rest.RestInviteMetadata}
+  commentId: '!:Task{Discord.Rest.RestInviteMetadata}'
+  definition: Task`1
+  name: Task<RestInviteMetadata>
+  nameWithType: Task<RestInviteMetadata>
+  fullName: Task<Discord.Rest.RestInviteMetadata>
+  nameWithType.vb: Task(Of RestInviteMetadata)
+  fullName.vb: Task(Of Discord.Rest.RestInviteMetadata)
+  name.vb: Task(Of RestInviteMetadata)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestInviteMetadata
+    name: RestInviteMetadata
+    nameWithType: RestInviteMetadata
+    fullName: Discord.Rest.RestInviteMetadata
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestInviteMetadata
+    name: RestInviteMetadata
+    nameWithType: RestInviteMetadata
+    fullName: Discord.Rest.RestInviteMetadata
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetGuildAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGuildAsync
+  name: GetGuildAsync
+  nameWithType: DiscordRestClient.GetGuildAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGuildAsync
+- uid: Task{Discord.Rest.RestGuild}
+  commentId: '!:Task{Discord.Rest.RestGuild}'
+  definition: Task`1
+  name: Task<RestGuild>
+  nameWithType: Task<RestGuild>
+  fullName: Task<Discord.Rest.RestGuild>
+  nameWithType.vb: Task(Of RestGuild)
+  fullName.vb: Task(Of Discord.Rest.RestGuild)
+  name.vb: Task(Of RestGuild)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestGuild
+    name: RestGuild
+    nameWithType: RestGuild
+    fullName: Discord.Rest.RestGuild
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestGuild
+    name: RestGuild
+    nameWithType: RestGuild
+    fullName: Discord.Rest.RestGuild
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetGuildEmbedAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGuildEmbedAsync
+  name: GetGuildEmbedAsync
+  nameWithType: DiscordRestClient.GetGuildEmbedAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGuildEmbedAsync
+- uid: Task{System.Nullable{Discord.Rest.RestGuildEmbed}}
+  commentId: '!:Task{System.Nullable{Discord.Rest.RestGuildEmbed}}'
+  definition: Task`1
+  name: Task<Nullable<RestGuildEmbed>>
+  nameWithType: Task<Nullable<RestGuildEmbed>>
+  fullName: Task<System.Nullable<Discord.Rest.RestGuildEmbed>>
+  nameWithType.vb: Task(Of Nullable(Of RestGuildEmbed))
+  fullName.vb: Task(Of System.Nullable(Of Discord.Rest.RestGuildEmbed))
+  name.vb: Task(Of Nullable(Of RestGuildEmbed))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestGuildEmbed
+    name: RestGuildEmbed
+    nameWithType: RestGuildEmbed
+    fullName: Discord.Rest.RestGuildEmbed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestGuildEmbed
+    name: RestGuildEmbed
+    nameWithType: RestGuildEmbed
+    fullName: Discord.Rest.RestGuildEmbed
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGuildSummariesAsync
+  name: GetGuildSummariesAsync
+  nameWithType: DiscordRestClient.GetGuildSummariesAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGuildSummariesAsync
+- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestUserGuild}}
+  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.Rest.RestUserGuild}}'
+  definition: IAsyncEnumerable`1
+  name: IAsyncEnumerable<IReadOnlyCollection<RestUserGuild>>
+  nameWithType: IAsyncEnumerable<IReadOnlyCollection<RestUserGuild>>
+  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.Rest.RestUserGuild>>
+  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of RestUserGuild))
+  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.Rest.RestUserGuild))
+  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of RestUserGuild))
+  spec.csharp:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestUserGuild
+    name: RestUserGuild
+    nameWithType: RestUserGuild
+    fullName: Discord.Rest.RestUserGuild
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestUserGuild
+    name: RestUserGuild
+    nameWithType: RestUserGuild
+    fullName: Discord.Rest.RestUserGuild
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<>
+  nameWithType: IAsyncEnumerable<>
+  fullName: IAsyncEnumerable<>
+  nameWithType.vb: IAsyncEnumerable(Of )
+  fullName.vb: IAsyncEnumerable(Of )
+  name.vb: IAsyncEnumerable(Of )
+  spec.csharp:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Discord.Rest.DiscordRestClient.GetGuildsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGuildsAsync
+  name: GetGuildsAsync
+  nameWithType: DiscordRestClient.GetGuildsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGuildsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestGuild}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestGuild}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestGuild>>
+  nameWithType: Task<IReadOnlyCollection<RestGuild>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestGuild>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestGuild))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestGuild))
+  name.vb: Task(Of IReadOnlyCollection(Of RestGuild))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestGuild
+    name: RestGuild
+    nameWithType: RestGuild
+    fullName: Discord.Rest.RestGuild
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestGuild
+    name: RestGuild
+    nameWithType: RestGuild
+    fullName: Discord.Rest.RestGuild
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.CreateGuildAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.CreateGuildAsync
+  name: CreateGuildAsync
+  nameWithType: DiscordRestClient.CreateGuildAsync
+  fullName: Discord.Rest.DiscordRestClient.CreateGuildAsync
+- uid: Discord.IVoiceRegion
+  commentId: T:Discord.IVoiceRegion
+  parent: Discord
+  name: IVoiceRegion
+  nameWithType: IVoiceRegion
+  fullName: Discord.IVoiceRegion
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Discord.Rest.DiscordRestClient.GetUserAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetUserAsync
+  name: GetUserAsync
+  nameWithType: DiscordRestClient.GetUserAsync
+  fullName: Discord.Rest.DiscordRestClient.GetUserAsync
+- uid: Task{Discord.Rest.RestUser}
+  commentId: '!:Task{Discord.Rest.RestUser}'
+  definition: Task`1
+  name: Task<RestUser>
+  nameWithType: Task<RestUser>
+  fullName: Task<Discord.Rest.RestUser>
+  nameWithType.vb: Task(Of RestUser)
+  fullName.vb: Task(Of Discord.Rest.RestUser)
+  name.vb: Task(Of RestUser)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestUser
+    name: RestUser
+    nameWithType: RestUser
+    fullName: Discord.Rest.RestUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestUser
+    name: RestUser
+    nameWithType: RestUser
+    fullName: Discord.Rest.RestUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetGuildUserAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetGuildUserAsync
+  name: GetGuildUserAsync
+  nameWithType: DiscordRestClient.GetGuildUserAsync
+  fullName: Discord.Rest.DiscordRestClient.GetGuildUserAsync
+- uid: Task{Discord.Rest.RestGuildUser}
+  commentId: '!:Task{Discord.Rest.RestGuildUser}'
+  definition: Task`1
+  name: Task<RestGuildUser>
+  nameWithType: Task<RestGuildUser>
+  fullName: Task<Discord.Rest.RestGuildUser>
+  nameWithType.vb: Task(Of RestGuildUser)
+  fullName.vb: Task(Of Discord.Rest.RestGuildUser)
+  name.vb: Task(Of RestGuildUser)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestGuildUser
+    name: RestGuildUser
+    nameWithType: RestGuildUser
+    fullName: Discord.Rest.RestGuildUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestGuildUser
+    name: RestGuildUser
+    nameWithType: RestGuildUser
+    fullName: Discord.Rest.RestGuildUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync
+  name: GetVoiceRegionsAsync
+  nameWithType: DiscordRestClient.GetVoiceRegionsAsync
+  fullName: Discord.Rest.DiscordRestClient.GetVoiceRegionsAsync
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestVoiceRegion}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestVoiceRegion}}'
+  definition: Task`1
+  name: Task<IReadOnlyCollection<RestVoiceRegion>>
+  nameWithType: Task<IReadOnlyCollection<RestVoiceRegion>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestVoiceRegion>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of RestVoiceRegion))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestVoiceRegion))
+  name.vb: Task(Of IReadOnlyCollection(Of RestVoiceRegion))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestVoiceRegion
+    name: RestVoiceRegion
+    nameWithType: RestVoiceRegion
+    fullName: Discord.Rest.RestVoiceRegion
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestVoiceRegion
+    name: RestVoiceRegion
+    nameWithType: RestVoiceRegion
+    fullName: Discord.Rest.RestVoiceRegion
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetVoiceRegionAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetVoiceRegionAsync
+  name: GetVoiceRegionAsync
+  nameWithType: DiscordRestClient.GetVoiceRegionAsync
+  fullName: Discord.Rest.DiscordRestClient.GetVoiceRegionAsync
+- uid: Task{Discord.Rest.RestVoiceRegion}
+  commentId: '!:Task{Discord.Rest.RestVoiceRegion}'
+  definition: Task`1
+  name: Task<RestVoiceRegion>
+  nameWithType: Task<RestVoiceRegion>
+  fullName: Task<Discord.Rest.RestVoiceRegion>
+  nameWithType.vb: Task(Of RestVoiceRegion)
+  fullName.vb: Task(Of Discord.Rest.RestVoiceRegion)
+  name.vb: Task(Of RestVoiceRegion)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestVoiceRegion
+    name: RestVoiceRegion
+    nameWithType: RestVoiceRegion
+    fullName: Discord.Rest.RestVoiceRegion
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestVoiceRegion
+    name: RestVoiceRegion
+    nameWithType: RestVoiceRegion
+    fullName: Discord.Rest.RestVoiceRegion
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.DiscordRestClient.GetWebhookAsync*
+  commentId: Overload:Discord.Rest.DiscordRestClient.GetWebhookAsync
+  name: GetWebhookAsync
+  nameWithType: DiscordRestClient.GetWebhookAsync
+  fullName: Discord.Rest.DiscordRestClient.GetWebhookAsync
+- uid: Task{Discord.Rest.RestWebhook}
+  commentId: '!:Task{Discord.Rest.RestWebhook}'
+  definition: Task`1
+  name: Task<RestWebhook>
+  nameWithType: Task<RestWebhook>
+  fullName: Task<Discord.Rest.RestWebhook>
+  nameWithType.vb: Task(Of RestWebhook)
+  fullName.vb: Task(Of Discord.Rest.RestWebhook)
+  name.vb: Task(Of RestWebhook)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Rest.RestWebhook
+    name: RestWebhook
+    nameWithType: RestWebhook
+    fullName: Discord.Rest.RestWebhook
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Rest.RestWebhook
+    name: RestWebhook
+    nameWithType: RestWebhook
+    fullName: Discord.Rest.RestWebhook
+  - name: )
+    nameWithType: )
+    fullName: )

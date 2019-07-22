@@ -1,0 +1,2139 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Commands.CommandService
+  commentId: T:Discord.Commands.CommandService
+  id: CommandService
+  parent: Discord.Commands
+  children:
+  - Discord.Commands.CommandService.#ctor
+  - Discord.Commands.CommandService.#ctor(Discord.Commands.CommandServiceConfig)
+  - Discord.Commands.CommandService.AddModuleAsync(Type,IServiceProvider)
+  - Discord.Commands.CommandService.AddModuleAsync``1(IServiceProvider)
+  - Discord.Commands.CommandService.AddModulesAsync(Assembly,IServiceProvider)
+  - Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader)
+  - Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader,System.Boolean)
+  - Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader)
+  - Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader,System.Boolean)
+  - Discord.Commands.CommandService.CommandExecuted
+  - Discord.Commands.CommandService.Commands
+  - Discord.Commands.CommandService.CreateModuleAsync(System.String,Action{Discord.Commands.Builders.ModuleBuilder})
+  - Discord.Commands.CommandService.Dispose(System.Boolean)
+  - Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.Int32,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  - Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.String,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  - Discord.Commands.CommandService.Log
+  - Discord.Commands.CommandService.Modules
+  - Discord.Commands.CommandService.RemoveModuleAsync(Discord.Commands.ModuleInfo)
+  - Discord.Commands.CommandService.RemoveModuleAsync(Type)
+  - Discord.Commands.CommandService.RemoveModuleAsync``1
+  - Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.Int32)
+  - Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.String)
+  - Discord.Commands.CommandService.Search(System.String)
+  - Discord.Commands.CommandService.TypeReaders
+  langs:
+  - csharp
+  - vb
+  name: CommandService
+  nameWithType: CommandService
+  fullName: Discord.Commands.CommandService
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CommandService
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 29
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nProvides a framework for building Discord commands.\n"
+  remarks: "\n<p>\n    The service provides a framework for building Discord commands both dynamically via runtime builders or\n    statically via compile-time modules. To create a command module at compile-time, see\n<xref href=\"Discord.Commands.ModuleBase\" data-throw-if-not-resolved=\"false\"></xref> (most common); otherwise, see <xref href=\"Discord.Commands.Builders.ModuleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n<p>\n    This service also provides several events for monitoring command usages; such as\n<xref href=\"Discord.Commands.CommandService.Log\" data-throw-if-not-resolved=\"false\"></xref> for any command-related log events, and\n<xref href=\"Discord.Commands.CommandService.CommandExecuted\" data-throw-if-not-resolved=\"false\"></xref> for information about commands that have\nbeen successfully executed.\n</p>\n"
+  example: []
+  syntax:
+    content: 'public class CommandService : IDisposable'
+    content.vb: >-
+      Public Class CommandService
+          Inherits IDisposable
+  inheritance:
+  - System.Object
+  extensionMethods:
+  - Discord.Commands.CommandService.Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.ICommandContext,IServiceProvider)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Discord.Commands.CommandService.Log
+  commentId: E:Discord.Commands.CommandService.Log
+  id: Log
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: CommandService.Log
+  fullName: Discord.Commands.CommandService.Log
+  type: Event
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Log
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 34
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nOccurs when a command-related information is received.\n"
+  example: []
+  syntax:
+    content: public event Func<LogMessage, Task> Log
+    return:
+      type: Func{Discord.LogMessage,Task}
+    content.vb: Public Event Log As Func(Of LogMessage, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.CommandExecuted
+  commentId: E:Discord.Commands.CommandService.CommandExecuted
+  id: CommandExecuted
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: CommandExecuted
+  nameWithType: CommandService.CommandExecuted
+  fullName: Discord.Commands.CommandService.CommandExecuted
+  type: Event
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CommandExecuted
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 44
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nOccurs when a command is successfully executed without any error.\n"
+  remarks: "\nThis event is fired when a command has been executed, successfully or not. When a command fails to\nexecute during parsing or precondition stage, the CommandInfo may not be returned.\n"
+  example: []
+  syntax:
+    content: public event Func<Optional<CommandInfo>, ICommandContext, IResult, Task> CommandExecuted
+    return:
+      type: Func{Discord.Optional{Discord.Commands.CommandInfo},Discord.Commands.ICommandContext,Discord.Commands.IResult,Task}
+    content.vb: Public Event CommandExecuted As Func(Of  Optional(Of CommandInfo)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.Modules
+  commentId: P:Discord.Commands.CommandService.Modules
+  id: Modules
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Modules
+  nameWithType: CommandService.Modules
+  fullName: Discord.Commands.CommandService.Modules
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Modules
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 67
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRepresents all modules loaded within <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public IEnumerable<ModuleInfo> Modules { get; }
+    parameters: []
+    return:
+      type: IEnumerable{Discord.Commands.ModuleInfo}
+    content.vb: Public ReadOnly Property Modules As IEnumerable(Of ModuleInfo)
+  overload: Discord.Commands.CommandService.Modules*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Commands.CommandService.Commands
+  commentId: P:Discord.Commands.CommandService.Commands
+  id: Commands
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Commands
+  nameWithType: CommandService.Commands
+  fullName: Discord.Commands.CommandService.Commands
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Commands
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 72
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRepresents all commands loaded within <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public IEnumerable<CommandInfo> Commands { get; }
+    parameters: []
+    return:
+      type: IEnumerable{Discord.Commands.CommandInfo}
+    content.vb: Public ReadOnly Property Commands As IEnumerable(Of CommandInfo)
+  overload: Discord.Commands.CommandService.Commands*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Commands.CommandService.TypeReaders
+  commentId: P:Discord.Commands.CommandService.TypeReaders
+  id: TypeReaders
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: TypeReaders
+  nameWithType: CommandService.TypeReaders
+  fullName: Discord.Commands.CommandService.TypeReaders
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: TypeReaders
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 77
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRepresents all <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> loaded within <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public ILookup<Type, TypeReader> TypeReaders { get; }
+    parameters: []
+    return:
+      type: ILookup{Type,Discord.Commands.TypeReader}
+    content.vb: Public ReadOnly Property TypeReaders As ILookup(Of Type, TypeReader)
+  overload: Discord.Commands.CommandService.TypeReaders*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Commands.CommandService.#ctor
+  commentId: M:Discord.Commands.CommandService.#ctor
+  id: '#ctor'
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: CommandService()
+  nameWithType: CommandService.CommandService()
+  fullName: Discord.Commands.CommandService.CommandService()
+  type: Constructor
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: .ctor
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 82
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nInitializes a new <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public CommandService()
+    content.vb: Public Sub New
+  overload: Discord.Commands.CommandService.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.#ctor(Discord.Commands.CommandServiceConfig)
+  commentId: M:Discord.Commands.CommandService.#ctor(Discord.Commands.CommandServiceConfig)
+  id: '#ctor(Discord.Commands.CommandServiceConfig)'
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: CommandService(CommandServiceConfig)
+  nameWithType: CommandService.CommandService(CommandServiceConfig)
+  fullName: Discord.Commands.CommandService.CommandService(Discord.Commands.CommandServiceConfig)
+  type: Constructor
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: .ctor
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 91
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nInitializes a new <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> class with the provided configuration.\n"
+  example: []
+  syntax:
+    content: public CommandService(CommandServiceConfig config)
+    parameters:
+    - id: config
+      type: Discord.Commands.CommandServiceConfig
+      description: The configuration class.
+    content.vb: Public Sub New(config As CommandServiceConfig)
+  overload: Discord.Commands.CommandService.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.CreateModuleAsync(System.String,Action{Discord.Commands.Builders.ModuleBuilder})
+  commentId: M:Discord.Commands.CommandService.CreateModuleAsync(System.String,Action{Discord.Commands.Builders.ModuleBuilder})
+  id: CreateModuleAsync(System.String,Action{Discord.Commands.Builders.ModuleBuilder})
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: CreateModuleAsync(String, Action<ModuleBuilder>)
+  nameWithType: CommandService.CreateModuleAsync(String, Action<ModuleBuilder>)
+  fullName: Discord.Commands.CommandService.CreateModuleAsync(System.String, Action<Discord.Commands.Builders.ModuleBuilder>)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CreateModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 135
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  syntax:
+    content: public Task<ModuleInfo> CreateModuleAsync(string primaryAlias, Action<ModuleBuilder> buildFunc)
+    parameters:
+    - id: primaryAlias
+      type: System.String
+    - id: buildFunc
+      type: Action{Discord.Commands.Builders.ModuleBuilder}
+    return:
+      type: Task{Discord.Commands.ModuleInfo}
+    content.vb: Public Function CreateModuleAsync(primaryAlias As String, buildFunc As Action(Of ModuleBuilder)) As Task(Of ModuleInfo)
+  overload: Discord.Commands.CommandService.CreateModuleAsync*
+  nameWithType.vb: CommandService.CreateModuleAsync(String, Action(Of ModuleBuilder))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Discord.Commands.CommandService.CreateModuleAsync(System.String, Action(Of Discord.Commands.Builders.ModuleBuilder))
+  name.vb: CreateModuleAsync(String, Action(Of ModuleBuilder))
+- uid: Discord.Commands.CommandService.AddModuleAsync``1(IServiceProvider)
+  commentId: M:Discord.Commands.CommandService.AddModuleAsync``1(IServiceProvider)
+  id: AddModuleAsync``1(IServiceProvider)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddModuleAsync<T>(IServiceProvider)
+  nameWithType: CommandService.AddModuleAsync<T>(IServiceProvider)
+  fullName: Discord.Commands.CommandService.AddModuleAsync<T>(IServiceProvider)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 172
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdd a command module from a <see cref=\"!:Type\"></see>.\n"
+  example:
+  - "\n<p>The following example registers the module <code>MyModule</code> to <code>commandService</code>.</p>\n<pre><code class=\"lang-cs\">await commandService.AddModuleAsync&lt;MyModule>(serviceProvider);</code></pre>\n"
+  syntax:
+    content: public Task<ModuleInfo> AddModuleAsync<T>(IServiceProvider services)
+    parameters:
+    - id: services
+      type: IServiceProvider
+      description: The <see cref="!:IServiceProvider"></see> for your dependency injection solution if using one; otherwise, pass <code>null</code>.
+    typeParameters:
+    - id: T
+      description: The type of module.
+    return:
+      type: Task{Discord.Commands.ModuleInfo}
+      description: "\nA task that represents the asynchronous operation for adding the module. The task result contains the\nbuilt module.\n"
+    content.vb: Public Function AddModuleAsync(Of T)(services As IServiceProvider) As Task(Of ModuleInfo)
+  overload: Discord.Commands.CommandService.AddModuleAsync*
+  nameWithType.vb: CommandService.AddModuleAsync(Of T)(IServiceProvider)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Discord.Commands.CommandService.AddModuleAsync(Of T)(IServiceProvider)
+  name.vb: AddModuleAsync(Of T)(IServiceProvider)
+- uid: Discord.Commands.CommandService.AddModuleAsync(Type,IServiceProvider)
+  commentId: M:Discord.Commands.CommandService.AddModuleAsync(Type,IServiceProvider)
+  id: AddModuleAsync(Type,IServiceProvider)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddModuleAsync(Type, IServiceProvider)
+  nameWithType: CommandService.AddModuleAsync(Type, IServiceProvider)
+  fullName: Discord.Commands.CommandService.AddModuleAsync(Type, IServiceProvider)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 187
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdds a command module from a <see cref=\"!:Type\"></see>.\n"
+  example: []
+  syntax:
+    content: public Task<ModuleInfo> AddModuleAsync(Type type, IServiceProvider services)
+    parameters:
+    - id: type
+      type: Type
+      description: The type of module.
+    - id: services
+      type: IServiceProvider
+      description: The <see cref="!:IServiceProvider"></see> for your dependency injection solution if using one; otherwise, pass <code>null</code> .
+    return:
+      type: Task{Discord.Commands.ModuleInfo}
+      description: "\nA task that represents the asynchronous operation for adding the module. The task result contains the\nbuilt module.\n"
+    content.vb: Public Function AddModuleAsync(type As Type, services As IServiceProvider) As Task(Of ModuleInfo)
+  overload: Discord.Commands.CommandService.AddModuleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.AddModulesAsync(Assembly,IServiceProvider)
+  commentId: M:Discord.Commands.CommandService.AddModulesAsync(Assembly,IServiceProvider)
+  id: AddModulesAsync(Assembly,IServiceProvider)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddModulesAsync(Assembly, IServiceProvider)
+  nameWithType: CommandService.AddModulesAsync(Assembly, IServiceProvider)
+  fullName: Discord.Commands.CommandService.AddModulesAsync(Assembly, IServiceProvider)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddModulesAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 222
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdd command modules from an <see cref=\"!:Assembly\"></see>.\n"
+  example: []
+  syntax:
+    content: public Task<IEnumerable<ModuleInfo>> AddModulesAsync(Assembly assembly, IServiceProvider services)
+    parameters:
+    - id: assembly
+      type: Assembly
+      description: The <see cref="!:Assembly"></see> containing command modules.
+    - id: services
+      type: IServiceProvider
+      description: The <see cref="!:IServiceProvider"></see> for your dependency injection solution if using one; otherwise, pass <code>null</code>.
+    return:
+      type: Task{IEnumerable{Discord.Commands.ModuleInfo}}
+      description: "\nA task that represents the asynchronous operation for adding the command modules. The task result\ncontains an enumerable collection of modules added.\n"
+    content.vb: Public Function AddModulesAsync(assembly As Assembly, services As IServiceProvider) As Task(Of IEnumerable(Of ModuleInfo))
+  overload: Discord.Commands.CommandService.AddModulesAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.RemoveModuleAsync(Discord.Commands.ModuleInfo)
+  commentId: M:Discord.Commands.CommandService.RemoveModuleAsync(Discord.Commands.ModuleInfo)
+  id: RemoveModuleAsync(Discord.Commands.ModuleInfo)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: RemoveModuleAsync(ModuleInfo)
+  nameWithType: CommandService.RemoveModuleAsync(ModuleInfo)
+  fullName: Discord.Commands.CommandService.RemoveModuleAsync(Discord.Commands.ModuleInfo)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 265
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRemoves the command module.\n"
+  example: []
+  syntax:
+    content: public Task<bool> RemoveModuleAsync(ModuleInfo module)
+    parameters:
+    - id: module
+      type: Discord.Commands.ModuleInfo
+      description: The <xref href="Discord.Commands.ModuleInfo" data-throw-if-not-resolved="false"></xref> to be removed from the service.
+    return:
+      type: Task{System.Boolean}
+      description: "\nA task that represents the asynchronous removal operation. The task result contains a value that\nindicates whether the <code data-dev-comment-type=\"paramref\" class=\"paramref\">module</code> is successfully removed.\n"
+    content.vb: Public Function RemoveModuleAsync(module As ModuleInfo) As Task(Of Boolean)
+  overload: Discord.Commands.CommandService.RemoveModuleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.RemoveModuleAsync``1
+  commentId: M:Discord.Commands.CommandService.RemoveModuleAsync``1
+  id: RemoveModuleAsync``1
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: RemoveModuleAsync<T>()
+  nameWithType: CommandService.RemoveModuleAsync<T>()
+  fullName: Discord.Commands.CommandService.RemoveModuleAsync<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 285
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRemoves the command module.\n"
+  example: []
+  syntax:
+    content: public Task<bool> RemoveModuleAsync<T>()
+    typeParameters:
+    - id: T
+      description: The <see cref="!:Type"></see> of the module.
+    return:
+      type: Task{System.Boolean}
+      description: "\nA task that represents the asynchronous removal operation. The task result contains a value that\nindicates whether the module is successfully removed.\n"
+    content.vb: Public Function RemoveModuleAsync(Of T) As Task(Of Boolean)
+  overload: Discord.Commands.CommandService.RemoveModuleAsync*
+  nameWithType.vb: CommandService.RemoveModuleAsync(Of T)()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Discord.Commands.CommandService.RemoveModuleAsync(Of T)()
+  name.vb: RemoveModuleAsync(Of T)()
+- uid: Discord.Commands.CommandService.RemoveModuleAsync(Type)
+  commentId: M:Discord.Commands.CommandService.RemoveModuleAsync(Type)
+  id: RemoveModuleAsync(Type)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: RemoveModuleAsync(Type)
+  nameWithType: CommandService.RemoveModuleAsync(Type)
+  fullName: Discord.Commands.CommandService.RemoveModuleAsync(Type)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveModuleAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 294
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nRemoves the command module.\n"
+  example: []
+  syntax:
+    content: public Task<bool> RemoveModuleAsync(Type type)
+    parameters:
+    - id: type
+      type: Type
+      description: The <see cref="!:Type"></see> of the module.
+    return:
+      type: Task{System.Boolean}
+      description: "\nA task that represents the asynchronous removal operation. The task result contains a value that\nindicates whether the module is successfully removed.\n"
+    content.vb: Public Function RemoveModuleAsync(type As Type) As Task(Of Boolean)
+  overload: Discord.Commands.CommandService.RemoveModuleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader)
+  commentId: M:Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader)
+  id: AddTypeReader``1(Discord.Commands.TypeReader)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddTypeReader<T>(TypeReader)
+  nameWithType: CommandService.AddTypeReader<T>(TypeReader)
+  fullName: Discord.Commands.CommandService.AddTypeReader<T>(Discord.Commands.TypeReader)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddTypeReader
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 336
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdds a custom <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to this <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> for the supplied object\ntype.\nIf <code data-dev-comment-type=\"typeparamref\" class=\"typeparamref\">T</code> is a <see cref=\"!:ValueType\"></see>, a nullable <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> will\nalso be added.\nIf a default <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> exists for <code data-dev-comment-type=\"typeparamref\" class=\"typeparamref\">T</code>, a warning will be logged\nand the default <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> will be replaced.\n"
+  example: []
+  syntax:
+    content: public void AddTypeReader<T>(TypeReader reader)
+    parameters:
+    - id: reader
+      type: Discord.Commands.TypeReader
+      description: An instance of the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref> to be added.
+    typeParameters:
+    - id: T
+      description: The object type to be read by the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub AddTypeReader(Of T)(reader As TypeReader)
+  overload: Discord.Commands.CommandService.AddTypeReader*
+  nameWithType.vb: CommandService.AddTypeReader(Of T)(TypeReader)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Discord.Commands.CommandService.AddTypeReader(Of T)(Discord.Commands.TypeReader)
+  name.vb: AddTypeReader(Of T)(TypeReader)
+- uid: Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader)
+  commentId: M:Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader)
+  id: AddTypeReader(Type,Discord.Commands.TypeReader)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddTypeReader(Type, TypeReader)
+  nameWithType: CommandService.AddTypeReader(Type, TypeReader)
+  fullName: Discord.Commands.CommandService.AddTypeReader(Type, Discord.Commands.TypeReader)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddTypeReader
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 348
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdds a custom <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to this <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> for the supplied object\ntype.\nIf <code data-dev-comment-type=\"paramref\" class=\"paramref\">type</code> is a <see cref=\"!:ValueType\"></see>, a nullable <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> for the\nvalue type will also be added.\nIf a default <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> exists for <code data-dev-comment-type=\"paramref\" class=\"paramref\">type</code>, a warning will be logged and\nthe default <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> will be replaced.\n"
+  example: []
+  syntax:
+    content: public void AddTypeReader(Type type, TypeReader reader)
+    parameters:
+    - id: type
+      type: Type
+      description: A <see cref="!:Type"></see> instance for the type to be read.
+    - id: reader
+      type: Discord.Commands.TypeReader
+      description: An instance of the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref> to be added.
+    content.vb: Public Sub AddTypeReader(type As Type, reader As TypeReader)
+  overload: Discord.Commands.CommandService.AddTypeReader*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader,System.Boolean)
+  commentId: M:Discord.Commands.CommandService.AddTypeReader``1(Discord.Commands.TypeReader,System.Boolean)
+  id: AddTypeReader``1(Discord.Commands.TypeReader,System.Boolean)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddTypeReader<T>(TypeReader, Boolean)
+  nameWithType: CommandService.AddTypeReader<T>(TypeReader, Boolean)
+  fullName: Discord.Commands.CommandService.AddTypeReader<T>(Discord.Commands.TypeReader, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddTypeReader
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 367
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdds a custom <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to this <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> for the supplied object\ntype.\nIf <code data-dev-comment-type=\"typeparamref\" class=\"typeparamref\">T</code> is a <see cref=\"!:ValueType\"></see>, a nullable <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> will\nalso be added.\n"
+  example: []
+  syntax:
+    content: public void AddTypeReader<T>(TypeReader reader, bool replaceDefault)
+    parameters:
+    - id: reader
+      type: Discord.Commands.TypeReader
+      description: An instance of the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref> to be added.
+    - id: replaceDefault
+      type: System.Boolean
+      description: "\nDefines whether the <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> should replace the default one for\n<see cref=\"!:Type\"></see> if it exists.\n"
+    typeParameters:
+    - id: T
+      description: The object type to be read by the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub AddTypeReader(Of T)(reader As TypeReader, replaceDefault As Boolean)
+  overload: Discord.Commands.CommandService.AddTypeReader*
+  nameWithType.vb: CommandService.AddTypeReader(Of T)(TypeReader, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Discord.Commands.CommandService.AddTypeReader(Of T)(Discord.Commands.TypeReader, System.Boolean)
+  name.vb: AddTypeReader(Of T)(TypeReader, Boolean)
+- uid: Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader,System.Boolean)
+  commentId: M:Discord.Commands.CommandService.AddTypeReader(Type,Discord.Commands.TypeReader,System.Boolean)
+  id: AddTypeReader(Type,Discord.Commands.TypeReader,System.Boolean)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: AddTypeReader(Type, TypeReader, Boolean)
+  nameWithType: CommandService.AddTypeReader(Type, TypeReader, Boolean)
+  fullName: Discord.Commands.CommandService.AddTypeReader(Type, Discord.Commands.TypeReader, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddTypeReader
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 381
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nAdds a custom <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> to this <xref href=\"Discord.Commands.CommandService\" data-throw-if-not-resolved=\"false\"></xref> for the supplied object\ntype.\nIf <code data-dev-comment-type=\"paramref\" class=\"paramref\">type</code> is a <see cref=\"!:ValueType\"></see>, a nullable <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> for the\nvalue type will also be added.\n"
+  example: []
+  syntax:
+    content: public void AddTypeReader(Type type, TypeReader reader, bool replaceDefault)
+    parameters:
+    - id: type
+      type: Type
+      description: A <see cref="!:Type"></see> instance for the type to be read.
+    - id: reader
+      type: Discord.Commands.TypeReader
+      description: An instance of the <xref href="Discord.Commands.TypeReader" data-throw-if-not-resolved="false"></xref> to be added.
+    - id: replaceDefault
+      type: System.Boolean
+      description: "\nDefines whether the <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref> should replace the default one for <see cref=\"!:Type\"></see> if\nit exists.\n"
+    content.vb: Public Sub AddTypeReader(type As Type, reader As TypeReader, replaceDefault As Boolean)
+  overload: Discord.Commands.CommandService.AddTypeReader*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.Int32)
+  commentId: M:Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.Int32)
+  id: Search(Discord.Commands.ICommandContext,System.Int32)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Search(ICommandContext, Int32)
+  nameWithType: CommandService.Search(ICommandContext, Int32)
+  fullName: Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Search
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 458
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nSearches for the command.\n"
+  example: []
+  syntax:
+    content: public SearchResult Search(ICommandContext context, int argPos)
+    parameters:
+    - id: context
+      type: Discord.Commands.ICommandContext
+      description: The context of the command.
+    - id: argPos
+      type: System.Int32
+      description: The position of which the command starts at.
+    return:
+      type: Discord.Commands.SearchResult
+      description: The result containing the matching commands.
+    content.vb: Public Function Search(context As ICommandContext, argPos As Integer) As SearchResult
+  overload: Discord.Commands.CommandService.Search*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.String)
+  commentId: M:Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext,System.String)
+  id: Search(Discord.Commands.ICommandContext,System.String)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Search(ICommandContext, String)
+  nameWithType: CommandService.Search(ICommandContext, String)
+  fullName: Discord.Commands.CommandService.Search(Discord.Commands.ICommandContext, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Search
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 466
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nSearches for the command.\n"
+  example: []
+  syntax:
+    content: public SearchResult Search(ICommandContext context, string input)
+    parameters:
+    - id: context
+      type: Discord.Commands.ICommandContext
+      description: The context of the command.
+    - id: input
+      type: System.String
+      description: The command string.
+    return:
+      type: Discord.Commands.SearchResult
+      description: The result containing the matching commands.
+    content.vb: Public Function Search(context As ICommandContext, input As String) As SearchResult
+  overload: Discord.Commands.CommandService.Search*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.Search(System.String)
+  commentId: M:Discord.Commands.CommandService.Search(System.String)
+  id: Search(System.String)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Search(String)
+  nameWithType: CommandService.Search(String)
+  fullName: Discord.Commands.CommandService.Search(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Search
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 468
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  syntax:
+    content: public SearchResult Search(string input)
+    parameters:
+    - id: input
+      type: System.String
+    return:
+      type: Discord.Commands.SearchResult
+    content.vb: Public Function Search(input As String) As SearchResult
+  overload: Discord.Commands.CommandService.Search*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.Int32,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  commentId: M:Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.Int32,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  id: ExecuteAsync(Discord.Commands.ICommandContext,System.Int32,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: ExecuteAsync(ICommandContext, Int32, IServiceProvider, MultiMatchHandling)
+  nameWithType: CommandService.ExecuteAsync(ICommandContext, Int32, IServiceProvider, MultiMatchHandling)
+  fullName: Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext, System.Int32, IServiceProvider, Discord.Commands.MultiMatchHandling)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ExecuteAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 490
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nExecutes the command.\n"
+  example: []
+  syntax:
+    content: public Task<IResult> ExecuteAsync(ICommandContext context, int argPos, IServiceProvider services, MultiMatchHandling multiMatchHandling = MultiMatchHandling.Exception)
+    parameters:
+    - id: context
+      type: Discord.Commands.ICommandContext
+      description: The context of the command.
+    - id: argPos
+      type: System.Int32
+      description: The position of which the command starts at.
+    - id: services
+      type: IServiceProvider
+      description: The service to be used in the command&apos;s dependency injection.
+    - id: multiMatchHandling
+      type: Discord.Commands.MultiMatchHandling
+      description: The handling mode when multiple command matches are found.
+    return:
+      type: Task{Discord.Commands.IResult}
+      description: "\nA task that represents the asynchronous execution operation. The task result contains the result of the\ncommand execution.\n"
+    content.vb: Public Function ExecuteAsync(context As ICommandContext, argPos As Integer, services As IServiceProvider, multiMatchHandling As MultiMatchHandling = MultiMatchHandling.Exception) As Task(Of IResult)
+  overload: Discord.Commands.CommandService.ExecuteAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.String,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  commentId: M:Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext,System.String,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  id: ExecuteAsync(Discord.Commands.ICommandContext,System.String,IServiceProvider,Discord.Commands.MultiMatchHandling)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: ExecuteAsync(ICommandContext, String, IServiceProvider, MultiMatchHandling)
+  nameWithType: CommandService.ExecuteAsync(ICommandContext, String, IServiceProvider, MultiMatchHandling)
+  fullName: Discord.Commands.CommandService.ExecuteAsync(Discord.Commands.ICommandContext, System.String, IServiceProvider, Discord.Commands.MultiMatchHandling)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ExecuteAsync
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 503
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nExecutes the command.\n"
+  example: []
+  syntax:
+    content: public Task<IResult> ExecuteAsync(ICommandContext context, string input, IServiceProvider services, MultiMatchHandling multiMatchHandling = MultiMatchHandling.Exception)
+    parameters:
+    - id: context
+      type: Discord.Commands.ICommandContext
+      description: The context of the command.
+    - id: input
+      type: System.String
+      description: The command string.
+    - id: services
+      type: IServiceProvider
+      description: The service to be used in the command&apos;s dependency injection.
+    - id: multiMatchHandling
+      type: Discord.Commands.MultiMatchHandling
+      description: The handling mode when multiple command matches are found.
+    return:
+      type: Task{Discord.Commands.IResult}
+      description: "\nA task that represents the asynchronous execution operation. The task result contains the result of the\ncommand execution.\n"
+    content.vb: Public Function ExecuteAsync(context As ICommandContext, input As String, services As IServiceProvider, multiMatchHandling As MultiMatchHandling = MultiMatchHandling.Exception) As Task(Of IResult)
+  overload: Discord.Commands.CommandService.ExecuteAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Commands.CommandService.Dispose(System.Boolean)
+  commentId: M:Discord.Commands.CommandService.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: Discord.Commands.CommandService
+  langs:
+  - csharp
+  - vb
+  name: Dispose(Boolean)
+  nameWithType: CommandService.Dispose(Boolean)
+  fullName: Discord.Commands.CommandService.Dispose(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/CommandService.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Dispose
+    path: ../src/Discord.Net.Commands/CommandService.cs
+    startLine: 605
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: Discord.Commands.CommandService.Dispose*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: Discord.Commands.ModuleBase
+  commentId: T:Discord.Commands.ModuleBase
+  name: ModuleBase
+  nameWithType: ModuleBase
+  fullName: Discord.Commands.ModuleBase
+- uid: Discord.Commands.Builders.ModuleBuilder
+  commentId: T:Discord.Commands.Builders.ModuleBuilder
+  parent: Discord.Commands.Builders
+  name: ModuleBuilder
+  nameWithType: ModuleBuilder
+  fullName: Discord.Commands.Builders.ModuleBuilder
+- uid: Discord.Commands.CommandService.Log
+  commentId: E:Discord.Commands.CommandService.Log
+  isExternal: true
+- uid: Discord.Commands.CommandService.CommandExecuted
+  commentId: E:Discord.Commands.CommandService.CommandExecuted
+  isExternal: true
+- uid: Discord.Commands
+  commentId: N:Discord.Commands
+  name: Discord.Commands
+  nameWithType: Discord.Commands
+  fullName: Discord.Commands
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.Commands.CommandService.Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.ICommandContext,IServiceProvider)
+  commentId: M:Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+  parent: Discord.Commands.CommandServiceExtensions
+  definition: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+  name: GetExecutableCommandsAsync(ICommandContext, IServiceProvider)
+  nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync(ICommandContext, IServiceProvider)
+  fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.ICommandContext, IServiceProvider)
+  spec.csharp:
+  - uid: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.ICommandContext,IServiceProvider)
+    name: GetExecutableCommandsAsync
+    nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync
+    fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.ICommandContext,IServiceProvider)
+    name: GetExecutableCommandsAsync
+    nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync
+    fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.Builders
+  commentId: N:Discord.Commands.Builders
+  name: Discord.Commands.Builders
+  nameWithType: Discord.Commands.Builders
+  fullName: Discord.Commands.Builders
+- uid: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+  commentId: M:Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+  isExternal: true
+  name: GetExecutableCommandsAsync(CommandService, ICommandContext, IServiceProvider)
+  nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync(CommandService, ICommandContext, IServiceProvider)
+  fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService, Discord.Commands.ICommandContext, IServiceProvider)
+  spec.csharp:
+  - uid: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+    name: GetExecutableCommandsAsync
+    nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync
+    fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.CommandService
+    name: CommandService
+    nameWithType: CommandService
+    fullName: Discord.Commands.CommandService
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync(Discord.Commands.CommandService,Discord.Commands.ICommandContext,IServiceProvider)
+    name: GetExecutableCommandsAsync
+    nameWithType: CommandServiceExtensions.GetExecutableCommandsAsync
+    fullName: Discord.Commands.CommandServiceExtensions.GetExecutableCommandsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Commands.CommandService
+    name: CommandService
+    nameWithType: CommandService
+    fullName: Discord.Commands.CommandService
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandServiceExtensions
+  commentId: T:Discord.Commands.CommandServiceExtensions
+  parent: Discord.Commands
+  name: CommandServiceExtensions
+  nameWithType: CommandServiceExtensions
+  fullName: Discord.Commands.CommandServiceExtensions
+- uid: Func{Discord.LogMessage,Task}
+  commentId: '!:Func{Discord.LogMessage,Task}'
+  definition: Func`2
+  name: Func<LogMessage, Task>
+  nameWithType: Func<LogMessage, Task>
+  fullName: Func<Discord.LogMessage, Task>
+  nameWithType.vb: Func(Of LogMessage, Task)
+  fullName.vb: Func(Of Discord.LogMessage, Task)
+  name.vb: Func(Of LogMessage, Task)
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Discord.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Discord.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`2
+  isExternal: true
+  name: Func<, >
+  nameWithType: Func<, >
+  fullName: Func<, >
+  nameWithType.vb: Func(Of , )
+  fullName.vb: Func(Of , )
+  name.vb: Func(Of , )
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func{Discord.Optional{Discord.Commands.CommandInfo},Discord.Commands.ICommandContext,Discord.Commands.IResult,Task}
+  commentId: '!:Func{Discord.Optional{Discord.Commands.CommandInfo},Discord.Commands.ICommandContext,Discord.Commands.IResult,Task}'
+  definition: Func`4
+  name: Func<Optional<CommandInfo>, ICommandContext, IResult, Task>
+  nameWithType: Func<Optional<CommandInfo>, ICommandContext, IResult, Task>
+  fullName: Func<Discord.Optional<Discord.Commands.CommandInfo>, Discord.Commands.ICommandContext, Discord.Commands.IResult, Task>
+  nameWithType.vb: Func(Of Optional(Of CommandInfo), ICommandContext, IResult, Task)
+  fullName.vb: Func(Of Discord.Optional(Of Discord.Commands.CommandInfo), Discord.Commands.ICommandContext, Discord.Commands.IResult, Task)
+  name.vb: Func(Of Optional(Of CommandInfo), ICommandContext, IResult, Task)
+  spec.csharp:
+  - uid: Func`4
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Optional`1
+    name: Optional
+    nameWithType: Optional
+    fullName: Discord.Optional
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.IResult
+    name: IResult
+    nameWithType: IResult
+    fullName: Discord.Commands.IResult
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`4
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Optional`1
+    name: Optional
+    nameWithType: Optional
+    fullName: Discord.Optional
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.ICommandContext
+    name: ICommandContext
+    nameWithType: ICommandContext
+    fullName: Discord.Commands.ICommandContext
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.IResult
+    name: IResult
+    nameWithType: IResult
+    fullName: Discord.Commands.IResult
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`4
+  isExternal: true
+  name: Func<, , , >
+  nameWithType: Func<, , , >
+  fullName: Func<, , , >
+  nameWithType.vb: Func(Of , , , )
+  fullName.vb: Func(Of , , , )
+  name.vb: Func(Of , , , )
+  spec.csharp:
+  - uid: Func`4
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`4
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService
+  commentId: T:Discord.Commands.CommandService
+  parent: Discord.Commands
+  name: CommandService
+  nameWithType: CommandService
+  fullName: Discord.Commands.CommandService
+- uid: Discord.Commands.CommandService.Modules*
+  commentId: Overload:Discord.Commands.CommandService.Modules
+  name: Modules
+  nameWithType: CommandService.Modules
+  fullName: Discord.Commands.CommandService.Modules
+- uid: IEnumerable{Discord.Commands.ModuleInfo}
+  commentId: '!:IEnumerable{Discord.Commands.ModuleInfo}'
+  definition: IEnumerable`1
+  name: IEnumerable<ModuleInfo>
+  nameWithType: IEnumerable<ModuleInfo>
+  fullName: IEnumerable<Discord.Commands.ModuleInfo>
+  nameWithType.vb: IEnumerable(Of ModuleInfo)
+  fullName.vb: IEnumerable(Of Discord.Commands.ModuleInfo)
+  name.vb: IEnumerable(Of ModuleInfo)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService.Commands*
+  commentId: Overload:Discord.Commands.CommandService.Commands
+  name: Commands
+  nameWithType: CommandService.Commands
+  fullName: Discord.Commands.CommandService.Commands
+- uid: IEnumerable{Discord.Commands.CommandInfo}
+  commentId: '!:IEnumerable{Discord.Commands.CommandInfo}'
+  definition: IEnumerable`1
+  name: IEnumerable<CommandInfo>
+  nameWithType: IEnumerable<CommandInfo>
+  fullName: IEnumerable<Discord.Commands.CommandInfo>
+  nameWithType.vb: IEnumerable(Of CommandInfo)
+  fullName.vb: IEnumerable(Of Discord.Commands.CommandInfo)
+  name.vb: IEnumerable(Of CommandInfo)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.CommandInfo
+    name: CommandInfo
+    nameWithType: CommandInfo
+    fullName: Discord.Commands.CommandInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.TypeReader
+  commentId: T:Discord.Commands.TypeReader
+  parent: Discord.Commands
+  name: TypeReader
+  nameWithType: TypeReader
+  fullName: Discord.Commands.TypeReader
+- uid: Discord.Commands.CommandService.TypeReaders*
+  commentId: Overload:Discord.Commands.CommandService.TypeReaders
+  name: TypeReaders
+  nameWithType: CommandService.TypeReaders
+  fullName: Discord.Commands.CommandService.TypeReaders
+- uid: ILookup{Type,Discord.Commands.TypeReader}
+  commentId: '!:ILookup{Type,Discord.Commands.TypeReader}'
+  definition: ILookup`2
+  name: ILookup<Type, TypeReader>
+  nameWithType: ILookup<Type, TypeReader>
+  fullName: ILookup<Type, Discord.Commands.TypeReader>
+  nameWithType.vb: ILookup(Of Type, TypeReader)
+  fullName.vb: ILookup(Of Type, Discord.Commands.TypeReader)
+  name.vb: ILookup(Of Type, TypeReader)
+  spec.csharp:
+  - uid: ILookup`2
+    name: ILookup
+    nameWithType: ILookup
+    fullName: ILookup
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Type
+    name: Type
+    nameWithType: Type
+    fullName: Type
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.TypeReader
+    name: TypeReader
+    nameWithType: TypeReader
+    fullName: Discord.Commands.TypeReader
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ILookup`2
+    name: ILookup
+    nameWithType: ILookup
+    fullName: ILookup
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Type
+    name: Type
+    nameWithType: Type
+    fullName: Type
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.Commands.TypeReader
+    name: TypeReader
+    nameWithType: TypeReader
+    fullName: Discord.Commands.TypeReader
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ILookup`2
+  commentId: '!:ILookup`2'
+  isExternal: true
+  name: ILookup<, >
+  nameWithType: ILookup<, >
+  fullName: ILookup<, >
+  nameWithType.vb: ILookup(Of , )
+  fullName.vb: ILookup(Of , )
+  name.vb: ILookup(Of , )
+  spec.csharp:
+  - uid: ILookup`2
+    name: ILookup
+    nameWithType: ILookup
+    fullName: ILookup
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ILookup`2
+    name: ILookup
+    nameWithType: ILookup
+    fullName: ILookup
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService.#ctor*
+  commentId: Overload:Discord.Commands.CommandService.#ctor
+  name: CommandService
+  nameWithType: CommandService.CommandService
+  fullName: Discord.Commands.CommandService.CommandService
+- uid: Discord.Commands.RunMode
+  commentId: T:Discord.Commands.RunMode
+  parent: Discord.Commands
+  name: RunMode
+  nameWithType: RunMode
+  fullName: Discord.Commands.RunMode
+- uid: Discord.Commands.RunMode.Default
+  commentId: F:Discord.Commands.RunMode.Default
+  isExternal: true
+- uid: Discord.Commands.CommandServiceConfig
+  commentId: T:Discord.Commands.CommandServiceConfig
+  parent: Discord.Commands
+  name: CommandServiceConfig
+  nameWithType: CommandServiceConfig
+  fullName: Discord.Commands.CommandServiceConfig
+- uid: Discord.Commands.CommandService.CreateModuleAsync*
+  commentId: Overload:Discord.Commands.CommandService.CreateModuleAsync
+  name: CreateModuleAsync
+  nameWithType: CommandService.CreateModuleAsync
+  fullName: Discord.Commands.CommandService.CreateModuleAsync
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Action{Discord.Commands.Builders.ModuleBuilder}
+  commentId: '!:Action{Discord.Commands.Builders.ModuleBuilder}'
+  definition: Action`1
+  name: Action<ModuleBuilder>
+  nameWithType: Action<ModuleBuilder>
+  fullName: Action<Discord.Commands.Builders.ModuleBuilder>
+  nameWithType.vb: Action(Of ModuleBuilder)
+  fullName.vb: Action(Of Discord.Commands.Builders.ModuleBuilder)
+  name.vb: Action(Of ModuleBuilder)
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.Builders.ModuleBuilder
+    name: ModuleBuilder
+    nameWithType: ModuleBuilder
+    fullName: Discord.Commands.Builders.ModuleBuilder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.Builders.ModuleBuilder
+    name: ModuleBuilder
+    nameWithType: ModuleBuilder
+    fullName: Discord.Commands.Builders.ModuleBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task{Discord.Commands.ModuleInfo}
+  commentId: '!:Task{Discord.Commands.ModuleInfo}'
+  definition: Task`1
+  name: Task<ModuleInfo>
+  nameWithType: Task<ModuleInfo>
+  fullName: Task<Discord.Commands.ModuleInfo>
+  nameWithType.vb: Task(Of ModuleInfo)
+  fullName.vb: Task(Of Discord.Commands.ModuleInfo)
+  name.vb: Task(Of ModuleInfo)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.ModuleInfo
+  commentId: T:Discord.Commands.ModuleInfo
+  parent: Discord.Commands
+  name: ModuleInfo
+  nameWithType: ModuleInfo
+  fullName: Discord.Commands.ModuleInfo
+- uid: Discord.Commands.CommandService.AddModuleAsync*
+  commentId: Overload:Discord.Commands.CommandService.AddModuleAsync
+  name: AddModuleAsync
+  nameWithType: CommandService.AddModuleAsync
+  fullName: Discord.Commands.CommandService.AddModuleAsync
+- uid: IServiceProvider
+  isExternal: true
+  name: IServiceProvider
+  nameWithType: IServiceProvider
+  fullName: IServiceProvider
+- uid: Type
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: Discord.Commands.CommandService.AddModulesAsync*
+  commentId: Overload:Discord.Commands.CommandService.AddModulesAsync
+  name: AddModulesAsync
+  nameWithType: CommandService.AddModulesAsync
+  fullName: Discord.Commands.CommandService.AddModulesAsync
+- uid: Assembly
+  commentId: '!:Assembly'
+  isExternal: true
+  name: Assembly
+  nameWithType: Assembly
+  fullName: Assembly
+- uid: Task{IEnumerable{Discord.Commands.ModuleInfo}}
+  commentId: '!:Task{IEnumerable{Discord.Commands.ModuleInfo}}'
+  definition: Task`1
+  name: Task<IEnumerable<ModuleInfo>>
+  nameWithType: Task<IEnumerable<ModuleInfo>>
+  fullName: Task<IEnumerable<Discord.Commands.ModuleInfo>>
+  nameWithType.vb: Task(Of IEnumerable(Of ModuleInfo))
+  fullName.vb: Task(Of IEnumerable(Of Discord.Commands.ModuleInfo))
+  name.vb: Task(Of IEnumerable(Of ModuleInfo))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.ModuleInfo
+    name: ModuleInfo
+    nameWithType: ModuleInfo
+    fullName: Discord.Commands.ModuleInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService.RemoveModuleAsync*
+  commentId: Overload:Discord.Commands.CommandService.RemoveModuleAsync
+  name: RemoveModuleAsync
+  nameWithType: CommandService.RemoveModuleAsync
+  fullName: Discord.Commands.CommandService.RemoveModuleAsync
+- uid: Task{System.Boolean}
+  commentId: '!:Task{System.Boolean}'
+  definition: Task`1
+  name: Task<Boolean>
+  nameWithType: Task<Boolean>
+  fullName: Task<System.Boolean>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: Task(Of System.Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService.AddTypeReader*
+  commentId: Overload:Discord.Commands.CommandService.AddTypeReader
+  name: AddTypeReader
+  nameWithType: CommandService.AddTypeReader
+  fullName: Discord.Commands.CommandService.AddTypeReader
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.Commands.CommandService.Search*
+  commentId: Overload:Discord.Commands.CommandService.Search
+  name: Search
+  nameWithType: CommandService.Search
+  fullName: Discord.Commands.CommandService.Search
+- uid: Discord.Commands.ICommandContext
+  commentId: T:Discord.Commands.ICommandContext
+  parent: Discord.Commands
+  name: ICommandContext
+  nameWithType: ICommandContext
+  fullName: Discord.Commands.ICommandContext
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Discord.Commands.SearchResult
+  commentId: T:Discord.Commands.SearchResult
+  parent: Discord.Commands
+  name: SearchResult
+  nameWithType: SearchResult
+  fullName: Discord.Commands.SearchResult
+- uid: Discord.Commands.CommandService.ExecuteAsync*
+  commentId: Overload:Discord.Commands.CommandService.ExecuteAsync
+  name: ExecuteAsync
+  nameWithType: CommandService.ExecuteAsync
+  fullName: Discord.Commands.CommandService.ExecuteAsync
+- uid: Discord.Commands.MultiMatchHandling
+  commentId: T:Discord.Commands.MultiMatchHandling
+  parent: Discord.Commands
+  name: MultiMatchHandling
+  nameWithType: MultiMatchHandling
+  fullName: Discord.Commands.MultiMatchHandling
+- uid: Task{Discord.Commands.IResult}
+  commentId: '!:Task{Discord.Commands.IResult}'
+  definition: Task`1
+  name: Task<IResult>
+  nameWithType: Task<IResult>
+  fullName: Task<Discord.Commands.IResult>
+  nameWithType.vb: Task(Of IResult)
+  fullName.vb: Task(Of Discord.Commands.IResult)
+  name.vb: Task(Of IResult)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.Commands.IResult
+    name: IResult
+    nameWithType: IResult
+    fullName: Discord.Commands.IResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.Commands.IResult
+    name: IResult
+    nameWithType: IResult
+    fullName: Discord.Commands.IResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Commands.CommandService.Dispose*
+  commentId: Overload:Discord.Commands.CommandService.Dispose
+  name: Dispose
+  nameWithType: CommandService.Dispose
+  fullName: Discord.Commands.CommandService.Dispose

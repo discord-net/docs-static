@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Deploying the Bot | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Deploying the Bot | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta name="description" content="After finishing your application, you may want to deploy your bot to a
+remote location such as a Virtual Private Server (VPS) or another
+computer s..."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Deployment">
+<h1 id="deploying-a-discordnet-bot">Deploying a Discord.Net Bot</h1>
+
+<p>After finishing your application, you may want to deploy your bot to a
+remote location such as a Virtual Private Server (VPS) or another
+computer so you can keep the bot up and running 24/7.</p>
+<h2 id="recommended-vps">Recommended VPS</h2>
+<p>For small-medium scaled bots, a cheap VPS (~$5) might be sufficient
+enough. Here is a list of recommended VPS provider.</p>
+<ul>
+<li><a href="https://www.digitalocean.com/">DigitalOcean</a><ul>
+<li>Description: American cloud infrastructure provider headquartered
+in New York City with data centers worldwide.</li>
+<li>Location(s):<ul>
+<li>Asia: Singapore, India</li>
+<li>America: Canada, United States</li>
+<li>Europe: Netherlands, Germany, United Kingdom</li>
+</ul>
+</li>
+<li>Based in: United States</li>
+</ul>
+</li>
+<li><a href="https://www.vultr.com/">Vultr</a><ul>
+<li>Description: DigitalOcean-like</li>
+<li>Location(s):<ul>
+<li>Asia: Japan, Australia, Singapore</li>
+<li>America: United States</li>
+<li>Europe: United Kingdom, France, Netherlands, Germany</li>
+</ul>
+</li>
+<li>Based in: United States</li>
+</ul>
+</li>
+<li><a href="https://www.ovh.com/">OVH</a><ul>
+<li>Description: French cloud computing company that offers VPS,
+dedicated servers and other web services.</li>
+<li>Location(s):<ul>
+<li>Asia: Australia, Singapore</li>
+<li>America: United States, Canada</li>
+<li>Europe: United Kingdom, Poland, Germany</li>
+</ul>
+</li>
+<li>Based in: Europe</li>
+</ul>
+</li>
+<li><a href="https://www.scaleway.com/">Scaleway</a><ul>
+<li>Description: Cheap but powerful VPS owned by <a href="https://online.net/">Online.net</a>.</li>
+<li>Location(s):<ul>
+<li>Europe: France, Netherlands</li>
+</ul>
+</li>
+<li>Based in: Europe</li>
+</ul>
+</li>
+<li><a href="https://www.time4vps.eu/">Time4VPS</a><ul>
+<li>Description: Affordable and powerful VPS Hosting in Europe.</li>
+<li>Location(s):<ul>
+<li>Europe: Lithuania</li>
+</ul>
+</li>
+<li>Based in: Europe</li>
+</ul>
+</li>
+</ul>
+<h2 id="net-core-deployment">.NET Core Deployment</h2>
+<div class="NOTE"><h5>Note</h5><p>This section only covers the very basics of .NET Core deployment.
+To learn more about .NET Core deployment, 
+visit <a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/">.NET Core application deployment</a> by Microsoft.</p>
+</div>
+<p>When redistributing the application - whether for deployment on a
+remote machine or for sharing with another user - you may want to
+publish the application; in other words, to create a
+self-contained package without installing the dependencies
+and the runtime on the target platform.</p>
+<h3 id="framework-dependent-deployment">Framework-dependent Deployment</h3>
+<p>To deploy a framework-dependent package (i.e. files to be used on a
+remote machine with the <code>dotnet</code> command), simply publish
+the package with:</p>
+<ul>
+<li><code>dotnet publish -c Release</code></li>
+</ul>
+<p>This will create a package with the <strong>least dependencies</strong>
+included with the application; however, the remote machine
+must have <code>dotnet</code> runtime installed before the remote could run the
+program.</p>
+<div class="TIP"><h5>Tip</h5><p>Do not know how to run a .NET Core application with 
+the <code>dotnet</code> runtime? Navigate to the folder of the program 
+(typically under <code>$projFolder/bin/Release</code>) and 
+enter <code>dotnet program.dll</code> where <code>program.dll</code> is your compiled
+binaries.</p>
+</div>
+<h3 id="self-contained-deployment">Self-contained Deployment</h3>
+<p>To deploy a self-contained package (i.e. files to be used on a remote
+machine without the <code>dotnet</code> runtime), publish with a specific
+<a href="https://docs.microsoft.com/en-us/dotnet/core/rid-catalog">Runtime ID</a> with the <code>-r</code> switch.</p>
+<p>This will create a package with dependencies compiled for the target
+platform, meaning that all the required dependencies will be included
+with the program. This will result in <strong>larger package size</strong>; 
+however, that means the copy of the runtime that can be run
+natively on the target platform.</p>
+<p>For example, the following command will create a Windows 
+executable (<code>.exe</code>) that is ready to be executed on any
+Windows 10 x64 based machine:</p>
+<ul>
+<li><code>dotnet publish -c Release -r win10-x64</code></li>
+</ul>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/guides/deployment/deployment.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

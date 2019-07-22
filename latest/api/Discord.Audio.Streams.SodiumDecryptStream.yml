@@ -1,0 +1,854 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Audio.Streams.SodiumDecryptStream
+  commentId: T:Discord.Audio.Streams.SodiumDecryptStream
+  id: SodiumDecryptStream
+  parent: Discord.Audio.Streams
+  children:
+  - Discord.Audio.Streams.SodiumDecryptStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient)
+  - Discord.Audio.Streams.SodiumDecryptStream.CanRead
+  - Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+  - Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+  - Discord.Audio.Streams.SodiumDecryptStream.ClearAsync(CancellationToken)
+  - Discord.Audio.Streams.SodiumDecryptStream.FlushAsync(CancellationToken)
+  - Discord.Audio.Streams.SodiumDecryptStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SodiumDecryptStream
+  nameWithType: SodiumDecryptStream
+  fullName: Discord.Audio.Streams.SodiumDecryptStream
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SodiumDecryptStream
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 9
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  summary: "\nDecrypts an RTP frame using libsodium.\n"
+  example: []
+  syntax:
+    content: 'public class SodiumDecryptStream : AudioOutStream'
+    content.vb: >-
+      Public Class SodiumDecryptStream
+          Inherits AudioOutStream
+  inheritance:
+  - System.Object
+  - Discord.Audio.AudioStream
+  - Discord.Audio.AudioOutStream
+  inheritedMembers:
+  - Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
+  - Discord.Audio.AudioOutStream.SetLength(System.Int64)
+  - Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+  - Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
+  - Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
+  - Discord.Audio.AudioStream.Flush
+  - Discord.Audio.AudioStream.Clear
+  - Discord.Audio.AudioStream.Length
+  - Discord.Audio.AudioStream.Position
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanRead
+  commentId: P:Discord.Audio.Streams.SodiumDecryptStream.CanRead
+  id: CanRead
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: CanRead
+  nameWithType: SodiumDecryptStream.CanRead
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanRead
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CanRead
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 15
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override bool CanRead { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property CanRead As Boolean
+  overridden: Discord.Audio.AudioStream.CanRead
+  overload: Discord.Audio.Streams.SodiumDecryptStream.CanRead*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+  commentId: P:Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+  id: CanSeek
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: CanSeek
+  nameWithType: SodiumDecryptStream.CanSeek
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CanSeek
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 16
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override bool CanSeek { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property CanSeek As Boolean
+  overridden: Discord.Audio.AudioStream.CanSeek
+  overload: Discord.Audio.Streams.SodiumDecryptStream.CanSeek*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+  commentId: P:Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+  id: CanWrite
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: CanWrite
+  nameWithType: SodiumDecryptStream.CanWrite
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CanWrite
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 17
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override bool CanWrite { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property CanWrite As Boolean
+  overridden: Discord.Audio.AudioOutStream.CanWrite
+  overload: Discord.Audio.Streams.SodiumDecryptStream.CanWrite*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: Discord.Audio.Streams.SodiumDecryptStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient)
+  commentId: M:Discord.Audio.Streams.SodiumDecryptStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient)
+  id: '#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient)'
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: SodiumDecryptStream(AudioStream, IAudioClient)
+  nameWithType: SodiumDecryptStream.SodiumDecryptStream(AudioStream, IAudioClient)
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.SodiumDecryptStream(Discord.Audio.AudioStream, Discord.Audio.IAudioClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: .ctor
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 19
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public SodiumDecryptStream(AudioStream next, IAudioClient client)
+    parameters:
+    - id: next
+      type: Discord.Audio.AudioStream
+    - id: client
+      type: Discord.Audio.IAudioClient
+    content.vb: Public Sub New(next As AudioStream, client As IAudioClient)
+  overload: Discord.Audio.Streams.SodiumDecryptStream.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  commentId: M:Discord.Audio.Streams.SodiumDecryptStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  id: WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: WriteAsync(Byte[], Int32, Int32, CancellationToken)
+  nameWithType: SodiumDecryptStream.WriteAsync(Byte[], Int32, Int32, CancellationToken)
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync(System.Byte[], System.Int32, System.Int32, CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: WriteAsync
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 26
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancelToken)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    - id: offset
+      type: System.Int32
+    - id: count
+      type: System.Int32
+    - id: cancelToken
+      type: CancellationToken
+    return:
+      type: Task
+    content.vb: Public Overrides Function WriteAsync(buffer As Byte(), offset As Integer, count As Integer, cancelToken As CancellationToken) As Task
+  overload: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync*
+  nameWithType.vb: SodiumDecryptStream.WriteAsync(Byte(), Int32, Int32, CancellationToken)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync(System.Byte(), System.Int32, System.Int32, CancellationToken)
+  name.vb: WriteAsync(Byte(), Int32, Int32, CancellationToken)
+- uid: Discord.Audio.Streams.SodiumDecryptStream.FlushAsync(CancellationToken)
+  commentId: M:Discord.Audio.Streams.SodiumDecryptStream.FlushAsync(CancellationToken)
+  id: FlushAsync(CancellationToken)
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: FlushAsync(CancellationToken)
+  nameWithType: SodiumDecryptStream.FlushAsync(CancellationToken)
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.FlushAsync(CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: FlushAsync
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 38
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override Task FlushAsync(CancellationToken cancelToken)
+    parameters:
+    - id: cancelToken
+      type: CancellationToken
+    return:
+      type: Task
+    content.vb: Public Overrides Function FlushAsync(cancelToken As CancellationToken) As Task
+  overload: Discord.Audio.Streams.SodiumDecryptStream.FlushAsync*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Discord.Audio.Streams.SodiumDecryptStream.ClearAsync(CancellationToken)
+  commentId: M:Discord.Audio.Streams.SodiumDecryptStream.ClearAsync(CancellationToken)
+  id: ClearAsync(CancellationToken)
+  parent: Discord.Audio.Streams.SodiumDecryptStream
+  langs:
+  - csharp
+  - vb
+  name: ClearAsync(CancellationToken)
+  nameWithType: SodiumDecryptStream.ClearAsync(CancellationToken)
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.ClearAsync(CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: ClearAsync
+    path: ../src/Discord.Net.WebSocket/Audio/Streams/SodiumDecryptStream.cs
+    startLine: 42
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.Audio.Streams
+  syntax:
+    content: public override Task ClearAsync(CancellationToken cancelToken)
+    parameters:
+    - id: cancelToken
+      type: CancellationToken
+    return:
+      type: Task
+    content.vb: Public Overrides Function ClearAsync(cancelToken As CancellationToken) As Task
+  overload: Discord.Audio.Streams.SodiumDecryptStream.ClearAsync*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Discord.Audio.Streams
+  commentId: N:Discord.Audio.Streams
+  name: Discord.Audio.Streams
+  nameWithType: Discord.Audio.Streams
+  fullName: Discord.Audio.Streams
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.Audio.AudioStream
+  commentId: T:Discord.Audio.AudioStream
+  parent: Discord.Audio
+  name: AudioStream
+  nameWithType: AudioStream
+  fullName: Discord.Audio.AudioStream
+- uid: Discord.Audio.AudioOutStream
+  commentId: T:Discord.Audio.AudioOutStream
+  parent: Discord.Audio
+  name: AudioOutStream
+  nameWithType: AudioOutStream
+  fullName: Discord.Audio.AudioOutStream
+- uid: Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
+  commentId: M:Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
+  parent: Discord.Audio.AudioOutStream
+  isExternal: true
+  name: Read(Byte[], Int32, Int32)
+  nameWithType: AudioOutStream.Read(Byte[], Int32, Int32)
+  fullName: Discord.Audio.AudioOutStream.Read(System.Byte[], System.Int32, System.Int32)
+  nameWithType.vb: AudioOutStream.Read(Byte(), Int32, Int32)
+  fullName.vb: Discord.Audio.AudioOutStream.Read(System.Byte(), System.Int32, System.Int32)
+  name.vb: Read(Byte(), Int32, Int32)
+  spec.csharp:
+  - uid: Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
+    name: Read
+    nameWithType: AudioOutStream.Read
+    fullName: Discord.Audio.AudioOutStream.Read
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
+    name: Read
+    nameWithType: AudioOutStream.Read
+    fullName: Discord.Audio.AudioOutStream.Read
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioOutStream.SetLength(System.Int64)
+  commentId: M:Discord.Audio.AudioOutStream.SetLength(System.Int64)
+  parent: Discord.Audio.AudioOutStream
+  isExternal: true
+  name: SetLength(Int64)
+  nameWithType: AudioOutStream.SetLength(Int64)
+  fullName: Discord.Audio.AudioOutStream.SetLength(System.Int64)
+  spec.csharp:
+  - uid: Discord.Audio.AudioOutStream.SetLength(System.Int64)
+    name: SetLength
+    nameWithType: AudioOutStream.SetLength
+    fullName: Discord.Audio.AudioOutStream.SetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioOutStream.SetLength(System.Int64)
+    name: SetLength
+    nameWithType: AudioOutStream.SetLength
+    fullName: Discord.Audio.AudioOutStream.SetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+  commentId: M:Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+  parent: Discord.Audio.AudioOutStream
+  isExternal: true
+  name: Seek(Int64, SeekOrigin)
+  nameWithType: AudioOutStream.Seek(Int64, SeekOrigin)
+  fullName: Discord.Audio.AudioOutStream.Seek(System.Int64, SeekOrigin)
+  spec.csharp:
+  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+    name: Seek
+    nameWithType: AudioOutStream.Seek
+    fullName: Discord.Audio.AudioOutStream.Seek
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: SeekOrigin
+    name: SeekOrigin
+    nameWithType: SeekOrigin
+    fullName: SeekOrigin
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+    name: Seek
+    nameWithType: AudioOutStream.Seek
+    fullName: Discord.Audio.AudioOutStream.Seek
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: SeekOrigin
+    name: SeekOrigin
+    nameWithType: SeekOrigin
+    fullName: SeekOrigin
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
+  commentId: M:Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
+  parent: Discord.Audio.AudioStream
+  isExternal: true
+  name: WriteHeader(UInt16, UInt32, Boolean)
+  nameWithType: AudioStream.WriteHeader(UInt16, UInt32, Boolean)
+  fullName: Discord.Audio.AudioStream.WriteHeader(System.UInt16, System.UInt32, System.Boolean)
+  spec.csharp:
+  - uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
+    name: WriteHeader
+    nameWithType: AudioStream.WriteHeader
+    fullName: Discord.Audio.AudioStream.WriteHeader
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt16
+    name: UInt16
+    nameWithType: UInt16
+    fullName: System.UInt16
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
+    name: WriteHeader
+    nameWithType: AudioStream.WriteHeader
+    fullName: Discord.Audio.AudioStream.WriteHeader
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt16
+    name: UInt16
+    nameWithType: UInt16
+    fullName: System.UInt16
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
+  commentId: M:Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
+  parent: Discord.Audio.AudioStream
+  isExternal: true
+  name: Write(Byte[], Int32, Int32)
+  nameWithType: AudioStream.Write(Byte[], Int32, Int32)
+  fullName: Discord.Audio.AudioStream.Write(System.Byte[], System.Int32, System.Int32)
+  nameWithType.vb: AudioStream.Write(Byte(), Int32, Int32)
+  fullName.vb: Discord.Audio.AudioStream.Write(System.Byte(), System.Int32, System.Int32)
+  name.vb: Write(Byte(), Int32, Int32)
+  spec.csharp:
+  - uid: Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: AudioStream.Write
+    fullName: Discord.Audio.AudioStream.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: AudioStream.Write
+    fullName: Discord.Audio.AudioStream.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioStream.Flush
+  commentId: M:Discord.Audio.AudioStream.Flush
+  parent: Discord.Audio.AudioStream
+  name: Flush()
+  nameWithType: AudioStream.Flush()
+  fullName: Discord.Audio.AudioStream.Flush()
+  spec.csharp:
+  - uid: Discord.Audio.AudioStream.Flush
+    name: Flush
+    nameWithType: AudioStream.Flush
+    fullName: Discord.Audio.AudioStream.Flush
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioStream.Flush
+    name: Flush
+    nameWithType: AudioStream.Flush
+    fullName: Discord.Audio.AudioStream.Flush
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioStream.Clear
+  commentId: M:Discord.Audio.AudioStream.Clear
+  parent: Discord.Audio.AudioStream
+  name: Clear()
+  nameWithType: AudioStream.Clear()
+  fullName: Discord.Audio.AudioStream.Clear()
+  spec.csharp:
+  - uid: Discord.Audio.AudioStream.Clear
+    name: Clear
+    nameWithType: AudioStream.Clear
+    fullName: Discord.Audio.AudioStream.Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Audio.AudioStream.Clear
+    name: Clear
+    nameWithType: AudioStream.Clear
+    fullName: Discord.Audio.AudioStream.Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Audio.AudioStream.Length
+  commentId: P:Discord.Audio.AudioStream.Length
+  parent: Discord.Audio.AudioStream
+  name: Length
+  nameWithType: AudioStream.Length
+  fullName: Discord.Audio.AudioStream.Length
+- uid: Discord.Audio.AudioStream.Position
+  commentId: P:Discord.Audio.AudioStream.Position
+  parent: Discord.Audio.AudioStream
+  name: Position
+  nameWithType: AudioStream.Position
+  fullName: Discord.Audio.AudioStream.Position
+- uid: Discord.Audio
+  commentId: N:Discord.Audio
+  name: Discord.Audio
+  nameWithType: Discord.Audio
+  fullName: Discord.Audio
+- uid: Discord.Audio.AudioStream.CanRead
+  commentId: P:Discord.Audio.AudioStream.CanRead
+  parent: Discord.Audio.AudioStream
+  name: CanRead
+  nameWithType: AudioStream.CanRead
+  fullName: Discord.Audio.AudioStream.CanRead
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanRead*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.CanRead
+  name: CanRead
+  nameWithType: SodiumDecryptStream.CanRead
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanRead
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.Audio.AudioStream.CanSeek
+  commentId: P:Discord.Audio.AudioStream.CanSeek
+  parent: Discord.Audio.AudioStream
+  name: CanSeek
+  nameWithType: AudioStream.CanSeek
+  fullName: Discord.Audio.AudioStream.CanSeek
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanSeek*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+  name: CanSeek
+  nameWithType: SodiumDecryptStream.CanSeek
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanSeek
+- uid: Discord.Audio.AudioOutStream.CanWrite
+  commentId: P:Discord.Audio.AudioOutStream.CanWrite
+  parent: Discord.Audio.AudioOutStream
+  name: CanWrite
+  nameWithType: AudioOutStream.CanWrite
+  fullName: Discord.Audio.AudioOutStream.CanWrite
+- uid: Discord.Audio.Streams.SodiumDecryptStream.CanWrite*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+  name: CanWrite
+  nameWithType: SodiumDecryptStream.CanWrite
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.CanWrite
+- uid: Discord.Audio.Streams.SodiumDecryptStream.#ctor*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.#ctor
+  name: SodiumDecryptStream
+  nameWithType: SodiumDecryptStream.SodiumDecryptStream
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.SodiumDecryptStream
+- uid: Discord.Audio.IAudioClient
+  commentId: T:Discord.Audio.IAudioClient
+  parent: Discord.Audio
+  name: IAudioClient
+  nameWithType: IAudioClient
+  fullName: Discord.Audio.IAudioClient
+- uid: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.WriteAsync
+  name: WriteAsync
+  nameWithType: SodiumDecryptStream.WriteAsync
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.WriteAsync
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Discord.Audio.Streams.SodiumDecryptStream.FlushAsync*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.FlushAsync
+  name: FlushAsync
+  nameWithType: SodiumDecryptStream.FlushAsync
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.FlushAsync
+- uid: Discord.Audio.Streams.SodiumDecryptStream.ClearAsync*
+  commentId: Overload:Discord.Audio.Streams.SodiumDecryptStream.ClearAsync
+  name: ClearAsync
+  nameWithType: SodiumDecryptStream.ClearAsync
+  fullName: Discord.Audio.Streams.SodiumDecryptStream.ClearAsync

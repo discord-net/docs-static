@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Working with Events | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Working with Events | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jordnkr/collapsible/master/collapsible.css"><meta name="description" content="Events in Discord.Net are consumed in a similar manner to the standard
+convention, with the exception that every event must be of the type
+Task and..."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Concepts.Events">
+<h1 id="events-in-discordnet">Events in Discord.Net</h1>
+
+<p>Events in Discord.Net are consumed in a similar manner to the standard
+convention, with the exception that every event must be of the type
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and instead of using <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>,
+the event&#39;s parameters are passed directly into the handler.</p>
+<p>This allows for events to be handled in an async context directly
+instead of relying on <code>async void</code>.</p>
+<h2 id="usage">Usage</h2>
+<p>To receive data from an event, hook into it using C#&#39;s delegate
+event pattern.</p>
+<p>You may either opt to hook an event to an anonymous function (lambda)
+or a named function.</p>
+<h2 id="safety">Safety</h2>
+<p>All events are designed to be thread-safe; events are executed
+synchronously off the gateway task in the same context as the gateway
+task.</p>
+<p>As a side effect, this makes it possible to deadlock the gateway task
+and kill a connection. As a general rule of thumb, any task that takes
+longer than three seconds should <strong>not</strong> be awaited directly in the
+context of an event, but should be wrapped in a <code>Task.Run</code> or
+offloaded to another task.</p>
+<p>This also means that you should not await a task that requests data
+from Discord&#39;s gateway in the same context of an event. Since the
+gateway will wait on all invoked event handlers to finish before
+processing any additional data from the gateway, this will create
+a deadlock that will be impossible to recover from.</p>
+<p>Exceptions in commands will be swallowed by the gateway and logged out
+through the client&#39;s log method.</p>
+<h2 id="common-patterns">Common Patterns</h2>
+<p>As you may know, events in Discord.Net are only given a signature of
+<code>Func&lt;T1, ..., Task&gt;</code>. There is no room for predefined argument names,
+so you must either consult IntelliSense, or view the API documentation
+directly.</p>
+<p>That being said, there are a variety of common patterns that allow you
+to infer what the parameters in an event mean.</p>
+<h3 id="entity-entity">Entity, Entity</h3>
+<p>An event handler with a signature of <code>Func&lt;Entity, Entity, Task&gt;</code>
+typically means that the first object will be a clone of the entity
+<em>before</em> a change was made, and the latter object will be an attached
+model of the entity <em>after</em> the change was made.</p>
+<p>This pattern is typically only found on <code>EntityUpdated</code> events.</p>
+<h3 id="cacheable">Cacheable</h3>
+<p>An event handler with a signature of <code>Func&lt;Cacheable, Entity, Task&gt;</code>
+means that the <code>before</code> state of the entity was not provided by the
+API, so it can either be pulled from the client&#39;s cache or
+downloaded from the API.</p>
+<p>See the documentation for <a href="xref:Discord.Cacheable`2">Cacheable</a> for more information on this
+object.</p>
+<div class="NOTE"><h5>Note</h5><p>Many events relating to a Message entity (i.e., <code>MessageUpdated</code> and
+<code>ReactionAdded</code>) rely on the client&#39;s message cache, which is
+<strong>not</strong> enabled by default. Set the <code>MessageCacheSize</code> flag in
+@Discord.WebSocket.DiscordSocketConfig to enable it.</p>
+</div>
+<h2 id="sample">Sample</h2>
+<pre><code class="lang-csharp" name="Event Sample">using Discord;
+using Discord.WebSocket;
+
+public class Program
+{
+	private DiscordSocketClient _client;
+	static void Main(string[] args) =&gt; new Program().MainAsync().GetAwaiter().GetResult();
+	
+	public async Task MainAsync()
+	{
+		// When working with events that have Cacheable&lt;IMessage, ulong&gt; parameters,
+		// you must enable the message cache in your config settings if you plan to
+		// use the cached message entity. 
+		var _config = new DiscordSocketConfig { MessageCacheSize = 100 };
+		_client = new DiscordSocketClient(_config);
+
+		await _client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable(&quot;DiscordToken&quot;));
+		await _client.StartAsync();
+
+		_client.MessageUpdated += MessageUpdated;
+		_client.Ready += () =&gt; 
+		{
+			Console.WriteLine(&quot;Bot is connected!&quot;);
+			return Task.CompletedTask;
+		}
+		
+		await Task.Delay(-1);
+	}
+
+	private async Task MessageUpdated(Cacheable&lt;IMessage, ulong&gt; before, SocketMessage after, ISocketMessageChannel channel)
+	{
+		// If the message was not in the cache, downloading it will result in getting a copy of `after`.
+		var message = await before.GetOrDownloadAsync();
+		Console.WriteLine($&quot;{message} -&gt; {after}&quot;);
+	}
+}
+</code></pre><hr><p>This page was last modified at 10/1/2018 5:44:33 AM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
+Commit:    ff0fea98a65d907fbce07856f1a9ef4aebb9108b
+</code></pre><pre><code class="xml">Documentation Overhaul (#1161)
+
+* Add XML docs
+
+* Clean up style switcher
+
+* Squash commits on branch docs/faq-n-patches
+
+* Fix broken theme selector
+
+* Add local image embed instruction
+
+* Add a bunch of XML docs
+
+* Add a bunch of XML docs
+
+* Fix broken search
++ DocFX by default ships with an older version of jQuery, switching to a newer version confuses parts of the DocFX Javascript.
+
+* Mi...</code></pre></div></div></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/guides/concepts/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  <script>
+  $( function() {
+    $( "#accordion" ).collapsible();
+  } );</script><script type="text/javascript" src="https://cdn.rawgit.com/jordnkr/collapsible/master/jquery.collapsible.min.js"></script></body>
+</html>

@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Questions about Basic Operations | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Questions about Basic Operations | Discord.Net Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta name="description" content="In the following section, you will find commonly asked questions and
+answers regarding basic usage of the library, as well as
+language-specific tip..."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FAQ.Basics.BasicOp">
+<h1 id="basic-operations-questions">Basic Operations Questions</h1>
+
+<p>In the following section, you will find commonly asked questions and
+answers regarding basic usage of the library, as well as
+language-specific tips when using this library.</p>
+<h2 id="how-should-i-safely-check-a-type">How should I safely check a type?</h2>
+<div class="WARNING"><h5>Warning</h5><p>Direct casting (e.g., <code>(Type)type</code>) is <strong>the least recommended</strong>
+way of casting, as it <em>can</em> throw an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.invalidcastexception">InvalidCastException</a>
+when the object isn&#39;t the desired type.</p>
+<p>Please refer to <a href="https://docs.microsoft.com/en-us/dotnet/csharp/how-to/safely-cast-using-pattern-matching-is-and-as-operators">this post</a> for more details.</p>
+</div>
+<p>In Discord.Net, the idea of polymorphism is used throughout. You may
+need to cast the object as a certain type before you can perform any
+action.</p>
+<p>A good and safe casting example:</p>
+<pre><code class="lang-csharp" name="Casting">public async Task MessageReceivedHandler(SocketMessage msg)
+{
+   // Option 1:
+   // Using the `as` keyword, which will return `null` if the object isn&#39;t the desired type.
+   var usermsg = msg as SocketUserMessage;
+   // We bail when the message isn&#39;t the desired type.
+   if (msg == null) return;
+   
+   // Option 2:
+   // Using the `is` keyword to cast (C#7 or above only)
+   if (msg is SocketUserMessage usermsg) 
+   {
+      // Do things
+   }
+}
+</code></pre><h2 id="how-do-i-send-a-message">How do I send a message?</h2>
+<div class="TIP"><h5>Tip</h5><p>The <a href="xref:Discord.WebSocket.DiscordSocketClient.GetChannel*">GetChannel</a> method by default returns an <a href="xref:Discord.IChannel">IChannel</a>, allowing
+channel types such as <a href="xref:Discord.IVoiceChannel">IVoiceChannel</a>, <a href="xref:Discord.ICategoryChannel">ICategoryChannel</a>
+to be returned; consequently, you cannot send a message
+to channels like those.</p>
+</div>
+<p>Any implementation of <a href="xref:Discord.IMessageChannel">IMessageChannel</a> has a <a href="xref:Discord.IMessageChannel.SendMessageAsync*">SendMessageAsync</a>
+method. You can get the channel via <a href="xref:Discord.WebSocket.DiscordSocketClient.GetChannel*">GetChannel</a> under the client.
+Remember, when using Discord.Net, polymorphism is a common recurring
+theme. This means an object may take in many shapes or form, which
+means casting is your friend. You should attempt to cast the channel
+as an <a href="xref:Discord.IMessageChannel">IMessageChannel</a> or any other entity that implements it to be
+able to message.</p>
+<h2 id="how-can-i-tell-if-a-message-is-from-x-y-z-channel">How can I tell if a message is from X, Y, Z channel?</h2>
+<p>You may check the message channel type. Visit <a class="xref" href="../misc/glossary.html#message-channels">Glossary</a> to see the
+various types of channels.</p>
+<h2 id="how-can-i-get-the-guild-from-a-message">How can I get the guild from a message?</h2>
+<p>There are 2 ways to do this. You can do either of the following,</p>
+<ol>
+<li>Cast the user as an <a href="xref:Discord.IGuildUser">IGuildUser</a> and use its <a href="xref:Discord.IGuild">IGuild</a> property.</li>
+<li>Cast the channel as an <a href="xref:Discord.IGuildChannel">IGuildChannel</a> and use its <a href="xref:Discord.IGuild">IGuild</a> property.</li>
+</ol>
+<h2 id="how-do-i-add-hyperlink-text-to-an-embed">How do I add hyperlink text to an embed?</h2>
+<p>Embeds can use standard <a href="https://support.discordapp.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-">markdown</a> in the description field as well
+as in field values. With that in mind, links can be added with
+<code>[text](link)</code>.</p>
+<h2 id="how-do-i-add-reactions-to-a-message">How do I add reactions to a message?</h2>
+<p>Any entity that implements <a href="xref:Discord.IUserMessage">IUserMessage</a> has an <a href="xref:Discord.IUserMessage.AddReactionAsync*">AddReactionAsync</a>
+method. This method expects an <a href="xref:Discord.IEmote">IEmote</a> as a parameter.
+In Discord.Net, an Emote represents a custom-image emote, while an
+Emoji is a Unicode emoji (standard emoji). Both <a href="xref:Discord.Emoji">Emoji</a> and <a href="xref:Discord.Emote">Emote</a>
+implement <a href="xref:Discord.IEmote">IEmote</a> and are valid options.</p>
+<div class="tabGroup" id="tabgroup_OhMpIq0oE6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_OhMpIq0oE6_emoji-others" role="tab" aria-controls="tabpanel_OhMpIq0oE6_emoji-others" data-tab="emoji-others" tabindex="0" aria-selected="true">Adding a reaction to another message</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_OhMpIq0oE6_emoji-self" role="tab" aria-controls="tabpanel_OhMpIq0oE6_emoji-self" data-tab="emoji-self" tabindex="-1">Adding a reaction to a sent message</a>
+</li>
+</ul>
+<section id="tabpanel_OhMpIq0oE6_emoji-others" role="tabpanel" data-tab="emoji-others">
+<pre><code class="lang-csharp" name="Emoji">// bail if the message is not a user one (system messages cannot have reactions)
+var usermsg = msg as IUserMessage;
+if (usermsg == null) return;
+
+// standard Unicode emojis
+Emoji emoji = new Emoji(&quot;&#128077;&quot;);
+// or
+// Emoji emoji = new Emoji(&quot;\uD83D\uDC4D&quot;);
+
+// custom guild emotes
+Emote emote = Emote.Parse(&quot;&lt;:dotnet:232902710280716288&gt;&quot;);  
+// using Emote.TryParse may be safer in regards to errors being thrown;
+// please note that the method does not verify if the emote exists,
+// it simply creates the Emote object for you.
+
+// add the reaction to the message
+await usermsg.AddReactionAsync(emoji); 
+await usermsg.AddReactionAsync(emote); 
+</code></pre></section>
+<section id="tabpanel_OhMpIq0oE6_emoji-self" role="tabpanel" data-tab="emoji-self" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-csharp" name="Emoji">// capture the message you&#39;re sending in a variable
+var msg = await channel.SendMessageAsync(&quot;This will have reactions added.&quot;);
+
+// standard Unicode emojis
+Emoji emoji = new Emoji(&quot;&#128077;&quot;);
+// or
+// Emoji emoji = new Emoji(&quot;\uD83D\uDC4D&quot;);
+
+// custom guild emotes
+Emote emote = Emote.Parse(&quot;&lt;:dotnet:232902710280716288&gt;&quot;);  
+// using Emote.TryParse may be safer in regards to errors being thrown;
+// please note that the method does not verify if the emote exists,
+// it simply creates the Emote object for you.
+
+// add the reaction to the message
+await msg.AddReactionAsync(emoji); 
+await msg.AddReactionAsync(emote); 
+</code></pre></section>
+</div>
+<h2 id="what-is-a-preemptive-rate-limit">What is a &quot;preemptive rate limit?&quot;</h2>
+<p>A preemptive rate limit is Discord.Net&#39;s way of telling you to slow
+down before you get hit by the real rate limit. Hitting a real rate
+limit might prevent your entire client from sending any requests for
+a period of time. This is calculated based on the HTTP header
+returned by a Discord response.</p>
+<h2 id="why-am-i-getting-so-many-preemptive-rate-limits-when-i-try-to-add-more-than-one-reactions">Why am I getting so many preemptive rate limits when I try to add more than one reactions?</h2>
+<p>This is due to how HTML header works, mistreating
+0.25sec/action to 1sec. This causes the lib to throw preemptive rate
+limit more frequently than it should for methods such as adding
+reactions.</p>
+<h2 id="can-i-opt-out-of-preemptive-rate-limits">Can I opt-out of preemptive rate limits?</h2>
+<p>Unfortunately, not at the moment. See <a href="https://github.com/RogueException/Discord.Net/issues/401">#401</a>.</p>
+<hr><p>This page was last modified at 7/22/2019 1:31:50 AM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/docs/docs/faq/basics/basic-operations.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.0.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

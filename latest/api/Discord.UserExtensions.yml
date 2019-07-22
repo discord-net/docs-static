@@ -1,0 +1,452 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.UserExtensions
+  commentId: T:Discord.UserExtensions
+  id: UserExtensions
+  parent: Discord
+  children:
+  - Discord.UserExtensions.BanAsync(Discord.IGuildUser,System.Int32,System.String,Discord.RequestOptions)
+  - Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  - Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: UserExtensions
+  nameWithType: UserExtensions
+  fullName: Discord.UserExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/UserExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: UserExtensions
+    path: ../src/Discord.Net.Core/Extensions/UserExtensions.cs
+    startLine: 7
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: 'An extension class for various Discord user objects. '
+  example: []
+  syntax:
+    content: 'public static class UserExtensions : object'
+    content.vb: >-
+      Public Module UserExtensions
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  id: SendMessageAsync(Discord.IUser,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.UserExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendMessageAsync(IUser, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendMessageAsync(IUser, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendMessageAsync(Discord.IUser, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/UserExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendMessageAsync
+    path: ../src/Discord.Net.Core/Extensions/UserExtensions.cs
+    startLine: 33
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nSends a message via DM.\n"
+  remarks: "\nThis method attempts to send a direct-message to the user.\n<div class=\"WARNING\"><h5>warning</h5><p>\n<p>\nPlease note that this method <strong>will</strong> throw an <xref href=\"Discord.Net.HttpException\" data-throw-if-not-resolved=\"false\"></xref>\nif the user cannot receive DMs due to privacy reasons or if the user has the sender blocked.\n</p>\n<p>\nYou may want to consider catching for <xref href=\"Discord.Net.HttpException.DiscordCode\" data-throw-if-not-resolved=\"false\"></xref> \n<code>50007</code> when using this method.\n</p>\n</p></div>\n"
+  example: []
+  syntax:
+    content: public static Task<IUserMessage> SendMessageAsync(this IUser user, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null)
+    parameters:
+    - id: user
+      type: Discord.IUser
+      description: The user to send the DM to.
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IUserMessage}
+      description: "\nA task that represents the asynchronous send operation. The task result contains the sent message.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function SendMessageAsync(user As IUser, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of IUserMessage)
+  overload: Discord.UserExtensions.SendMessageAsync*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  id: SendFileAsync(Discord.IUser,Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.UserExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(IUser, Stream, String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/UserExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendFileAsync
+    path: ../src/Discord.Net.Core/Extensions/UserExtensions.cs
+    startLine: 82
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nSends a file to this message channel with an optional caption.\n"
+  remarks: "\nThis method attempts to send an attachment as a direct-message to the user.\n<div class=\"WARNING\"><h5>warning</h5><p>\n<p>\nPlease note that this method <strong>will</strong> throw an <xref href=\"Discord.Net.HttpException\" data-throw-if-not-resolved=\"false\"></xref>\nif the user cannot receive DMs due to privacy reasons or if the user has the sender blocked.\n</p>\n<p>\nYou may want to consider catching for <xref href=\"Discord.Net.HttpException.DiscordCode\" data-throw-if-not-resolved=\"false\"></xref> \n<code>50007</code> when using this method.\n</p>\n</p></div>\n<div class=\"NOTE\"><h5>note</h5><p>\n    If you wish to upload an image and have it embedded in a <xref href=\"Discord.EmbedType.Rich\" data-throw-if-not-resolved=\"false\"></xref> embed,\n    you may upload the file and refer to the file with &quot;attachment://filename.ext&quot; in the\n<xref href=\"Discord.EmbedBuilder.ImageUrl\" data-throw-if-not-resolved=\"false\"></xref>. See the example section for its usage.\n</p></div>\n"
+  example:
+  - "\nThe following example uploads a streamed image that will be called <code>b1nzy.jpg</code> embedded inside a\nrich embed to the channel.\n<pre><code class=\"lang-cs\">await channel.SendFileAsync(b1nzyStream, &quot;b1nzy.jpg&quot;,\n    embed: new EmbedBuilder {ImageUrl = &quot;attachment://b1nzy.jpg&quot;}.Build());</code></pre>\n"
+  syntax:
+    content: public static Task<IUserMessage> SendFileAsync(this IUser user, Stream stream, string filename, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null)
+    parameters:
+    - id: user
+      type: Discord.IUser
+      description: The user to send the DM to.
+    - id: stream
+      type: Stream
+      description: The <see cref="!:Stream"></see> of the file to be sent.
+    - id: filename
+      type: System.String
+      description: The name of the attachment.
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IUserMessage}
+      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function SendFileAsync(user As IUser, stream As Stream, filename As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of IUserMessage)
+  overload: Discord.UserExtensions.SendFileAsync*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  id: SendFileAsync(Discord.IUser,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.UserExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendFileAsync(IUser, String, String, Boolean, Embed, RequestOptions)
+  nameWithType: UserExtensions.SendFileAsync(IUser, String, String, Boolean, Embed, RequestOptions)
+  fullName: Discord.UserExtensions.SendFileAsync(Discord.IUser, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/UserExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: SendFileAsync
+    path: ../src/Discord.Net.Core/Extensions/UserExtensions.cs
+    startLine: 139
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nSends a file via DM with an optional caption.\n"
+  remarks: "\nThis method attempts to send an attachment as a direct-message to the user.\n<div class=\"WARNING\"><h5>warning</h5><p>\n<p>\nPlease note that this method <strong>will</strong> throw an <xref href=\"Discord.Net.HttpException\" data-throw-if-not-resolved=\"false\"></xref>\nif the user cannot receive DMs due to privacy reasons or if the user has the sender blocked.\n</p>\n<p>\nYou may want to consider catching for <xref href=\"Discord.Net.HttpException.DiscordCode\" data-throw-if-not-resolved=\"false\"></xref> \n<code>50007</code> when using this method.\n</p>\n</p></div>\n<div class=\"NOTE\"><h5>note</h5><p>\n    If you wish to upload an image and have it embedded in a <xref href=\"Discord.EmbedType.Rich\" data-throw-if-not-resolved=\"false\"></xref> embed,\n    you may upload the file and refer to the file with &quot;attachment://filename.ext&quot; in the\n<xref href=\"Discord.EmbedBuilder.ImageUrl\" data-throw-if-not-resolved=\"false\"></xref>. See the example section for its usage.\n</p></div>\n"
+  example:
+  - "\nThe following example uploads a local file called <code>wumpus.txt</code> along with the text \n<code>good discord boi</code> to the channel.\n<pre><code class=\"lang-cs\">await channel.SendFileAsync(&quot;wumpus.txt&quot;, &quot;good discord boi&quot;);</code></pre>\n\nThe following example uploads a local image called <code>b1nzy.jpg</code> embedded inside a rich embed to the\nchannel.\n<pre><code class=\"lang-cs\">await channel.SendFileAsync(&quot;b1nzy.jpg&quot;,\n    embed: new EmbedBuilder {ImageUrl = &quot;attachment://b1nzy.jpg&quot;}.Build());</code></pre>\n"
+  syntax:
+    content: public static Task<IUserMessage> SendFileAsync(this IUser user, string filePath, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null)
+    parameters:
+    - id: user
+      type: Discord.IUser
+      description: The user to send the DM to.
+    - id: filePath
+      type: System.String
+      description: The file path of the file.
+    - id: text
+      type: System.String
+      description: The message to be sent.
+    - id: isTTS
+      type: System.Boolean
+      description: Whether the message should be read aloud by Discord or not.
+    - id: embed
+      type: Discord.Embed
+      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task{Discord.IUserMessage}
+      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function SendFileAsync(user As IUser, filePath As String, text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of IUserMessage)
+  overload: Discord.UserExtensions.SendFileAsync*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.UserExtensions.BanAsync(Discord.IGuildUser,System.Int32,System.String,Discord.RequestOptions)
+  commentId: M:Discord.UserExtensions.BanAsync(Discord.IGuildUser,System.Int32,System.String,Discord.RequestOptions)
+  id: BanAsync(Discord.IGuildUser,System.Int32,System.String,Discord.RequestOptions)
+  isExtensionMethod: true
+  parent: Discord.UserExtensions
+  langs:
+  - csharp
+  - vb
+  name: BanAsync(IGuildUser, Int32, String, RequestOptions)
+  nameWithType: UserExtensions.BanAsync(IGuildUser, Int32, String, RequestOptions)
+  fullName: Discord.UserExtensions.BanAsync(Discord.IGuildUser, System.Int32, System.String, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Extensions/UserExtensions.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: BanAsync
+    path: ../src/Discord.Net.Core/Extensions/UserExtensions.cs
+    startLine: 160
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nBans the user from the guild and optionally prunes their recent messages.\n"
+  example: []
+  syntax:
+    content: public static Task BanAsync(this IGuildUser user, int pruneDays = 0, string reason = null, RequestOptions options = null)
+    parameters:
+    - id: user
+      type: Discord.IGuildUser
+      description: The user to ban.
+    - id: pruneDays
+      type: System.Int32
+      description: The number of days to remove messages from this <code data-dev-comment-type="paramref" class="paramref">user</code> for - must be between [0, 7]
+    - id: reason
+      type: System.String
+      description: The reason of the ban to be written in the audit log.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: Task
+      description: "\nA task that represents the asynchronous operation for banning a user.\n"
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function BanAsync(user As IGuildUser, pruneDays As Integer = 0, reason As String = Nothing, options As RequestOptions = Nothing) As Task
+  overload: Discord.UserExtensions.BanAsync*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.Net.HttpException
+  commentId: T:Discord.Net.HttpException
+  name: HttpException
+  nameWithType: HttpException
+  fullName: Discord.Net.HttpException
+- uid: Discord.Net.HttpException.DiscordCode
+  commentId: P:Discord.Net.HttpException.DiscordCode
+  isExternal: true
+- uid: Discord.EmbedType.Rich
+  commentId: F:Discord.EmbedType.Rich
+  isExternal: true
+- uid: Discord.Embed
+  commentId: T:Discord.Embed
+  parent: Discord
+  name: Embed
+  nameWithType: Embed
+  fullName: Discord.Embed
+- uid: Discord.UserExtensions.SendMessageAsync*
+  commentId: Overload:Discord.UserExtensions.SendMessageAsync
+  name: SendMessageAsync
+  nameWithType: UserExtensions.SendMessageAsync
+  fullName: Discord.UserExtensions.SendMessageAsync
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task{Discord.IUserMessage}
+  commentId: '!:Task{Discord.IUserMessage}'
+  definition: Task`1
+  name: Task<IUserMessage>
+  nameWithType: Task<IUserMessage>
+  fullName: Task<Discord.IUserMessage>
+  nameWithType.vb: Task(Of IUserMessage)
+  fullName.vb: Task(Of Discord.IUserMessage)
+  name.vb: Task(Of IUserMessage)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IUserMessage
+    name: IUserMessage
+    nameWithType: IUserMessage
+    fullName: Discord.IUserMessage
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IUserMessage
+    name: IUserMessage
+    nameWithType: IUserMessage
+    fullName: Discord.IUserMessage
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.EmbedBuilder.ImageUrl
+  commentId: P:Discord.EmbedBuilder.ImageUrl
+  isExternal: true
+- uid: Discord.UserExtensions.SendFileAsync*
+  commentId: Overload:Discord.UserExtensions.SendFileAsync
+  name: SendFileAsync
+  nameWithType: UserExtensions.SendFileAsync
+  fullName: Discord.UserExtensions.SendFileAsync
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Discord.UserExtensions.BanAsync*
+  commentId: Overload:Discord.UserExtensions.BanAsync
+  name: BanAsync
+  nameWithType: UserExtensions.BanAsync
+  fullName: Discord.UserExtensions.BanAsync
+- uid: Discord.IGuildUser
+  commentId: T:Discord.IGuildUser
+  parent: Discord
+  name: IGuildUser
+  nameWithType: IGuildUser
+  fullName: Discord.IGuildUser
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task

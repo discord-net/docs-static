@@ -1,0 +1,1162 @@
+### YamlMime:ManagedReference
+items:
+- uid: Discord.Rest.BaseDiscordClient
+  commentId: T:Discord.Rest.BaseDiscordClient
+  id: BaseDiscordClient
+  parent: Discord.Rest
+  children:
+  - Discord.Rest.BaseDiscordClient.CurrentUser
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  - Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  - Discord.Rest.BaseDiscordClient.Dispose
+  - Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  - Discord.Rest.BaseDiscordClient.Log
+  - Discord.Rest.BaseDiscordClient.LoggedIn
+  - Discord.Rest.BaseDiscordClient.LoggedOut
+  - Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  - Discord.Rest.BaseDiscordClient.LoginState
+  - Discord.Rest.BaseDiscordClient.LogoutAsync
+  - Discord.Rest.BaseDiscordClient.TokenType
+  langs:
+  - csharp
+  - vb
+  name: BaseDiscordClient
+  nameWithType: BaseDiscordClient
+  fullName: Discord.Rest.BaseDiscordClient
+  type: Class
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: BaseDiscordClient
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 10
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: 'public abstract class BaseDiscordClient : object, IDiscordClient, IDisposable'
+    content.vb: >-
+      Public MustInherit Class BaseDiscordClient
+          Inherits Object
+          Implements IDiscordClient, IDisposable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Discord.Rest.DiscordRestClient
+  - Discord.WebSocket.BaseSocketClient
+  implements:
+  - Discord.IDiscordClient
+  - IDisposable
+  extensionMethods:
+  - Discord.Rest.BaseDiscordClient.Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Discord.Rest.BaseDiscordClient.Log
+  commentId: E:Discord.Rest.BaseDiscordClient.Log
+  id: Log
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: BaseDiscordClient.Log
+  fullName: Discord.Rest.BaseDiscordClient.Log
+  type: Event
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Log
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 12
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public event Func<LogMessage, Task> Log
+    return:
+      type: Func{Discord.LogMessage,Task}
+    content.vb: Public Event Log As Func(Of LogMessage, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.LoggedIn
+  commentId: E:Discord.Rest.BaseDiscordClient.LoggedIn
+  id: LoggedIn
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: LoggedIn
+  nameWithType: BaseDiscordClient.LoggedIn
+  fullName: Discord.Rest.BaseDiscordClient.LoggedIn
+  type: Event
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LoggedIn
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 15
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public event Func<Task> LoggedIn
+    return:
+      type: Func{Task}
+    content.vb: Public Event LoggedIn As Func(Of Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.LoggedOut
+  commentId: E:Discord.Rest.BaseDiscordClient.LoggedOut
+  id: LoggedOut
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: LoggedOut
+  nameWithType: BaseDiscordClient.LoggedOut
+  fullName: Discord.Rest.BaseDiscordClient.LoggedOut
+  type: Event
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LoggedOut
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 17
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public event Func<Task> LoggedOut
+    return:
+      type: Func{Task}
+    content.vb: Public Event LoggedOut As Func(Of Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.LoginState
+  commentId: P:Discord.Rest.BaseDiscordClient.LoginState
+  id: LoginState
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: LoginState
+  nameWithType: BaseDiscordClient.LoginState
+  fullName: Discord.Rest.BaseDiscordClient.LoginState
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LoginState
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 29
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the login state of the client.\n"
+  example: []
+  syntax:
+    content: public LoginState LoginState { get; }
+    parameters: []
+    return:
+      type: Discord.LoginState
+    content.vb: Public ReadOnly Property LoginState As LoginState
+  overload: Discord.Rest.BaseDiscordClient.LoginState*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Rest.BaseDiscordClient.CurrentUser
+  commentId: P:Discord.Rest.BaseDiscordClient.CurrentUser
+  id: CurrentUser
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: CurrentUser
+  nameWithType: BaseDiscordClient.CurrentUser
+  fullName: Discord.Rest.BaseDiscordClient.CurrentUser
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: CurrentUser
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 33
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the logged-in user.\n"
+  example: []
+  syntax:
+    content: public ISelfUser CurrentUser { get; protected set; }
+    parameters: []
+    return:
+      type: Discord.ISelfUser
+    content.vb: Public Property CurrentUser As ISelfUser
+  overload: Discord.Rest.BaseDiscordClient.CurrentUser*
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+- uid: Discord.Rest.BaseDiscordClient.TokenType
+  commentId: P:Discord.Rest.BaseDiscordClient.TokenType
+  id: TokenType
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: TokenType
+  nameWithType: BaseDiscordClient.TokenType
+  fullName: Discord.Rest.BaseDiscordClient.TokenType
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: TokenType
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 35
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the token type of the logged-in user.\n"
+  example: []
+  syntax:
+    content: public TokenType TokenType { get; }
+    parameters: []
+    return:
+      type: Discord.TokenType
+    content.vb: Public ReadOnly Property TokenType As TokenType
+  overload: Discord.Rest.BaseDiscordClient.TokenType*
+  implements:
+  - Discord.IDiscordClient.TokenType
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  commentId: M:Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  id: LoginAsync(Discord.TokenType,System.String,System.Boolean)
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: LoginAsync(TokenType, String, Boolean)
+  nameWithType: BaseDiscordClient.LoginAsync(TokenType, String, Boolean)
+  fullName: Discord.Rest.BaseDiscordClient.LoginAsync(Discord.TokenType, System.String, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LoginAsync
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 58
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task LoginAsync(TokenType tokenType, string token, bool validateToken = true)
+    parameters:
+    - id: tokenType
+      type: Discord.TokenType
+    - id: token
+      type: System.String
+    - id: validateToken
+      type: System.Boolean
+    return:
+      type: Task
+    content.vb: Public Function LoginAsync(tokenType As TokenType, token As String, validateToken As Boolean = True) As Task
+  overload: Discord.Rest.BaseDiscordClient.LoginAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.LogoutAsync
+  commentId: M:Discord.Rest.BaseDiscordClient.LogoutAsync
+  id: LogoutAsync
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: LogoutAsync()
+  nameWithType: BaseDiscordClient.LogoutAsync()
+  fullName: Discord.Rest.BaseDiscordClient.LogoutAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: LogoutAsync
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 111
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  syntax:
+    content: public Task LogoutAsync()
+    return:
+      type: Task
+    content.vb: Public Function LogoutAsync As Task
+  overload: Discord.Rest.BaseDiscordClient.LogoutAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.Dispose
+  commentId: M:Discord.Rest.BaseDiscordClient.Dispose
+  id: Dispose
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: BaseDiscordClient.Dispose()
+  fullName: Discord.Rest.BaseDiscordClient.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Dispose
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 148
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose
+  overload: Discord.Rest.BaseDiscordClient.Dispose*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  commentId: M:Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  id: GetRecommendedShardCountAsync(Discord.RequestOptions)
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: GetRecommendedShardCountAsync(RequestOptions)
+  nameWithType: BaseDiscordClient.GetRecommendedShardCountAsync(RequestOptions)
+  fullName: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetRecommendedShardCountAsync
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 151
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  example: []
+  syntax:
+    content: public Task<int> GetRecommendedShardCountAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+    return:
+      type: Task{System.Int32}
+    content.vb: Public Function GetRecommendedShardCountAsync(options As RequestOptions = Nothing) As Task(Of Integer)
+  overload: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  commentId: P:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  id: Discord#IDiscordClient#ConnectionState
+  isEii: true
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: IDiscordClient.ConnectionState
+  nameWithType: BaseDiscordClient.IDiscordClient.ConnectionState
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IDiscordClient.ConnectionState
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 156
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the current state of connection.\n"
+  example: []
+  syntax:
+    content: ConnectionState IDiscordClient.ConnectionState { get; }
+    parameters: []
+    return:
+      type: Discord.ConnectionState
+    content.vb: ReadOnly WriteOnly Property Discord.IDiscordClient.ConnectionState As ConnectionState Implements IDiscordClient.ConnectionState
+  overload: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState*
+  implements:
+  - Discord.IDiscordClient.ConnectionState
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IDiscordClient.ConnectionState
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  commentId: P:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  id: Discord#IDiscordClient#CurrentUser
+  isEii: true
+  parent: Discord.Rest.BaseDiscordClient
+  langs:
+  - csharp
+  - vb
+  name: IDiscordClient.CurrentUser
+  nameWithType: BaseDiscordClient.IDiscordClient.CurrentUser
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/BaseDiscordClient.cs
+      branch: docs
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IDiscordClient.CurrentUser
+    path: ../src/Discord.Net.Rest/BaseDiscordClient.cs
+    startLine: 158
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the currently logged-in user.\n"
+  example: []
+  syntax:
+    content: ISelfUser IDiscordClient.CurrentUser { get; }
+    parameters: []
+    return:
+      type: Discord.ISelfUser
+    content.vb: ReadOnly WriteOnly Property Discord.IDiscordClient.CurrentUser As ISelfUser Implements IDiscordClient.CurrentUser
+  overload: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser*
+  implements:
+  - Discord.IDiscordClient.CurrentUser
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IDiscordClient.CurrentUser
+references:
+- uid: Discord.Rest
+  commentId: N:Discord.Rest
+  name: Discord.Rest
+  nameWithType: Discord.Rest
+  fullName: Discord.Rest
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Discord.IDiscordClient
+  commentId: T:Discord.IDiscordClient
+  parent: Discord
+  name: IDiscordClient
+  nameWithType: IDiscordClient
+  fullName: Discord.IDiscordClient
+- uid: IDisposable
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: IDisposable
+- uid: Discord.Rest.BaseDiscordClient.Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  parent: Discord.Rest.ClientExtensions
+  definition: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  name: AddGuildUserAsync(UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  nameWithType: ClientExtensions.AddGuildUserAsync(UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64, System.UInt64, System.String, Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
+  nameWithType.vb: ClientExtensions.AddGuildUserAsync(UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  fullName.vb: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64, System.UInt64, System.String, Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
+  name.vb: AddGuildUserAsync(UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
+- uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+  isExternal: true
+  name: AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  nameWithType: ClientExtensions.AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action<AddGuildUserProperties>, RequestOptions)
+  fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient, System.UInt64, System.UInt64, System.String, Action<Discord.AddGuildUserProperties>, Discord.RequestOptions)
+  nameWithType.vb: ClientExtensions.AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  fullName.vb: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient, System.UInt64, System.UInt64, System.String, Action(Of Discord.AddGuildUserProperties), Discord.RequestOptions)
+  name.vb: AddGuildUserAsync(BaseDiscordClient, UInt64, UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)
+  spec.csharp:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Rest.BaseDiscordClient
+    name: BaseDiscordClient
+    nameWithType: BaseDiscordClient
+    fullName: Discord.Rest.BaseDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.Rest.ClientExtensions.AddGuildUserAsync(Discord.Rest.BaseDiscordClient,System.UInt64,System.UInt64,System.String,Action{Discord.AddGuildUserProperties},Discord.RequestOptions)
+    name: AddGuildUserAsync
+    nameWithType: ClientExtensions.AddGuildUserAsync
+    fullName: Discord.Rest.ClientExtensions.AddGuildUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.Rest.BaseDiscordClient
+    name: BaseDiscordClient
+    nameWithType: BaseDiscordClient
+    fullName: Discord.Rest.BaseDiscordClient
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Action`1
+    name: Action
+    nameWithType: Action
+    fullName: Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.AddGuildUserProperties
+    name: AddGuildUserProperties
+    nameWithType: AddGuildUserProperties
+    fullName: Discord.AddGuildUserProperties
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.ClientExtensions
+  commentId: T:Discord.Rest.ClientExtensions
+  parent: Discord.Rest
+  name: ClientExtensions
+  nameWithType: ClientExtensions
+  fullName: Discord.Rest.ClientExtensions
+- uid: Func{Discord.LogMessage,Task}
+  commentId: '!:Func{Discord.LogMessage,Task}'
+  definition: Func`2
+  name: Func<LogMessage, Task>
+  nameWithType: Func<LogMessage, Task>
+  fullName: Func<Discord.LogMessage, Task>
+  nameWithType.vb: Func(Of LogMessage, Task)
+  fullName.vb: Func(Of Discord.LogMessage, Task)
+  name.vb: Func(Of LogMessage, Task)
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Discord.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Discord.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`2
+  isExternal: true
+  name: Func<, >
+  nameWithType: Func<, >
+  fullName: Func<, >
+  nameWithType.vb: Func(Of , )
+  fullName.vb: Func(Of , )
+  name.vb: Func(Of , )
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func{Task}
+  commentId: '!:Func{Task}'
+  definition: Func`1
+  name: Func<Task>
+  nameWithType: Func<Task>
+  fullName: Func<Task>
+  nameWithType.vb: Func(Of Task)
+  fullName.vb: Func(Of Task)
+  name.vb: Func(Of Task)
+  spec.csharp:
+  - uid: Func`1
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`1
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Task
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`1
+  isExternal: true
+  name: Func<>
+  nameWithType: Func<>
+  fullName: Func<>
+  nameWithType.vb: Func(Of )
+  fullName.vb: Func(Of )
+  name.vb: Func(Of )
+  spec.csharp:
+  - uid: Func`1
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`1
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.LoginState*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.LoginState
+  name: LoginState
+  nameWithType: BaseDiscordClient.LoginState
+  fullName: Discord.Rest.BaseDiscordClient.LoginState
+- uid: Discord.LoginState
+  commentId: T:Discord.LoginState
+  parent: Discord
+  name: LoginState
+  nameWithType: LoginState
+  fullName: Discord.LoginState
+- uid: Discord.Rest.BaseDiscordClient.CurrentUser*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.CurrentUser
+  name: CurrentUser
+  nameWithType: BaseDiscordClient.CurrentUser
+  fullName: Discord.Rest.BaseDiscordClient.CurrentUser
+- uid: Discord.ISelfUser
+  commentId: T:Discord.ISelfUser
+  parent: Discord
+  name: ISelfUser
+  nameWithType: ISelfUser
+  fullName: Discord.ISelfUser
+- uid: Discord.Rest.BaseDiscordClient.TokenType*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.TokenType
+  name: TokenType
+  nameWithType: BaseDiscordClient.TokenType
+  fullName: Discord.Rest.BaseDiscordClient.TokenType
+- uid: Discord.IDiscordClient.TokenType
+  commentId: P:Discord.IDiscordClient.TokenType
+  parent: Discord.IDiscordClient
+  name: TokenType
+  nameWithType: IDiscordClient.TokenType
+  fullName: Discord.IDiscordClient.TokenType
+- uid: Discord.TokenType
+  commentId: T:Discord.TokenType
+  parent: Discord
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Discord.TokenType
+- uid: Discord.Rest.BaseDiscordClient.LoginAsync*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.LoginAsync
+  name: LoginAsync
+  nameWithType: BaseDiscordClient.LoginAsync
+  fullName: Discord.Rest.BaseDiscordClient.LoginAsync
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Discord.Rest.BaseDiscordClient.LogoutAsync*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.LogoutAsync
+  name: LogoutAsync
+  nameWithType: BaseDiscordClient.LogoutAsync
+  fullName: Discord.Rest.BaseDiscordClient.LogoutAsync
+- uid: Discord.Rest.BaseDiscordClient.Dispose*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.Dispose
+  name: Dispose
+  nameWithType: BaseDiscordClient.Dispose
+  fullName: Discord.Rest.BaseDiscordClient.Dispose
+- uid: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync
+  name: GetRecommendedShardCountAsync
+  nameWithType: BaseDiscordClient.GetRecommendedShardCountAsync
+  fullName: Discord.Rest.BaseDiscordClient.GetRecommendedShardCountAsync
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: Task{System.Int32}
+  commentId: '!:Task{System.Int32}'
+  definition: Task`1
+  name: Task<Int32>
+  nameWithType: Task<Int32>
+  fullName: Task<System.Int32>
+  nameWithType.vb: Task(Of Int32)
+  fullName.vb: Task(Of System.Int32)
+  name.vb: Task(Of Int32)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ConnectionState
+  name: IDiscordClient.ConnectionState
+  nameWithType: BaseDiscordClient.IDiscordClient.ConnectionState
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.ConnectionState
+  name.vb: Discord.IDiscordClient.ConnectionState
+- uid: Discord.IDiscordClient.ConnectionState
+  commentId: P:Discord.IDiscordClient.ConnectionState
+  parent: Discord.IDiscordClient
+  name: ConnectionState
+  nameWithType: IDiscordClient.ConnectionState
+  fullName: Discord.IDiscordClient.ConnectionState
+- uid: Discord.ConnectionState
+  commentId: T:Discord.ConnectionState
+  parent: Discord
+  name: ConnectionState
+  nameWithType: ConnectionState
+  fullName: Discord.ConnectionState
+- uid: Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser*
+  commentId: Overload:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CurrentUser
+  name: IDiscordClient.CurrentUser
+  nameWithType: BaseDiscordClient.IDiscordClient.CurrentUser
+  fullName: Discord.Rest.BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  nameWithType.vb: BaseDiscordClient.Discord.IDiscordClient.CurrentUser
+  name.vb: Discord.IDiscordClient.CurrentUser
+- uid: Discord.IDiscordClient.CurrentUser
+  commentId: P:Discord.IDiscordClient.CurrentUser
+  parent: Discord.IDiscordClient
+  name: CurrentUser
+  nameWithType: IDiscordClient.CurrentUser
+  fullName: Discord.IDiscordClient.CurrentUser
