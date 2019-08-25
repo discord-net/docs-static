@@ -5,10 +5,12 @@ items:
   id: Format
   parent: Discord
   children:
+  - Discord.Format.BlockQuote(System.String)
   - Discord.Format.Bold(System.String)
   - Discord.Format.Code(System.String,System.String)
   - Discord.Format.EscapeUrl(System.String)
   - Discord.Format.Italics(System.String)
+  - Discord.Format.Quote(System.String)
   - Discord.Format.Sanitize(System.String)
   - Discord.Format.Spoiler(System.String)
   - Discord.Format.Strikethrough(System.String)
@@ -28,7 +30,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Format
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 3
+    startLine: 5
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -72,7 +74,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Bold
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 9
+    startLine: 11
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -111,7 +113,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Italics
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -150,7 +152,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Underline
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 13
+    startLine: 15
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -189,7 +191,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Strikethrough
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -228,7 +230,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Spoiler
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 17
+    startLine: 19
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -267,7 +269,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Url
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -308,7 +310,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: EscapeUrl
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -347,7 +349,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Code
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 24
+    startLine: 26
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -388,7 +390,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Sanitize
     path: ../src/Discord.Net.Core/Format.cs
-    startLine: 33
+    startLine: 35
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -403,6 +405,88 @@ items:
       type: System.String
     content.vb: Public Shared Function Sanitize(text As String) As String
   overload: Discord.Format.Sanitize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.Format.Quote(System.String)
+  commentId: M:Discord.Format.Quote(System.String)
+  id: Quote(System.String)
+  parent: Discord.Format
+  langs:
+  - csharp
+  - vb
+  name: Quote(String)
+  nameWithType: Format.Quote(String)
+  fullName: Discord.Format.Quote(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Format.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Quote
+    path: ../src/Discord.Net.Core/Format.cs
+    startLine: 47
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nFormats a string as a quote.\n"
+  example: []
+  syntax:
+    content: public static string Quote(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The text to format.
+    return:
+      type: System.String
+      description: Gets the formatted quote text.
+    content.vb: Public Shared Function Quote(text As String) As String
+  overload: Discord.Format.Quote*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.Format.BlockQuote(System.String)
+  commentId: M:Discord.Format.BlockQuote(System.String)
+  id: BlockQuote(System.String)
+  parent: Discord.Format
+  langs:
+  - csharp
+  - vb
+  name: BlockQuote(String)
+  nameWithType: Format.BlockQuote(String)
+  fullName: Discord.Format.BlockQuote(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Format.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: BlockQuote
+    path: ../src/Discord.Net.Core/Format.cs
+    startLine: 85
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nFormats a string as a block quote.\n"
+  example: []
+  syntax:
+    content: public static string BlockQuote(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The text to format.
+    return:
+      type: System.String
+      description: Gets the formatted block quote text.
+    content.vb: Public Shared Function BlockQuote(text As String) As String
+  overload: Discord.Format.BlockQuote*
   modifiers.csharp:
   - public
   - static
@@ -765,3 +849,13 @@ references:
   name: Sanitize
   nameWithType: Format.Sanitize
   fullName: Discord.Format.Sanitize
+- uid: Discord.Format.Quote*
+  commentId: Overload:Discord.Format.Quote
+  name: Quote
+  nameWithType: Format.Quote
+  fullName: Discord.Format.Quote
+- uid: Discord.Format.BlockQuote*
+  commentId: Overload:Discord.Format.BlockQuote
+  name: BlockQuote
+  nameWithType: Format.BlockQuote
+  fullName: Discord.Format.BlockQuote
