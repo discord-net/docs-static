@@ -7,9 +7,12 @@ items:
   children:
   - Discord.Commands.ParseResult.ArgValues
   - Discord.Commands.ParseResult.Error
+  - Discord.Commands.ParseResult.ErrorParameter
   - Discord.Commands.ParseResult.ErrorReason
   - Discord.Commands.ParseResult.FromError(Discord.Commands.CommandError,System.String)
+  - Discord.Commands.ParseResult.FromError(Discord.Commands.CommandError,System.String,Discord.Commands.ParameterInfo)
   - Discord.Commands.ParseResult.FromError(Discord.Commands.IResult)
+  - Discord.Commands.ParseResult.FromError(Discord.Commands.IResult,Discord.Commands.ParameterInfo)
   - Discord.Commands.ParseResult.FromError(System.Exception)
   - Discord.Commands.ParseResult.FromSuccess(System.Collections.Generic.IReadOnlyList{Discord.Commands.TypeReaderResult},System.Collections.Generic.IReadOnlyList{Discord.Commands.TypeReaderResult})
   - Discord.Commands.ParseResult.FromSuccess(System.Collections.Generic.IReadOnlyList{Discord.Commands.TypeReaderValue},System.Collections.Generic.IReadOnlyList{Discord.Commands.TypeReaderValue})
@@ -205,6 +208,44 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: Discord.Commands.ParseResult.ErrorParameter
+  commentId: P:Discord.Commands.ParseResult.ErrorParameter
+  id: ErrorParameter
+  parent: Discord.Commands.ParseResult
+  langs:
+  - csharp
+  - vb
+  name: ErrorParameter
+  nameWithType: ParseResult.ErrorParameter
+  fullName: Discord.Commands.ParseResult.ErrorParameter
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Results/ParseResult.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: ErrorParameter
+    path: ../src/Discord.Net.Commands/Results/ParseResult.cs
+    startLine: 27
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  summary: "\nProvides information about the parameter that caused the parsing error.\n"
+  example: []
+  syntax:
+    content: public ParameterInfo ErrorParameter { get; }
+    parameters: []
+    return:
+      type: Discord.Commands.ParameterInfo
+      description: "\nA <xref href=\"Discord.Commands.ParameterInfo\" data-throw-if-not-resolved=\"false\"></xref> indicating the parameter info of the error that may have occurred during parsing; \n<code>null</code> if the parsing was successful or the parsing error is not specific to a single parameter.\n"
+    content.vb: Public ReadOnly Property ErrorParameter As ParameterInfo
+  overload: Discord.Commands.ParseResult.ErrorParameter*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.Commands.ParseResult.IsSuccess
   commentId: P:Discord.Commands.ParseResult.IsSuccess
   id: IsSuccess
@@ -223,7 +264,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsSuccess
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 21
+    startLine: 30
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -263,7 +304,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: FromSuccess
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 31
+    startLine: 41
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -305,7 +346,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: FromSuccess
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 45
+    startLine: 55
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -347,7 +388,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 60
+    startLine: 70
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -361,6 +402,47 @@ items:
     return:
       type: Discord.Commands.ParseResult
     content.vb: Public Shared Function FromError(error As CommandError, reason As String) As ParseResult
+  overload: Discord.Commands.ParseResult.FromError*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.Commands.ParseResult.FromError(Discord.Commands.CommandError,System.String,Discord.Commands.ParameterInfo)
+  commentId: M:Discord.Commands.ParseResult.FromError(Discord.Commands.CommandError,System.String,Discord.Commands.ParameterInfo)
+  id: FromError(Discord.Commands.CommandError,System.String,Discord.Commands.ParameterInfo)
+  parent: Discord.Commands.ParseResult
+  langs:
+  - csharp
+  - vb
+  name: FromError(CommandError, String, ParameterInfo)
+  nameWithType: ParseResult.FromError(CommandError, String, ParameterInfo)
+  fullName: Discord.Commands.ParseResult.FromError(Discord.Commands.CommandError, System.String, Discord.Commands.ParameterInfo)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Results/ParseResult.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: FromError
+    path: ../src/Discord.Net.Commands/Results/ParseResult.cs
+    startLine: 72
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  syntax:
+    content: public static ParseResult FromError(CommandError error, string reason, ParameterInfo parameterInfo)
+    parameters:
+    - id: error
+      type: Discord.Commands.CommandError
+    - id: reason
+      type: System.String
+    - id: parameterInfo
+      type: Discord.Commands.ParameterInfo
+    return:
+      type: Discord.Commands.ParseResult
+    content.vb: Public Shared Function FromError(error As CommandError, reason As String, parameterInfo As ParameterInfo) As ParseResult
   overload: Discord.Commands.ParseResult.FromError*
   modifiers.csharp:
   - public
@@ -386,7 +468,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 62
+    startLine: 74
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -423,7 +505,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: FromError
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 64
+    startLine: 76
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -435,6 +517,45 @@ items:
     return:
       type: Discord.Commands.ParseResult
     content.vb: Public Shared Function FromError(result As IResult) As ParseResult
+  overload: Discord.Commands.ParseResult.FromError*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Discord.Commands.ParseResult.FromError(Discord.Commands.IResult,Discord.Commands.ParameterInfo)
+  commentId: M:Discord.Commands.ParseResult.FromError(Discord.Commands.IResult,Discord.Commands.ParameterInfo)
+  id: FromError(Discord.Commands.IResult,Discord.Commands.ParameterInfo)
+  parent: Discord.Commands.ParseResult
+  langs:
+  - csharp
+  - vb
+  name: FromError(IResult, ParameterInfo)
+  nameWithType: ParseResult.FromError(IResult, ParameterInfo)
+  fullName: Discord.Commands.ParseResult.FromError(Discord.Commands.IResult, Discord.Commands.ParameterInfo)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Commands/Results/ParseResult.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: FromError
+    path: ../src/Discord.Net.Commands/Results/ParseResult.cs
+    startLine: 78
+  assemblies:
+  - Discord.Net.Commands
+  namespace: Discord.Commands
+  syntax:
+    content: public static ParseResult FromError(IResult result, ParameterInfo parameterInfo)
+    parameters:
+    - id: result
+      type: Discord.Commands.IResult
+    - id: parameterInfo
+      type: Discord.Commands.ParameterInfo
+    return:
+      type: Discord.Commands.ParseResult
+    content.vb: Public Shared Function FromError(result As IResult, parameterInfo As ParameterInfo) As ParseResult
   overload: Discord.Commands.ParseResult.FromError*
   modifiers.csharp:
   - public
@@ -460,7 +581,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Commands/Results/ParseResult.cs
-    startLine: 67
+    startLine: 81
   assemblies:
   - Discord.Net.Commands
   namespace: Discord.Commands
@@ -933,6 +1054,17 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: Discord.Commands.ParameterInfo
+  commentId: T:Discord.Commands.ParameterInfo
+  parent: Discord.Commands
+  name: ParameterInfo
+  nameWithType: ParameterInfo
+  fullName: Discord.Commands.ParameterInfo
+- uid: Discord.Commands.ParseResult.ErrorParameter*
+  commentId: Overload:Discord.Commands.ParseResult.ErrorParameter
+  name: ErrorParameter
+  nameWithType: ParseResult.ErrorParameter
+  fullName: Discord.Commands.ParseResult.ErrorParameter
 - uid: Discord.Commands.ParseResult.IsSuccess*
   commentId: Overload:Discord.Commands.ParseResult.IsSuccess
   name: IsSuccess
