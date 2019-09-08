@@ -5,11 +5,9 @@ items:
   id: SocketUserMessage
   parent: Discord.WebSocket
   children:
-  - Discord.WebSocket.SocketUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
   - Discord.WebSocket.SocketUserMessage.Attachments
   - Discord.WebSocket.SocketUserMessage.EditedTimestamp
   - Discord.WebSocket.SocketUserMessage.Embeds
-  - Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
   - Discord.WebSocket.SocketUserMessage.IsPinned
   - Discord.WebSocket.SocketUserMessage.IsSuppressed
   - Discord.WebSocket.SocketUserMessage.IsTTS
@@ -19,10 +17,6 @@ items:
   - Discord.WebSocket.SocketUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
   - Discord.WebSocket.SocketUserMessage.ModifySuppressionAsync(System.Boolean,Discord.RequestOptions)
   - Discord.WebSocket.SocketUserMessage.PinAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketUserMessage.Reactions
-  - Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  - Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
   - Discord.WebSocket.SocketUserMessage.Resolve(System.Int32,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
   - Discord.WebSocket.SocketUserMessage.Tags
@@ -71,6 +65,7 @@ items:
   - Discord.WebSocket.SocketMessage.CreatedAt
   - Discord.WebSocket.SocketMessage.Activity
   - Discord.WebSocket.SocketMessage.Application
+  - Discord.WebSocket.SocketMessage.Reactions
   - Discord.WebSocket.SocketMessage.Timestamp
   - Discord.WebSocket.SocketMessage.DeleteAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketMessage.ToString
@@ -82,6 +77,11 @@ items:
   - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
   - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
   - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
+  - Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  - Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  - Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  - Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  - Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -117,7 +117,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsTTS
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 25
+    startLine: 24
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -160,7 +160,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsPinned
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 27
+    startLine: 26
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -203,7 +203,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsSuppressed
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 29
+    startLine: 28
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -246,7 +246,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: EditedTimestamp
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -289,7 +289,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Attachments
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -330,7 +330,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Embeds
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 35
+    startLine: 34
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -371,7 +371,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Tags
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -413,7 +413,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedChannels
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -454,7 +454,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedRoles
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -495,7 +495,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedUsers
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -518,45 +518,6 @@ items:
   - Public
   - Overrides
   - ReadOnly
-- uid: Discord.WebSocket.SocketUserMessage.Reactions
-  commentId: P:Discord.WebSocket.SocketUserMessage.Reactions
-  id: Reactions
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: Reactions
-  nameWithType: SocketUserMessage.Reactions
-  fullName: Discord.WebSocket.SocketUserMessage.Reactions
-  type: Property
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Reactions
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 45
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets all reactions included in this message.\n"
-  example: []
-  syntax:
-    content: public IReadOnlyDictionary<IEmote, ReactionMetadata> Reactions { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
-    content.vb: Public ReadOnly Property Reactions As IReadOnlyDictionary(Of IEmote, ReactionMetadata)
-  overload: Discord.WebSocket.SocketUserMessage.Reactions*
-  implements:
-  - Discord.IUserMessage.Reactions
-  modifiers.csharp:
-  - public
-  - get
-  modifiers.vb:
-  - Public
-  - ReadOnly
 - uid: Discord.WebSocket.SocketUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
   id: ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
@@ -575,7 +536,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 145
+    startLine: 129
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -612,240 +573,6 @@ items:
   - Public
   fullName.vb: Discord.WebSocket.SocketUserMessage.ModifyAsync(System.Action(Of Discord.MessageProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of MessageProperties), RequestOptions)
-- uid: Discord.WebSocket.SocketUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  id: AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: AddReactionAsync(IEmote, RequestOptions)
-  nameWithType: SocketUserMessage.AddReactionAsync(IEmote, RequestOptions)
-  fullName: Discord.WebSocket.SocketUserMessage.AddReactionAsync(Discord.IEmote, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: AddReactionAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 149
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nAdds a reaction to this message.\n"
-  example: []
-  syntax:
-    content: public Task AddReactionAsync(IEmote emote, RequestOptions options = null)
-    parameters:
-    - id: emote
-      type: Discord.IEmote
-      description: The emoji used to react to this message.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous operation for adding a reaction to this message.\n"
-    content.vb: Public Function AddReactionAsync(emote As IEmote, options As RequestOptions = Nothing) As Task
-  overload: Discord.WebSocket.SocketUserMessage.AddReactionAsync*
-  seealso:
-  - linkId: Discord.IEmote
-    commentId: T:Discord.IEmote
-  implements:
-  - Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  id: RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: RemoveReactionAsync(IEmote, IUser, RequestOptions)
-  nameWithType: SocketUserMessage.RemoveReactionAsync(IEmote, IUser, RequestOptions)
-  fullName: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote, Discord.IUser, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: RemoveReactionAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 152
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nRemoves a reaction from message.\n"
-  example: []
-  syntax:
-    content: public Task RemoveReactionAsync(IEmote emote, IUser user, RequestOptions options = null)
-    parameters:
-    - id: emote
-      type: Discord.IEmote
-      description: The emoji used to react to this message.
-    - id: user
-      type: Discord.IUser
-      description: The user that added the emoji.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous operation for removing a reaction to this message.\n"
-    content.vb: Public Function RemoveReactionAsync(emote As IEmote, user As IUser, options As RequestOptions = Nothing) As Task
-  overload: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync*
-  seealso:
-  - linkId: Discord.IEmote
-    commentId: T:Discord.IEmote
-  implements:
-  - Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  id: RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: RemoveReactionAsync(IEmote, UInt64, RequestOptions)
-  nameWithType: SocketUserMessage.RemoveReactionAsync(IEmote, UInt64, RequestOptions)
-  fullName: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync(Discord.IEmote, System.UInt64, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: RemoveReactionAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 155
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nRemoves a reaction from message.\n"
-  example: []
-  syntax:
-    content: public Task RemoveReactionAsync(IEmote emote, ulong userId, RequestOptions options = null)
-    parameters:
-    - id: emote
-      type: Discord.IEmote
-      description: The emoji used to react to this message.
-    - id: userId
-      type: System.UInt64
-      description: The ID of the user that added the emoji.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous operation for removing a reaction to this message.\n"
-    content.vb: Public Function RemoveReactionAsync(emote As IEmote, userId As ULong, options As RequestOptions = Nothing) As Task
-  overload: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync*
-  seealso:
-  - linkId: Discord.IEmote
-    commentId: T:Discord.IEmote
-  implements:
-  - Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  id: RemoveAllReactionsAsync(Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: RemoveAllReactionsAsync(RequestOptions)
-  nameWithType: SocketUserMessage.RemoveAllReactionsAsync(RequestOptions)
-  fullName: Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: RemoveAllReactionsAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 158
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nRemoves all reactions from this message.\n"
-  example: []
-  syntax:
-    content: public Task RemoveAllReactionsAsync(RequestOptions options = null)
-    parameters:
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous removal operation.\n"
-    content.vb: Public Function RemoveAllReactionsAsync(options As RequestOptions = Nothing) As Task
-  overload: Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync*
-  implements:
-  - Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  id: GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketUserMessage
-  langs:
-  - csharp
-  - vb
-  name: GetReactionUsersAsync(IEmote, Int32, RequestOptions)
-  nameWithType: SocketUserMessage.GetReactionUsersAsync(IEmote, Int32, RequestOptions)
-  fullName: Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync(Discord.IEmote, System.Int32, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: GetReactionUsersAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 161
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets all users that reacted to a message with a given emote.\n"
-  example: []
-  syntax:
-    content: public IAsyncEnumerable<IReadOnlyCollection<IUser>> GetReactionUsersAsync(IEmote emote, int limit, RequestOptions options = null)
-    parameters:
-    - id: emote
-      type: Discord.IEmote
-    - id: limit
-      type: System.Int32
-      description: The number of users to request.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-      description: "\nA paged collection containing a read-only collection of users that has reacted to this message.\nFlattening the paginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
-    content.vb: Public Function GetReactionUsersAsync(emote As IEmote, limit As Integer, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  overload: Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync*
-  implements:
-  - Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
 - uid: Discord.WebSocket.SocketUserMessage.PinAsync(Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketUserMessage.PinAsync(Discord.RequestOptions)
   id: PinAsync(Discord.RequestOptions)
@@ -864,7 +591,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: PinAsync
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 165
+    startLine: 133
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -905,7 +632,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: UnpinAsync
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 168
+    startLine: 136
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -946,7 +673,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ModifySuppressionAsync
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 171
+    startLine: 139
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -991,7 +718,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Resolve
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 174
+    startLine: 142
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1036,7 +763,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Resolve
     path: ../src/Discord.Net.WebSocket/Entities/Messages/SocketUserMessage.cs
-    startLine: 178
+    startLine: 146
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1239,6 +966,12 @@ references:
   name: Application
   nameWithType: SocketMessage.Application
   fullName: Discord.WebSocket.SocketMessage.Application
+- uid: Discord.WebSocket.SocketMessage.Reactions
+  commentId: P:Discord.WebSocket.SocketMessage.Reactions
+  parent: Discord.WebSocket.SocketMessage
+  name: Reactions
+  nameWithType: SocketMessage.Reactions
+  fullName: Discord.WebSocket.SocketMessage.Reactions
 - uid: Discord.WebSocket.SocketMessage.Timestamp
   commentId: P:Discord.WebSocket.SocketMessage.Timestamp
   parent: Discord.WebSocket.SocketMessage
@@ -1373,6 +1106,290 @@ references:
   fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedUserIds
   nameWithType.vb: SocketMessage.Discord.IMessage.MentionedUserIds
   name.vb: Discord.IMessage.MentionedUserIds
+- uid: Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketMessage
+  name: AddReactionAsync(IEmote, RequestOptions)
+  nameWithType: SocketMessage.AddReactionAsync(IEmote, RequestOptions)
+  fullName: Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+    name: AddReactionAsync
+    nameWithType: SocketMessage.AddReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.AddReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+    name: AddReactionAsync
+    nameWithType: SocketMessage.AddReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.AddReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketMessage
+  name: RemoveReactionAsync(IEmote, IUser, RequestOptions)
+  nameWithType: SocketMessage.RemoveReactionAsync(IEmote, IUser, RequestOptions)
+  fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote, Discord.IUser, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+    name: RemoveReactionAsync
+    nameWithType: SocketMessage.RemoveReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+    name: RemoveReactionAsync
+    nameWithType: SocketMessage.RemoveReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketMessage
+  isExternal: true
+  name: RemoveReactionAsync(IEmote, UInt64, RequestOptions)
+  nameWithType: SocketMessage.RemoveReactionAsync(IEmote, UInt64, RequestOptions)
+  fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote, System.UInt64, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+    name: RemoveReactionAsync
+    nameWithType: SocketMessage.RemoveReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+    name: RemoveReactionAsync
+    nameWithType: SocketMessage.RemoveReactionAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveReactionAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketMessage
+  name: RemoveAllReactionsAsync(RequestOptions)
+  nameWithType: SocketMessage.RemoveAllReactionsAsync(RequestOptions)
+  fullName: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+    name: RemoveAllReactionsAsync
+    nameWithType: SocketMessage.RemoveAllReactionsAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+    name: RemoveAllReactionsAsync
+    nameWithType: SocketMessage.RemoveAllReactionsAsync
+    fullName: Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+  parent: Discord.WebSocket.SocketMessage
+  isExternal: true
+  name: GetReactionUsersAsync(IEmote, Int32, RequestOptions)
+  nameWithType: SocketMessage.GetReactionUsersAsync(IEmote, Int32, RequestOptions)
+  fullName: Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote, System.Int32, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+    name: GetReactionUsersAsync
+    nameWithType: SocketMessage.GetReactionUsersAsync
+    fullName: Discord.WebSocket.SocketMessage.GetReactionUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+    name: GetReactionUsersAsync
+    nameWithType: SocketMessage.GetReactionUsersAsync
+    fullName: Discord.WebSocket.SocketMessage.GetReactionUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.WebSocket.SocketEntity{System.UInt64}.Id
   commentId: P:Discord.WebSocket.SocketEntity{System.UInt64}.Id
   parent: Discord.WebSocket.SocketEntity{System.UInt64}
@@ -2655,124 +2672,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketUserMessage.Reactions*
-  commentId: Overload:Discord.WebSocket.SocketUserMessage.Reactions
-  name: Reactions
-  nameWithType: SocketUserMessage.Reactions
-  fullName: Discord.WebSocket.SocketUserMessage.Reactions
-- uid: Discord.IUserMessage.Reactions
-  commentId: P:Discord.IUserMessage.Reactions
-  parent: Discord.IUserMessage
-  name: Reactions
-  nameWithType: IUserMessage.Reactions
-  fullName: Discord.IUserMessage.Reactions
-- uid: System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
-  commentId: T:System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyDictionary`2
-  name: IReadOnlyDictionary<IEmote, ReactionMetadata>
-  nameWithType: IReadOnlyDictionary<IEmote, ReactionMetadata>
-  fullName: System.Collections.Generic.IReadOnlyDictionary<Discord.IEmote, Discord.ReactionMetadata>
-  nameWithType.vb: IReadOnlyDictionary(Of IEmote, ReactionMetadata)
-  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of Discord.IEmote, Discord.ReactionMetadata)
-  name.vb: IReadOnlyDictionary(Of IEmote, ReactionMetadata)
-  spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyDictionary`2
-    name: IReadOnlyDictionary
-    nameWithType: IReadOnlyDictionary
-    fullName: System.Collections.Generic.IReadOnlyDictionary
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.ReactionMetadata
-    name: ReactionMetadata
-    nameWithType: ReactionMetadata
-    fullName: Discord.ReactionMetadata
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyDictionary`2
-    name: IReadOnlyDictionary
-    nameWithType: IReadOnlyDictionary
-    fullName: System.Collections.Generic.IReadOnlyDictionary
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.ReactionMetadata
-    name: ReactionMetadata
-    nameWithType: ReactionMetadata
-    fullName: Discord.ReactionMetadata
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic.IReadOnlyDictionary`2
-  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
-  isExternal: true
-  name: IReadOnlyDictionary<TKey, TValue>
-  nameWithType: IReadOnlyDictionary<TKey, TValue>
-  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
-  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
-  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
-  name.vb: IReadOnlyDictionary(Of TKey, TValue)
-  spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyDictionary`2
-    name: IReadOnlyDictionary
-    nameWithType: IReadOnlyDictionary
-    fullName: System.Collections.Generic.IReadOnlyDictionary
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: TKey
-    nameWithType: TKey
-    fullName: TKey
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - name: TValue
-    nameWithType: TValue
-    fullName: TValue
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyDictionary`2
-    name: IReadOnlyDictionary
-    nameWithType: IReadOnlyDictionary
-    fullName: System.Collections.Generic.IReadOnlyDictionary
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: TKey
-    nameWithType: TKey
-    fullName: TKey
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - name: TValue
-    nameWithType: TValue
-    fullName: TValue
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.DiscordConfig.MaxMessageSize
   commentId: F:Discord.DiscordConfig.MaxMessageSize
   parent: Discord.DiscordConfig
@@ -2972,439 +2871,6 @@ references:
   name: System.Threading.Tasks
   nameWithType: System.Threading.Tasks
   fullName: System.Threading.Tasks
-- uid: Discord.WebSocket.SocketUserMessage.AddReactionAsync*
-  commentId: Overload:Discord.WebSocket.SocketUserMessage.AddReactionAsync
-  name: AddReactionAsync
-  nameWithType: SocketUserMessage.AddReactionAsync
-  fullName: Discord.WebSocket.SocketUserMessage.AddReactionAsync
-- uid: Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-  parent: Discord.IUserMessage
-  name: AddReactionAsync(IEmote, RequestOptions)
-  nameWithType: IUserMessage.AddReactionAsync(IEmote, RequestOptions)
-  fullName: Discord.IUserMessage.AddReactionAsync(Discord.IEmote, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-    name: AddReactionAsync
-    nameWithType: IUserMessage.AddReactionAsync
-    fullName: Discord.IUserMessage.AddReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
-    name: AddReactionAsync
-    nameWithType: IUserMessage.AddReactionAsync
-    fullName: Discord.IUserMessage.AddReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IEmote
-  commentId: T:Discord.IEmote
-  parent: Discord
-  name: IEmote
-  nameWithType: IEmote
-  fullName: Discord.IEmote
-- uid: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync*
-  commentId: Overload:Discord.WebSocket.SocketUserMessage.RemoveReactionAsync
-  name: RemoveReactionAsync
-  nameWithType: SocketUserMessage.RemoveReactionAsync
-  fullName: Discord.WebSocket.SocketUserMessage.RemoveReactionAsync
-- uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-  parent: Discord.IUserMessage
-  name: RemoveReactionAsync(IEmote, IUser, RequestOptions)
-  nameWithType: IUserMessage.RemoveReactionAsync(IEmote, IUser, RequestOptions)
-  fullName: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote, Discord.IUser, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-    name: RemoveReactionAsync
-    nameWithType: IUserMessage.RemoveReactionAsync
-    fullName: Discord.IUserMessage.RemoveReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
-    name: RemoveReactionAsync
-    nameWithType: IUserMessage.RemoveReactionAsync
-    fullName: Discord.IUserMessage.RemoveReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IUser
-  commentId: T:Discord.IUser
-  parent: Discord
-  name: IUser
-  nameWithType: IUser
-  fullName: Discord.IUser
-- uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-  parent: Discord.IUserMessage
-  isExternal: true
-  name: RemoveReactionAsync(IEmote, UInt64, RequestOptions)
-  nameWithType: IUserMessage.RemoveReactionAsync(IEmote, UInt64, RequestOptions)
-  fullName: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote, System.UInt64, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-    name: RemoveReactionAsync
-    nameWithType: IUserMessage.RemoveReactionAsync
-    fullName: Discord.IUserMessage.RemoveReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
-    name: RemoveReactionAsync
-    nameWithType: IUserMessage.RemoveReactionAsync
-    fullName: Discord.IUserMessage.RemoveReactionAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
-  isExternal: true
-  name: UInt64
-  nameWithType: UInt64
-  fullName: System.UInt64
-- uid: Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync*
-  commentId: Overload:Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync
-  name: RemoveAllReactionsAsync
-  nameWithType: SocketUserMessage.RemoveAllReactionsAsync
-  fullName: Discord.WebSocket.SocketUserMessage.RemoveAllReactionsAsync
-- uid: Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  parent: Discord.IUserMessage
-  name: RemoveAllReactionsAsync(RequestOptions)
-  nameWithType: IUserMessage.RemoveAllReactionsAsync(RequestOptions)
-  fullName: Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-    name: RemoveAllReactionsAsync
-    nameWithType: IUserMessage.RemoveAllReactionsAsync
-    fullName: Discord.IUserMessage.RemoveAllReactionsAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
-    name: RemoveAllReactionsAsync
-    nameWithType: IUserMessage.RemoveAllReactionsAsync
-    fullName: Discord.IUserMessage.RemoveAllReactionsAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync*
-  commentId: Overload:Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync
-  name: GetReactionUsersAsync
-  nameWithType: SocketUserMessage.GetReactionUsersAsync
-  fullName: Discord.WebSocket.SocketUserMessage.GetReactionUsersAsync
-- uid: Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-  parent: Discord.IUserMessage
-  isExternal: true
-  name: GetReactionUsersAsync(IEmote, Int32, RequestOptions)
-  nameWithType: IUserMessage.GetReactionUsersAsync(IEmote, Int32, RequestOptions)
-  fullName: Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote, System.Int32, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-    name: GetReactionUsersAsync
-    nameWithType: IUserMessage.GetReactionUsersAsync
-    fullName: Discord.IUserMessage.GetReactionUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
-    name: GetReactionUsersAsync
-    nameWithType: IUserMessage.GetReactionUsersAsync
-    fullName: Discord.IUserMessage.GetReactionUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IEmote
-    name: IEmote
-    nameWithType: IEmote
-    fullName: Discord.IEmote
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
-- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IAsyncEnumerable`1
-  name: IAsyncEnumerable<IReadOnlyCollection<IUser>>
-  nameWithType: IAsyncEnumerable<IReadOnlyCollection<IUser>>
-  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IUser>>
-  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser))
-  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  spec.csharp:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic.IAsyncEnumerable`1
-  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
-  isExternal: true
-  name: IAsyncEnumerable<T>
-  nameWithType: IAsyncEnumerable<T>
-  fullName: System.Collections.Generic.IAsyncEnumerable<T>
-  nameWithType.vb: IAsyncEnumerable(Of T)
-  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
-  name.vb: IAsyncEnumerable(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketUserMessage.PinAsync*
   commentId: Overload:Discord.WebSocket.SocketUserMessage.PinAsync
   name: PinAsync
@@ -3550,6 +3016,13 @@ references:
   name: Resolve
   nameWithType: SocketUserMessage.Resolve
   fullName: Discord.WebSocket.SocketUserMessage.Resolve
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
 - uid: Discord.TagHandling
   commentId: T:Discord.TagHandling
   parent: Discord

@@ -6,6 +6,7 @@ items:
   parent: Discord
   children:
   - Discord.IMessage.Activity
+  - Discord.IMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
   - Discord.IMessage.Application
   - Discord.IMessage.Attachments
   - Discord.IMessage.Author
@@ -13,12 +14,17 @@ items:
   - Discord.IMessage.Content
   - Discord.IMessage.EditedTimestamp
   - Discord.IMessage.Embeds
+  - Discord.IMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
   - Discord.IMessage.IsPinned
   - Discord.IMessage.IsSuppressed
   - Discord.IMessage.IsTTS
   - Discord.IMessage.MentionedChannelIds
   - Discord.IMessage.MentionedRoleIds
   - Discord.IMessage.MentionedUserIds
+  - Discord.IMessage.Reactions
+  - Discord.IMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  - Discord.IMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  - Discord.IMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
   - Discord.IMessage.Source
   - Discord.IMessage.Tags
   - Discord.IMessage.Timestamp
@@ -37,7 +43,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IMessage
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -78,7 +84,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Type
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -113,7 +119,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Source
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -148,7 +154,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsTTS
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -184,7 +190,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsPinned
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -220,7 +226,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: IsSuppressed
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -256,7 +262,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Content
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 45
+    startLine: 46
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -292,7 +298,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Timestamp
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 52
+    startLine: 53
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -328,7 +334,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: EditedTimestamp
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -364,7 +370,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Channel
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 64
+    startLine: 65
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -399,7 +405,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Author
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -434,7 +440,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Attachments
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 81
+    startLine: 82
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -471,7 +477,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Embeds
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 93
+    startLine: 94
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -513,7 +519,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Tags
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 97
+    startLine: 98
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -548,7 +554,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedChannelIds
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 104
+    startLine: 105
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -584,7 +590,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedRoleIds
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 111
+    startLine: 112
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -620,7 +626,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MentionedUserIds
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 118
+    startLine: 119
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -656,7 +662,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Activity
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 129
+    startLine: 130
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -693,7 +699,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Application
     path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
-    startLine: 139
+    startLine: 140
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -712,6 +718,250 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
+- uid: Discord.IMessage.Reactions
+  commentId: P:Discord.IMessage.Reactions
+  id: Reactions
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Reactions
+  nameWithType: IMessage.Reactions
+  fullName: Discord.IMessage.Reactions
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Reactions
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 145
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets all reactions included in this message.\n"
+  example: []
+  syntax:
+    content: IReadOnlyDictionary<IEmote, ReactionMetadata> Reactions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
+    content.vb: ReadOnly Property Reactions As IReadOnlyDictionary(Of IEmote, ReactionMetadata)
+  overload: Discord.IMessage.Reactions*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Discord.IMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  commentId: M:Discord.IMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  id: AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: AddReactionAsync(IEmote, RequestOptions)
+  nameWithType: IMessage.AddReactionAsync(IEmote, RequestOptions)
+  fullName: Discord.IMessage.AddReactionAsync(Discord.IEmote, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: AddReactionAsync
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 162
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nAdds a reaction to this message.\n"
+  example:
+  - "\nThe following example adds the reaction, <code>\U0001F495</code>, to the message.\n<pre><code class=\"lang-cs\">await msg.AddReactionAsync(new Emoji(&quot;\\U0001f495&quot;));</code></pre>\n"
+  syntax:
+    content: Task AddReactionAsync(IEmote emote, RequestOptions options = null)
+    parameters:
+    - id: emote
+      type: Discord.IEmote
+      description: The emoji used to react to this message.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous operation for adding a reaction to this message.\n"
+    content.vb: Function AddReactionAsync(emote As IEmote, options As RequestOptions = Nothing) As Task
+  overload: Discord.IMessage.AddReactionAsync*
+  seealso:
+  - linkId: Discord.IEmote
+    commentId: T:Discord.IEmote
+- uid: Discord.IMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  commentId: M:Discord.IMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  id: RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: RemoveReactionAsync(IEmote, IUser, RequestOptions)
+  nameWithType: IMessage.RemoveReactionAsync(IEmote, IUser, RequestOptions)
+  fullName: Discord.IMessage.RemoveReactionAsync(Discord.IEmote, Discord.IUser, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveReactionAsync
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 179
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRemoves a reaction from message.\n"
+  example:
+  - "\nThe following example removes the reaction, <code>\U0001F495</code>, added by the message author from the message.\n<pre><code class=\"lang-cs\">await msg.RemoveReactionAsync(new Emoji(&quot;\\U0001f495&quot;), msg.Author);</code></pre>\n"
+  syntax:
+    content: Task RemoveReactionAsync(IEmote emote, IUser user, RequestOptions options = null)
+    parameters:
+    - id: emote
+      type: Discord.IEmote
+      description: The emoji used to react to this message.
+    - id: user
+      type: Discord.IUser
+      description: The user that added the emoji.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous operation for removing a reaction to this message.\n"
+    content.vb: Function RemoveReactionAsync(emote As IEmote, user As IUser, options As RequestOptions = Nothing) As Task
+  overload: Discord.IMessage.RemoveReactionAsync*
+  seealso:
+  - linkId: Discord.IEmote
+    commentId: T:Discord.IEmote
+- uid: Discord.IMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  commentId: M:Discord.IMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  id: RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: RemoveReactionAsync(IEmote, UInt64, RequestOptions)
+  nameWithType: IMessage.RemoveReactionAsync(IEmote, UInt64, RequestOptions)
+  fullName: Discord.IMessage.RemoveReactionAsync(Discord.IEmote, System.UInt64, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveReactionAsync
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 196
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRemoves a reaction from message.\n"
+  example:
+  - "\nThe following example removes the reaction, <code>\U0001F495</code>, added by the user with ID 84291986575613952 from the message.\n<pre><code class=\"lang-cs\">await msg.RemoveReactionAsync(new Emoji(&quot;\\U0001f495&quot;), 84291986575613952);</code></pre>\n"
+  syntax:
+    content: Task RemoveReactionAsync(IEmote emote, ulong userId, RequestOptions options = null)
+    parameters:
+    - id: emote
+      type: Discord.IEmote
+      description: The emoji used to react to this message.
+    - id: userId
+      type: System.UInt64
+      description: The ID of the user that added the emoji.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous operation for removing a reaction to this message.\n"
+    content.vb: Function RemoveReactionAsync(emote As IEmote, userId As ULong, options As RequestOptions = Nothing) As Task
+  overload: Discord.IMessage.RemoveReactionAsync*
+  seealso:
+  - linkId: Discord.IEmote
+    commentId: T:Discord.IEmote
+- uid: Discord.IMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  commentId: M:Discord.IMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  id: RemoveAllReactionsAsync(Discord.RequestOptions)
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllReactionsAsync(RequestOptions)
+  nameWithType: IMessage.RemoveAllReactionsAsync(RequestOptions)
+  fullName: Discord.IMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: RemoveAllReactionsAsync
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 204
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nRemoves all reactions from this message.\n"
+  example: []
+  syntax:
+    content: Task RemoveAllReactionsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous removal operation.\n"
+    content.vb: Function RemoveAllReactionsAsync(options As RequestOptions = Nothing) As Task
+  overload: Discord.IMessage.RemoveAllReactionsAsync*
+- uid: Discord.IMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+  commentId: M:Discord.IMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+  id: GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
+  parent: Discord.IMessage
+  langs:
+  - csharp
+  - vb
+  name: GetReactionUsersAsync(IEmote, Int32, RequestOptions)
+  nameWithType: IMessage.GetReactionUsersAsync(IEmote, Int32, RequestOptions)
+  fullName: Discord.IMessage.GetReactionUsersAsync(Discord.IEmote, System.Int32, Discord.RequestOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: GetReactionUsersAsync
+    path: ../src/Discord.Net.Core/Entities/Messages/IMessage.cs
+    startLine: 224
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets all users that reacted to a message with a given emote.\n"
+  example:
+  - "\nThe following example gets the users that have reacted with the emoji <code>\U0001F495</code> to the message.\n<pre><code class=\"lang-cs\">var emoji = new Emoji(&quot;\\U0001f495&quot;);\nvar reactedUsers = await message.GetReactionUsersAsync(emoji, 100).FlattenAsync();</code></pre>\n"
+  syntax:
+    content: IAsyncEnumerable<IReadOnlyCollection<IUser>> GetReactionUsersAsync(IEmote emoji, int limit, RequestOptions options = null)
+    parameters:
+    - id: emoji
+      type: Discord.IEmote
+      description: The emoji that represents the reaction that you wish to get.
+    - id: limit
+      type: System.Int32
+      description: The number of users to request.
+    - id: options
+      type: Discord.RequestOptions
+      description: The options to be used when sending the request.
+    return:
+      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+      description: "\nA paged collection containing a read-only collection of users that has reacted to this message.\nFlattening the paginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+    content.vb: Function GetReactionUsersAsync(emoji As IEmote, limit As Integer, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
+  overload: Discord.IMessage.GetReactionUsersAsync*
 references:
 - uid: Discord
   commentId: N:Discord
@@ -1396,3 +1646,280 @@ references:
   name: MessageApplication
   nameWithType: MessageApplication
   fullName: Discord.MessageApplication
+- uid: Discord.IMessage.Reactions*
+  commentId: Overload:Discord.IMessage.Reactions
+  name: Reactions
+  nameWithType: IMessage.Reactions
+  fullName: Discord.IMessage.Reactions
+- uid: System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{Discord.IEmote,Discord.ReactionMetadata}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  name: IReadOnlyDictionary<IEmote, ReactionMetadata>
+  nameWithType: IReadOnlyDictionary<IEmote, ReactionMetadata>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<Discord.IEmote, Discord.ReactionMetadata>
+  nameWithType.vb: IReadOnlyDictionary(Of IEmote, ReactionMetadata)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of Discord.IEmote, Discord.ReactionMetadata)
+  name.vb: IReadOnlyDictionary(Of IEmote, ReactionMetadata)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    nameWithType: IReadOnlyDictionary
+    fullName: System.Collections.Generic.IReadOnlyDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.ReactionMetadata
+    name: ReactionMetadata
+    nameWithType: ReactionMetadata
+    fullName: Discord.ReactionMetadata
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    nameWithType: IReadOnlyDictionary
+    fullName: System.Collections.Generic.IReadOnlyDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IEmote
+    name: IEmote
+    nameWithType: IEmote
+    fullName: Discord.IEmote
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.ReactionMetadata
+    name: ReactionMetadata
+    nameWithType: ReactionMetadata
+    fullName: Discord.ReactionMetadata
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    nameWithType: IReadOnlyDictionary
+    fullName: System.Collections.Generic.IReadOnlyDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    nameWithType: IReadOnlyDictionary
+    fullName: System.Collections.Generic.IReadOnlyDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.IEmote
+  commentId: T:Discord.IEmote
+  parent: Discord
+  name: IEmote
+  nameWithType: IEmote
+  fullName: Discord.IEmote
+- uid: Discord.IMessage.AddReactionAsync*
+  commentId: Overload:Discord.IMessage.AddReactionAsync
+  name: AddReactionAsync
+  nameWithType: IMessage.AddReactionAsync
+  fullName: Discord.IMessage.AddReactionAsync
+- uid: Discord.RequestOptions
+  commentId: T:Discord.RequestOptions
+  parent: Discord
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Discord.RequestOptions
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Discord.IMessage.RemoveReactionAsync*
+  commentId: Overload:Discord.IMessage.RemoveReactionAsync
+  name: RemoveReactionAsync
+  nameWithType: IMessage.RemoveReactionAsync
+  fullName: Discord.IMessage.RemoveReactionAsync
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.IMessage.RemoveAllReactionsAsync*
+  commentId: Overload:Discord.IMessage.RemoveAllReactionsAsync
+  name: RemoveAllReactionsAsync
+  nameWithType: IMessage.RemoveAllReactionsAsync
+  fullName: Discord.IMessage.RemoveAllReactionsAsync
+- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  isExternal: true
+- uid: Discord.IMessage.GetReactionUsersAsync*
+  commentId: Overload:Discord.IMessage.GetReactionUsersAsync
+  name: GetReactionUsersAsync
+  nameWithType: IMessage.GetReactionUsersAsync
+  fullName: Discord.IMessage.GetReactionUsersAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
+  name: IAsyncEnumerable<IReadOnlyCollection<IUser>>
+  nameWithType: IAsyncEnumerable<IReadOnlyCollection<IUser>>
+  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IUser>>
+  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser))
+  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Discord.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
