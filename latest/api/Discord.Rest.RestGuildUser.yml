@@ -10,6 +10,7 @@ items:
   - Discord.Rest.RestGuildUser.Discord#IGuildUser#Guild
   - Discord.Rest.RestGuildUser.Discord#IVoiceState#IsSelfDeafened
   - Discord.Rest.RestGuildUser.Discord#IVoiceState#IsSelfMuted
+  - Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream
   - Discord.Rest.RestGuildUser.Discord#IVoiceState#IsSuppressed
   - Discord.Rest.RestGuildUser.Discord#IVoiceState#VoiceChannel
   - Discord.Rest.RestGuildUser.Discord#IVoiceState#VoiceSessionId
@@ -1025,6 +1026,47 @@ items:
   modifiers.vb:
   - ReadOnly
   name.vb: Discord.IVoiceState.VoiceSessionId
+- uid: Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream
+  commentId: P:Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream
+  id: Discord#IVoiceState#IsStream
+  isEii: true
+  parent: Discord.Rest.RestGuildUser
+  langs:
+  - csharp
+  - vb
+  name: IVoiceState.IsStream
+  nameWithType: RestGuildUser.IVoiceState.IsStream
+  fullName: Discord.Rest.RestGuildUser.Discord.IVoiceState.IsStream
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/Users/RestGuildUser.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Discord.IVoiceState.IsStream
+    path: ../src/Discord.Net.Rest/Entities/Users/RestGuildUser.cs
+    startLine: 154
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets a value that indicates if this user is streaming in a voice channel.\n"
+  example: []
+  syntax:
+    content: bool IVoiceState.IsStream { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if the user is streaming; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly WriteOnly Property Discord.IVoiceState.IsStream As Boolean Implements IVoiceState.IsStream
+  overload: Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream*
+  implements:
+  - Discord.IVoiceState.IsStream
+  nameWithType.vb: RestGuildUser.Discord.IVoiceState.IsStream
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  name.vb: Discord.IVoiceState.IsStream
 references:
 - uid: Discord.Rest
   commentId: N:Discord.Rest
@@ -2838,3 +2880,16 @@ references:
   name: VoiceSessionId
   nameWithType: IVoiceState.VoiceSessionId
   fullName: Discord.IVoiceState.VoiceSessionId
+- uid: Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream*
+  commentId: Overload:Discord.Rest.RestGuildUser.Discord#IVoiceState#IsStream
+  name: IVoiceState.IsStream
+  nameWithType: RestGuildUser.IVoiceState.IsStream
+  fullName: Discord.Rest.RestGuildUser.Discord.IVoiceState.IsStream
+  nameWithType.vb: RestGuildUser.Discord.IVoiceState.IsStream
+  name.vb: Discord.IVoiceState.IsStream
+- uid: Discord.IVoiceState.IsStream
+  commentId: P:Discord.IVoiceState.IsStream
+  parent: Discord.IVoiceState
+  name: IsStream
+  nameWithType: IVoiceState.IsStream
+  fullName: Discord.IVoiceState.IsStream

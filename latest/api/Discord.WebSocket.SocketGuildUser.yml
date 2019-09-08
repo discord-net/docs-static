@@ -23,6 +23,7 @@ items:
   - Discord.WebSocket.SocketGuildUser.IsMuted
   - Discord.WebSocket.SocketGuildUser.IsSelfDeafened
   - Discord.WebSocket.SocketGuildUser.IsSelfMuted
+  - Discord.WebSocket.SocketGuildUser.IsStream
   - Discord.WebSocket.SocketGuildUser.IsSuppressed
   - Discord.WebSocket.SocketGuildUser.IsWebhook
   - Discord.WebSocket.SocketGuildUser.JoinedAt
@@ -630,6 +631,46 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: Discord.WebSocket.SocketGuildUser.IsStream
+  commentId: P:Discord.WebSocket.SocketGuildUser.IsStream
+  id: IsStream
+  parent: Discord.WebSocket.SocketGuildUser
+  langs:
+  - csharp
+  - vb
+  name: IsStream
+  nameWithType: SocketGuildUser.IsStream
+  fullName: Discord.WebSocket.SocketGuildUser.IsStream
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsStream
+    path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
+    startLine: 57
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets a value that indicates if this user is streaming in a voice channel.\n"
+  example: []
+  syntax:
+    content: public bool IsStream { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if the user is streaming; otherwise <code>false</code>.\n"
+    content.vb: Public ReadOnly Property IsStream As Boolean
+  overload: Discord.WebSocket.SocketGuildUser.IsStream*
+  implements:
+  - Discord.IVoiceState.IsStream
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.WebSocket.SocketGuildUser.JoinedAt
   commentId: P:Discord.WebSocket.SocketGuildUser.JoinedAt
   id: JoinedAt
@@ -648,7 +689,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: JoinedAt
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 57
+    startLine: 59
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -688,7 +729,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Roles
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 61
+    startLine: 63
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -725,7 +766,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: VoiceChannel
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 66
+    startLine: 68
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -762,7 +803,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: VoiceSessionId
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 68
+    startLine: 70
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -801,7 +842,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: VoiceState
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 76
+    startLine: 78
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -839,7 +880,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AudioStream
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 77
+    startLine: 79
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -874,7 +915,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: PremiumSince
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 79
+    startLine: 81
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -914,7 +955,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Hierarchy
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 88
+    startLine: 90
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -952,7 +993,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 165
+    startLine: 167
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1000,7 +1041,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: KickAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 168
+    startLine: 170
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1044,7 +1085,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AddRoleAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 171
+    startLine: 173
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1088,7 +1129,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AddRolesAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 174
+    startLine: 176
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1135,7 +1176,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveRoleAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 177
+    startLine: 179
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1179,7 +1220,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: RemoveRolesAsync
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 180
+    startLine: 182
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1226,7 +1267,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetPermissions
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 184
+    startLine: 186
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1268,7 +1309,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuildUser.Guild
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 192
+    startLine: 194
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1309,7 +1350,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuildUser.GuildId
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 194
+    startLine: 196
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1350,7 +1391,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuildUser.RoleIds
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 196
+    startLine: 198
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1392,7 +1433,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IVoiceState.VoiceChannel
     path: ../src/Discord.Net.WebSocket/Entities/Users/SocketGuildUser.cs
-    startLine: 200
+    startLine: 202
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -2287,6 +2328,17 @@ references:
   name: IsMuted
   nameWithType: IVoiceState.IsMuted
   fullName: Discord.IVoiceState.IsMuted
+- uid: Discord.WebSocket.SocketGuildUser.IsStream*
+  commentId: Overload:Discord.WebSocket.SocketGuildUser.IsStream
+  name: IsStream
+  nameWithType: SocketGuildUser.IsStream
+  fullName: Discord.WebSocket.SocketGuildUser.IsStream
+- uid: Discord.IVoiceState.IsStream
+  commentId: P:Discord.IVoiceState.IsStream
+  parent: Discord.IVoiceState
+  name: IsStream
+  nameWithType: IVoiceState.IsStream
+  fullName: Discord.IVoiceState.IsStream
 - uid: Discord.WebSocket.SocketGuildUser.JoinedAt*
   commentId: Overload:Discord.WebSocket.SocketGuildUser.JoinedAt
   name: JoinedAt

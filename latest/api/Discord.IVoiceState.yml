@@ -9,6 +9,7 @@ items:
   - Discord.IVoiceState.IsMuted
   - Discord.IVoiceState.IsSelfDeafened
   - Discord.IVoiceState.IsSelfMuted
+  - Discord.IVoiceState.IsStream
   - Discord.IVoiceState.IsSuppressed
   - Discord.IVoiceState.VoiceChannel
   - Discord.IVoiceState.VoiceSessionId
@@ -292,6 +293,42 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
+- uid: Discord.IVoiceState.IsStream
+  commentId: P:Discord.IVoiceState.IsStream
+  id: IsStream
+  parent: Discord.IVoiceState
+  langs:
+  - csharp
+  - vb
+  name: IsStream
+  nameWithType: IVoiceState.IsStream
+  fullName: Discord.IVoiceState.IsStream
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Users/IVoiceState.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsStream
+    path: ../src/Discord.Net.Core/Entities/Users/IVoiceState.cs
+    startLine: 63
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets a value that indicates if this user is streaming in a voice channel.\n"
+  example: []
+  syntax:
+    content: bool IsStream { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if the user is streaming; otherwise <code>false</code>.\n"
+    content.vb: ReadOnly Property IsStream As Boolean
+  overload: Discord.IVoiceState.IsStream*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
 references:
 - uid: Discord
   commentId: N:Discord
@@ -359,3 +396,8 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: Discord.IVoiceState.IsStream*
+  commentId: Overload:Discord.IVoiceState.IsStream
+  name: IsStream
+  nameWithType: IVoiceState.IsStream
+  fullName: Discord.IVoiceState.IsStream
