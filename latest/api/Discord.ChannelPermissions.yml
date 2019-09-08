@@ -5,7 +5,7 @@ items:
   id: ChannelPermissions
   parent: Discord
   children:
-  - Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
   - Discord.ChannelPermissions.#ctor(System.UInt64)
   - Discord.ChannelPermissions.AddReactions
   - Discord.ChannelPermissions.All(Discord.IChannel)
@@ -23,7 +23,7 @@ items:
   - Discord.ChannelPermissions.ManageRoles
   - Discord.ChannelPermissions.ManageWebhooks
   - Discord.ChannelPermissions.MentionEveryone
-  - Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  - Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
   - Discord.ChannelPermissions.MoveMembers
   - Discord.ChannelPermissions.MuteMembers
   - Discord.ChannelPermissions.None
@@ -34,6 +34,7 @@ items:
   - Discord.ChannelPermissions.SendMessages
   - Discord.ChannelPermissions.SendTTSMessages
   - Discord.ChannelPermissions.Speak
+  - Discord.ChannelPermissions.Stream
   - Discord.ChannelPermissions.Text
   - Discord.ChannelPermissions.ToList
   - Discord.ChannelPermissions.ToString
@@ -1129,6 +1130,43 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: Discord.ChannelPermissions.Stream
+  commentId: P:Discord.ChannelPermissions.Stream
+  id: Stream
+  parent: Discord.ChannelPermissions
+  langs:
+  - csharp
+  - vb
+  name: Stream
+  nameWithType: ChannelPermissions.Stream
+  fullName: Discord.ChannelPermissions.Stream
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Stream
+    path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
+    startLine: 85
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: 'If <code>true</code>, a user may stream video in a voice channel. '
+  example: []
+  syntax:
+    content: public bool Stream { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Stream As Boolean
+  overload: Discord.ChannelPermissions.Stream*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.ChannelPermissions.ManageRoles
   commentId: P:Discord.ChannelPermissions.ManageRoles
   id: ManageRoles
@@ -1147,7 +1185,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageRoles
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 86
+    startLine: 88
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1184,7 +1222,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageWebhooks
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 88
+    startLine: 90
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1221,7 +1259,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 91
+    startLine: 93
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1238,16 +1276,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  commentId: M:Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)'
+- uid: Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)'
   parent: Discord.ChannelPermissions
   langs:
   - csharp
   - vb
-  name: ChannelPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  nameWithType: ChannelPermissions.ChannelPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  fullName: Discord.ChannelPermissions.ChannelPermissions(System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  name: ChannelPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  nameWithType: ChannelPermissions.ChannelPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  fullName: Discord.ChannelPermissions.ChannelPermissions(System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean)
   type: Constructor
   source:
     remote:
@@ -1256,14 +1294,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 144
+    startLine: 148
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: 'Creates a new <xref href="Discord.ChannelPermissions" data-throw-if-not-resolved="false"></xref> with the provided permissions. '
   example: []
   syntax:
-    content: public ChannelPermissions(bool createInstantInvite = false, bool manageChannel = false, bool addReactions = false, bool viewChannel = false, bool sendMessages = false, bool sendTTSMessages = false, bool manageMessages = false, bool embedLinks = false, bool attachFiles = false, bool readMessageHistory = false, bool mentionEveryone = false, bool useExternalEmojis = false, bool connect = false, bool speak = false, bool muteMembers = false, bool deafenMembers = false, bool moveMembers = false, bool useVoiceActivation = false, bool prioritySpeaker = false, bool manageRoles = false, bool manageWebhooks = false)
+    content: public ChannelPermissions(bool createInstantInvite = false, bool manageChannel = false, bool addReactions = false, bool viewChannel = false, bool sendMessages = false, bool sendTTSMessages = false, bool manageMessages = false, bool embedLinks = false, bool attachFiles = false, bool readMessageHistory = false, bool mentionEveryone = false, bool useExternalEmojis = false, bool connect = false, bool speak = false, bool muteMembers = false, bool deafenMembers = false, bool moveMembers = false, bool useVoiceActivation = false, bool prioritySpeaker = false, bool stream = false, bool manageRoles = false, bool manageWebhooks = false)
     parameters:
     - id: createInstantInvite
       type: System.Boolean
@@ -1303,26 +1341,28 @@ items:
       type: System.Boolean
     - id: prioritySpeaker
       type: System.Boolean
+    - id: stream
+      type: System.Boolean
     - id: manageRoles
       type: System.Boolean
     - id: manageWebhooks
       type: System.Boolean
-    content.vb: Public Sub New(createInstantInvite As Boolean = False, manageChannel As Boolean = False, addReactions As Boolean = False, viewChannel As Boolean = False, sendMessages As Boolean = False, sendTTSMessages As Boolean = False, manageMessages As Boolean = False, embedLinks As Boolean = False, attachFiles As Boolean = False, readMessageHistory As Boolean = False, mentionEveryone As Boolean = False, useExternalEmojis As Boolean = False, connect As Boolean = False, speak As Boolean = False, muteMembers As Boolean = False, deafenMembers As Boolean = False, moveMembers As Boolean = False, useVoiceActivation As Boolean = False, prioritySpeaker As Boolean = False, manageRoles As Boolean = False, manageWebhooks As Boolean = False)
+    content.vb: Public Sub New(createInstantInvite As Boolean = False, manageChannel As Boolean = False, addReactions As Boolean = False, viewChannel As Boolean = False, sendMessages As Boolean = False, sendTTSMessages As Boolean = False, manageMessages As Boolean = False, embedLinks As Boolean = False, attachFiles As Boolean = False, readMessageHistory As Boolean = False, mentionEveryone As Boolean = False, useExternalEmojis As Boolean = False, connect As Boolean = False, speak As Boolean = False, muteMembers As Boolean = False, deafenMembers As Boolean = False, moveMembers As Boolean = False, useVoiceActivation As Boolean = False, prioritySpeaker As Boolean = False, stream As Boolean = False, manageRoles As Boolean = False, manageWebhooks As Boolean = False)
   overload: Discord.ChannelPermissions.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  commentId: M:Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  id: Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+- uid: Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  commentId: M:Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  id: Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
   parent: Discord.ChannelPermissions
   langs:
   - csharp
   - vb
-  name: Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
-  nameWithType: ChannelPermissions.Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
-  fullName: Discord.ChannelPermissions.Modify(System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>)
+  name: Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
+  nameWithType: ChannelPermissions.Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
+  fullName: Discord.ChannelPermissions.Modify(System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>)
   type: Method
   source:
     remote:
@@ -1331,14 +1371,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Modify
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 172
+    startLine: 177
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: 'Creates a new <xref href="Discord.ChannelPermissions" data-throw-if-not-resolved="false"></xref> from this one, changing the provided non-null permissions. '
   example: []
   syntax:
-    content: public ChannelPermissions Modify(bool? createInstantInvite = default(bool? ), bool? manageChannel = default(bool? ), bool? addReactions = default(bool? ), bool? viewChannel = default(bool? ), bool? sendMessages = default(bool? ), bool? sendTTSMessages = default(bool? ), bool? manageMessages = default(bool? ), bool? embedLinks = default(bool? ), bool? attachFiles = default(bool? ), bool? readMessageHistory = default(bool? ), bool? mentionEveryone = default(bool? ), bool? useExternalEmojis = default(bool? ), bool? connect = default(bool? ), bool? speak = default(bool? ), bool? muteMembers = default(bool? ), bool? deafenMembers = default(bool? ), bool? moveMembers = default(bool? ), bool? useVoiceActivation = default(bool? ), bool? prioritySpeaker = default(bool? ), bool? manageRoles = default(bool? ), bool? manageWebhooks = default(bool? ))
+    content: public ChannelPermissions Modify(bool? createInstantInvite = default(bool? ), bool? manageChannel = default(bool? ), bool? addReactions = default(bool? ), bool? viewChannel = default(bool? ), bool? sendMessages = default(bool? ), bool? sendTTSMessages = default(bool? ), bool? manageMessages = default(bool? ), bool? embedLinks = default(bool? ), bool? attachFiles = default(bool? ), bool? readMessageHistory = default(bool? ), bool? mentionEveryone = default(bool? ), bool? useExternalEmojis = default(bool? ), bool? connect = default(bool? ), bool? speak = default(bool? ), bool? muteMembers = default(bool? ), bool? deafenMembers = default(bool? ), bool? moveMembers = default(bool? ), bool? useVoiceActivation = default(bool? ), bool? prioritySpeaker = default(bool? ), bool? stream = default(bool? ), bool? manageRoles = default(bool? ), bool? manageWebhooks = default(bool? ))
     parameters:
     - id: createInstantInvite
       type: System.Nullable{System.Boolean}
@@ -1378,21 +1418,23 @@ items:
       type: System.Nullable{System.Boolean}
     - id: prioritySpeaker
       type: System.Nullable{System.Boolean}
+    - id: stream
+      type: System.Nullable{System.Boolean}
     - id: manageRoles
       type: System.Nullable{System.Boolean}
     - id: manageWebhooks
       type: System.Nullable{System.Boolean}
     return:
       type: Discord.ChannelPermissions
-    content.vb: Public Function Modify(createInstantInvite As Boolean? = Nothing, manageChannel As Boolean? = Nothing, addReactions As Boolean? = Nothing, viewChannel As Boolean? = Nothing, sendMessages As Boolean? = Nothing, sendTTSMessages As Boolean? = Nothing, manageMessages As Boolean? = Nothing, embedLinks As Boolean? = Nothing, attachFiles As Boolean? = Nothing, readMessageHistory As Boolean? = Nothing, mentionEveryone As Boolean? = Nothing, useExternalEmojis As Boolean? = Nothing, connect As Boolean? = Nothing, speak As Boolean? = Nothing, muteMembers As Boolean? = Nothing, deafenMembers As Boolean? = Nothing, moveMembers As Boolean? = Nothing, useVoiceActivation As Boolean? = Nothing, prioritySpeaker As Boolean? = Nothing, manageRoles As Boolean? = Nothing, manageWebhooks As Boolean? = Nothing) As ChannelPermissions
+    content.vb: Public Function Modify(createInstantInvite As Boolean? = Nothing, manageChannel As Boolean? = Nothing, addReactions As Boolean? = Nothing, viewChannel As Boolean? = Nothing, sendMessages As Boolean? = Nothing, sendTTSMessages As Boolean? = Nothing, manageMessages As Boolean? = Nothing, embedLinks As Boolean? = Nothing, attachFiles As Boolean? = Nothing, readMessageHistory As Boolean? = Nothing, mentionEveryone As Boolean? = Nothing, useExternalEmojis As Boolean? = Nothing, connect As Boolean? = Nothing, speak As Boolean? = Nothing, muteMembers As Boolean? = Nothing, deafenMembers As Boolean? = Nothing, moveMembers As Boolean? = Nothing, useVoiceActivation As Boolean? = Nothing, prioritySpeaker As Boolean? = Nothing, stream As Boolean? = Nothing, manageRoles As Boolean? = Nothing, manageWebhooks As Boolean? = Nothing) As ChannelPermissions
   overload: Discord.ChannelPermissions.Modify*
-  nameWithType.vb: ChannelPermissions.Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
+  nameWithType.vb: ChannelPermissions.Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.ChannelPermissions.Modify(System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean))
-  name.vb: Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
+  fullName.vb: Discord.ChannelPermissions.Modify(System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean))
+  name.vb: Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
 - uid: Discord.ChannelPermissions.Has(Discord.ChannelPermission)
   commentId: M:Discord.ChannelPermissions.Has(Discord.ChannelPermission)
   id: Has(Discord.ChannelPermission)
@@ -1411,7 +1453,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Has
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 217
+    startLine: 224
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1446,7 +1488,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToList
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 219
+    startLine: 226
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1478,7 +1520,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Core/Entities/Permissions/ChannelPermissions.cs
-    startLine: 231
+    startLine: 238
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1877,6 +1919,11 @@ references:
   name: PrioritySpeaker
   nameWithType: ChannelPermissions.PrioritySpeaker
   fullName: Discord.ChannelPermissions.PrioritySpeaker
+- uid: Discord.ChannelPermissions.Stream*
+  commentId: Overload:Discord.ChannelPermissions.Stream
+  name: Stream
+  nameWithType: ChannelPermissions.Stream
+  fullName: Discord.ChannelPermissions.Stream
 - uid: Discord.ChannelPermissions.ManageRoles*
   commentId: Overload:Discord.ChannelPermissions.ManageRoles
   name: ManageRoles

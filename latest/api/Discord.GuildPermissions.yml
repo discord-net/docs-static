@@ -5,7 +5,7 @@ items:
   id: GuildPermissions
   parent: Discord
   children:
-  - Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
   - Discord.GuildPermissions.#ctor(System.UInt64)
   - Discord.GuildPermissions.AddReactions
   - Discord.GuildPermissions.Administrator
@@ -27,7 +27,7 @@ items:
   - Discord.GuildPermissions.ManageRoles
   - Discord.GuildPermissions.ManageWebhooks
   - Discord.GuildPermissions.MentionEveryone
-  - Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  - Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
   - Discord.GuildPermissions.MoveMembers
   - Discord.GuildPermissions.MuteMembers
   - Discord.GuildPermissions.None
@@ -38,6 +38,7 @@ items:
   - Discord.GuildPermissions.SendMessages
   - Discord.GuildPermissions.SendTTSMessages
   - Discord.GuildPermissions.Speak
+  - Discord.GuildPermissions.Stream
   - Discord.GuildPermissions.ToList
   - Discord.GuildPermissions.ToString
   - Discord.GuildPermissions.UseExternalEmojis
@@ -1163,6 +1164,43 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: Discord.GuildPermissions.Stream
+  commentId: P:Discord.GuildPermissions.Stream
+  id: Stream
+  parent: Discord.GuildPermissions
+  langs:
+  - csharp
+  - vb
+  name: Stream
+  nameWithType: GuildPermissions.Stream
+  fullName: Discord.GuildPermissions.Stream
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: Stream
+    path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
+    startLine: 74
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: 'If True, a user may stream video in a voice channel. '
+  example: []
+  syntax:
+    content: public bool Stream { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Stream As Boolean
+  overload: Discord.GuildPermissions.Stream*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.GuildPermissions.ChangeNickname
   commentId: P:Discord.GuildPermissions.ChangeNickname
   id: ChangeNickname
@@ -1181,7 +1219,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ChangeNickname
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 75
+    startLine: 77
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1218,7 +1256,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageNicknames
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 77
+    startLine: 79
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1255,7 +1293,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageRoles
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 79
+    startLine: 81
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1292,7 +1330,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageWebhooks
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 81
+    startLine: 83
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1329,7 +1367,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ManageEmojis
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 83
+    startLine: 85
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1366,7 +1404,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 86
+    startLine: 88
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1383,16 +1421,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  commentId: M:Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)'
+- uid: Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)'
   parent: Discord.GuildPermissions
   langs:
   - csharp
   - vb
-  name: GuildPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  nameWithType: GuildPermissions.GuildPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  fullName: Discord.GuildPermissions.GuildPermissions(System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  name: GuildPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  nameWithType: GuildPermissions.GuildPermissions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  fullName: Discord.GuildPermissions.GuildPermissions(System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean)
   type: Constructor
   source:
     remote:
@@ -1401,14 +1439,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 155
+    startLine: 159
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: 'Creates a new <xref href="Discord.GuildPermissions" data-throw-if-not-resolved="false"></xref> structure with the provided permissions. '
   example: []
   syntax:
-    content: public GuildPermissions(bool createInstantInvite = false, bool kickMembers = false, bool banMembers = false, bool administrator = false, bool manageChannels = false, bool manageGuild = false, bool addReactions = false, bool viewAuditLog = false, bool viewChannel = false, bool sendMessages = false, bool sendTTSMessages = false, bool manageMessages = false, bool embedLinks = false, bool attachFiles = false, bool readMessageHistory = false, bool mentionEveryone = false, bool useExternalEmojis = false, bool connect = false, bool speak = false, bool muteMembers = false, bool deafenMembers = false, bool moveMembers = false, bool useVoiceActivation = false, bool prioritySpeaker = false, bool changeNickname = false, bool manageNicknames = false, bool manageRoles = false, bool manageWebhooks = false, bool manageEmojis = false)
+    content: public GuildPermissions(bool createInstantInvite = false, bool kickMembers = false, bool banMembers = false, bool administrator = false, bool manageChannels = false, bool manageGuild = false, bool addReactions = false, bool viewAuditLog = false, bool viewChannel = false, bool sendMessages = false, bool sendTTSMessages = false, bool manageMessages = false, bool embedLinks = false, bool attachFiles = false, bool readMessageHistory = false, bool mentionEveryone = false, bool useExternalEmojis = false, bool connect = false, bool speak = false, bool muteMembers = false, bool deafenMembers = false, bool moveMembers = false, bool useVoiceActivation = false, bool prioritySpeaker = false, bool stream = false, bool changeNickname = false, bool manageNicknames = false, bool manageRoles = false, bool manageWebhooks = false, bool manageEmojis = false)
     parameters:
     - id: createInstantInvite
       type: System.Boolean
@@ -1457,6 +1495,8 @@ items:
     - id: useVoiceActivation
       type: System.Boolean
     - id: prioritySpeaker
+      type: System.Boolean
+    - id: stream
       type: System.Boolean
     - id: changeNickname
       type: System.Boolean
@@ -1468,22 +1508,22 @@ items:
       type: System.Boolean
     - id: manageEmojis
       type: System.Boolean
-    content.vb: Public Sub New(createInstantInvite As Boolean = False, kickMembers As Boolean = False, banMembers As Boolean = False, administrator As Boolean = False, manageChannels As Boolean = False, manageGuild As Boolean = False, addReactions As Boolean = False, viewAuditLog As Boolean = False, viewChannel As Boolean = False, sendMessages As Boolean = False, sendTTSMessages As Boolean = False, manageMessages As Boolean = False, embedLinks As Boolean = False, attachFiles As Boolean = False, readMessageHistory As Boolean = False, mentionEveryone As Boolean = False, useExternalEmojis As Boolean = False, connect As Boolean = False, speak As Boolean = False, muteMembers As Boolean = False, deafenMembers As Boolean = False, moveMembers As Boolean = False, useVoiceActivation As Boolean = False, prioritySpeaker As Boolean = False, changeNickname As Boolean = False, manageNicknames As Boolean = False, manageRoles As Boolean = False, manageWebhooks As Boolean = False, manageEmojis As Boolean = False)
+    content.vb: Public Sub New(createInstantInvite As Boolean = False, kickMembers As Boolean = False, banMembers As Boolean = False, administrator As Boolean = False, manageChannels As Boolean = False, manageGuild As Boolean = False, addReactions As Boolean = False, viewAuditLog As Boolean = False, viewChannel As Boolean = False, sendMessages As Boolean = False, sendTTSMessages As Boolean = False, manageMessages As Boolean = False, embedLinks As Boolean = False, attachFiles As Boolean = False, readMessageHistory As Boolean = False, mentionEveryone As Boolean = False, useExternalEmojis As Boolean = False, connect As Boolean = False, speak As Boolean = False, muteMembers As Boolean = False, deafenMembers As Boolean = False, moveMembers As Boolean = False, useVoiceActivation As Boolean = False, prioritySpeaker As Boolean = False, stream As Boolean = False, changeNickname As Boolean = False, manageNicknames As Boolean = False, manageRoles As Boolean = False, manageWebhooks As Boolean = False, manageEmojis As Boolean = False)
   overload: Discord.GuildPermissions.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  commentId: M:Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  id: Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+- uid: Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  commentId: M:Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  id: Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})
   parent: Discord.GuildPermissions
   langs:
   - csharp
   - vb
-  name: Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
-  nameWithType: GuildPermissions.Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
-  fullName: Discord.GuildPermissions.Modify(System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>)
+  name: Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
+  nameWithType: GuildPermissions.Modify(Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>, Nullable<Boolean>)
+  fullName: Discord.GuildPermissions.Modify(System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>)
   type: Method
   source:
     remote:
@@ -1492,14 +1532,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Modify
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 218
+    startLine: 224
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: 'Creates a new <xref href="Discord.GuildPermissions" data-throw-if-not-resolved="false"></xref> from this one, changing the provided non-null permissions. '
   example: []
   syntax:
-    content: public GuildPermissions Modify(bool? createInstantInvite = default(bool? ), bool? kickMembers = default(bool? ), bool? banMembers = default(bool? ), bool? administrator = default(bool? ), bool? manageChannels = default(bool? ), bool? manageGuild = default(bool? ), bool? addReactions = default(bool? ), bool? viewAuditLog = default(bool? ), bool? viewChannel = default(bool? ), bool? sendMessages = default(bool? ), bool? sendTTSMessages = default(bool? ), bool? manageMessages = default(bool? ), bool? embedLinks = default(bool? ), bool? attachFiles = default(bool? ), bool? readMessageHistory = default(bool? ), bool? mentionEveryone = default(bool? ), bool? useExternalEmojis = default(bool? ), bool? connect = default(bool? ), bool? speak = default(bool? ), bool? muteMembers = default(bool? ), bool? deafenMembers = default(bool? ), bool? moveMembers = default(bool? ), bool? useVoiceActivation = default(bool? ), bool? prioritySpeaker = default(bool? ), bool? changeNickname = default(bool? ), bool? manageNicknames = default(bool? ), bool? manageRoles = default(bool? ), bool? manageWebhooks = default(bool? ), bool? manageEmojis = default(bool? ))
+    content: public GuildPermissions Modify(bool? createInstantInvite = default(bool? ), bool? kickMembers = default(bool? ), bool? banMembers = default(bool? ), bool? administrator = default(bool? ), bool? manageChannels = default(bool? ), bool? manageGuild = default(bool? ), bool? addReactions = default(bool? ), bool? viewAuditLog = default(bool? ), bool? viewChannel = default(bool? ), bool? sendMessages = default(bool? ), bool? sendTTSMessages = default(bool? ), bool? manageMessages = default(bool? ), bool? embedLinks = default(bool? ), bool? attachFiles = default(bool? ), bool? readMessageHistory = default(bool? ), bool? mentionEveryone = default(bool? ), bool? useExternalEmojis = default(bool? ), bool? connect = default(bool? ), bool? speak = default(bool? ), bool? muteMembers = default(bool? ), bool? deafenMembers = default(bool? ), bool? moveMembers = default(bool? ), bool? useVoiceActivation = default(bool? ), bool? prioritySpeaker = default(bool? ), bool? stream = default(bool? ), bool? changeNickname = default(bool? ), bool? manageNicknames = default(bool? ), bool? manageRoles = default(bool? ), bool? manageWebhooks = default(bool? ), bool? manageEmojis = default(bool? ))
     parameters:
     - id: createInstantInvite
       type: System.Nullable{System.Boolean}
@@ -1548,6 +1588,8 @@ items:
     - id: useVoiceActivation
       type: System.Nullable{System.Boolean}
     - id: prioritySpeaker
+      type: System.Nullable{System.Boolean}
+    - id: stream
       type: System.Nullable{System.Boolean}
     - id: changeNickname
       type: System.Nullable{System.Boolean}
@@ -1561,15 +1603,15 @@ items:
       type: System.Nullable{System.Boolean}
     return:
       type: Discord.GuildPermissions
-    content.vb: Public Function Modify(createInstantInvite As Boolean? = Nothing, kickMembers As Boolean? = Nothing, banMembers As Boolean? = Nothing, administrator As Boolean? = Nothing, manageChannels As Boolean? = Nothing, manageGuild As Boolean? = Nothing, addReactions As Boolean? = Nothing, viewAuditLog As Boolean? = Nothing, viewChannel As Boolean? = Nothing, sendMessages As Boolean? = Nothing, sendTTSMessages As Boolean? = Nothing, manageMessages As Boolean? = Nothing, embedLinks As Boolean? = Nothing, attachFiles As Boolean? = Nothing, readMessageHistory As Boolean? = Nothing, mentionEveryone As Boolean? = Nothing, useExternalEmojis As Boolean? = Nothing, connect As Boolean? = Nothing, speak As Boolean? = Nothing, muteMembers As Boolean? = Nothing, deafenMembers As Boolean? = Nothing, moveMembers As Boolean? = Nothing, useVoiceActivation As Boolean? = Nothing, prioritySpeaker As Boolean? = Nothing, changeNickname As Boolean? = Nothing, manageNicknames As Boolean? = Nothing, manageRoles As Boolean? = Nothing, manageWebhooks As Boolean? = Nothing, manageEmojis As Boolean? = Nothing) As GuildPermissions
+    content.vb: Public Function Modify(createInstantInvite As Boolean? = Nothing, kickMembers As Boolean? = Nothing, banMembers As Boolean? = Nothing, administrator As Boolean? = Nothing, manageChannels As Boolean? = Nothing, manageGuild As Boolean? = Nothing, addReactions As Boolean? = Nothing, viewAuditLog As Boolean? = Nothing, viewChannel As Boolean? = Nothing, sendMessages As Boolean? = Nothing, sendTTSMessages As Boolean? = Nothing, manageMessages As Boolean? = Nothing, embedLinks As Boolean? = Nothing, attachFiles As Boolean? = Nothing, readMessageHistory As Boolean? = Nothing, mentionEveryone As Boolean? = Nothing, useExternalEmojis As Boolean? = Nothing, connect As Boolean? = Nothing, speak As Boolean? = Nothing, muteMembers As Boolean? = Nothing, deafenMembers As Boolean? = Nothing, moveMembers As Boolean? = Nothing, useVoiceActivation As Boolean? = Nothing, prioritySpeaker As Boolean? = Nothing, stream As Boolean? = Nothing, changeNickname As Boolean? = Nothing, manageNicknames As Boolean? = Nothing, manageRoles As Boolean? = Nothing, manageWebhooks As Boolean? = Nothing, manageEmojis As Boolean? = Nothing) As GuildPermissions
   overload: Discord.GuildPermissions.Modify*
-  nameWithType.vb: GuildPermissions.Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
+  nameWithType.vb: GuildPermissions.Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.GuildPermissions.Modify(System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean))
-  name.vb: Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
+  fullName.vb: Discord.GuildPermissions.Modify(System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean))
+  name.vb: Modify(Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean), Nullable(Of Boolean))
 - uid: Discord.GuildPermissions.Has(Discord.GuildPermission)
   commentId: M:Discord.GuildPermissions.Has(Discord.GuildPermission)
   id: Has(Discord.GuildPermission)
@@ -1588,7 +1630,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Has
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 259
+    startLine: 266
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1627,7 +1669,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToList
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 266
+    startLine: 273
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1662,7 +1704,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.Core/Entities/Permissions/GuildPermissions.cs
-    startLine: 281
+    startLine: 288
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -2072,6 +2114,11 @@ references:
   name: PrioritySpeaker
   nameWithType: GuildPermissions.PrioritySpeaker
   fullName: Discord.GuildPermissions.PrioritySpeaker
+- uid: Discord.GuildPermissions.Stream*
+  commentId: Overload:Discord.GuildPermissions.Stream
+  name: Stream
+  nameWithType: GuildPermissions.Stream
+  fullName: Discord.GuildPermissions.Stream
 - uid: Discord.GuildPermissions.ChangeNickname*
   commentId: Overload:Discord.GuildPermissions.ChangeNickname
   name: ChangeNickname
