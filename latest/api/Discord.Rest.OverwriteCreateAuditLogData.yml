@@ -5,6 +5,7 @@ items:
   id: OverwriteCreateAuditLogData
   parent: Discord.Rest
   children:
+  - Discord.Rest.OverwriteCreateAuditLogData.ChannelId
   - Discord.Rest.OverwriteCreateAuditLogData.Overwrite
   langs:
   - csharp
@@ -49,6 +50,44 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: Discord.Rest.OverwriteCreateAuditLogData.ChannelId
+  commentId: P:Discord.Rest.OverwriteCreateAuditLogData.ChannelId
+  id: ChannelId
+  parent: Discord.Rest.OverwriteCreateAuditLogData
+  langs:
+  - csharp
+  - vb
+  name: ChannelId
+  nameWithType: OverwriteCreateAuditLogData.ChannelId
+  fullName: Discord.Rest.OverwriteCreateAuditLogData.ChannelId
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteCreateAuditLogData.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: ChannelId
+    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteCreateAuditLogData.cs
+    startLine: 43
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the ID of the channel that the overwrite was created from.\n"
+  example: []
+  syntax:
+    content: public ulong ChannelId { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier for the channel that the overwrite was\ncreated from.\n"
+    content.vb: Public ReadOnly Property ChannelId As ULong
+  overload: Discord.Rest.OverwriteCreateAuditLogData.ChannelId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.Rest.OverwriteCreateAuditLogData.Overwrite
   commentId: P:Discord.Rest.OverwriteCreateAuditLogData.Overwrite
   id: Overwrite
@@ -67,7 +106,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Overwrite
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteCreateAuditLogData.cs
-    startLine: 41
+    startLine: 50
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -396,6 +435,18 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.Rest.OverwriteCreateAuditLogData.ChannelId*
+  commentId: Overload:Discord.Rest.OverwriteCreateAuditLogData.ChannelId
+  name: ChannelId
+  nameWithType: OverwriteCreateAuditLogData.ChannelId
+  fullName: Discord.Rest.OverwriteCreateAuditLogData.ChannelId
 - uid: Discord.Rest.OverwriteCreateAuditLogData.Overwrite
   commentId: P:Discord.Rest.OverwriteCreateAuditLogData.Overwrite
   isExternal: true

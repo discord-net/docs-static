@@ -6,9 +6,10 @@ items:
   parent: Discord.Rest
   children:
   - Discord.Rest.ChannelInfo.Bitrate
+  - Discord.Rest.ChannelInfo.IsNsfw
   - Discord.Rest.ChannelInfo.Name
+  - Discord.Rest.ChannelInfo.SlowModeInterval
   - Discord.Rest.ChannelInfo.Topic
-  - Discord.Rest.ChannelInfo.UserLimit
   langs:
   - csharp
   - vb
@@ -63,7 +64,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -101,7 +102,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Topic
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -115,6 +116,82 @@ items:
       description: "\nA string containing the topic of this channel, if any.\n"
     content.vb: Public ReadOnly Property Topic As String
   overload: Discord.Rest.ChannelInfo.Topic*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Rest.ChannelInfo.SlowModeInterval
+  commentId: P:Discord.Rest.ChannelInfo.SlowModeInterval
+  id: SlowModeInterval
+  parent: Discord.Rest.ChannelInfo
+  langs:
+  - csharp
+  - vb
+  name: SlowModeInterval
+  nameWithType: ChannelInfo.SlowModeInterval
+  fullName: Discord.Rest.ChannelInfo.SlowModeInterval
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: SlowModeInterval
+    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
+    startLine: 38
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the current slow-mode delay of this channel.\n"
+  example: []
+  syntax:
+    content: public int? SlowModeInterval { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+      description: "\nAn <see cref=\"!:Int32\"></see> representing the time in seconds required before the user can send another\nmessage; <code>0</code> if disabled.\n<code>null</code> if this is not mentioned in this entry.\n"
+    content.vb: Public ReadOnly Property SlowModeInterval As Integer?
+  overload: Discord.Rest.ChannelInfo.SlowModeInterval*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Discord.Rest.ChannelInfo.IsNsfw
+  commentId: P:Discord.Rest.ChannelInfo.IsNsfw
+  id: IsNsfw
+  parent: Discord.Rest.ChannelInfo
+  langs:
+  - csharp
+  - vb
+  name: IsNsfw
+  nameWithType: ChannelInfo.IsNsfw
+  fullName: Discord.Rest.ChannelInfo.IsNsfw
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: IsNsfw
+    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
+    startLine: 46
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the value that indicates whether this channel is NSFW.\n"
+  example: []
+  syntax:
+    content: public bool? IsNsfw { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+      description: "\n<code>true</code> if this channel has the NSFW flag enabled; otherwise <code>false</code>.\n<code>null</code> if this is not mentioned in this entry.\n"
+    content.vb: Public ReadOnly Property IsNsfw As Boolean?
+  overload: Discord.Rest.ChannelInfo.IsNsfw*
   modifiers.csharp:
   - public
   - get
@@ -139,7 +216,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Bitrate
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
-    startLine: 36
+    startLine: 54
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -150,47 +227,9 @@ items:
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the bit-rate set for the voice channel; <code>null</code> if not\napplicable.\n"
+      description: "\nAn <see cref=\"!:Int32\"></see> representing the bit-rate set for the voice channel;\n<code>null</code> if this is not mentioned in this entry.\n"
     content.vb: Public ReadOnly Property Bitrate As Integer?
   overload: Discord.Rest.ChannelInfo.Bitrate*
-  modifiers.csharp:
-  - public
-  - get
-  modifiers.vb:
-  - Public
-  - ReadOnly
-- uid: Discord.Rest.ChannelInfo.UserLimit
-  commentId: P:Discord.Rest.ChannelInfo.UserLimit
-  id: UserLimit
-  parent: Discord.Rest.ChannelInfo
-  langs:
-  - csharp
-  - vb
-  name: UserLimit
-  nameWithType: ChannelInfo.UserLimit
-  fullName: Discord.Rest.ChannelInfo.UserLimit
-  type: Property
-  source:
-    remote:
-      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: UserLimit
-    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/ChannelInfo.cs
-    startLine: 44
-  assemblies:
-  - Discord.Net.Rest
-  namespace: Discord.Rest
-  summary: "\nGets the number of users allowed to be in this channel if applicable.\n"
-  example: []
-  syntax:
-    content: public int? UserLimit { get; }
-    parameters: []
-    return:
-      type: System.Nullable{System.Int32}
-      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the number of users allowed to be in this voice channel; \n<code>null</code> if not applicable.\n"
-    content.vb: Public ReadOnly Property UserLimit As Integer?
-  overload: Discord.Rest.ChannelInfo.UserLimit*
   modifiers.csharp:
   - public
   - get
@@ -488,18 +527,11 @@ references:
   name: Topic
   nameWithType: ChannelInfo.Topic
   fullName: Discord.Rest.ChannelInfo.Topic
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
-- uid: Discord.Rest.ChannelInfo.Bitrate*
-  commentId: Overload:Discord.Rest.ChannelInfo.Bitrate
-  name: Bitrate
-  nameWithType: ChannelInfo.Bitrate
-  fullName: Discord.Rest.ChannelInfo.Bitrate
+- uid: Discord.Rest.ChannelInfo.SlowModeInterval*
+  commentId: Overload:Discord.Rest.ChannelInfo.SlowModeInterval
+  name: SlowModeInterval
+  nameWithType: ChannelInfo.SlowModeInterval
+  fullName: Discord.Rest.ChannelInfo.SlowModeInterval
 - uid: System.Nullable{System.Int32}
   commentId: T:System.Nullable{System.Int32}
   parent: System
@@ -583,8 +615,57 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.ChannelInfo.UserLimit*
-  commentId: Overload:Discord.Rest.ChannelInfo.UserLimit
-  name: UserLimit
-  nameWithType: ChannelInfo.UserLimit
-  fullName: Discord.Rest.ChannelInfo.UserLimit
+- uid: Discord.Rest.ChannelInfo.IsNsfw*
+  commentId: Overload:Discord.Rest.ChannelInfo.IsNsfw
+  name: IsNsfw
+  nameWithType: ChannelInfo.IsNsfw
+  fullName: Discord.Rest.ChannelInfo.IsNsfw
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.Rest.ChannelInfo.Bitrate*
+  commentId: Overload:Discord.Rest.ChannelInfo.Bitrate
+  name: Bitrate
+  nameWithType: ChannelInfo.Bitrate
+  fullName: Discord.Rest.ChannelInfo.Bitrate

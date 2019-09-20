@@ -5,6 +5,7 @@ items:
   id: OverwriteUpdateAuditLogData
   parent: Discord.Rest
   children:
+  - Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
   - Discord.Rest.OverwriteUpdateAuditLogData.NewPermissions
   - Discord.Rest.OverwriteUpdateAuditLogData.OldPermissions
   - Discord.Rest.OverwriteUpdateAuditLogData.OverwriteTargetId
@@ -52,6 +53,44 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
+  commentId: P:Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
+  id: ChannelId
+  parent: Discord.Rest.OverwriteUpdateAuditLogData
+  langs:
+  - csharp
+  - vb
+  name: ChannelId
+  nameWithType: OverwriteUpdateAuditLogData.ChannelId
+  fullName: Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: ChannelId
+    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
+    startLine: 48
+  assemblies:
+  - Discord.Net.Rest
+  namespace: Discord.Rest
+  summary: "\nGets the ID of the channel that the overwrite was updated from.\n"
+  example: []
+  syntax:
+    content: public ulong ChannelId { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+      description: "\nA <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> representing the snowflake identifier for the channel that the overwrite was\nupdated from.\n"
+    content.vb: Public ReadOnly Property ChannelId As ULong
+  overload: Discord.Rest.OverwriteUpdateAuditLogData.ChannelId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: Discord.Rest.OverwriteUpdateAuditLogData.OldPermissions
   commentId: P:Discord.Rest.OverwriteUpdateAuditLogData.OldPermissions
   id: OldPermissions
@@ -70,7 +109,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: OldPermissions
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
-    startLine: 47
+    startLine: 56
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -108,7 +147,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: NewPermissions
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
-    startLine: 55
+    startLine: 64
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -146,7 +185,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: OverwriteTargetId
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
-    startLine: 62
+    startLine: 71
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -184,7 +223,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: OverwriteType
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/OverwriteUpdateAuditLogData.cs
-    startLine: 69
+    startLine: 78
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
@@ -513,6 +552,18 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Discord.Rest.OverwriteUpdateAuditLogData.ChannelId*
+  commentId: Overload:Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
+  name: ChannelId
+  nameWithType: OverwriteUpdateAuditLogData.ChannelId
+  fullName: Discord.Rest.OverwriteUpdateAuditLogData.ChannelId
 - uid: Discord.Rest.OverwriteUpdateAuditLogData.OldPermissions*
   commentId: Overload:Discord.Rest.OverwriteUpdateAuditLogData.OldPermissions
   name: OldPermissions
@@ -529,13 +580,6 @@ references:
   name: NewPermissions
   nameWithType: OverwriteUpdateAuditLogData.NewPermissions
   fullName: Discord.Rest.OverwriteUpdateAuditLogData.NewPermissions
-- uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
-  isExternal: true
-  name: UInt64
-  nameWithType: UInt64
-  fullName: System.UInt64
 - uid: Discord.Rest.OverwriteUpdateAuditLogData.OverwriteTargetId*
   commentId: Overload:Discord.Rest.OverwriteUpdateAuditLogData.OverwriteTargetId
   name: OverwriteTargetId

@@ -5,7 +5,6 @@ items:
   id: MemberInfo
   parent: Discord.Rest
   children:
-  - Discord.Rest.MemberInfo.AvatarHash
   - Discord.Rest.MemberInfo.Deaf
   - Discord.Rest.MemberInfo.Mute
   - Discord.Rest.MemberInfo.Nickname
@@ -23,10 +22,12 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: MemberInfo
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nRepresents information for a member.\n"
+  example: []
   syntax:
     content: public struct MemberInfo
     content.vb: Public Structure MemberInfo
@@ -61,15 +62,18 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Nickname
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets the nickname of the updated member.\n"
+  example: []
   syntax:
     content: public string Nickname { get; }
     parameters: []
     return:
       type: System.String
+      description: "\nA string representing the nickname of the updated member; <code>null</code> if none is set.\n"
     content.vb: Public ReadOnly Property Nickname As String
   overload: Discord.Rest.MemberInfo.Nickname*
   modifiers.csharp:
@@ -96,15 +100,18 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Deaf
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-    startLine: 13
+    startLine: 29
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether the updated member is deafened by the guild.\n"
+  example: []
   syntax:
     content: public bool? Deaf { get; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
+      description: "\n<code>true</code> if the updated member is deafened (i.e. not permitted to listen to or speak to others) by the guild;\notherwise <code>false</code>.\n<code>null</code> if this is not mentioned in this entry.\n"
     content.vb: Public ReadOnly Property Deaf As Boolean?
   overload: Discord.Rest.MemberInfo.Deaf*
   modifiers.csharp:
@@ -131,52 +138,20 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Mute
     path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-    startLine: 14
+    startLine: 38
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
+  summary: "\nGets a value that indicates whether the updated member is muted (i.e. not permitted to speak via voice) by the\nguild.\n"
+  example: []
   syntax:
     content: public bool? Mute { get; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
+      description: "\n<code>true</code> if the updated member is muted by the guild; otherwise <code>false</code>.\n<code>null</code> if this is not mentioned in this entry.\n"
     content.vb: Public ReadOnly Property Mute As Boolean?
   overload: Discord.Rest.MemberInfo.Mute*
-  modifiers.csharp:
-  - public
-  - get
-  modifiers.vb:
-  - Public
-  - ReadOnly
-- uid: Discord.Rest.MemberInfo.AvatarHash
-  commentId: P:Discord.Rest.MemberInfo.AvatarHash
-  id: AvatarHash
-  parent: Discord.Rest.MemberInfo
-  langs:
-  - csharp
-  - vb
-  name: AvatarHash
-  nameWithType: MemberInfo.AvatarHash
-  fullName: Discord.Rest.MemberInfo.AvatarHash
-  type: Property
-  source:
-    remote:
-      path: src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: AvatarHash
-    path: ../src/Discord.Net.Rest/Entities/AuditLogs/DataTypes/MemberInfo.cs
-    startLine: 15
-  assemblies:
-  - Discord.Net.Rest
-  namespace: Discord.Rest
-  syntax:
-    content: public string AvatarHash { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property AvatarHash As String
-  overload: Discord.Rest.MemberInfo.AvatarHash*
   modifiers.csharp:
   - public
   - get
@@ -562,8 +537,3 @@ references:
   name: Mute
   nameWithType: MemberInfo.Mute
   fullName: Discord.Rest.MemberInfo.Mute
-- uid: Discord.Rest.MemberInfo.AvatarHash*
-  commentId: Overload:Discord.Rest.MemberInfo.AvatarHash
-  name: AvatarHash
-  nameWithType: MemberInfo.AvatarHash
-  fullName: Discord.Rest.MemberInfo.AvatarHash
