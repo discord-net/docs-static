@@ -32,7 +32,7 @@ items:
   - Discord.IGuild.ExplicitContentFilter
   - Discord.IGuild.Features
   - Discord.IGuild.GetAFKChannelAsync(Discord.CacheMode,Discord.RequestOptions)
-  - Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   - Discord.IGuild.GetBanAsync(Discord.IUser,Discord.RequestOptions)
   - Discord.IGuild.GetBanAsync(System.UInt64,Discord.RequestOptions)
   - Discord.IGuild.GetBansAsync(Discord.RequestOptions)
@@ -2815,16 +2815,16 @@ items:
       description: "\nA task that represents the asynchronous prune operation. The task result contains the number of users to\nbe or has been removed from this guild.\n"
     content.vb: Function PruneUsersAsync(days As Integer = 30, simulate As Boolean = False, options As RequestOptions = Nothing) As Task(Of Integer)
   overload: Discord.IGuild.PruneUsersAsync*
-- uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  id: GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+- uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  commentId: M:Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  id: GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   parent: Discord.IGuild
   langs:
   - csharp
   - vb
-  name: GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  name: GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  nameWithType: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  fullName: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<Discord.ActionType>)
   type: Method
   source:
     remote:
@@ -2833,14 +2833,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetAuditLogsAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 686
+    startLine: 689
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets the specified number of audit log entries for this guild.\n"
   example: []
   syntax:
-    content: Task<IReadOnlyCollection<IAuditLogEntry>> GetAuditLogsAsync(int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
+    content: Task<IReadOnlyCollection<IAuditLogEntry>> GetAuditLogsAsync(int limit = 100, CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null, ulong? beforeId = default(ulong? ), ulong? userId = default(ulong? ), ActionType? actionType = default(ActionType? ))
     parameters:
     - id: limit
       type: System.Int32
@@ -2851,11 +2851,23 @@ items:
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
+    - id: beforeId
+      type: System.Nullable{System.UInt64}
+      description: The audit log entry ID to get entries before.
+    - id: userId
+      type: System.Nullable{System.UInt64}
+      description: The user ID to filter entries for.
+    - id: actionType
+      type: System.Nullable{Discord.ActionType}
+      description: The type of actions to filter.
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof the requested audit log entries.\n"
-    content.vb: Function GetAuditLogsAsync(limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IAuditLogEntry))
+    content.vb: Function GetAuditLogsAsync(limit As Integer = 100, mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing, beforeId As ULong? = Nothing, userId As ULong? = Nothing, actionType As ActionType? = Nothing) As Task(Of IReadOnlyCollection(Of IAuditLogEntry))
   overload: Discord.IGuild.GetAuditLogsAsync*
+  nameWithType.vb: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
+  fullName.vb: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of Discord.ActionType))
+  name.vb: GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
 - uid: Discord.IGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   commentId: M:Discord.IGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   id: GetWebhookAsync(System.UInt64,Discord.RequestOptions)
@@ -2874,7 +2886,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhookAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 698
+    startLine: 702
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -2912,7 +2924,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhooksAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 707
+    startLine: 711
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -2947,7 +2959,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 718
+    startLine: 722
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -2985,7 +2997,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: CreateEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 729
+    startLine: 733
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -3032,7 +3044,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 741
+    startLine: 745
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -3076,7 +3088,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteEmoteAsync
     path: ../src/Discord.Net.Core/Entities/Guilds/IGuild.cs
-    startLine: 750
+    startLine: 754
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -5641,6 +5653,48 @@ references:
   name: GetAuditLogsAsync
   nameWithType: IGuild.GetAuditLogsAsync
   fullName: Discord.IGuild.GetAuditLogsAsync
+- uid: System.Nullable{Discord.ActionType}
+  commentId: T:System.Nullable{Discord.ActionType}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<ActionType>
+  nameWithType: Nullable<ActionType>
+  fullName: System.Nullable<Discord.ActionType>
+  nameWithType.vb: Nullable(Of ActionType)
+  fullName.vb: System.Nullable(Of Discord.ActionType)
+  name.vb: Nullable(Of ActionType)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
   commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
   parent: System.Threading.Tasks

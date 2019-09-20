@@ -42,7 +42,7 @@ items:
   - Discord.WebSocket.SocketGuild.Discord#IGuild#EmbedChannelId
   - Discord.WebSocket.SocketGuild.Discord#IGuild#EveryoneRole
   - Discord.WebSocket.SocketGuild.Discord#IGuild#GetAFKChannelAsync(Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   - Discord.WebSocket.SocketGuild.Discord#IGuild#GetBanAsync(Discord.IUser,Discord.RequestOptions)
   - Discord.WebSocket.SocketGuild.Discord#IGuild#GetBanAsync(System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketGuild.Discord#IGuild#GetBansAsync(Discord.RequestOptions)
@@ -77,7 +77,7 @@ items:
   - Discord.WebSocket.SocketGuild.EveryoneRole
   - Discord.WebSocket.SocketGuild.ExplicitContentFilter
   - Discord.WebSocket.SocketGuild.Features
-  - Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions)
+  - Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   - Discord.WebSocket.SocketGuild.GetBanAsync(Discord.IUser,Discord.RequestOptions)
   - Discord.WebSocket.SocketGuild.GetBanAsync(System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketGuild.GetBansAsync(Discord.RequestOptions)
@@ -3290,16 +3290,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions)
-  id: GetAuditLogsAsync(System.Int32,Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  commentId: M:Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  id: GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   parent: Discord.WebSocket.SocketGuild
   langs:
   - csharp
   - vb
-  name: GetAuditLogsAsync(Int32, RequestOptions)
-  nameWithType: SocketGuild.GetAuditLogsAsync(Int32, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32, Discord.RequestOptions)
+  name: GetAuditLogsAsync(Int32, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  nameWithType: SocketGuild.GetAuditLogsAsync(Int32, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  fullName: Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32, Discord.RequestOptions, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<Discord.ActionType>)
   type: Method
   source:
     remote:
@@ -3308,14 +3308,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetAuditLogsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 807
+    startLine: 810
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets the specified number of audit log entries for this guild.\n"
   example: []
   syntax:
-    content: public IAsyncEnumerable<IReadOnlyCollection<RestAuditLogEntry>> GetAuditLogsAsync(int limit, RequestOptions options = null)
+    content: public IAsyncEnumerable<IReadOnlyCollection<RestAuditLogEntry>> GetAuditLogsAsync(int limit, RequestOptions options = null, ulong? beforeId = default(ulong? ), ulong? userId = default(ulong? ), ActionType? actionType = default(ActionType? ))
     parameters:
     - id: limit
       type: System.Int32
@@ -3323,15 +3323,27 @@ items:
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
+    - id: beforeId
+      type: System.Nullable{System.UInt64}
+      description: The audit log entry ID to filter entries before.
+    - id: userId
+      type: System.Nullable{System.UInt64}
+      description: The user ID to filter entries for.
+    - id: actionType
+      type: System.Nullable{Discord.ActionType}
+      description: The type of actions to filter.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestAuditLogEntry}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof the requested audit log entries.\n"
-    content.vb: Public Function GetAuditLogsAsync(limit As Integer, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestAuditLogEntry))
+    content.vb: Public Function GetAuditLogsAsync(limit As Integer, options As RequestOptions = Nothing, beforeId As ULong? = Nothing, userId As ULong? = Nothing, actionType As ActionType? = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of RestAuditLogEntry))
   overload: Discord.WebSocket.SocketGuild.GetAuditLogsAsync*
+  nameWithType.vb: SocketGuild.GetAuditLogsAsync(Int32, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
+  fullName.vb: Discord.WebSocket.SocketGuild.GetAuditLogsAsync(System.Int32, Discord.RequestOptions, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of Discord.ActionType))
+  name.vb: GetAuditLogsAsync(Int32, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
 - uid: Discord.WebSocket.SocketGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   id: GetWebhookAsync(System.UInt64,Discord.RequestOptions)
@@ -3350,7 +3362,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhookAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 820
+    startLine: 823
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3392,7 +3404,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetWebhooksAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 830
+    startLine: 833
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3431,7 +3443,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetEmoteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 835
+    startLine: 838
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3475,7 +3487,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: CreateEmoteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 838
+    startLine: 841
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3528,7 +3540,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ModifyEmoteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 842
+    startLine: 845
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3582,7 +3594,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: DeleteEmoteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 845
+    startLine: 848
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3626,7 +3638,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ToString
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1044
+    startLine: 1047
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3665,7 +3677,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.AFKChannelId
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1050
+    startLine: 1053
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3706,7 +3718,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.AudioClient
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1052
+    startLine: 1055
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3747,7 +3759,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.Available
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1054
+    startLine: 1057
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3789,7 +3801,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.DefaultChannelId
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1056
+    startLine: 1059
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3831,7 +3843,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.EmbedChannelId
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1058
+    startLine: 1061
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3872,7 +3884,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.SystemChannelId
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1060
+    startLine: 1063
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3913,7 +3925,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.EveryoneRole
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1062
+    startLine: 1065
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3954,7 +3966,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.Roles
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1064
+    startLine: 1067
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -3995,7 +4007,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetBansAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1067
+    startLine: 1070
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4035,7 +4047,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetBanAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1070
+    startLine: 1073
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4078,7 +4090,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetBanAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1073
+    startLine: 1076
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4121,7 +4133,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetChannelsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1077
+    startLine: 1080
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4164,7 +4176,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1080
+    startLine: 1083
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4210,7 +4222,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetTextChannelsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1083
+    startLine: 1086
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4253,7 +4265,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetTextChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1086
+    startLine: 1089
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4299,7 +4311,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetVoiceChannelsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1089
+    startLine: 1092
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4342,7 +4354,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetCategoriesAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1092
+    startLine: 1095
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4385,7 +4397,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetVoiceChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1095
+    startLine: 1098
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4431,7 +4443,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetAFKChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1098
+    startLine: 1101
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4474,7 +4486,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetDefaultChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1101
+    startLine: 1104
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4517,7 +4529,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetEmbedChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1104
+    startLine: 1107
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4560,7 +4572,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetSystemChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1107
+    startLine: 1110
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4603,7 +4615,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.CreateTextChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1110
+    startLine: 1113
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4650,7 +4662,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.CreateVoiceChannelAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1113
+    startLine: 1116
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4697,7 +4709,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.CreateCategoryAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1116
+    startLine: 1119
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4744,7 +4756,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetVoiceRegionsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1120
+    startLine: 1123
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4784,7 +4796,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetIntegrationsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1124
+    startLine: 1127
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4821,7 +4833,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.CreateIntegrationAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1127
+    startLine: 1130
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4862,7 +4874,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetInvitesAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1131
+    startLine: 1134
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4902,7 +4914,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetVanityInviteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1134
+    startLine: 1137
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4942,7 +4954,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetRole
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1138
+    startLine: 1141
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -4982,7 +4994,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.CreateRoleAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1141
+    startLine: 1144
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5035,7 +5047,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetUsersAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1145
+    startLine: 1148
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5079,7 +5091,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.AddGuildUserAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1149
+    startLine: 1152
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5129,7 +5141,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetUserAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1152
+    startLine: 1155
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5176,7 +5188,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetCurrentUserAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1155
+    startLine: 1158
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5219,7 +5231,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetOwnerAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1158
+    startLine: 1161
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5243,17 +5255,17 @@ items:
   - Discord.IGuild.GetOwnerAsync(Discord.CacheMode,Discord.RequestOptions)
   nameWithType.vb: SocketGuild.Discord.IGuild.GetOwnerAsync(CacheMode, RequestOptions)
   name.vb: Discord.IGuild.GetOwnerAsync(CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  commentId: M:Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  id: Discord#IGuild#GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   isEii: true
   parent: Discord.WebSocket.SocketGuild
   langs:
   - csharp
   - vb
-  name: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: SocketGuild.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuild.Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  name: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  nameWithType: SocketGuild.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  fullName: Discord.WebSocket.SocketGuild.Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<Discord.ActionType>)
   type: Method
   source:
     remote:
@@ -5262,14 +5274,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetAuditLogsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1162
+    startLine: 1165
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets the specified number of audit log entries for this guild.\n"
   example: []
   syntax:
-    content: Task<IReadOnlyCollection<IAuditLogEntry>> IGuild.GetAuditLogsAsync(int limit, CacheMode cacheMode, RequestOptions options)
+    content: Task<IReadOnlyCollection<IAuditLogEntry>> IGuild.GetAuditLogsAsync(int limit, CacheMode cacheMode, RequestOptions options, ulong? beforeId, ulong? userId, ActionType? actionType)
     parameters:
     - id: limit
       type: System.Int32
@@ -5279,15 +5291,25 @@ items:
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
+    - id: beforeId
+      type: System.Nullable{System.UInt64}
+      description: The audit log entry ID to get entries before.
+    - id: userId
+      type: System.Nullable{System.UInt64}
+      description: The user ID to filter entries for.
+    - id: actionType
+      type: System.Nullable{Discord.ActionType}
+      description: The type of actions to filter.
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IAuditLogEntry}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof the requested audit log entries.\n"
-    content.vb: Function Discord.IGuild.GetAuditLogsAsync(limit As Integer, cacheMode As CacheMode, options As RequestOptions) As Task(Of IReadOnlyCollection(Of IAuditLogEntry)) Implements IGuild.GetAuditLogsAsync
+    content.vb: Function Discord.IGuild.GetAuditLogsAsync(limit As Integer, cacheMode As CacheMode, options As RequestOptions, beforeId As ULong?, userId As ULong?, actionType As ActionType?) As Task(Of IReadOnlyCollection(Of IAuditLogEntry)) Implements IGuild.GetAuditLogsAsync
   overload: Discord.WebSocket.SocketGuild.Discord#IGuild#GetAuditLogsAsync*
   implements:
-  - Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketGuild.Discord.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
+  - Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  nameWithType.vb: SocketGuild.Discord.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
+  fullName.vb: Discord.WebSocket.SocketGuild.Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of Discord.ActionType))
+  name.vb: Discord.IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
 - uid: Discord.WebSocket.SocketGuild.Discord#IGuild#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketGuild.Discord#IGuild#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   id: Discord#IGuild#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
@@ -5307,7 +5329,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetWebhookAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1171
+    startLine: 1175
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5350,7 +5372,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Discord.IGuild.GetWebhooksAsync
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1174
+    startLine: 1178
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -5390,7 +5412,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: System.IDisposable.Dispose
     path: ../src/Discord.Net.WebSocket/Entities/Guilds/SocketGuild.cs
-    startLine: 1177
+    startLine: 1181
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -8929,6 +8951,48 @@ references:
   name: GetAuditLogsAsync
   nameWithType: SocketGuild.GetAuditLogsAsync
   fullName: Discord.WebSocket.SocketGuild.GetAuditLogsAsync
+- uid: System.Nullable{Discord.ActionType}
+  commentId: T:System.Nullable{Discord.ActionType}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<ActionType>
+  nameWithType: Nullable<ActionType>
+  fullName: System.Nullable<Discord.ActionType>
+  nameWithType.vb: Nullable(Of ActionType)
+  fullName.vb: System.Nullable(Of Discord.ActionType)
+  name.vb: Nullable(Of ActionType)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestAuditLogEntry}}
   commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestAuditLogEntry}}
   parent: System.Collections.Generic
@@ -12773,15 +12837,18 @@ references:
   fullName: Discord.WebSocket.SocketGuild.Discord.IGuild.GetAuditLogsAsync
   nameWithType.vb: SocketGuild.Discord.IGuild.GetAuditLogsAsync
   name.vb: Discord.IGuild.GetAuditLogsAsync
-- uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+- uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
+  commentId: M:Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
   parent: Discord.IGuild
   isExternal: true
-  name: GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
+  name: GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  nameWithType: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable<UInt64>, Nullable<UInt64>, Nullable<ActionType>)
+  fullName: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<Discord.ActionType>)
+  nameWithType.vb: IGuild.GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
+  fullName.vb: Discord.IGuild.GetAuditLogsAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of Discord.ActionType))
+  name.vb: GetAuditLogsAsync(Int32, CacheMode, RequestOptions, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of ActionType))
   spec.csharp:
-  - uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
     name: GetAuditLogsAsync
     nameWithType: IGuild.GetAuditLogsAsync
     fullName: Discord.IGuild.GetAuditLogsAsync
@@ -12807,11 +12874,67 @@ references:
     name: RequestOptions
     nameWithType: RequestOptions
     fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
+  - uid: Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType})
     name: GetAuditLogsAsync
     nameWithType: IGuild.GetAuditLogsAsync
     fullName: Discord.IGuild.GetAuditLogsAsync
@@ -12837,6 +12960,62 @@ references:
     name: RequestOptions
     nameWithType: RequestOptions
     fullName: Discord.RequestOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Discord.ActionType
+    name: ActionType
+    nameWithType: ActionType
+    fullName: Discord.ActionType
+  - name: )
+    nameWithType: )
+    fullName: )
   - name: )
     nameWithType: )
     fullName: )
