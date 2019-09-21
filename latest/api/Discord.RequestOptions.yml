@@ -13,6 +13,7 @@ items:
   - Discord.RequestOptions.HeaderOnly
   - Discord.RequestOptions.RetryMode
   - Discord.RequestOptions.Timeout
+  - Discord.RequestOptions.UseSystemClock
   langs:
   - csharp
   - vb
@@ -278,6 +279,41 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: Discord.RequestOptions.UseSystemClock
+  commentId: P:Discord.RequestOptions.UseSystemClock
+  id: UseSystemClock
+  parent: Discord.RequestOptions
+  langs:
+  - csharp
+  - vb
+  name: UseSystemClock
+  nameWithType: RequestOptions.UseSystemClock
+  fullName: Discord.RequestOptions.UseSystemClock
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/RequestOptions.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: UseSystemClock
+    path: ../src/Discord.Net.Core/RequestOptions.cs
+    startLine: 57
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  syntax:
+    content: public bool? UseSystemClock { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property UseSystemClock As Boolean?
+  overload: Discord.RequestOptions.UseSystemClock*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: Discord.RequestOptions.#ctor
   commentId: M:Discord.RequestOptions.#ctor
   id: '#ctor'
@@ -296,7 +332,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.Core/RequestOptions.cs
-    startLine: 64
+    startLine: 76
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -328,7 +364,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Clone
     path: ../src/Discord.Net.Core/RequestOptions.cs
-    startLine: 69
+    startLine: 81
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -835,6 +871,55 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: Discord.RequestOptions.UseSystemClock*
+  commentId: Overload:Discord.RequestOptions.UseSystemClock
+  name: UseSystemClock
+  nameWithType: RequestOptions.UseSystemClock
+  fullName: Discord.RequestOptions.UseSystemClock
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.DiscordConfig
   commentId: T:Discord.DiscordConfig
   parent: Discord
