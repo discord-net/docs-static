@@ -228,7 +228,8 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nGets a collection of users that are able to view the channel.\n"
+  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IChannel.GetUsersAsync(Discord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: IAsyncEnumerable<IReadOnlyCollection<IGuildUser>> IGuildChannel.GetUsersAsync(CacheMode mode, RequestOptions options)
@@ -241,7 +242,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
-      description: "\nA paged collection containing a collection of guild users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      description: "\nPaged collection of users.\n"
     content.vb: Function Discord.IGuildChannel.GetUsersAsync(mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IGuildUser)) Implements IGuildChannel.GetUsersAsync
   overload: Discord.WebSocket.SocketCategoryChannel.Discord#IGuildChannel#GetUsersAsync*
   implements:
@@ -317,7 +318,8 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nGets a collection of all users in this channel.\n"
+  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\nThis method will attempt to fetch all users that is able to view this channel or is currently in this channel.\nThe library will attempt to split up the requests according to and <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref>.\nIn other words, if there are 3000 users, and the <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant\nis <code>1000</code>, the request will be split into 3 individual requests; thus returning 53individual asynchronous\nresponses, hence the need of flattening.\n"
   example: []
   syntax:
     content: IAsyncEnumerable<IReadOnlyCollection<IUser>> IChannel.GetUsersAsync(CacheMode mode, RequestOptions options)
@@ -330,7 +332,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-      description: "\nA paged collection containing a collection of users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      description: "\nPaged collection of users.\n"
     content.vb: Function Discord.IChannel.GetUsersAsync(mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser)) Implements IChannel.GetUsersAsync
   overload: Discord.WebSocket.SocketCategoryChannel.Discord#IChannel#GetUsersAsync*
   implements:

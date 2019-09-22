@@ -96,11 +96,12 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetUsersAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
-    startLine: 28
+    startLine: 38
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: "\nGets a collection of all users in this channel.\n"
+  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\nThis method will attempt to fetch all users that is able to view this channel or is currently in this channel.\nThe library will attempt to split up the requests according to and <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref>.\nIn other words, if there are 3000 users, and the <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant\nis <code>1000</code>, the request will be split into 3 individual requests; thus returning 53individual asynchronous\nresponses, hence the need of flattening.\n"
   example: []
   syntax:
     content: IAsyncEnumerable<IReadOnlyCollection<IUser>> GetUsersAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
@@ -113,7 +114,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-      description: "\nA paged collection containing a collection of users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      description: "\nPaged collection of users.\n"
     content.vb: Function GetUsersAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
   overload: Discord.IChannel.GetUsersAsync*
 - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
@@ -134,7 +135,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetUserAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IChannel.cs
-    startLine: 40
+    startLine: 50
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -287,15 +288,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
+  isExternal: true
+- uid: Discord.DiscordConfig.MaxUsersPerBatch
+  commentId: F:Discord.DiscordConfig.MaxUsersPerBatch
+  parent: Discord.DiscordConfig
+  name: MaxUsersPerBatch
+  nameWithType: DiscordConfig.MaxUsersPerBatch
+  fullName: Discord.DiscordConfig.MaxUsersPerBatch
 - uid: Discord.CacheMode
   commentId: T:Discord.CacheMode
   parent: Discord
   name: CacheMode
   nameWithType: CacheMode
   fullName: Discord.CacheMode
-- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
-  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
-  isExternal: true
 - uid: Discord.IChannel.GetUsersAsync*
   commentId: Overload:Discord.IChannel.GetUsersAsync
   name: GetUsersAsync
@@ -371,6 +378,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.DiscordConfig
+  commentId: T:Discord.DiscordConfig
+  parent: Discord
+  name: DiscordConfig
+  nameWithType: DiscordConfig
+  fullName: Discord.DiscordConfig
 - uid: System.Collections.Generic.IAsyncEnumerable`1
   commentId: T:System.Collections.Generic.IAsyncEnumerable`1
   isExternal: true

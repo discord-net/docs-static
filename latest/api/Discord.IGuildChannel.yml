@@ -495,11 +495,12 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetUsersAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IGuildChannel.cs
-    startLine: 143
+    startLine: 145
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: "\nGets a collection of users that are able to view the channel.\n"
+  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IChannel.GetUsersAsync(Discord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: IAsyncEnumerable<IReadOnlyCollection<IGuildUser>> GetUsersAsync(CacheMode mode = CacheMode.AllowDownload, RequestOptions options = null)
@@ -512,7 +513,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
-      description: "\nA paged collection containing a collection of guild users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      description: "\nPaged collection of users.\n"
     content.vb: Function GetUsersAsync(mode As CacheMode = CacheMode.AllowDownload, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IGuildUser))
   overload: Discord.IGuildChannel.GetUsersAsync*
 - uid: Discord.IGuildChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
@@ -533,7 +534,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GetUserAsync
     path: ../src/Discord.Net.Core/Entities/Channels/IGuildChannel.cs
-    startLine: 154
+    startLine: 156
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -1349,15 +1350,62 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  commentId: M:Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+  parent: Discord.IChannel
+  name: GetUsersAsync(CacheMode, RequestOptions)
+  nameWithType: IChannel.GetUsersAsync(CacheMode, RequestOptions)
+  fullName: Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
+  spec.csharp:
+  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: GetUsersAsync
+    nameWithType: IChannel.GetUsersAsync
+    fullName: Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
+    name: GetUsersAsync
+    nameWithType: IChannel.GetUsersAsync
+    fullName: Discord.IChannel.GetUsersAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Discord.CacheMode
+    name: CacheMode
+    nameWithType: CacheMode
+    fullName: Discord.CacheMode
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Discord.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Discord.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.CacheMode
   commentId: T:Discord.CacheMode
   parent: Discord
   name: CacheMode
   nameWithType: CacheMode
   fullName: Discord.CacheMode
-- uid: Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
-  commentId: M:Discord.AsyncEnumerableExtensions.FlattenAsync``1(System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IEnumerable{``0}})
-  isExternal: true
 - uid: Discord.IGuildChannel.GetUsersAsync*
   commentId: Overload:Discord.IGuildChannel.GetUsersAsync
   name: GetUsersAsync

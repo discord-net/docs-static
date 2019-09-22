@@ -337,8 +337,10 @@ items:
     parameters:
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous operation for syncing channel permissions with its parent&apos;s.\n"
     content.vb: Public Function SyncPermissionsAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestVoiceChannel.SyncPermissionsAsync*
   implements:
@@ -596,7 +598,8 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets a collection of users that are able to view the channel.\n"
+  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
+  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IChannel.GetUsersAsync(Discord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: IAsyncEnumerable<IReadOnlyCollection<IGuildUser>> IGuildChannel.GetUsersAsync(CacheMode mode, RequestOptions options)
@@ -609,7 +612,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IGuildUser}}
-      description: "\nA paged collection containing a collection of guild users that can access this channel. Flattening the\npaginated response into a collection of users with \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> is required if you wish to access the users.\n"
+      description: "\nPaged collection of users.\n"
     content.vb: Function Discord.IGuildChannel.GetUsersAsync(mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IGuildUser)) Implements IGuildChannel.GetUsersAsync
   overload: Discord.Rest.RestVoiceChannel.Discord#IGuildChannel#GetUsersAsync*
   implements:

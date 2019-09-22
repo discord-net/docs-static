@@ -26,11 +26,12 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SocketNewsChannel
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 11
+    startLine: 16
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nRepresents a WebSocket-based news channel in a guild that has the same properties as a <xref href=\"Discord.WebSocket.SocketTextChannel\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Most of the properties and methods featured may not be supported due to the nature of the channel.\n</p></div>\n"
   example: []
   syntax:
     content: 'public class SocketNewsChannel : SocketTextChannel, ITextChannel, IMentionable, INestedChannel, IGuildChannel, IDeletable, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
@@ -153,15 +154,19 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SlowModeInterval
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 24
+    startLine: 35
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets the current slow-mode delay for this channel.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override int SlowModeInterval { get; }
     parameters: []
     return:
       type: System.Int32
+      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the time in seconds required before the user can send another\nmessage; <code>0</code> if disabled.\n"
     content.vb: Public Overrides ReadOnly Property SlowModeInterval As Integer
   overridden: Discord.WebSocket.SocketTextChannel.SlowModeInterval
   overload: Discord.WebSocket.SocketNewsChannel.SlowModeInterval*
@@ -191,21 +196,28 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AddPermissionOverwriteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 28
+    startLine: 43
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nAdds or updates the permission overwrite for the given role.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override Task AddPermissionOverwriteAsync(IRole role, OverwritePermissions permissions, RequestOptions options = null)
     parameters:
     - id: role
       type: Discord.IRole
+      description: The role to add the overwrite to.
     - id: permissions
       type: Discord.OverwritePermissions
+      description: The overwrite to add to the role.
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task representing the asynchronous permission operation for adding the specified permissions to the channel.\n"
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(role As IRole, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.AddPermissionOverwriteAsync*
@@ -233,21 +245,28 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AddPermissionOverwriteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 32
+    startLine: 51
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nAdds or updates the permission overwrite for the given user.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override Task AddPermissionOverwriteAsync(IUser user, OverwritePermissions permissions, RequestOptions options = null)
     parameters:
     - id: user
       type: Discord.IUser
+      description: The user to add the overwrite to.
     - id: permissions
       type: Discord.OverwritePermissions
+      description: The overwrite to add to the user.
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task representing the asynchronous permission operation for adding the specified permissions to the channel.\n"
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(user As IUser, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.AddPermissionOverwriteAsync*
@@ -275,15 +294,19 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: PermissionOverwrites
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 36
+    startLine: 59
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nGets a collection of permission overwrites for this channel.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override IReadOnlyCollection<Overwrite> PermissionOverwrites { get; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyCollection{Discord.Overwrite}
+      description: "\nA collection of overwrites associated with this channel.\n"
     content.vb: Public Overrides ReadOnly Property PermissionOverwrites As IReadOnlyCollection(Of Overwrite)
   overridden: Discord.WebSocket.SocketGuildChannel.PermissionOverwrites
   overload: Discord.WebSocket.SocketNewsChannel.PermissionOverwrites*
@@ -313,17 +336,22 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SyncPermissionsAsync
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 38
+    startLine: 67
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nSyncs the permissions of this nested channel with its parent&apos;s.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override Task SyncPermissionsAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task that represents the asynchronous operation for syncing channel permissions with its parent&apos;s.\n"
     content.vb: Public Overrides Function SyncPermissionsAsync(options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketTextChannel.SyncPermissionsAsync(Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.SyncPermissionsAsync*
@@ -351,19 +379,25 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: RemovePermissionOverwriteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 42
+    startLine: 75
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nRemoves the permission overwrite for the given role, if one exists.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override Task RemovePermissionOverwriteAsync(IRole role, RequestOptions options = null)
     parameters:
     - id: role
       type: Discord.IRole
+      description: The role to remove the overwrite from.
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task representing the asynchronous operation for removing the specified permissions from the channel.\n"
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(role As IRole, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.RemovePermissionOverwriteAsync*
@@ -391,19 +425,25 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: RemovePermissionOverwriteAsync
     path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketNewsChannel.cs
-    startLine: 46
+    startLine: 83
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
+  summary: "\nRemoves the permission overwrite for the given user, if one exists.\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  example: []
   syntax:
     content: public override Task RemovePermissionOverwriteAsync(IUser user, RequestOptions options = null)
     parameters:
     - id: user
       type: Discord.IUser
+      description: The user to remove the overwrite from.
     - id: options
       type: Discord.RequestOptions
+      description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task
+      description: "\nA task representing the asynchronous operation for removing the specified permissions from the channel.\n"
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(user As IUser, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.RemovePermissionOverwriteAsync*
@@ -4343,6 +4383,9 @@ references:
   fullName: Discord.WebSocket.SocketEntity<T>.Id
   nameWithType.vb: SocketEntity(Of T).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of T).Id
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
 - uid: Discord.WebSocket.SocketTextChannel.SlowModeInterval
   commentId: P:Discord.WebSocket.SocketTextChannel.SlowModeInterval
   parent: Discord.WebSocket.SocketTextChannel

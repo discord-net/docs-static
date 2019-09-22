@@ -2568,6 +2568,7 @@ items:
     parameters:
     - id: userId
       type: System.UInt64
+      description: The snowflake identifier of the user.
     - id: accessToken
       type: System.String
       description: The OAuth2 access token for the user, requested with the guilds.join scope.
@@ -2579,7 +2580,7 @@ items:
       description: The options to be used when sending the request.
     return:
       type: System.Threading.Tasks.Task{Discord.IGuildUser}
-      description: A guild user associated with the specified <code data-dev-comment-type="paramref" class="paramref">id</code>; <code>null</code> if the user is already in the guild.
+      description: A guild user associated with the specified <code data-dev-comment-type="paramref" class="paramref">userId</code>; <code>null</code> if the user is already in the guild.
     content.vb: Function AddGuildUserAsync(userId As ULong, accessToken As String, func As Action(Of AddGuildUserProperties) = Nothing, options As RequestOptions = Nothing) As Task(Of IGuildUser)
   overload: Discord.IGuild.AddGuildUserAsync*
   nameWithType.vb: IGuild.AddGuildUserAsync(UInt64, String, Action(Of AddGuildUserProperties), RequestOptions)

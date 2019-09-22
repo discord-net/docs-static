@@ -7,9 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Start making a bot | Discord.Net Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Start making a bot | Discord.Net Documentation ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta property="og:title" content="Start making a bot | Discord.Net Documentation ">
     
+    <meta property="og:locale" content="en-us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Discord.Net Docs">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/discord-net/Discord.Net/docs/marketing/logo/PackageLogo.png">
+    <meta property="og:image:alt" content="Discord.Net Logo">
+    <meta name="theme-color" content="#995EA7">
+    <meta name="generator" content="docfx 2.45.1.0">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
     <link rel="preload" href="../../styles/search-worker.js" as="script">
     <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -20,14 +29,10 @@
     <link rel="stylesheet" href="../../styles/material.css">
     <link rel="stylesheet" href="../../styles/theme-switcher.css">
     <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
-    <meta name="theme-color" content="#99AAB5">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    <meta id="docfx-style:rel" content="../../">
     
     <meta property="docfx:rel" content="../../">
     
-  <meta name="description" content="One of the ways to get started with the Discord API is to write a
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jordnkr/collapsible/master/collapsible.css"><meta property="og:description" content="One of the ways to get started with the Discord API is to write a
 basic ping-pong bot."></head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -205,22 +210,6 @@ method with the application&#39;s &quot;token.&quot;</p>
 <div class="NOTE"><h5>Note</h5><p>Pay attention to what you are copying from the developer portal!
 A token is not the same as the application&#39;s &quot;client secret.&quot;</p>
 </div>
-<div class="IMPORTANT"><h5>Important</h5><p>Your bot&#39;s token can be used to gain total access to your bot, so
-<strong>do not</strong> share this token with anyone else! You should store this
-token in an external source if you plan on distributing
-the source code for your bot.</p>
-<p>In the following example, we retrieve the token from the environment
-variable <code>DiscordToken</code>. Please note that this is <em>not</em> designed to
-be used in a production environment, as the secrets are stored in
-plain-text.</p>
-<p>For information on how to set an environment variable, please see
-instructions below,</p>
-<ul>
-<li>Windows: <a href="https://www.tenforums.com/tutorials/121742-create-environment-variables-shortcut-windows.html">How to Create Environment Variables Shortcut in Windows</a></li>
-<li>Linux: <a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps">How To Read and Set Environmental and Shell Variables on a Linux VPS</a></li>
-<li>macOS: <a href="https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x">How do I set environment variables on OS X?</a></li>
-</ul>
-</div>
 <p>We may now invoke the client&#39;s <a href="xref:Discord.WebSocket.DiscordSocketClient.StartAsync*">StartAsync</a> method, which will
 start connection/reconnection logic. It is important to note that
 <strong>this method will return as soon as connection logic has been started!</strong>
@@ -230,29 +219,40 @@ the client before it is fully ready.</p>
 <p>Finally, we will want to block the async main method from returning
 when running the application. To do this, we can await an infinite delay
 or any other blocking method, such as reading from the console.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Your bot&#39;s token can be used to gain total access to your bot, so
+<strong>do not</strong> share this token with anyone else! You should store this
+token in an external source if you plan on distributing
+the source code for your bot.</p>
+<p>In the following example, we retrieve the token from a pre-defined
+variable, which is <strong>NOT</strong> secure, especially if you plan on 
+distributing the application in any shape or form.</p>
+<p>We recommend alternative storage such as 
+<a href="https://en.wikipedia.org/wiki/Environment_variable">Environment Variables</a>, an external configuration file, or a 
+secrets manager for safe-handling of secrets.</p>
+</div>
 <p>The following lines can now be added:</p>
 <pre><code class="lang-csharp" name="Create client">private DiscordSocketClient _client;
 
 public async Task MainAsync()
 {
-	_client = new DiscordSocketClient();
+    _client = new DiscordSocketClient();
 
-	_client.Log += Log;
-    
-    // You can assign your bot token to a string, and pass that in to connect.
-    // This however is insecure, particularly if you plan to have your code hosted in a repository.
+    _client.Log += Log;
+
+    //  You can assign your bot token to a string, and pass that in to connect.
+    //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.
     var token = &quot;token&quot;;
-    
-    // Some alternative  options would be to keep your token in an Environment Variable or a standalone file.
+
+    // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
     // var token = Environment.GetEnvironmentVariable(&quot;NameOfYourEnvironmentVariable&quot;);
     // var token = File.ReadAllText(&quot;token.txt&quot;);
     // var token = JsonConvert.DeserializeObject&lt;AConfigurationClass&gt;(File.ReadAllText(&quot;config.json&quot;)).Token;
 
-	await _client.LoginAsync(TokenType.Bot, token);
-	await _client.StartAsync();
+    await _client.LoginAsync(TokenType.Bot, token);
+    await _client.StartAsync();
 
-	// Block this task until the program is closed.
-	await Task.Delay(-1);
+    // Block this task until the program is closed.
+    await Task.Delay(-1);
 }
 </code></pre><p>At this point, feel free to start your program and see your bot come
 online in Discord.</p>
@@ -282,7 +282,23 @@ should be to separate...</p>
 <li>the modules (handle commands)</li>
 <li>the services (persistent storage, pure functions, data manipulation)</li>
 </ol>
-<hr><p>This page was last modified at 9/21/2019 1:25:23 PM +00:00 (UTC).</p></article>
+<hr><p>This page was last modified at 9/23/2019 7:06:57 AM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
+Commit:    fd3810e9febffc971e07a08b9749c2a6dfc4053a
+</code></pre><pre><code class="xml">docs: September 2019 Documentation Update (#1379)
+
+* docs: adjust wording of ActivityType.Watching enum
+
+Adjusts the xmldoc summary wording of the ActivityType.Watching enum to
+fix a wording issue.
+
+* Add D.NET Logo to Open Graph meta tags
+
+* Update DescriptionGenerator
+...And update color to suit the logo better
+
+* Disable smooth scrolling due to user complaints
+
+* Remove u...</code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -317,7 +333,7 @@ should be to separate...</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Discord.Net (c) 2015-2019 2.0.1
+            Discord.Net (c) 2015-2019 2.1.1
             
           </div>
         </div>
@@ -327,9 +343,10 @@ should be to separate...</p>
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
     <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
     <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
-    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  <script>
+  $( function() {
+    $( "#accordion" ).collapsible();
+  } );</script><script type="text/javascript" src="https://cdn.rawgit.com/jordnkr/collapsible/master/jquery.collapsible.min.js"></script></body>
 </html>
