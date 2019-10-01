@@ -11,6 +11,7 @@ items:
   - Discord.WebSocket.DiscordSocketConfig.ExclusiveBulkDelete
   - Discord.WebSocket.DiscordSocketConfig.GatewayEncoding
   - Discord.WebSocket.DiscordSocketConfig.GatewayHost
+  - Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
   - Discord.WebSocket.DiscordSocketConfig.HandlerTimeout
   - Discord.WebSocket.DiscordSocketConfig.LargeThreshold
   - Discord.WebSocket.DiscordSocketConfig.MessageCacheSize
@@ -436,7 +437,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets or sets whether or not all users should be downloaded as guilds come available.\n"
-  remarks: "\n<p>\n    By default, the Discord gateway will only send offline members if a guild has less than a certain number\n    of members (determined by <xref href=\"Discord.WebSocket.DiscordSocketConfig.LargeThreshold\" data-throw-if-not-resolved=\"false\"></xref> in this library). This behaviour is why\n    sometimes a user may be missing from the WebSocket cache for collections such as \n<xref href=\"Discord.WebSocket.SocketGuild.Users\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n<p>\n    This property ensures that whenever a guild becomes available (determined by\n<xref href=\"Discord.WebSocket.BaseSocketClient.GuildAvailable\" data-throw-if-not-resolved=\"false\"></xref>), incomplete user chunks will be\ndownloaded to the WebSocket cache.\n</p>\n<p>\n    For more information, please see \n<a href=\"https://discordapp.com/developers/docs/topics/gateway#request-guild-members\">Request Guild Members</a>\non the official Discord API documentation.\n</p>\n<div class=\"NOTE\"><h5>note</h5><p>\n    Please note that it can be difficult to fill the cache completely on large guilds depending on the\n    traffic. If you are using the command system, the default user TypeReader may fail to find the user\n    due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider\n    overriding the TypeReader and use\n<xref href=\"Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref> \nor <xref href=\"Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64%2cSystem.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nas a backup.\n</p></div>\n"
+  remarks: "\n<p>\n    By default, the Discord gateway will only send offline members if a guild has less than a certain number\n    of members (determined by <xref href=\"Discord.WebSocket.DiscordSocketConfig.LargeThreshold\" data-throw-if-not-resolved=\"false\"></xref> in this library). This behaviour is why\n    sometimes a user may be missing from the WebSocket cache for collections such as\n<xref href=\"Discord.WebSocket.SocketGuild.Users\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n<p>\n    This property ensures that whenever a guild becomes available (determined by\n<xref href=\"Discord.WebSocket.BaseSocketClient.GuildAvailable\" data-throw-if-not-resolved=\"false\"></xref>), incomplete user chunks will be\ndownloaded to the WebSocket cache.\n</p>\n<p>\n    For more information, please see\n<a href=\"https://discordapp.com/developers/docs/topics/gateway#request-guild-members\">Request Guild Members</a>\non the official Discord API documentation.\n</p>\n<div class=\"NOTE\"><h5>note</h5><p>\n    Please note that it can be difficult to fill the cache completely on large guilds depending on the\n    traffic. If you are using the command system, the default user TypeReader may fail to find the user\n    due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider\n    overriding the TypeReader and use\n<xref href=\"Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nor <xref href=\"Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64%2cSystem.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nas a backup.\n</p></div>\n"
   example: []
   syntax:
     content: public bool AlwaysDownloadUsers { get; set; }
@@ -525,6 +526,43 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
+  commentId: P:Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
+  id: GuildSubscriptions
+  parent: Discord.WebSocket.DiscordSocketConfig
+  langs:
+  - csharp
+  - vb
+  name: GuildSubscriptions
+  nameWithType: DiscordSocketConfig.GuildSubscriptions
+  fullName: Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.WebSocket/DiscordSocketConfig.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: GuildSubscriptions
+    path: ../src/Discord.Net.WebSocket/DiscordSocketConfig.cs
+    startLine: 124
+  assemblies:
+  - Discord.Net.WebSocket
+  namespace: Discord.WebSocket
+  summary: "\nGets or sets enabling dispatching of guild subscription events e.g. presence and typing events.\n"
+  example: []
+  syntax:
+    content: public bool GuildSubscriptions { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property GuildSubscriptions As Boolean
+  overload: Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: Discord.WebSocket.DiscordSocketConfig.#ctor
   commentId: M:Discord.WebSocket.DiscordSocketConfig.#ctor
   id: '#ctor'
@@ -543,7 +581,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: .ctor
     path: ../src/Discord.Net.WebSocket/DiscordSocketConfig.cs
-    startLine: 124
+    startLine: 129
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
@@ -1383,6 +1421,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions*
+  commentId: Overload:Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
+  name: GuildSubscriptions
+  nameWithType: DiscordSocketConfig.GuildSubscriptions
+  fullName: Discord.WebSocket.DiscordSocketConfig.GuildSubscriptions
 - uid: Discord.WebSocket.DiscordSocketConfig.#ctor*
   commentId: Overload:Discord.WebSocket.DiscordSocketConfig.#ctor
   name: DiscordSocketConfig
