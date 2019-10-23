@@ -14,6 +14,8 @@ items:
   - Discord.GuildProperties.Name
   - Discord.GuildProperties.Owner
   - Discord.GuildProperties.OwnerId
+  - Discord.GuildProperties.PreferredCulture
+  - Discord.GuildProperties.PreferredLocale
   - Discord.GuildProperties.Region
   - Discord.GuildProperties.RegionId
   - Discord.GuildProperties.Splash
@@ -35,7 +37,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: GuildProperties
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 6
+    startLine: 8
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -81,7 +83,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Name
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -118,7 +120,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Region
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -155,7 +157,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: RegionId
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -192,7 +194,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: VerificationLevel
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 23
+    startLine: 25
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -229,7 +231,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: DefaultMessageNotifications
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 27
+    startLine: 29
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -266,7 +268,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AfkTimeout
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -303,14 +305,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Icon
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 36
+    startLine: 38
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the icon of the guild.\n"
   example: []
   syntax:
-    content: public Optional<Image? > Icon { get; set; }
+    content: public Optional<Image?> Icon { get; set; }
     parameters: []
     return:
       type: Discord.Optional{System.Nullable{Discord.Image}}
@@ -340,7 +342,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Splash
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 43
+    startLine: 45
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -348,7 +350,7 @@ items:
   remarks: "\nThe guild must be partnered for this value to have any effect.\n"
   example: []
   syntax:
-    content: public Optional<Image? > Splash { get; set; }
+    content: public Optional<Image?> Splash { get; set; }
     parameters: []
     return:
       type: Discord.Optional{System.Nullable{Discord.Image}}
@@ -378,7 +380,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AfkChannel
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 47
+    startLine: 49
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -415,14 +417,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: AfkChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 51
+    startLine: 53
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the ID of the <xref href=\"Discord.IVoiceChannel\" data-throw-if-not-resolved=\"false\"></xref> where AFK users should be sent.\n"
   example: []
   syntax:
-    content: public Optional<ulong? > AfkChannelId { get; set; }
+    content: public Optional<ulong?> AfkChannelId { get; set; }
     parameters: []
     return:
       type: Discord.Optional{System.Nullable{System.UInt64}}
@@ -452,7 +454,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SystemChannel
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 55
+    startLine: 57
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -489,14 +491,14 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SystemChannelId
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 59
+    startLine: 61
   assemblies:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the ID of the <xref href=\"Discord.ITextChannel\" data-throw-if-not-resolved=\"false\"></xref> where system messages should be sent.\n"
   example: []
   syntax:
-    content: public Optional<ulong? > SystemChannelId { get; set; }
+    content: public Optional<ulong?> SystemChannelId { get; set; }
     parameters: []
     return:
       type: Discord.Optional{System.Nullable{System.UInt64}}
@@ -526,7 +528,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: Owner
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 63
+    startLine: 65
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -563,7 +565,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: OwnerId
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 67
+    startLine: 69
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -600,7 +602,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: ExplicitContentFilter
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 71
+    startLine: 73
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -637,7 +639,7 @@ items:
       repo: https://github.com/discord-net/Discord.Net
     id: SystemChannelFlags
     path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
-    startLine: 85
+    startLine: 87
   assemblies:
   - Discord.Net.Core
   namespace: Discord
@@ -651,6 +653,82 @@ items:
       type: Discord.Optional{Discord.SystemChannelMessageDeny}
     content.vb: 'Public Property SystemChannelFlags As '
   overload: Discord.GuildProperties.SystemChannelFlags*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Discord.GuildProperties.PreferredLocale
+  commentId: P:Discord.GuildProperties.PreferredLocale
+  id: PreferredLocale
+  parent: Discord.GuildProperties
+  langs:
+  - csharp
+  - vb
+  name: PreferredLocale
+  nameWithType: GuildProperties.PreferredLocale
+  fullName: Discord.GuildProperties.PreferredLocale
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: PreferredLocale
+    path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
+    startLine: 96
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets or sets the preferred locale of the guild in IETF BCP 47 language tag format.\n"
+  remarks: "\nThis property takes precedence over <xref href=\"Discord.GuildProperties.PreferredCulture\" data-throw-if-not-resolved=\"false\"></xref>.\nWhen it is set, the value of <xref href=\"Discord.GuildProperties.PreferredCulture\" data-throw-if-not-resolved=\"false\"></xref>\nwill not be used.\n"
+  example: []
+  syntax:
+    content: public Optional<string> PreferredLocale { get; set; }
+    parameters: []
+    return:
+      type: Discord.Optional{System.String}
+    content.vb: 'Public Property PreferredLocale As '
+  overload: Discord.GuildProperties.PreferredLocale*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Discord.GuildProperties.PreferredCulture
+  commentId: P:Discord.GuildProperties.PreferredCulture
+  id: PreferredCulture
+  parent: Discord.GuildProperties
+  langs:
+  - csharp
+  - vb
+  name: PreferredCulture
+  nameWithType: GuildProperties.PreferredCulture
+  fullName: Discord.GuildProperties.PreferredCulture
+  type: Property
+  source:
+    remote:
+      path: src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
+      branch: dev
+      repo: https://github.com/discord-net/Discord.Net
+    id: PreferredCulture
+    path: ../src/Discord.Net.Core/Entities/Guilds/GuildProperties.cs
+    startLine: 105
+  assemblies:
+  - Discord.Net.Core
+  namespace: Discord
+  summary: "\nGets or sets the preferred locale of the guild.\n"
+  remarks: "\nThe <xref href=\"Discord.GuildProperties.PreferredLocale\" data-throw-if-not-resolved=\"false\"></xref> property takes precedence\nover this property. When <xref href=\"Discord.GuildProperties.PreferredLocale\" data-throw-if-not-resolved=\"false\"></xref> is set,\nthe value of <xref href=\"Discord.GuildProperties.PreferredCulture\" data-throw-if-not-resolved=\"false\"></xref> will be unused.\n"
+  example: []
+  syntax:
+    content: public Optional<CultureInfo> PreferredCulture { get; set; }
+    parameters: []
+    return:
+      type: Discord.Optional{System.Globalization.CultureInfo}
+    content.vb: 'Public Property PreferredCulture As '
+  overload: Discord.GuildProperties.PreferredCulture*
   modifiers.csharp:
   - public
   - get
@@ -1814,6 +1892,64 @@ references:
     name: SystemChannelMessageDeny
     nameWithType: SystemChannelMessageDeny
     fullName: Discord.SystemChannelMessageDeny
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Discord.GuildProperties.PreferredCulture
+  commentId: P:Discord.GuildProperties.PreferredCulture
+  isExternal: true
+- uid: Discord.GuildProperties.PreferredLocale*
+  commentId: Overload:Discord.GuildProperties.PreferredLocale
+  name: PreferredLocale
+  nameWithType: GuildProperties.PreferredLocale
+  fullName: Discord.GuildProperties.PreferredLocale
+- uid: Discord.GuildProperties.PreferredLocale
+  commentId: P:Discord.GuildProperties.PreferredLocale
+  isExternal: true
+- uid: Discord.GuildProperties.PreferredCulture*
+  commentId: Overload:Discord.GuildProperties.PreferredCulture
+  name: PreferredCulture
+  nameWithType: GuildProperties.PreferredCulture
+  fullName: Discord.GuildProperties.PreferredCulture
+- uid: Discord.Optional{System.Globalization.CultureInfo}
+  commentId: T:Discord.Optional{System.Globalization.CultureInfo}
+  parent: Discord
+  definition: Discord.Optional`1
+  name: Optional<CultureInfo>
+  nameWithType: Optional<CultureInfo>
+  fullName: Discord.Optional<System.Globalization.CultureInfo>
+  nameWithType.vb: Optional(Of CultureInfo)
+  fullName.vb: Discord.Optional(Of System.Globalization.CultureInfo)
+  name.vb: Optional(Of CultureInfo)
+  spec.csharp:
+  - uid: Discord.Optional`1
+    name: Optional
+    nameWithType: Optional
+    fullName: Discord.Optional
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    nameWithType: CultureInfo
+    fullName: System.Globalization.CultureInfo
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.Optional`1
+    name: Optional
+    nameWithType: Optional
+    fullName: Discord.Optional
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    nameWithType: CultureInfo
+    fullName: System.Globalization.CultureInfo
+    isExternal: true
   - name: )
     nameWithType: )
     fullName: )
