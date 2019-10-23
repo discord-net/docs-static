@@ -36,12 +36,6 @@ items:
           Implements IPresence
   implements:
   - Discord.IPresence
-  inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -148,17 +142,14 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nGets the set of clients where this user is currently active.\n"
   example: []
   syntax:
     content: public IImmutableSet<ClientType> ActiveClients { get; }
     parameters: []
     return:
-      type: System.Collections.Immutable.IImmutableSet{Discord.ClientType}
+      type: IImmutableSet{Discord.ClientType}
     content.vb: Public ReadOnly Property ActiveClients As IImmutableSet(Of ClientType)
   overload: Discord.WebSocket.SocketPresence.ActiveClients*
-  implements:
-  - Discord.IPresence.ActiveClients
   modifiers.csharp:
   - public
   - get
@@ -195,7 +186,6 @@ items:
       type: System.String
       description: "\nA string that resolves to <xref href=\"Discord.WebSocket.SocketPresence.Status\" data-throw-if-not-resolved=\"false\"></xref>.\n"
     content.vb: Public Overrides Function ToString As String
-  overridden: System.ValueType.ToString
   overload: Discord.WebSocket.SocketPresence.ToString*
   modifiers.csharp:
   - public
@@ -215,248 +205,11 @@ references:
   name: IPresence
   nameWithType: IPresence
   fullName: Discord.IPresence
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: ValueType.Equals(Object)
-  fullName: System.ValueType.Equals(System.Object)
-  spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.WebSocket.SocketPresence.Status*
   commentId: Overload:Discord.WebSocket.SocketPresence.Status
   name: Status
@@ -496,27 +249,20 @@ references:
   name: ActiveClients
   nameWithType: SocketPresence.ActiveClients
   fullName: Discord.WebSocket.SocketPresence.ActiveClients
-- uid: Discord.IPresence.ActiveClients
-  commentId: P:Discord.IPresence.ActiveClients
-  parent: Discord.IPresence
-  name: ActiveClients
-  nameWithType: IPresence.ActiveClients
-  fullName: Discord.IPresence.ActiveClients
-- uid: System.Collections.Immutable.IImmutableSet{Discord.ClientType}
-  commentId: T:System.Collections.Immutable.IImmutableSet{Discord.ClientType}
-  parent: System.Collections.Immutable
-  definition: System.Collections.Immutable.IImmutableSet`1
+- uid: IImmutableSet{Discord.ClientType}
+  commentId: '!:IImmutableSet{Discord.ClientType}'
+  definition: IImmutableSet`1
   name: IImmutableSet<ClientType>
   nameWithType: IImmutableSet<ClientType>
-  fullName: System.Collections.Immutable.IImmutableSet<Discord.ClientType>
+  fullName: IImmutableSet<Discord.ClientType>
   nameWithType.vb: IImmutableSet(Of ClientType)
-  fullName.vb: System.Collections.Immutable.IImmutableSet(Of Discord.ClientType)
+  fullName.vb: IImmutableSet(Of Discord.ClientType)
   name.vb: IImmutableSet(Of ClientType)
   spec.csharp:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: <
     nameWithType: <
@@ -529,10 +275,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -544,93 +290,53 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Immutable.IImmutableSet`1
-  commentId: T:System.Collections.Immutable.IImmutableSet`1
+- uid: IImmutableSet`1
   isExternal: true
-  name: IImmutableSet<T>
-  nameWithType: IImmutableSet<T>
-  fullName: System.Collections.Immutable.IImmutableSet<T>
-  nameWithType.vb: IImmutableSet(Of T)
-  fullName.vb: System.Collections.Immutable.IImmutableSet(Of T)
-  name.vb: IImmutableSet(Of T)
+  name: IImmutableSet<>
+  nameWithType: IImmutableSet<>
+  fullName: IImmutableSet<>
+  nameWithType.vb: IImmutableSet(Of )
+  fullName.vb: IImmutableSet(Of )
+  name.vb: IImmutableSet(Of )
   spec.csharp:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Immutable
-  commentId: N:System.Collections.Immutable
-  isExternal: true
-  name: System.Collections.Immutable
-  nameWithType: System.Collections.Immutable
-  fullName: System.Collections.Immutable
 - uid: Discord.WebSocket.SocketPresence.Status
   commentId: P:Discord.WebSocket.SocketPresence.Status
   isExternal: true
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketPresence.ToString*
   commentId: Overload:Discord.WebSocket.SocketPresence.ToString
   name: ToString
   nameWithType: SocketPresence.ToString
   fullName: Discord.WebSocket.SocketPresence.ToString
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String

@@ -10,7 +10,7 @@ items:
   - Discord.Rest.RestSelfUser.IsMfaEnabled
   - Discord.Rest.RestSelfUser.IsVerified
   - Discord.Rest.RestSelfUser.Locale
-  - Discord.Rest.RestSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  - Discord.Rest.RestSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
   - Discord.Rest.RestSelfUser.PremiumType
   - Discord.Rest.RestSelfUser.UpdateAsync(Discord.RequestOptions)
   langs:
@@ -34,16 +34,17 @@ items:
   summary: "\nRepresents the logged-in REST-based user.\n"
   example: []
   syntax:
-    content: 'public class RestSelfUser : RestUser, IUpdateable, ISelfUser, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence'
+    content: 'public class RestSelfUser : RestUser, IEntity<ulong>, IUpdateable, ISelfUser, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence'
     content.vb: >-
       Public Class RestSelfUser
           Inherits RestUser
-          Implements IUpdateable, ISelfUser, IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence
+          Implements IEntity(Of ULong), IUpdateable, ISelfUser, IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
   - Discord.Rest.RestUser
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IUpdateable
   - Discord.ISelfUser
   - Discord.IUser
@@ -67,14 +68,7 @@ items:
   - Discord.Rest.RestUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
   - Discord.Rest.RestUser.GetDefaultAvatarUrl
   - Discord.Rest.RestUser.ToString
-  - Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
   - Discord.Rest.RestEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -103,7 +97,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the email associated with this user.\n"
   example: []
   syntax:
     content: public string Email { get; }
@@ -112,8 +105,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Email As String
   overload: Discord.Rest.RestSelfUser.Email*
-  implements:
-  - Discord.ISelfUser.Email
   modifiers.csharp:
   - public
   - get
@@ -142,18 +133,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nIndicates whether or not this user has their email verified.\n"
   example: []
   syntax:
     content: public bool IsVerified { get; }
     parameters: []
     return:
       type: System.Boolean
-      description: "\n<code>true</code> if this user&apos;s email has been verified; <code>false</code> if not.\n"
     content.vb: Public ReadOnly Property IsVerified As Boolean
   overload: Discord.Rest.RestSelfUser.IsVerified*
-  implements:
-  - Discord.ISelfUser.IsVerified
   modifiers.csharp:
   - public
   - get
@@ -182,18 +169,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nIndicates whether or not this user has MFA enabled on their account.\n"
   example: []
   syntax:
     content: public bool IsMfaEnabled { get; }
     parameters: []
     return:
       type: System.Boolean
-      description: "\n<code>true</code> if this user has enabled multi-factor authentication on their account; <code>false</code> if not.\n"
     content.vb: Public ReadOnly Property IsMfaEnabled As Boolean
   overload: Discord.Rest.RestSelfUser.IsMfaEnabled*
-  implements:
-  - Discord.ISelfUser.IsMfaEnabled
   modifiers.csharp:
   - public
   - get
@@ -304,18 +287,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the user&apos;s chosen language option.\n"
   example: []
   syntax:
     content: public string Locale { get; }
     parameters: []
     return:
       type: System.String
-      description: "\nThe IETF language tag of the user&apos;s chosen region, if provided.\nFor example, a locale of &quot;English, US&quot; is &quot;en-US&quot;, &quot;Chinese (Taiwan)&quot; is &quot;zh-TW&quot;, etc.\n"
     content.vb: Public ReadOnly Property Locale As String
   overload: Discord.Rest.RestSelfUser.Locale*
-  implements:
-  - Discord.ISelfUser.Locale
   modifiers.csharp:
   - public
   - get
@@ -344,7 +323,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nUpdates this object&apos;s properties with its current state.\n"
   example: []
   syntax:
     content: public override Task UpdateAsync(RequestOptions options = null)
@@ -352,30 +330,26 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Overrides Function UpdateAsync(options As RequestOptions = Nothing) As Task
   overridden: Discord.Rest.RestUser.UpdateAsync(Discord.RequestOptions)
   overload: Discord.Rest.RestSelfUser.UpdateAsync*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Unable to update this object using a different token.
   modifiers.csharp:
   - public
   - override
   modifiers.vb:
   - Public
   - Overrides
-- uid: Discord.Rest.RestSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestSelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  id: ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
+- uid: Discord.Rest.RestSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestSelfUser.ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.SelfUserProperties},Discord.RequestOptions)
   parent: Discord.Rest.RestSelfUser
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
   nameWithType: RestSelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
-  fullName: Discord.Rest.RestSelfUser.ModifyAsync(System.Action<Discord.SelfUserProperties>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestSelfUser.ModifyAsync(Action<Discord.SelfUserProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -388,31 +362,24 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nModifies the user&apos;s properties.\n"
   example: []
   syntax:
     content: public Task ModifyAsync(Action<SelfUserProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: System.Action{Discord.SelfUserProperties}
+      type: Action{Discord.SelfUserProperties}
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function ModifyAsync(func As Action(Of SelfUserProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestSelfUser.ModifyAsync*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Unable to modify this object using a different token.
-  implements:
-  - Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
   nameWithType.vb: RestSelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Rest.RestSelfUser.ModifyAsync(System.Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestSelfUser.ModifyAsync(Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
 references:
 - uid: Discord.Rest
@@ -421,8 +388,6 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -475,30 +440,6 @@ references:
   name: RestUser
   nameWithType: RestUser
   fullName: Discord.Rest.RestUser
-- uid: Discord.IUpdateable
-  commentId: T:Discord.IUpdateable
-  parent: Discord
-  name: IUpdateable
-  nameWithType: IUpdateable
-  fullName: Discord.IUpdateable
-- uid: Discord.ISelfUser
-  commentId: T:Discord.ISelfUser
-  parent: Discord
-  name: ISelfUser
-  nameWithType: ISelfUser
-  fullName: Discord.ISelfUser
-- uid: Discord.IUser
-  commentId: T:Discord.IUser
-  parent: Discord
-  name: IUser
-  nameWithType: IUser
-  fullName: Discord.IUser
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -541,6 +482,30 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IUpdateable
+  commentId: T:Discord.IUpdateable
+  parent: Discord
+  name: IUpdateable
+  nameWithType: IUpdateable
+  fullName: Discord.IUpdateable
+- uid: Discord.ISelfUser
+  commentId: T:Discord.ISelfUser
+  parent: Discord
+  name: ISelfUser
+  nameWithType: ISelfUser
+  fullName: Discord.ISelfUser
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IMentionable
   commentId: T:Discord.IMentionable
   parent: Discord
@@ -764,44 +729,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  parent: Discord.Rest.RestUser
-  name: IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  nameWithType: RestUser.IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  fullName: Discord.Rest.RestUser.Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  nameWithType.vb: RestUser.Discord.IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  name.vb: Discord.IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  spec.csharp:
-  - uid: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-    name: IUser.GetOrCreateDMChannelAsync
-    nameWithType: RestUser.IUser.GetOrCreateDMChannelAsync
-    fullName: Discord.Rest.RestUser.Discord.IUser.GetOrCreateDMChannelAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-    name: Discord.IUser.GetOrCreateDMChannelAsync
-    nameWithType: RestUser.Discord.IUser.GetOrCreateDMChannelAsync
-    fullName: Discord.Rest.RestUser.Discord.IUser.GetOrCreateDMChannelAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest.RestEntity{System.UInt64}.Id
   commentId: P:Discord.Rest.RestEntity{System.UInt64}.Id
   parent: Discord.Rest.RestEntity{System.UInt64}
@@ -811,260 +738,6 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -1101,11 +774,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -1142,6 +810,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -1154,15 +827,7 @@ references:
   name: Email
   nameWithType: RestSelfUser.Email
   fullName: Discord.Rest.RestSelfUser.Email
-- uid: Discord.ISelfUser.Email
-  commentId: P:Discord.ISelfUser.Email
-  parent: Discord.ISelfUser
-  name: Email
-  nameWithType: ISelfUser.Email
-  fullName: Discord.ISelfUser.Email
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1172,15 +837,7 @@ references:
   name: IsVerified
   nameWithType: RestSelfUser.IsVerified
   fullName: Discord.Rest.RestSelfUser.IsVerified
-- uid: Discord.ISelfUser.IsVerified
-  commentId: P:Discord.ISelfUser.IsVerified
-  parent: Discord.ISelfUser
-  name: IsVerified
-  nameWithType: ISelfUser.IsVerified
-  fullName: Discord.ISelfUser.IsVerified
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1190,12 +847,6 @@ references:
   name: IsMfaEnabled
   nameWithType: RestSelfUser.IsMfaEnabled
   fullName: Discord.Rest.RestSelfUser.IsMfaEnabled
-- uid: Discord.ISelfUser.IsMfaEnabled
-  commentId: P:Discord.ISelfUser.IsMfaEnabled
-  parent: Discord.ISelfUser
-  name: IsMfaEnabled
-  nameWithType: ISelfUser.IsMfaEnabled
-  fullName: Discord.ISelfUser.IsMfaEnabled
 - uid: Discord.Rest.RestSelfUser.Flags*
   commentId: Overload:Discord.Rest.RestSelfUser.Flags
   name: Flags
@@ -1235,15 +886,6 @@ references:
   name: Locale
   nameWithType: RestSelfUser.Locale
   fullName: Discord.Rest.RestSelfUser.Locale
-- uid: Discord.ISelfUser.Locale
-  commentId: P:Discord.ISelfUser.Locale
-  parent: Discord.ISelfUser
-  name: Locale
-  nameWithType: ISelfUser.Locale
-  fullName: Discord.ISelfUser.Locale
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
 - uid: Discord.Rest.RestUser.UpdateAsync(Discord.RequestOptions)
   commentId: M:Discord.Rest.RestUser.UpdateAsync(Discord.RequestOptions)
   parent: Discord.Rest.RestUser
@@ -1291,115 +933,30 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.Rest.RestSelfUser.ModifyAsync*
   commentId: Overload:Discord.Rest.RestSelfUser.ModifyAsync
   name: ModifyAsync
   nameWithType: RestSelfUser.ModifyAsync
   fullName: Discord.Rest.RestSelfUser.ModifyAsync
-- uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-  parent: Discord.ISelfUser
-  isExternal: true
-  name: ModifyAsync(Action<SelfUserProperties>, RequestOptions)
-  nameWithType: ISelfUser.ModifyAsync(Action<SelfUserProperties>, RequestOptions)
-  fullName: Discord.ISelfUser.ModifyAsync(System.Action<Discord.SelfUserProperties>, Discord.RequestOptions)
-  nameWithType.vb: ISelfUser.ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
-  fullName.vb: Discord.ISelfUser.ModifyAsync(System.Action(Of Discord.SelfUserProperties), Discord.RequestOptions)
-  name.vb: ModifyAsync(Action(Of SelfUserProperties), RequestOptions)
-  spec.csharp:
-  - uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: ISelfUser.ModifyAsync
-    fullName: Discord.ISelfUser.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.SelfUserProperties
-    name: SelfUserProperties
-    nameWithType: SelfUserProperties
-    fullName: Discord.SelfUserProperties
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.ISelfUser.ModifyAsync(System.Action{Discord.SelfUserProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: ISelfUser.ModifyAsync
-    fullName: Discord.ISelfUser.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.SelfUserProperties
-    name: SelfUserProperties
-    nameWithType: SelfUserProperties
-    fullName: Discord.SelfUserProperties
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Action{Discord.SelfUserProperties}
-  commentId: T:System.Action{Discord.SelfUserProperties}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.SelfUserProperties}
+  commentId: '!:Action{Discord.SelfUserProperties}'
+  definition: Action`1
   name: Action<SelfUserProperties>
   nameWithType: Action<SelfUserProperties>
-  fullName: System.Action<Discord.SelfUserProperties>
+  fullName: Action<Discord.SelfUserProperties>
   nameWithType.vb: Action(Of SelfUserProperties)
-  fullName.vb: System.Action(Of Discord.SelfUserProperties)
+  fullName.vb: Action(Of Discord.SelfUserProperties)
   name.vb: Action(Of SelfUserProperties)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1412,10 +969,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1427,42 +984,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )

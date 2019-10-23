@@ -34,8 +34,8 @@ items:
   summary: 'Defines the type of error a command can throw. '
   example: []
   syntax:
-    content: public enum CommandError
-    content.vb: Public Enum CommandError
+    content: 'public enum CommandError : int'
+    content.vb: Public Enum CommandError As Integer
   modifiers.csharp:
   - public
   - enum
@@ -67,9 +67,10 @@ items:
   summary: "\nThrown when the command is unknown.\n"
   example: []
   syntax:
-    content: UnknownCommand = 1
+    content: UnknownCommand = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: UnknownCommand = Nothing
   modifiers.csharp:
   - public
   - const
@@ -101,9 +102,10 @@ items:
   summary: "\nThrown when the command fails to be parsed.\n"
   example: []
   syntax:
-    content: ParseFailed = 2
+    content: ParseFailed = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: ParseFailed = Nothing
   modifiers.csharp:
   - public
   - const
@@ -135,9 +137,10 @@ items:
   summary: "\nThrown when the input text has too few or too many arguments.\n"
   example: []
   syntax:
-    content: BadArgCount = 3
+    content: BadArgCount = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: BadArgCount = Nothing
   modifiers.csharp:
   - public
   - const
@@ -169,9 +172,10 @@ items:
   summary: "\nThrown when the object cannot be found by the <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: ObjectNotFound = 4
+    content: ObjectNotFound = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: ObjectNotFound = Nothing
   modifiers.csharp:
   - public
   - const
@@ -203,9 +207,10 @@ items:
   summary: "\nThrown when more than one object is matched by <xref href=\"Discord.Commands.TypeReader\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: MultipleMatches = 5
+    content: MultipleMatches = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: MultipleMatches = Nothing
   modifiers.csharp:
   - public
   - const
@@ -237,9 +242,10 @@ items:
   summary: "\nThrown when the command fails to meet a <xref href=\"Discord.Commands.PreconditionAttribute\" data-throw-if-not-resolved=\"false\"></xref>&apos;s conditions.\n"
   example: []
   syntax:
-    content: UnmetPrecondition = 6
+    content: UnmetPrecondition = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: UnmetPrecondition = Nothing
   modifiers.csharp:
   - public
   - const
@@ -271,9 +277,10 @@ items:
   summary: "\nThrown when an exception occurs mid-command execution.\n"
   example: []
   syntax:
-    content: Exception = 7
+    content: Exception = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: Exception = Nothing
   modifiers.csharp:
   - public
   - const
@@ -305,9 +312,10 @@ items:
   summary: "\nThrown when the command is not successfully executed on runtime.\n"
   example: []
   syntax:
-    content: Unsuccessful = 8
+    content: Unsuccessful = null
     return:
       type: Discord.Commands.CommandError
+    content.vb: Unsuccessful = Nothing
   modifiers.csharp:
   - public
   - const

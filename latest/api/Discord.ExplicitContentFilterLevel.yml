@@ -27,8 +27,8 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: public enum ExplicitContentFilterLevel
-    content.vb: Public Enum ExplicitContentFilterLevel
+    content: 'public enum ExplicitContentFilterLevel : int'
+    content.vb: Public Enum ExplicitContentFilterLevel As Integer
   modifiers.csharp:
   - public
   - enum
@@ -60,9 +60,10 @@ items:
   summary: 'No messages will be scanned. '
   example: []
   syntax:
-    content: Disabled = 0
+    content: Disabled = null
     return:
       type: Discord.ExplicitContentFilterLevel
+    content.vb: Disabled = Nothing
   modifiers.csharp:
   - public
   - const
@@ -95,9 +96,10 @@ items:
   remarks: 'Recommented option for servers that use roles for trusted membership. '
   example: []
   syntax:
-    content: MembersWithoutRoles = 1
+    content: MembersWithoutRoles = null
     return:
       type: Discord.ExplicitContentFilterLevel
+    content.vb: MembersWithoutRoles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -129,9 +131,10 @@ items:
   summary: 'Scan messages sent by all guild members. '
   example: []
   syntax:
-    content: AllMembers = 2
+    content: AllMembers = null
     return:
       type: Discord.ExplicitContentFilterLevel
+    content.vb: AllMembers = Nothing
   modifiers.csharp:
   - public
   - const

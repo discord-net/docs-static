@@ -44,21 +44,15 @@ items:
   summary: "\nProvides properties that are used to modify an <xref href=\"Discord.IGuild\" data-throw-if-not-resolved=\"false\"></xref> with the specified changes.\n"
   example: []
   syntax:
-    content: public class GuildProperties
-    content.vb: Public Class GuildProperties
+    content: 'public class GuildProperties : object'
+    content.vb: >-
+      Public Class GuildProperties
+          Inherits Object
   see:
-  - linkId: Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
-    commentId: M:Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
+  - linkId: Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
+    commentId: M:Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
   inheritance:
   - System.Object
-  inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -726,7 +720,7 @@ items:
     content: public Optional<CultureInfo> PreferredCulture { get; set; }
     parameters: []
     return:
-      type: Discord.Optional{System.Globalization.CultureInfo}
+      type: Discord.Optional{CultureInfo}
     content.vb: 'Public Property PreferredCulture As '
   overload: Discord.GuildProperties.PreferredCulture*
   modifiers.csharp:
@@ -742,379 +736,19 @@ references:
   name: IGuild
   nameWithType: IGuild
   fullName: Discord.IGuild
-- uid: Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
-  parent: Discord.IGuild
+- uid: Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuild.ModifyAsync(Action{Discord.GuildProperties},Discord.RequestOptions)
   isExternal: true
-  name: ModifyAsync(Action<GuildProperties>, RequestOptions)
-  nameWithType: IGuild.ModifyAsync(Action<GuildProperties>, RequestOptions)
-  fullName: Discord.IGuild.ModifyAsync(System.Action<Discord.GuildProperties>, Discord.RequestOptions)
-  nameWithType.vb: IGuild.ModifyAsync(Action(Of GuildProperties), RequestOptions)
-  fullName.vb: Discord.IGuild.ModifyAsync(System.Action(Of Discord.GuildProperties), Discord.RequestOptions)
-  name.vb: ModifyAsync(Action(Of GuildProperties), RequestOptions)
-  spec.csharp:
-  - uid: Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: IGuild.ModifyAsync
-    fullName: Discord.IGuild.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.GuildProperties
-    name: GuildProperties
-    nameWithType: GuildProperties
-    fullName: Discord.GuildProperties
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IGuild.ModifyAsync(System.Action{Discord.GuildProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: IGuild.ModifyAsync
-    fullName: Discord.IGuild.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.GuildProperties
-    name: GuildProperties
-    nameWithType: GuildProperties
-    fullName: Discord.GuildProperties
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.GuildProperties.Name*
   commentId: Overload:Discord.GuildProperties.Name
   name: Name
@@ -1911,15 +1545,15 @@ references:
   name: PreferredCulture
   nameWithType: GuildProperties.PreferredCulture
   fullName: Discord.GuildProperties.PreferredCulture
-- uid: Discord.Optional{System.Globalization.CultureInfo}
-  commentId: T:Discord.Optional{System.Globalization.CultureInfo}
+- uid: Discord.Optional{CultureInfo}
+  commentId: T:Discord.Optional{CultureInfo}
   parent: Discord
   definition: Discord.Optional`1
   name: Optional<CultureInfo>
   nameWithType: Optional<CultureInfo>
-  fullName: Discord.Optional<System.Globalization.CultureInfo>
+  fullName: Discord.Optional<CultureInfo>
   nameWithType.vb: Optional(Of CultureInfo)
-  fullName.vb: Discord.Optional(Of System.Globalization.CultureInfo)
+  fullName.vb: Discord.Optional(Of CultureInfo)
   name.vb: Optional(Of CultureInfo)
   spec.csharp:
   - uid: Discord.Optional`1
@@ -1929,10 +1563,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Globalization.CultureInfo
+  - uid: CultureInfo
     name: CultureInfo
     nameWithType: CultureInfo
-    fullName: System.Globalization.CultureInfo
+    fullName: CultureInfo
     isExternal: true
   - name: '>'
     nameWithType: '>'
@@ -1945,10 +1579,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Globalization.CultureInfo
+  - uid: CultureInfo
     name: CultureInfo
     nameWithType: CultureInfo
-    fullName: System.Globalization.CultureInfo
+    fullName: CultureInfo
     isExternal: true
   - name: )
     nameWithType: )

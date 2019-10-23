@@ -33,21 +33,15 @@ items:
   summary: "\nProperties that are used to modify an <xref href=\"Discord.IGuildUser\" data-throw-if-not-resolved=\"false\"></xref> with the following parameters.\n"
   example: []
   syntax:
-    content: public class GuildUserProperties
-    content.vb: Public Class GuildUserProperties
+    content: 'public class GuildUserProperties : object'
+    content.vb: >-
+      Public Class GuildUserProperties
+          Inherits Object
   seealso:
-  - linkId: Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
-    commentId: M:Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  - linkId: Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
+    commentId: M:Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
   inheritance:
   - System.Object
-  inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -153,7 +147,7 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the user&apos;s nickname.\n"
-  remarks: "\nTo clear the user&apos;s nickname, this value can be set to <code>null</code> or\n<xref href=\"System.String.Empty\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nTo clear the user&apos;s nickname, this value can be set to <code>null</code> or\n<see cref=\"!:string.Empty\"></see>.\n"
   example: []
   syntax:
     content: public Optional<string> Nickname { get; set; }
@@ -191,13 +185,13 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the roles the user should have.\n"
-  remarks: "\n<p>\n    To add a role to a user:\n<xref href=\"Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n<p>\n    To remove a role from a user:\n<xref href=\"Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n"
+  remarks: "\n<p>\n    To add a role to a user:\n<xref href=\"Discord.IGuildUser.AddRolesAsync(IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n<p>\n    To remove a role from a user:\n<xref href=\"Discord.IGuildUser.RemoveRolesAsync(IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n"
   example: []
   syntax:
     content: public Optional<IEnumerable<IRole>> Roles { get; set; }
     parameters: []
     return:
-      type: Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
+      type: Discord.Optional{IEnumerable{Discord.IRole}}
     content.vb: 'Public Property Roles As '
   overload: Discord.GuildUserProperties.Roles*
   modifiers.csharp:
@@ -229,13 +223,13 @@ items:
   - Discord.Net.Core
   namespace: Discord
   summary: "\nGets or sets the roles the user should have.\n"
-  remarks: "\n<p>\n    To add a role to a user:\n<xref href=\"Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n<p>\n    To remove a role from a user:\n<xref href=\"Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n"
+  remarks: "\n<p>\n    To add a role to a user:\n<xref href=\"Discord.IGuildUser.AddRolesAsync(IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n<p>\n    To remove a role from a user:\n<xref href=\"Discord.IGuildUser.RemoveRolesAsync(IEnumerable%7bDiscord.IRole%7d%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n"
   example: []
   syntax:
     content: public Optional<IEnumerable<ulong>> RoleIds { get; set; }
     parameters: []
     return:
-      type: Discord.Optional{System.Collections.Generic.IEnumerable{System.UInt64}}
+      type: Discord.Optional{IEnumerable{System.UInt64}}
     content.vb: 'Public Property RoleIds As '
   overload: Discord.GuildUserProperties.RoleIds*
   modifiers.csharp:
@@ -327,28 +321,28 @@ references:
   name: IGuildUser
   nameWithType: IGuildUser
   fullName: Discord.IGuildUser
-- uid: Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+- uid: Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
   parent: Discord.IGuildUser
   isExternal: true
   name: ModifyAsync(Action<GuildUserProperties>, RequestOptions)
   nameWithType: IGuildUser.ModifyAsync(Action<GuildUserProperties>, RequestOptions)
-  fullName: Discord.IGuildUser.ModifyAsync(System.Action<Discord.GuildUserProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.ModifyAsync(Action<Discord.GuildUserProperties>, Discord.RequestOptions)
   nameWithType.vb: IGuildUser.ModifyAsync(Action(Of GuildUserProperties), RequestOptions)
-  fullName.vb: Discord.IGuildUser.ModifyAsync(System.Action(Of Discord.GuildUserProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.ModifyAsync(Action(Of Discord.GuildUserProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildUserProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildUser.ModifyAsync
     fullName: Discord.IGuildUser.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -371,17 +365,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuildUser.ModifyAsync(System.Action{Discord.GuildUserProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.ModifyAsync(Action{Discord.GuildUserProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildUser.ModifyAsync
     fullName: Discord.IGuildUser.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -409,297 +403,10 @@ references:
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.GuildUserProperties.Mute*
   commentId: Overload:Discord.GuildUserProperties.Mute
   name: Mute
@@ -789,9 +496,6 @@ references:
   name: Deaf
   nameWithType: GuildUserProperties.Deaf
   fullName: Discord.GuildUserProperties.Deaf
-- uid: System.String.Empty
-  commentId: F:System.String.Empty
-  isExternal: true
 - uid: Discord.GuildUserProperties.Nickname*
   commentId: Overload:Discord.GuildUserProperties.Nickname
   name: Nickname
@@ -839,28 +543,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+- uid: Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
   parent: Discord.IGuildUser
   isExternal: true
   name: AddRolesAsync(IEnumerable<IRole>, RequestOptions)
   nameWithType: IGuildUser.AddRolesAsync(IEnumerable<IRole>, RequestOptions)
-  fullName: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable<Discord.IRole>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.AddRolesAsync(IEnumerable<Discord.IRole>, Discord.RequestOptions)
   nameWithType.vb: IGuildUser.AddRolesAsync(IEnumerable(Of IRole), RequestOptions)
-  fullName.vb: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable(Of Discord.IRole), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.AddRolesAsync(IEnumerable(Of Discord.IRole), Discord.RequestOptions)
   name.vb: AddRolesAsync(IEnumerable(Of IRole), RequestOptions)
   spec.csharp:
-  - uid: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
     name: AddRolesAsync
     nameWithType: IGuildUser.AddRolesAsync
     fullName: Discord.IGuildUser.AddRolesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -883,17 +587,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuildUser.AddRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.AddRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
     name: AddRolesAsync
     nameWithType: IGuildUser.AddRolesAsync
     fullName: Discord.IGuildUser.AddRolesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -915,28 +619,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
-  commentId: M:Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+- uid: Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
+  commentId: M:Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
   parent: Discord.IGuildUser
   isExternal: true
   name: RemoveRolesAsync(IEnumerable<IRole>, RequestOptions)
   nameWithType: IGuildUser.RemoveRolesAsync(IEnumerable<IRole>, RequestOptions)
-  fullName: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable<Discord.IRole>, Discord.RequestOptions)
+  fullName: Discord.IGuildUser.RemoveRolesAsync(IEnumerable<Discord.IRole>, Discord.RequestOptions)
   nameWithType.vb: IGuildUser.RemoveRolesAsync(IEnumerable(Of IRole), RequestOptions)
-  fullName.vb: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable(Of Discord.IRole), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildUser.RemoveRolesAsync(IEnumerable(Of Discord.IRole), Discord.RequestOptions)
   name.vb: RemoveRolesAsync(IEnumerable(Of IRole), RequestOptions)
   spec.csharp:
-  - uid: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
     name: RemoveRolesAsync
     nameWithType: IGuildUser.RemoveRolesAsync
     fullName: Discord.IGuildUser.RemoveRolesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -959,17 +663,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuildUser.RemoveRolesAsync(System.Collections.Generic.IEnumerable{Discord.IRole},Discord.RequestOptions)
+  - uid: Discord.IGuildUser.RemoveRolesAsync(IEnumerable{Discord.IRole},Discord.RequestOptions)
     name: RemoveRolesAsync
     nameWithType: IGuildUser.RemoveRolesAsync
     fullName: Discord.IGuildUser.RemoveRolesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -996,15 +700,15 @@ references:
   name: Roles
   nameWithType: GuildUserProperties.Roles
   fullName: Discord.GuildUserProperties.Roles
-- uid: Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
-  commentId: T:Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}}
+- uid: Discord.Optional{IEnumerable{Discord.IRole}}
+  commentId: T:Discord.Optional{IEnumerable{Discord.IRole}}
   parent: Discord
   definition: Discord.Optional`1
   name: Optional<IEnumerable<IRole>>
   nameWithType: Optional<IEnumerable<IRole>>
-  fullName: Discord.Optional<System.Collections.Generic.IEnumerable<Discord.IRole>>
+  fullName: Discord.Optional<IEnumerable<Discord.IRole>>
   nameWithType.vb: Optional(Of IEnumerable(Of IRole))
-  fullName.vb: Discord.Optional(Of System.Collections.Generic.IEnumerable(Of Discord.IRole))
+  fullName.vb: Discord.Optional(Of IEnumerable(Of Discord.IRole))
   name.vb: Optional(Of IEnumerable(Of IRole))
   spec.csharp:
   - uid: Discord.Optional`1
@@ -1014,10 +718,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1040,10 +744,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1063,15 +767,15 @@ references:
   name: RoleIds
   nameWithType: GuildUserProperties.RoleIds
   fullName: Discord.GuildUserProperties.RoleIds
-- uid: Discord.Optional{System.Collections.Generic.IEnumerable{System.UInt64}}
-  commentId: T:Discord.Optional{System.Collections.Generic.IEnumerable{System.UInt64}}
+- uid: Discord.Optional{IEnumerable{System.UInt64}}
+  commentId: T:Discord.Optional{IEnumerable{System.UInt64}}
   parent: Discord
   definition: Discord.Optional`1
   name: Optional<IEnumerable<UInt64>>
   nameWithType: Optional<IEnumerable<UInt64>>
-  fullName: Discord.Optional<System.Collections.Generic.IEnumerable<System.UInt64>>
+  fullName: Discord.Optional<IEnumerable<System.UInt64>>
   nameWithType.vb: Optional(Of IEnumerable(Of UInt64))
-  fullName.vb: Discord.Optional(Of System.Collections.Generic.IEnumerable(Of System.UInt64))
+  fullName.vb: Discord.Optional(Of IEnumerable(Of System.UInt64))
   name.vb: Optional(Of IEnumerable(Of UInt64))
   spec.csharp:
   - uid: Discord.Optional`1
@@ -1081,10 +785,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1108,10 +812,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '

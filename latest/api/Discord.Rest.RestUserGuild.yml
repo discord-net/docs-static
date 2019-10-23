@@ -32,27 +32,22 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   syntax:
-    content: 'public class RestUserGuild : RestEntity<ulong>, IUserGuild, IDeletable, ISnowflakeEntity, IEntity<ulong>'
+    content: 'public class RestUserGuild : RestEntity<ulong>, IEntity<ulong>, IUserGuild, IDeletable, ISnowflakeEntity, IEntity<ulong>'
     content.vb: >-
       Public Class RestUserGuild
           Inherits RestEntity(Of ULong)
-          Implements IUserGuild, IDeletable, ISnowflakeEntity, IEntity(Of ULong)
+          Implements IEntity(Of ULong), IUserGuild, IDeletable, ISnowflakeEntity, IEntity(Of ULong)
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IUserGuild
   - Discord.IDeletable
   - Discord.ISnowflakeEntity
   - Discord.IEntity{System.UInt64}
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -81,7 +76,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the name of this guild.\n"
   example: []
   syntax:
     content: public string Name { get; }
@@ -90,8 +84,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Name As String
   overload: Discord.Rest.RestUserGuild.Name*
-  implements:
-  - Discord.IUserGuild.Name
   modifiers.csharp:
   - public
   - get
@@ -120,7 +112,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nReturns <code>true</code> if the current user owns this guild.\n"
   example: []
   syntax:
     content: public bool IsOwner { get; }
@@ -129,8 +120,6 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsOwner As Boolean
   overload: Discord.Rest.RestUserGuild.IsOwner*
-  implements:
-  - Discord.IUserGuild.IsOwner
   modifiers.csharp:
   - public
   - get
@@ -198,18 +187,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: System.DateTimeOffset
-      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
+      type: DateTimeOffset
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.Rest.RestUserGuild.CreatedAt*
-  implements:
-  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -238,7 +223,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the icon URL associated with this guild, or <code>null</code> if one is not set.\n"
   example: []
   syntax:
     content: public string IconUrl { get; }
@@ -247,8 +231,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property IconUrl As String
   overload: Discord.Rest.RestUserGuild.IconUrl*
-  implements:
-  - Discord.IUserGuild.IconUrl
   modifiers.csharp:
   - public
   - get
@@ -283,7 +265,7 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function LeaveAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestUserGuild.LeaveAsync*
   modifiers.csharp:
@@ -312,20 +294,16 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nDeletes this object and all its children.\n"
   example: []
   syntax:
     content: public Task DeleteAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestUserGuild.DeleteAsync*
-  implements:
-  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -357,7 +335,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.Rest.RestUserGuild.ToString*
   modifiers.csharp:
   - public
@@ -372,8 +349,6 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -420,24 +395,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUserGuild
-  commentId: T:Discord.IUserGuild
-  parent: Discord
-  name: IUserGuild
-  nameWithType: IUserGuild
-  fullName: Discord.IUserGuild
-- uid: Discord.IDeletable
-  commentId: T:Discord.IDeletable
-  parent: Discord
-  name: IDeletable
-  nameWithType: IDeletable
-  fullName: Discord.IDeletable
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -480,6 +437,24 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IUserGuild
+  commentId: T:Discord.IUserGuild
+  parent: Discord
+  name: IUserGuild
+  nameWithType: IUserGuild
+  fullName: Discord.IUserGuild
+- uid: Discord.IDeletable
+  commentId: T:Discord.IDeletable
+  parent: Discord
+  name: IDeletable
+  nameWithType: IDeletable
+  fullName: Discord.IDeletable
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.Rest.RestEntity{System.UInt64}.Id
   commentId: P:Discord.Rest.RestEntity{System.UInt64}.Id
   parent: Discord.Rest.RestEntity{System.UInt64}
@@ -489,260 +464,6 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -779,11 +500,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -820,6 +536,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -832,15 +553,7 @@ references:
   name: Name
   nameWithType: RestUserGuild.Name
   fullName: Discord.Rest.RestUserGuild.Name
-- uid: Discord.IUserGuild.Name
-  commentId: P:Discord.IUserGuild.Name
-  parent: Discord.IUserGuild
-  name: Name
-  nameWithType: IUserGuild.Name
-  fullName: Discord.IUserGuild.Name
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -850,15 +563,7 @@ references:
   name: IsOwner
   nameWithType: RestUserGuild.IsOwner
   fullName: Discord.Rest.RestUserGuild.IsOwner
-- uid: Discord.IUserGuild.IsOwner
-  commentId: P:Discord.IUserGuild.IsOwner
-  parent: Discord.IUserGuild
-  name: IsOwner
-  nameWithType: IUserGuild.IsOwner
-  fullName: Discord.IUserGuild.IsOwner
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -885,30 +590,16 @@ references:
   name: CreatedAt
   nameWithType: RestUserGuild.CreatedAt
   fullName: Discord.Rest.RestUserGuild.CreatedAt
-- uid: Discord.ISnowflakeEntity.CreatedAt
-  commentId: P:Discord.ISnowflakeEntity.CreatedAt
-  parent: Discord.ISnowflakeEntity
-  name: CreatedAt
-  nameWithType: ISnowflakeEntity.CreatedAt
-  fullName: Discord.ISnowflakeEntity.CreatedAt
-- uid: System.DateTimeOffset
-  commentId: T:System.DateTimeOffset
-  parent: System
+- uid: DateTimeOffset
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: System.DateTimeOffset
+  fullName: DateTimeOffset
 - uid: Discord.Rest.RestUserGuild.IconUrl*
   commentId: Overload:Discord.Rest.RestUserGuild.IconUrl
   name: IconUrl
   nameWithType: RestUserGuild.IconUrl
   fullName: Discord.Rest.RestUserGuild.IconUrl
-- uid: Discord.IUserGuild.IconUrl
-  commentId: P:Discord.IUserGuild.IconUrl
-  parent: Discord.IUserGuild
-  name: IconUrl
-  nameWithType: IUserGuild.IconUrl
-  fullName: Discord.IUserGuild.IconUrl
 - uid: Discord.Rest.RestUserGuild.LeaveAsync*
   commentId: Overload:Discord.Rest.RestUserGuild.LeaveAsync
   name: LeaveAsync
@@ -920,91 +611,16 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.Rest.RestUserGuild.DeleteAsync*
   commentId: Overload:Discord.Rest.RestUserGuild.DeleteAsync
   name: DeleteAsync
   nameWithType: RestUserGuild.DeleteAsync
   fullName: Discord.Rest.RestUserGuild.DeleteAsync
-- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  parent: Discord.IDeletable
-  name: DeleteAsync(RequestOptions)
-  nameWithType: IDeletable.DeleteAsync(RequestOptions)
-  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-    name: DeleteAsync
-    nameWithType: IDeletable.DeleteAsync
-    fullName: Discord.IDeletable.DeleteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-    name: DeleteAsync
-    nameWithType: IDeletable.DeleteAsync
-    fullName: Discord.IDeletable.DeleteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest.RestUserGuild.ToString*
   commentId: Overload:Discord.Rest.RestUserGuild.ToString
   name: ToString

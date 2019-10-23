@@ -36,26 +36,21 @@ items:
   summary: "\nRepresents a REST-based entity that contains information about a Discord application created via the developer portal.\n"
   example: []
   syntax:
-    content: 'public class RestApplication : RestEntity<ulong>, IApplication, ISnowflakeEntity, IEntity<ulong>'
+    content: 'public class RestApplication : RestEntity<ulong>, IEntity<ulong>, IApplication, ISnowflakeEntity, IEntity<ulong>'
     content.vb: >-
       Public Class RestApplication
           Inherits RestEntity(Of ULong)
-          Implements IApplication, ISnowflakeEntity, IEntity(Of ULong)
+          Implements IEntity(Of ULong), IApplication, ISnowflakeEntity, IEntity(Of ULong)
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IApplication
   - Discord.ISnowflakeEntity
   - Discord.IEntity{System.UInt64}
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -115,7 +110,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the name of the application.\n"
   example: []
   syntax:
     content: public string Name { get; }
@@ -124,8 +118,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Name As String
   overload: Discord.Rest.RestApplication.Name*
-  implements:
-  - Discord.IApplication.Name
   modifiers.csharp:
   - public
   - get
@@ -154,7 +146,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the description of the application.\n"
   example: []
   syntax:
     content: public string Description { get; }
@@ -163,8 +154,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Description As String
   overload: Discord.Rest.RestApplication.Description*
-  implements:
-  - Discord.IApplication.Description
   modifiers.csharp:
   - public
   - get
@@ -193,7 +182,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the RPC origins of the application.\n"
   example: []
   syntax:
     content: public string[] RPCOrigins { get; }
@@ -202,8 +190,6 @@ items:
       type: System.String[]
     content.vb: Public ReadOnly Property RPCOrigins As String()
   overload: Discord.Rest.RestApplication.RPCOrigins*
-  implements:
-  - Discord.IApplication.RPCOrigins
   modifiers.csharp:
   - public
   - get
@@ -240,8 +226,6 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property Flags As ULong
   overload: Discord.Rest.RestApplication.Flags*
-  implements:
-  - Discord.IApplication.Flags
   modifiers.csharp:
   - public
   - get
@@ -309,18 +293,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: System.DateTimeOffset
-      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
+      type: DateTimeOffset
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.Rest.RestApplication.CreatedAt*
-  implements:
-  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -349,7 +329,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the icon URL of the application.\n"
   example: []
   syntax:
     content: public string IconUrl { get; }
@@ -358,8 +337,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property IconUrl As String
   overload: Discord.Rest.RestApplication.IconUrl*
-  implements:
-  - Discord.IApplication.IconUrl
   modifiers.csharp:
   - public
   - get
@@ -392,13 +369,9 @@ items:
   syntax:
     content: public Task UpdateAsync()
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function UpdateAsync As Task
   overload: Discord.Rest.RestApplication.UpdateAsync*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Unable to update this object from a different application token.
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -433,7 +406,6 @@ items:
       type: System.String
       description: "\nName of the application.\n"
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.Rest.RestApplication.ToString*
   modifiers.csharp:
   - public
@@ -448,8 +420,6 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -496,18 +466,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IApplication
-  commentId: T:Discord.IApplication
-  parent: Discord
-  name: IApplication
-  nameWithType: IApplication
-  fullName: Discord.IApplication
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -550,6 +508,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IApplication
+  commentId: T:Discord.IApplication
+  parent: Discord
+  name: IApplication
+  nameWithType: IApplication
+  fullName: Discord.IApplication
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.Rest.RestEntity{System.UInt64}.Id
   commentId: P:Discord.Rest.RestEntity{System.UInt64}.Id
   parent: Discord.Rest.RestEntity{System.UInt64}
@@ -559,260 +529,6 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -849,11 +565,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -890,6 +601,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -898,8 +614,6 @@ references:
   nameWithType.vb: RestEntity(Of T).Id
   fullName.vb: Discord.Rest.RestEntity(Of T).Id
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -909,34 +623,16 @@ references:
   name: Name
   nameWithType: RestApplication.Name
   fullName: Discord.Rest.RestApplication.Name
-- uid: Discord.IApplication.Name
-  commentId: P:Discord.IApplication.Name
-  parent: Discord.IApplication
-  name: Name
-  nameWithType: IApplication.Name
-  fullName: Discord.IApplication.Name
 - uid: Discord.Rest.RestApplication.Description*
   commentId: Overload:Discord.Rest.RestApplication.Description
   name: Description
   nameWithType: RestApplication.Description
   fullName: Discord.Rest.RestApplication.Description
-- uid: Discord.IApplication.Description
-  commentId: P:Discord.IApplication.Description
-  parent: Discord.IApplication
-  name: Description
-  nameWithType: IApplication.Description
-  fullName: Discord.IApplication.Description
 - uid: Discord.Rest.RestApplication.RPCOrigins*
   commentId: Overload:Discord.Rest.RestApplication.RPCOrigins
   name: RPCOrigins
   nameWithType: RestApplication.RPCOrigins
   fullName: Discord.Rest.RestApplication.RPCOrigins
-- uid: Discord.IApplication.RPCOrigins
-  commentId: P:Discord.IApplication.RPCOrigins
-  parent: Discord.IApplication
-  name: RPCOrigins
-  nameWithType: IApplication.RPCOrigins
-  fullName: Discord.IApplication.RPCOrigins
 - uid: System.String[]
   isExternal: true
   name: String[]
@@ -968,15 +664,7 @@ references:
   name: Flags
   nameWithType: RestApplication.Flags
   fullName: Discord.Rest.RestApplication.Flags
-- uid: Discord.IApplication.Flags
-  commentId: P:Discord.IApplication.Flags
-  parent: Discord.IApplication
-  name: Flags
-  nameWithType: IApplication.Flags
-  fullName: Discord.IApplication.Flags
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -1003,82 +691,26 @@ references:
   name: CreatedAt
   nameWithType: RestApplication.CreatedAt
   fullName: Discord.Rest.RestApplication.CreatedAt
-- uid: Discord.ISnowflakeEntity.CreatedAt
-  commentId: P:Discord.ISnowflakeEntity.CreatedAt
-  parent: Discord.ISnowflakeEntity
-  name: CreatedAt
-  nameWithType: ISnowflakeEntity.CreatedAt
-  fullName: Discord.ISnowflakeEntity.CreatedAt
-- uid: System.DateTimeOffset
-  commentId: T:System.DateTimeOffset
-  parent: System
+- uid: DateTimeOffset
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: System.DateTimeOffset
+  fullName: DateTimeOffset
 - uid: Discord.Rest.RestApplication.IconUrl*
   commentId: Overload:Discord.Rest.RestApplication.IconUrl
   name: IconUrl
   nameWithType: RestApplication.IconUrl
   fullName: Discord.Rest.RestApplication.IconUrl
-- uid: Discord.IApplication.IconUrl
-  commentId: P:Discord.IApplication.IconUrl
-  parent: Discord.IApplication
-  name: IconUrl
-  nameWithType: IApplication.IconUrl
-  fullName: Discord.IApplication.IconUrl
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
 - uid: Discord.Rest.RestApplication.UpdateAsync*
   commentId: Overload:Discord.Rest.RestApplication.UpdateAsync
   name: UpdateAsync
   nameWithType: RestApplication.UpdateAsync
   fullName: Discord.Rest.RestApplication.UpdateAsync
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
+  fullName: Task
 - uid: Discord.Rest.RestApplication.ToString*
   commentId: Overload:Discord.Rest.RestApplication.ToString
   name: ToString

@@ -70,13 +70,6 @@ items:
   - Discord.DiscordConfig.LogLevel
   - Discord.DiscordConfig.RateLimitPrecision
   - Discord.DiscordConfig.UseSystemClock
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -108,10 +101,10 @@ items:
   summary: "\nReturns the encoding gateway should use.\n"
   example: []
   syntax:
-    content: public const string GatewayEncoding = "json"
+    content: public const string GatewayEncoding = null
     return:
       type: System.String
-    content.vb: Public Const GatewayEncoding As String = "json"
+    content.vb: Public Const GatewayEncoding As String = Nothing
   modifiers.csharp:
   - public
   - const
@@ -437,7 +430,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets or sets whether or not all users should be downloaded as guilds come available.\n"
-  remarks: "\n<p>\n    By default, the Discord gateway will only send offline members if a guild has less than a certain number\n    of members (determined by <xref href=\"Discord.WebSocket.DiscordSocketConfig.LargeThreshold\" data-throw-if-not-resolved=\"false\"></xref> in this library). This behaviour is why\n    sometimes a user may be missing from the WebSocket cache for collections such as\n<xref href=\"Discord.WebSocket.SocketGuild.Users\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n<p>\n    This property ensures that whenever a guild becomes available (determined by\n<xref href=\"Discord.WebSocket.BaseSocketClient.GuildAvailable\" data-throw-if-not-resolved=\"false\"></xref>), incomplete user chunks will be\ndownloaded to the WebSocket cache.\n</p>\n<p>\n    For more information, please see\n<a href=\"https://discordapp.com/developers/docs/topics/gateway#request-guild-members\">Request Guild Members</a>\non the official Discord API documentation.\n</p>\n<div class=\"NOTE\"><h5>note</h5><p>\n    Please note that it can be difficult to fill the cache completely on large guilds depending on the\n    traffic. If you are using the command system, the default user TypeReader may fail to find the user\n    due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider\n    overriding the TypeReader and use\n<xref href=\"Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nor <xref href=\"Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64%2cSystem.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nas a backup.\n</p></div>\n"
+  remarks: "\n<p>\n    By default, the Discord gateway will only send offline members if a guild has less than a certain number\n    of members (determined by <xref href=\"Discord.WebSocket.DiscordSocketConfig.LargeThreshold\" data-throw-if-not-resolved=\"false\"></xref> in this library). This behaviour is why\n    sometimes a user may be missing from the WebSocket cache for collections such as\n<xref href=\"Discord.WebSocket.SocketGuild.Users\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n<p>\n    This property ensures that whenever a guild becomes available (determined by\n<xref href=\"Discord.WebSocket.BaseSocketClient.GuildAvailable\" data-throw-if-not-resolved=\"false\"></xref>), incomplete user chunks will be\ndownloaded to the WebSocket cache.\n</p>\n<p>\n    For more information, please see\n<a href=\"https://discordapp.com/developers/docs/topics/gateway#request-guild-members\">Request Guild Members</a>\non the official Discord API documentation.\n</p>\n<div class=\"NOTE\"><h5>note</h5><p>\n    Please note that it can be difficult to fill the cache completely on large guilds depending on the\n    traffic. If you are using the command system, the default user TypeReader may fail to find the user\n    due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider\n    overriding the TypeReader and use\n<see cref=\"!:DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)\"></see>\nor <xref href=\"Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64%2cSystem.UInt64%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>\nas a backup.\n</p></div>\n"
   example: []
   syntax:
     content: public bool AlwaysDownloadUsers { get; set; }
@@ -614,8 +607,6 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -740,304 +731,17 @@ references:
   name: UseSystemClock
   nameWithType: DiscordConfig.UseSystemClock
   fullName: Discord.DiscordConfig.UseSystemClock
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest
   commentId: N:Discord.Rest
   name: Discord.Rest
   nameWithType: Discord.Rest
   fullName: Discord.Rest
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1053,8 +757,6 @@ references:
   nameWithType: DiscordSocketConfig.ConnectionTimeout
   fullName: Discord.WebSocket.DiscordSocketConfig.ConnectionTimeout
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -1068,8 +770,7 @@ references:
   nameWithType: DiscordSocketConfig.ShardId
   fullName: Discord.WebSocket.DiscordSocketConfig.ShardId
 - uid: System.Nullable{System.Int32}
-  commentId: T:System.Nullable{System.Int32}
-  parent: System
+  commentId: '!:System.Nullable{System.Int32}'
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -1112,14 +813,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1129,9 +829,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1144,9 +844,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -1209,59 +909,6 @@ references:
   name: GuildAvailable
   nameWithType: BaseSocketClient.GuildAvailable
   fullName: Discord.WebSocket.BaseSocketClient.GuildAvailable
-- uid: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
-  commentId: M:Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
-  parent: Discord.Rest.DiscordRestClient
-  isExternal: true
-  name: GetUserAsync(UInt64, RequestOptions)
-  nameWithType: DiscordRestClient.GetUserAsync(UInt64, RequestOptions)
-  fullName: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
-    name: GetUserAsync
-    nameWithType: DiscordRestClient.GetUserAsync
-    fullName: Discord.Rest.DiscordRestClient.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.Rest.DiscordRestClient.GetUserAsync(System.UInt64,Discord.RequestOptions)
-    name: GetUserAsync
-    nameWithType: DiscordRestClient.GetUserAsync
-    fullName: Discord.Rest.DiscordRestClient.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
   commentId: M:Discord.Rest.DiscordRestClient.GetGuildUserAsync(System.UInt64,System.UInt64,Discord.RequestOptions)
   parent: Discord.Rest.DiscordRestClient
@@ -1337,8 +984,6 @@ references:
   nameWithType: DiscordSocketConfig.AlwaysDownloadUsers
   fullName: Discord.WebSocket.DiscordSocketConfig.AlwaysDownloadUsers
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1378,8 +1023,7 @@ references:
   nameWithType: DiscordSocketConfig.ExclusiveBulkDelete
   fullName: Discord.WebSocket.DiscordSocketConfig.ExclusiveBulkDelete
 - uid: System.Nullable{System.Boolean}
-  commentId: T:System.Nullable{System.Boolean}
-  parent: System
+  commentId: '!:System.Nullable{System.Boolean}'
   definition: System.Nullable`1
   name: Nullable<Boolean>
   nameWithType: Nullable<Boolean>

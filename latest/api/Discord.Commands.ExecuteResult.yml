@@ -10,7 +10,7 @@ items:
   - Discord.Commands.ExecuteResult.Exception
   - Discord.Commands.ExecuteResult.FromError(Discord.Commands.CommandError,System.String)
   - Discord.Commands.ExecuteResult.FromError(Discord.Commands.IResult)
-  - Discord.Commands.ExecuteResult.FromError(System.Exception)
+  - Discord.Commands.ExecuteResult.FromError(Exception)
   - Discord.Commands.ExecuteResult.FromSuccess
   - Discord.Commands.ExecuteResult.IsSuccess
   - Discord.Commands.ExecuteResult.ToString
@@ -41,12 +41,6 @@ items:
           Implements IResult
   implements:
   - Discord.Commands.IResult
-  inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -81,7 +75,7 @@ items:
     content: public Exception Exception { get; }
     parameters: []
     return:
-      type: System.Exception
+      type: Exception
     content.vb: Public ReadOnly Property Exception As Exception
   overload: Discord.Commands.ExecuteResult.Exception*
   modifiers.csharp:
@@ -291,16 +285,16 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.Commands.ExecuteResult.FromError(System.Exception)
-  commentId: M:Discord.Commands.ExecuteResult.FromError(System.Exception)
-  id: FromError(System.Exception)
+- uid: Discord.Commands.ExecuteResult.FromError(Exception)
+  commentId: M:Discord.Commands.ExecuteResult.FromError(Exception)
+  id: FromError(Exception)
   parent: Discord.Commands.ExecuteResult
   langs:
   - csharp
   - vb
   name: FromError(Exception)
   nameWithType: ExecuteResult.FromError(Exception)
-  fullName: Discord.Commands.ExecuteResult.FromError(System.Exception)
+  fullName: Discord.Commands.ExecuteResult.FromError(Exception)
   type: Method
   source:
     remote:
@@ -319,7 +313,7 @@ items:
     content: public static ExecuteResult FromError(Exception ex)
     parameters:
     - id: ex
-      type: System.Exception
+      type: Exception
       description: The exception that caused the command execution to fail.
     return:
       type: Discord.Commands.ExecuteResult
@@ -403,7 +397,6 @@ items:
       type: System.String
       description: "\n<code>Success</code> if <xref href=\"Discord.Commands.ExecuteResult.IsSuccess\" data-throw-if-not-resolved=\"false\"></xref> is <code>true</code>; otherwise &quot;<xref href=\"Discord.Commands.ExecuteResult.Error\" data-throw-if-not-resolved=\"false\"></xref>: \n<xref href=\"Discord.Commands.ExecuteResult.ErrorReason\" data-throw-if-not-resolved=\"false\"></xref>&quot;.\n"
     content.vb: Public Overrides Function ToString As String
-  overridden: System.ValueType.ToString
   overload: Discord.Commands.ExecuteResult.ToString*
   modifiers.csharp:
   - public
@@ -423,255 +416,16 @@ references:
   name: IResult
   nameWithType: IResult
   fullName: Discord.Commands.IResult
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: ValueType.Equals(Object)
-  fullName: System.ValueType.Equals(System.Object)
-  spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Commands.ExecuteResult.Exception*
   commentId: Overload:Discord.Commands.ExecuteResult.Exception
   name: Exception
   nameWithType: ExecuteResult.Exception
   fullName: Discord.Commands.ExecuteResult.Exception
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
+- uid: Exception
   isExternal: true
   name: Exception
   nameWithType: Exception
-  fullName: System.Exception
+  fullName: Exception
 - uid: Discord.Commands.ExecuteResult.Error*
   commentId: Overload:Discord.Commands.ExecuteResult.Error
   name: Error
@@ -684,8 +438,7 @@ references:
   nameWithType: IResult.Error
   fullName: Discord.Commands.IResult.Error
 - uid: System.Nullable{Discord.Commands.CommandError}
-  commentId: T:System.Nullable{Discord.Commands.CommandError}
-  parent: System
+  commentId: '!:System.Nullable{Discord.Commands.CommandError}'
   definition: System.Nullable`1
   name: Nullable<CommandError>
   nameWithType: Nullable<CommandError>
@@ -726,14 +479,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -743,9 +495,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -758,9 +510,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -776,8 +528,6 @@ references:
   nameWithType: IResult.ErrorReason
   fullName: Discord.Commands.IResult.ErrorReason
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -794,8 +544,6 @@ references:
   nameWithType: IResult.IsSuccess
   fullName: Discord.Commands.IResult.IsSuccess
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -831,37 +579,6 @@ references:
 - uid: Discord.Commands.ExecuteResult.ErrorReason
   commentId: P:Discord.Commands.ExecuteResult.ErrorReason
   isExternal: true
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Commands.ExecuteResult.ToString*
   commentId: Overload:Discord.Commands.ExecuteResult.ToString
   name: ToString

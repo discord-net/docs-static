@@ -5,10 +5,10 @@ items:
   id: PreconditionGroupResult
   parent: Discord.Commands
   children:
-  - Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
+  - Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,ICollection{Discord.Commands.PreconditionResult})
   - Discord.Commands.PreconditionGroupResult.FromError(Discord.Commands.IResult)
-  - Discord.Commands.PreconditionGroupResult.FromError(System.Exception)
-  - Discord.Commands.PreconditionGroupResult.FromError(System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
+  - Discord.Commands.PreconditionGroupResult.FromError(Exception)
+  - Discord.Commands.PreconditionGroupResult.FromError(System.String,ICollection{Discord.Commands.PreconditionResult})
   - Discord.Commands.PreconditionGroupResult.FromSuccess
   - Discord.Commands.PreconditionGroupResult.PreconditionResults
   - Discord.Commands.PreconditionGroupResult.ToString
@@ -46,12 +46,6 @@ items:
   - Discord.Commands.PreconditionResult.ErrorReason
   - Discord.Commands.PreconditionResult.IsSuccess
   - Discord.Commands.PreconditionResult.FromError(System.String)
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -84,7 +78,7 @@ items:
     content: public IReadOnlyCollection<PreconditionResult> PreconditionResults { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.Commands.PreconditionResult}
+      type: IReadOnlyCollection{Discord.Commands.PreconditionResult}
     content.vb: Public ReadOnly Property PreconditionResults As IReadOnlyCollection(Of PreconditionResult)
   overload: Discord.Commands.PreconditionGroupResult.PreconditionResults*
   modifiers.csharp:
@@ -93,16 +87,16 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
-  commentId: M:Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
-  id: '#ctor(System.Nullable{Discord.Commands.CommandError},System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})'
+- uid: Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,ICollection{Discord.Commands.PreconditionResult})
+  commentId: M:Discord.Commands.PreconditionGroupResult.#ctor(System.Nullable{Discord.Commands.CommandError},System.String,ICollection{Discord.Commands.PreconditionResult})
+  id: '#ctor(System.Nullable{Discord.Commands.CommandError},System.String,ICollection{Discord.Commands.PreconditionResult})'
   parent: Discord.Commands.PreconditionGroupResult
   langs:
   - csharp
   - vb
   name: PreconditionGroupResult(Nullable<CommandError>, String, ICollection<PreconditionResult>)
   nameWithType: PreconditionGroupResult.PreconditionGroupResult(Nullable<CommandError>, String, ICollection<PreconditionResult>)
-  fullName: Discord.Commands.PreconditionGroupResult.PreconditionGroupResult(System.Nullable<Discord.Commands.CommandError>, System.String, System.Collections.Generic.ICollection<Discord.Commands.PreconditionResult>)
+  fullName: Discord.Commands.PreconditionGroupResult.PreconditionGroupResult(System.Nullable<Discord.Commands.CommandError>, System.String, ICollection<Discord.Commands.PreconditionResult>)
   type: Constructor
   source:
     remote:
@@ -123,7 +117,7 @@ items:
     - id: errorReason
       type: System.String
     - id: preconditions
-      type: System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult}
+      type: ICollection{Discord.Commands.PreconditionResult}
     content.vb: Protected Sub New(error As CommandError?, errorReason As String, preconditions As ICollection(Of PreconditionResult))
   overload: Discord.Commands.PreconditionGroupResult.#ctor*
   nameWithType.vb: PreconditionGroupResult.PreconditionGroupResult(Nullable(Of CommandError), String, ICollection(Of PreconditionResult))
@@ -131,7 +125,7 @@ items:
   - protected
   modifiers.vb:
   - Protected
-  fullName.vb: Discord.Commands.PreconditionGroupResult.PreconditionGroupResult(System.Nullable(Of Discord.Commands.CommandError), System.String, System.Collections.Generic.ICollection(Of Discord.Commands.PreconditionResult))
+  fullName.vb: Discord.Commands.PreconditionGroupResult.PreconditionGroupResult(System.Nullable(Of Discord.Commands.CommandError), System.String, ICollection(Of Discord.Commands.PreconditionResult))
   name.vb: PreconditionGroupResult(Nullable(Of CommandError), String, ICollection(Of PreconditionResult))
 - uid: Discord.Commands.PreconditionGroupResult.FromSuccess
   commentId: M:Discord.Commands.PreconditionGroupResult.FromSuccess
@@ -167,16 +161,16 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.Commands.PreconditionGroupResult.FromError(System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
-  commentId: M:Discord.Commands.PreconditionGroupResult.FromError(System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
-  id: FromError(System.String,System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult})
+- uid: Discord.Commands.PreconditionGroupResult.FromError(System.String,ICollection{Discord.Commands.PreconditionResult})
+  commentId: M:Discord.Commands.PreconditionGroupResult.FromError(System.String,ICollection{Discord.Commands.PreconditionResult})
+  id: FromError(System.String,ICollection{Discord.Commands.PreconditionResult})
   parent: Discord.Commands.PreconditionGroupResult
   langs:
   - csharp
   - vb
   name: FromError(String, ICollection<PreconditionResult>)
   nameWithType: PreconditionGroupResult.FromError(String, ICollection<PreconditionResult>)
-  fullName: Discord.Commands.PreconditionGroupResult.FromError(System.String, System.Collections.Generic.ICollection<Discord.Commands.PreconditionResult>)
+  fullName: Discord.Commands.PreconditionGroupResult.FromError(System.String, ICollection<Discord.Commands.PreconditionResult>)
   type: Method
   source:
     remote:
@@ -195,7 +189,7 @@ items:
     - id: reason
       type: System.String
     - id: preconditions
-      type: System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult}
+      type: ICollection{Discord.Commands.PreconditionResult}
     return:
       type: Discord.Commands.PreconditionGroupResult
     content.vb: Public Shared Function FromError(reason As String, preconditions As ICollection(Of PreconditionResult)) As PreconditionGroupResult
@@ -207,18 +201,18 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.Commands.PreconditionGroupResult.FromError(System.String, System.Collections.Generic.ICollection(Of Discord.Commands.PreconditionResult))
+  fullName.vb: Discord.Commands.PreconditionGroupResult.FromError(System.String, ICollection(Of Discord.Commands.PreconditionResult))
   name.vb: FromError(String, ICollection(Of PreconditionResult))
-- uid: Discord.Commands.PreconditionGroupResult.FromError(System.Exception)
-  commentId: M:Discord.Commands.PreconditionGroupResult.FromError(System.Exception)
-  id: FromError(System.Exception)
+- uid: Discord.Commands.PreconditionGroupResult.FromError(Exception)
+  commentId: M:Discord.Commands.PreconditionGroupResult.FromError(Exception)
+  id: FromError(Exception)
   parent: Discord.Commands.PreconditionGroupResult
   langs:
   - csharp
   - vb
   name: FromError(Exception)
   nameWithType: PreconditionGroupResult.FromError(Exception)
-  fullName: Discord.Commands.PreconditionGroupResult.FromError(System.Exception)
+  fullName: Discord.Commands.PreconditionGroupResult.FromError(Exception)
   type: Method
   source:
     remote:
@@ -235,7 +229,7 @@ items:
     content: public static PreconditionGroupResult FromError(Exception ex)
     parameters:
     - id: ex
-      type: System.Exception
+      type: Exception
     return:
       type: Discord.Commands.PreconditionGroupResult
     content.vb: Public Shared Function FromError(ex As Exception) As PreconditionGroupResult
@@ -325,8 +319,6 @@ references:
   nameWithType: Discord.Commands
   fullName: Discord.Commands
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -400,280 +392,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Commands.PreconditionGroupResult.PreconditionResults*
   commentId: Overload:Discord.Commands.PreconditionGroupResult.PreconditionResults
   name: PreconditionResults
   nameWithType: PreconditionGroupResult.PreconditionResults
   fullName: Discord.Commands.PreconditionGroupResult.PreconditionResults
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.Commands.PreconditionResult}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.Commands.PreconditionResult}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection{Discord.Commands.PreconditionResult}
+  commentId: '!:IReadOnlyCollection{Discord.Commands.PreconditionResult}'
+  definition: IReadOnlyCollection`1
   name: IReadOnlyCollection<PreconditionResult>
   nameWithType: IReadOnlyCollection<PreconditionResult>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.Commands.PreconditionResult>
+  fullName: IReadOnlyCollection<Discord.Commands.PreconditionResult>
   nameWithType.vb: IReadOnlyCollection(Of PreconditionResult)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.Commands.PreconditionResult)
+  fullName.vb: IReadOnlyCollection(Of Discord.Commands.PreconditionResult)
   name.vb: IReadOnlyCollection(Of PreconditionResult)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -686,10 +423,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -701,59 +438,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IReadOnlyCollection`1
-  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<T>
-  nameWithType: IReadOnlyCollection<T>
-  fullName: System.Collections.Generic.IReadOnlyCollection<T>
-  nameWithType.vb: IReadOnlyCollection(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
-  name.vb: IReadOnlyCollection(Of T)
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: Discord.Commands.PreconditionGroupResult.#ctor*
   commentId: Overload:Discord.Commands.PreconditionGroupResult.#ctor
   name: PreconditionGroupResult
   nameWithType: PreconditionGroupResult.PreconditionGroupResult
   fullName: Discord.Commands.PreconditionGroupResult.PreconditionGroupResult
 - uid: System.Nullable{Discord.Commands.CommandError}
-  commentId: T:System.Nullable{Discord.Commands.CommandError}
-  parent: System
+  commentId: '!:System.Nullable{Discord.Commands.CommandError}'
   definition: System.Nullable`1
   name: Nullable<CommandError>
   nameWithType: Nullable<CommandError>
@@ -794,27 +523,24 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult}
-  commentId: T:System.Collections.Generic.ICollection{Discord.Commands.PreconditionResult}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.ICollection`1
+- uid: ICollection{Discord.Commands.PreconditionResult}
+  commentId: '!:ICollection{Discord.Commands.PreconditionResult}'
+  definition: ICollection`1
   name: ICollection<PreconditionResult>
   nameWithType: ICollection<PreconditionResult>
-  fullName: System.Collections.Generic.ICollection<Discord.Commands.PreconditionResult>
+  fullName: ICollection<Discord.Commands.PreconditionResult>
   nameWithType.vb: ICollection(Of PreconditionResult)
-  fullName.vb: System.Collections.Generic.ICollection(Of Discord.Commands.PreconditionResult)
+  fullName.vb: ICollection(Of Discord.Commands.PreconditionResult)
   name.vb: ICollection(Of PreconditionResult)
   spec.csharp:
-  - uid: System.Collections.Generic.ICollection`1
+  - uid: ICollection`1
     name: ICollection
     nameWithType: ICollection
-    fullName: System.Collections.Generic.ICollection
+    fullName: ICollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -827,10 +553,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.ICollection`1
+  - uid: ICollection`1
     name: ICollection
     nameWithType: ICollection
-    fullName: System.Collections.Generic.ICollection
+    fullName: ICollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -843,14 +569,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -860,9 +585,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -875,48 +600,47 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.ICollection`1
-  commentId: T:System.Collections.Generic.ICollection`1
+- uid: ICollection`1
   isExternal: true
-  name: ICollection<T>
-  nameWithType: ICollection<T>
-  fullName: System.Collections.Generic.ICollection<T>
-  nameWithType.vb: ICollection(Of T)
-  fullName.vb: System.Collections.Generic.ICollection(Of T)
-  name.vb: ICollection(Of T)
+  name: ICollection<>
+  nameWithType: ICollection<>
+  fullName: ICollection<>
+  nameWithType.vb: ICollection(Of )
+  fullName.vb: ICollection(Of )
+  name.vb: ICollection(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.ICollection`1
+  - uid: ICollection`1
     name: ICollection
     nameWithType: ICollection
-    fullName: System.Collections.Generic.ICollection
+    fullName: ICollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.ICollection`1
+  - uid: ICollection`1
     name: ICollection
     nameWithType: ICollection
-    fullName: System.Collections.Generic.ICollection
+    fullName: ICollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -936,13 +660,11 @@ references:
   name: FromError
   nameWithType: PreconditionGroupResult.FromError
   fullName: Discord.Commands.PreconditionGroupResult.FromError
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
+- uid: Exception
   isExternal: true
   name: Exception
   nameWithType: Exception
-  fullName: System.Exception
+  fullName: Exception
 - uid: Discord.Commands.PreconditionResult.ToString
   commentId: M:Discord.Commands.PreconditionResult.ToString
   parent: Discord.Commands.PreconditionResult

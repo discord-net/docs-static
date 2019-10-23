@@ -5,7 +5,7 @@ items:
   id: IUserMessage
   parent: Discord
   children:
-  - Discord.IUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
+  - Discord.IUserMessage.ModifyAsync(Action{Discord.MessageProperties},Discord.RequestOptions)
   - Discord.IUserMessage.ModifySuppressionAsync(System.Boolean,Discord.RequestOptions)
   - Discord.IUserMessage.PinAsync(Discord.RequestOptions)
   - Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
@@ -65,7 +65,7 @@ items:
   - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
   extensionMethods:
   - Discord.IUserMessage.Discord.Commands.MessageExtensions.HasCharPrefix(System.Char,System.Int32@)
-  - Discord.IUserMessage.Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,System.StringComparison)
+  - Discord.IUserMessage.Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,StringComparison)
   - Discord.IUserMessage.Discord.Commands.MessageExtensions.HasMentionPrefix(Discord.IUser,System.Int32@)
   - Discord.IMessage.Discord.MessageExtensions.GetJumpUrl
   - Discord.IUserMessage.Discord.MessageExtensions.AddReactionsAsync(Discord.IEmote[],Discord.RequestOptions)
@@ -76,16 +76,16 @@ items:
   modifiers.vb:
   - Public
   - Interface
-- uid: Discord.IUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
-  commentId: M:Discord.IUserMessage.ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
-  id: ModifyAsync(System.Action{Discord.MessageProperties},Discord.RequestOptions)
+- uid: Discord.IUserMessage.ModifyAsync(Action{Discord.MessageProperties},Discord.RequestOptions)
+  commentId: M:Discord.IUserMessage.ModifyAsync(Action{Discord.MessageProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.MessageProperties},Discord.RequestOptions)
   parent: Discord.IUserMessage
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<MessageProperties>, RequestOptions)
   nameWithType: IUserMessage.ModifyAsync(Action<MessageProperties>, RequestOptions)
-  fullName: Discord.IUserMessage.ModifyAsync(System.Action<Discord.MessageProperties>, Discord.RequestOptions)
+  fullName: Discord.IUserMessage.ModifyAsync(Action<Discord.MessageProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -106,18 +106,18 @@ items:
     content: Task ModifyAsync(Action<MessageProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: System.Action{Discord.MessageProperties}
+      type: Action{Discord.MessageProperties}
       description: A delegate containing the properties to modify the message with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyAsync(func As Action(Of MessageProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IUserMessage.ModifyAsync*
   nameWithType.vb: IUserMessage.ModifyAsync(Action(Of MessageProperties), RequestOptions)
-  fullName.vb: Discord.IUserMessage.ModifyAsync(System.Action(Of Discord.MessageProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IUserMessage.ModifyAsync(Action(Of Discord.MessageProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of MessageProperties), RequestOptions)
 - uid: Discord.IUserMessage.ModifySuppressionAsync(System.Boolean,Discord.RequestOptions)
   commentId: M:Discord.IUserMessage.ModifySuppressionAsync(System.Boolean,Discord.RequestOptions)
@@ -154,7 +154,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifySuppressionAsync(suppressEmbeds As Boolean, options As RequestOptions = Nothing) As Task
   overload: Discord.IUserMessage.ModifySuppressionAsync*
@@ -189,7 +189,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous operation for pinning this message.\n"
     content.vb: Function PinAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.IUserMessage.PinAsync*
@@ -224,7 +224,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous operation for unpinning this message.\n"
     content.vb: Function UnpinAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.IUserMessage.UnpinAsync*
@@ -253,7 +253,7 @@ items:
   summary: "\nTransforms this message&apos;s text into a human-readable form by resolving its tags.\n"
   example: []
   syntax:
-    content: string Resolve(TagHandling userHandling = TagHandling.Name, TagHandling channelHandling = TagHandling.Name, TagHandling roleHandling = TagHandling.Name, TagHandling everyoneHandling = TagHandling.Ignore, TagHandling emojiHandling = TagHandling.Name)
+    content: string Resolve(TagHandling userHandling = default(TagHandling), TagHandling channelHandling = default(TagHandling), TagHandling roleHandling = default(TagHandling), TagHandling everyoneHandling = default(TagHandling), TagHandling emojiHandling = default(TagHandling))
     parameters:
     - id: userHandling
       type: Discord.TagHandling
@@ -272,7 +272,7 @@ items:
       description: Determines how the emoji tag should be handled.
     return:
       type: System.String
-    content.vb: Function Resolve(userHandling As TagHandling = TagHandling.Name, channelHandling As TagHandling = TagHandling.Name, roleHandling As TagHandling = TagHandling.Name, everyoneHandling As TagHandling = TagHandling.Ignore, emojiHandling As TagHandling = TagHandling.Name) As String
+    content.vb: Function Resolve(userHandling As TagHandling = Nothing, channelHandling As TagHandling = Nothing, roleHandling As TagHandling = Nothing, everyoneHandling As TagHandling = Nothing, emojiHandling As TagHandling = Nothing) As String
   overload: Discord.IUserMessage.Resolve*
 references:
 - uid: Discord
@@ -784,15 +784,15 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUserMessage.Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,System.StringComparison)
-  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+- uid: Discord.IUserMessage.Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,StringComparison)
+  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
   parent: Discord.Commands.MessageExtensions
-  definition: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+  definition: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
   name: HasStringPrefix(String, Int32, StringComparison)
   nameWithType: MessageExtensions.HasStringPrefix(String, Int32, StringComparison)
-  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(System.String, System.Int32, System.StringComparison)
+  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(System.String, System.Int32, StringComparison)
   spec.csharp:
-  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,System.StringComparison)
+  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,StringComparison)
     name: HasStringPrefix
     nameWithType: MessageExtensions.HasStringPrefix
     fullName: Discord.Commands.MessageExtensions.HasStringPrefix
@@ -815,16 +815,16 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.StringComparison
+  - uid: StringComparison
     name: StringComparison
     nameWithType: StringComparison
-    fullName: System.StringComparison
+    fullName: StringComparison
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,System.StringComparison)
+  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(System.String,System.Int32@,StringComparison)
     name: HasStringPrefix
     nameWithType: MessageExtensions.HasStringPrefix
     fullName: Discord.Commands.MessageExtensions.HasStringPrefix
@@ -847,10 +847,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.StringComparison
+  - uid: StringComparison
     name: StringComparison
     nameWithType: StringComparison
-    fullName: System.StringComparison
+    fullName: StringComparison
     isExternal: true
   - name: )
     nameWithType: )
@@ -1212,14 +1212,14 @@ references:
   name: MessageExtensions
   nameWithType: MessageExtensions
   fullName: Discord.Commands.MessageExtensions
-- uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
-  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+- uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
+  commentId: M:Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
   isExternal: true
   name: HasStringPrefix(IUserMessage, String, Int32, StringComparison)
   nameWithType: MessageExtensions.HasStringPrefix(IUserMessage, String, Int32, StringComparison)
-  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, System.Int32, System.StringComparison)
+  fullName: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage, System.String, System.Int32, StringComparison)
   spec.csharp:
-  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
     name: HasStringPrefix
     nameWithType: MessageExtensions.HasStringPrefix
     fullName: Discord.Commands.MessageExtensions.HasStringPrefix
@@ -1249,16 +1249,16 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.StringComparison
+  - uid: StringComparison
     name: StringComparison
     nameWithType: StringComparison
-    fullName: System.StringComparison
+    fullName: StringComparison
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,System.StringComparison)
+  - uid: Discord.Commands.MessageExtensions.HasStringPrefix(Discord.IUserMessage,System.String,System.Int32@,StringComparison)
     name: HasStringPrefix
     nameWithType: MessageExtensions.HasStringPrefix
     fullName: Discord.Commands.MessageExtensions.HasStringPrefix
@@ -1288,10 +1288,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.StringComparison
+  - uid: StringComparison
     name: StringComparison
     nameWithType: StringComparison
-    fullName: System.StringComparison
+    fullName: StringComparison
     isExternal: true
   - name: )
     nameWithType: )
@@ -1612,21 +1612,20 @@ references:
   name: ModifyAsync
   nameWithType: IUserMessage.ModifyAsync
   fullName: Discord.IUserMessage.ModifyAsync
-- uid: System.Action{Discord.MessageProperties}
-  commentId: T:System.Action{Discord.MessageProperties}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.MessageProperties}
+  commentId: '!:Action{Discord.MessageProperties}'
+  definition: Action`1
   name: Action<MessageProperties>
   nameWithType: Action<MessageProperties>
-  fullName: System.Action<Discord.MessageProperties>
+  fullName: Action<Discord.MessageProperties>
   nameWithType.vb: Action(Of MessageProperties)
-  fullName.vb: System.Action(Of Discord.MessageProperties)
+  fullName.vb: Action(Of Discord.MessageProperties)
   name.vb: Action(Of MessageProperties)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1639,10 +1638,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1660,72 +1659,55 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Action`1
-  commentId: T:System.Action`1
+  fullName: Task
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
 - uid: Discord.IUserMessage.ModifySuppressionAsync*
   commentId: Overload:Discord.IUserMessage.ModifySuppressionAsync
   name: ModifySuppressionAsync
   nameWithType: IUserMessage.ModifySuppressionAsync
   fullName: Discord.IUserMessage.ModifySuppressionAsync
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1752,8 +1734,6 @@ references:
   nameWithType: TagHandling
   fullName: Discord.TagHandling
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String

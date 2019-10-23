@@ -12,7 +12,7 @@ items:
   - Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
   - Discord.IWebhook.Guild
   - Discord.IWebhook.GuildId
-  - Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
+  - Discord.IWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
   - Discord.IWebhook.Name
   - Discord.IWebhook.Token
   langs:
@@ -180,7 +180,7 @@ items:
   summary: "\nGets the URL to this webhook&apos;s default avatar.\n"
   example: []
   syntax:
-    content: string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = 128)
+    content: string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = null)
     parameters:
     - id: format
       type: Discord.ImageFormat
@@ -188,7 +188,7 @@ items:
       type: System.UInt16
     return:
       type: System.String
-    content.vb: Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = 128) As String
+    content.vb: Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = Nothing) As String
   overload: Discord.IWebhook.GetAvatarUrl*
 - uid: Discord.IWebhook.Channel
   commentId: P:Discord.IWebhook.Channel
@@ -365,16 +365,16 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
-- uid: Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  commentId: M:Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  id: ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
+- uid: Discord.IWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
+  commentId: M:Discord.IWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
   parent: Discord.IWebhook
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<WebhookProperties>, RequestOptions)
   nameWithType: IWebhook.ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  fullName: Discord.IWebhook.ModifyAsync(System.Action<Discord.WebhookProperties>, Discord.RequestOptions)
+  fullName: Discord.IWebhook.ModifyAsync(Action<Discord.WebhookProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -393,15 +393,15 @@ items:
     content: Task ModifyAsync(Action<WebhookProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: System.Action{Discord.WebhookProperties}
+      type: Action{Discord.WebhookProperties}
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Function ModifyAsync(func As Action(Of WebhookProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.IWebhook.ModifyAsync*
   nameWithType.vb: IWebhook.ModifyAsync(Action(Of WebhookProperties), RequestOptions)
-  fullName.vb: Discord.IWebhook.ModifyAsync(System.Action(Of Discord.WebhookProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IWebhook.ModifyAsync(Action(Of Discord.WebhookProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of WebhookProperties), RequestOptions)
 references:
 - uid: Discord
@@ -563,18 +563,10 @@ references:
   nameWithType: IWebhook.Token
   fullName: Discord.IWebhook.Token
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.IWebhook.Name*
   commentId: Overload:Discord.IWebhook.Name
   name: Name
@@ -597,8 +589,6 @@ references:
   nameWithType: ImageFormat
   fullName: Discord.ImageFormat
 - uid: System.UInt16
-  commentId: T:System.UInt16
-  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
@@ -620,8 +610,6 @@ references:
   nameWithType: IWebhook.ChannelId
   fullName: Discord.IWebhook.ChannelId
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -643,8 +631,7 @@ references:
   nameWithType: IWebhook.GuildId
   fullName: Discord.IWebhook.GuildId
 - uid: System.Nullable{System.UInt64}
-  commentId: T:System.Nullable{System.UInt64}
-  parent: System
+  commentId: '!:System.Nullable{System.UInt64}'
   definition: System.Nullable`1
   name: Nullable<UInt64>
   nameWithType: Nullable<UInt64>
@@ -687,14 +674,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -704,9 +690,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -719,9 +705,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -741,21 +727,20 @@ references:
   name: ModifyAsync
   nameWithType: IWebhook.ModifyAsync
   fullName: Discord.IWebhook.ModifyAsync
-- uid: System.Action{Discord.WebhookProperties}
-  commentId: T:System.Action{Discord.WebhookProperties}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.WebhookProperties}
+  commentId: '!:Action{Discord.WebhookProperties}'
+  definition: Action`1
   name: Action<WebhookProperties>
   nameWithType: Action<WebhookProperties>
-  fullName: System.Action<Discord.WebhookProperties>
+  fullName: Action<Discord.WebhookProperties>
   nameWithType.vb: Action(Of WebhookProperties)
-  fullName.vb: System.Action(Of Discord.WebhookProperties)
+  fullName.vb: Action(Of Discord.WebhookProperties)
   name.vb: Action(Of WebhookProperties)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -768,10 +753,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -789,55 +774,46 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Action`1
-  commentId: T:System.Action`1
+  fullName: Task
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks

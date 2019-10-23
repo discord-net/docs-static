@@ -34,11 +34,11 @@ items:
   remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Most of the properties and methods featured may not be supported due to the nature of the channel.\n</p></div>\n"
   example: []
   syntax:
-    content: 'public class SocketNewsChannel : SocketTextChannel, ITextChannel, IMentionable, INestedChannel, IGuildChannel, IDeletable, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
+    content: 'public class SocketNewsChannel : SocketTextChannel, IEntity<ulong>, ITextChannel, IMentionable, INestedChannel, IGuildChannel, IDeletable, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
     content.vb: >-
       Public Class SocketNewsChannel
           Inherits SocketTextChannel
-          Implements ITextChannel, IMentionable, INestedChannel, IGuildChannel, IDeletable, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong)
+          Implements IEntity(Of ULong), ITextChannel, IMentionable, INestedChannel, IGuildChannel, IDeletable, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong)
   inheritance:
   - System.Object
   - Discord.WebSocket.SocketEntity{System.UInt64}
@@ -46,6 +46,7 @@ items:
   - Discord.WebSocket.SocketGuildChannel
   - Discord.WebSocket.SocketTextChannel
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.ITextChannel
   - Discord.IMentionable
   - Discord.INestedChannel
@@ -64,7 +65,7 @@ items:
   - Discord.WebSocket.SocketTextChannel.Mention
   - Discord.WebSocket.SocketTextChannel.CachedMessages
   - Discord.WebSocket.SocketTextChannel.Users
-  - Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - Discord.WebSocket.SocketTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetCachedMessage(System.UInt64)
   - Discord.WebSocket.SocketTextChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)
@@ -76,60 +77,30 @@ items:
   - Discord.WebSocket.SocketTextChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+  - Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.TriggerTypingAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.EnterTypingState(Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetUser(System.UInt64)
-  - Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  - Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetWebhooksAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.CreateInviteAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)
   - Discord.WebSocket.SocketTextChannel.GetInvitesAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  - Discord.WebSocket.SocketTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
   - Discord.WebSocket.SocketGuildChannel.Guild
   - Discord.WebSocket.SocketGuildChannel.Name
   - Discord.WebSocket.SocketGuildChannel.Position
-  - Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   - Discord.WebSocket.SocketGuildChannel.DeleteAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketGuildChannel.GetPermissionOverwrite(Discord.IUser)
   - Discord.WebSocket.SocketGuildChannel.GetPermissionOverwrite(Discord.IRole)
   - Discord.WebSocket.SocketGuildChannel.ToString
   - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#Guild
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GuildId
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
   - Discord.WebSocket.SocketChannel.CreatedAt
-  - Discord.WebSocket.SocketChannel.Discord#IChannel#Name
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -158,15 +129,13 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nGets the current slow-mode delay for this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override int SlowModeInterval { get; }
     parameters: []
     return:
       type: System.Int32
-      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the time in seconds required before the user can send another\nmessage; <code>0</code> if disabled.\n"
     content.vb: Public Overrides ReadOnly Property SlowModeInterval As Integer
   overridden: Discord.WebSocket.SocketTextChannel.SlowModeInterval
   overload: Discord.WebSocket.SocketNewsChannel.SlowModeInterval*
@@ -201,7 +170,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nAdds or updates the permission overwrite for the given role.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override Task AddPermissionOverwriteAsync(IRole role, OverwritePermissions permissions, RequestOptions options = null)
@@ -216,7 +185,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task representing the asynchronous permission operation for adding the specified permissions to the channel.\n"
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(role As IRole, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
@@ -250,7 +219,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nAdds or updates the permission overwrite for the given user.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override Task AddPermissionOverwriteAsync(IUser user, OverwritePermissions permissions, RequestOptions options = null)
@@ -265,7 +234,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task representing the asynchronous permission operation for adding the specified permissions to the channel.\n"
     content.vb: Public Overrides Function AddPermissionOverwriteAsync(user As IUser, permissions As OverwritePermissions, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
@@ -298,15 +267,13 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nGets a collection of permission overwrites for this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis property is not supported by this type. Attempting to use this property will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override IReadOnlyCollection<Overwrite> PermissionOverwrites { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.Overwrite}
-      description: "\nA collection of overwrites associated with this channel.\n"
+      type: IReadOnlyCollection{Discord.Overwrite}
     content.vb: Public Overrides ReadOnly Property PermissionOverwrites As IReadOnlyCollection(Of Overwrite)
   overridden: Discord.WebSocket.SocketGuildChannel.PermissionOverwrites
   overload: Discord.WebSocket.SocketNewsChannel.PermissionOverwrites*
@@ -340,18 +307,15 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nSyncs the permissions of this nested channel with its parent&apos;s.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override Task SyncPermissionsAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous operation for syncing channel permissions with its parent&apos;s.\n"
+      type: Task
     content.vb: Public Overrides Function SyncPermissionsAsync(options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketTextChannel.SyncPermissionsAsync(Discord.RequestOptions)
   overload: Discord.WebSocket.SocketNewsChannel.SyncPermissionsAsync*
@@ -384,7 +348,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nRemoves the permission overwrite for the given role, if one exists.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override Task RemovePermissionOverwriteAsync(IRole role, RequestOptions options = null)
@@ -396,7 +360,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task representing the asynchronous operation for removing the specified permissions from the channel.\n"
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(role As IRole, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
@@ -430,7 +394,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nRemoves the permission overwrite for the given user, if one exists.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <xref href=\"System.NotSupportedException\" data-throw-if-not-resolved=\"false\"></xref>.\n</p></div>\n"
+  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\nThis method is not supported by this type. Attempting to use this method will result in a <see cref=\"!:NotSupportedException\"></see>.\n</p></div>\n"
   example: []
   syntax:
     content: public override Task RemovePermissionOverwriteAsync(IUser user, RequestOptions options = null)
@@ -442,7 +406,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task representing the asynchronous operation for removing the specified permissions from the channel.\n"
     content.vb: Public Overrides Function RemovePermissionOverwriteAsync(user As IUser, options As RequestOptions = Nothing) As Task
   overridden: Discord.WebSocket.SocketGuildChannel.RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
@@ -466,8 +430,6 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -526,6 +488,48 @@ references:
   name: SocketGuildChannel
   nameWithType: SocketGuildChannel
   fullName: Discord.WebSocket.SocketGuildChannel
+- uid: Discord.IEntity{System.UInt64}
+  commentId: T:Discord.IEntity{System.UInt64}
+  parent: Discord
+  definition: Discord.IEntity`1
+  name: IEntity<UInt64>
+  nameWithType: IEntity<UInt64>
+  fullName: Discord.IEntity<System.UInt64>
+  nameWithType.vb: IEntity(Of UInt64)
+  fullName.vb: Discord.IEntity(Of System.UInt64)
+  name.vb: IEntity(Of UInt64)
+  spec.csharp:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Discord.IEntity`1
+    name: IEntity
+    nameWithType: IEntity
+    fullName: Discord.IEntity
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.ITextChannel
   commentId: T:Discord.ITextChannel
   parent: Discord
@@ -580,48 +584,6 @@ references:
   name: ISnowflakeEntity
   nameWithType: ISnowflakeEntity
   fullName: Discord.ISnowflakeEntity
-- uid: Discord.IEntity{System.UInt64}
-  commentId: T:Discord.IEntity{System.UInt64}
-  parent: Discord
-  definition: Discord.IEntity`1
-  name: IEntity<UInt64>
-  nameWithType: IEntity<UInt64>
-  fullName: Discord.IEntity<System.UInt64>
-  nameWithType.vb: IEntity(Of UInt64)
-  fullName.vb: Discord.IEntity(Of System.UInt64)
-  name.vb: IEntity(Of UInt64)
-  spec.csharp:
-  - uid: Discord.IEntity`1
-    name: IEntity
-    nameWithType: IEntity
-    fullName: Discord.IEntity
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: Discord.IEntity`1
-    name: IEntity
-    nameWithType: IEntity
-    fullName: Discord.IEntity
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketTextChannel.Topic
   commentId: P:Discord.WebSocket.SocketTextChannel.Topic
   parent: Discord.WebSocket.SocketTextChannel
@@ -664,28 +626,28 @@ references:
   name: Users
   nameWithType: SocketTextChannel.Users
   fullName: Discord.WebSocket.SocketTextChannel.Users
-- uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
   parent: Discord.WebSocket.SocketTextChannel
   isExternal: true
   name: ModifyAsync(Action<TextChannelProperties>, RequestOptions)
   nameWithType: SocketTextChannel.ModifyAsync(Action<TextChannelProperties>, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action<Discord.TextChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketTextChannel.ModifyAsync(Action<Discord.TextChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: SocketTextChannel.ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
-  fullName.vb: Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.WebSocket.SocketTextChannel.ModifyAsync(Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: SocketTextChannel.ModifyAsync
     fullName: Discord.WebSocket.SocketTextChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -708,17 +670,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: SocketTextChannel.ModifyAsync
     fullName: Discord.WebSocket.SocketTextChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1458,25 +1420,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.WebSocket.SocketTextChannel
   isExternal: true
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: SocketTextChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: SocketTextChannel.SendFileAsync
     fullName: Discord.WebSocket.SocketTextChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1528,17 +1490,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.WebSocket.SocketTextChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: SocketTextChannel.SendFileAsync
     fullName: Discord.WebSocket.SocketTextChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1589,28 +1551,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
   parent: Discord.WebSocket.SocketTextChannel
   isExternal: true
   name: DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
   nameWithType: SocketTextChannel.DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<Discord.IMessage>, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable<Discord.IMessage>, Discord.RequestOptions)
   nameWithType.vb: SocketTextChannel.DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
-  fullName.vb: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
+  fullName.vb: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: SocketTextChannel.DeleteMessagesAsync
     fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1633,17 +1595,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: SocketTextChannel.DeleteMessagesAsync
     fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1665,28 +1627,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
   parent: Discord.WebSocket.SocketTextChannel
   isExternal: true
   name: DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
   nameWithType: SocketTextChannel.DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<System.UInt64>, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable<System.UInt64>, Discord.RequestOptions)
   nameWithType.vb: SocketTextChannel.DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
-  fullName.vb: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of System.UInt64), Discord.RequestOptions)
+  fullName.vb: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable(Of System.UInt64), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: SocketTextChannel.DeleteMessagesAsync
     fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1710,17 +1672,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
     name: DeleteMessagesAsync
     nameWithType: SocketTextChannel.DeleteMessagesAsync
     fullName: Discord.WebSocket.SocketTextChannel.DeleteMessagesAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1957,15 +1919,15 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
   parent: Discord.WebSocket.SocketTextChannel
   isExternal: true
   name: CreateWebhookAsync(String, Stream, RequestOptions)
   nameWithType: SocketTextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String, System.IO.Stream, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String, Stream, Discord.RequestOptions)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
     name: CreateWebhookAsync
     nameWithType: SocketTextChannel.CreateWebhookAsync
     fullName: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync
@@ -1980,10 +1942,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1996,7 +1958,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
     name: CreateWebhookAsync
     nameWithType: SocketTextChannel.CreateWebhookAsync
     fullName: Discord.WebSocket.SocketTextChannel.CreateWebhookAsync
@@ -2011,10 +1973,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -2299,1050 +2261,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  nameWithType: SocketTextChannel.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.CreateWebhookAsync(System.String, System.IO.Stream, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  name.vb: Discord.ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-    name: ITextChannel.CreateWebhookAsync
-    nameWithType: SocketTextChannel.ITextChannel.CreateWebhookAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.CreateWebhookAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-    name: Discord.ITextChannel.CreateWebhookAsync
-    nameWithType: SocketTextChannel.Discord.ITextChannel.CreateWebhookAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.CreateWebhookAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
-  nameWithType: SocketTextChannel.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhookAsync(System.UInt64, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
-  name.vb: Discord.ITextChannel.GetWebhookAsync(UInt64, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
-    name: ITextChannel.GetWebhookAsync
-    nameWithType: SocketTextChannel.ITextChannel.GetWebhookAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhookAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhookAsync(System.UInt64,Discord.RequestOptions)
-    name: Discord.ITextChannel.GetWebhookAsync
-    nameWithType: SocketTextChannel.Discord.ITextChannel.GetWebhookAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhookAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  name: ITextChannel.GetWebhooksAsync(RequestOptions)
-  nameWithType: SocketTextChannel.ITextChannel.GetWebhooksAsync(RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhooksAsync(Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.ITextChannel.GetWebhooksAsync(RequestOptions)
-  name.vb: Discord.ITextChannel.GetWebhooksAsync(RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
-    name: ITextChannel.GetWebhooksAsync
-    nameWithType: SocketTextChannel.ITextChannel.GetWebhooksAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhooksAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#ITextChannel#GetWebhooksAsync(Discord.RequestOptions)
-    name: Discord.ITextChannel.GetWebhooksAsync
-    nameWithType: SocketTextChannel.Discord.ITextChannel.GetWebhooksAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.ITextChannel.GetWebhooksAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  name.vb: Discord.IGuildChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: IGuildChannel.GetUserAsync
-    nameWithType: SocketTextChannel.IGuildChannel.GetUserAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IGuildChannel.GetUserAsync
-    nameWithType: SocketTextChannel.Discord.IGuildChannel.GetUserAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  name: IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
-  name.vb: Discord.IGuildChannel.GetUsersAsync(CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: IGuildChannel.GetUsersAsync
-    nameWithType: SocketTextChannel.IGuildChannel.GetUsersAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IGuildChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IGuildChannel.GetUsersAsync
-    nameWithType: SocketTextChannel.Discord.IGuildChannel.GetUsersAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IGuildChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessageAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: IMessageChannel.GetMessageAsync
-    nameWithType: SocketTextChannel.IMessageChannel.GetMessageAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IMessageChannel.GetMessageAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.GetMessageAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(System.UInt64, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IMessageChannel.GetMessagesAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  name: IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  name.vb: Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-    name: IMessageChannel.GetPinnedMessagesAsync
-    nameWithType: SocketTextChannel.IMessageChannel.GetPinnedMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-    name: Discord.IMessageChannel.GetPinnedMessagesAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: SocketTextChannel.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  name.vb: Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: IMessageChannel.SendFileAsync
-    nameWithType: SocketTextChannel.IMessageChannel.SendFileAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: Discord.IMessageChannel.SendFileAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: SocketTextChannel.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  name.vb: Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: IMessageChannel.SendFileAsync
-    nameWithType: SocketTextChannel.IMessageChannel.SendFileAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: Discord.IMessageChannel.SendFileAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  isExternal: true
-  name: IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  nameWithType: SocketTextChannel.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  name.vb: Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-    name: IMessageChannel.SendMessageAsync
-    nameWithType: SocketTextChannel.IMessageChannel.SendMessageAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-    name: Discord.IMessageChannel.SendMessageAsync
-    nameWithType: SocketTextChannel.Discord.IMessageChannel.SendMessageAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.IMessageChannel.SendMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketTextChannel
-  name: INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
-  nameWithType: SocketTextChannel.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketTextChannel.Discord.INestedChannel.GetCategoryAsync(Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketTextChannel.Discord.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
-  name.vb: Discord.INestedChannel.GetCategoryAsync(CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: INestedChannel.GetCategoryAsync
-    nameWithType: SocketTextChannel.INestedChannel.GetCategoryAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.INestedChannel.GetCategoryAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketTextChannel.Discord#INestedChannel#GetCategoryAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.INestedChannel.GetCategoryAsync
-    nameWithType: SocketTextChannel.Discord.INestedChannel.GetCategoryAsync
-    fullName: Discord.WebSocket.SocketTextChannel.Discord.INestedChannel.GetCategoryAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketGuildChannel.Guild
   commentId: P:Discord.WebSocket.SocketGuildChannel.Guild
   parent: Discord.WebSocket.SocketGuildChannel
@@ -3361,28 +2279,28 @@ references:
   name: Position
   nameWithType: SocketGuildChannel.Position
   fullName: Discord.WebSocket.SocketGuildChannel.Position
-- uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+- uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   parent: Discord.WebSocket.SocketGuildChannel
   isExternal: true
   name: ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
   nameWithType: SocketGuildChannel.ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: SocketGuildChannel.ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
-  fullName.vb: Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: SocketGuildChannel.ModifyAsync
     fullName: Discord.WebSocket.SocketGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -3405,17 +2323,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.WebSocket.SocketGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: SocketGuildChannel.ModifyAsync
     fullName: Discord.WebSocket.SocketGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3581,461 +2499,12 @@ references:
   fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.Guild
   nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.Guild
   name.vb: Discord.IGuildChannel.Guild
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GuildId
-  commentId: P:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GuildId
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.GuildId
-  nameWithType: SocketGuildChannel.IGuildChannel.GuildId
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GuildId
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.GuildId
-  name.vb: Discord.IGuildChannel.GuildId
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.GetPermissionOverwrite(IRole)
-  nameWithType: SocketGuildChannel.IGuildChannel.GetPermissionOverwrite(IRole)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(Discord.IRole)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(IRole)
-  name.vb: Discord.IGuildChannel.GetPermissionOverwrite(IRole)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
-    name: IGuildChannel.GetPermissionOverwrite
-    nameWithType: SocketGuildChannel.IGuildChannel.GetPermissionOverwrite
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IRole)
-    name: Discord.IGuildChannel.GetPermissionOverwrite
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.GetPermissionOverwrite(IUser)
-  nameWithType: SocketGuildChannel.IGuildChannel.GetPermissionOverwrite(IUser)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(Discord.IUser)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite(IUser)
-  name.vb: Discord.IGuildChannel.GetPermissionOverwrite(IUser)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
-    name: IGuildChannel.GetPermissionOverwrite
-    nameWithType: SocketGuildChannel.IGuildChannel.GetPermissionOverwrite
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#GetPermissionOverwrite(Discord.IUser)
-    name: Discord.IGuildChannel.GetPermissionOverwrite
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.GetPermissionOverwrite
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
-  nameWithType: SocketGuildChannel.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(Discord.IRole, Discord.OverwritePermissions, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
-  name.vb: Discord.IGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
-    name: IGuildChannel.AddPermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.IGuildChannel.AddPermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.OverwritePermissions
-    name: OverwritePermissions
-    nameWithType: OverwritePermissions
-    fullName: Discord.OverwritePermissions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)
-    name: Discord.IGuildChannel.AddPermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.OverwritePermissions
-    name: OverwritePermissions
-    nameWithType: OverwritePermissions
-    fullName: Discord.OverwritePermissions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
-  nameWithType: SocketGuildChannel.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(Discord.IUser, Discord.OverwritePermissions, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
-  name.vb: Discord.IGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
-    name: IGuildChannel.AddPermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.IGuildChannel.AddPermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.OverwritePermissions
-    name: OverwritePermissions
-    nameWithType: OverwritePermissions
-    fullName: Discord.OverwritePermissions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
-    name: Discord.IGuildChannel.AddPermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.AddPermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.OverwritePermissions
-    name: OverwritePermissions
-    nameWithType: OverwritePermissions
-    fullName: Discord.OverwritePermissions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
-  nameWithType: SocketGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
-  name.vb: Discord.IGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
-    name: IGuildChannel.RemovePermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
-    name: Discord.IGuildChannel.RemovePermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IRole
-    name: IRole
-    nameWithType: IRole
-    fullName: Discord.IRole
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
-  nameWithType: SocketGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IUser, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
-  name.vb: Discord.IGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
-    name: IGuildChannel.RemovePermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.IGuildChannel.RemovePermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IGuildChannel#RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)
-    name: Discord.IGuildChannel.RemovePermissionOverwriteAsync
-    nameWithType: SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IGuildChannel.RemovePermissionOverwriteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  name: IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  nameWithType: SocketGuildChannel.IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  name.vb: Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: IChannel.GetUsersAsync
-    nameWithType: SocketGuildChannel.IChannel.GetUsersAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IChannel.GetUsersAsync
-    nameWithType: SocketGuildChannel.Discord.IChannel.GetUsersAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.WebSocket.SocketGuildChannel
-  isExternal: true
-  name: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: SocketGuildChannel.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  nameWithType.vb: SocketGuildChannel.Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  name.vb: Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  spec.csharp:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: IChannel.GetUserAsync
-    nameWithType: SocketGuildChannel.IChannel.GetUserAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.WebSocket.SocketGuildChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: Discord.IChannel.GetUserAsync
-    nameWithType: SocketGuildChannel.Discord.IChannel.GetUserAsync
-    fullName: Discord.WebSocket.SocketGuildChannel.Discord.IChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketChannel.CreatedAt
   commentId: P:Discord.WebSocket.SocketChannel.CreatedAt
   parent: Discord.WebSocket.SocketChannel
   name: CreatedAt
   nameWithType: SocketChannel.CreatedAt
   fullName: Discord.WebSocket.SocketChannel.CreatedAt
-- uid: Discord.WebSocket.SocketChannel.Discord#IChannel#Name
-  commentId: P:Discord.WebSocket.SocketChannel.Discord#IChannel#Name
-  parent: Discord.WebSocket.SocketChannel
-  name: IChannel.Name
-  nameWithType: SocketChannel.IChannel.Name
-  fullName: Discord.WebSocket.SocketChannel.Discord.IChannel.Name
-  nameWithType.vb: SocketChannel.Discord.IChannel.Name
-  name.vb: Discord.IChannel.Name
 - uid: Discord.WebSocket.SocketEntity{System.UInt64}.Id
   commentId: P:Discord.WebSocket.SocketEntity{System.UInt64}.Id
   parent: Discord.WebSocket.SocketEntity{System.UInt64}
@@ -4045,260 +2514,6 @@ references:
   fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
   nameWithType.vb: SocketEntity(Of UInt64).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.WebSocket.SocketEntity`1
   commentId: T:Discord.WebSocket.SocketEntity`1
   name: SocketEntity<T>
@@ -4335,11 +2550,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -4376,6 +2586,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.WebSocket.SocketEntity`1.Id
   commentId: P:Discord.WebSocket.SocketEntity`1.Id
   name: Id
@@ -4383,9 +2598,6 @@ references:
   fullName: Discord.WebSocket.SocketEntity<T>.Id
   nameWithType.vb: SocketEntity(Of T).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of T).Id
-- uid: System.NotSupportedException
-  commentId: T:System.NotSupportedException
-  isExternal: true
 - uid: Discord.WebSocket.SocketTextChannel.SlowModeInterval
   commentId: P:Discord.WebSocket.SocketTextChannel.SlowModeInterval
   parent: Discord.WebSocket.SocketTextChannel
@@ -4398,8 +2610,6 @@ references:
   nameWithType: SocketNewsChannel.SlowModeInterval
   fullName: Discord.WebSocket.SocketNewsChannel.SlowModeInterval
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -4491,19 +2701,11 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketGuildChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)
   parent: Discord.WebSocket.SocketGuildChannel
@@ -4585,21 +2787,20 @@ references:
   name: PermissionOverwrites
   nameWithType: SocketNewsChannel.PermissionOverwrites
   fullName: Discord.WebSocket.SocketNewsChannel.PermissionOverwrites
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.Overwrite}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.Overwrite}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection{Discord.Overwrite}
+  commentId: '!:IReadOnlyCollection{Discord.Overwrite}'
+  definition: IReadOnlyCollection`1
   name: IReadOnlyCollection<Overwrite>
   nameWithType: IReadOnlyCollection<Overwrite>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.Overwrite>
+  fullName: IReadOnlyCollection<Discord.Overwrite>
   nameWithType.vb: IReadOnlyCollection(Of Overwrite)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.Overwrite)
+  fullName.vb: IReadOnlyCollection(Of Discord.Overwrite)
   name.vb: IReadOnlyCollection(Of Overwrite)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -4612,10 +2813,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -4627,51 +2828,44 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IReadOnlyCollection`1
-  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<T>
-  nameWithType: IReadOnlyCollection<T>
-  fullName: System.Collections.Generic.IReadOnlyCollection<T>
-  nameWithType.vb: IReadOnlyCollection(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
-  name.vb: IReadOnlyCollection(Of T)
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: Discord.WebSocket.SocketTextChannel.SyncPermissionsAsync(Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketTextChannel.SyncPermissionsAsync(Discord.RequestOptions)
   parent: Discord.WebSocket.SocketTextChannel

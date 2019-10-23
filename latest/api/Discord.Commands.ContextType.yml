@@ -29,18 +29,8 @@ items:
   summary: "\nDefines the type of command context (i.e. where the command is being executed).\n"
   example: []
   syntax:
-    content: >-
-      [Flags]
-
-      public enum ContextType
-    content.vb: >-
-      <Flags>
-
-      Public Enum ContextType
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum ContextType : int'
+    content.vb: Public Enum ContextType As Integer
   modifiers.csharp:
   - public
   - enum
@@ -72,9 +62,10 @@ items:
   summary: "\nSpecifies the command to be executed within a guild.\n"
   example: []
   syntax:
-    content: Guild = 1
+    content: Guild = null
     return:
       type: Discord.Commands.ContextType
+    content.vb: Guild = Nothing
   modifiers.csharp:
   - public
   - const
@@ -106,9 +97,10 @@ items:
   summary: "\nSpecifies the command to be executed within a DM.\n"
   example: []
   syntax:
-    content: DM = 2
+    content: DM = null
     return:
       type: Discord.Commands.ContextType
+    content.vb: DM = Nothing
   modifiers.csharp:
   - public
   - const
@@ -140,9 +132,10 @@ items:
   summary: "\nSpecifies the command to be executed within a group.\n"
   example: []
   syntax:
-    content: Group = 4
+    content: Group = null
     return:
       type: Discord.Commands.ContextType
+    content.vb: Group = Nothing
   modifiers.csharp:
   - public
   - const

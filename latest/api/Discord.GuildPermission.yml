@@ -57,18 +57,8 @@ items:
   summary: 'Defines the available permissions for a channel. '
   example: []
   syntax:
-    content: >-
-      [Flags]
-
-      public enum GuildPermission : ulong
-    content.vb: >-
-      <Flags>
-
-      Public Enum GuildPermission As ULong
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum GuildPermission : ulong'
+    content.vb: Public Enum GuildPermission As ULong
   modifiers.csharp:
   - public
   - enum
@@ -100,9 +90,10 @@ items:
   summary: "\nAllows creation of instant invites.\n"
   example: []
   syntax:
-    content: CreateInstantInvite = 1UL
+    content: CreateInstantInvite = null
     return:
       type: Discord.GuildPermission
+    content.vb: CreateInstantInvite = Nothing
   modifiers.csharp:
   - public
   - const
@@ -135,9 +126,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: KickMembers = 2UL
+    content: KickMembers = null
     return:
       type: Discord.GuildPermission
+    content.vb: KickMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -170,9 +162,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: BanMembers = 4UL
+    content: BanMembers = null
     return:
       type: Discord.GuildPermission
+    content.vb: BanMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -205,9 +198,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: Administrator = 8UL
+    content: Administrator = null
     return:
       type: Discord.GuildPermission
+    content.vb: Administrator = Nothing
   modifiers.csharp:
   - public
   - const
@@ -240,9 +234,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageChannels = 16UL
+    content: ManageChannels = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageChannels = Nothing
   modifiers.csharp:
   - public
   - const
@@ -275,9 +270,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageGuild = 32UL
+    content: ManageGuild = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageGuild = Nothing
   modifiers.csharp:
   - public
   - const
@@ -309,9 +305,10 @@ items:
   summary: "\nAllows for the addition of reactions to messages.\n"
   example: []
   syntax:
-    content: AddReactions = 64UL
+    content: AddReactions = null
     return:
       type: Discord.GuildPermission
+    content.vb: AddReactions = Nothing
   modifiers.csharp:
   - public
   - const
@@ -343,9 +340,10 @@ items:
   summary: "\nAllows for viewing of audit logs.\n"
   example: []
   syntax:
-    content: ViewAuditLog = 128UL
+    content: ViewAuditLog = null
     return:
       type: Discord.GuildPermission
+    content.vb: ViewAuditLog = Nothing
   modifiers.csharp:
   - public
   - const
@@ -375,22 +373,10 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: >-
-      [Obsolete("Use ViewChannel instead.")]
-
-      ReadMessages = 1024UL
+    content: ReadMessages = null
     return:
       type: Discord.GuildPermission
-    content.vb: >-
-      <Obsolete("Use ViewChannel instead.")>
-
-      ReadMessages = 1024UL
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use ViewChannel instead.
+    content.vb: ReadMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -420,9 +406,10 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: ViewChannel = 1024UL
+    content: ViewChannel = null
     return:
       type: Discord.GuildPermission
+    content.vb: ViewChannel = Nothing
   modifiers.csharp:
   - public
   - const
@@ -452,9 +439,10 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: SendMessages = 2048UL
+    content: SendMessages = null
     return:
       type: Discord.GuildPermission
+    content.vb: SendMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -486,9 +474,10 @@ items:
   summary: "\nAllows for sending of text-to-speech messages.\n"
   example: []
   syntax:
-    content: SendTTSMessages = 4096UL
+    content: SendTTSMessages = null
     return:
       type: Discord.GuildPermission
+    content.vb: SendTTSMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -521,9 +510,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageMessages = 8192UL
+    content: ManageMessages = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -555,9 +545,10 @@ items:
   summary: "\nAllows links sent by users with this permission will be auto-embedded.\n"
   example: []
   syntax:
-    content: EmbedLinks = 16384UL
+    content: EmbedLinks = null
     return:
       type: Discord.GuildPermission
+    content.vb: EmbedLinks = Nothing
   modifiers.csharp:
   - public
   - const
@@ -589,9 +580,10 @@ items:
   summary: "\nAllows for uploading images and files.\n"
   example: []
   syntax:
-    content: AttachFiles = 32768UL
+    content: AttachFiles = null
     return:
       type: Discord.GuildPermission
+    content.vb: AttachFiles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -623,9 +615,10 @@ items:
   summary: "\nAllows for reading of message history.\n"
   example: []
   syntax:
-    content: ReadMessageHistory = 65536UL
+    content: ReadMessageHistory = null
     return:
       type: Discord.GuildPermission
+    content.vb: ReadMessageHistory = Nothing
   modifiers.csharp:
   - public
   - const
@@ -657,9 +650,10 @@ items:
   summary: "\nAllows for using the @everyone tag to notify all users in a channel, and the @here tag to notify all\nonline users in a channel.\n"
   example: []
   syntax:
-    content: MentionEveryone = 131072UL
+    content: MentionEveryone = null
     return:
       type: Discord.GuildPermission
+    content.vb: MentionEveryone = Nothing
   modifiers.csharp:
   - public
   - const
@@ -691,9 +685,10 @@ items:
   summary: "\nAllows the usage of custom emojis from other servers.\n"
   example: []
   syntax:
-    content: UseExternalEmojis = 262144UL
+    content: UseExternalEmojis = null
     return:
       type: Discord.GuildPermission
+    content.vb: UseExternalEmojis = Nothing
   modifiers.csharp:
   - public
   - const
@@ -725,9 +720,10 @@ items:
   summary: "\nAllows for joining of a voice channel.\n"
   example: []
   syntax:
-    content: Connect = 1048576UL
+    content: Connect = null
     return:
       type: Discord.GuildPermission
+    content.vb: Connect = Nothing
   modifiers.csharp:
   - public
   - const
@@ -759,9 +755,10 @@ items:
   summary: "\nAllows for speaking in a voice channel.\n"
   example: []
   syntax:
-    content: Speak = 2097152UL
+    content: Speak = null
     return:
       type: Discord.GuildPermission
+    content.vb: Speak = Nothing
   modifiers.csharp:
   - public
   - const
@@ -793,9 +790,10 @@ items:
   summary: "\nAllows for muting members in a voice channel.\n"
   example: []
   syntax:
-    content: MuteMembers = 4194304UL
+    content: MuteMembers = null
     return:
       type: Discord.GuildPermission
+    content.vb: MuteMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -827,9 +825,10 @@ items:
   summary: "\nAllows for deafening of members in a voice channel.\n"
   example: []
   syntax:
-    content: DeafenMembers = 8388608UL
+    content: DeafenMembers = null
     return:
       type: Discord.GuildPermission
+    content.vb: DeafenMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -861,9 +860,10 @@ items:
   summary: "\nAllows for moving of members between voice channels.\n"
   example: []
   syntax:
-    content: MoveMembers = 16777216UL
+    content: MoveMembers = null
     return:
       type: Discord.GuildPermission
+    content.vb: MoveMembers = Nothing
   modifiers.csharp:
   - public
   - const
@@ -895,9 +895,10 @@ items:
   summary: "\nAllows for using voice-activity-detection in a voice channel.\n"
   example: []
   syntax:
-    content: UseVAD = 33554432UL
+    content: UseVAD = null
     return:
       type: Discord.GuildPermission
+    content.vb: UseVAD = Nothing
   modifiers.csharp:
   - public
   - const
@@ -927,9 +928,10 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: PrioritySpeaker = 256UL
+    content: PrioritySpeaker = null
     return:
       type: Discord.GuildPermission
+    content.vb: PrioritySpeaker = Nothing
   modifiers.csharp:
   - public
   - const
@@ -961,9 +963,10 @@ items:
   summary: "\nAllows video streaming in a voice channel.\n"
   example: []
   syntax:
-    content: Stream = 512UL
+    content: Stream = null
     return:
       type: Discord.GuildPermission
+    content.vb: Stream = Nothing
   modifiers.csharp:
   - public
   - const
@@ -995,9 +998,10 @@ items:
   summary: "\nAllows for modification of own nickname.\n"
   example: []
   syntax:
-    content: ChangeNickname = 67108864UL
+    content: ChangeNickname = null
     return:
       type: Discord.GuildPermission
+    content.vb: ChangeNickname = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1029,9 +1033,10 @@ items:
   summary: "\nAllows for modification of other users nicknames.\n"
   example: []
   syntax:
-    content: ManageNicknames = 134217728UL
+    content: ManageNicknames = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageNicknames = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1064,9 +1069,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageRoles = 268435456UL
+    content: ManageRoles = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageRoles = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1099,9 +1105,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageWebhooks = 536870912UL
+    content: ManageWebhooks = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageWebhooks = Nothing
   modifiers.csharp:
   - public
   - const
@@ -1134,9 +1141,10 @@ items:
   remarks: "\nThis permission requires the owner account to use two-factor\nauthentication when used on a guild that has server-wide 2FA enabled.\n"
   example: []
   syntax:
-    content: ManageEmojis = 1073741824UL
+    content: ManageEmojis = null
     return:
       type: Discord.GuildPermission
+    content.vb: ManageEmojis = Nothing
   modifiers.csharp:
   - public
   - const

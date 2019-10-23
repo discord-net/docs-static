@@ -32,8 +32,8 @@ items:
   summary: "\nSpecifies the severity of the log message.\n"
   example: []
   syntax:
-    content: public enum LogSeverity
-    content.vb: Public Enum LogSeverity
+    content: 'public enum LogSeverity : int'
+    content.vb: Public Enum LogSeverity As Integer
   modifiers.csharp:
   - public
   - enum
@@ -65,9 +65,10 @@ items:
   summary: "\nLogs that contain the most severe level of error. This type of error indicate that immediate attention\nmay be required.\n"
   example: []
   syntax:
-    content: Critical = 0
+    content: Critical = null
     return:
       type: Discord.LogSeverity
+    content.vb: Critical = Nothing
   modifiers.csharp:
   - public
   - const
@@ -99,9 +100,10 @@ items:
   summary: "\nLogs that highlight when the flow of execution is stopped due to a failure.\n"
   example: []
   syntax:
-    content: Error = 1
+    content: Error = null
     return:
       type: Discord.LogSeverity
+    content.vb: Error = Nothing
   modifiers.csharp:
   - public
   - const
@@ -133,9 +135,10 @@ items:
   summary: "\nLogs that highlight an abnormal activity in the flow of execution.\n"
   example: []
   syntax:
-    content: Warning = 2
+    content: Warning = null
     return:
       type: Discord.LogSeverity
+    content.vb: Warning = Nothing
   modifiers.csharp:
   - public
   - const
@@ -167,9 +170,10 @@ items:
   summary: "\nLogs that track the general flow of the application.\n"
   example: []
   syntax:
-    content: Info = 3
+    content: Info = null
     return:
       type: Discord.LogSeverity
+    content.vb: Info = Nothing
   modifiers.csharp:
   - public
   - const
@@ -201,9 +205,10 @@ items:
   summary: "\nLogs that are used for interactive investigation during development.\n"
   example: []
   syntax:
-    content: Verbose = 4
+    content: Verbose = null
     return:
       type: Discord.LogSeverity
+    content.vb: Verbose = Nothing
   modifiers.csharp:
   - public
   - const
@@ -235,9 +240,10 @@ items:
   summary: "\nLogs that contain the most detailed messages.\n"
   example: []
   syntax:
-    content: Debug = 5
+    content: Debug = null
     return:
       type: Discord.LogSeverity
+    content.vb: Debug = Nothing
   modifiers.csharp:
   - public
   - const

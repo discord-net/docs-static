@@ -28,8 +28,8 @@ items:
   summary: "\nSpecifies the default message notification behavior the guild uses.\n"
   example: []
   syntax:
-    content: public enum DefaultMessageNotifications
-    content.vb: Public Enum DefaultMessageNotifications
+    content: 'public enum DefaultMessageNotifications : int'
+    content.vb: Public Enum DefaultMessageNotifications As Integer
   modifiers.csharp:
   - public
   - enum
@@ -61,9 +61,10 @@ items:
   summary: "\nBy default, all messages will trigger notifications.\n"
   example: []
   syntax:
-    content: AllMessages = 0
+    content: AllMessages = null
     return:
       type: Discord.DefaultMessageNotifications
+    content.vb: AllMessages = Nothing
   modifiers.csharp:
   - public
   - const
@@ -95,9 +96,10 @@ items:
   summary: "\nBy default, only mentions will trigger notifications.\n"
   example: []
   syntax:
-    content: MentionsOnly = 1
+    content: MentionsOnly = null
     return:
       type: Discord.DefaultMessageNotifications
+    content.vb: MentionsOnly = Nothing
   modifiers.csharp:
   - public
   - const

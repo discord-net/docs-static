@@ -33,8 +33,8 @@ items:
   summary: "\nSpecifies the handling type the tag should use.\n"
   example: []
   syntax:
-    content: public enum TagHandling
-    content.vb: Public Enum TagHandling
+    content: 'public enum TagHandling : int'
+    content.vb: Public Enum TagHandling As Integer
   seealso:
   - linkId: Discord.MentionUtils
     commentId: T:Discord.MentionUtils
@@ -71,9 +71,10 @@ items:
   summary: "\nTag handling is ignored (e.g. &lt;@53905483156684800> -> &lt;@53905483156684800>).\n"
   example: []
   syntax:
-    content: Ignore = 0
+    content: Ignore = null
     return:
       type: Discord.TagHandling
+    content.vb: Ignore = Nothing
   modifiers.csharp:
   - public
   - const
@@ -105,9 +106,10 @@ items:
   summary: "\nRemoves the tag entirely. \n"
   example: []
   syntax:
-    content: Remove = 1
+    content: Remove = null
     return:
       type: Discord.TagHandling
+    content.vb: Remove = Nothing
   modifiers.csharp:
   - public
   - const
@@ -139,9 +141,10 @@ items:
   summary: "\nResolves to username (e.g. &lt;@53905483156684800> -> @Voltana). \n"
   example: []
   syntax:
-    content: Name = 2
+    content: Name = null
     return:
       type: Discord.TagHandling
+    content.vb: Name = Nothing
   modifiers.csharp:
   - public
   - const
@@ -173,9 +176,10 @@ items:
   summary: "\nResolves to username without mention prefix (e.g. &lt;@53905483156684800> -> Voltana). \n"
   example: []
   syntax:
-    content: NameNoPrefix = 3
+    content: NameNoPrefix = null
     return:
       type: Discord.TagHandling
+    content.vb: NameNoPrefix = Nothing
   modifiers.csharp:
   - public
   - const
@@ -207,9 +211,10 @@ items:
   summary: "\nResolves to username with discriminator value. (e.g. &lt;@53905483156684800> -> @Voltana#8252). \n"
   example: []
   syntax:
-    content: FullName = 4
+    content: FullName = null
     return:
       type: Discord.TagHandling
+    content.vb: FullName = Nothing
   modifiers.csharp:
   - public
   - const
@@ -241,9 +246,10 @@ items:
   summary: "\nResolves to username with discriminator value without mention prefix. (e.g. &lt;@53905483156684800> -> Voltana#8252). \n"
   example: []
   syntax:
-    content: FullNameNoPrefix = 5
+    content: FullNameNoPrefix = null
     return:
       type: Discord.TagHandling
+    content.vb: FullNameNoPrefix = Nothing
   modifiers.csharp:
   - public
   - const
@@ -275,9 +281,10 @@ items:
   summary: "\nSanitizes the tag (e.g. &lt;@53905483156684800> -> &lt;@53905483156684800> (w/ nbsp)).\n"
   example: []
   syntax:
-    content: Sanitize = 6
+    content: Sanitize = null
     return:
       type: Discord.TagHandling
+    content.vb: Sanitize = Nothing
   modifiers.csharp:
   - public
   - const
@@ -292,107 +299,12 @@ references:
   fullName: Discord.MentionUtils
 - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
   commentId: M:Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
-  parent: Discord.IUserMessage
-  name: Resolve(TagHandling, TagHandling, TagHandling, TagHandling, TagHandling)
-  nameWithType: IUserMessage.Resolve(TagHandling, TagHandling, TagHandling, TagHandling, TagHandling)
-  fullName: Discord.IUserMessage.Resolve(Discord.TagHandling, Discord.TagHandling, Discord.TagHandling, Discord.TagHandling, Discord.TagHandling)
-  spec.csharp:
-  - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
-    name: Resolve
-    nameWithType: IUserMessage.Resolve
-    fullName: Discord.IUserMessage.Resolve
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUserMessage.Resolve(Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling,Discord.TagHandling)
-    name: Resolve
-    nameWithType: IUserMessage.Resolve
-    fullName: Discord.IUserMessage.Resolve
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.TagHandling
-    name: TagHandling
-    nameWithType: TagHandling
-    fullName: Discord.TagHandling
-  - name: )
-    nameWithType: )
-    fullName: )
+  isExternal: true
 - uid: Discord
   commentId: N:Discord
   name: Discord
   nameWithType: Discord
   fullName: Discord
-- uid: Discord.IUserMessage
-  commentId: T:Discord.IUserMessage
-  parent: Discord
-  name: IUserMessage
-  nameWithType: IUserMessage
-  fullName: Discord.IUserMessage
 - uid: Discord.TagHandling
   commentId: T:Discord.TagHandling
   parent: Discord

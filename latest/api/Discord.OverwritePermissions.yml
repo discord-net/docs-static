@@ -60,12 +60,6 @@ items:
   syntax:
     content: public struct OverwritePermissions
     content.vb: Public Structure OverwritePermissions
-  inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -144,10 +138,6 @@ items:
       type: Discord.OverwritePermissions
     content.vb: Public Shared Function AllowAll(channel As IChannel) As OverwritePermissions
   overload: Discord.OverwritePermissions.AllowAll*
-  exceptions:
-  - type: System.ArgumentException
-    commentId: T:System.ArgumentException
-    description: Unknown channel type.
   modifiers.csharp:
   - public
   - static
@@ -187,10 +177,6 @@ items:
       type: Discord.OverwritePermissions
     content.vb: Public Shared Function DenyAll(channel As IChannel) As OverwritePermissions
   overload: Discord.OverwritePermissions.DenyAll*
-  exceptions:
-  - type: System.ArgumentException
-    commentId: T:System.ArgumentException
-    description: Unknown channel type.
   modifiers.csharp:
   - public
   - static
@@ -407,24 +393,12 @@ items:
   summary: 'If Allowed, a user may join channels. '
   example: []
   syntax:
-    content: >-
-      [Obsolete("Use ViewChannel instead.")]
-
-      public PermValue ReadMessages { get; }
+    content: public PermValue ReadMessages { get; }
     parameters: []
     return:
       type: Discord.PermValue
-    content.vb: >-
-      <Obsolete("Use ViewChannel instead.")>
-
-      Public ReadOnly Property ReadMessages As PermValue
+    content.vb: Public ReadOnly Property ReadMessages As PermValue
   overload: Discord.OverwritePermissions.ReadMessages*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use ViewChannel instead.
   modifiers.csharp:
   - public
   - get
@@ -1195,7 +1169,7 @@ items:
   summary: "\nInitializes a new <xref href=\"Discord.OverwritePermissions\" data-throw-if-not-resolved=\"false\"></xref> from the current one, changing the provided\nnon-null permissions.\n"
   example: []
   syntax:
-    content: public OverwritePermissions Modify(PermValue? createInstantInvite = default(PermValue? ), PermValue? manageChannel = default(PermValue? ), PermValue? addReactions = default(PermValue? ), PermValue? viewChannel = default(PermValue? ), PermValue? sendMessages = default(PermValue? ), PermValue? sendTTSMessages = default(PermValue? ), PermValue? manageMessages = default(PermValue? ), PermValue? embedLinks = default(PermValue? ), PermValue? attachFiles = default(PermValue? ), PermValue? readMessageHistory = default(PermValue? ), PermValue? mentionEveryone = default(PermValue? ), PermValue? useExternalEmojis = default(PermValue? ), PermValue? connect = default(PermValue? ), PermValue? speak = default(PermValue? ), PermValue? muteMembers = default(PermValue? ), PermValue? deafenMembers = default(PermValue? ), PermValue? moveMembers = default(PermValue? ), PermValue? useVoiceActivation = default(PermValue? ), PermValue? manageRoles = default(PermValue? ), PermValue? manageWebhooks = default(PermValue? ))
+    content: public OverwritePermissions Modify(PermValue? createInstantInvite = null, PermValue? manageChannel = null, PermValue? addReactions = null, PermValue? viewChannel = null, PermValue? sendMessages = null, PermValue? sendTTSMessages = null, PermValue? manageMessages = null, PermValue? embedLinks = null, PermValue? attachFiles = null, PermValue? readMessageHistory = null, PermValue? mentionEveryone = null, PermValue? useExternalEmojis = null, PermValue? connect = null, PermValue? speak = null, PermValue? muteMembers = null, PermValue? deafenMembers = null, PermValue? moveMembers = null, PermValue? useVoiceActivation = null, PermValue? manageRoles = null, PermValue? manageWebhooks = null)
     parameters:
     - id: createInstantInvite
       type: System.Nullable{Discord.PermValue}
@@ -1270,13 +1244,13 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: "\nCreates a <xref href=\"System.Collections.Generic.List%601\" data-throw-if-not-resolved=\"false\"></xref> of all the <xref href=\"Discord.ChannelPermission\" data-throw-if-not-resolved=\"false\"></xref> values that are allowed.\n"
+  summary: "\nCreates a <see cref=\"!:List&lt;T>\"></see> of all the <xref href=\"Discord.ChannelPermission\" data-throw-if-not-resolved=\"false\"></xref> values that are allowed.\n"
   example: []
   syntax:
     content: public List<ChannelPermission> ToAllowList()
     return:
-      type: System.Collections.Generic.List{Discord.ChannelPermission}
-      description: A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> of all allowed <xref href="Discord.ChannelPermission" data-throw-if-not-resolved="false"></xref> flags. If none, the list will be empty.
+      type: List{Discord.ChannelPermission}
+      description: A <see cref="!:List&lt;T>"></see> of all allowed <xref href="Discord.ChannelPermission" data-throw-if-not-resolved="false"></xref> flags. If none, the list will be empty.
     content.vb: Public Function ToAllowList As List(Of ChannelPermission)
   overload: Discord.OverwritePermissions.ToAllowList*
   modifiers.csharp:
@@ -1305,13 +1279,13 @@ items:
   assemblies:
   - Discord.Net.Core
   namespace: Discord
-  summary: "\nCreates a <xref href=\"System.Collections.Generic.List%601\" data-throw-if-not-resolved=\"false\"></xref> of all the <xref href=\"Discord.ChannelPermission\" data-throw-if-not-resolved=\"false\"></xref> values that are denied.\n"
+  summary: "\nCreates a <see cref=\"!:List&lt;T>\"></see> of all the <xref href=\"Discord.ChannelPermission\" data-throw-if-not-resolved=\"false\"></xref> values that are denied.\n"
   example: []
   syntax:
     content: public List<ChannelPermission> ToDenyList()
     return:
-      type: System.Collections.Generic.List{Discord.ChannelPermission}
-      description: A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> of all denied <xref href="Discord.ChannelPermission" data-throw-if-not-resolved="false"></xref> flags. If none, the list will be empty.
+      type: List{Discord.ChannelPermission}
+      description: A <see cref="!:List&lt;T>"></see> of all denied <xref href="Discord.ChannelPermission" data-throw-if-not-resolved="false"></xref> flags. If none, the list will be empty.
     content.vb: Public Function ToDenyList As List(Of ChannelPermission)
   overload: Discord.OverwritePermissions.ToDenyList*
   modifiers.csharp:
@@ -1345,7 +1319,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.ValueType.ToString
   overload: Discord.OverwritePermissions.ToString*
   modifiers.csharp:
   - public
@@ -1359,243 +1332,6 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: ValueType.Equals(Object)
-  fullName: System.ValueType.Equals(System.Object)
-  spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.OverwritePermissions
   commentId: T:Discord.OverwritePermissions
   parent: Discord
@@ -1607,9 +1343,6 @@ references:
   name: InheritAll
   nameWithType: OverwritePermissions.InheritAll
   fullName: Discord.OverwritePermissions.InheritAll
-- uid: System.ArgumentException
-  commentId: T:System.ArgumentException
-  isExternal: true
 - uid: Discord.OverwritePermissions.AllowAll*
   commentId: Overload:Discord.OverwritePermissions.AllowAll
   name: AllowAll
@@ -1632,8 +1365,6 @@ references:
   nameWithType: OverwritePermissions.AllowValue
   fullName: Discord.OverwritePermissions.AllowValue
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -1771,8 +1502,7 @@ references:
   nameWithType: OverwritePermissions.Modify
   fullName: Discord.OverwritePermissions.Modify
 - uid: System.Nullable{Discord.PermValue}
-  commentId: T:System.Nullable{Discord.PermValue}
-  parent: System
+  commentId: '!:System.Nullable{Discord.PermValue}'
   definition: System.Nullable`1
   name: Nullable<PermValue>
   nameWithType: Nullable<PermValue>
@@ -1813,14 +1543,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1830,9 +1559,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1845,48 +1574,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -1901,21 +1591,20 @@ references:
   name: ToAllowList
   nameWithType: OverwritePermissions.ToAllowList
   fullName: Discord.OverwritePermissions.ToAllowList
-- uid: System.Collections.Generic.List{Discord.ChannelPermission}
-  commentId: T:System.Collections.Generic.List{Discord.ChannelPermission}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
+- uid: List{Discord.ChannelPermission}
+  commentId: '!:List{Discord.ChannelPermission}'
+  definition: List`1
   name: List<ChannelPermission>
   nameWithType: List<ChannelPermission>
-  fullName: System.Collections.Generic.List<Discord.ChannelPermission>
+  fullName: List<Discord.ChannelPermission>
   nameWithType.vb: List(Of ChannelPermission)
-  fullName.vb: System.Collections.Generic.List(Of Discord.ChannelPermission)
+  fullName.vb: List(Of Discord.ChannelPermission)
   name.vb: List(Of ChannelPermission)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
+  - uid: List`1
     name: List
     nameWithType: List
-    fullName: System.Collections.Generic.List
+    fullName: List
     isExternal: true
   - name: <
     nameWithType: <
@@ -1928,10 +1617,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
+  - uid: List`1
     name: List
     nameWithType: List
-    fullName: System.Collections.Generic.List
+    fullName: List
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1943,56 +1632,55 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
+- uid: List`1
   isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
+  name: List<>
+  nameWithType: List<>
+  fullName: List<>
+  nameWithType.vb: List(Of )
+  fullName.vb: List(Of )
+  name.vb: List(Of )
+  spec.csharp:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Discord.OverwritePermissions.ToDenyList*
   commentId: Overload:Discord.OverwritePermissions.ToDenyList
   name: ToDenyList
   nameWithType: OverwritePermissions.ToDenyList
   fullName: Discord.OverwritePermissions.ToDenyList
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.OverwritePermissions.ToString*
   commentId: Overload:Discord.OverwritePermissions.ToString
   name: ToString
   nameWithType: OverwritePermissions.ToString
   fullName: Discord.OverwritePermissions.ToString
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String

@@ -27,16 +27,17 @@ items:
   summary: "\nRepresents a WebSocket-based message sent by the system.\n"
   example: []
   syntax:
-    content: 'public class SocketSystemMessage : SocketMessage, ISystemMessage, IMessage, ISnowflakeEntity, IEntity<ulong>, IDeletable'
+    content: 'public class SocketSystemMessage : SocketMessage, IEntity<ulong>, ISystemMessage, IMessage, ISnowflakeEntity, IEntity<ulong>, IDeletable'
     content.vb: >-
       Public Class SocketSystemMessage
           Inherits SocketMessage
-          Implements ISystemMessage, IMessage, ISnowflakeEntity, IEntity(Of ULong), IDeletable
+          Implements IEntity(Of ULong), ISystemMessage, IMessage, ISnowflakeEntity, IEntity(Of ULong), IDeletable
   inheritance:
   - System.Object
   - Discord.WebSocket.SocketEntity{System.UInt64}
   - Discord.WebSocket.SocketMessage
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.ISystemMessage
   - Discord.IMessage
   - Discord.ISnowflakeEntity
@@ -67,23 +68,12 @@ items:
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Author
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Channel
   - Discord.WebSocket.SocketMessage.Discord#IMessage#Type
-  - Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
-  - Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
-  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
-  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
-  - Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
   - Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
   - Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)
   - Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)
   - Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions)
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -136,8 +126,6 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -190,24 +178,6 @@ references:
   name: SocketMessage
   nameWithType: SocketMessage
   fullName: Discord.WebSocket.SocketMessage
-- uid: Discord.ISystemMessage
-  commentId: T:Discord.ISystemMessage
-  parent: Discord
-  name: ISystemMessage
-  nameWithType: ISystemMessage
-  fullName: Discord.ISystemMessage
-- uid: Discord.IMessage
-  commentId: T:Discord.IMessage
-  parent: Discord
-  name: IMessage
-  nameWithType: IMessage
-  fullName: Discord.IMessage
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -250,6 +220,24 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.ISystemMessage
+  commentId: T:Discord.ISystemMessage
+  parent: Discord
+  name: ISystemMessage
+  nameWithType: ISystemMessage
+  fullName: Discord.ISystemMessage
+- uid: Discord.IMessage
+  commentId: T:Discord.IMessage
+  parent: Discord
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Discord.IMessage
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IDeletable
   commentId: T:Discord.IDeletable
   parent: Discord
@@ -458,46 +446,6 @@ references:
   fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Type
   nameWithType.vb: SocketMessage.Discord.IMessage.Type
   name.vb: Discord.IMessage.Type
-- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
-  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#Attachments
-  parent: Discord.WebSocket.SocketMessage
-  name: IMessage.Attachments
-  nameWithType: SocketMessage.IMessage.Attachments
-  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Attachments
-  nameWithType.vb: SocketMessage.Discord.IMessage.Attachments
-  name.vb: Discord.IMessage.Attachments
-- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
-  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#Embeds
-  parent: Discord.WebSocket.SocketMessage
-  name: IMessage.Embeds
-  nameWithType: SocketMessage.IMessage.Embeds
-  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.Embeds
-  nameWithType.vb: SocketMessage.Discord.IMessage.Embeds
-  name.vb: Discord.IMessage.Embeds
-- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
-  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedChannelIds
-  parent: Discord.WebSocket.SocketMessage
-  name: IMessage.MentionedChannelIds
-  nameWithType: SocketMessage.IMessage.MentionedChannelIds
-  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedChannelIds
-  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedChannelIds
-  name.vb: Discord.IMessage.MentionedChannelIds
-- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
-  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedRoleIds
-  parent: Discord.WebSocket.SocketMessage
-  name: IMessage.MentionedRoleIds
-  nameWithType: SocketMessage.IMessage.MentionedRoleIds
-  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedRoleIds
-  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedRoleIds
-  name.vb: Discord.IMessage.MentionedRoleIds
-- uid: Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
-  commentId: P:Discord.WebSocket.SocketMessage.Discord#IMessage#MentionedUserIds
-  parent: Discord.WebSocket.SocketMessage
-  name: IMessage.MentionedUserIds
-  nameWithType: SocketMessage.IMessage.MentionedUserIds
-  fullName: Discord.WebSocket.SocketMessage.Discord.IMessage.MentionedUserIds
-  nameWithType.vb: SocketMessage.Discord.IMessage.MentionedUserIds
-  name.vb: Discord.IMessage.MentionedUserIds
 - uid: Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
   commentId: M:Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)
   parent: Discord.WebSocket.SocketMessage
@@ -791,260 +739,6 @@ references:
   fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
   nameWithType.vb: SocketEntity(Of UInt64).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.WebSocket.SocketEntity`1
   commentId: T:Discord.WebSocket.SocketEntity`1
   name: SocketEntity<T>
@@ -1081,11 +775,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -1122,6 +811,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.WebSocket.SocketEntity`1.Id
   commentId: P:Discord.WebSocket.SocketEntity`1.Id
   name: Id

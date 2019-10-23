@@ -5,11 +5,11 @@ items:
   id: BufferedWriteStream
   parent: Discord.Audio.Streams
   children:
-  - Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,System.Threading.CancellationToken,System.Int32)
-  - Discord.Audio.Streams.BufferedWriteStream.ClearAsync(System.Threading.CancellationToken)
+  - Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,CancellationToken,System.Int32)
+  - Discord.Audio.Streams.BufferedWriteStream.ClearAsync(CancellationToken)
   - Discord.Audio.Streams.BufferedWriteStream.Dispose(System.Boolean)
-  - Discord.Audio.Streams.BufferedWriteStream.FlushAsync(System.Threading.CancellationToken)
-  - Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
+  - Discord.Audio.Streams.BufferedWriteStream.FlushAsync(CancellationToken)
+  - Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
   - Discord.Audio.Streams.BufferedWriteStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
   langs:
   - csharp
@@ -32,23 +32,19 @@ items:
   summary: 'Wraps another stream with a timed buffer. '
   example: []
   syntax:
-    content: 'public class BufferedWriteStream : AudioOutStream, IDisposable'
+    content: 'public class BufferedWriteStream : AudioOutStream'
     content.vb: >-
       Public Class BufferedWriteStream
           Inherits AudioOutStream
-          Implements IDisposable
   inheritance:
   - System.Object
-  - System.IO.Stream
   - Discord.Audio.AudioStream
   - Discord.Audio.AudioOutStream
-  implements:
-  - System.IDisposable
   inheritedMembers:
   - Discord.Audio.AudioOutStream.CanWrite
   - Discord.Audio.AudioOutStream.Read(System.Byte[],System.Int32,System.Int32)
   - Discord.Audio.AudioOutStream.SetLength(System.Int64)
-  - Discord.Audio.AudioOutStream.Seek(System.Int64,System.IO.SeekOrigin)
+  - Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
   - Discord.Audio.AudioStream.CanRead
   - Discord.Audio.AudioStream.CanSeek
   - Discord.Audio.AudioStream.Write(System.Byte[],System.Int32,System.Int32)
@@ -56,45 +52,22 @@ items:
   - Discord.Audio.AudioStream.Clear
   - Discord.Audio.AudioStream.Length
   - Discord.Audio.AudioStream.Position
-  - System.IO.Stream.Null
-  - System.IO.Stream.CopyTo(System.IO.Stream)
-  - System.IO.Stream.CopyTo(System.IO.Stream,System.Int32)
-  - System.IO.Stream.CopyToAsync(System.IO.Stream)
-  - System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32)
-  - System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
-  - System.IO.Stream.Dispose
-  - System.IO.Stream.FlushAsync
-  - System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32)
-  - System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  - System.IO.Stream.ReadByte
-  - System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32)
-  - System.IO.Stream.WriteByte(System.Byte)
-  - System.IO.Stream.CanTimeout
-  - System.IO.Stream.ReadTimeout
-  - System.IO.Stream.WriteTimeout
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
   modifiers.vb:
   - Public
   - Class
-- uid: Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,System.Threading.CancellationToken,System.Int32)
-  commentId: M:Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,System.Threading.CancellationToken,System.Int32)
-  id: '#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,System.Threading.CancellationToken,System.Int32)'
+- uid: Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,CancellationToken,System.Int32)
+  commentId: M:Discord.Audio.Streams.BufferedWriteStream.#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,CancellationToken,System.Int32)
+  id: '#ctor(Discord.Audio.AudioStream,Discord.Audio.IAudioClient,System.Int32,CancellationToken,System.Int32)'
   parent: Discord.Audio.Streams.BufferedWriteStream
   langs:
   - csharp
   - vb
   name: BufferedWriteStream(AudioStream, IAudioClient, Int32, CancellationToken, Int32)
   nameWithType: BufferedWriteStream.BufferedWriteStream(AudioStream, IAudioClient, Int32, CancellationToken, Int32)
-  fullName: Discord.Audio.Streams.BufferedWriteStream.BufferedWriteStream(Discord.Audio.AudioStream, Discord.Audio.IAudioClient, System.Int32, System.Threading.CancellationToken, System.Int32)
+  fullName: Discord.Audio.Streams.BufferedWriteStream.BufferedWriteStream(Discord.Audio.AudioStream, Discord.Audio.IAudioClient, System.Int32, CancellationToken, System.Int32)
   type: Constructor
   source:
     remote:
@@ -117,7 +90,7 @@ items:
     - id: bufferMillis
       type: System.Int32
     - id: cancelToken
-      type: System.Threading.CancellationToken
+      type: CancellationToken
     - id: maxFrameSize
       type: System.Int32
     content.vb: Public Sub New(next As AudioStream, client As IAudioClient, bufferMillis As Integer, cancelToken As CancellationToken, maxFrameSize As Integer = 1500)
@@ -154,7 +127,6 @@ items:
     - id: disposing
       type: System.Boolean
     content.vb: Protected Overrides Sub Dispose(disposing As Boolean)
-  overridden: System.IO.Stream.Dispose(System.Boolean)
   overload: Discord.Audio.Streams.BufferedWriteStream.Dispose*
   modifiers.csharp:
   - protected
@@ -194,7 +166,6 @@ items:
     - id: missed
       type: System.Boolean
     content.vb: Public Overrides Sub WriteHeader(seq As UShort, timestamp As UInteger, missed As Boolean)
-  overridden: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
   overload: Discord.Audio.Streams.BufferedWriteStream.WriteHeader*
   modifiers.csharp:
   - public
@@ -202,16 +173,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  commentId: M:Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  id: WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
+- uid: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  commentId: M:Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
+  id: WriteAsync(System.Byte[],System.Int32,System.Int32,CancellationToken)
   parent: Discord.Audio.Streams.BufferedWriteStream
   langs:
   - csharp
   - vb
   name: WriteAsync(Byte[], Int32, Int32, CancellationToken)
   nameWithType: BufferedWriteStream.WriteAsync(Byte[], Int32, Int32, CancellationToken)
-  fullName: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken)
+  fullName: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte[], System.Int32, System.Int32, CancellationToken)
   type: Method
   source:
     remote:
@@ -234,11 +205,10 @@ items:
     - id: count
       type: System.Int32
     - id: cancelToken
-      type: System.Threading.CancellationToken
+      type: CancellationToken
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Overrides Function WriteAsync(data As Byte(), offset As Integer, count As Integer, cancelToken As CancellationToken) As Task
-  overridden: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
   overload: Discord.Audio.Streams.BufferedWriteStream.WriteAsync*
   nameWithType.vb: BufferedWriteStream.WriteAsync(Byte(), Int32, Int32, CancellationToken)
   modifiers.csharp:
@@ -247,18 +217,18 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-  fullName.vb: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte(), System.Int32, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: Discord.Audio.Streams.BufferedWriteStream.WriteAsync(System.Byte(), System.Int32, System.Int32, CancellationToken)
   name.vb: WriteAsync(Byte(), Int32, Int32, CancellationToken)
-- uid: Discord.Audio.Streams.BufferedWriteStream.FlushAsync(System.Threading.CancellationToken)
-  commentId: M:Discord.Audio.Streams.BufferedWriteStream.FlushAsync(System.Threading.CancellationToken)
-  id: FlushAsync(System.Threading.CancellationToken)
+- uid: Discord.Audio.Streams.BufferedWriteStream.FlushAsync(CancellationToken)
+  commentId: M:Discord.Audio.Streams.BufferedWriteStream.FlushAsync(CancellationToken)
+  id: FlushAsync(CancellationToken)
   parent: Discord.Audio.Streams.BufferedWriteStream
   langs:
   - csharp
   - vb
   name: FlushAsync(CancellationToken)
   nameWithType: BufferedWriteStream.FlushAsync(CancellationToken)
-  fullName: Discord.Audio.Streams.BufferedWriteStream.FlushAsync(System.Threading.CancellationToken)
+  fullName: Discord.Audio.Streams.BufferedWriteStream.FlushAsync(CancellationToken)
   type: Method
   source:
     remote:
@@ -275,11 +245,10 @@ items:
     content: public override Task FlushAsync(CancellationToken cancelToken)
     parameters:
     - id: cancelToken
-      type: System.Threading.CancellationToken
+      type: CancellationToken
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Overrides Function FlushAsync(cancelToken As CancellationToken) As Task
-  overridden: System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
   overload: Discord.Audio.Streams.BufferedWriteStream.FlushAsync*
   modifiers.csharp:
   - public
@@ -287,16 +256,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: Discord.Audio.Streams.BufferedWriteStream.ClearAsync(System.Threading.CancellationToken)
-  commentId: M:Discord.Audio.Streams.BufferedWriteStream.ClearAsync(System.Threading.CancellationToken)
-  id: ClearAsync(System.Threading.CancellationToken)
+- uid: Discord.Audio.Streams.BufferedWriteStream.ClearAsync(CancellationToken)
+  commentId: M:Discord.Audio.Streams.BufferedWriteStream.ClearAsync(CancellationToken)
+  id: ClearAsync(CancellationToken)
   parent: Discord.Audio.Streams.BufferedWriteStream
   langs:
   - csharp
   - vb
   name: ClearAsync(CancellationToken)
   nameWithType: BufferedWriteStream.ClearAsync(CancellationToken)
-  fullName: Discord.Audio.Streams.BufferedWriteStream.ClearAsync(System.Threading.CancellationToken)
+  fullName: Discord.Audio.Streams.BufferedWriteStream.ClearAsync(CancellationToken)
   type: Method
   source:
     remote:
@@ -313,11 +282,10 @@ items:
     content: public override Task ClearAsync(CancellationToken cancelToken)
     parameters:
     - id: cancelToken
-      type: System.Threading.CancellationToken
+      type: CancellationToken
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Overrides Function ClearAsync(cancelToken As CancellationToken) As Task
-  overridden: Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
   overload: Discord.Audio.Streams.BufferedWriteStream.ClearAsync*
   modifiers.csharp:
   - public
@@ -332,19 +300,10 @@ references:
   nameWithType: Discord.Audio.Streams
   fullName: Discord.Audio.Streams
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: System.IO.Stream
-  commentId: T:System.IO.Stream
-  parent: System.IO
-  isExternal: true
-  name: Stream
-  nameWithType: Stream
-  fullName: System.IO.Stream
 - uid: Discord.Audio.AudioStream
   commentId: T:Discord.Audio.AudioStream
   parent: Discord.Audio
@@ -357,13 +316,6 @@ references:
   name: AudioOutStream
   nameWithType: AudioOutStream
   fullName: Discord.Audio.AudioOutStream
-- uid: System.IDisposable
-  commentId: T:System.IDisposable
-  parent: System
-  isExternal: true
-  name: IDisposable
-  nameWithType: IDisposable
-  fullName: System.IDisposable
 - uid: Discord.Audio.AudioOutStream.CanWrite
   commentId: P:Discord.Audio.AudioOutStream.CanWrite
   parent: Discord.Audio.AudioOutStream
@@ -489,15 +441,15 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.Audio.AudioOutStream.Seek(System.Int64,System.IO.SeekOrigin)
-  commentId: M:Discord.Audio.AudioOutStream.Seek(System.Int64,System.IO.SeekOrigin)
+- uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
+  commentId: M:Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
   parent: Discord.Audio.AudioOutStream
   isExternal: true
   name: Seek(Int64, SeekOrigin)
   nameWithType: AudioOutStream.Seek(Int64, SeekOrigin)
-  fullName: Discord.Audio.AudioOutStream.Seek(System.Int64, System.IO.SeekOrigin)
+  fullName: Discord.Audio.AudioOutStream.Seek(System.Int64, SeekOrigin)
   spec.csharp:
-  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,System.IO.SeekOrigin)
+  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
     name: Seek
     nameWithType: AudioOutStream.Seek
     fullName: Discord.Audio.AudioOutStream.Seek
@@ -512,16 +464,16 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.IO.SeekOrigin
+  - uid: SeekOrigin
     name: SeekOrigin
     nameWithType: SeekOrigin
-    fullName: System.IO.SeekOrigin
+    fullName: SeekOrigin
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,System.IO.SeekOrigin)
+  - uid: Discord.Audio.AudioOutStream.Seek(System.Int64,SeekOrigin)
     name: Seek
     nameWithType: AudioOutStream.Seek
     fullName: Discord.Audio.AudioOutStream.Seek
@@ -536,10 +488,10 @@ references:
   - name: ', '
     nameWithType: ', '
     fullName: ', '
-  - uid: System.IO.SeekOrigin
+  - uid: SeekOrigin
     name: SeekOrigin
     nameWithType: SeekOrigin
-    fullName: System.IO.SeekOrigin
+    fullName: SeekOrigin
     isExternal: true
   - name: )
     nameWithType: )
@@ -704,990 +656,6 @@ references:
   name: Position
   nameWithType: AudioStream.Position
   fullName: Discord.Audio.AudioStream.Position
-- uid: System.IO.Stream.Null
-  commentId: F:System.IO.Stream.Null
-  parent: System.IO.Stream
-  isExternal: true
-  name: "Null"
-  nameWithType: Stream.Null
-  fullName: System.IO.Stream.Null
-- uid: System.IO.Stream.CopyTo(System.IO.Stream)
-  commentId: M:System.IO.Stream.CopyTo(System.IO.Stream)
-  parent: System.IO.Stream
-  isExternal: true
-  name: CopyTo(Stream)
-  nameWithType: Stream.CopyTo(Stream)
-  fullName: System.IO.Stream.CopyTo(System.IO.Stream)
-  spec.csharp:
-  - uid: System.IO.Stream.CopyTo(System.IO.Stream)
-    name: CopyTo
-    nameWithType: Stream.CopyTo
-    fullName: System.IO.Stream.CopyTo
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.CopyTo(System.IO.Stream)
-    name: CopyTo
-    nameWithType: Stream.CopyTo
-    fullName: System.IO.Stream.CopyTo
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.CopyTo(System.IO.Stream,System.Int32)
-  commentId: M:System.IO.Stream.CopyTo(System.IO.Stream,System.Int32)
-  parent: System.IO.Stream
-  isExternal: true
-  name: CopyTo(Stream, Int32)
-  nameWithType: Stream.CopyTo(Stream, Int32)
-  fullName: System.IO.Stream.CopyTo(System.IO.Stream, System.Int32)
-  spec.csharp:
-  - uid: System.IO.Stream.CopyTo(System.IO.Stream,System.Int32)
-    name: CopyTo
-    nameWithType: Stream.CopyTo
-    fullName: System.IO.Stream.CopyTo
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.CopyTo(System.IO.Stream,System.Int32)
-    name: CopyTo
-    nameWithType: Stream.CopyTo
-    fullName: System.IO.Stream.CopyTo
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.CopyToAsync(System.IO.Stream)
-  commentId: M:System.IO.Stream.CopyToAsync(System.IO.Stream)
-  parent: System.IO.Stream
-  isExternal: true
-  name: CopyToAsync(Stream)
-  nameWithType: Stream.CopyToAsync(Stream)
-  fullName: System.IO.Stream.CopyToAsync(System.IO.Stream)
-  spec.csharp:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32)
-  commentId: M:System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32)
-  parent: System.IO.Stream
-  isExternal: true
-  name: CopyToAsync(Stream, Int32)
-  nameWithType: Stream.CopyToAsync(Stream, Int32)
-  fullName: System.IO.Stream.CopyToAsync(System.IO.Stream, System.Int32)
-  spec.csharp:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
-  commentId: M:System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
-  parent: System.IO.Stream
-  isExternal: true
-  name: CopyToAsync(Stream, Int32, CancellationToken)
-  nameWithType: Stream.CopyToAsync(Stream, Int32, CancellationToken)
-  fullName: System.IO.Stream.CopyToAsync(System.IO.Stream, System.Int32, System.Threading.CancellationToken)
-  spec.csharp:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.CopyToAsync(System.IO.Stream,System.Int32,System.Threading.CancellationToken)
-    name: CopyToAsync
-    nameWithType: Stream.CopyToAsync
-    fullName: System.IO.Stream.CopyToAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.Dispose
-  commentId: M:System.IO.Stream.Dispose
-  parent: System.IO.Stream
-  isExternal: true
-  name: Dispose()
-  nameWithType: Stream.Dispose()
-  fullName: System.IO.Stream.Dispose()
-  spec.csharp:
-  - uid: System.IO.Stream.Dispose
-    name: Dispose
-    nameWithType: Stream.Dispose
-    fullName: System.IO.Stream.Dispose
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.Dispose
-    name: Dispose
-    nameWithType: Stream.Dispose
-    fullName: System.IO.Stream.Dispose
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.FlushAsync
-  commentId: M:System.IO.Stream.FlushAsync
-  parent: System.IO.Stream
-  isExternal: true
-  name: FlushAsync()
-  nameWithType: Stream.FlushAsync()
-  fullName: System.IO.Stream.FlushAsync()
-  spec.csharp:
-  - uid: System.IO.Stream.FlushAsync
-    name: FlushAsync
-    nameWithType: Stream.FlushAsync
-    fullName: System.IO.Stream.FlushAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.FlushAsync
-    name: FlushAsync
-    nameWithType: Stream.FlushAsync
-    fullName: System.IO.Stream.FlushAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32)
-  commentId: M:System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32)
-  parent: System.IO.Stream
-  isExternal: true
-  name: ReadAsync(Byte[], Int32, Int32)
-  nameWithType: Stream.ReadAsync(Byte[], Int32, Int32)
-  fullName: System.IO.Stream.ReadAsync(System.Byte[], System.Int32, System.Int32)
-  nameWithType.vb: Stream.ReadAsync(Byte(), Int32, Int32)
-  fullName.vb: System.IO.Stream.ReadAsync(System.Byte(), System.Int32, System.Int32)
-  name.vb: ReadAsync(Byte(), Int32, Int32)
-  spec.csharp:
-  - uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32)
-    name: ReadAsync
-    nameWithType: Stream.ReadAsync
-    fullName: System.IO.Stream.ReadAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32)
-    name: ReadAsync
-    nameWithType: Stream.ReadAsync
-    fullName: System.IO.Stream.ReadAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  commentId: M:System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  parent: System.IO.Stream
-  isExternal: true
-  name: ReadAsync(Byte[], Int32, Int32, CancellationToken)
-  nameWithType: Stream.ReadAsync(Byte[], Int32, Int32, CancellationToken)
-  fullName: System.IO.Stream.ReadAsync(System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken)
-  nameWithType.vb: Stream.ReadAsync(Byte(), Int32, Int32, CancellationToken)
-  fullName.vb: System.IO.Stream.ReadAsync(System.Byte(), System.Int32, System.Int32, System.Threading.CancellationToken)
-  name.vb: ReadAsync(Byte(), Int32, Int32, CancellationToken)
-  spec.csharp:
-  - uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-    name: ReadAsync
-    nameWithType: Stream.ReadAsync
-    fullName: System.IO.Stream.ReadAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-    name: ReadAsync
-    nameWithType: Stream.ReadAsync
-    fullName: System.IO.Stream.ReadAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.ReadByte
-  commentId: M:System.IO.Stream.ReadByte
-  parent: System.IO.Stream
-  isExternal: true
-  name: ReadByte()
-  nameWithType: Stream.ReadByte()
-  fullName: System.IO.Stream.ReadByte()
-  spec.csharp:
-  - uid: System.IO.Stream.ReadByte
-    name: ReadByte
-    nameWithType: Stream.ReadByte
-    fullName: System.IO.Stream.ReadByte
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.ReadByte
-    name: ReadByte
-    nameWithType: Stream.ReadByte
-    fullName: System.IO.Stream.ReadByte
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32)
-  commentId: M:System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32)
-  parent: System.IO.Stream
-  isExternal: true
-  name: WriteAsync(Byte[], Int32, Int32)
-  nameWithType: Stream.WriteAsync(Byte[], Int32, Int32)
-  fullName: System.IO.Stream.WriteAsync(System.Byte[], System.Int32, System.Int32)
-  nameWithType.vb: Stream.WriteAsync(Byte(), Int32, Int32)
-  fullName.vb: System.IO.Stream.WriteAsync(System.Byte(), System.Int32, System.Int32)
-  name.vb: WriteAsync(Byte(), Int32, Int32)
-  spec.csharp:
-  - uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32)
-    name: WriteAsync
-    nameWithType: Stream.WriteAsync
-    fullName: System.IO.Stream.WriteAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32)
-    name: WriteAsync
-    nameWithType: Stream.WriteAsync
-    fullName: System.IO.Stream.WriteAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.WriteByte(System.Byte)
-  commentId: M:System.IO.Stream.WriteByte(System.Byte)
-  parent: System.IO.Stream
-  isExternal: true
-  name: WriteByte(Byte)
-  nameWithType: Stream.WriteByte(Byte)
-  fullName: System.IO.Stream.WriteByte(System.Byte)
-  spec.csharp:
-  - uid: System.IO.Stream.WriteByte(System.Byte)
-    name: WriteByte
-    nameWithType: Stream.WriteByte
-    fullName: System.IO.Stream.WriteByte
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.WriteByte(System.Byte)
-    name: WriteByte
-    nameWithType: Stream.WriteByte
-    fullName: System.IO.Stream.WriteByte
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IO.Stream.CanTimeout
-  commentId: P:System.IO.Stream.CanTimeout
-  parent: System.IO.Stream
-  isExternal: true
-  name: CanTimeout
-  nameWithType: Stream.CanTimeout
-  fullName: System.IO.Stream.CanTimeout
-- uid: System.IO.Stream.ReadTimeout
-  commentId: P:System.IO.Stream.ReadTimeout
-  parent: System.IO.Stream
-  isExternal: true
-  name: ReadTimeout
-  nameWithType: Stream.ReadTimeout
-  fullName: System.IO.Stream.ReadTimeout
-- uid: System.IO.Stream.WriteTimeout
-  commentId: P:System.IO.Stream.WriteTimeout
-  parent: System.IO.Stream
-  isExternal: true
-  name: WriteTimeout
-  nameWithType: Stream.WriteTimeout
-  fullName: System.IO.Stream.WriteTimeout
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: System.IO
-  commentId: N:System.IO
-  isExternal: true
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
 - uid: Discord.Audio
   commentId: N:Discord.Audio
   name: Discord.Audio
@@ -1705,266 +673,40 @@ references:
   nameWithType: IAudioClient
   fullName: Discord.Audio.IAudioClient
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: System.Threading.CancellationToken
-  commentId: T:System.Threading.CancellationToken
-  parent: System.Threading
+- uid: CancellationToken
   isExternal: true
   name: CancellationToken
   nameWithType: CancellationToken
-  fullName: System.Threading.CancellationToken
-- uid: System.Threading
-  commentId: N:System.Threading
-  isExternal: true
-  name: System.Threading
-  nameWithType: System.Threading
-  fullName: System.Threading
-- uid: System.IO.Stream.Dispose(System.Boolean)
-  commentId: M:System.IO.Stream.Dispose(System.Boolean)
-  parent: System.IO.Stream
-  isExternal: true
-  name: Dispose(Boolean)
-  nameWithType: Stream.Dispose(Boolean)
-  fullName: System.IO.Stream.Dispose(System.Boolean)
-  spec.csharp:
-  - uid: System.IO.Stream.Dispose(System.Boolean)
-    name: Dispose
-    nameWithType: Stream.Dispose
-    fullName: System.IO.Stream.Dispose
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.Dispose(System.Boolean)
-    name: Dispose
-    nameWithType: Stream.Dispose
-    fullName: System.IO.Stream.Dispose
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
+  fullName: CancellationToken
 - uid: Discord.Audio.Streams.BufferedWriteStream.Dispose*
   commentId: Overload:Discord.Audio.Streams.BufferedWriteStream.Dispose
   name: Dispose
   nameWithType: BufferedWriteStream.Dispose
   fullName: Discord.Audio.Streams.BufferedWriteStream.Dispose
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
-  commentId: M:Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
-  parent: Discord.Audio.AudioStream
-  isExternal: true
-  name: WriteHeader(UInt16, UInt32, Boolean)
-  nameWithType: AudioStream.WriteHeader(UInt16, UInt32, Boolean)
-  fullName: Discord.Audio.AudioStream.WriteHeader(System.UInt16, System.UInt32, System.Boolean)
-  spec.csharp:
-  - uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
-    name: WriteHeader
-    nameWithType: AudioStream.WriteHeader
-    fullName: Discord.Audio.AudioStream.WriteHeader
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt32
-    name: UInt32
-    nameWithType: UInt32
-    fullName: System.UInt32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.Audio.AudioStream.WriteHeader(System.UInt16,System.UInt32,System.Boolean)
-    name: WriteHeader
-    nameWithType: AudioStream.WriteHeader
-    fullName: Discord.Audio.AudioStream.WriteHeader
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt32
-    name: UInt32
-    nameWithType: UInt32
-    fullName: System.UInt32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Audio.Streams.BufferedWriteStream.WriteHeader*
   commentId: Overload:Discord.Audio.Streams.BufferedWriteStream.WriteHeader
   name: WriteHeader
   nameWithType: BufferedWriteStream.WriteHeader
   fullName: Discord.Audio.Streams.BufferedWriteStream.WriteHeader
 - uid: System.UInt16
-  commentId: T:System.UInt16
-  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
   fullName: System.UInt16
 - uid: System.UInt32
-  commentId: T:System.UInt32
-  parent: System
   isExternal: true
   name: UInt32
   nameWithType: UInt32
   fullName: System.UInt32
-- uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  commentId: M:System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-  parent: System.IO.Stream
-  isExternal: true
-  name: WriteAsync(Byte[], Int32, Int32, CancellationToken)
-  nameWithType: Stream.WriteAsync(Byte[], Int32, Int32, CancellationToken)
-  fullName: System.IO.Stream.WriteAsync(System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken)
-  nameWithType.vb: Stream.WriteAsync(Byte(), Int32, Int32, CancellationToken)
-  fullName.vb: System.IO.Stream.WriteAsync(System.Byte(), System.Int32, System.Int32, System.Threading.CancellationToken)
-  name.vb: WriteAsync(Byte(), Int32, Int32, CancellationToken)
-  spec.csharp:
-  - uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-    name: WriteAsync
-    nameWithType: Stream.WriteAsync
-    fullName: System.IO.Stream.WriteAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
-    name: WriteAsync
-    nameWithType: Stream.WriteAsync
-    fullName: System.IO.Stream.WriteAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Byte
-    name: Byte
-    nameWithType: Byte
-    fullName: System.Byte
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Audio.Streams.BufferedWriteStream.WriteAsync*
   commentId: Overload:Discord.Audio.Streams.BufferedWriteStream.WriteAsync
   name: WriteAsync
@@ -1996,104 +738,16 @@ references:
   - name: ()
     nameWithType: ()
     fullName: ()
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
-- uid: System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
-  commentId: M:System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
-  parent: System.IO.Stream
-  isExternal: true
-  name: FlushAsync(CancellationToken)
-  nameWithType: Stream.FlushAsync(CancellationToken)
-  fullName: System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
-  spec.csharp:
-  - uid: System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
-    name: FlushAsync
-    nameWithType: Stream.FlushAsync
-    fullName: System.IO.Stream.FlushAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.IO.Stream.FlushAsync(System.Threading.CancellationToken)
-    name: FlushAsync
-    nameWithType: Stream.FlushAsync
-    fullName: System.IO.Stream.FlushAsync
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
+  fullName: Task
 - uid: Discord.Audio.Streams.BufferedWriteStream.FlushAsync*
   commentId: Overload:Discord.Audio.Streams.BufferedWriteStream.FlushAsync
   name: FlushAsync
   nameWithType: BufferedWriteStream.FlushAsync
   fullName: Discord.Audio.Streams.BufferedWriteStream.FlushAsync
-- uid: Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
-  commentId: M:Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
-  parent: Discord.Audio.AudioStream
-  isExternal: true
-  name: ClearAsync(CancellationToken)
-  nameWithType: AudioStream.ClearAsync(CancellationToken)
-  fullName: Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
-  spec.csharp:
-  - uid: Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
-    name: ClearAsync
-    nameWithType: AudioStream.ClearAsync
-    fullName: Discord.Audio.AudioStream.ClearAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.Audio.AudioStream.ClearAsync(System.Threading.CancellationToken)
-    name: ClearAsync
-    nameWithType: AudioStream.ClearAsync
-    fullName: Discord.Audio.AudioStream.ClearAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Threading.CancellationToken
-    name: CancellationToken
-    nameWithType: CancellationToken
-    fullName: System.Threading.CancellationToken
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Audio.Streams.BufferedWriteStream.ClearAsync*
   commentId: Overload:Discord.Audio.Streams.BufferedWriteStream.ClearAsync
   name: ClearAsync

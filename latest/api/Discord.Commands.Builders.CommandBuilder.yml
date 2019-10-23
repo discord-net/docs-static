@@ -6,9 +6,9 @@ items:
   parent: Discord.Commands.Builders
   children:
   - Discord.Commands.Builders.CommandBuilder.AddAliases(System.String[])
-  - Discord.Commands.Builders.CommandBuilder.AddAttributes(System.Attribute[])
-  - Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,System.Type,System.Action{Discord.Commands.Builders.ParameterBuilder})
-  - Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,System.Action{Discord.Commands.Builders.ParameterBuilder})
+  - Discord.Commands.Builders.CommandBuilder.AddAttributes(Attribute[])
+  - Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,Type,Action{Discord.Commands.Builders.ParameterBuilder})
+  - Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,Action{Discord.Commands.Builders.ParameterBuilder})
   - Discord.Commands.Builders.CommandBuilder.AddPrecondition(Discord.Commands.PreconditionAttribute)
   - Discord.Commands.Builders.CommandBuilder.Aliases
   - Discord.Commands.Builders.CommandBuilder.Attributes
@@ -46,18 +46,12 @@ items:
   - Discord.Net.Commands
   namespace: Discord.Commands.Builders
   syntax:
-    content: public class CommandBuilder
-    content.vb: Public Class CommandBuilder
+    content: 'public class CommandBuilder : object'
+    content.vb: >-
+      Public Class CommandBuilder
+          Inherits Object
   inheritance:
   - System.Object
-  inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   modifiers.csharp:
   - public
   - class
@@ -370,7 +364,7 @@ items:
     content: public IReadOnlyList<PreconditionAttribute> Preconditions { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{Discord.Commands.PreconditionAttribute}
+      type: IReadOnlyList{Discord.Commands.PreconditionAttribute}
     content.vb: Public ReadOnly Property Preconditions As IReadOnlyList(Of PreconditionAttribute)
   overload: Discord.Commands.Builders.CommandBuilder.Preconditions*
   modifiers.csharp:
@@ -405,7 +399,7 @@ items:
     content: public IReadOnlyList<ParameterBuilder> Parameters { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}
+      type: IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}
     content.vb: Public ReadOnly Property Parameters As IReadOnlyList(Of ParameterBuilder)
   overload: Discord.Commands.Builders.CommandBuilder.Parameters*
   modifiers.csharp:
@@ -440,7 +434,7 @@ items:
     content: public IReadOnlyList<Attribute> Attributes { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{System.Attribute}
+      type: IReadOnlyList{Attribute}
     content.vb: Public ReadOnly Property Attributes As IReadOnlyList(Of Attribute)
   overload: Discord.Commands.Builders.CommandBuilder.Attributes*
   modifiers.csharp:
@@ -475,7 +469,7 @@ items:
     content: public IReadOnlyList<string> Aliases { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{System.String}
+      type: IReadOnlyList{System.String}
     content.vb: Public ReadOnly Property Aliases As IReadOnlyList(Of String)
   overload: Discord.Commands.Builders.CommandBuilder.Aliases*
   modifiers.csharp:
@@ -697,16 +691,16 @@ items:
   - Public
   fullName.vb: Discord.Commands.Builders.CommandBuilder.AddAliases(System.String())
   name.vb: AddAliases(String())
-- uid: Discord.Commands.Builders.CommandBuilder.AddAttributes(System.Attribute[])
-  commentId: M:Discord.Commands.Builders.CommandBuilder.AddAttributes(System.Attribute[])
-  id: AddAttributes(System.Attribute[])
+- uid: Discord.Commands.Builders.CommandBuilder.AddAttributes(Attribute[])
+  commentId: M:Discord.Commands.Builders.CommandBuilder.AddAttributes(Attribute[])
+  id: AddAttributes(Attribute[])
   parent: Discord.Commands.Builders.CommandBuilder
   langs:
   - csharp
   - vb
   name: AddAttributes(Attribute[])
   nameWithType: CommandBuilder.AddAttributes(Attribute[])
-  fullName: Discord.Commands.Builders.CommandBuilder.AddAttributes(System.Attribute[])
+  fullName: Discord.Commands.Builders.CommandBuilder.AddAttributes(Attribute[])
   type: Method
   source:
     remote:
@@ -723,7 +717,7 @@ items:
     content: public CommandBuilder AddAttributes(params Attribute[] attributes)
     parameters:
     - id: attributes
-      type: System.Attribute[]
+      type: Attribute[]
     return:
       type: Discord.Commands.Builders.CommandBuilder
     content.vb: Public Function AddAttributes(ParamArray attributes As Attribute()) As CommandBuilder
@@ -733,7 +727,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddAttributes(System.Attribute())
+  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddAttributes(Attribute())
   name.vb: AddAttributes(Attribute())
 - uid: Discord.Commands.Builders.CommandBuilder.AddPrecondition(Discord.Commands.PreconditionAttribute)
   commentId: M:Discord.Commands.Builders.CommandBuilder.AddPrecondition(Discord.Commands.PreconditionAttribute)
@@ -770,16 +764,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,System.Action{Discord.Commands.Builders.ParameterBuilder})
-  commentId: M:Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,System.Action{Discord.Commands.Builders.ParameterBuilder})
-  id: AddParameter``1(System.String,System.Action{Discord.Commands.Builders.ParameterBuilder})
+- uid: Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,Action{Discord.Commands.Builders.ParameterBuilder})
+  commentId: M:Discord.Commands.Builders.CommandBuilder.AddParameter``1(System.String,Action{Discord.Commands.Builders.ParameterBuilder})
+  id: AddParameter``1(System.String,Action{Discord.Commands.Builders.ParameterBuilder})
   parent: Discord.Commands.Builders.CommandBuilder
   langs:
   - csharp
   - vb
   name: AddParameter<T>(String, Action<ParameterBuilder>)
   nameWithType: CommandBuilder.AddParameter<T>(String, Action<ParameterBuilder>)
-  fullName: Discord.Commands.Builders.CommandBuilder.AddParameter<T>(System.String, System.Action<Discord.Commands.Builders.ParameterBuilder>)
+  fullName: Discord.Commands.Builders.CommandBuilder.AddParameter<T>(System.String, Action<Discord.Commands.Builders.ParameterBuilder>)
   type: Method
   source:
     remote:
@@ -798,7 +792,7 @@ items:
     - id: name
       type: System.String
     - id: createFunc
-      type: System.Action{Discord.Commands.Builders.ParameterBuilder}
+      type: Action{Discord.Commands.Builders.ParameterBuilder}
     typeParameters:
     - id: T
     return:
@@ -810,18 +804,18 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddParameter(Of T)(System.String, System.Action(Of Discord.Commands.Builders.ParameterBuilder))
+  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddParameter(Of T)(System.String, Action(Of Discord.Commands.Builders.ParameterBuilder))
   name.vb: AddParameter(Of T)(String, Action(Of ParameterBuilder))
-- uid: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,System.Type,System.Action{Discord.Commands.Builders.ParameterBuilder})
-  commentId: M:Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,System.Type,System.Action{Discord.Commands.Builders.ParameterBuilder})
-  id: AddParameter(System.String,System.Type,System.Action{Discord.Commands.Builders.ParameterBuilder})
+- uid: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,Type,Action{Discord.Commands.Builders.ParameterBuilder})
+  commentId: M:Discord.Commands.Builders.CommandBuilder.AddParameter(System.String,Type,Action{Discord.Commands.Builders.ParameterBuilder})
+  id: AddParameter(System.String,Type,Action{Discord.Commands.Builders.ParameterBuilder})
   parent: Discord.Commands.Builders.CommandBuilder
   langs:
   - csharp
   - vb
   name: AddParameter(String, Type, Action<ParameterBuilder>)
   nameWithType: CommandBuilder.AddParameter(String, Type, Action<ParameterBuilder>)
-  fullName: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String, System.Type, System.Action<Discord.Commands.Builders.ParameterBuilder>)
+  fullName: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String, Type, Action<Discord.Commands.Builders.ParameterBuilder>)
   type: Method
   source:
     remote:
@@ -840,9 +834,9 @@ items:
     - id: name
       type: System.String
     - id: type
-      type: System.Type
+      type: Type
     - id: createFunc
-      type: System.Action{Discord.Commands.Builders.ParameterBuilder}
+      type: Action{Discord.Commands.Builders.ParameterBuilder}
     return:
       type: Discord.Commands.Builders.CommandBuilder
     content.vb: Public Function AddParameter(name As String, type As Type, createFunc As Action(Of ParameterBuilder)) As CommandBuilder
@@ -852,7 +846,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String, System.Type, System.Action(Of Discord.Commands.Builders.ParameterBuilder))
+  fullName.vb: Discord.Commands.Builders.CommandBuilder.AddParameter(System.String, Type, Action(Of Discord.Commands.Builders.ParameterBuilder))
   name.vb: AddParameter(String, Type, Action(Of ParameterBuilder))
 references:
 - uid: Discord.Commands.Builders
@@ -861,297 +855,10 @@ references:
   nameWithType: Discord.Commands.Builders
   fullName: Discord.Commands.Builders
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Commands.Builders.CommandBuilder.Module*
   commentId: Overload:Discord.Commands.Builders.CommandBuilder.Module
   name: Module
@@ -1169,8 +876,6 @@ references:
   nameWithType: CommandBuilder.Name
   fullName: Discord.Commands.Builders.CommandBuilder.Name
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1212,8 +917,6 @@ references:
   nameWithType: CommandBuilder.Priority
   fullName: Discord.Commands.Builders.CommandBuilder.Priority
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -1224,8 +927,6 @@ references:
   nameWithType: CommandBuilder.IgnoreExtraArgs
   fullName: Discord.Commands.Builders.CommandBuilder.IgnoreExtraArgs
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1235,21 +936,20 @@ references:
   name: Preconditions
   nameWithType: CommandBuilder.Preconditions
   fullName: Discord.Commands.Builders.CommandBuilder.Preconditions
-- uid: System.Collections.Generic.IReadOnlyList{Discord.Commands.PreconditionAttribute}
-  commentId: T:System.Collections.Generic.IReadOnlyList{Discord.Commands.PreconditionAttribute}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyList`1
+- uid: IReadOnlyList{Discord.Commands.PreconditionAttribute}
+  commentId: '!:IReadOnlyList{Discord.Commands.PreconditionAttribute}'
+  definition: IReadOnlyList`1
   name: IReadOnlyList<PreconditionAttribute>
   nameWithType: IReadOnlyList<PreconditionAttribute>
-  fullName: System.Collections.Generic.IReadOnlyList<Discord.Commands.PreconditionAttribute>
+  fullName: IReadOnlyList<Discord.Commands.PreconditionAttribute>
   nameWithType.vb: IReadOnlyList(Of PreconditionAttribute)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Discord.Commands.PreconditionAttribute)
+  fullName.vb: IReadOnlyList(Of Discord.Commands.PreconditionAttribute)
   name.vb: IReadOnlyList(Of PreconditionAttribute)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1262,10 +962,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1277,71 +977,63 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IReadOnlyList`1
-  commentId: T:System.Collections.Generic.IReadOnlyList`1
+- uid: IReadOnlyList`1
   isExternal: true
-  name: IReadOnlyList<T>
-  nameWithType: IReadOnlyList<T>
-  fullName: System.Collections.Generic.IReadOnlyList<T>
-  nameWithType.vb: IReadOnlyList(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
-  name.vb: IReadOnlyList(Of T)
+  name: IReadOnlyList<>
+  nameWithType: IReadOnlyList<>
+  fullName: IReadOnlyList<>
+  nameWithType.vb: IReadOnlyList(Of )
+  fullName.vb: IReadOnlyList(Of )
+  name.vb: IReadOnlyList(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: Discord.Commands.Builders.CommandBuilder.Parameters*
   commentId: Overload:Discord.Commands.Builders.CommandBuilder.Parameters
   name: Parameters
   nameWithType: CommandBuilder.Parameters
   fullName: Discord.Commands.Builders.CommandBuilder.Parameters
-- uid: System.Collections.Generic.IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}
-  commentId: T:System.Collections.Generic.IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyList`1
+- uid: IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}
+  commentId: '!:IReadOnlyList{Discord.Commands.Builders.ParameterBuilder}'
+  definition: IReadOnlyList`1
   name: IReadOnlyList<ParameterBuilder>
   nameWithType: IReadOnlyList<ParameterBuilder>
-  fullName: System.Collections.Generic.IReadOnlyList<Discord.Commands.Builders.ParameterBuilder>
+  fullName: IReadOnlyList<Discord.Commands.Builders.ParameterBuilder>
   nameWithType.vb: IReadOnlyList(Of ParameterBuilder)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Discord.Commands.Builders.ParameterBuilder)
+  fullName.vb: IReadOnlyList(Of Discord.Commands.Builders.ParameterBuilder)
   name.vb: IReadOnlyList(Of ParameterBuilder)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1354,10 +1046,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1374,46 +1066,45 @@ references:
   name: Attributes
   nameWithType: CommandBuilder.Attributes
   fullName: Discord.Commands.Builders.CommandBuilder.Attributes
-- uid: System.Collections.Generic.IReadOnlyList{System.Attribute}
-  commentId: T:System.Collections.Generic.IReadOnlyList{System.Attribute}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyList`1
+- uid: IReadOnlyList{Attribute}
+  commentId: '!:IReadOnlyList{Attribute}'
+  definition: IReadOnlyList`1
   name: IReadOnlyList<Attribute>
   nameWithType: IReadOnlyList<Attribute>
-  fullName: System.Collections.Generic.IReadOnlyList<System.Attribute>
+  fullName: IReadOnlyList<Attribute>
   nameWithType.vb: IReadOnlyList(Of Attribute)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.Attribute)
+  fullName.vb: IReadOnlyList(Of Attribute)
   name.vb: IReadOnlyList(Of Attribute)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Attribute
+  - uid: Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: System.Attribute
+    fullName: Attribute
     isExternal: true
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Attribute
+  - uid: Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: System.Attribute
+    fullName: Attribute
     isExternal: true
   - name: )
     nameWithType: )
@@ -1423,21 +1114,20 @@ references:
   name: Aliases
   nameWithType: CommandBuilder.Aliases
   fullName: Discord.Commands.Builders.CommandBuilder.Aliases
-- uid: System.Collections.Generic.IReadOnlyList{System.String}
-  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyList`1
+- uid: IReadOnlyList{System.String}
+  commentId: '!:IReadOnlyList{System.String}'
+  definition: IReadOnlyList`1
   name: IReadOnlyList<String>
   nameWithType: IReadOnlyList<String>
-  fullName: System.Collections.Generic.IReadOnlyList<System.String>
+  fullName: IReadOnlyList<System.String>
   nameWithType.vb: IReadOnlyList(Of String)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.String)
+  fullName.vb: IReadOnlyList(Of System.String)
   name.vb: IReadOnlyList(Of String)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1451,10 +1141,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
+  - uid: IReadOnlyList`1
     name: IReadOnlyList
     nameWithType: IReadOnlyList
-    fullName: System.Collections.Generic.IReadOnlyList
+    fullName: IReadOnlyList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1534,28 +1224,28 @@ references:
   name: AddAttributes
   nameWithType: CommandBuilder.AddAttributes
   fullName: Discord.Commands.Builders.CommandBuilder.AddAttributes
-- uid: System.Attribute[]
+- uid: Attribute[]
   isExternal: true
   name: Attribute[]
   nameWithType: Attribute[]
-  fullName: System.Attribute[]
+  fullName: Attribute[]
   nameWithType.vb: Attribute()
-  fullName.vb: System.Attribute()
+  fullName.vb: Attribute()
   name.vb: Attribute()
   spec.csharp:
-  - uid: System.Attribute
+  - uid: Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: System.Attribute
+    fullName: Attribute
     isExternal: true
   - name: '[]'
     nameWithType: '[]'
     fullName: '[]'
   spec.vb:
-  - uid: System.Attribute
+  - uid: Attribute
     name: Attribute
     nameWithType: Attribute
-    fullName: System.Attribute
+    fullName: Attribute
     isExternal: true
   - name: ()
     nameWithType: ()
@@ -1576,21 +1266,20 @@ references:
   name: AddParameter
   nameWithType: CommandBuilder.AddParameter
   fullName: Discord.Commands.Builders.CommandBuilder.AddParameter
-- uid: System.Action{Discord.Commands.Builders.ParameterBuilder}
-  commentId: T:System.Action{Discord.Commands.Builders.ParameterBuilder}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.Commands.Builders.ParameterBuilder}
+  commentId: '!:Action{Discord.Commands.Builders.ParameterBuilder}'
+  definition: Action`1
   name: Action<ParameterBuilder>
   nameWithType: Action<ParameterBuilder>
-  fullName: System.Action<Discord.Commands.Builders.ParameterBuilder>
+  fullName: Action<Discord.Commands.Builders.ParameterBuilder>
   nameWithType.vb: Action(Of ParameterBuilder)
-  fullName.vb: System.Action(Of Discord.Commands.Builders.ParameterBuilder)
+  fullName.vb: Action(Of Discord.Commands.Builders.ParameterBuilder)
   name.vb: Action(Of ParameterBuilder)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1603,10 +1292,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1618,49 +1307,46 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
+- uid: Type
   isExternal: true
   name: Type
   nameWithType: Type
-  fullName: System.Type
+  fullName: Type

@@ -9,7 +9,6 @@ items:
   - Discord.Rest.RestUser.Activity
   - Discord.Rest.RestUser.AvatarId
   - Discord.Rest.RestUser.CreatedAt
-  - Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
   - Discord.Rest.RestUser.Discriminator
   - Discord.Rest.RestUser.DiscriminatorValue
   - Discord.Rest.RestUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
@@ -43,11 +42,11 @@ items:
   summary: "\nRepresents a REST-based user.\n"
   example: []
   syntax:
-    content: 'public class RestUser : RestEntity<ulong>, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence, IUpdateable'
+    content: 'public class RestUser : RestEntity<ulong>, IEntity<ulong>, IUser, ISnowflakeEntity, IEntity<ulong>, IMentionable, IPresence, IUpdateable'
     content.vb: >-
       Public Class RestUser
           Inherits RestEntity(Of ULong)
-          Implements IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence, IUpdateable
+          Implements IEntity(Of ULong), IUser, ISnowflakeEntity, IEntity(Of ULong), IMentionable, IPresence, IUpdateable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
@@ -57,6 +56,7 @@ items:
   - Discord.Rest.RestSelfUser
   - Discord.Rest.RestWebhookUser
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IUser
   - Discord.ISnowflakeEntity
   - Discord.IEntity{System.UInt64}
@@ -65,12 +65,6 @@ items:
   - Discord.IUpdateable
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -99,19 +93,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets a value that indicates whether this user is identified as a bot.\n"
-  remarks: "\nThis property retrieves a value that indicates whether this user is a registered bot application\n(indicated by the blue BOT tag within the official chat client).\n"
   example: []
   syntax:
     content: public bool IsBot { get; }
     parameters: []
     return:
       type: System.Boolean
-      description: "\n<code>true</code> if the user is a bot application; otherwise <code>false</code>.\n"
     content.vb: Public ReadOnly Property IsBot As Boolean
   overload: Discord.Rest.RestUser.IsBot*
-  implements:
-  - Discord.IUser.IsBot
   modifiers.csharp:
   - public
   - get
@@ -140,7 +129,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the username for this user.\n"
   example: []
   syntax:
     content: public string Username { get; }
@@ -149,8 +137,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Username As String
   overload: Discord.Rest.RestUser.Username*
-  implements:
-  - Discord.IUser.Username
   modifiers.csharp:
   - public
   - get
@@ -179,7 +165,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the per-username unique ID for this user.\n"
   example: []
   syntax:
     content: public ushort DiscriminatorValue { get; }
@@ -188,8 +173,6 @@ items:
       type: System.UInt16
     content.vb: Public ReadOnly Property DiscriminatorValue As UShort
   overload: Discord.Rest.RestUser.DiscriminatorValue*
-  implements:
-  - Discord.IUser.DiscriminatorValue
   modifiers.csharp:
   - public
   - get
@@ -218,7 +201,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the identifier of this user&apos;s avatar.\n"
   example: []
   syntax:
     content: public string AvatarId { get; }
@@ -227,8 +209,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property AvatarId As String
   overload: Discord.Rest.RestUser.AvatarId*
-  implements:
-  - Discord.IUser.AvatarId
   modifiers.csharp:
   - public
   - get
@@ -257,18 +237,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: System.DateTimeOffset
-      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
+      type: DateTimeOffset
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.Rest.RestUser.CreatedAt*
-  implements:
-  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -297,7 +273,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the per-username unique ID for this user.\n"
   example: []
   syntax:
     content: public string Discriminator { get; }
@@ -306,8 +281,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Discriminator As String
   overload: Discord.Rest.RestUser.Discriminator*
-  implements:
-  - Discord.IUser.Discriminator
   modifiers.csharp:
   - public
   - get
@@ -336,18 +309,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nReturns a special string used to mention this object.\n"
   example: []
   syntax:
     content: public string Mention { get; }
     parameters: []
     return:
       type: System.String
-      description: "\nA string that is recognized by Discord as a mention (e.g. &lt;@168693960628371456>).\n"
     content.vb: Public ReadOnly Property Mention As String
   overload: Discord.Rest.RestUser.Mention*
-  implements:
-  - Discord.IMentionable.Mention
   modifiers.csharp:
   - public
   - get
@@ -458,17 +427,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the set of clients where this user is currently active.\n"
   example: []
   syntax:
     content: public virtual IImmutableSet<ClientType> ActiveClients { get; }
     parameters: []
     return:
-      type: System.Collections.Immutable.IImmutableSet{Discord.ClientType}
+      type: IImmutableSet{Discord.ClientType}
     content.vb: Public Overridable ReadOnly Property ActiveClients As IImmutableSet(Of ClientType)
   overload: Discord.Rest.RestUser.ActiveClients*
-  implements:
-  - Discord.IPresence.ActiveClients
   modifiers.csharp:
   - public
   - virtual
@@ -499,18 +465,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets a value that indicates whether this user is a webhook user.\n"
   example: []
   syntax:
     content: public virtual bool IsWebhook { get; }
     parameters: []
     return:
       type: System.Boolean
-      description: "\n<code>true</code> if the user is a webhook; otherwise <code>false</code>.\n"
     content.vb: Public Overridable ReadOnly Property IsWebhook As Boolean
   overload: Discord.Rest.RestUser.IsWebhook*
-  implements:
-  - Discord.IUser.IsWebhook
   modifiers.csharp:
   - public
   - virtual
@@ -541,7 +503,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nUpdates this object&apos;s properties with its current state.\n"
   example: []
   syntax:
     content: public virtual Task UpdateAsync(RequestOptions options = null)
@@ -549,11 +510,9 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Overridable Function UpdateAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestUser.UpdateAsync*
-  implements:
-  - Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   - virtual
@@ -591,7 +550,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{Discord.Rest.RestDMChannel}
+      type: Task{Discord.Rest.RestDMChannel}
       description: "\nA task that represents the asynchronous get operation. The task result contains a rest DM channel where the user is the recipient.\n"
     content.vb: Public Function GetOrCreateDMChannelAsync(options As RequestOptions = Nothing) As Task(Of RestDMChannel)
   overload: Discord.Rest.RestUser.GetOrCreateDMChannelAsync*
@@ -621,26 +580,18 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the avatar URL for this user.\n"
-  remarks: "\nThis property retrieves a URL for this user&apos;s avatar. In event that the user does not have a valid avatar\n(i.e. their avatar identifier is not set), this property will return <code>null</code>. If you wish to\nretrieve the default avatar for this user, consider using <xref href=\"Discord.IUser.GetDefaultAvatarUrl\" data-throw-if-not-resolved=\"false\"></xref> (see\nexample).\n"
   example: []
   syntax:
-    content: public string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = 128)
+    content: public string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = null)
     parameters:
     - id: format
       type: Discord.ImageFormat
-      description: The format to return.
     - id: size
       type: System.UInt16
-      description: >
-        The size of the image to return in. This can be any power of two between 16 and 2048.
     return:
       type: System.String
-      description: "\nA string representing the user&apos;s avatar URL; <code>null</code> if the user does not have an avatar in place.\n"
-    content.vb: Public Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = 128) As String
+    content.vb: Public Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = Nothing) As String
   overload: Discord.Rest.RestUser.GetAvatarUrl*
-  implements:
-  - Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -667,18 +618,13 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the default avatar URL for this user.\n"
-  remarks: "\nThis property retrieves a URL for this user&apos;s default avatar generated by Discord (Discord logo followed\nby a random color as its background). This property will always return a value as it is calculated based\non the user&apos;s <xref href=\"Discord.IUser.DiscriminatorValue\" data-throw-if-not-resolved=\"false\"></xref> (<code>discriminator % 5</code>).\n"
   example: []
   syntax:
     content: public string GetDefaultAvatarUrl()
     return:
       type: System.String
-      description: "\nA string representing the user&apos;s avatar URL.\n"
     content.vb: Public Function GetDefaultAvatarUrl As String
   overload: Discord.Rest.RestUser.GetDefaultAvatarUrl*
-  implements:
-  - Discord.IUser.GetDefaultAvatarUrl
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -713,7 +659,6 @@ items:
       type: System.String
       description: "\nA string that resolves to Username#Discriminator of the user.\n"
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.Rest.RestUser.ToString*
   modifiers.csharp:
   - public
@@ -721,47 +666,6 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  id: Discord#IUser#GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  isEii: true
-  parent: Discord.Rest.RestUser
-  langs:
-  - csharp
-  - vb
-  name: IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  nameWithType: RestUser.IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  fullName: Discord.Rest.RestUser.Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.Rest/Entities/Users/RestUser.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IUser.GetOrCreateDMChannelAsync
-    path: ../src/Discord.Net.Rest/Entities/Users/RestUser.cs
-    startLine: 103
-  assemblies:
-  - Discord.Net.Rest
-  namespace: Discord.Rest
-  summary: "\nGets the direct message channel of this user, or create one if it does not already exist.\n"
-  remarks: "\nThis method is used to obtain or create a channel used to send a direct message.\n<div class=\"WARNING\"><h5>warning</h5><p>\n     In event that the current user cannot send a message to the target user, a channel can and will\n     still be created by Discord. However, attempting to send a message will yield a \n<xref href=\"Discord.Net.HttpException\" data-throw-if-not-resolved=\"false\"></xref> with a 403 as its \n<xref href=\"Discord.Net.HttpException.HttpCode\" data-throw-if-not-resolved=\"false\"></xref>. There are currently no official workarounds by\nDiscord.\n</p></div>\n"
-  example: []
-  syntax:
-    content: Task<IDMChannel> IUser.GetOrCreateDMChannelAsync(RequestOptions options)
-    parameters:
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IDMChannel}
-      description: "\nA task that represents the asynchronous operation for getting or creating a DM channel. The task result\ncontains the DM channel associated with this user.\n"
-    content.vb: Function Discord.IUser.GetOrCreateDMChannelAsync(options As RequestOptions) As Task(Of IDMChannel) Implements IUser.GetOrCreateDMChannelAsync
-  overload: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync*
-  implements:
-  - Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  nameWithType.vb: RestUser.Discord.IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  name.vb: Discord.IUser.GetOrCreateDMChannelAsync(RequestOptions)
 references:
 - uid: Discord.Rest
   commentId: N:Discord.Rest
@@ -769,8 +673,6 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -817,18 +719,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IUser
-  commentId: T:Discord.IUser
-  parent: Discord
-  name: IUser
-  nameWithType: IUser
-  fullName: Discord.IUser
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -871,6 +761,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IUser
+  commentId: T:Discord.IUser
+  parent: Discord
+  name: IUser
+  nameWithType: IUser
+  fullName: Discord.IUser
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IMentionable
   commentId: T:Discord.IMentionable
   parent: Discord
@@ -898,260 +800,6 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -1188,11 +836,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -1229,6 +872,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -1241,15 +889,7 @@ references:
   name: IsBot
   nameWithType: RestUser.IsBot
   fullName: Discord.Rest.RestUser.IsBot
-- uid: Discord.IUser.IsBot
-  commentId: P:Discord.IUser.IsBot
-  parent: Discord.IUser
-  name: IsBot
-  nameWithType: IUser.IsBot
-  fullName: Discord.IUser.IsBot
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -1259,15 +899,7 @@ references:
   name: Username
   nameWithType: RestUser.Username
   fullName: Discord.Rest.RestUser.Username
-- uid: Discord.IUser.Username
-  commentId: P:Discord.IUser.Username
-  parent: Discord.IUser
-  name: Username
-  nameWithType: IUser.Username
-  fullName: Discord.IUser.Username
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1277,15 +909,7 @@ references:
   name: DiscriminatorValue
   nameWithType: RestUser.DiscriminatorValue
   fullName: Discord.Rest.RestUser.DiscriminatorValue
-- uid: Discord.IUser.DiscriminatorValue
-  commentId: P:Discord.IUser.DiscriminatorValue
-  parent: Discord.IUser
-  name: DiscriminatorValue
-  nameWithType: IUser.DiscriminatorValue
-  fullName: Discord.IUser.DiscriminatorValue
 - uid: System.UInt16
-  commentId: T:System.UInt16
-  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
@@ -1295,52 +919,26 @@ references:
   name: AvatarId
   nameWithType: RestUser.AvatarId
   fullName: Discord.Rest.RestUser.AvatarId
-- uid: Discord.IUser.AvatarId
-  commentId: P:Discord.IUser.AvatarId
-  parent: Discord.IUser
-  name: AvatarId
-  nameWithType: IUser.AvatarId
-  fullName: Discord.IUser.AvatarId
 - uid: Discord.Rest.RestUser.CreatedAt*
   commentId: Overload:Discord.Rest.RestUser.CreatedAt
   name: CreatedAt
   nameWithType: RestUser.CreatedAt
   fullName: Discord.Rest.RestUser.CreatedAt
-- uid: Discord.ISnowflakeEntity.CreatedAt
-  commentId: P:Discord.ISnowflakeEntity.CreatedAt
-  parent: Discord.ISnowflakeEntity
-  name: CreatedAt
-  nameWithType: ISnowflakeEntity.CreatedAt
-  fullName: Discord.ISnowflakeEntity.CreatedAt
-- uid: System.DateTimeOffset
-  commentId: T:System.DateTimeOffset
-  parent: System
+- uid: DateTimeOffset
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: System.DateTimeOffset
+  fullName: DateTimeOffset
 - uid: Discord.Rest.RestUser.Discriminator*
   commentId: Overload:Discord.Rest.RestUser.Discriminator
   name: Discriminator
   nameWithType: RestUser.Discriminator
   fullName: Discord.Rest.RestUser.Discriminator
-- uid: Discord.IUser.Discriminator
-  commentId: P:Discord.IUser.Discriminator
-  parent: Discord.IUser
-  name: Discriminator
-  nameWithType: IUser.Discriminator
-  fullName: Discord.IUser.Discriminator
 - uid: Discord.Rest.RestUser.Mention*
   commentId: Overload:Discord.Rest.RestUser.Mention
   name: Mention
   nameWithType: RestUser.Mention
   fullName: Discord.Rest.RestUser.Mention
-- uid: Discord.IMentionable.Mention
-  commentId: P:Discord.IMentionable.Mention
-  parent: Discord.IMentionable
-  name: Mention
-  nameWithType: IMentionable.Mention
-  fullName: Discord.IMentionable.Mention
 - uid: Discord.Rest.RestUser.Activity*
   commentId: Overload:Discord.Rest.RestUser.Activity
   name: Activity
@@ -1380,27 +978,20 @@ references:
   name: ActiveClients
   nameWithType: RestUser.ActiveClients
   fullName: Discord.Rest.RestUser.ActiveClients
-- uid: Discord.IPresence.ActiveClients
-  commentId: P:Discord.IPresence.ActiveClients
-  parent: Discord.IPresence
-  name: ActiveClients
-  nameWithType: IPresence.ActiveClients
-  fullName: Discord.IPresence.ActiveClients
-- uid: System.Collections.Immutable.IImmutableSet{Discord.ClientType}
-  commentId: T:System.Collections.Immutable.IImmutableSet{Discord.ClientType}
-  parent: System.Collections.Immutable
-  definition: System.Collections.Immutable.IImmutableSet`1
+- uid: IImmutableSet{Discord.ClientType}
+  commentId: '!:IImmutableSet{Discord.ClientType}'
+  definition: IImmutableSet`1
   name: IImmutableSet<ClientType>
   nameWithType: IImmutableSet<ClientType>
-  fullName: System.Collections.Immutable.IImmutableSet<Discord.ClientType>
+  fullName: IImmutableSet<Discord.ClientType>
   nameWithType.vb: IImmutableSet(Of ClientType)
-  fullName.vb: System.Collections.Immutable.IImmutableSet(Of Discord.ClientType)
+  fullName.vb: IImmutableSet(Of Discord.ClientType)
   name.vb: IImmutableSet(Of ClientType)
   spec.csharp:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: <
     nameWithType: <
@@ -1413,10 +1004,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1428,142 +1019,84 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Immutable.IImmutableSet`1
-  commentId: T:System.Collections.Immutable.IImmutableSet`1
+- uid: IImmutableSet`1
   isExternal: true
-  name: IImmutableSet<T>
-  nameWithType: IImmutableSet<T>
-  fullName: System.Collections.Immutable.IImmutableSet<T>
-  nameWithType.vb: IImmutableSet(Of T)
-  fullName.vb: System.Collections.Immutable.IImmutableSet(Of T)
-  name.vb: IImmutableSet(Of T)
+  name: IImmutableSet<>
+  nameWithType: IImmutableSet<>
+  fullName: IImmutableSet<>
+  nameWithType.vb: IImmutableSet(Of )
+  fullName.vb: IImmutableSet(Of )
+  name.vb: IImmutableSet(Of )
   spec.csharp:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Immutable.IImmutableSet`1
+  - uid: IImmutableSet`1
     name: IImmutableSet
     nameWithType: IImmutableSet
-    fullName: System.Collections.Immutable.IImmutableSet
+    fullName: IImmutableSet
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Immutable
-  commentId: N:System.Collections.Immutable
-  isExternal: true
-  name: System.Collections.Immutable
-  nameWithType: System.Collections.Immutable
-  fullName: System.Collections.Immutable
 - uid: Discord.Rest.RestUser.IsWebhook*
   commentId: Overload:Discord.Rest.RestUser.IsWebhook
   name: IsWebhook
   nameWithType: RestUser.IsWebhook
   fullName: Discord.Rest.RestUser.IsWebhook
-- uid: Discord.IUser.IsWebhook
-  commentId: P:Discord.IUser.IsWebhook
-  parent: Discord.IUser
-  name: IsWebhook
-  nameWithType: IUser.IsWebhook
-  fullName: Discord.IUser.IsWebhook
 - uid: Discord.Rest.RestUser.UpdateAsync*
   commentId: Overload:Discord.Rest.RestUser.UpdateAsync
   name: UpdateAsync
   nameWithType: RestUser.UpdateAsync
   fullName: Discord.Rest.RestUser.UpdateAsync
-- uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  commentId: M:Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  parent: Discord.IUpdateable
-  name: UpdateAsync(RequestOptions)
-  nameWithType: IUpdateable.UpdateAsync(RequestOptions)
-  fullName: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-    name: UpdateAsync
-    nameWithType: IUpdateable.UpdateAsync
-    fullName: Discord.IUpdateable.UpdateAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-    name: UpdateAsync
-    nameWithType: IUpdateable.UpdateAsync
-    fullName: Discord.IUpdateable.UpdateAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.Rest.RestUser.GetOrCreateDMChannelAsync*
   commentId: Overload:Discord.Rest.RestUser.GetOrCreateDMChannelAsync
   name: GetOrCreateDMChannelAsync
   nameWithType: RestUser.GetOrCreateDMChannelAsync
   fullName: Discord.Rest.RestUser.GetOrCreateDMChannelAsync
-- uid: System.Threading.Tasks.Task{Discord.Rest.RestDMChannel}
-  commentId: T:System.Threading.Tasks.Task{Discord.Rest.RestDMChannel}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+- uid: Task{Discord.Rest.RestDMChannel}
+  commentId: '!:Task{Discord.Rest.RestDMChannel}'
+  definition: Task`1
   name: Task<RestDMChannel>
   nameWithType: Task<RestDMChannel>
-  fullName: System.Threading.Tasks.Task<Discord.Rest.RestDMChannel>
+  fullName: Task<Discord.Rest.RestDMChannel>
   nameWithType.vb: Task(Of RestDMChannel)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.Rest.RestDMChannel)
+  fullName.vb: Task(Of Discord.Rest.RestDMChannel)
   name.vb: Task(Of RestDMChannel)
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -1576,10 +1109,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1591,42 +1124,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Threading.Tasks.Task`1
-  commentId: T:System.Threading.Tasks.Task`1
+- uid: Task`1
   isExternal: true
-  name: Task<TResult>
-  nameWithType: Task<TResult>
-  fullName: System.Threading.Tasks.Task<TResult>
-  nameWithType.vb: Task(Of TResult)
-  fullName.vb: System.Threading.Tasks.Task(Of TResult)
-  name.vb: Task(Of TResult)
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -1635,59 +1167,6 @@ references:
   name: GetAvatarUrl
   nameWithType: RestUser.GetAvatarUrl
   fullName: Discord.Rest.RestUser.GetAvatarUrl
-- uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-  commentId: M:Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-  parent: Discord.IUser
-  isExternal: true
-  name: GetAvatarUrl(ImageFormat, UInt16)
-  nameWithType: IUser.GetAvatarUrl(ImageFormat, UInt16)
-  fullName: Discord.IUser.GetAvatarUrl(Discord.ImageFormat, System.UInt16)
-  spec.csharp:
-  - uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-    name: GetAvatarUrl
-    nameWithType: IUser.GetAvatarUrl
-    fullName: Discord.IUser.GetAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.ImageFormat
-    name: ImageFormat
-    nameWithType: ImageFormat
-    fullName: Discord.ImageFormat
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUser.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-    name: GetAvatarUrl
-    nameWithType: IUser.GetAvatarUrl
-    fullName: Discord.IUser.GetAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.ImageFormat
-    name: ImageFormat
-    nameWithType: ImageFormat
-    fullName: Discord.ImageFormat
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.ImageFormat
   commentId: T:Discord.ImageFormat
   parent: Discord
@@ -1699,152 +1178,8 @@ references:
   name: GetDefaultAvatarUrl
   nameWithType: RestUser.GetDefaultAvatarUrl
   fullName: Discord.Rest.RestUser.GetDefaultAvatarUrl
-- uid: Discord.IUser.GetDefaultAvatarUrl
-  commentId: M:Discord.IUser.GetDefaultAvatarUrl
-  parent: Discord.IUser
-  name: GetDefaultAvatarUrl()
-  nameWithType: IUser.GetDefaultAvatarUrl()
-  fullName: Discord.IUser.GetDefaultAvatarUrl()
-  spec.csharp:
-  - uid: Discord.IUser.GetDefaultAvatarUrl
-    name: GetDefaultAvatarUrl
-    nameWithType: IUser.GetDefaultAvatarUrl
-    fullName: Discord.IUser.GetDefaultAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUser.GetDefaultAvatarUrl
-    name: GetDefaultAvatarUrl
-    nameWithType: IUser.GetDefaultAvatarUrl
-    fullName: Discord.IUser.GetDefaultAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest.RestUser.ToString*
   commentId: Overload:Discord.Rest.RestUser.ToString
   name: ToString
   nameWithType: RestUser.ToString
   fullName: Discord.Rest.RestUser.ToString
-- uid: Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync*
-  commentId: Overload:Discord.Rest.RestUser.Discord#IUser#GetOrCreateDMChannelAsync
-  name: IUser.GetOrCreateDMChannelAsync
-  nameWithType: RestUser.IUser.GetOrCreateDMChannelAsync
-  fullName: Discord.Rest.RestUser.Discord.IUser.GetOrCreateDMChannelAsync
-  nameWithType.vb: RestUser.Discord.IUser.GetOrCreateDMChannelAsync
-  name.vb: Discord.IUser.GetOrCreateDMChannelAsync
-- uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  commentId: M:Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  parent: Discord.IUser
-  name: GetOrCreateDMChannelAsync(RequestOptions)
-  nameWithType: IUser.GetOrCreateDMChannelAsync(RequestOptions)
-  fullName: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-    name: GetOrCreateDMChannelAsync
-    nameWithType: IUser.GetOrCreateDMChannelAsync
-    fullName: Discord.IUser.GetOrCreateDMChannelAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUser.GetOrCreateDMChannelAsync(Discord.RequestOptions)
-    name: GetOrCreateDMChannelAsync
-    nameWithType: IUser.GetOrCreateDMChannelAsync
-    fullName: Discord.IUser.GetOrCreateDMChannelAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Threading.Tasks.Task{Discord.IDMChannel}
-  commentId: T:System.Threading.Tasks.Task{Discord.IDMChannel}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  name: Task<IDMChannel>
-  nameWithType: Task<IDMChannel>
-  fullName: System.Threading.Tasks.Task<Discord.IDMChannel>
-  nameWithType.vb: Task(Of IDMChannel)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.IDMChannel)
-  name.vb: Task(Of IDMChannel)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IDMChannel
-    name: IDMChannel
-    nameWithType: IDMChannel
-    fullName: Discord.IDMChannel
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IDMChannel
-    name: IDMChannel
-    nameWithType: IDMChannel
-    fullName: Discord.IDMChannel
-  - name: )
-    nameWithType: )
-    fullName: )

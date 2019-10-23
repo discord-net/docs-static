@@ -34,21 +34,15 @@ items:
   summary: "\nRepresents a message attachment found in a <xref href=\"Discord.IUserMessage\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: 'public class Attachment : IAttachment'
+    content: 'public class Attachment : object, IAttachment'
     content.vb: >-
       Public Class Attachment
+          Inherits Object
           Implements IAttachment
   inheritance:
   - System.Object
   implements:
   - Discord.IAttachment
-  inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -77,18 +71,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the ID of this attachment.\n"
   example: []
   syntax:
     content: public ulong Id { get; }
     parameters: []
     return:
       type: System.UInt64
-      description: "\nA snowflake ID associated with this attachment.\n"
     content.vb: Public ReadOnly Property Id As ULong
   overload: Discord.Attachment.Id*
-  implements:
-  - Discord.IAttachment.Id
   modifiers.csharp:
   - public
   - get
@@ -117,18 +107,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the filename of this attachment.\n"
   example: []
   syntax:
     content: public string Filename { get; }
     parameters: []
     return:
       type: System.String
-      description: "\nA string containing the full filename of this attachment (e.g. <code>textFile.txt</code>).\n"
     content.vb: Public ReadOnly Property Filename As String
   overload: Discord.Attachment.Filename*
-  implements:
-  - Discord.IAttachment.Filename
   modifiers.csharp:
   - public
   - get
@@ -157,18 +143,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the URL of this attachment.\n"
   example: []
   syntax:
     content: public string Url { get; }
     parameters: []
     return:
       type: System.String
-      description: "\nA string containing the URL of this attachment.\n"
     content.vb: Public ReadOnly Property Url As String
   overload: Discord.Attachment.Url*
-  implements:
-  - Discord.IAttachment.Url
   modifiers.csharp:
   - public
   - get
@@ -197,18 +179,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets a proxied URL of this attachment.\n"
   example: []
   syntax:
     content: public string ProxyUrl { get; }
     parameters: []
     return:
       type: System.String
-      description: "\nA string containing the proxied URL of this attachment.\n"
     content.vb: Public ReadOnly Property ProxyUrl As String
   overload: Discord.Attachment.ProxyUrl*
-  implements:
-  - Discord.IAttachment.ProxyUrl
   modifiers.csharp:
   - public
   - get
@@ -237,18 +215,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the file size of this attachment.\n"
   example: []
   syntax:
     content: public int Size { get; }
     parameters: []
     return:
       type: System.Int32
-      description: "\nThe size of this attachment in bytes.\n"
     content.vb: Public ReadOnly Property Size As Integer
   overload: Discord.Attachment.Size*
-  implements:
-  - Discord.IAttachment.Size
   modifiers.csharp:
   - public
   - get
@@ -277,18 +251,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the height of this attachment.\n"
   example: []
   syntax:
     content: public int? Height { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-      description: "\nThe height of this attachment if it is a picture; otherwise <code>null</code>.\n"
     content.vb: Public ReadOnly Property Height As Integer?
   overload: Discord.Attachment.Height*
-  implements:
-  - Discord.IAttachment.Height
   modifiers.csharp:
   - public
   - get
@@ -317,18 +287,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord
-  summary: "\nGets the width of this attachment.\n"
   example: []
   syntax:
     content: public int? Width { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-      description: "\nThe width of this attachment if it is a picture; otherwise <code>null</code>.\n"
     content.vb: Public ReadOnly Property Width As Integer?
   overload: Discord.Attachment.Width*
-  implements:
-  - Discord.IAttachment.Width
   modifiers.csharp:
   - public
   - get
@@ -365,7 +331,6 @@ items:
       type: System.String
       description: "\nA string containing the filename of this attachment.\n"
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.Attachment.ToString*
   modifiers.csharp:
   - public
@@ -380,8 +345,6 @@ references:
   nameWithType: Discord
   fullName: Discord
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -392,274 +355,12 @@ references:
   name: IAttachment
   nameWithType: IAttachment
   fullName: Discord.IAttachment
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Attachment.Id*
   commentId: Overload:Discord.Attachment.Id
   name: Id
   nameWithType: Attachment.Id
   fullName: Discord.Attachment.Id
-- uid: Discord.IAttachment.Id
-  commentId: P:Discord.IAttachment.Id
-  parent: Discord.IAttachment
-  name: Id
-  nameWithType: IAttachment.Id
-  fullName: Discord.IAttachment.Id
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -669,15 +370,7 @@ references:
   name: Filename
   nameWithType: Attachment.Filename
   fullName: Discord.Attachment.Filename
-- uid: Discord.IAttachment.Filename
-  commentId: P:Discord.IAttachment.Filename
-  parent: Discord.IAttachment
-  name: Filename
-  nameWithType: IAttachment.Filename
-  fullName: Discord.IAttachment.Filename
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -687,37 +380,17 @@ references:
   name: Url
   nameWithType: Attachment.Url
   fullName: Discord.Attachment.Url
-- uid: Discord.IAttachment.Url
-  commentId: P:Discord.IAttachment.Url
-  parent: Discord.IAttachment
-  name: Url
-  nameWithType: IAttachment.Url
-  fullName: Discord.IAttachment.Url
 - uid: Discord.Attachment.ProxyUrl*
   commentId: Overload:Discord.Attachment.ProxyUrl
   name: ProxyUrl
   nameWithType: Attachment.ProxyUrl
   fullName: Discord.Attachment.ProxyUrl
-- uid: Discord.IAttachment.ProxyUrl
-  commentId: P:Discord.IAttachment.ProxyUrl
-  parent: Discord.IAttachment
-  name: ProxyUrl
-  nameWithType: IAttachment.ProxyUrl
-  fullName: Discord.IAttachment.ProxyUrl
 - uid: Discord.Attachment.Size*
   commentId: Overload:Discord.Attachment.Size
   name: Size
   nameWithType: Attachment.Size
   fullName: Discord.Attachment.Size
-- uid: Discord.IAttachment.Size
-  commentId: P:Discord.IAttachment.Size
-  parent: Discord.IAttachment
-  name: Size
-  nameWithType: IAttachment.Size
-  fullName: Discord.IAttachment.Size
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
@@ -727,15 +400,8 @@ references:
   name: Height
   nameWithType: Attachment.Height
   fullName: Discord.Attachment.Height
-- uid: Discord.IAttachment.Height
-  commentId: P:Discord.IAttachment.Height
-  parent: Discord.IAttachment
-  name: Height
-  nameWithType: IAttachment.Height
-  fullName: Discord.IAttachment.Height
 - uid: System.Nullable{System.Int32}
-  commentId: T:System.Nullable{System.Int32}
-  parent: System
+  commentId: '!:System.Nullable{System.Int32}'
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -778,14 +444,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -795,9 +460,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -810,9 +475,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -821,43 +486,6 @@ references:
   name: Width
   nameWithType: Attachment.Width
   fullName: Discord.Attachment.Width
-- uid: Discord.IAttachment.Width
-  commentId: P:Discord.IAttachment.Width
-  parent: Discord.IAttachment
-  name: Width
-  nameWithType: IAttachment.Width
-  fullName: Discord.IAttachment.Width
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Attachment.ToString*
   commentId: Overload:Discord.Attachment.ToString
   name: ToString

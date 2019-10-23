@@ -33,18 +33,8 @@ items:
   summary: "\nFlags for the <xref href=\"Discord.IActivity.Flags\" data-throw-if-not-resolved=\"false\"></xref> property, that are ORd together.\nThese describe what the activity payload includes.\n"
   example: []
   syntax:
-    content: >-
-      [Flags]
-
-      public enum ActivityProperties
-    content.vb: >-
-      <Flags>
-
-      Public Enum ActivityProperties
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum ActivityProperties : int'
+    content.vb: Public Enum ActivityProperties As Integer
   modifiers.csharp:
   - public
   - enum
@@ -76,9 +66,10 @@ items:
   summary: "\nIndicates that no actions on this activity can be taken.\n"
   example: []
   syntax:
-    content: None = 0
+    content: None = null
     return:
       type: Discord.ActivityProperties
+    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -108,9 +99,10 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: Instance = 1
+    content: Instance = null
     return:
       type: Discord.ActivityProperties
+    content.vb: Instance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -142,9 +134,10 @@ items:
   summary: "\nIndicates that this activity can be joined.\n"
   example: []
   syntax:
-    content: Join = 2
+    content: Join = null
     return:
       type: Discord.ActivityProperties
+    content.vb: Join = Nothing
   modifiers.csharp:
   - public
   - const
@@ -176,9 +169,10 @@ items:
   summary: "\nIndicates that this activity can be spectated.\n"
   example: []
   syntax:
-    content: Spectate = 4
+    content: Spectate = null
     return:
       type: Discord.ActivityProperties
+    content.vb: Spectate = Nothing
   modifiers.csharp:
   - public
   - const
@@ -210,9 +204,10 @@ items:
   summary: "\nIndicates that a user may request to join an activity.\n"
   example: []
   syntax:
-    content: JoinRequest = 8
+    content: JoinRequest = null
     return:
       type: Discord.ActivityProperties
+    content.vb: JoinRequest = Nothing
   modifiers.csharp:
   - public
   - const
@@ -244,9 +239,10 @@ items:
   summary: "\nIndicates that a user can listen along in Spotify.\n"
   example: []
   syntax:
-    content: Sync = 16
+    content: Sync = null
     return:
       type: Discord.ActivityProperties
+    content.vb: Sync = Nothing
   modifiers.csharp:
   - public
   - const
@@ -278,9 +274,10 @@ items:
   summary: "\nIndicates that a user can play this song.\n"
   example: []
   syntax:
-    content: Play = 32
+    content: Play = null
     return:
       type: Discord.ActivityProperties
+    content.vb: Play = Nothing
   modifiers.csharp:
   - public
   - const

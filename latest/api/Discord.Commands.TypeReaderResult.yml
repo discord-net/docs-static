@@ -10,9 +10,9 @@ items:
   - Discord.Commands.TypeReaderResult.ErrorReason
   - Discord.Commands.TypeReaderResult.FromError(Discord.Commands.CommandError,System.String)
   - Discord.Commands.TypeReaderResult.FromError(Discord.Commands.IResult)
-  - Discord.Commands.TypeReaderResult.FromError(System.Exception)
+  - Discord.Commands.TypeReaderResult.FromError(Exception)
   - Discord.Commands.TypeReaderResult.FromSuccess(Discord.Commands.TypeReaderValue)
-  - Discord.Commands.TypeReaderResult.FromSuccess(System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue})
+  - Discord.Commands.TypeReaderResult.FromSuccess(IReadOnlyCollection{Discord.Commands.TypeReaderValue})
   - Discord.Commands.TypeReaderResult.FromSuccess(System.Object)
   - Discord.Commands.TypeReaderResult.IsSuccess
   - Discord.Commands.TypeReaderResult.ToString
@@ -42,12 +42,6 @@ items:
           Implements IResult
   implements:
   - Discord.Commands.IResult
-  inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -80,7 +74,7 @@ items:
     content: public IReadOnlyCollection<TypeReaderValue> Values { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue}
+      type: IReadOnlyCollection{Discord.Commands.TypeReaderValue}
     content.vb: Public ReadOnly Property Values As IReadOnlyCollection(Of TypeReaderValue)
   overload: Discord.Commands.TypeReaderResult.Values*
   modifiers.csharp:
@@ -239,10 +233,6 @@ items:
       type: System.Object
     content.vb: Public ReadOnly Property BestMatch As Object
   overload: Discord.Commands.TypeReaderResult.BestMatch*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: TypeReaderResult was not successful.
   modifiers.csharp:
   - public
   - get
@@ -323,16 +313,16 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.Commands.TypeReaderResult.FromSuccess(System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue})
-  commentId: M:Discord.Commands.TypeReaderResult.FromSuccess(System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue})
-  id: FromSuccess(System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue})
+- uid: Discord.Commands.TypeReaderResult.FromSuccess(IReadOnlyCollection{Discord.Commands.TypeReaderValue})
+  commentId: M:Discord.Commands.TypeReaderResult.FromSuccess(IReadOnlyCollection{Discord.Commands.TypeReaderValue})
+  id: FromSuccess(IReadOnlyCollection{Discord.Commands.TypeReaderValue})
   parent: Discord.Commands.TypeReaderResult
   langs:
   - csharp
   - vb
   name: FromSuccess(IReadOnlyCollection<TypeReaderValue>)
   nameWithType: TypeReaderResult.FromSuccess(IReadOnlyCollection<TypeReaderValue>)
-  fullName: Discord.Commands.TypeReaderResult.FromSuccess(System.Collections.Generic.IReadOnlyCollection<Discord.Commands.TypeReaderValue>)
+  fullName: Discord.Commands.TypeReaderResult.FromSuccess(IReadOnlyCollection<Discord.Commands.TypeReaderValue>)
   type: Method
   source:
     remote:
@@ -349,7 +339,7 @@ items:
     content: public static TypeReaderResult FromSuccess(IReadOnlyCollection<TypeReaderValue> values)
     parameters:
     - id: values
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue}
+      type: IReadOnlyCollection{Discord.Commands.TypeReaderValue}
     return:
       type: Discord.Commands.TypeReaderResult
     content.vb: Public Shared Function FromSuccess(values As IReadOnlyCollection(Of TypeReaderValue)) As TypeReaderResult
@@ -361,7 +351,7 @@ items:
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: Discord.Commands.TypeReaderResult.FromSuccess(System.Collections.Generic.IReadOnlyCollection(Of Discord.Commands.TypeReaderValue))
+  fullName.vb: Discord.Commands.TypeReaderResult.FromSuccess(IReadOnlyCollection(Of Discord.Commands.TypeReaderValue))
   name.vb: FromSuccess(IReadOnlyCollection(Of TypeReaderValue))
 - uid: Discord.Commands.TypeReaderResult.FromError(Discord.Commands.CommandError,System.String)
   commentId: M:Discord.Commands.TypeReaderResult.FromError(Discord.Commands.CommandError,System.String)
@@ -402,16 +392,16 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: Discord.Commands.TypeReaderResult.FromError(System.Exception)
-  commentId: M:Discord.Commands.TypeReaderResult.FromError(System.Exception)
-  id: FromError(System.Exception)
+- uid: Discord.Commands.TypeReaderResult.FromError(Exception)
+  commentId: M:Discord.Commands.TypeReaderResult.FromError(Exception)
+  id: FromError(Exception)
   parent: Discord.Commands.TypeReaderResult
   langs:
   - csharp
   - vb
   name: FromError(Exception)
   nameWithType: TypeReaderResult.FromError(Exception)
-  fullName: Discord.Commands.TypeReaderResult.FromError(System.Exception)
+  fullName: Discord.Commands.TypeReaderResult.FromError(Exception)
   type: Method
   source:
     remote:
@@ -428,7 +418,7 @@ items:
     content: public static TypeReaderResult FromError(Exception ex)
     parameters:
     - id: ex
-      type: System.Exception
+      type: Exception
     return:
       type: Discord.Commands.TypeReaderResult
     content.vb: Public Shared Function FromError(ex As Exception) As TypeReaderResult
@@ -503,7 +493,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.ValueType.ToString
   overload: Discord.Commands.TypeReaderResult.ToString*
   modifiers.csharp:
   - public
@@ -523,263 +512,25 @@ references:
   name: IResult
   nameWithType: IResult
   fullName: Discord.Commands.IResult
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: ValueType.Equals(Object)
-  fullName: System.ValueType.Equals(System.Object)
-  spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Commands.TypeReaderResult.Values*
   commentId: Overload:Discord.Commands.TypeReaderResult.Values
   name: Values
   nameWithType: TypeReaderResult.Values
   fullName: Discord.Commands.TypeReaderResult.Values
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.Commands.TypeReaderValue}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection{Discord.Commands.TypeReaderValue}
+  commentId: '!:IReadOnlyCollection{Discord.Commands.TypeReaderValue}'
+  definition: IReadOnlyCollection`1
   name: IReadOnlyCollection<TypeReaderValue>
   nameWithType: IReadOnlyCollection<TypeReaderValue>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.Commands.TypeReaderValue>
+  fullName: IReadOnlyCollection<Discord.Commands.TypeReaderValue>
   nameWithType.vb: IReadOnlyCollection(Of TypeReaderValue)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.Commands.TypeReaderValue)
+  fullName.vb: IReadOnlyCollection(Of Discord.Commands.TypeReaderValue)
   name.vb: IReadOnlyCollection(Of TypeReaderValue)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -792,10 +543,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -807,51 +558,44 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IReadOnlyCollection`1
-  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<T>
-  nameWithType: IReadOnlyCollection<T>
-  fullName: System.Collections.Generic.IReadOnlyCollection<T>
-  nameWithType.vb: IReadOnlyCollection(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
-  name.vb: IReadOnlyCollection(Of T)
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: Discord.Commands.TypeReaderResult.Error*
   commentId: Overload:Discord.Commands.TypeReaderResult.Error
   name: Error
@@ -864,8 +608,7 @@ references:
   nameWithType: IResult.Error
   fullName: Discord.Commands.IResult.Error
 - uid: System.Nullable{Discord.Commands.CommandError}
-  commentId: T:System.Nullable{Discord.Commands.CommandError}
-  parent: System
+  commentId: '!:System.Nullable{Discord.Commands.CommandError}'
   definition: System.Nullable`1
   name: Nullable<CommandError>
   nameWithType: Nullable<CommandError>
@@ -906,14 +649,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -923,9 +665,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -938,9 +680,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -956,8 +698,6 @@ references:
   nameWithType: IResult.ErrorReason
   fullName: Discord.Commands.IResult.ErrorReason
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -974,20 +714,20 @@ references:
   nameWithType: IResult.IsSuccess
   fullName: Discord.Commands.IResult.IsSuccess
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
 - uid: Discord.Commands.TypeReaderResult.BestMatch*
   commentId: Overload:Discord.Commands.TypeReaderResult.BestMatch
   name: BestMatch
   nameWithType: TypeReaderResult.BestMatch
   fullName: Discord.Commands.TypeReaderResult.BestMatch
+- uid: System.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
 - uid: Discord.Commands.TypeReaderResult.FromSuccess*
   commentId: Overload:Discord.Commands.TypeReaderResult.FromSuccess
   name: FromSuccess
@@ -1016,44 +756,11 @@ references:
   name: CommandError
   nameWithType: CommandError
   fullName: Discord.Commands.CommandError
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
+- uid: Exception
   isExternal: true
   name: Exception
   nameWithType: Exception
-  fullName: System.Exception
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
+  fullName: Exception
 - uid: Discord.Commands.TypeReaderResult.ToString*
   commentId: Overload:Discord.Commands.TypeReaderResult.ToString
   name: ToString

@@ -5,13 +5,13 @@ items:
   id: ITextChannel
   parent: Discord
   children:
-  - Discord.ITextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  - Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  - Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+  - Discord.ITextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  - Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  - Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
   - Discord.ITextChannel.GetWebhookAsync(System.UInt64,Discord.RequestOptions)
   - Discord.ITextChannel.GetWebhooksAsync(Discord.RequestOptions)
   - Discord.ITextChannel.IsNsfw
-  - Discord.ITextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  - Discord.ITextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
   - Discord.ITextChannel.SlowModeInterval
   - Discord.ITextChannel.Topic
   langs:
@@ -42,7 +42,7 @@ items:
   inheritedMembers:
   - Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
   - Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
   - Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
@@ -62,7 +62,7 @@ items:
   - Discord.IGuildChannel.Guild
   - Discord.IGuildChannel.GuildId
   - Discord.IGuildChannel.PermissionOverwrites
-  - Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   - Discord.IGuildChannel.GetPermissionOverwrite(Discord.IRole)
   - Discord.IGuildChannel.GetPermissionOverwrite(Discord.IUser)
   - Discord.IGuildChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)
@@ -182,23 +182,23 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "\nAn <xref href=\"System.Int32\" data-throw-if-not-resolved=\"false\"></xref> representing the time in seconds required before the user can send another\nmessage; <code>0</code> if disabled.\n"
+      description: "\nAn <see cref=\"!:Int32\"></see> representing the time in seconds required before the user can send another\nmessage; <code>0</code> if disabled.\n"
     content.vb: ReadOnly Property SlowModeInterval As Integer
   overload: Discord.ITextChannel.SlowModeInterval*
   modifiers.csharp:
   - get
   modifiers.vb:
   - ReadOnly
-- uid: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  commentId: M:Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
-  id: DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)
+- uid: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  commentId: M:Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
+  id: DeleteMessagesAsync(IEnumerable{Discord.IMessage},Discord.RequestOptions)
   parent: Discord.ITextChannel
   langs:
   - csharp
   - vb
   name: DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
   nameWithType: ITextChannel.DeleteMessagesAsync(IEnumerable<IMessage>, RequestOptions)
-  fullName: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<Discord.IMessage>, Discord.RequestOptions)
+  fullName: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable<Discord.IMessage>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -219,29 +219,29 @@ items:
     content: Task DeleteMessagesAsync(IEnumerable<IMessage> messages, RequestOptions options = null)
     parameters:
     - id: messages
-      type: System.Collections.Generic.IEnumerable{Discord.IMessage}
+      type: IEnumerable{Discord.IMessage}
       description: The messages to be bulk-deleted.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous bulk-removal operation.\n"
     content.vb: Function DeleteMessagesAsync(messages As IEnumerable(Of IMessage), options As RequestOptions = Nothing) As Task
   overload: Discord.ITextChannel.DeleteMessagesAsync*
   nameWithType.vb: ITextChannel.DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
-  fullName.vb: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
+  fullName.vb: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable(Of Discord.IMessage), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of IMessage), RequestOptions)
-- uid: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
-  commentId: M:Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
-  id: DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)
+- uid: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  commentId: M:Discord.ITextChannel.DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
+  id: DeleteMessagesAsync(IEnumerable{System.UInt64},Discord.RequestOptions)
   parent: Discord.ITextChannel
   langs:
   - csharp
   - vb
   name: DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
   nameWithType: ITextChannel.DeleteMessagesAsync(IEnumerable<UInt64>, RequestOptions)
-  fullName: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable<System.UInt64>, Discord.RequestOptions)
+  fullName: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable<System.UInt64>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -261,29 +261,29 @@ items:
     content: Task DeleteMessagesAsync(IEnumerable<ulong> messageIds, RequestOptions options = null)
     parameters:
     - id: messageIds
-      type: System.Collections.Generic.IEnumerable{System.UInt64}
+      type: IEnumerable{System.UInt64}
       description: The snowflake identifier of the messages to be bulk-deleted.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous bulk-removal operation.\n"
     content.vb: Function DeleteMessagesAsync(messageIds As IEnumerable(Of ULong), options As RequestOptions = Nothing) As Task
   overload: Discord.ITextChannel.DeleteMessagesAsync*
   nameWithType.vb: ITextChannel.DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
-  fullName.vb: Discord.ITextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable(Of System.UInt64), Discord.RequestOptions)
+  fullName.vb: Discord.ITextChannel.DeleteMessagesAsync(IEnumerable(Of System.UInt64), Discord.RequestOptions)
   name.vb: DeleteMessagesAsync(IEnumerable(Of UInt64), RequestOptions)
-- uid: Discord.ITextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.ITextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
-  id: ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)
+- uid: Discord.ITextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.ITextChannel.ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.TextChannelProperties},Discord.RequestOptions)
   parent: Discord.ITextChannel
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<TextChannelProperties>, RequestOptions)
   nameWithType: ITextChannel.ModifyAsync(Action<TextChannelProperties>, RequestOptions)
-  fullName: Discord.ITextChannel.ModifyAsync(System.Action<Discord.TextChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.ITextChannel.ModifyAsync(Action<Discord.TextChannelProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -302,13 +302,13 @@ items:
     content: Task ModifyAsync(Action<TextChannelProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: System.Action{Discord.TextChannelProperties}
+      type: Action{Discord.TextChannelProperties}
       description: The delegate containing the properties to modify the channel with.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
       description: "\nA task that represents the asynchronous modification operation.\n"
     content.vb: Function ModifyAsync(func As Action(Of TextChannelProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.ITextChannel.ModifyAsync*
@@ -316,18 +316,18 @@ items:
   - linkId: Discord.TextChannelProperties
     commentId: T:Discord.TextChannelProperties
   nameWithType.vb: ITextChannel.ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
-  fullName.vb: Discord.ITextChannel.ModifyAsync(System.Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.ITextChannel.ModifyAsync(Action(Of Discord.TextChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of TextChannelProperties), RequestOptions)
-- uid: Discord.ITextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  commentId: M:Discord.ITextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
-  id: CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)
+- uid: Discord.ITextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  commentId: M:Discord.ITextChannel.CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
+  id: CreateWebhookAsync(System.String,Stream,Discord.RequestOptions)
   parent: Discord.ITextChannel
   langs:
   - csharp
   - vb
   name: CreateWebhookAsync(String, Stream, RequestOptions)
   nameWithType: ITextChannel.CreateWebhookAsync(String, Stream, RequestOptions)
-  fullName: Discord.ITextChannel.CreateWebhookAsync(System.String, System.IO.Stream, Discord.RequestOptions)
+  fullName: Discord.ITextChannel.CreateWebhookAsync(System.String, Stream, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -349,13 +349,13 @@ items:
       type: System.String
       description: The name of the webhook.
     - id: avatar
-      type: System.IO.Stream
+      type: Stream
       description: The avatar of the webhook.
     - id: options
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{Discord.IWebhook}
+      type: Task{Discord.IWebhook}
       description: "\nA task that represents the asynchronous creation operation. The task result contains the newly created\nwebhook.\n"
     content.vb: Function CreateWebhookAsync(name As String, avatar As Stream = Nothing, options As RequestOptions = Nothing) As Task(Of IWebhook)
   overload: Discord.ITextChannel.CreateWebhookAsync*
@@ -393,7 +393,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{Discord.IWebhook}
+      type: Task{Discord.IWebhook}
       description: "\nA task that represents the asynchronous get operation. The task result contains a webhook associated\nwith the identifier; <code>null</code> if the webhook is not found.\n"
     content.vb: Function GetWebhookAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of IWebhook)
   overload: Discord.ITextChannel.GetWebhookAsync*
@@ -428,7 +428,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
+      type: Task{IReadOnlyCollection{Discord.IWebhook}}
       description: "\nA task that represents the asynchronous get operation. The task result contains a read-only collection\nof webhooks that is available in this channel.\n"
     content.vb: Function GetWebhooksAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of IWebhook))
   overload: Discord.ITextChannel.GetWebhooksAsync*
@@ -636,25 +636,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.IMessageChannel
   isExternal: true
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.IMessageChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   spec.csharp:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: IMessageChannel.SendFileAsync
     fullName: Discord.IMessageChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -706,17 +706,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.IMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: IMessageChannel.SendFileAsync
     fullName: Discord.IMessageChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1610,28 +1610,28 @@ references:
   name: PermissionOverwrites
   nameWithType: IGuildChannel.PermissionOverwrites
   fullName: Discord.IGuildChannel.PermissionOverwrites
-- uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
-  commentId: M:Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+- uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  commentId: M:Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
   parent: Discord.IGuildChannel
   isExternal: true
   name: ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
   nameWithType: IGuildChannel.ModifyAsync(Action<GuildChannelProperties>, RequestOptions)
-  fullName: Discord.IGuildChannel.ModifyAsync(System.Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
+  fullName: Discord.IGuildChannel.ModifyAsync(Action<Discord.GuildChannelProperties>, Discord.RequestOptions)
   nameWithType.vb: IGuildChannel.ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
-  fullName.vb: Discord.IGuildChannel.ModifyAsync(System.Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
+  fullName.vb: Discord.IGuildChannel.ModifyAsync(Action(Of Discord.GuildChannelProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of GuildChannelProperties), RequestOptions)
   spec.csharp:
-  - uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildChannel.ModifyAsync
     fullName: Discord.IGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1654,17 +1654,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.IGuildChannel.ModifyAsync(System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)
+  - uid: Discord.IGuildChannel.ModifyAsync(Action{Discord.GuildChannelProperties},Discord.RequestOptions)
     name: ModifyAsync
     nameWithType: IGuildChannel.ModifyAsync
     fullName: Discord.IGuildChannel.ModifyAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2293,62 +2293,49 @@ references:
   nameWithType: ITextChannel.IsNsfw
   fullName: Discord.ITextChannel.IsNsfw
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.ITextChannel.Topic*
   commentId: Overload:Discord.ITextChannel.Topic
   name: Topic
   nameWithType: ITextChannel.Topic
   fullName: Discord.ITextChannel.Topic
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
 - uid: Discord.ITextChannel.SlowModeInterval*
   commentId: Overload:Discord.ITextChannel.SlowModeInterval
   name: SlowModeInterval
   nameWithType: ITextChannel.SlowModeInterval
   fullName: Discord.ITextChannel.SlowModeInterval
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
 - uid: Discord.ITextChannel.DeleteMessagesAsync*
   commentId: Overload:Discord.ITextChannel.DeleteMessagesAsync
   name: DeleteMessagesAsync
   nameWithType: ITextChannel.DeleteMessagesAsync
   fullName: Discord.ITextChannel.DeleteMessagesAsync
-- uid: System.Collections.Generic.IEnumerable{Discord.IMessage}
-  commentId: T:System.Collections.Generic.IEnumerable{Discord.IMessage}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerable`1
+- uid: IEnumerable{Discord.IMessage}
+  commentId: '!:IEnumerable{Discord.IMessage}'
+  definition: IEnumerable`1
   name: IEnumerable<IMessage>
   nameWithType: IEnumerable<IMessage>
-  fullName: System.Collections.Generic.IEnumerable<Discord.IMessage>
+  fullName: IEnumerable<Discord.IMessage>
   nameWithType.vb: IEnumerable(Of IMessage)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of Discord.IMessage)
+  fullName.vb: IEnumerable(Of Discord.IMessage)
   name.vb: IEnumerable(Of IMessage)
   spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -2361,10 +2348,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2382,79 +2369,63 @@ references:
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Collections.Generic.IEnumerable`1
-  commentId: T:System.Collections.Generic.IEnumerable`1
+  fullName: Task
+- uid: IEnumerable`1
   isExternal: true
-  name: IEnumerable<T>
-  nameWithType: IEnumerable<T>
-  fullName: System.Collections.Generic.IEnumerable<T>
-  nameWithType.vb: IEnumerable(Of T)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
-  name.vb: IEnumerable(Of T)
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
-- uid: System.Collections.Generic.IEnumerable{System.UInt64}
-  commentId: T:System.Collections.Generic.IEnumerable{System.UInt64}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerable`1
+- uid: IEnumerable{System.UInt64}
+  commentId: '!:IEnumerable{System.UInt64}'
+  definition: IEnumerable`1
   name: IEnumerable<UInt64>
   nameWithType: IEnumerable<UInt64>
-  fullName: System.Collections.Generic.IEnumerable<System.UInt64>
+  fullName: IEnumerable<System.UInt64>
   nameWithType.vb: IEnumerable(Of UInt64)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of System.UInt64)
+  fullName.vb: IEnumerable(Of System.UInt64)
   name.vb: IEnumerable(Of UInt64)
   spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: <
     nameWithType: <
@@ -2468,10 +2439,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
+  - uid: IEnumerable`1
     name: IEnumerable
     nameWithType: IEnumerable
-    fullName: System.Collections.Generic.IEnumerable
+    fullName: IEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2494,21 +2465,20 @@ references:
   name: ModifyAsync
   nameWithType: ITextChannel.ModifyAsync
   fullName: Discord.ITextChannel.ModifyAsync
-- uid: System.Action{Discord.TextChannelProperties}
-  commentId: T:System.Action{Discord.TextChannelProperties}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.TextChannelProperties}
+  commentId: '!:Action{Discord.TextChannelProperties}'
+  definition: Action`1
   name: Action<TextChannelProperties>
   nameWithType: Action<TextChannelProperties>
-  fullName: System.Action<Discord.TextChannelProperties>
+  fullName: Action<Discord.TextChannelProperties>
   nameWithType.vb: Action(Of TextChannelProperties)
-  fullName.vb: System.Action(Of Discord.TextChannelProperties)
+  fullName.vb: Action(Of Discord.TextChannelProperties)
   name.vb: Action(Of TextChannelProperties)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -2521,10 +2491,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2536,42 +2506,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -2580,28 +2549,25 @@ references:
   name: CreateWebhookAsync
   nameWithType: ITextChannel.CreateWebhookAsync
   fullName: Discord.ITextChannel.CreateWebhookAsync
-- uid: System.IO.Stream
-  commentId: T:System.IO.Stream
-  parent: System.IO
+- uid: Stream
   isExternal: true
   name: Stream
   nameWithType: Stream
-  fullName: System.IO.Stream
-- uid: System.Threading.Tasks.Task{Discord.IWebhook}
-  commentId: T:System.Threading.Tasks.Task{Discord.IWebhook}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+  fullName: Stream
+- uid: Task{Discord.IWebhook}
+  commentId: '!:Task{Discord.IWebhook}'
+  definition: Task`1
   name: Task<IWebhook>
   nameWithType: Task<IWebhook>
-  fullName: System.Threading.Tasks.Task<Discord.IWebhook>
+  fullName: Task<Discord.IWebhook>
   nameWithType.vb: Task(Of IWebhook)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.IWebhook)
+  fullName.vb: Task(Of Discord.IWebhook)
   name.vb: Task(Of IWebhook)
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -2614,10 +2580,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2629,48 +2595,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.IO
-  commentId: N:System.IO
+- uid: Task`1
   isExternal: true
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-- uid: System.Threading.Tasks.Task`1
-  commentId: T:System.Threading.Tasks.Task`1
-  isExternal: true
-  name: Task<TResult>
-  nameWithType: Task<TResult>
-  fullName: System.Threading.Tasks.Task<TResult>
-  nameWithType.vb: Task(Of TResult)
-  fullName.vb: System.Threading.Tasks.Task(Of TResult)
-  name.vb: Task(Of TResult)
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -2680,8 +2639,6 @@ references:
   nameWithType: ITextChannel.GetWebhookAsync
   fullName: Discord.ITextChannel.GetWebhookAsync
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -2691,29 +2648,28 @@ references:
   name: GetWebhooksAsync
   nameWithType: ITextChannel.GetWebhooksAsync
   fullName: Discord.ITextChannel.GetWebhooksAsync
-- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
-  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IWebhook}}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+- uid: Task{IReadOnlyCollection{Discord.IWebhook}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.IWebhook}}'
+  definition: Task`1
   name: Task<IReadOnlyCollection<IWebhook>>
   nameWithType: Task<IReadOnlyCollection<IWebhook>>
-  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IWebhook>>
+  fullName: Task<IReadOnlyCollection<Discord.IWebhook>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of IWebhook))
-  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IWebhook))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.IWebhook))
   name.vb: Task(Of IReadOnlyCollection(Of IWebhook))
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -2729,18 +2685,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '

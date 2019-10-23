@@ -5,13 +5,13 @@ items:
   id: LogMessage
   parent: Discord
   children:
-  - Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,System.Exception)
+  - Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,Exception)
   - Discord.LogMessage.Exception
   - Discord.LogMessage.Message
   - Discord.LogMessage.Severity
   - Discord.LogMessage.Source
   - Discord.LogMessage.ToString
-  - Discord.LogMessage.ToString(System.Text.StringBuilder,System.Boolean,System.Boolean,System.DateTimeKind,System.Nullable{System.Int32})
+  - Discord.LogMessage.ToString(StringBuilder,System.Boolean,System.Boolean,DateTimeKind,System.Nullable{System.Int32})
   langs:
   - csharp
   - vb
@@ -35,12 +35,6 @@ items:
   syntax:
     content: public struct LogMessage
     content.vb: Public Structure LogMessage
-  inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -189,7 +183,7 @@ items:
     content: public Exception Exception { get; }
     parameters: []
     return:
-      type: System.Exception
+      type: Exception
       description: "\nAn <xref href=\"Discord.LogMessage.Exception\" data-throw-if-not-resolved=\"false\"></xref> object associated with an incident; otherwise <code>null</code>.\n"
     content.vb: Public ReadOnly Property Exception As Exception
   overload: Discord.LogMessage.Exception*
@@ -199,16 +193,16 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,System.Exception)
-  commentId: M:Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,System.Exception)
-  id: '#ctor(Discord.LogSeverity,System.String,System.String,System.Exception)'
+- uid: Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,Exception)
+  commentId: M:Discord.LogMessage.#ctor(Discord.LogSeverity,System.String,System.String,Exception)
+  id: '#ctor(Discord.LogSeverity,System.String,System.String,Exception)'
   parent: Discord.LogMessage
   langs:
   - csharp
   - vb
   name: LogMessage(LogSeverity, String, String, Exception)
   nameWithType: LogMessage.LogMessage(LogSeverity, String, String, Exception)
-  fullName: Discord.LogMessage.LogMessage(Discord.LogSeverity, System.String, System.String, System.Exception)
+  fullName: Discord.LogMessage.LogMessage(Discord.LogSeverity, System.String, System.String, Exception)
   type: Constructor
   source:
     remote:
@@ -236,7 +230,7 @@ items:
       type: System.String
       description: The message of the event.
     - id: exception
-      type: System.Exception
+      type: Exception
       description: The exception of the event.
     content.vb: Public Sub New(severity As LogSeverity, source As String, message As String, exception As Exception = Nothing)
   overload: Discord.LogMessage.#ctor*
@@ -271,7 +265,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.ValueType.ToString
   overload: Discord.LogMessage.ToString*
   modifiers.csharp:
   - public
@@ -279,16 +272,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: Discord.LogMessage.ToString(System.Text.StringBuilder,System.Boolean,System.Boolean,System.DateTimeKind,System.Nullable{System.Int32})
-  commentId: M:Discord.LogMessage.ToString(System.Text.StringBuilder,System.Boolean,System.Boolean,System.DateTimeKind,System.Nullable{System.Int32})
-  id: ToString(System.Text.StringBuilder,System.Boolean,System.Boolean,System.DateTimeKind,System.Nullable{System.Int32})
+- uid: Discord.LogMessage.ToString(StringBuilder,System.Boolean,System.Boolean,DateTimeKind,System.Nullable{System.Int32})
+  commentId: M:Discord.LogMessage.ToString(StringBuilder,System.Boolean,System.Boolean,DateTimeKind,System.Nullable{System.Int32})
+  id: ToString(StringBuilder,System.Boolean,System.Boolean,DateTimeKind,System.Nullable{System.Int32})
   parent: Discord.LogMessage
   langs:
   - csharp
   - vb
   name: ToString(StringBuilder, Boolean, Boolean, DateTimeKind, Nullable<Int32>)
   nameWithType: LogMessage.ToString(StringBuilder, Boolean, Boolean, DateTimeKind, Nullable<Int32>)
-  fullName: Discord.LogMessage.ToString(System.Text.StringBuilder, System.Boolean, System.Boolean, System.DateTimeKind, System.Nullable<System.Int32>)
+  fullName: Discord.LogMessage.ToString(StringBuilder, System.Boolean, System.Boolean, DateTimeKind, System.Nullable<System.Int32>)
   type: Method
   source:
     remote:
@@ -302,28 +295,28 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: public string ToString(StringBuilder builder = null, bool fullException = true, bool prependTimestamp = true, DateTimeKind timestampKind = DateTimeKind.Local, int? padSource)
+    content: public string ToString(StringBuilder builder = null, bool fullException = true, bool prependTimestamp = true, DateTimeKind timestampKind = null, int? padSource)
     parameters:
     - id: builder
-      type: System.Text.StringBuilder
+      type: StringBuilder
     - id: fullException
       type: System.Boolean
     - id: prependTimestamp
       type: System.Boolean
     - id: timestampKind
-      type: System.DateTimeKind
+      type: DateTimeKind
     - id: padSource
       type: System.Nullable{System.Int32}
     return:
       type: System.String
-    content.vb: Public Function ToString(builder As StringBuilder = Nothing, fullException As Boolean = True, prependTimestamp As Boolean = True, timestampKind As DateTimeKind = DateTimeKind.Local, padSource As Integer?) As String
+    content.vb: Public Function ToString(builder As StringBuilder = Nothing, fullException As Boolean = True, prependTimestamp As Boolean = True, timestampKind As DateTimeKind = Nothing, padSource As Integer?) As String
   overload: Discord.LogMessage.ToString*
   nameWithType.vb: LogMessage.ToString(StringBuilder, Boolean, Boolean, DateTimeKind, Nullable(Of Int32))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.LogMessage.ToString(System.Text.StringBuilder, System.Boolean, System.Boolean, System.DateTimeKind, System.Nullable(Of System.Int32))
+  fullName.vb: Discord.LogMessage.ToString(StringBuilder, System.Boolean, System.Boolean, DateTimeKind, System.Nullable(Of System.Int32))
   name.vb: ToString(StringBuilder, Boolean, Boolean, DateTimeKind, Nullable(Of Int32))
 references:
 - uid: Discord
@@ -331,243 +324,6 @@ references:
   name: Discord
   nameWithType: Discord
   fullName: Discord
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: ValueType.Equals(Object)
-  fullName: System.ValueType.Equals(System.Object)
-  spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
-    nameWithType: ValueType.Equals
-    fullName: System.ValueType.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    nameWithType: ValueType.GetHashCode
-    fullName: System.ValueType.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.LogSeverity
   commentId: T:Discord.LogSeverity
   parent: Discord
@@ -585,8 +341,6 @@ references:
   nameWithType: LogMessage.Source
   fullName: Discord.LogMessage.Source
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -604,13 +358,11 @@ references:
   name: Exception
   nameWithType: LogMessage.Exception
   fullName: Discord.LogMessage.Exception
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
+- uid: Exception
   isExternal: true
   name: Exception
   nameWithType: Exception
-  fullName: System.Exception
+  fullName: Exception
 - uid: Discord.LogMessage
   commentId: T:Discord.LogMessage
   name: LogMessage
@@ -621,66 +373,30 @@ references:
   name: LogMessage
   nameWithType: LogMessage.LogMessage
   fullName: Discord.LogMessage.LogMessage
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    nameWithType: ValueType.ToString
-    fullName: System.ValueType.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.LogMessage.ToString*
   commentId: Overload:Discord.LogMessage.ToString
   name: ToString
   nameWithType: LogMessage.ToString
   fullName: Discord.LogMessage.ToString
-- uid: System.Text.StringBuilder
-  commentId: T:System.Text.StringBuilder
-  parent: System.Text
+- uid: StringBuilder
+  commentId: '!:StringBuilder'
   isExternal: true
   name: StringBuilder
   nameWithType: StringBuilder
-  fullName: System.Text.StringBuilder
+  fullName: StringBuilder
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: System.DateTimeKind
-  commentId: T:System.DateTimeKind
-  parent: System
+- uid: DateTimeKind
+  commentId: '!:DateTimeKind'
   isExternal: true
   name: DateTimeKind
   nameWithType: DateTimeKind
-  fullName: System.DateTimeKind
+  fullName: DateTimeKind
 - uid: System.Nullable{System.Int32}
-  commentId: T:System.Nullable{System.Int32}
-  parent: System
+  commentId: '!:System.Nullable{System.Int32}'
   definition: System.Nullable`1
   name: Nullable<Int32>
   nameWithType: Nullable<Int32>
@@ -722,21 +438,14 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Text
-  commentId: N:System.Text
-  isExternal: true
-  name: System.Text
-  nameWithType: System.Text
-  fullName: System.Text
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -746,9 +455,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -761,9 +470,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )

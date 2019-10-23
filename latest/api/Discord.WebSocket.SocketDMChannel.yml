@@ -9,19 +9,7 @@ items:
   - Discord.WebSocket.SocketDMChannel.CloseAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketDMChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
   - Discord.WebSocket.SocketDMChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name
   - Discord.WebSocket.SocketDMChannel.Discord#IDMChannel#Recipient
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  - Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  - Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients
   - Discord.WebSocket.SocketDMChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients
   - Discord.WebSocket.SocketDMChannel.EnterTypingState(Discord.RequestOptions)
   - Discord.WebSocket.SocketDMChannel.GetCachedMessage(System.UInt64)
@@ -35,7 +23,7 @@ items:
   - Discord.WebSocket.SocketDMChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
   - Discord.WebSocket.SocketDMChannel.GetUser(System.UInt64)
   - Discord.WebSocket.SocketDMChannel.Recipient
-  - Discord.WebSocket.SocketDMChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.WebSocket.SocketDMChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.WebSocket.SocketDMChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   - Discord.WebSocket.SocketDMChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   - Discord.WebSocket.SocketDMChannel.ToString
@@ -62,16 +50,17 @@ items:
   summary: "\nRepresents a WebSocket-based direct-message channel.\n"
   example: []
   syntax:
-    content: 'public class SocketDMChannel : SocketChannel, IDMChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
+    content: 'public class SocketDMChannel : SocketChannel, IEntity<ulong>, IDMChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity<ulong>'
     content.vb: >-
       Public Class SocketDMChannel
           Inherits SocketChannel
-          Implements IDMChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong)
+          Implements IEntity(Of ULong), IDMChannel, ISocketPrivateChannel, IPrivateChannel, ISocketMessageChannel, IMessageChannel, IChannel, ISnowflakeEntity, IEntity(Of ULong)
   inheritance:
   - System.Object
   - Discord.WebSocket.SocketEntity{System.UInt64}
   - Discord.WebSocket.SocketChannel
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IDMChannel
   - Discord.WebSocket.ISocketPrivateChannel
   - Discord.IPrivateChannel
@@ -83,12 +72,6 @@ items:
   inheritedMembers:
   - Discord.WebSocket.SocketChannel.CreatedAt
   - Discord.WebSocket.SocketEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -160,7 +143,7 @@ items:
     content: public IReadOnlyCollection<SocketMessage> CachedMessages { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
       description: "\nA read-only collection of WebSocket-based messages.\n"
     content.vb: Public ReadOnly Property CachedMessages As IReadOnlyCollection(Of SocketMessage)
   overload: Discord.WebSocket.SocketDMChannel.CachedMessages*
@@ -200,7 +183,7 @@ items:
     content: public IReadOnlyCollection<SocketUser> Users { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketUser}
     content.vb: Public ReadOnly Property Users As IReadOnlyCollection(Of SocketUser)
   overload: Discord.WebSocket.SocketDMChannel.Users*
   modifiers.csharp:
@@ -231,21 +214,16 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nCloses this private channel, removing it from your channel list.\n"
   example: []
   syntax:
     content: public Task CloseAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous close operation.\n"
+      type: Task
     content.vb: Public Function CloseAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketDMChannel.CloseAsync*
-  implements:
-  - Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -326,7 +304,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{Discord.IMessage}
+      type: Task{Discord.IMessage}
       description: "\nThe message gotten from either the cache or the download, or <code>null</code> if none is found.\n"
     content.vb: Public Function GetMessageAsync(id As ULong, options As RequestOptions = Nothing) As Task(Of IMessage)
   overload: Discord.WebSocket.SocketDMChannel.GetMessageAsync*
@@ -357,10 +335,10 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets the last N messages from this message channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(System.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(int limit = 100, RequestOptions options = null)
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(int limit = null, RequestOptions options = null)
     parameters:
     - id: limit
       type: System.Int32
@@ -369,9 +347,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Public Function GetMessagesAsync(limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Public Function GetMessagesAsync(limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.WebSocket.SocketDMChannel.GetMessagesAsync*
   modifiers.csharp:
   - public
@@ -400,10 +378,10 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(System.UInt64%2cDiscord.Direction%2cSystem.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(ulong, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = 100, RequestOptions options = null)
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = null, RequestOptions options = null)
     parameters:
     - id: fromMessageId
       type: System.UInt64
@@ -418,9 +396,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Public Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Public Function GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.WebSocket.SocketDMChannel.GetMessagesAsync*
   modifiers.csharp:
   - public
@@ -449,10 +427,10 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage%2cDiscord.Direction%2cSystem.Int32%2cDiscord.CacheMode%2cDiscord.RequestOptions)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.GetMessagesAsync(IMessage, Direction, int, CacheMode, RequestOptions)\"></see>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
-    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = 100, RequestOptions options = null)
+    content: public IAsyncEnumerable<IReadOnlyCollection<IMessage>> GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = null, RequestOptions options = null)
     parameters:
     - id: fromMessage
       type: Discord.IMessage
@@ -467,9 +445,9 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
+      type: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
       description: "\nPaged collection of messages.\n"
-    content.vb: Public Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = 100, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
+    content.vb: Public Function GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing, options As RequestOptions = Nothing) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   overload: Discord.WebSocket.SocketDMChannel.GetMessagesAsync*
   modifiers.csharp:
   - public
@@ -501,15 +479,15 @@ items:
   remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
   example: []
   syntax:
-    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(int limit = 100)
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(int limit = null)
     parameters:
     - id: limit
       type: System.Int32
       description: The number of messages to get.
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
       description: "\nA read-only collection of WebSocket-based messages.\n"
-    content.vb: Public Function GetCachedMessages(limit As Integer = 100) As IReadOnlyCollection(Of SocketMessage)
+    content.vb: Public Function GetCachedMessages(limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
   overload: Discord.WebSocket.SocketDMChannel.GetCachedMessages*
   implements:
   - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.Int32)
@@ -543,7 +521,7 @@ items:
   remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
   example: []
   syntax:
-    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(ulong fromMessageId, Direction dir, int limit = 100)
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(ulong fromMessageId, Direction dir, int limit = null)
     parameters:
     - id: fromMessageId
       type: System.UInt64
@@ -555,9 +533,9 @@ items:
       type: System.Int32
       description: The number of messages to get.
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
       description: "\nA read-only collection of WebSocket-based messages.\n"
-    content.vb: Public Function GetCachedMessages(fromMessageId As ULong, dir As Direction, limit As Integer = 100) As IReadOnlyCollection(Of SocketMessage)
+    content.vb: Public Function GetCachedMessages(fromMessageId As ULong, dir As Direction, limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
   overload: Discord.WebSocket.SocketDMChannel.GetCachedMessages*
   implements:
   - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(System.UInt64,Discord.Direction,System.Int32)
@@ -591,7 +569,7 @@ items:
   remarks: "\n<div class=\"WARNING\"><h5>warning</h5><p>\n    This method requires the use of cache, which is not enabled by default; if caching is not enabled,\n    this method will always return an empty collection. Please refer to\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> for more details.\n</p></div>\n<p>\n    This method retrieves the message(s) from the local WebSocket cache and does not send any additional\n    request to Discord. This read-only collection may include messages that have been deleted. The\n    maximum number of messages that can be retrieved from this method depends on the\n<xref href=\"Discord.WebSocket.DiscordSocketConfig.MessageCacheSize\" data-throw-if-not-resolved=\"false\"></xref> set.\n</p>\n"
   example: []
   syntax:
-    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(IMessage fromMessage, Direction dir, int limit = 100)
+    content: public IReadOnlyCollection<SocketMessage> GetCachedMessages(IMessage fromMessage, Direction dir, int limit = null)
     parameters:
     - id: fromMessage
       type: Discord.IMessage
@@ -603,9 +581,9 @@ items:
       type: System.Int32
       description: The number of messages to get.
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
       description: "\nA read-only collection of WebSocket-based messages.\n"
-    content.vb: Public Function GetCachedMessages(fromMessage As IMessage, dir As Direction, limit As Integer = 100) As IReadOnlyCollection(Of SocketMessage)
+    content.vb: Public Function GetCachedMessages(fromMessage As IMessage, dir As Direction, limit As Integer = Nothing) As IReadOnlyCollection(Of SocketMessage)
   overload: Discord.WebSocket.SocketDMChannel.GetCachedMessages*
   implements:
   - Discord.WebSocket.ISocketMessageChannel.GetCachedMessages(Discord.IMessage,Discord.Direction,System.Int32)
@@ -645,7 +623,7 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
+      type: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
       description: "\nA task that represents the asynchronous get operation for retrieving pinned messages in this channel.\nThe task result contains a read-only collection of messages found in the pinned messages.\n"
     content.vb: Public Function GetPinnedMessagesAsync(options As RequestOptions = Nothing) As Task(Of IReadOnlyCollection(Of RestMessage))
   overload: Discord.WebSocket.SocketDMChannel.GetPinnedMessagesAsync*
@@ -696,14 +674,10 @@ items:
       type: Discord.RequestOptions
       description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
+      type: Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Public Function SendMessageAsync(text As String = Nothing, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing) As Task(Of RestUserMessage)
   overload: Discord.WebSocket.SocketDMChannel.SendMessageAsync*
-  exceptions:
-  - type: System.ArgumentOutOfRangeException
-    commentId: T:System.ArgumentOutOfRangeException
-    description: Message content is too long, length must be less or equal to <xref href="Discord.DiscordConfig.MaxMessageSize" data-throw-if-not-resolved="false"></xref>.
   implements:
   - Discord.WebSocket.ISocketMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
   modifiers.csharp:
@@ -733,7 +707,7 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.SendFileAsync(System.String%2cSystem.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions%2cSystem.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.SendFileAsync(string, string, bool, Embed, RequestOptions, bool)\"></see>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: public Task<RestUserMessage> SendFileAsync(string filePath, string text, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
@@ -757,7 +731,7 @@ items:
       type: System.Boolean
       description: Whether the message attachment should be hidden as a spoiler.
     return:
-      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
+      type: Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Public Function SendFileAsync(filePath As String, text As String, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
   overload: Discord.WebSocket.SocketDMChannel.SendFileAsync*
@@ -767,16 +741,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.WebSocket.SocketDMChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketDMChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  id: SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.WebSocket.SocketDMChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.SocketDMChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  id: SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.WebSocket.SocketDMChannel
   langs:
   - csharp
   - vb
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: SocketDMChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketDMChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.WebSocket.SocketDMChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   type: Method
   source:
     remote:
@@ -790,14 +764,14 @@ items:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
   summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method follows the same behavior as described in <xref href=\"Discord.IMessageChannel.SendFileAsync(System.IO.Stream%2cSystem.String%2cSystem.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions%2cSystem.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>.\nPlease visit its documentation for more details on this method.\n"
+  remarks: "\nThis method follows the same behavior as described in <see cref=\"!:IMessageChannel.SendFileAsync(Stream, string, string, bool, Embed, RequestOptions, bool)\"></see>.\nPlease visit its documentation for more details on this method.\n"
   example: []
   syntax:
     content: public Task<RestUserMessage> SendFileAsync(Stream stream, string filename, string text, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false)
     parameters:
     - id: stream
-      type: System.IO.Stream
-      description: The <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> of the file to be sent.
+      type: Stream
+      description: The <see cref="!:Stream"></see> of the file to be sent.
     - id: filename
       type: System.String
       description: The name of the attachment.
@@ -817,16 +791,12 @@ items:
       type: System.Boolean
       description: Whether the message attachment should be hidden as a spoiler.
     return:
-      type: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
+      type: Task{Discord.Rest.RestUserMessage}
       description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
     content.vb: Public Function SendFileAsync(stream As Stream, filename As String, text As String, isTTS As Boolean = False, embed As Embed = Nothing, options As RequestOptions = Nothing, isSpoiler As Boolean = False) As Task(Of RestUserMessage)
   overload: Discord.WebSocket.SocketDMChannel.SendFileAsync*
-  exceptions:
-  - type: System.ArgumentOutOfRangeException
-    commentId: T:System.ArgumentOutOfRangeException
-    description: Message content is too long, length must be less or equal to <xref href="Discord.DiscordConfig.MaxMessageSize" data-throw-if-not-resolved="false"></xref>.
   implements:
-  - Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -853,24 +823,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nDeletes a message.\n"
   example: []
   syntax:
     content: public Task DeleteMessageAsync(ulong messageId, RequestOptions options = null)
     parameters:
     - id: messageId
       type: System.UInt64
-      description: The snowflake identifier of the message that would be removed.
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous removal operation.\n"
+      type: Task
     content.vb: Public Function DeleteMessageAsync(messageId As ULong, options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketDMChannel.DeleteMessageAsync*
-  implements:
-  - Discord.IMessageChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -897,24 +861,18 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: 'Deletes a message based on the provided message in this channel. '
   example: []
   syntax:
     content: public Task DeleteMessageAsync(IMessage message, RequestOptions options = null)
     parameters:
     - id: message
       type: Discord.IMessage
-      description: The message that would be removed.
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous removal operation.\n"
+      type: Task
     content.vb: Public Function DeleteMessageAsync(message As IMessage, options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketDMChannel.DeleteMessageAsync*
-  implements:
-  - Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -941,21 +899,16 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nBroadcasts the &quot;user is typing&quot; message to all users in this channel, lasting 10 seconds.\n"
   example: []
   syntax:
     content: public Task TriggerTypingAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
-      description: "\nA task that represents the asynchronous operation that triggers the broadcast.\n"
+      type: Task
     content.vb: Public Function TriggerTypingAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.WebSocket.SocketDMChannel.TriggerTypingAsync*
-  implements:
-  - Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -982,21 +935,16 @@ items:
   assemblies:
   - Discord.Net.WebSocket
   namespace: Discord.WebSocket
-  summary: "\nContinuously broadcasts the &quot;user is typing&quot; message to all users in this channel until the returned\nobject is disposed.\n"
   example: []
   syntax:
     content: public IDisposable EnterTypingState(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.IDisposable
-      description: "\nA disposable object that, upon its disposal, will stop the client from broadcasting its typing state in\nthis channel.\n"
+      type: IDisposable
     content.vb: Public Function EnterTypingState(options As RequestOptions = Nothing) As IDisposable
   overload: Discord.WebSocket.SocketDMChannel.EnterTypingState*
-  implements:
-  - Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1069,7 +1017,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.WebSocket.SocketDMChannel.ToString*
   modifiers.csharp:
   - public
@@ -1146,7 +1093,7 @@ items:
     content: IReadOnlyCollection<SocketUser> ISocketPrivateChannel.Recipients { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
+      type: IReadOnlyCollection{Discord.WebSocket.SocketUser}
     content.vb: ReadOnly WriteOnly Property Discord.WebSocket.ISocketPrivateChannel.Recipients As IReadOnlyCollection(Of SocketUser) Implements ISocketPrivateChannel.Recipients
   overload: Discord.WebSocket.SocketDMChannel.Discord#WebSocket#ISocketPrivateChannel#Recipients*
   implements:
@@ -1157,590 +1104,6 @@ items:
   modifiers.vb:
   - ReadOnly
   name.vb: Discord.WebSocket.ISocketPrivateChannel.Recipients
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients
-  commentId: P:Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients
-  id: Discord#IPrivateChannel#Recipients
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IPrivateChannel.Recipients
-  nameWithType: SocketDMChannel.IPrivateChannel.Recipients
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IPrivateChannel.Recipients
-  type: Property
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IPrivateChannel.Recipients
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 207
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets the users that can access this channel.\n"
-  example: []
-  syntax:
-    content: IReadOnlyCollection<IUser> IPrivateChannel.Recipients { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.IReadOnlyCollection{Discord.IUser}
-      description: "\nA read-only collection of users that can access this channel.\n"
-    content.vb: ReadOnly WriteOnly Property Discord.IPrivateChannel.Recipients As IReadOnlyCollection(Of IUser) Implements IPrivateChannel.Recipients
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients*
-  implements:
-  - Discord.IPrivateChannel.Recipients
-  nameWithType.vb: SocketDMChannel.Discord.IPrivateChannel.Recipients
-  modifiers.csharp:
-  - get
-  modifiers.vb:
-  - ReadOnly
-  name.vb: Discord.IPrivateChannel.Recipients
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IMessageChannel#GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessageAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.GetMessageAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 211
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a message from this message channel.\n"
-  example: []
-  syntax:
-    content: Task<IMessage> IMessageChannel.GetMessageAsync(ulong id, CacheMode mode, RequestOptions options)
-    parameters:
-    - id: id
-      type: System.UInt64
-      description: The snowflake identifier of the message.
-    - id: mode
-      type: Discord.CacheMode
-      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IMessage}
-      description: "\nA task that represents an asynchronous get operation for retrieving the message. The task result contains\nthe retrieved message; <code>null</code> if no message is found with the specified identifier.\n"
-    content.vb: Function Discord.IMessageChannel.GetMessageAsync(id As ULong, mode As CacheMode, options As RequestOptions) As Task(Of IMessage) Implements IMessageChannel.GetMessageAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync*
-  implements:
-  - Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IMessageChannel#GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.GetMessagesAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 219
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets the last N messages from this message channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code>. The\nlibrary will attempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
-  example: []
-  syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> IMessageChannel.GetMessagesAsync(int limit, CacheMode mode, RequestOptions options)
-    parameters:
-    - id: limit
-      type: System.Int32
-      description: The numbers of message to be gotten from.
-    - id: mode
-      type: Discord.CacheMode
-      description: >-
-        The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from
-
-        cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-      description: "\nPaged collection of messages.\n"
-    content.vb: Function Discord.IMessageChannel.GetMessagesAsync(limit As Integer, mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage)) Implements IMessageChannel.GetMessagesAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync*
-  implements:
-  - Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IMessageChannel#GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(System.UInt64, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.GetMessagesAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 222
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessageId</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
-  example: []
-  syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> IMessageChannel.GetMessagesAsync(ulong fromMessageId, Direction dir, int limit, CacheMode mode, RequestOptions options)
-    parameters:
-    - id: fromMessageId
-      type: System.UInt64
-      description: The ID of the starting message to get the messages from.
-    - id: dir
-      type: Discord.Direction
-      description: The direction of the messages to be gotten from.
-    - id: limit
-      type: System.Int32
-      description: The numbers of message to be gotten from.
-    - id: mode
-      type: Discord.CacheMode
-      description: >-
-        The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from
-
-        cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-      description: "\nPaged collection of messages.\n"
-    content.vb: Function Discord.IMessageChannel.GetMessagesAsync(fromMessageId As ULong, dir As Direction, limit As Integer, mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage)) Implements IMessageChannel.GetMessagesAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync*
-  implements:
-  - Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IMessageChannel#GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.GetMessagesAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 225
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a collection of messages in this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\n<div class=\"WARNING\"><h5>warning</h5><p>\n    Do not fetch too many messages at once! This may cause unwanted preemptive rate limit or even actual\n    rate limit, causing your bot to freeze!\n</p></div>\nThis method will attempt to fetch the number of messages specified under <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> around\nthe message <code data-dev-comment-type=\"paramref\" class=\"paramref\">fromMessage</code> depending on the <code data-dev-comment-type=\"paramref\" class=\"paramref\">dir</code>. The library will\nattempt to split up the requests according to your <code data-dev-comment-type=\"paramref\" class=\"paramref\">limit</code> and \n<xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref>. In other words, should the user request 500 messages,\nand the <xref href=\"Discord.DiscordConfig.MaxMessagesPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant is <code>100</code>, the request will\nbe split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need\nof flattening.\n"
-  example: []
-  syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IMessage>> IMessageChannel.GetMessagesAsync(IMessage fromMessage, Direction dir, int limit, CacheMode mode, RequestOptions options)
-    parameters:
-    - id: fromMessage
-      type: Discord.IMessage
-      description: The starting message to get the messages from.
-    - id: dir
-      type: Discord.Direction
-      description: The direction of the messages to be gotten from.
-    - id: limit
-      type: System.Int32
-      description: The numbers of message to be gotten from.
-    - id: mode
-      type: Discord.CacheMode
-      description: >-
-        The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from
-
-        cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-      description: "\nPaged collection of messages.\n"
-    content.vb: Function Discord.IMessageChannel.GetMessagesAsync(fromMessage As IMessage, dir As Direction, limit As Integer, mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage)) Implements IMessageChannel.GetMessagesAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync*
-  implements:
-  - Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  name.vb: Discord.IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  id: Discord#IMessageChannel#GetPinnedMessagesAsync(Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.GetPinnedMessagesAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 228
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a collection of pinned messages in this channel.\n"
-  example: []
-  syntax:
-    content: Task<IReadOnlyCollection<IMessage>> IMessageChannel.GetPinnedMessagesAsync(RequestOptions options)
-    parameters:
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-      description: "\nA task that represents the asynchronous get operation for retrieving pinned messages in this channel.\nThe task result contains a collection of messages found in the pinned messages.\n"
-    content.vb: Function Discord.IMessageChannel.GetPinnedMessagesAsync(options As RequestOptions) As Task(Of IReadOnlyCollection(Of IMessage)) Implements IMessageChannel.GetPinnedMessagesAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync*
-  implements:
-  - Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  name.vb: Discord.IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  id: Discord#IMessageChannel#SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: SocketDMChannel.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.SendFileAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 231
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method sends a file as if you are uploading an attachment directly from your Discord client.\n<div class=\"NOTE\"><h5>note</h5><p>\n    If you wish to upload an image and have it embedded in a <xref href=\"Discord.EmbedType.Rich\" data-throw-if-not-resolved=\"false\"></xref> embed,\n    you may upload the file and refer to the file with &quot;attachment://filename.ext&quot; in the\n<xref href=\"Discord.EmbedBuilder.ImageUrl\" data-throw-if-not-resolved=\"false\"></xref>. See the example section for its usage.\n</p></div>\n"
-  example: []
-  syntax:
-    content: Task<IUserMessage> IMessageChannel.SendFileAsync(string filePath, string text, bool isTTS, Embed embed, RequestOptions options, bool isSpoiler)
-    parameters:
-    - id: filePath
-      type: System.String
-      description: The file path of the file.
-    - id: text
-      type: System.String
-      description: The message to be sent.
-    - id: isTTS
-      type: System.Boolean
-      description: Whether the message should be read aloud by Discord or not.
-    - id: embed
-      type: Discord.Embed
-      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    - id: isSpoiler
-      type: System.Boolean
-      description: Whether the message attachment should be hidden as a spoiler.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IUserMessage}
-      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
-    content.vb: Function Discord.IMessageChannel.SendFileAsync(filePath As String, text As String, isTTS As Boolean, embed As Embed, options As RequestOptions, isSpoiler As Boolean) As Task(Of IUserMessage) Implements IMessageChannel.SendFileAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync*
-  implements:
-  - Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  name.vb: Discord.IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  id: Discord#IMessageChannel#SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: SocketDMChannel.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.SendFileAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 234
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nSends a file to this message channel with an optional caption.\n"
-  remarks: "\nThis method sends a file as if you are uploading an attachment directly from your Discord client.\n<div class=\"NOTE\"><h5>note</h5><p>\n    If you wish to upload an image and have it embedded in a <xref href=\"Discord.EmbedType.Rich\" data-throw-if-not-resolved=\"false\"></xref> embed,\n    you may upload the file and refer to the file with &quot;attachment://filename.ext&quot; in the\n<xref href=\"Discord.EmbedBuilder.ImageUrl\" data-throw-if-not-resolved=\"false\"></xref>. See the example section for its usage.\n</p></div>\n"
-  example: []
-  syntax:
-    content: Task<IUserMessage> IMessageChannel.SendFileAsync(Stream stream, string filename, string text, bool isTTS, Embed embed, RequestOptions options, bool isSpoiler)
-    parameters:
-    - id: stream
-      type: System.IO.Stream
-      description: The <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> of the file to be sent.
-    - id: filename
-      type: System.String
-      description: The name of the attachment.
-    - id: text
-      type: System.String
-      description: The message to be sent.
-    - id: isTTS
-      type: System.Boolean
-      description: Whether the message should be read aloud by Discord or not.
-    - id: embed
-      type: Discord.Embed
-      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    - id: isSpoiler
-      type: System.Boolean
-      description: Whether the message attachment should be hidden as a spoiler.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IUserMessage}
-      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
-    content.vb: Function Discord.IMessageChannel.SendFileAsync(stream As Stream, filename As String, text As String, isTTS As Boolean, embed As Embed, options As RequestOptions, isSpoiler As Boolean) As Task(Of IUserMessage) Implements IMessageChannel.SendFileAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync*
-  implements:
-  - Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  name.vb: Discord.IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  id: Discord#IMessageChannel#SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  nameWithType: SocketDMChannel.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IMessageChannel.SendMessageAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 237
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nSends a message to this message channel.\n"
-  example: []
-  syntax:
-    content: Task<IUserMessage> IMessageChannel.SendMessageAsync(string text, bool isTTS, Embed embed, RequestOptions options)
-    parameters:
-    - id: text
-      type: System.String
-      description: The message to be sent.
-    - id: isTTS
-      type: System.Boolean
-      description: Determines whether the message should be read aloud by Discord or not.
-    - id: embed
-      type: Discord.Embed
-      description: The <xref href="Discord.EmbedType.Rich" data-throw-if-not-resolved="false"></xref> <xref href="Discord.Embed" data-throw-if-not-resolved="false"></xref> to be sent.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IUserMessage}
-      description: "\nA task that represents an asynchronous send operation for delivering the message. The task result\ncontains the sent message.\n"
-    content.vb: Function Discord.IMessageChannel.SendMessageAsync(text As String, isTTS As Boolean, embed As Embed, options As RequestOptions) As Task(Of IUserMessage) Implements IMessageChannel.SendMessageAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync*
-  implements:
-  - Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  name.vb: Discord.IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name
-  commentId: P:Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name
-  id: Discord#IChannel#Name
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IChannel.Name
-  nameWithType: SocketDMChannel.IChannel.Name
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.Name
-  type: Property
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IChannel.Name
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 242
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets the name of this channel.\n"
-  example: []
-  syntax:
-    content: string IChannel.Name { get; }
-    parameters: []
-    return:
-      type: System.String
-      description: "\nA string containing the name of this channel.\n"
-    content.vb: ReadOnly WriteOnly Property Discord.IChannel.Name As String Implements IChannel.Name
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name*
-  implements:
-  - Discord.IChannel.Name
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.Name
-  modifiers.csharp:
-  - get
-  modifiers.vb:
-  - ReadOnly
-  name.vb: Discord.IChannel.Name
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IChannel#GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IChannel.GetUserAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 245
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a user in this channel.\n"
-  example: []
-  syntax:
-    content: Task<IUser> IChannel.GetUserAsync(ulong id, CacheMode mode, RequestOptions options)
-    parameters:
-    - id: id
-      type: System.UInt64
-      description: The snowflake identifier of the user (e.g. <code>168693960628371456</code>).
-    - id: mode
-      type: Discord.CacheMode
-      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Threading.Tasks.Task{Discord.IUser}
-      description: "\nA task that represents the asynchronous get operation. The task result contains a user object that\nrepresents the found user; <code>null</code> if none is found.\n"
-    content.vb: Function Discord.IChannel.GetUserAsync(id As ULong, mode As CacheMode, options As RequestOptions) As Task(Of IUser) Implements IChannel.GetUserAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync*
-  implements:
-  - Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  name.vb: Discord.IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  id: Discord#IChannel#GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  isEii: true
-  parent: Discord.WebSocket.SocketDMChannel
-  langs:
-  - csharp
-  - vb
-  name: IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  nameWithType: SocketDMChannel.IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IChannel.GetUsersAsync
-    path: ../src/Discord.Net.WebSocket/Entities/Channels/SocketDMChannel.cs
-    startLine: 248
-  assemblies:
-  - Discord.Net.WebSocket
-  namespace: Discord.WebSocket
-  summary: "\nGets a collection of users that are able to view the channel or are currently in this channel.\n"
-  remarks: "\n<div class=\"IMPORTANT\"><h5>important</h5><p>\n    The returned collection is an asynchronous enumerable object; one must call \n<xref href=\"Discord.AsyncEnumerableExtensions.FlattenAsync%60%601(System.Collections.Generic.IAsyncEnumerable%7bSystem.Collections.Generic.IEnumerable%7b%60%600%7d%7d)\" data-throw-if-not-resolved=\"false\"></xref> to access the individual messages as a\ncollection.\n</p></div>\nThis method will attempt to fetch all users that is able to view this channel or is currently in this channel.\nThe library will attempt to split up the requests according to and <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref>.\nIn other words, if there are 3000 users, and the <xref href=\"Discord.DiscordConfig.MaxUsersPerBatch\" data-throw-if-not-resolved=\"false\"></xref> constant\nis <code>1000</code>, the request will be split into 3 individual requests; thus returning 53individual asynchronous\nresponses, hence the need of flattening.\n"
-  example: []
-  syntax:
-    content: IAsyncEnumerable<IReadOnlyCollection<IUser>> IChannel.GetUsersAsync(CacheMode mode, RequestOptions options)
-    parameters:
-    - id: mode
-      type: Discord.CacheMode
-      description: The <xref href="Discord.CacheMode" data-throw-if-not-resolved="false"></xref> that determines whether the object should be fetched from cache.
-    - id: options
-      type: Discord.RequestOptions
-      description: The options to be used when sending the request.
-    return:
-      type: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-      description: "\nPaged collection of users.\n"
-    content.vb: Function Discord.IChannel.GetUsersAsync(mode As CacheMode, options As RequestOptions) As IAsyncEnumerable(Of IReadOnlyCollection(Of IUser)) Implements IChannel.GetUsersAsync
-  overload: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync*
-  implements:
-  - Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  name.vb: Discord.IChannel.GetUsersAsync(CacheMode, RequestOptions)
 references:
 - uid: Discord.WebSocket
   commentId: N:Discord.WebSocket
@@ -1748,8 +1111,6 @@ references:
   nameWithType: Discord.WebSocket
   fullName: Discord.WebSocket
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -1802,48 +1163,6 @@ references:
   name: SocketChannel
   nameWithType: SocketChannel
   fullName: Discord.WebSocket.SocketChannel
-- uid: Discord.IDMChannel
-  commentId: T:Discord.IDMChannel
-  parent: Discord
-  name: IDMChannel
-  nameWithType: IDMChannel
-  fullName: Discord.IDMChannel
-- uid: Discord.WebSocket.ISocketPrivateChannel
-  commentId: T:Discord.WebSocket.ISocketPrivateChannel
-  parent: Discord.WebSocket
-  name: ISocketPrivateChannel
-  nameWithType: ISocketPrivateChannel
-  fullName: Discord.WebSocket.ISocketPrivateChannel
-- uid: Discord.IPrivateChannel
-  commentId: T:Discord.IPrivateChannel
-  parent: Discord
-  name: IPrivateChannel
-  nameWithType: IPrivateChannel
-  fullName: Discord.IPrivateChannel
-- uid: Discord.WebSocket.ISocketMessageChannel
-  commentId: T:Discord.WebSocket.ISocketMessageChannel
-  parent: Discord.WebSocket
-  name: ISocketMessageChannel
-  nameWithType: ISocketMessageChannel
-  fullName: Discord.WebSocket.ISocketMessageChannel
-- uid: Discord.IMessageChannel
-  commentId: T:Discord.IMessageChannel
-  parent: Discord
-  name: IMessageChannel
-  nameWithType: IMessageChannel
-  fullName: Discord.IMessageChannel
-- uid: Discord.IChannel
-  commentId: T:Discord.IChannel
-  parent: Discord
-  name: IChannel
-  nameWithType: IChannel
-  fullName: Discord.IChannel
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -1886,6 +1205,48 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IDMChannel
+  commentId: T:Discord.IDMChannel
+  parent: Discord
+  name: IDMChannel
+  nameWithType: IDMChannel
+  fullName: Discord.IDMChannel
+- uid: Discord.WebSocket.ISocketPrivateChannel
+  commentId: T:Discord.WebSocket.ISocketPrivateChannel
+  parent: Discord.WebSocket
+  name: ISocketPrivateChannel
+  nameWithType: ISocketPrivateChannel
+  fullName: Discord.WebSocket.ISocketPrivateChannel
+- uid: Discord.IPrivateChannel
+  commentId: T:Discord.IPrivateChannel
+  parent: Discord
+  name: IPrivateChannel
+  nameWithType: IPrivateChannel
+  fullName: Discord.IPrivateChannel
+- uid: Discord.WebSocket.ISocketMessageChannel
+  commentId: T:Discord.WebSocket.ISocketMessageChannel
+  parent: Discord.WebSocket
+  name: ISocketMessageChannel
+  nameWithType: ISocketMessageChannel
+  fullName: Discord.WebSocket.ISocketMessageChannel
+- uid: Discord.IMessageChannel
+  commentId: T:Discord.IMessageChannel
+  parent: Discord
+  name: IMessageChannel
+  nameWithType: IMessageChannel
+  fullName: Discord.IMessageChannel
+- uid: Discord.IChannel
+  commentId: T:Discord.IChannel
+  parent: Discord
+  name: IChannel
+  nameWithType: IChannel
+  fullName: Discord.IChannel
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.WebSocket.SocketChannel.CreatedAt
   commentId: P:Discord.WebSocket.SocketChannel.CreatedAt
   parent: Discord.WebSocket.SocketChannel
@@ -1901,260 +1262,6 @@ references:
   fullName: Discord.WebSocket.SocketEntity<System.UInt64>.Id
   nameWithType.vb: SocketEntity(Of UInt64).Id
   fullName.vb: Discord.WebSocket.SocketEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.WebSocket.SocketEntity`1
   commentId: T:Discord.WebSocket.SocketEntity`1
   name: SocketEntity<T>
@@ -2191,11 +1298,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -2232,6 +1334,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.WebSocket.SocketEntity`1.Id
   commentId: P:Discord.WebSocket.SocketEntity`1.Id
   name: Id
@@ -2261,21 +1368,20 @@ references:
   name: CachedMessages
   nameWithType: ISocketMessageChannel.CachedMessages
   fullName: Discord.WebSocket.ISocketMessageChannel.CachedMessages
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketMessage}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketMessage}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketMessage}'
+  definition: IReadOnlyCollection`1
   name: IReadOnlyCollection<SocketMessage>
   nameWithType: IReadOnlyCollection<SocketMessage>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.WebSocket.SocketMessage>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketMessage>
   nameWithType.vb: IReadOnlyCollection(Of SocketMessage)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.WebSocket.SocketMessage)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketMessage)
   name.vb: IReadOnlyCollection(Of SocketMessage)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -2288,10 +1394,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2303,71 +1409,63 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IReadOnlyCollection`1
-  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection`1
   isExternal: true
-  name: IReadOnlyCollection<T>
-  nameWithType: IReadOnlyCollection<T>
-  fullName: System.Collections.Generic.IReadOnlyCollection<T>
-  nameWithType.vb: IReadOnlyCollection(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
-  name.vb: IReadOnlyCollection(Of T)
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: Discord.WebSocket.SocketDMChannel.Users*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.Users
   name: Users
   nameWithType: SocketDMChannel.Users
   fullName: Discord.WebSocket.SocketDMChannel.Users
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.WebSocket.SocketUser}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
+- uid: IReadOnlyCollection{Discord.WebSocket.SocketUser}
+  commentId: '!:IReadOnlyCollection{Discord.WebSocket.SocketUser}'
+  definition: IReadOnlyCollection`1
   name: IReadOnlyCollection<SocketUser>
   nameWithType: IReadOnlyCollection<SocketUser>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.WebSocket.SocketUser>
+  fullName: IReadOnlyCollection<Discord.WebSocket.SocketUser>
   nameWithType.vb: IReadOnlyCollection(Of SocketUser)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
+  fullName.vb: IReadOnlyCollection(Of Discord.WebSocket.SocketUser)
   name.vb: IReadOnlyCollection(Of SocketUser)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -2380,10 +1478,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2400,61 +1498,17 @@ references:
   name: CloseAsync
   nameWithType: SocketDMChannel.CloseAsync
   fullName: Discord.WebSocket.SocketDMChannel.CloseAsync
-- uid: Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
-  commentId: M:Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
-  parent: Discord.IDMChannel
-  name: CloseAsync(RequestOptions)
-  nameWithType: IDMChannel.CloseAsync(RequestOptions)
-  fullName: Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
-    name: CloseAsync
-    nameWithType: IDMChannel.CloseAsync
-    fullName: Discord.IDMChannel.CloseAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IDMChannel.CloseAsync(Discord.RequestOptions)
-    name: CloseAsync
-    nameWithType: IDMChannel.CloseAsync
-    fullName: Discord.IDMChannel.CloseAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.WebSocket.SocketDMChannel.GetCachedMessage*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.GetCachedMessage
   name: GetCachedMessage
@@ -2500,8 +1554,6 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -2517,21 +1569,20 @@ references:
   name: GetMessageAsync
   nameWithType: SocketDMChannel.GetMessageAsync
   fullName: Discord.WebSocket.SocketDMChannel.GetMessageAsync
-- uid: System.Threading.Tasks.Task{Discord.IMessage}
-  commentId: T:System.Threading.Tasks.Task{Discord.IMessage}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+- uid: Task{Discord.IMessage}
+  commentId: '!:Task{Discord.IMessage}'
+  definition: Task`1
   name: Task<IMessage>
   nameWithType: Task<IMessage>
-  fullName: System.Threading.Tasks.Task<Discord.IMessage>
+  fullName: Task<Discord.IMessage>
   nameWithType.vb: Task(Of IMessage)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.IMessage)
+  fullName.vb: Task(Of Discord.IMessage)
   name.vb: Task(Of IMessage)
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -2544,10 +1595,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2559,109 +1610,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Threading.Tasks.Task`1
-  commentId: T:System.Threading.Tasks.Task`1
+- uid: Task`1
   isExternal: true
-  name: Task<TResult>
-  nameWithType: Task<TResult>
-  fullName: System.Threading.Tasks.Task<TResult>
-  nameWithType.vb: Task(Of TResult)
-  fullName.vb: System.Threading.Tasks.Task(Of TResult)
-  name.vb: Task(Of TResult)
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: TResult
-    nameWithType: TResult
-    fullName: TResult
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  nameWithType: IMessageChannel.GetMessagesAsync(Int32, CacheMode, RequestOptions)
-  fullName: Discord.IMessageChannel.GetMessagesAsync(System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -2671,35 +1654,32 @@ references:
   nameWithType: SocketDMChannel.GetMessagesAsync
   fullName: Discord.WebSocket.SocketDMChannel.GetMessagesAsync
 - uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
   isExternal: true
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IAsyncEnumerable`1
+- uid: IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}
+  commentId: '!:IAsyncEnumerable{IReadOnlyCollection{Discord.IMessage}}'
+  definition: IAsyncEnumerable`1
   name: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
   nameWithType: IAsyncEnumerable<IReadOnlyCollection<IMessage>>
-  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IMessage>>
+  fullName: IAsyncEnumerable<IReadOnlyCollection<Discord.IMessage>>
   nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
-  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IMessage))
+  fullName.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of Discord.IMessage))
   name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IMessage))
   spec.csharp:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
+  - uid: IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
+    fullName: IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -2715,18 +1695,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
+  - uid: IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
+    fullName: IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2741,139 +1721,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.IAsyncEnumerable`1
-  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
+- uid: IAsyncEnumerable`1
   isExternal: true
-  name: IAsyncEnumerable<T>
-  nameWithType: IAsyncEnumerable<T>
-  fullName: System.Collections.Generic.IAsyncEnumerable<T>
-  nameWithType.vb: IAsyncEnumerable(Of T)
-  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
-  name.vb: IAsyncEnumerable(Of T)
+  name: IAsyncEnumerable<>
+  nameWithType: IAsyncEnumerable<>
+  fullName: IAsyncEnumerable<>
+  nameWithType.vb: IAsyncEnumerable(Of )
+  fullName.vb: IAsyncEnumerable(Of )
+  name.vb: IAsyncEnumerable(Of )
   spec.csharp:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
+  - uid: IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
+    fullName: IAsyncEnumerable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
+  - uid: IAsyncEnumerable`1
     name: IAsyncEnumerable
     nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
+    fullName: IAsyncEnumerable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: IMessageChannel.GetMessagesAsync(UInt64, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.IMessageChannel.GetMessagesAsync(System.UInt64, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -2883,101 +1765,6 @@ references:
   name: Direction
   nameWithType: Direction
   fullName: Discord.Direction
-- uid: Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  nameWithType: IMessageChannel.GetMessagesAsync(IMessage, Direction, Int32, CacheMode, RequestOptions)
-  fullName: Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage, Discord.Direction, System.Int32, Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessagesAsync
-    nameWithType: IMessageChannel.GetMessagesAsync
-    fullName: Discord.IMessageChannel.GetMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Direction
-    name: Direction
-    nameWithType: Direction
-    fullName: Discord.Direction
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Int32
-    name: Int32
-    nameWithType: Int32
-    fullName: System.Int32
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.IMessage
   commentId: T:Discord.IMessage
   parent: Discord
@@ -3205,29 +1992,28 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
-  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.Rest.RestMessage}}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+- uid: Task{IReadOnlyCollection{Discord.Rest.RestMessage}}
+  commentId: '!:Task{IReadOnlyCollection{Discord.Rest.RestMessage}}'
+  definition: Task`1
   name: Task<IReadOnlyCollection<RestMessage>>
   nameWithType: Task<IReadOnlyCollection<RestMessage>>
-  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.Rest.RestMessage>>
+  fullName: Task<IReadOnlyCollection<Discord.Rest.RestMessage>>
   nameWithType.vb: Task(Of IReadOnlyCollection(Of RestMessage))
-  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.Rest.RestMessage))
+  fullName.vb: Task(Of IReadOnlyCollection(Of Discord.Rest.RestMessage))
   name.vb: Task(Of IReadOnlyCollection(Of RestMessage))
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: <
     nameWithType: <
@@ -3243,18 +2029,18 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
+  - uid: IReadOnlyCollection`1
     name: IReadOnlyCollection
     nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
+    fullName: IReadOnlyCollection
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3275,9 +2061,6 @@ references:
   name: MaxMessageSize
   nameWithType: DiscordConfig.MaxMessageSize
   fullName: Discord.DiscordConfig.MaxMessageSize
-- uid: System.ArgumentOutOfRangeException
-  commentId: T:System.ArgumentOutOfRangeException
-  isExternal: true
 - uid: Discord.WebSocket.SocketDMChannel.SendMessageAsync*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.SendMessageAsync
   name: SendMessageAsync
@@ -3367,15 +2150,11 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
 - uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
@@ -3386,21 +2165,20 @@ references:
   name: Embed
   nameWithType: Embed
   fullName: Discord.Embed
-- uid: System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
-  commentId: T:System.Threading.Tasks.Task{Discord.Rest.RestUserMessage}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
+- uid: Task{Discord.Rest.RestUserMessage}
+  commentId: '!:Task{Discord.Rest.RestUserMessage}'
+  definition: Task`1
   name: Task<RestUserMessage>
   nameWithType: Task<RestUserMessage>
-  fullName: System.Threading.Tasks.Task<Discord.Rest.RestUserMessage>
+  fullName: Task<Discord.Rest.RestUserMessage>
   nameWithType.vb: Task(Of RestUserMessage)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.Rest.RestUserMessage)
+  fullName.vb: Task(Of Discord.Rest.RestUserMessage)
   name.vb: Task(Of RestUserMessage)
   spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: <
     nameWithType: <
@@ -3413,10 +2191,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Threading.Tasks.Task`1
+  - uid: Task`1
     name: Task
     nameWithType: Task
-    fullName: System.Threading.Tasks.Task
+    fullName: Task
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -3554,25 +2332,25 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+- uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  commentId: M:Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
   parent: Discord.WebSocket.ISocketMessageChannel
   isExternal: true
   name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
   nameWithType: ISocketMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
+  fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
   spec.csharp:
-  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: ISocketMessageChannel.SendFileAsync
     fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -3624,17 +2402,17 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
+  - uid: Discord.WebSocket.ISocketMessageChannel.SendFileAsync(Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
     name: SendFileAsync
     nameWithType: ISocketMessageChannel.SendFileAsync
     fullName: Discord.WebSocket.ISocketMessageChannel.SendFileAsync
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.IO.Stream
+  - uid: Stream
     name: Stream
     nameWithType: Stream
-    fullName: System.IO.Stream
+    fullName: Stream
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -3685,252 +2463,36 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.IO.Stream
-  commentId: T:System.IO.Stream
-  parent: System.IO
+- uid: Stream
   isExternal: true
   name: Stream
   nameWithType: Stream
-  fullName: System.IO.Stream
-- uid: System.IO
-  commentId: N:System.IO
-  isExternal: true
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
+  fullName: Stream
 - uid: Discord.WebSocket.SocketDMChannel.DeleteMessageAsync*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.DeleteMessageAsync
   name: DeleteMessageAsync
   nameWithType: SocketDMChannel.DeleteMessageAsync
   fullName: Discord.WebSocket.SocketDMChannel.DeleteMessageAsync
-- uid: Discord.IMessageChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: DeleteMessageAsync(UInt64, RequestOptions)
-  nameWithType: IMessageChannel.DeleteMessageAsync(UInt64, RequestOptions)
-  fullName: Discord.IMessageChannel.DeleteMessageAsync(System.UInt64, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
-    name: DeleteMessageAsync
-    nameWithType: IMessageChannel.DeleteMessageAsync
-    fullName: Discord.IMessageChannel.DeleteMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)
-    name: DeleteMessageAsync
-    nameWithType: IMessageChannel.DeleteMessageAsync
-    fullName: Discord.IMessageChannel.DeleteMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  name: DeleteMessageAsync(IMessage, RequestOptions)
-  nameWithType: IMessageChannel.DeleteMessageAsync(IMessage, RequestOptions)
-  fullName: Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
-    name: DeleteMessageAsync
-    nameWithType: IMessageChannel.DeleteMessageAsync
-    fullName: Discord.IMessageChannel.DeleteMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)
-    name: DeleteMessageAsync
-    nameWithType: IMessageChannel.DeleteMessageAsync
-    fullName: Discord.IMessageChannel.DeleteMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketDMChannel.TriggerTypingAsync*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.TriggerTypingAsync
   name: TriggerTypingAsync
   nameWithType: SocketDMChannel.TriggerTypingAsync
   fullName: Discord.WebSocket.SocketDMChannel.TriggerTypingAsync
-- uid: Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  name: TriggerTypingAsync(RequestOptions)
-  nameWithType: IMessageChannel.TriggerTypingAsync(RequestOptions)
-  fullName: Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
-    name: TriggerTypingAsync
-    nameWithType: IMessageChannel.TriggerTypingAsync
-    fullName: Discord.IMessageChannel.TriggerTypingAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.TriggerTypingAsync(Discord.RequestOptions)
-    name: TriggerTypingAsync
-    nameWithType: IMessageChannel.TriggerTypingAsync
-    fullName: Discord.IMessageChannel.TriggerTypingAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketDMChannel.EnterTypingState*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.EnterTypingState
   name: EnterTypingState
   nameWithType: SocketDMChannel.EnterTypingState
   fullName: Discord.WebSocket.SocketDMChannel.EnterTypingState
-- uid: Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  name: EnterTypingState(RequestOptions)
-  nameWithType: IMessageChannel.EnterTypingState(RequestOptions)
-  fullName: Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
-    name: EnterTypingState
-    nameWithType: IMessageChannel.EnterTypingState
-    fullName: Discord.IMessageChannel.EnterTypingState
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.EnterTypingState(Discord.RequestOptions)
-    name: EnterTypingState
-    nameWithType: IMessageChannel.EnterTypingState
-    fullName: Discord.IMessageChannel.EnterTypingState
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.IDisposable
-  commentId: T:System.IDisposable
-  parent: System
+- uid: IDisposable
   isExternal: true
   name: IDisposable
   nameWithType: IDisposable
-  fullName: System.IDisposable
+  fullName: IDisposable
 - uid: Discord.WebSocket.SocketDMChannel.GetUser*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.GetUser
   name: GetUser
   nameWithType: SocketDMChannel.GetUser
   fullName: Discord.WebSocket.SocketDMChannel.GetUser
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.WebSocket.SocketDMChannel.ToString*
   commentId: Overload:Discord.WebSocket.SocketDMChannel.ToString
   name: ToString
@@ -3968,887 +2530,3 @@ references:
   name: Recipients
   nameWithType: ISocketPrivateChannel.Recipients
   fullName: Discord.WebSocket.ISocketPrivateChannel.Recipients
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IPrivateChannel#Recipients
-  name: IPrivateChannel.Recipients
-  nameWithType: SocketDMChannel.IPrivateChannel.Recipients
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IPrivateChannel.Recipients
-  nameWithType.vb: SocketDMChannel.Discord.IPrivateChannel.Recipients
-  name.vb: Discord.IPrivateChannel.Recipients
-- uid: Discord.IPrivateChannel.Recipients
-  commentId: P:Discord.IPrivateChannel.Recipients
-  parent: Discord.IPrivateChannel
-  name: Recipients
-  nameWithType: IPrivateChannel.Recipients
-  fullName: Discord.IPrivateChannel.Recipients
-- uid: System.Collections.Generic.IReadOnlyCollection{Discord.IUser}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Discord.IUser}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyCollection`1
-  name: IReadOnlyCollection<IUser>
-  nameWithType: IReadOnlyCollection<IUser>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Discord.IUser>
-  nameWithType.vb: IReadOnlyCollection(Of IUser)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser)
-  name.vb: IReadOnlyCollection(Of IUser)
-  spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessageAsync
-  name: IMessageChannel.GetMessageAsync
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessageAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessageAsync
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessageAsync
-  name.vb: Discord.IMessageChannel.GetMessageAsync
-- uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: IMessageChannel.GetMessageAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.IMessageChannel.GetMessageAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessageAsync
-    nameWithType: IMessageChannel.GetMessageAsync
-    fullName: Discord.IMessageChannel.GetMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.GetMessageAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: GetMessageAsync
-    nameWithType: IMessageChannel.GetMessageAsync
-    fullName: Discord.IMessageChannel.GetMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.CacheMode
-  commentId: T:Discord.CacheMode
-  parent: Discord
-  name: CacheMode
-  nameWithType: CacheMode
-  fullName: Discord.CacheMode
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetMessagesAsync
-  name: IMessageChannel.GetMessagesAsync
-  nameWithType: SocketDMChannel.IMessageChannel.GetMessagesAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetMessagesAsync
-  name.vb: Discord.IMessageChannel.GetMessagesAsync
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#GetPinnedMessagesAsync
-  name: IMessageChannel.GetPinnedMessagesAsync
-  nameWithType: SocketDMChannel.IMessageChannel.GetPinnedMessagesAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.GetPinnedMessagesAsync
-  name.vb: Discord.IMessageChannel.GetPinnedMessagesAsync
-- uid: Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  name: GetPinnedMessagesAsync(RequestOptions)
-  nameWithType: IMessageChannel.GetPinnedMessagesAsync(RequestOptions)
-  fullName: Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-    name: GetPinnedMessagesAsync
-    nameWithType: IMessageChannel.GetPinnedMessagesAsync
-    fullName: Discord.IMessageChannel.GetPinnedMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.GetPinnedMessagesAsync(Discord.RequestOptions)
-    name: GetPinnedMessagesAsync
-    nameWithType: IMessageChannel.GetPinnedMessagesAsync
-    fullName: Discord.IMessageChannel.GetPinnedMessagesAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Discord.IMessage}}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  name: Task<IReadOnlyCollection<IMessage>>
-  nameWithType: Task<IReadOnlyCollection<IMessage>>
-  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Discord.IMessage>>
-  nameWithType.vb: Task(Of IReadOnlyCollection(Of IMessage))
-  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IMessage))
-  name.vb: Task(Of IReadOnlyCollection(Of IMessage))
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IMessage
-    name: IMessage
-    nameWithType: IMessage
-    fullName: Discord.IMessage
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendFileAsync
-  name: IMessageChannel.SendFileAsync
-  nameWithType: SocketDMChannel.IMessageChannel.SendFileAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.SendFileAsync
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.SendFileAsync
-  name.vb: Discord.IMessageChannel.SendFileAsync
-- uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: IMessageChannel.SendFileAsync(String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.IMessageChannel.SendFileAsync(System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: SendFileAsync
-    nameWithType: IMessageChannel.SendFileAsync
-    fullName: Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: SendFileAsync
-    nameWithType: IMessageChannel.SendFileAsync
-    fullName: Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Threading.Tasks.Task{Discord.IUserMessage}
-  commentId: T:System.Threading.Tasks.Task{Discord.IUserMessage}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  name: Task<IUserMessage>
-  nameWithType: Task<IUserMessage>
-  fullName: System.Threading.Tasks.Task<Discord.IUserMessage>
-  nameWithType.vb: Task(Of IUserMessage)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.IUserMessage)
-  name.vb: Task(Of IUserMessage)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IUserMessage
-    name: IUserMessage
-    nameWithType: IUserMessage
-    fullName: Discord.IUserMessage
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IUserMessage
-    name: IUserMessage
-    nameWithType: IUserMessage
-    fullName: Discord.IUserMessage
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  commentId: M:Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  nameWithType: IMessageChannel.SendFileAsync(Stream, String, String, Boolean, Embed, RequestOptions, Boolean)
-  fullName: Discord.IMessageChannel.SendFileAsync(System.IO.Stream, System.String, System.String, System.Boolean, Discord.Embed, Discord.RequestOptions, System.Boolean)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: SendFileAsync
-    nameWithType: IMessageChannel.SendFileAsync
-    fullName: Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean)
-    name: SendFileAsync
-    nameWithType: IMessageChannel.SendFileAsync
-    fullName: Discord.IMessageChannel.SendFileAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.IO.Stream
-    name: Stream
-    nameWithType: Stream
-    fullName: System.IO.Stream
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IMessageChannel#SendMessageAsync
-  name: IMessageChannel.SendMessageAsync
-  nameWithType: SocketDMChannel.IMessageChannel.SendMessageAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IMessageChannel.SendMessageAsync
-  nameWithType.vb: SocketDMChannel.Discord.IMessageChannel.SendMessageAsync
-  name.vb: Discord.IMessageChannel.SendMessageAsync
-- uid: Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  commentId: M:Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-  parent: Discord.IMessageChannel
-  isExternal: true
-  name: SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  nameWithType: IMessageChannel.SendMessageAsync(String, Boolean, Embed, RequestOptions)
-  fullName: Discord.IMessageChannel.SendMessageAsync(System.String, System.Boolean, Discord.Embed, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-    name: SendMessageAsync
-    nameWithType: IMessageChannel.SendMessageAsync
-    fullName: Discord.IMessageChannel.SendMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions)
-    name: SendMessageAsync
-    nameWithType: IMessageChannel.SendMessageAsync
-    fullName: Discord.IMessageChannel.SendMessageAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.Embed
-    name: Embed
-    nameWithType: Embed
-    fullName: Discord.Embed
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IChannel#Name
-  name: IChannel.Name
-  nameWithType: SocketDMChannel.IChannel.Name
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.Name
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.Name
-  name.vb: Discord.IChannel.Name
-- uid: Discord.IChannel.Name
-  commentId: P:Discord.IChannel.Name
-  parent: Discord.IChannel
-  name: Name
-  nameWithType: IChannel.Name
-  fullName: Discord.IChannel.Name
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUserAsync
-  name: IChannel.GetUserAsync
-  nameWithType: SocketDMChannel.IChannel.GetUserAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.GetUserAsync
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.GetUserAsync
-  name.vb: Discord.IChannel.GetUserAsync
-- uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IChannel
-  isExternal: true
-  name: GetUserAsync(UInt64, CacheMode, RequestOptions)
-  nameWithType: IChannel.GetUserAsync(UInt64, CacheMode, RequestOptions)
-  fullName: Discord.IChannel.GetUserAsync(System.UInt64, Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: GetUserAsync
-    nameWithType: IChannel.GetUserAsync
-    fullName: Discord.IChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IChannel.GetUserAsync(System.UInt64,Discord.CacheMode,Discord.RequestOptions)
-    name: GetUserAsync
-    nameWithType: IChannel.GetUserAsync
-    fullName: Discord.IChannel.GetUserAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.UInt64
-    name: UInt64
-    nameWithType: UInt64
-    fullName: System.UInt64
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Threading.Tasks.Task{Discord.IUser}
-  commentId: T:System.Threading.Tasks.Task{Discord.IUser}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  name: Task<IUser>
-  nameWithType: Task<IUser>
-  fullName: System.Threading.Tasks.Task<Discord.IUser>
-  nameWithType.vb: Task(Of IUser)
-  fullName.vb: System.Threading.Tasks.Task(Of Discord.IUser)
-  name.vb: Task(Of IUser)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    nameWithType: Task
-    fullName: System.Threading.Tasks.Task
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync*
-  commentId: Overload:Discord.WebSocket.SocketDMChannel.Discord#IChannel#GetUsersAsync
-  name: IChannel.GetUsersAsync
-  nameWithType: SocketDMChannel.IChannel.GetUsersAsync
-  fullName: Discord.WebSocket.SocketDMChannel.Discord.IChannel.GetUsersAsync
-  nameWithType.vb: SocketDMChannel.Discord.IChannel.GetUsersAsync
-  name.vb: Discord.IChannel.GetUsersAsync
-- uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  commentId: M:Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-  parent: Discord.IChannel
-  name: GetUsersAsync(CacheMode, RequestOptions)
-  nameWithType: IChannel.GetUsersAsync(CacheMode, RequestOptions)
-  fullName: Discord.IChannel.GetUsersAsync(Discord.CacheMode, Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: GetUsersAsync
-    nameWithType: IChannel.GetUsersAsync
-    fullName: Discord.IChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IChannel.GetUsersAsync(Discord.CacheMode,Discord.RequestOptions)
-    name: GetUsersAsync
-    nameWithType: IChannel.GetUsersAsync
-    fullName: Discord.IChannel.GetUsersAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.CacheMode
-    name: CacheMode
-    nameWithType: CacheMode
-    fullName: Discord.CacheMode
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-  commentId: T:System.Collections.Generic.IAsyncEnumerable{System.Collections.Generic.IReadOnlyCollection{Discord.IUser}}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IAsyncEnumerable`1
-  name: IAsyncEnumerable<IReadOnlyCollection<IUser>>
-  nameWithType: IAsyncEnumerable<IReadOnlyCollection<IUser>>
-  fullName: System.Collections.Generic.IAsyncEnumerable<System.Collections.Generic.IReadOnlyCollection<Discord.IUser>>
-  nameWithType.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of System.Collections.Generic.IReadOnlyCollection(Of Discord.IUser))
-  name.vb: IAsyncEnumerable(Of IReadOnlyCollection(Of IUser))
-  spec.csharp:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IAsyncEnumerable`1
-    name: IAsyncEnumerable
-    nameWithType: IAsyncEnumerable
-    fullName: System.Collections.Generic.IAsyncEnumerable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Collections.Generic.IReadOnlyCollection`1
-    name: IReadOnlyCollection
-    nameWithType: IReadOnlyCollection
-    fullName: System.Collections.Generic.IReadOnlyCollection
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.IUser
-    name: IUser
-    nameWithType: IUser
-    fullName: Discord.IUser
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: )
-    nameWithType: )
-    fullName: )

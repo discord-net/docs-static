@@ -29,8 +29,8 @@ items:
   summary: "\nSpecifies the type of subscription a user is subscribed to.\n"
   example: []
   syntax:
-    content: public enum PremiumType
-    content.vb: Public Enum PremiumType
+    content: 'public enum PremiumType : int'
+    content.vb: Public Enum PremiumType As Integer
   modifiers.csharp:
   - public
   - enum
@@ -62,9 +62,10 @@ items:
   summary: "\nNo subscription.\n"
   example: []
   syntax:
-    content: None = 0
+    content: None = null
     return:
       type: Discord.PremiumType
+    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -96,9 +97,10 @@ items:
   summary: "\nNitro Classic subscription. Includes app perks like animated emojis and avatars, but not games.\n"
   example: []
   syntax:
-    content: NitroClassic = 1
+    content: NitroClassic = null
     return:
       type: Discord.PremiumType
+    content.vb: NitroClassic = Nothing
   modifiers.csharp:
   - public
   - const
@@ -130,9 +132,10 @@ items:
   summary: "\nNitro subscription. Includes app perks as well as the games subscription service.\n"
   example: []
   syntax:
-    content: Nitro = 2
+    content: Nitro = null
     return:
       type: Discord.PremiumType
+    content.vb: Nitro = Nothing
   modifiers.csharp:
   - public
   - const

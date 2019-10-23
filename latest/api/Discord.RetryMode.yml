@@ -31,18 +31,8 @@ items:
   summary: 'Specifies how a request should act in the case of an error. '
   example: []
   syntax:
-    content: >-
-      [Flags]
-
-      public enum RetryMode
-    content.vb: >-
-      <Flags>
-
-      Public Enum RetryMode
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum RetryMode : int'
+    content.vb: Public Enum RetryMode As Integer
   modifiers.csharp:
   - public
   - enum
@@ -74,9 +64,10 @@ items:
   summary: 'If a request fails, an exception is thrown immediately. '
   example: []
   syntax:
-    content: AlwaysFail = 0
+    content: AlwaysFail = null
     return:
       type: Discord.RetryMode
+    content.vb: AlwaysFail = Nothing
   modifiers.csharp:
   - public
   - const
@@ -108,9 +99,10 @@ items:
   summary: 'Retry if a request timed out. '
   example: []
   syntax:
-    content: RetryTimeouts = 1
+    content: RetryTimeouts = null
     return:
       type: Discord.RetryMode
+    content.vb: RetryTimeouts = Nothing
   modifiers.csharp:
   - public
   - const
@@ -142,9 +134,10 @@ items:
   summary: 'Retry if a request failed due to a rate-limit. '
   example: []
   syntax:
-    content: RetryRatelimit = 4
+    content: RetryRatelimit = null
     return:
       type: Discord.RetryMode
+    content.vb: RetryRatelimit = Nothing
   modifiers.csharp:
   - public
   - const
@@ -176,9 +169,10 @@ items:
   summary: 'Retry if a request failed due to an HTTP error 502. '
   example: []
   syntax:
-    content: Retry502 = 8
+    content: Retry502 = null
     return:
       type: Discord.RetryMode
+    content.vb: Retry502 = Nothing
   modifiers.csharp:
   - public
   - const
@@ -210,9 +204,10 @@ items:
   summary: 'Continuously retry a request until it times out, its cancel token is triggered, or the server responds with a non-502 error. '
   example: []
   syntax:
-    content: AlwaysRetry = 13
+    content: AlwaysRetry = null
     return:
       type: Discord.RetryMode
+    content.vb: AlwaysRetry = Nothing
   modifiers.csharp:
   - public
   - const

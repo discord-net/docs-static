@@ -12,10 +12,9 @@ items:
   - Discord.Rest.RestWebhook.DeleteAsync(Discord.RequestOptions)
   - Discord.Rest.RestWebhook.Discord#IWebhook#Channel
   - Discord.Rest.RestWebhook.Discord#IWebhook#Guild
-  - Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
   - Discord.Rest.RestWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
   - Discord.Rest.RestWebhook.GuildId
-  - Discord.Rest.RestWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
+  - Discord.Rest.RestWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
   - Discord.Rest.RestWebhook.Name
   - Discord.Rest.RestWebhook.Token
   - Discord.Rest.RestWebhook.ToString
@@ -39,15 +38,16 @@ items:
   - Discord.Net.Rest
   namespace: Discord.Rest
   syntax:
-    content: 'public class RestWebhook : RestEntity<ulong>, IWebhook, IDeletable, ISnowflakeEntity, IEntity<ulong>, IUpdateable'
+    content: 'public class RestWebhook : RestEntity<ulong>, IEntity<ulong>, IWebhook, IDeletable, ISnowflakeEntity, IEntity<ulong>, IUpdateable'
     content.vb: >-
       Public Class RestWebhook
           Inherits RestEntity(Of ULong)
-          Implements IWebhook, IDeletable, ISnowflakeEntity, IEntity(Of ULong), IUpdateable
+          Implements IEntity(Of ULong), IWebhook, IDeletable, ISnowflakeEntity, IEntity(Of ULong), IUpdateable
   inheritance:
   - System.Object
   - Discord.Rest.RestEntity{System.UInt64}
   implements:
+  - Discord.IEntity{System.UInt64}
   - Discord.IWebhook
   - Discord.IDeletable
   - Discord.ISnowflakeEntity
@@ -55,12 +55,6 @@ items:
   - Discord.IUpdateable
   inheritedMembers:
   - Discord.Rest.RestEntity{System.UInt64}.Id
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - class
@@ -89,7 +83,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the ID of the channel for this webhook.\n"
   example: []
   syntax:
     content: public ulong ChannelId { get; }
@@ -98,8 +91,6 @@ items:
       type: System.UInt64
     content.vb: Public ReadOnly Property ChannelId As ULong
   overload: Discord.Rest.RestWebhook.ChannelId*
-  implements:
-  - Discord.IWebhook.ChannelId
   modifiers.csharp:
   - public
   - get
@@ -128,7 +119,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the token of this webhook.\n"
   example: []
   syntax:
     content: public string Token { get; }
@@ -137,8 +127,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Token As String
   overload: Discord.Rest.RestWebhook.Token*
-  implements:
-  - Discord.IWebhook.Token
   modifiers.csharp:
   - public
   - get
@@ -167,7 +155,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the default name of this webhook.\n"
   example: []
   syntax:
     content: public string Name { get; }
@@ -176,8 +163,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Name As String
   overload: Discord.Rest.RestWebhook.Name*
-  implements:
-  - Discord.IWebhook.Name
   modifiers.csharp:
   - public
   - get
@@ -206,7 +191,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the ID of this webhook&apos;s default avatar.\n"
   example: []
   syntax:
     content: public string AvatarId { get; }
@@ -215,8 +199,6 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property AvatarId As String
   overload: Discord.Rest.RestWebhook.AvatarId*
-  implements:
-  - Discord.IWebhook.AvatarId
   modifiers.csharp:
   - public
   - get
@@ -245,7 +227,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the ID of the guild owning this webhook.\n"
   example: []
   syntax:
     content: public ulong? GuildId { get; }
@@ -254,8 +235,6 @@ items:
       type: System.Nullable{System.UInt64}
     content.vb: Public ReadOnly Property GuildId As ULong?
   overload: Discord.Rest.RestWebhook.GuildId*
-  implements:
-  - Discord.IWebhook.GuildId
   modifiers.csharp:
   - public
   - get
@@ -323,18 +302,14 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets when the snowflake was created.\n"
   example: []
   syntax:
     content: public DateTimeOffset CreatedAt { get; }
     parameters: []
     return:
-      type: System.DateTimeOffset
-      description: "\nA <xref href=\"System.DateTimeOffset\" data-throw-if-not-resolved=\"false\"></xref> representing when the entity was first created.\n"
+      type: DateTimeOffset
     content.vb: Public ReadOnly Property CreatedAt As DateTimeOffset
   overload: Discord.Rest.RestWebhook.CreatedAt*
-  implements:
-  - Discord.ISnowflakeEntity.CreatedAt
   modifiers.csharp:
   - public
   - get
@@ -363,7 +338,6 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nUpdates this object&apos;s properties with its current state.\n"
   example: []
   syntax:
     content: public Task UpdateAsync(RequestOptions options = null)
@@ -371,11 +345,9 @@ items:
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function UpdateAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestWebhook.UpdateAsync*
-  implements:
-  - Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -402,10 +374,9 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nGets the URL to this webhook&apos;s default avatar.\n"
   example: []
   syntax:
-    content: public string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = 128)
+    content: public string GetAvatarUrl(ImageFormat format = ImageFormat.Auto, ushort size = null)
     parameters:
     - id: format
       type: Discord.ImageFormat
@@ -413,24 +384,22 @@ items:
       type: System.UInt16
     return:
       type: System.String
-    content.vb: Public Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = 128) As String
+    content.vb: Public Function GetAvatarUrl(format As ImageFormat = ImageFormat.Auto, size As UShort = Nothing) As String
   overload: Discord.Rest.RestWebhook.GetAvatarUrl*
-  implements:
-  - Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: Discord.Rest.RestWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  id: ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
+- uid: Discord.Rest.RestWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
+  commentId: M:Discord.Rest.RestWebhook.ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
+  id: ModifyAsync(Action{Discord.WebhookProperties},Discord.RequestOptions)
   parent: Discord.Rest.RestWebhook
   langs:
   - csharp
   - vb
   name: ModifyAsync(Action<WebhookProperties>, RequestOptions)
   nameWithType: RestWebhook.ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  fullName: Discord.Rest.RestWebhook.ModifyAsync(System.Action<Discord.WebhookProperties>, Discord.RequestOptions)
+  fullName: Discord.Rest.RestWebhook.ModifyAsync(Action<Discord.WebhookProperties>, Discord.RequestOptions)
   type: Method
   source:
     remote:
@@ -447,11 +416,11 @@ items:
     content: public Task ModifyAsync(Action<WebhookProperties> func, RequestOptions options = null)
     parameters:
     - id: func
-      type: System.Action{Discord.WebhookProperties}
+      type: Action{Discord.WebhookProperties}
     - id: options
       type: Discord.RequestOptions
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function ModifyAsync(func As Action(Of WebhookProperties), options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestWebhook.ModifyAsync*
   nameWithType.vb: RestWebhook.ModifyAsync(Action(Of WebhookProperties), RequestOptions)
@@ -459,7 +428,7 @@ items:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Discord.Rest.RestWebhook.ModifyAsync(System.Action(Of Discord.WebhookProperties), Discord.RequestOptions)
+  fullName.vb: Discord.Rest.RestWebhook.ModifyAsync(Action(Of Discord.WebhookProperties), Discord.RequestOptions)
   name.vb: ModifyAsync(Action(Of WebhookProperties), RequestOptions)
 - uid: Discord.Rest.RestWebhook.DeleteAsync(Discord.RequestOptions)
   commentId: M:Discord.Rest.RestWebhook.DeleteAsync(Discord.RequestOptions)
@@ -483,20 +452,16 @@ items:
   assemblies:
   - Discord.Net.Rest
   namespace: Discord.Rest
-  summary: "\nDeletes this object and all its children.\n"
   example: []
   syntax:
     content: public Task DeleteAsync(RequestOptions options = null)
     parameters:
     - id: options
       type: Discord.RequestOptions
-      description: The options to be used when sending the request.
     return:
-      type: System.Threading.Tasks.Task
+      type: Task
     content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
   overload: Discord.Rest.RestWebhook.DeleteAsync*
-  implements:
-  - Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -528,7 +493,6 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString As String
-  overridden: System.Object.ToString
   overload: Discord.Rest.RestWebhook.ToString*
   modifiers.csharp:
   - public
@@ -616,47 +580,6 @@ items:
   modifiers.vb:
   - ReadOnly
   name.vb: Discord.IWebhook.Channel
-- uid: Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  commentId: M:Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  id: Discord#IWebhook#ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  isEii: true
-  parent: Discord.Rest.RestWebhook
-  langs:
-  - csharp
-  - vb
-  name: IWebhook.ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  nameWithType: RestWebhook.IWebhook.ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  fullName: Discord.Rest.RestWebhook.Discord.IWebhook.ModifyAsync(System.Action<Discord.WebhookProperties>, Discord.RequestOptions)
-  type: Method
-  source:
-    remote:
-      path: src/Discord.Net.Rest/Entities/Webhooks/RestWebhook.cs
-      branch: dev
-      repo: https://github.com/discord-net/Discord.Net
-    id: Discord.IWebhook.ModifyAsync
-    path: ../src/Discord.Net.Rest/Entities/Webhooks/RestWebhook.cs
-    startLine: 100
-  assemblies:
-  - Discord.Net.Rest
-  namespace: Discord.Rest
-  summary: "\nModifies this webhook.\n"
-  example: []
-  syntax:
-    content: Task IWebhook.ModifyAsync(Action<WebhookProperties> func, RequestOptions options)
-    parameters:
-    - id: func
-      type: System.Action{Discord.WebhookProperties}
-    - id: options
-      type: Discord.RequestOptions
-    return:
-      type: System.Threading.Tasks.Task
-    content.vb: Function Discord.IWebhook.ModifyAsync(func As Action(Of WebhookProperties), options As RequestOptions) As Task Implements IWebhook.ModifyAsync
-  overload: Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync*
-  implements:
-  - Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  nameWithType.vb: RestWebhook.Discord.IWebhook.ModifyAsync(Action(Of WebhookProperties), RequestOptions)
-  fullName.vb: Discord.Rest.RestWebhook.Discord.IWebhook.ModifyAsync(System.Action(Of Discord.WebhookProperties), Discord.RequestOptions)
-  name.vb: Discord.IWebhook.ModifyAsync(Action(Of WebhookProperties), RequestOptions)
 references:
 - uid: Discord.Rest
   commentId: N:Discord.Rest
@@ -664,8 +587,6 @@ references:
   nameWithType: Discord.Rest
   fullName: Discord.Rest
 - uid: System.Object
-  commentId: T:System.Object
-  parent: System
   isExternal: true
   name: Object
   nameWithType: Object
@@ -712,24 +633,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord.IWebhook
-  commentId: T:Discord.IWebhook
-  parent: Discord
-  name: IWebhook
-  nameWithType: IWebhook
-  fullName: Discord.IWebhook
-- uid: Discord.IDeletable
-  commentId: T:Discord.IDeletable
-  parent: Discord
-  name: IDeletable
-  nameWithType: IDeletable
-  fullName: Discord.IDeletable
-- uid: Discord.ISnowflakeEntity
-  commentId: T:Discord.ISnowflakeEntity
-  parent: Discord
-  name: ISnowflakeEntity
-  nameWithType: ISnowflakeEntity
-  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IEntity{System.UInt64}
   commentId: T:Discord.IEntity{System.UInt64}
   parent: Discord
@@ -772,6 +675,24 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord.IWebhook
+  commentId: T:Discord.IWebhook
+  parent: Discord
+  name: IWebhook
+  nameWithType: IWebhook
+  fullName: Discord.IWebhook
+- uid: Discord.IDeletable
+  commentId: T:Discord.IDeletable
+  parent: Discord
+  name: IDeletable
+  nameWithType: IDeletable
+  fullName: Discord.IDeletable
+- uid: Discord.ISnowflakeEntity
+  commentId: T:Discord.ISnowflakeEntity
+  parent: Discord
+  name: ISnowflakeEntity
+  nameWithType: ISnowflakeEntity
+  fullName: Discord.ISnowflakeEntity
 - uid: Discord.IUpdateable
   commentId: T:Discord.IUpdateable
   parent: Discord
@@ -787,260 +708,6 @@ references:
   fullName: Discord.Rest.RestEntity<System.UInt64>.Id
   nameWithType.vb: RestEntity(Of UInt64).Id
   fullName.vb: Discord.Rest.RestEntity(Of System.UInt64).Id
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object)
-  nameWithType: Object.Equals(Object)
-  fullName: System.Object.Equals(System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: Equals(Object, Object)
-  nameWithType: Object.Equals(Object, Object)
-  fullName: System.Object.Equals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    nameWithType: Object.Equals
-    fullName: System.Object.Equals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: System.Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    nameWithType: Object.GetHashCode
-    fullName: System.Object.GetHashCode
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  name: GetType()
-  nameWithType: Object.GetType()
-  fullName: System.Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    nameWithType: Object.GetType
-    fullName: System.Object.GetType
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  name: MemberwiseClone()
-  nameWithType: Object.MemberwiseClone()
-  fullName: System.Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    nameWithType: Object.MemberwiseClone
-    fullName: System.Object.MemberwiseClone
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  name: ReferenceEquals(Object, Object)
-  nameWithType: Object.ReferenceEquals(Object, Object)
-  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    nameWithType: Object.ReferenceEquals
-    fullName: System.Object.ReferenceEquals
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Discord.Rest.RestEntity`1
   commentId: T:Discord.Rest.RestEntity`1
   name: RestEntity<T>
@@ -1077,11 +744,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Discord
-  commentId: N:Discord
-  name: Discord
-  nameWithType: Discord
-  fullName: Discord
 - uid: Discord.IEntity`1
   commentId: T:Discord.IEntity`1
   name: IEntity<TId>
@@ -1118,6 +780,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Discord
+  commentId: N:Discord
+  name: Discord
+  nameWithType: Discord
+  fullName: Discord
 - uid: Discord.Rest.RestEntity`1.Id
   commentId: P:Discord.Rest.RestEntity`1.Id
   name: Id
@@ -1130,15 +797,7 @@ references:
   name: ChannelId
   nameWithType: RestWebhook.ChannelId
   fullName: Discord.Rest.RestWebhook.ChannelId
-- uid: Discord.IWebhook.ChannelId
-  commentId: P:Discord.IWebhook.ChannelId
-  parent: Discord.IWebhook
-  name: ChannelId
-  nameWithType: IWebhook.ChannelId
-  fullName: Discord.IWebhook.ChannelId
 - uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
   isExternal: true
   name: UInt64
   nameWithType: UInt64
@@ -1148,15 +807,7 @@ references:
   name: Token
   nameWithType: RestWebhook.Token
   fullName: Discord.Rest.RestWebhook.Token
-- uid: Discord.IWebhook.Token
-  commentId: P:Discord.IWebhook.Token
-  parent: Discord.IWebhook
-  name: Token
-  nameWithType: IWebhook.Token
-  fullName: Discord.IWebhook.Token
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -1166,37 +817,18 @@ references:
   name: Name
   nameWithType: RestWebhook.Name
   fullName: Discord.Rest.RestWebhook.Name
-- uid: Discord.IWebhook.Name
-  commentId: P:Discord.IWebhook.Name
-  parent: Discord.IWebhook
-  name: Name
-  nameWithType: IWebhook.Name
-  fullName: Discord.IWebhook.Name
 - uid: Discord.Rest.RestWebhook.AvatarId*
   commentId: Overload:Discord.Rest.RestWebhook.AvatarId
   name: AvatarId
   nameWithType: RestWebhook.AvatarId
   fullName: Discord.Rest.RestWebhook.AvatarId
-- uid: Discord.IWebhook.AvatarId
-  commentId: P:Discord.IWebhook.AvatarId
-  parent: Discord.IWebhook
-  name: AvatarId
-  nameWithType: IWebhook.AvatarId
-  fullName: Discord.IWebhook.AvatarId
 - uid: Discord.Rest.RestWebhook.GuildId*
   commentId: Overload:Discord.Rest.RestWebhook.GuildId
   name: GuildId
   nameWithType: RestWebhook.GuildId
   fullName: Discord.Rest.RestWebhook.GuildId
-- uid: Discord.IWebhook.GuildId
-  commentId: P:Discord.IWebhook.GuildId
-  parent: Discord.IWebhook
-  name: GuildId
-  nameWithType: IWebhook.GuildId
-  fullName: Discord.IWebhook.GuildId
 - uid: System.Nullable{System.UInt64}
-  commentId: T:System.Nullable{System.UInt64}
-  parent: System
+  commentId: '!:System.Nullable{System.UInt64}'
   definition: System.Nullable`1
   name: Nullable<UInt64>
   nameWithType: Nullable<UInt64>
@@ -1239,14 +871,13 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
-  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<T>
-  nameWithType: Nullable<T>
-  fullName: System.Nullable<T>
-  nameWithType.vb: Nullable(Of T)
-  fullName.vb: System.Nullable(Of T)
-  name.vb: Nullable(Of T)
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1256,9 +887,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1271,9 +902,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -1299,137 +930,32 @@ references:
   name: CreatedAt
   nameWithType: RestWebhook.CreatedAt
   fullName: Discord.Rest.RestWebhook.CreatedAt
-- uid: Discord.ISnowflakeEntity.CreatedAt
-  commentId: P:Discord.ISnowflakeEntity.CreatedAt
-  parent: Discord.ISnowflakeEntity
-  name: CreatedAt
-  nameWithType: ISnowflakeEntity.CreatedAt
-  fullName: Discord.ISnowflakeEntity.CreatedAt
-- uid: System.DateTimeOffset
-  commentId: T:System.DateTimeOffset
-  parent: System
+- uid: DateTimeOffset
   isExternal: true
   name: DateTimeOffset
   nameWithType: DateTimeOffset
-  fullName: System.DateTimeOffset
+  fullName: DateTimeOffset
 - uid: Discord.Rest.RestWebhook.UpdateAsync*
   commentId: Overload:Discord.Rest.RestWebhook.UpdateAsync
   name: UpdateAsync
   nameWithType: RestWebhook.UpdateAsync
   fullName: Discord.Rest.RestWebhook.UpdateAsync
-- uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  commentId: M:Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  parent: Discord.IUpdateable
-  name: UpdateAsync(RequestOptions)
-  nameWithType: IUpdateable.UpdateAsync(RequestOptions)
-  fullName: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-    name: UpdateAsync
-    nameWithType: IUpdateable.UpdateAsync
-    fullName: Discord.IUpdateable.UpdateAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IUpdateable.UpdateAsync(Discord.RequestOptions)
-    name: UpdateAsync
-    nameWithType: IUpdateable.UpdateAsync
-    fullName: Discord.IUpdateable.UpdateAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.RequestOptions
   commentId: T:Discord.RequestOptions
   parent: Discord
   name: RequestOptions
   nameWithType: RequestOptions
   fullName: Discord.RequestOptions
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
+- uid: Task
   isExternal: true
   name: Task
   nameWithType: Task
-  fullName: System.Threading.Tasks.Task
-- uid: System.Threading.Tasks
-  commentId: N:System.Threading.Tasks
-  isExternal: true
-  name: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-  fullName: System.Threading.Tasks
+  fullName: Task
 - uid: Discord.Rest.RestWebhook.GetAvatarUrl*
   commentId: Overload:Discord.Rest.RestWebhook.GetAvatarUrl
   name: GetAvatarUrl
   nameWithType: RestWebhook.GetAvatarUrl
   fullName: Discord.Rest.RestWebhook.GetAvatarUrl
-- uid: Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-  commentId: M:Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-  parent: Discord.IWebhook
-  isExternal: true
-  name: GetAvatarUrl(ImageFormat, UInt16)
-  nameWithType: IWebhook.GetAvatarUrl(ImageFormat, UInt16)
-  fullName: Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat, System.UInt16)
-  spec.csharp:
-  - uid: Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-    name: GetAvatarUrl
-    nameWithType: IWebhook.GetAvatarUrl
-    fullName: Discord.IWebhook.GetAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.ImageFormat
-    name: ImageFormat
-    nameWithType: ImageFormat
-    fullName: Discord.ImageFormat
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IWebhook.GetAvatarUrl(Discord.ImageFormat,System.UInt16)
-    name: GetAvatarUrl
-    nameWithType: IWebhook.GetAvatarUrl
-    fullName: Discord.IWebhook.GetAvatarUrl
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.ImageFormat
-    name: ImageFormat
-    nameWithType: ImageFormat
-    fullName: Discord.ImageFormat
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.UInt16
-    name: UInt16
-    nameWithType: UInt16
-    fullName: System.UInt16
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.ImageFormat
   commentId: T:Discord.ImageFormat
   parent: Discord
@@ -1437,8 +963,6 @@ references:
   nameWithType: ImageFormat
   fullName: Discord.ImageFormat
 - uid: System.UInt16
-  commentId: T:System.UInt16
-  parent: System
   isExternal: true
   name: UInt16
   nameWithType: UInt16
@@ -1448,21 +972,20 @@ references:
   name: ModifyAsync
   nameWithType: RestWebhook.ModifyAsync
   fullName: Discord.Rest.RestWebhook.ModifyAsync
-- uid: System.Action{Discord.WebhookProperties}
-  commentId: T:System.Action{Discord.WebhookProperties}
-  parent: System
-  definition: System.Action`1
+- uid: Action{Discord.WebhookProperties}
+  commentId: '!:Action{Discord.WebhookProperties}'
+  definition: Action`1
   name: Action<WebhookProperties>
   nameWithType: Action<WebhookProperties>
-  fullName: System.Action<Discord.WebhookProperties>
+  fullName: Action<Discord.WebhookProperties>
   nameWithType.vb: Action(Of WebhookProperties)
-  fullName.vb: System.Action(Of Discord.WebhookProperties)
+  fullName.vb: Action(Of Discord.WebhookProperties)
   name.vb: Action(Of WebhookProperties)
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
@@ -1475,10 +998,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1490,42 +1013,41 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
+- uid: Action`1
   isExternal: true
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
   spec.csharp:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Action`1
+  - uid: Action`1
     name: Action
     nameWithType: Action
-    fullName: System.Action
+    fullName: Action
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
+  - name: ''
+    nameWithType: ''
+    fullName: ''
   - name: )
     nameWithType: )
     fullName: )
@@ -1534,73 +1056,6 @@ references:
   name: DeleteAsync
   nameWithType: RestWebhook.DeleteAsync
   fullName: Discord.Rest.RestWebhook.DeleteAsync
-- uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  commentId: M:Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  parent: Discord.IDeletable
-  name: DeleteAsync(RequestOptions)
-  nameWithType: IDeletable.DeleteAsync(RequestOptions)
-  fullName: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-  spec.csharp:
-  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-    name: DeleteAsync
-    nameWithType: IDeletable.DeleteAsync
-    fullName: Discord.IDeletable.DeleteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IDeletable.DeleteAsync(Discord.RequestOptions)
-    name: DeleteAsync
-    nameWithType: IDeletable.DeleteAsync
-    fullName: Discord.IDeletable.DeleteAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: System.Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    nameWithType: Object.ToString
-    fullName: System.Object.ToString
-    isExternal: true
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Discord.Rest.RestWebhook.ToString*
   commentId: Overload:Discord.Rest.RestWebhook.ToString
   name: ToString
@@ -1644,86 +1099,3 @@ references:
   name: ITextChannel
   nameWithType: ITextChannel
   fullName: Discord.ITextChannel
-- uid: Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync*
-  commentId: Overload:Discord.Rest.RestWebhook.Discord#IWebhook#ModifyAsync
-  name: IWebhook.ModifyAsync
-  nameWithType: RestWebhook.IWebhook.ModifyAsync
-  fullName: Discord.Rest.RestWebhook.Discord.IWebhook.ModifyAsync
-  nameWithType.vb: RestWebhook.Discord.IWebhook.ModifyAsync
-  name.vb: Discord.IWebhook.ModifyAsync
-- uid: Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  commentId: M:Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-  parent: Discord.IWebhook
-  isExternal: true
-  name: ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  nameWithType: IWebhook.ModifyAsync(Action<WebhookProperties>, RequestOptions)
-  fullName: Discord.IWebhook.ModifyAsync(System.Action<Discord.WebhookProperties>, Discord.RequestOptions)
-  nameWithType.vb: IWebhook.ModifyAsync(Action(Of WebhookProperties), RequestOptions)
-  fullName.vb: Discord.IWebhook.ModifyAsync(System.Action(Of Discord.WebhookProperties), Discord.RequestOptions)
-  name.vb: ModifyAsync(Action(Of WebhookProperties), RequestOptions)
-  spec.csharp:
-  - uid: Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: IWebhook.ModifyAsync
-    fullName: Discord.IWebhook.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: Discord.WebhookProperties
-    name: WebhookProperties
-    nameWithType: WebhookProperties
-    fullName: Discord.WebhookProperties
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Discord.IWebhook.ModifyAsync(System.Action{Discord.WebhookProperties},Discord.RequestOptions)
-    name: ModifyAsync
-    nameWithType: IWebhook.ModifyAsync
-    fullName: Discord.IWebhook.ModifyAsync
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Action`1
-    name: Action
-    nameWithType: Action
-    fullName: System.Action
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: Discord.WebhookProperties
-    name: WebhookProperties
-    nameWithType: WebhookProperties
-    fullName: Discord.WebhookProperties
-  - name: )
-    nameWithType: )
-    fullName: )
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: Discord.RequestOptions
-    name: RequestOptions
-    nameWithType: RequestOptions
-    fullName: Discord.RequestOptions
-  - name: )
-    nameWithType: )
-    fullName: )

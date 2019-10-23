@@ -27,18 +27,8 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: >-
-      [Flags]
-
-      public enum SystemChannelMessageDeny
-    content.vb: >-
-      <Flags>
-
-      Public Enum SystemChannelMessageDeny
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum SystemChannelMessageDeny : int'
+    content.vb: Public Enum SystemChannelMessageDeny As Integer
   modifiers.csharp:
   - public
   - enum
@@ -70,9 +60,10 @@ items:
   summary: "\nDeny none of the system channel messages.\nThis will enable all of the system channel messages.\n"
   example: []
   syntax:
-    content: None = 0
+    content: None = null
     return:
       type: Discord.SystemChannelMessageDeny
+    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -104,9 +95,10 @@ items:
   summary: "\nDeny the messages that are sent when a user joins the guild.\n"
   example: []
   syntax:
-    content: WelcomeMessage = 1
+    content: WelcomeMessage = null
     return:
       type: Discord.SystemChannelMessageDeny
+    content.vb: WelcomeMessage = Nothing
   modifiers.csharp:
   - public
   - const
@@ -138,9 +130,10 @@ items:
   summary: "\nDeny the messages that are sent when a user boosts the guild.\n"
   example: []
   syntax:
-    content: GuildBoost = 2
+    content: GuildBoost = null
     return:
       type: Discord.SystemChannelMessageDeny
+    content.vb: GuildBoost = Nothing
   modifiers.csharp:
   - public
   - const

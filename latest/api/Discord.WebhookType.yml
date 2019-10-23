@@ -28,8 +28,8 @@ items:
   remarks: "\nThis type is currently unused, and is only returned in audit log responses.\n"
   example: []
   syntax:
-    content: public enum WebhookType
-    content.vb: Public Enum WebhookType
+    content: 'public enum WebhookType : int'
+    content.vb: Public Enum WebhookType As Integer
   modifiers.csharp:
   - public
   - enum
@@ -61,9 +61,10 @@ items:
   summary: 'An incoming webhook '
   example: []
   syntax:
-    content: Incoming = 1
+    content: Incoming = null
     return:
       type: Discord.WebhookType
+    content.vb: Incoming = Nothing
   modifiers.csharp:
   - public
   - const

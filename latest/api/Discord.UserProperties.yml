@@ -32,18 +32,8 @@ items:
   - Discord.Net.Core
   namespace: Discord
   syntax:
-    content: >-
-      [Flags]
-
-      public enum UserProperties
-    content.vb: >-
-      <Flags>
-
-      Public Enum UserProperties
-  attributes:
-  - type: System.FlagsAttribute
-    ctor: System.FlagsAttribute.#ctor
-    arguments: []
+    content: 'public enum UserProperties : int'
+    content.vb: Public Enum UserProperties As Integer
   modifiers.csharp:
   - public
   - enum
@@ -75,9 +65,10 @@ items:
   summary: "\nDefault value for flags, when none are given to an account.\n"
   example: []
   syntax:
-    content: None = 0
+    content: None = null
     return:
       type: Discord.UserProperties
+    content.vb: None = Nothing
   modifiers.csharp:
   - public
   - const
@@ -109,9 +100,10 @@ items:
   summary: "\nFlag given to Discord staff.\n"
   example: []
   syntax:
-    content: Staff = 1
+    content: Staff = null
     return:
       type: Discord.UserProperties
+    content.vb: Staff = Nothing
   modifiers.csharp:
   - public
   - const
@@ -143,9 +135,10 @@ items:
   summary: "\nFlag given to Discord partners.\n"
   example: []
   syntax:
-    content: Partner = 2
+    content: Partner = null
     return:
       type: Discord.UserProperties
+    content.vb: Partner = Nothing
   modifiers.csharp:
   - public
   - const
@@ -177,9 +170,10 @@ items:
   summary: "\nFlag given to users who have participated in the bug report program.\n"
   example: []
   syntax:
-    content: BugHunter = 8
+    content: BugHunter = null
     return:
       type: Discord.UserProperties
+    content.vb: BugHunter = Nothing
   modifiers.csharp:
   - public
   - const
@@ -211,9 +205,10 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Bravery.\n"
   example: []
   syntax:
-    content: HypeSquadBravery = 64
+    content: HypeSquadBravery = null
     return:
       type: Discord.UserProperties
+    content.vb: HypeSquadBravery = Nothing
   modifiers.csharp:
   - public
   - const
@@ -245,9 +240,10 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Brilliance.\n"
   example: []
   syntax:
-    content: HypeSquadBrilliance = 128
+    content: HypeSquadBrilliance = null
     return:
       type: Discord.UserProperties
+    content.vb: HypeSquadBrilliance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -279,9 +275,10 @@ items:
   summary: "\nFlag given to users who are in the HypeSquad House of Balance.\n"
   example: []
   syntax:
-    content: HypeSquadBalance = 256
+    content: HypeSquadBalance = null
     return:
       type: Discord.UserProperties
+    content.vb: HypeSquadBalance = Nothing
   modifiers.csharp:
   - public
   - const
@@ -313,9 +310,10 @@ items:
   summary: "\nFlag given to users who subscribed to Nitro before games were added.\n"
   example: []
   syntax:
-    content: EarlySupporter = 512
+    content: EarlySupporter = null
     return:
       type: Discord.UserProperties
+    content.vb: EarlySupporter = Nothing
   modifiers.csharp:
   - public
   - const
