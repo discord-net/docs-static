@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Preconditions | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Preconditions | Discord.Net Documentation ">
+    
+    <meta property="og:locale" content="en-us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Discord.Net Docs">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/discord-net/Discord.Net/docs/marketing/logo/PackageLogo.png">
+    <meta property="og:image:alt" content="Discord.Net Logo">
+    <meta name="theme-color" content="#995EA7">
+    <meta name="generator" content="docfx 2.46.0.0">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta property="og:description" content="Preconditions serve as a permissions system for your Commands."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Commands.Preconditions">
+<h1 id="preconditions">Preconditions</h1>
+
+<p>Preconditions serve as a permissions system for your Commands. Keep in
+mind, however, that they are not limited to <em>just</em> permissions and can
+be as complex as you want them to be.</p>
+<p>There are two types of Preconditions you can use:</p>
+<ul>
+<li><a href="xref:Discord.Commands.PreconditionAttribute">PreconditionAttribute</a> can be applied to Modules, Groups, or Commands.</li>
+<li><a href="xref:Discord.Commands.ParameterPreconditionAttribute">ParameterPreconditionAttribute</a> can be applied to Parameters.</li>
+</ul>
+<p>You may visit their respective API documentation to find out more.</p>
+<h2 id="bundled-preconditions">Bundled Preconditions</h2>
+<p>@Discord.Commands ships with several bundled Preconditions for you
+to use.</p>
+<ul>
+<li>@Discord.Commands.RequireContextAttribute</li>
+<li>@Discord.Commands.RequireOwnerAttribute</li>
+<li>@Discord.Commands.RequireBotPermissionAttribute</li>
+<li>@Discord.Commands.RequireUserPermissionAttribute</li>
+<li>@Discord.Commands.RequireNsfwAttribute</li>
+</ul>
+<h2 id="using-preconditions">Using Preconditions</h2>
+<p>To use a precondition, simply apply any valid precondition candidate to
+a command method signature as an attribute.</p>
+<h3 id="example---using-a-precondition">Example - Using a Precondition</h3>
+<pre><code class="lang-csharp" name="Precondition usage">[RequireOwner]
+[Command(&quot;echo&quot;)]
+public Task EchoAsync(string input) =&gt; ReplyAsync(input);
+</code></pre><h2 id="oring-preconditions">ORing Preconditions</h2>
+<p>When writing commands, you may want to allow some of them to be
+executed when only some of the precondition checks are passed.</p>
+<p>This is where the <a href="xref:Discord.Commands.PreconditionAttribute.Group">Group</a> property of a precondition attribute comes in
+handy. By assigning two or more preconditions to a group, the command
+system will allow the command to be executed when one of the
+precondition passes.</p>
+<h3 id="example---oring-preconditions">Example - ORing Preconditions</h3>
+<pre><code class="lang-csharp" name="OR Precondition">// The following example only requires the user to either have the
+// Administrator permission in this guild or own the bot application.
+[RequireUserPermission(GuildPermission.Administrator, Group = &quot;Permission&quot;)]
+[RequireOwner(Group = &quot;Permission&quot;)]
+public class AdminModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+    [Command(&quot;ban&quot;)]
+    public Task BanAsync(IUser user) =&gt; Context.Guild.AddBanAsync(user);
+}
+</code></pre><h2 id="custom-preconditions">Custom Preconditions</h2>
+<p>To write your own Precondition, create a new class that inherits from
+either <a href="xref:Discord.Commands.PreconditionAttribute">PreconditionAttribute</a> or <a href="xref:Discord.Commands.ParameterPreconditionAttribute">ParameterPreconditionAttribute</a>
+depending on your use.</p>
+<p>In order for your Precondition to function, you will need to override
+the <a href="xref:Discord.Commands.PreconditionAttribute.CheckPermissionsAsync*">CheckPermissionsAsync</a> method.</p>
+<p>If the context meets the required parameters, return
+<a href="xref:Discord.Commands.PreconditionResult.FromSuccess*">PreconditionResult.FromSuccess</a>, otherwise return
+<a href="xref:Discord.Commands.PreconditionResult.FromError*">PreconditionResult.FromError</a> and include an error message if
+necessary.</p>
+<div class="NOTE"><h5>Note</h5><p>Visual Studio can help you implement missing members
+from the abstract class by using the &quot;Implement Abstract Class&quot;
+IntelliSense hint.</p>
+</div>
+<h3 id="example---creating-a-custom-precondition">Example - Creating a Custom Precondition</h3>
+<pre><code class="lang-csharp" name="Custom Precondition">using System;
+using System.Threading.Tasks;
+using Discord.Commands;
+using Discord.WebSocket;
+
+// Inherit from PreconditionAttribute
+public class RequireRoleAttribute : PreconditionAttribute
+{
+    // Create a field to store the specified name
+    private readonly string _name;
+
+    // Create a constructor so the name can be specified
+    public RequireRoleAttribute(string name) =&gt; _name = name;
+
+    // Override the CheckPermissions method
+    public override Task&lt;PreconditionResult&gt; CheckPermissionsAsync(ICommandContext context, CommandInfo command, IServiceProvider services)
+    {
+        // Check if this user is a Guild User, which is the only context where roles exist
+        if (context.User is SocketGuildUser gUser)
+        {
+            // If this command was executed by a user with the appropriate role, return a success
+            if (gUser.Roles.Any(r =&gt; r.Name == _name))
+                // Since no async work is done, the result has to be wrapped with `Task.FromResult` to avoid compiler errors
+                return Task.FromResult(PreconditionResult.FromSuccess());
+            // Since it wasn&#39;t, fail
+            else
+                return Task.FromResult(PreconditionResult.FromError($&quot;You must have a role named {_name} to run this command.&quot;));
+        }
+        else
+            return Task.FromResult(PreconditionResult.FromError(&quot;You must be in a guild to run this command.&quot;));
+    }
+}
+</code></pre><hr><p>This page was last modified at 10/24/2019 9:09:24 PM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/commands/preconditions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.1.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

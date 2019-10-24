@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Post-command Execution Handling | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Post-command Execution Handling | Discord.Net Documentation ">
+    
+    <meta property="og:locale" content="en-us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Discord.Net Docs">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/discord-net/Discord.Net/docs/marketing/logo/PackageLogo.png">
+    <meta property="og:image:alt" content="Discord.Net Logo">
+    <meta name="theme-color" content="#995EA7">
+    <meta name="generator" content="docfx 2.46.0.0">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta property="og:description" content="When developing commands, you may want to consider building a
+post-execution handling system so you can have finer control
+over commands."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Guides.Commands.PostExecution">
+<h1 id="post-execution-handling-for-commands">Post-execution Handling for Commands</h1>
+
+<p>When developing commands, you may want to consider building a
+post-execution handling system so you can have finer control
+over commands. Discord.Net offers several post-execution workflows
+for you to work with.</p>
+<p>If you recall, in the <a class="xref" href="intro.html">Command Guide</a>, we have shown the following
+example for executing and handling commands,</p>
+<pre><code name="Command Handler">public class CommandHandler
+{
+    private readonly DiscordSocketClient _client;
+    private readonly CommandService _commands;
+
+    // Retrieve client and CommandService instance via ctor
+    public CommandHandler(DiscordSocketClient client, CommandService commands)
+    {
+        _commands = commands;
+        _client = client;
+    }
+    
+    public async Task InstallCommandsAsync()
+    {
+        // Hook the MessageReceived event into our command handler
+        _client.MessageReceived += HandleCommandAsync;
+
+        // Here we discover all of the command modules in the entry 
+        // assembly and load them. Starting from Discord.NET 2.0, a
+        // service provider is required to be passed into the
+        // module registration method to inject the 
+        // required dependencies.
+        //
+        // If you do not use Dependency Injection, pass null.
+        // See Dependency Injection guide for more information.
+        await _commands.AddModulesAsync(assembly: Assembly.GetEntryAssembly(), 
+                                        services: null);
+    }
+
+    private async Task HandleCommandAsync(SocketMessage messageParam)
+    {
+        // Don&#39;t process the command if it was a system message
+        var message = messageParam as SocketUserMessage;
+        if (message == null) return;
+
+        // Create a number to track where the prefix ends and the command begins
+        int argPos = 0;
+
+        // Determine if the message is a command based on the prefix and make sure no bots trigger commands
+        if (!(message.HasCharPrefix(&#39;!&#39;, ref argPos) || 
+            message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
+            message.Author.IsBot)
+            return;
+
+        // Create a WebSocket-based command context based on the message
+        var context = new SocketCommandContext(_client, message);
+
+        // Execute the command with the command context we just
+        // created, along with the service provider for precondition checks.
+        await _commands.ExecuteAsync(
+            context: context, 
+            argPos: argPos,
+            services: null);
+    }
+}
+</code></pre><p>You may notice that after we perform <a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a>, we store the
+result and print it to the chat, essentially creating the most
+fundamental form of a post-execution handler.</p>
+<p>With this in mind, we could start doing things like the following,</p>
+<pre><code name="Basic Command Handler">// Bad code!!!
+var result = await _commands.ExecuteAsync(context, argPos, _services);
+if (result.CommandError != null)
+	switch(result.CommandError)
+	{
+		case CommandError.BadArgCount:
+			await context.Channel.SendMessageAsync(
+				&quot;Parameter count does not match any command&#39;s.&quot;);
+			break;
+		default:
+			await context.Channel.SendMessageAsync(
+				$&quot;An error has occurred {result.ErrorReason}&quot;);
+			break;
+	}
+</code></pre><p>However, this may not always be preferred, because you are
+creating your post-execution logic <em>with</em> the essential command
+handler. This design could lead to messy code and could potentially
+be a violation of the SRP (Single Responsibility Principle).</p>
+<p>Another major issue is if your command is marked with
+<code>RunMode.Async</code>, <a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a> will <strong>always</strong> return a successful
+<a href="xref:Discord.Commands.ExecuteResult">ExecuteResult</a> instead of the actual result. You can learn more
+about the impact in <a class="xref" href="../../faq/commands/general.html">General Questions about Commands</a>.</p>
+<h2 id="commandexecuted-event">CommandExecuted Event</h2>
+<p>Enter <a href="xref:Discord.Commands.CommandService.CommandExecuted">CommandExecuted</a>, an event that was introduced in
+Discord.Net 2.0. This event is raised whenever a command is
+executed regardless of its execution status. This means this 
+event can be used to streamline your post-execution design,
+is not prone to <code>RunMode.Async</code>&#39;s <a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a> drawbacks.</p>
+<p>Thus, we can begin working on code such as:</p>
+<pre><code name="CommandExecuted demo">public async Task SetupAsync()
+{
+    await _command.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+    // Hook the execution event
+    _command.CommandExecuted += OnCommandExecutedAsync;
+    // Hook the command handler
+    _client.MessageReceived += HandleCommandAsync;
+}
+public async Task OnCommandExecutedAsync(Optional&lt;CommandInfo&gt; command, ICommandContext context, IResult result)
+{
+    // We have access to the information of the command executed,
+    // the context of the command, and the result returned from the
+    // execution in this event.
+
+    // We can tell the user what went wrong
+    if (!string.IsNullOrEmpty(result?.ErrorReason))
+    {
+        await context.Channel.SendMessageAsync(result.ErrorReason);
+    }
+
+    // ...or even log the result (the method used should fit into
+    // your existing log handler)
+    var commandName = command.IsSpecified ? command.Value.Name : &quot;A command&quot;;
+    await _log.LogAsync(new LogMessage(LogSeverity.Info, 
+        &quot;CommandExecution&quot;, 
+        $&quot;{commandName} was executed at {DateTime.UtcNow}.&quot;));
+}
+public async Task HandleCommandAsync(SocketMessage msg)
+{
+    var message = messageParam as SocketUserMessage;
+    if (message == null) return;
+    int argPos = 0;
+    if (!(message.HasCharPrefix(&#39;!&#39;, ref argPos) || 
+        message.HasMentionPrefix(_client.CurrentUser, ref argPos)) || 
+        message.Author.IsBot) return;
+    var context = new SocketCommandContext(_client, message);
+    await _commands.ExecuteAsync(context, argPos, _services);
+}
+</code></pre><p>So now we have a streamlined post-execution pipeline, great! What&#39;s
+next? We can take this further by using <a href="xref:Discord.Commands.RuntimeResult">RuntimeResult</a>.</p>
+<h3 id="runtimeresult">RuntimeResult</h3>
+<p><code>RuntimeResult</code> was initially introduced in 1.0 to allow
+developers to centralize their command result logic.
+In other words, it is a result type that is designed to be
+returned when the command has finished its execution.</p>
+<p>However, it wasn&#39;t widely adopted due to the aforementioned
+<a href="xref:Discord.Commands.CommandService.ExecuteAsync*">ExecuteAsync</a> drawback. Since we now have access to a proper
+result-handler via the <a href="xref:Discord.Commands.CommandService.CommandExecuted">CommandExecuted</a> event, we can start
+making use of this class.</p>
+<p>The best way to make use of it is to create your version of
+<code>RuntimeResult</code>. You can achieve this by inheriting the <code>RuntimeResult</code>
+class.</p>
+<p>The following creates a bare-minimum required for a sub-class
+of <code>RuntimeResult</code>,</p>
+<pre><code name="Base Use">public class MyCustomResult : RuntimeResult
+{
+    public MyCustomResult(CommandError? error, string reason) : base(error, reason)
+    {
+    }
+}
+</code></pre><p>The sky is the limit from here. You can add any additional information
+you would like regarding the execution result.</p>
+<p>For example, you may want to add your result type or other
+helpful information regarding the execution, or something
+simple like static methods to help you create return types easily.</p>
+<pre><code name="Extended Use">public class MyCustomResult : RuntimeResult
+{
+    public MyCustomResult(CommandError? error, string reason) : base(error, reason)
+    {
+    }
+    public static MyCustomResult FromError(string reason) =&gt;
+        new MyCustomResult(CommandError.Unsuccessful, reason);
+    public static MyCustomResult FromSuccess(string reason = null) =&gt;
+        new MyCustomResult(null, reason);
+}
+</code></pre><p>After you&#39;re done creating your <a href="xref:Discord.Commands.RuntimeResult">RuntimeResult</a>, you can
+implement it in your command by marking the command return type to
+<code>Task&lt;RuntimeResult&gt;</code>.</p>
+<div class="NOTE"><h5>Note</h5><p>You must mark the return type as <code>Task&lt;RuntimeResult&gt;</code> instead of
+<code>Task&lt;MyCustomResult&gt;</code>. Only the former will be picked up when
+building the module.</p>
+</div>
+<p>Here&#39;s an example of a command that utilizes such logic:</p>
+<pre><code name="Usage">public class MyModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+    [Command(&quot;eat&quot;)]
+    public async Task&lt;RuntimeResult&gt; ChooseAsync(string food)
+    {
+        if (food == &quot;salad&quot;)
+            return MyCustomResult.FromError(&quot;No, I don&#39;t want that!&quot;);
+        return MyCustomResult.FromSuccess($&quot;Give me the {food}!&quot;).
+    }
+}
+</code></pre><p>And now we can check for it in our <a href="xref:Discord.Commands.CommandService.CommandExecuted">CommandExecuted</a> handler:</p>
+<pre><code name="Usage">public async Task OnCommandExecutedAsync(Optional&lt;CommandInfo&gt; command, ICommandContext context, IResult result)
+{
+    switch(result)
+    {
+        case MyCustomResult customResult:
+            // do something extra with it
+            break;
+        default:
+            if (!string.IsNullOrEmpty(result.ErrorReason))
+                await context.Channel.SendMessageAsync(result.ErrorReason);
+            break;
+    }
+}
+</code></pre><h2 id="commandservicelog-event">CommandService.Log Event</h2>
+<p>We have so far covered the handling of various result types, but we
+have not talked about what to do if the command enters a catastrophic
+failure (i.e., exceptions). To resolve this, we can make use of the
+<a href="xref:Discord.Commands.CommandService.Log">CommandService.Log</a> event.</p>
+<p>All exceptions thrown during a command execution are caught and sent
+to the Log event under the <a href="xref:Discord.LogMessage.Exception">LogMessage.Exception</a> property
+as a <a href="xref:Discord.Commands.CommandException">CommandException</a> type. The <a href="xref:Discord.Commands.CommandException">CommandException</a> class allows
+us to access the exception thrown, as well as the context
+of the command.</p>
+<pre><code name="Logger Sample">public async Task LogAsync(LogMessage logMessage)
+{
+    if (logMessage.Exception is CommandException cmdException)
+    {
+        // We can tell the user that something unexpected has happened
+        await cmdException.Context.Channel.SendMessageAsync(&quot;Something went catastrophically wrong!&quot;);
+
+        // We can also log this incident
+        Console.WriteLine($&quot;{cmdException.Context.User} failed to execute &#39;{cmdException.Command.Name}&#39; in {cmdException.Context.Channel}.&quot;);
+        Console.WriteLine(cmdException.ToString());
+    }
+}
+</code></pre><hr><p>This page was last modified at 10/24/2019 9:09:24 PM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/commands/post-execution.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.1.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

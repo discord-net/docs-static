@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Questions about Dependency Injection with Commands | Discord.Net Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Questions about Dependency Injection with Commands | Discord.Net Documentation ">
+    
+    <meta property="og:locale" content="en-us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Discord.Net Docs">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/discord-net/Discord.Net/docs/marketing/logo/PackageLogo.png">
+    <meta property="og:image:alt" content="Discord.Net Logo">
+    <meta name="theme-color" content="#995EA7">
+    <meta name="generator" content="docfx 2.46.0.0">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/material.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  <meta property="og:description" content="In the following section, you will find common questions and answers
+to utilizing dependency injection with @Discord.Commands, as well as
+common tr..."></head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FAQ.Commands.DI">
+<h1 id="dependency-injection-related-questions">Dependency-injection-related Questions</h1>
+
+<p>In the following section, you will find common questions and answers
+to utilizing dependency injection with @Discord.Commands, as well as
+common troubleshooting steps regarding DI.</p>
+<h2 id="what-is-a-service-why-does-my-module-not-hold-any-data-after-execution">What is a service? Why does my module not hold any data after execution?</h2>
+<p>In Discord.Net, modules are created similarly to ASP.NET, meaning
+that they have a transient nature; modules are spawned whenever a
+request is received, and are killed from memory when the execution
+finishes. In other words, you cannot store persistent
+data inside a module. Consider using a service if you wish to
+workaround this.</p>
+<p>Service is often used to hold data externally so that they persist
+throughout execution. Think of it like a chest that holds
+whatever you throw at it that won&#39;t be affected by anything unless
+you want it to. Note that you should also learn Microsoft&#39;s
+implementation of <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection">Dependency Injection</a> (<a href="https://www.youtube.com/watch?v=QtDTfn8YxXg">video</a>) before proceeding,
+as well as how it works in <a class="xref" href="../../guides/commands/dependency-injection.html#usage-in-modules">Discord.Net</a>.</p>
+<p>A brief example of service and dependency injection can be seen below.</p>
+<pre><code class="lang-csharp" name="DI">public class MyService
+{
+	public string MyCoolString { get; set; }
+}
+public class Setup
+{
+	public IServiceProvider BuildProvider() =&gt; 
+			new ServiceCollection()
+			.AddSingleton&lt;MyService&gt;()
+			.BuildServiceProvider();
+}
+public class MyModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+	// Inject via public settable prop
+	public MyService MyService { get; set; }
+	
+	// ...or via the module&#39;s constructor
+
+	// private readonly MyService _myService;
+	// public MyModule (MyService myService) =&gt; _myService = myService;
+	
+	[Command(&quot;string&quot;)]
+	public Task GetOrSetStringAsync(string input)
+	{
+		if (string.IsNullOrEmpty(_myService.MyCoolString)) _myService.MyCoolString = input;
+		return ReplyAsync(_myService.MyCoolString);
+	}
+}
+</code></pre><h2 id="why-is-my-commandservice-complaining-about-a-missing-dependency">Why is my <code>CommandService</code> complaining about a missing dependency?</h2>
+<p>If you encounter an error similar to <code>Failed to create MyModule,
+dependency MyExternalDependency was not found.</code>, you may have
+forgotten to add the external dependency to the dependency container.</p>
+<p>Starting from Discord.Net 2.0, all dependencies required by each
+module must be present when the module is loaded into the
+<a href="xref:Discord.Commands.CommandService">CommandService</a>. This means when loading the module, you must pass a
+valid <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> with the dependency loaded before the module
+can be successfully registered.</p>
+<p>For example, if your module, <code>MyModule</code>, requests a <code>DatabaseService</code>
+in its constructor, the <code>DatabaseService</code> must be present in the
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> when registering <code>MyModule</code>.</p>
+<pre><code class="lang-csharp" name="Missing Dependencies">public class MyModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+    private readonly DatabaseService _dbService;
+    public MyModule(DatabaseService dbService)
+        =&gt; _dbService = dbService;
+}
+public class CommandHandler
+{
+    private readonly CommandService _commands;
+    private readonly IServiceProvider _services;
+    public CommandHandler(DiscordSocketClient client)
+    {
+        _services = new ServiceCollection()
+            .AddService&lt;CommandService&gt;()
+            .AddService(client)
+            // We are missing DatabaseService!
+            .BuildServiceProvider();
+    }
+    public async Task RegisterCommandsAsync()
+    {
+        // ...
+        // The method fails here because DatabaseService is a required
+        // dependency and cannot be resolved by the dependency
+        // injection service at runtime since the service is not
+        // registered in this instance of _services.
+        await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+        // ...
+    }
+}
+</code></pre><hr><p>This page was last modified at 10/24/2019 9:09:24 PM +00:00 (UTC).</p></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/commands/dependency-injection.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Discord.Net (c) 2015-2019 2.1.1
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>
