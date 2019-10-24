@@ -32,7 +32,7 @@
     
     <meta property="docfx:rel" content="../../">
     
-  <meta property="og:description" content="Discord.Commands provides an attribute-based
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jordnkr/collapsible/master/collapsible.css"><meta property="og:description" content="Discord.Commands provides an attribute-based
 command parser."></head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -223,7 +223,7 @@ be found in <a class="xref" href="typereaders.html">Type Readers</a>.</p>
 <p>Parameters, by default, are always required. To make a parameter
 optional, give it a default value (i.e., <code>int num = 0</code>).</p>
 <h4 id="parameters-with-spaces">Parameters with Spaces</h4>
-<p>To accept a comma-separated list, set the parameter to <code>params Type[]</code>.</p>
+<p>To accept a space-separated list, set the parameter to <code>params Type[]</code>.</p>
 <p>Should a parameter include spaces, the parameter <strong>must</strong> be
 wrapped in quotes. For example, for a command with a parameter
 <code>string food</code>, you would execute it with
@@ -360,7 +360,11 @@ public class AdminModule : ModuleBase&lt;SocketCommandContext&gt;
     public Task BanAsync(IGuildUser user) =&gt; 
         Context.Guild.AddBanAsync(user);
 }
-</code></pre><hr><p>This page was last modified at 10/23/2019 2:50:46 AM +00:00 (UTC).</p></article>
+</code></pre><hr><p>This page was last modified at 10/23/2019 12:25:26 PM -07:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Chris Johnston
+Commit:    1c6ee72a9a4fd1f6655dcd50a4a412734f5f65b9
+</code></pre><pre><code class="xml">docs: Fix #1394 Misworded doc for command params args (#1400)
+
+This fixes the docs for the command service, where it specifies that arguments that use the params keyword are comma separated, when they are actually space separated.</code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -407,5 +411,8 @@ public class AdminModule : ModuleBase&lt;SocketCommandContext&gt;
     <script type="text/javascript" src="../../styles/main.js"></script>
     <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
     <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
-    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  <script>
+  $( function() {
+    $( "#accordion" ).collapsible();
+  } );</script><script type="text/javascript" src="https://cdn.rawgit.com/jordnkr/collapsible/master/jquery.collapsible.min.js"></script></body>
 </html>
