@@ -32,7 +32,7 @@
     
     <meta property="docfx:rel" content="../../">
     
-  <meta property="og:description" content="In the following section, you will find commonly asked questions and
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jordnkr/collapsible/master/collapsible.css"><meta property="og:description" content="In the following section, you will find commonly asked questions and
 answers regarding basic usage of the library, as well as
 language-specific tip..."></head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -149,7 +149,7 @@ various types of channels.</p>
 as in field values. With that in mind, links can be added with
 <code>[text](link)</code>.</p>
 <h2 id="how-do-i-add-reactions-to-a-message">How do I add reactions to a message?</h2>
-<p>Any entity that implements <a href="xref:Discord.IUserMessage">IUserMessage</a> has an <a href="xref:Discord.IUserMessage.AddReactionAsync*">AddReactionAsync</a>
+<p>Any entity that implements <a href="xref:Discord.IUserMessage">IUserMessage</a> has an <a href="xref:Discord.IMessage.AddReactionAsync*">AddReactionAsync</a>
 method. This method expects an <a href="xref:Discord.IEmote">IEmote</a> as a parameter.
 In Discord.Net, an Emote represents a custom-image emote, while an
 Emoji is a Unicode emoji (standard emoji). Both <a href="xref:Discord.Emoji">Emoji</a> and <a href="xref:Discord.Emote">Emote</a>
@@ -216,7 +216,27 @@ limit more frequently than it should for methods such as adding
 reactions.</p>
 <h2 id="can-i-opt-out-of-preemptive-rate-limits">Can I opt-out of preemptive rate limits?</h2>
 <p>Unfortunately, not at the moment. See <a href="https://github.com/RogueException/Discord.Net/issues/401">#401</a>.</p>
-<hr><p>This page was last modified at 4/22/2020 6:02:58 AM +00:00 (UTC).</p></article>
+<hr><p>This page was last modified at 4/22/2020 2:04:10 PM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
+Commit:    106f346ddb8ada70ad2227d12e13be58d1234a17
+</code></pre><pre><code class="xml">docs: 2020 April Documentation Maintenance (#1484)
+
+* Add doc page for Named Arguments
+
+* Implement minor stylistic changes
+
+* Update docfx.json to support NS2.0
+
+Signed-off-by: Still Hsu <5843208+still34@users.noreply.github.com>
+
+* Fix broken xref in basic-operations
+
+* Fix broken crefs
+
+* Fix wordings in named argument
+
+* Fix misleading warning about long-running code
+
+* Fix misl...</5843208+still34@users.noreply.github.com></code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -251,7 +271,7 @@ reactions.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Discord.Net (c) 2015-2019 2.1.1
+            Discord.Net (c) 2015-2020 2.2.0
             
           </div>
         </div>
@@ -263,5 +283,8 @@ reactions.</p>
     <script type="text/javascript" src="../../styles/main.js"></script>
     <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
     <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
-    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  <script>
+  $( function() {
+    $( "#accordion" ).collapsible();
+  } );</script><script type="text/javascript" src="https://cdn.rawgit.com/jordnkr/collapsible/master/jquery.collapsible.min.js"></script></body>
 </html>

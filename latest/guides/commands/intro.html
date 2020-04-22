@@ -195,10 +195,10 @@ extension of ModuleBase.</p>
 </div>
 <h3 id="addingcreating-commands">Adding/Creating Commands</h3>
 <div class="WARNING"><h5>Warning</h5><p><strong>Avoid using long-running code</strong> in your modules wherever possible.
-You should <strong>not</strong> be implementing very much logic into your
-modules, instead, outsource to a service for that.</p>
-<p>If you are unfamiliar with Inversion of Control, it is recommended
-to read the MSDN article on <a href="https://msdn.microsoft.com/en-us/library/ff921087.aspx">IoC</a> and <a href="https://msdn.microsoft.com/en-us/library/ff921152.aspx">Dependency Injection</a>.</p>
+Long-running code, by default, within a command module
+can cause gateway thread to be blocked; therefore, interrupting
+the bot&#39;s connection to Discord.</p>
+<p>You may read more about it in <a class="xref" href="../../faq/commands/general.html">General Questions about Commands</a> .</p>
 </div>
 <p>The next step to creating commands is actually creating the commands.</p>
 <p>For a command to be valid, it <strong>must</strong> have a return type of <code>Task</code>
@@ -360,11 +360,27 @@ public class AdminModule : ModuleBase&lt;SocketCommandContext&gt;
     public Task BanAsync(IGuildUser user) =&gt; 
         Context.Guild.AddBanAsync(user);
 }
-</code></pre><hr><p>This page was last modified at 10/23/2019 12:25:26 PM -07:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Chris Johnston
-Commit:    1c6ee72a9a4fd1f6655dcd50a4a412734f5f65b9
-</code></pre><pre><code class="xml">docs: Fix #1394 Misworded doc for command params args (#1400)
+</code></pre><hr><p>This page was last modified at 4/22/2020 2:04:10 PM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
+Commit:    106f346ddb8ada70ad2227d12e13be58d1234a17
+</code></pre><pre><code class="xml">docs: 2020 April Documentation Maintenance (#1484)
 
-This fixes the docs for the command service, where it specifies that arguments that use the params keyword are comma separated, when they are actually space separated.</code></pre></div></div></article>
+* Add doc page for Named Arguments
+
+* Implement minor stylistic changes
+
+* Update docfx.json to support NS2.0
+
+Signed-off-by: Still Hsu <5843208+still34@users.noreply.github.com>
+
+* Fix broken xref in basic-operations
+
+* Fix broken crefs
+
+* Fix wordings in named argument
+
+* Fix misleading warning about long-running code
+
+* Fix misl...</5843208+still34@users.noreply.github.com></code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -399,7 +415,7 @@ This fixes the docs for the command service, where it specifies that arguments t
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Discord.Net (c) 2015-2019 2.1.1
+            Discord.Net (c) 2015-2020 2.2.0
             
           </div>
         </div>
