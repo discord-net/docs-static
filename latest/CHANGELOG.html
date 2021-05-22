@@ -32,7 +32,7 @@
     
     <meta property="docfx:rel" content="">
     
-  <meta property="og:description" content="This page was last modified at 5/22/2021 5:31:03 PM +00:00 (UTC)."></head>
+  <meta property="og:description" content="This page was last modified at 5/22/2021 6:13:36 PM +00:00 (UTC)."></head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -85,8 +85,30 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
-<h2 id="231---2021-03-10">[2.3.1] - 2021-03-10</h2>
+<h2 id="240---2021-05-22">[2.4.0] - 2021-05-22</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>#1726 Add stickers (91a9063)</li>
+<li>#1753 Webhook message edit &amp; delete functionality (f67cd8e)</li>
+<li>#1757 Add ability to add/remove roles by id (4c9910c)</li>
+<li>#1781 Add GetEmotesAsync to IGuild (df23d57)</li>
+<li>#1801 Add missing property to MESSAGE_REACTION_ADD event (0715d7d)</li>
+<li>#1828 Add methods to interact with reactions without a message object (5b244f2)</li>
+<li>#1830 Add ModifyMessageAsync to IMessageChannel (365a848)</li>
+<li>#1844 Add Discord Certified Moderator user flag (4b8d444)</li>
+</ul>
 <h3 id="fixed">Fixed</h3>
+<ul>
+<li>#1486 Add type reader when entity type reader exists (c46daaa)</li>
+<li>#1835 Cached message emoji cleanup at MESSAGE_REACTION_REMOVE_EMOJI (8afef82)</li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul>
+<li>#1778 Remove URI check from EmbedBuilder (25b04c4)</li>
+<li>#1800 Fix spelling in SnowflakeUtils.FromSnowflake (6aff419)</li>
+</ul>
+<h2 id="231---2021-03-10">[2.3.1] - 2021-03-10</h2>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>#1761 Deadlock in DiscordShardedClient when Ready is never received (73e5cc2)</li>
 <li>#1773 Private methods aren&#39;t added as commands (0fc713a)</li>
@@ -95,12 +117,12 @@
 <li>#1791 Update Webhook ChannelId from model change (d2518db)</li>
 <li>#1794 Audit log UserId can be null (d41aeee)</li>
 </ul>
-<h3 id="misc">Misc</h3>
+<h3 id="misc-1">Misc</h3>
 <ul>
 <li>#1774 Add remark regarding CustomStatus as the activity (51b7afe)</li>
 </ul>
 <h2 id="230---2021-01-28">[2.3.0] - 2021-01-28</h2>
-<h3 id="added">Added</h3>
+<h3 id="added-1">Added</h3>
 <ul>
 <li>#1491 Add INVITE_CREATE and INVITE_DELETE events (1ab670b)</li>
 <li>#1520 Support reading multiple activities (421a0c1)</li>
@@ -125,7 +147,7 @@
 <li>#1731 Add GuildUser IsPending property (8b25c9b)</li>
 <li>#1690 Add max bitrate value to SocketGuild (aacfea0)</li>
 </ul>
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 <ul>
 <li>#1244 Missing AddReactions permission for DM channels. (e40ca4a)</li>
 <li>#1469 unsupported property causes an exception (468f826)</li>
@@ -168,7 +190,7 @@
 <li>IMessage.Embeds docs remarks (a4d32d3)</li>
 <li>Missing MessageReference when sending files (2095701)</li>
 </ul>
-<h3 id="misc-1">Misc</h3>
+<h3 id="misc-2">Misc</h3>
 <ul>
 <li>#1545 MutualGuilds optimization (323a677)</li>
 <li>#1551 Update webhook regex to support discord.com (7585789)</li>
@@ -194,7 +216,7 @@
 <li>Move bulk deletes remarks from <summary> to <remarks> (62539f0)</remarks></summary></li>
 </ul>
 <h2 id="220---2020-04-16">[2.2.0] - 2020-04-16</h2>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li>#1247 Implement Client Status Support (9da11b4)</li>
 <li>#1310 id overload for RemoveReactionAsync (c88b1da)</li>
@@ -217,7 +239,7 @@
 <li>#1432 Add ability to modify the banner for guilds (d734ce0)</li>
 <li>suppress messages (cd28892)</li>
 </ul>
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 <ul>
 <li>#1318 #1314 Don&#39;t parse tags within code blocks (c977f2e)</li>
 <li>#1333 Remove null coalescing on ToEmbedBuilder Color (120c0f7)</li>
@@ -239,7 +261,7 @@
 <li>#1417 fix #1415 Re-add support for overwrite permissions for news channels (e627f07)</li>
 <li>use millisecond precision by default (bcb3534)</li>
 </ul>
-<h3 id="misc-2">Misc</h3>
+<h3 id="misc-3">Misc</h3>
 <ul>
 <li>#1290 Split Unit and Integration tests into separate projects (a797be9)</li>
 <li>#1328 Fix #1327 Color.ToString returns wrong value (1e8aa08)</li>
@@ -272,7 +294,7 @@
 <li>feature (40844b9)</li>
 </ul>
 <h2 id="211---2019-06-08">[2.1.1] - 2019-06-08</h2>
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 <ul>
 <li>#994: Remainder parameters now ignore character escaping, as there is no reason to escape characters here (2e95c49)</li>
 <li>#1316: <code>Emote.Equals</code> now pays no respect to the Name property, since Discord&#39;s API does not care about an emote&#39;s name (abf3e90)</li>
@@ -287,13 +309,13 @@
 <li>#1313: <code>IMessage.Tags</code> now includes the EveryoneRole on @everyone and @here mentions (1f55f01)</li>
 <li>#1320: The maximum value for setting slow-mode has been updated to 6 hours, per the new API limit (4433ca7)</li>
 </ul>
-<h3 id="misc-3">Misc</h3>
+<h3 id="misc-4">Misc</h3>
 <ul>
 <li>This library&#39;s compatibility with Semantic Versioning has been clarified. Please see the README (4d7de17)</li>
 <li>The depency on System.Interactive.Async has been bumped to <code>3.2.0</code> (3e65e03)</li>
 </ul>
 <h2 id="210---2019-05-18">[2.1.0] - 2019-05-18</h2>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li>#1236: Bulk deletes (for messages) may now be accessed via the <code>MessagesBulkDeleted</code> event (dec353e)</li>
 <li>#1240: OAuth applications utilizing the <code>guilds.join</code> scope may now add users to guilds through any client (1356ea9)</li>
@@ -309,7 +331,7 @@
 <ul>
 <li>#1294: The <code>IGuildUser</code> overload of <code>EmbedBuilder.WithAuthor</code> no longer exists (b52b54d)</li>
 </ul>
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 <ul>
 <li>#1256: Fetching audit logs no longer raises null reference exceptions when a webhook has been deleted (049b014)</li>
 <li>#1268: Null reference exceptions on <code>MESSAGE_CREATE</code> concerning partial member objects no longer occur (377622b)</li>
@@ -322,7 +344,7 @@
 <ul>
 <li>#1305: Token validation will fail when tokens contain whitespace (bb61efa)</li>
 </ul>
-<h3 id="misc-4">Misc</h3>
+<h3 id="misc-5">Misc</h3>
 <ul>
 <li>#1241: Added documentation samples for Webhooks (655a006)</li>
 <li>#1243: Happy new year 🎉 (0275f7d)</li>
@@ -334,19 +356,19 @@
 <li>IDisposableAnalyzers should now be a development dependency (8003ac8)</li>
 </ul>
 <h2 id="201---2019-01-04">[2.0.1] - 2019-01-04</h2>
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 <ul>
 <li>#1226: Only escape the closing quotation mark of non-remainder strings (65b8c09)</li>
 <li>Commands with async RunModes will now propagate exceptions up to CommandExecuted (497918e)</li>
 </ul>
-<h3 id="misc-5">Misc</h3>
+<h3 id="misc-6">Misc</h3>
 <ul>
 <li>#1225: Commands sample no longer hooks the log event twice (552f34c)</li>
 <li>#1227: The logo on the docs index page should scale responsively (d39bf6e)</li>
 <li>#1230: Replaced precondition sample on docs (feed4fd)</li>
 </ul>
 <h2 id="200---2018-12-28">[2.0.0] - 2018-12-28</h2>
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 <ul>
 <li>#747: <code>CommandService</code> now has a <code>CommandExecuted</code> event (e991715)</li>
 <li>#765: Parameters may have a name specified via <code>NameAttribute</code> (9c81ab9)</li>
@@ -400,7 +422,7 @@
 <li>Added markdown format for URLs (f005af3)</li>
 <li>Reactions can now be added to messages in bulk (5421df1)</li>
 </ul>
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 <ul>
 <li>#742: <code>DiscordShardedClient#GetGuildFor</code> will now direct null guilds to Shard 0 (d5e9d6f)</li>
 <li>#743: Various issues with permissions and inheritance of permissions (f996338)</li>
@@ -491,7 +513,7 @@
 <li>#958: Remove support for user tokens (2fd4f56)</li>
 <li>User logins (including selfbots) are no longer supported (fc5adca)</li>
 </ul>
-<h3 id="misc-6">Misc</h3>
+<h3 id="misc-7">Misc</h3>
 <ul>
 <li>#786: Unit tests for the Color structure (22b969c)</li>
 <li>#828: We now include a contributing guide (cd82a0f)</li>
@@ -513,12 +535,12 @@
 <li>Fixed documentation layout for the logo (bafdce4)</li>
 </ul>
 <h2 id="102---2017-09-09">[1.0.2] - 2017-09-09</h2>
-<h3 id="fixed-7">Fixed</h3>
+<h3 id="fixed-8">Fixed</h3>
 <ul>
 <li>Guilds utilizing Channel Categories will no longer crash bots on the <code>READY</code> event.</li>
 </ul>
 <h2 id="101---2017-07-05">[1.0.1] - 2017-07-05</h2>
-<h3 id="fixed-8">Fixed</h3>
+<h3 id="fixed-9">Fixed</h3>
 <ul>
 <li>#732: Fixed parameter preconditions not being loaded from class-based modules (b6dcc9e)</li>
 <li>#726: Fixed CalculateScore throwing an ArgumentException for missing parameters (7597cf5)</li>
@@ -529,7 +551,7 @@
 <ul>
 <li>ShardedCommandContext now inherits from SocketCommandContext (8cd99be)</li>
 </ul>
-<hr><p>This page was last modified at 5/22/2021 5:31:03 PM +00:00 (UTC).</p></article>
+<hr><p>This page was last modified at 5/22/2021 6:13:36 PM +00:00 (UTC).</p></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
