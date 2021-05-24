@@ -238,7 +238,7 @@ automatically pick up on it.</p>
 <p>If, for whatever reason, you have two commands which are ambiguous to
 each other, you may use the @Discord.Commands.PriorityAttribute to
 specify which should be tested before the other.</p>
-<p>The <code>Priority</code> attributes are sorted in ascending order; the higher
+<p>The <code>Priority</code> attributes are sorted in descending order; the higher
 priority will be called first.</p>
 <h3 id="command-context">Command Context</h3>
 <p>Every command can access the execution context through the <a href="xref:Discord.Commands.ModuleBase`1.Context">Context</a>
@@ -360,27 +360,11 @@ public class AdminModule : ModuleBase&lt;SocketCommandContext&gt;
     public Task BanAsync(IGuildUser user) =&gt; 
         Context.Guild.AddBanAsync(user);
 }
-</code></pre><hr><p>This page was last modified at 4/22/2020 2:04:10 PM +08:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Still Hsu
-Commit:    106f346ddb8ada70ad2227d12e13be58d1234a17
-</code></pre><pre><code class="xml">docs: 2020 April Documentation Maintenance (#1484)
+</code></pre><hr><p>This page was last modified at 3/15/2021 2:48:59 AM +01:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Joe4evr
+Commit:    75b74e1a3f8e5f3078b254c135befac9af8b7c07
+</code></pre><pre><code class="xml">Fix line about PriorityAttribute (#21)
 
-* Add doc page for Named Arguments
-
-* Implement minor stylistic changes
-
-* Update docfx.json to support NS2.0
-
-Signed-off-by: Still Hsu <5843208+still34@users.noreply.github.com>
-
-* Fix broken xref in basic-operations
-
-* Fix broken crefs
-
-* Fix wordings in named argument
-
-* Fix misleading warning about long-running code
-
-* Fix misl...</5843208+still34@users.noreply.github.com></code></pre></div></div></article>
+Sorting with the highest number first is *de*scending order.</code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
