@@ -154,21 +154,16 @@ extensively - nearly every operation is asynchronous. It is highly
 recommended for these operations to be awaited in a
 properly established async context whenever possible.</p>
 <p>To establish an async context, we will be creating an async main method
-in your console application, and rewriting the static main method to
-invoke the new async main.</p>
+in your console application.</p>
 <pre><code class="lang-csharp" name="Async Context">public class Program
 {
-	public static void Main(string[] args)
-		=&gt; new Program().MainAsync().GetAwaiter().GetResult();
+	public static Task Main(string[] args) =&gt; new Program().MainAsync();
 
 	public async Task MainAsync()
 	{
 	}
 }
-</code></pre><p>As a result of this, your program will now start and immediately
-jump into an async context. This allows us to create a connection
-to Discord later on without having to worry about setting up the
-correct async implementation.</p>
+</code></pre><p>As a result of this, your program will now start into an async context.</p>
 <div class="WARNING"><h5>Warning</h5><p>If your application throws any exceptions within an async context,
 they will be thrown all the way back up to the first non-async method;
 since our first non-async method is the program&#39;s <code>Main</code> method, this
@@ -282,17 +277,15 @@ should be to separate...</p>
 <li>the modules (handle commands)</li>
 <li>the services (persistent storage, pure functions, data manipulation)</li>
 </ol>
-<hr><p>This page was last modified at 9/4/2020 6:56:05 PM +02:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Bram
-Commit:    df8a0f7cd658d99f04964051ae81bfa0797c4447
-</code></pre><pre><code class="xml">Fix: Not using the new domain name. (#1571)
+<hr><p>This page was last modified at 5/29/2021 10:25:58 AM -03:00 (UTC).</p><div class="collapse-container last-modified" id="accordion"><span><span class="arrow-r"></span>Commit Message</span><div><pre><code>Author:    Hitmasu
+Commit:    125f6c78620477208be635d035019fe15cfb5640
+</code></pre><pre><code class="xml">docs: use async main
 
-* Fix: Using the correct discord domain.
+* Removed text async
 
-* Fix: Using the correct discord domain.
+* Updated code
 
-* Docs: Using the correct discord domain.
-
-* Fix: Changed canary and ptb to the new domain.</code></pre></div></div></article>
+* Added main as proxy task</code></pre></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
