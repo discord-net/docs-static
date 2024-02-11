@@ -1,97 +1,92 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Deploying the Bot | Discord.Net Documentation </title>
-    <meta name="viewport" content="width=device-width">
-    <meta property="og:title" content="Deploying the Bot | Discord.Net Documentation ">
-    
-    <meta property="og:locale" content="en-us">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Discord.Net Docs">
-    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/discord-net/Discord.Net/docs/marketing/logo/PackageLogo.png">
-    <meta property="og:image:alt" content="Discord.Net Logo">
-    <meta name="theme-color" content="#995EA7">
-    <meta name="generator" content="docfx 2.57.2.0">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    <meta id="docfx-style:rel" content="../../">
-    <link rel="preload" href="../../styles/search-worker.js" as="script">
-    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/master.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/material.css">
-    <link rel="stylesheet" href="../../styles/theme-switcher.css">
-    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
-    
-    <meta property="docfx:rel" content="../../">
-    
-  <meta property="og:description" content="After finishing your application, you may want to deploy your bot to a
-remote location such as a Virtual Private Server (VPS) or another
-computer s..."></head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+      <title>Deploying the Bot | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Deploying the Bot | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/deployment/deployment.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Guides.Deployment">
+
+        <article data-uid="Guides.Deployment">
 <h1 id="deploying-a-discordnet-bot">Deploying a Discord.Net Bot</h1>
 
 <p>After finishing your application, you may want to deploy your bot to a
@@ -101,10 +96,12 @@ computer so you can keep the bot up and running 24/7.</p>
 <p>For small-medium scaled bots, a cheap VPS (~$5) might be sufficient
 enough. Here is a list of recommended VPS provider.</p>
 <ul>
-<li><a href="https://www.digitalocean.com/">DigitalOcean</a><ul>
+<li><a href="https://www.digitalocean.com/">DigitalOcean</a>
+<ul>
 <li>Description: American cloud infrastructure provider headquartered
 in New York City with data centers worldwide.</li>
-<li>Location(s):<ul>
+<li>Location(s):
+<ul>
 <li>Asia: Singapore, India</li>
 <li>America: Canada, United States</li>
 <li>Europe: Netherlands, Germany, United Kingdom</li>
@@ -113,9 +110,11 @@ in New York City with data centers worldwide.</li>
 <li>Based in: United States</li>
 </ul>
 </li>
-<li><a href="https://www.vultr.com/">Vultr</a><ul>
+<li><a href="https://www.vultr.com/">Vultr</a>
+<ul>
 <li>Description: DigitalOcean-like</li>
-<li>Location(s):<ul>
+<li>Location(s):
+<ul>
 <li>Asia: Japan, Australia, Singapore</li>
 <li>America: United States</li>
 <li>Europe: United Kingdom, France, Netherlands, Germany</li>
@@ -124,10 +123,12 @@ in New York City with data centers worldwide.</li>
 <li>Based in: United States</li>
 </ul>
 </li>
-<li><a href="https://www.ovh.com/">OVH</a><ul>
+<li><a href="https://www.ovh.com/">OVH</a>
+<ul>
 <li>Description: French cloud computing company that offers VPS,
 dedicated servers and other web services.</li>
-<li>Location(s):<ul>
+<li>Location(s):
+<ul>
 <li>Asia: Australia, Singapore</li>
 <li>America: United States, Canada</li>
 <li>Europe: United Kingdom, Poland, Germany</li>
@@ -136,28 +137,46 @@ dedicated servers and other web services.</li>
 <li>Based in: Europe</li>
 </ul>
 </li>
-<li><a href="https://www.scaleway.com/">Scaleway</a><ul>
+<li><a href="https://www.scaleway.com/">Scaleway</a>
+<ul>
 <li>Description: Cheap but powerful VPS owned by <a href="https://online.net/">Online.net</a>.</li>
-<li>Location(s):<ul>
+<li>Location(s):
+<ul>
 <li>Europe: France, Netherlands</li>
 </ul>
 </li>
 <li>Based in: Europe</li>
 </ul>
 </li>
-<li><a href="https://www.time4vps.eu/">Time4VPS</a><ul>
+<li><a href="https://www.time4vps.eu/">Time4VPS</a>
+<ul>
 <li>Description: Affordable and powerful VPS Hosting in Europe.</li>
-<li>Location(s):<ul>
+<li>Location(s):
+<ul>
 <li>Europe: Lithuania</li>
 </ul>
 </li>
 <li>Based in: Europe</li>
 </ul>
 </li>
+<li><a href="https://serverstarter.host/clients/store/discord-bots">ServerStarter.Host</a>
+<ul>
+<li>Description: Bot hosting with a panel for quick deployment and
+no Linux knowledge required.</li>
+<li>Location(s):
+<ul>
+<li>America: United States</li>
+</ul>
+</li>
+<li>Based in: United States</li>
+</ul>
+</li>
 </ul>
 <h2 id="net-core-deployment">.NET Core Deployment</h2>
-<div class="NOTE"><h5>Note</h5><p>This section only covers the very basics of .NET Core deployment.
-To learn more about .NET Core deployment, 
+<div class="NOTE">
+<h5>Note</h5>
+<p>This section only covers the very basics of .NET Core deployment.
+To learn more about .NET Core deployment,
 visit <a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/">.NET Core application deployment</a> by Microsoft.</p>
 </div>
 <p>When redistributing the application - whether for deployment on a
@@ -176,9 +195,11 @@ the package with:</p>
 included with the application; however, the remote machine
 must have <code>dotnet</code> runtime installed before the remote could run the
 program.</p>
-<div class="TIP"><h5>Tip</h5><p>Do not know how to run a .NET Core application with 
-the <code>dotnet</code> runtime? Navigate to the folder of the program 
-(typically under <code>$projFolder/bin/Release</code>) and 
+<div class="TIP">
+<h5>Tip</h5>
+<p>Do not know how to run a .NET Core application with
+the <code>dotnet</code> runtime? Navigate to the folder of the program
+(typically under <code>$projFolder/bin/Release</code>) and
 enter <code>dotnet program.dll</code> where <code>program.dll</code> is your compiled
 binaries.</p>
 </div>
@@ -188,62 +209,38 @@ machine without the <code>dotnet</code> runtime), publish with a specific
 <a href="https://docs.microsoft.com/en-us/dotnet/core/rid-catalog">Runtime ID</a> with the <code>-r</code> switch.</p>
 <p>This will create a package with dependencies compiled for the target
 platform, meaning that all the required dependencies will be included
-with the program. This will result in <strong>larger package size</strong>; 
+with the program. This will result in <strong>larger package size</strong>;
 however, that means the copy of the runtime that can be run
 natively on the target platform.</p>
-<p>For example, the following command will create a Windows 
+<p>For example, the following command will create a Windows
 executable (<code>.exe</code>) that is ready to be executed on any
 Windows 10 x64 based machine:</p>
 <ul>
 <li><code>dotnet publish -c Release -r win10-x64</code></li>
 </ul>
-<hr><p>This page was last modified at 6/1/2021 2:16:08 PM +00:00 (UTC).</p></article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="theme-switch-field">
-                <p>Theme</p>
-                <select id="theme-switcher">
-                  <option value="dark">Dark
-                  <option value="gray">Gray
-                  <option value="light">Light
-                </select>
-              </div>
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/deployment/deployment.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/deployment/deployment.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            Discord.Net (c) 2015-2020 2.2.0
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
-    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
-    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
-    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+    </footer>
+  </body>
 </html>

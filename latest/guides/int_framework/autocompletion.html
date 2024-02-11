@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Command Autocompletion | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Command Autocompletion | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_framework/autocompletion.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.IntFw.AutoCompletion">
+<h1 id="autocompletehandlers">AutocompleteHandlers</h1>
+
+<p>[Autocompleters] provide a similar pattern to TypeConverters.
+[Autocompleters] are cached, singleton services and they are used by the
+Interaction Service to handle Autocomplete Interactions targeted to a specific Slash Command parameter.</p>
+<p>To start using AutocompleteHandlers, use the <code>[AutocompleteAttribute(Type type)]</code> overload of the [AutocompleteAttribute].
+This will dynamically link the parameter to the <a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a> type.</p>
+<p>AutocompleteHandlers raise the <code>AutocompleteHandlerExecuted</code> event on execution. This event can be also used to create a post-execution logic, just like the <code>*CommandExecuted</code> events.</p>
+<h2 id="creating-autocompletehandlers">Creating AutocompleteHandlers</h2>
+<p>A valid AutocompleteHandlers must inherit <a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a> base type and implement all of its abstract methods.</p>
+<pre><code class="lang-csharp" name="Autocomplete Command Example">// you need to add `Autocomplete` attribute before parameter to add autocompletion to it
+[SlashCommand(&quot;command_name&quot;, &quot;command_description&quot;)]
+public async Task ExampleCommand([Summary(&quot;parameter_name&quot;), Autocomplete(typeof(ExampleAutocompleteHandler))] string parameterWithAutocompletion)
+    =&gt; await RespondAsync($&quot;Your choice: {parameterWithAutocompletion}&quot;);
+
+public class ExampleAutocompleteHandler : AutocompleteHandler
+{
+    public override async Task&lt;AutocompletionResult&gt; GenerateSuggestionsAsync(IInteractionContext context, IAutocompleteInteraction autocompleteInteraction, IParameterInfo parameter, IServiceProvider services)
+    {
+        // Create a collection with suggestions for autocomplete
+        IEnumerable&lt;AutocompleteResult&gt; results = new[]
+        {
+            new AutocompleteResult(&quot;Name1&quot;, &quot;value111&quot;),
+            new AutocompleteResult(&quot;Name2&quot;, &quot;value2&quot;)
+        };
+
+        // max - 25 suggestions at a time (API limit)
+        return AutocompletionResult.FromSuccess(results.Take(25));
+    }
+}
+</code></pre><h3 id="generatesuggestionsasync">GenerateSuggestionsAsync()</h3>
+<p>The Interactions Service uses this method to generate a response of an Autocomplete Interaction.
+This method should return <code>AutocompletionResult.FromSuccess(IEnumerable&lt;AutocompleteResult&gt;)</code> to
+display parameter suggestions to the user. If there are no suggestions to be presented to the user, you have two results:</p>
+<ol>
+<li>Returning the parameterless <code>AutocompletionResult.FromSuccess()</code> will display a &quot;No options match your search.&quot; message to the user.</li>
+<li>Returning <code>AutocompleteResult.FromError()</code> will make the Interaction Service <strong>not</strong> respond to the interaction,
+consequently displaying the user a &quot;Loading options failed.&quot; message. <code>AutocompletionResult.FromError()</code> is solely used for error handling purposes. Discord currently doesn't allow
+you to display custom error messages. This result type will be directly returned to the <code>AutocompleteHandlerExecuted</code> method.</li>
+</ol>
+<h2 id="resolving-autocompletehandler-dependencies">Resolving AutocompleteHandler Dependencies</h2>
+<p>AutocompleteHandler dependencies are resolved using the same dependency injection
+pattern as the Interaction Modules.
+Property injection and constructor injection are both valid ways to get service dependencies.</p>
+<p>Because [AutocompleterHandlers] are constructed at service startup,
+class dependencies are resolved only once.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you need to access per-request dependencies you can use the
+IServiceProvider parameter of the <code>GenerateSuggestionsAsync()</code> method.</p>
+</div>
+<p>[AutoCompleteAttribute]:</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_framework/autocompletion.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

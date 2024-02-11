@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ModuleBase&lt;T&gt;
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ModuleBase&lt;T&gt;
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_Commands_ModuleBase_1.md&amp;value=---%0Auid%3A%20Discord.Commands.ModuleBase%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.Commands.ModuleBase`1">
+
+
+
+  <h1 id="Discord_Commands_ModuleBase_1" data-uid="Discord.Commands.ModuleBase`1" class="text-break">
+    Class ModuleBase&lt;T&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.Commands.html">Commands</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.Commands.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides a base class for a command module to inherit from.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ModuleBase&lt;T&gt; : IModuleBase where T : class, ICommandContext</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>A class that implements <a class="xref" href="Discord.Commands.ICommandContext.html">ICommandContext</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ModuleBase&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Commands.IModuleBase.html">IModuleBase</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Commands.ModuleBase.html">ModuleBase</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_Commands_ModuleBase_1_Context_" data-uid="Discord.Commands.ModuleBase`1.Context*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_Context" data-uid="Discord.Commands.ModuleBase`1.Context">
+  Context
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The underlying context of the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.Commands.ICommandContext.html">ICommandContext</a></div>
+    <div><a class="xref" href="Discord.Commands.CommandContext.html">CommandContext</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Commands_ModuleBase_1_AfterExecute_" data-uid="Discord.Commands.ModuleBase`1.AfterExecute*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_AfterExecute_Discord_Commands_CommandInfo_" data-uid="Discord.Commands.ModuleBase`1.AfterExecute(Discord.Commands.CommandInfo)">
+  AfterExecute(CommandInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The method to execute after executing the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void AfterExecute(CommandInfo command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a></dt>
+    <dd><p>The <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a> of the command to be executed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Commands_ModuleBase_1_AfterExecuteAsync_" data-uid="Discord.Commands.ModuleBase`1.AfterExecuteAsync*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_AfterExecuteAsync_Discord_Commands_CommandInfo_" data-uid="Discord.Commands.ModuleBase`1.AfterExecuteAsync(Discord.Commands.CommandInfo)">
+  AfterExecuteAsync(CommandInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The method to execute asynchronously after executing the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task AfterExecuteAsync(CommandInfo command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a></dt>
+    <dd><p>The <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a> of the command to be executed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Commands_ModuleBase_1_BeforeExecute_" data-uid="Discord.Commands.ModuleBase`1.BeforeExecute*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_BeforeExecute_Discord_Commands_CommandInfo_" data-uid="Discord.Commands.ModuleBase`1.BeforeExecute(Discord.Commands.CommandInfo)">
+  BeforeExecute(CommandInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The method to execute before executing the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void BeforeExecute(CommandInfo command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a></dt>
+    <dd><p>The <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a> of the command to be executed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Commands_ModuleBase_1_BeforeExecuteAsync_" data-uid="Discord.Commands.ModuleBase`1.BeforeExecuteAsync*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_BeforeExecuteAsync_Discord_Commands_CommandInfo_" data-uid="Discord.Commands.ModuleBase`1.BeforeExecuteAsync(Discord.Commands.CommandInfo)">
+  BeforeExecuteAsync(CommandInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The method to execute asynchronously before executing the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task BeforeExecuteAsync(CommandInfo command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a></dt>
+    <dd><p>The <a class="xref" href="Discord.Commands.CommandInfo.html">CommandInfo</a> of the command to be executed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Commands_ModuleBase_1_OnModuleBuilding_" data-uid="Discord.Commands.ModuleBase`1.OnModuleBuilding*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_OnModuleBuilding_Discord_Commands_CommandService_Discord_Commands_Builders_ModuleBuilder_" data-uid="Discord.Commands.ModuleBase`1.OnModuleBuilding(Discord.Commands.CommandService,Discord.Commands.Builders.ModuleBuilder)">
+  OnModuleBuilding(CommandService, ModuleBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The method to execute when building the module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnModuleBuilding(CommandService commandService, ModuleBuilder builder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandService</code> <a class="xref" href="Discord.Commands.CommandService.html">CommandService</a></dt>
+    <dd><p>The <a class="xref" href="Discord.Commands.CommandService.html">CommandService</a> used to create the module.</p>
+</dd>
+    <dt><code>builder</code> <a class="xref" href="Discord.Commands.Builders.ModuleBuilder.html">ModuleBuilder</a></dt>
+    <dd><p>The builder used to build the module.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Commands_ModuleBase_1_ReplyAsync_" data-uid="Discord.Commands.ModuleBase`1.ReplyAsync*"></a>
+
+  <h3 id="Discord_Commands_ModuleBase_1_ReplyAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Commands.ModuleBase`1.ReplyAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  ReplyAsync(string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a message to the source channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;IUserMessage&gt; ReplyAsync(string message = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Contents of the message; optional only if <code class="paramref">embed</code> is specified.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies if Discord should read this <code class="paramref">message</code> aloud using text-to-speech.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>An embed to be displayed alongside the <code class="paramref">message</code>.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The request options for this <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/async">async</a> request.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the <code class="paramref">message</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the file.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>Message flags combined as a bitfield.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IUserMessage.html">IUserMessage</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Commands/ModuleBase.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

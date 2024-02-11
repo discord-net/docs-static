@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Glossary &amp; Flowcharts | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Glossary &amp; Flowcharts | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/entities/glossary.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.Entities.Glossary">
+<h1 id="entity-types">Entity Types</h1>
+
+<p>A list of all Discord.Net entities, what they can be cast to and what their properties are.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>All interfaces have the same inheritance tree for both <code>Socket</code> and <code>Rest</code> entities.
+Entities with that have been marked red are exclusive to the project they source from.</p>
+</div>
+<h2 id="channels">Channels</h2>
+<p><img src="images/IChannel.png" alt="IChannelChart"></p>
+<h3 id="message-channels">Message Channels</h3>
+<ul>
+<li>A <strong>Text Channel</strong> (<a class="xref" href="../../api/Discord.ITextChannel.html">ITextChannel</a>) is a message channel from a Guild.</li>
+<li>A <strong>Thread Channel</strong> (<a class="xref" href="../../api/Discord.IThreadChannel.html">IThreadChannel</a>) is a thread channel from a Guild.</li>
+<li>A <strong>News Channel</strong> (<a class="xref" href="../../api/Discord.INewsChannel.html">INewsChannel</a>) (also goes as announcement channel) is a news channel from a Guild.</li>
+<li>A <strong>DM Channel</strong> (<a class="xref" href="../../api/Discord.IDMChannel.html">IDMChannel</a>) is a message channel from a DM.</li>
+<li>A <strong>Group Channel</strong> (<a class="xref" href="../../api/Discord.IGroupChannel.html">IGroupChannel</a>) is a message channel from a Group.
+<ul>
+<li>This is rarely used due to the bot's inability to join groups.</li>
+</ul>
+</li>
+<li>A <strong>Private Channel</strong> (<a class="xref" href="../../api/Discord.IPrivateChannel.html">IPrivateChannel</a>) is a DM or a Group.</li>
+<li>A <strong>Message Channel</strong> (<a class="xref" href="../../api/Discord.IMessageChannel.html">IMessageChannel</a>) can be any of the above.</li>
+</ul>
+<h3 id="misc-channels">Misc Channels</h3>
+<ul>
+<li>A <strong>Guild Channel</strong> (<a class="xref" href="../../api/Discord.IGuildChannel.html">IGuildChannel</a>) is a guild channel in a guild.
+<ul>
+<li>This can be any channels that may exist in a guild.</li>
+</ul>
+</li>
+<li>A <strong>Voice Channel</strong> (<a class="xref" href="../../api/Discord.IVoiceChannel.html">IVoiceChannel</a>) is a voice channel in a guild.</li>
+<li>A <strong>Stage Channel</strong> (<a class="xref" href="../../api/Discord.IStageChannel.html">IStageChannel</a>) is a stage channel in a guild.</li>
+<li>A <strong>Category Channel</strong> (<a class="xref" href="../../api/Discord.ICategoryChannel.html">ICategoryChannel</a>) is a category that
+holds one or more sub-channels.</li>
+<li>A <strong>Nested Channel</strong> (<a class="xref" href="../../api/Discord.INestedChannel.html">INestedChannel</a>) is a channel that can
+exist under a category.</li>
+</ul>
+<h2 id="messages">Messages</h2>
+<p><img src="images/IMessage.png" alt="IMessageChart"></p>
+<ul>
+<li>A <strong>Rest Followup Message</strong> (<a class="xref" href="../../api/Discord.Rest.RestFollowupMessage.html">RestFollowupMessage</a>) is a message returned by followup on on an interaction.</li>
+<li>A <strong>Rest Interaction Message</strong> (<a class="xref" href="../../api/Discord.Rest.RestInteractionMessage.html">RestInteractionMessage</a>) is a message returned by the interaction's original response.</li>
+<li>A <strong>Rest User Message</strong> (<a class="xref" href="../../api/Discord.Rest.RestUserMessage.html">RestUserMessage</a>) is a message sent over rest; it can be any of the above.</li>
+<li>An <strong>User Message</strong> (<a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a>) is a message sent by a user.</li>
+<li>A <strong>System Message</strong> (<a class="xref" href="../../api/Discord.ISystemMessage.html">ISystemMessage</a>) is a message sent by Discord itself.</li>
+<li>A <strong>Message</strong> (<a class="xref" href="../../api/Discord.IMessage.html">IMessage</a>) can be any of the above.</li>
+</ul>
+<h2 id="users">Users</h2>
+<p><img src="images/IUser.png" alt="IUserChart"></p>
+<ul>
+<li>A <strong>Guild User</strong> (<a class="xref" href="../../api/Discord.IGuildUser.html">IGuildUser</a>) is a user available inside a guild.</li>
+<li>A <strong>Group User</strong> (<a class="xref" href="../../api/Discord.IGroupUser.html">IGroupUser</a>) is a user available inside a group.
+<ul>
+<li>This is rarely used due to the bot's inability to join groups.</li>
+</ul>
+</li>
+<li>A <strong>Self User</strong> (<a class="xref" href="../../api/Discord.ISelfUser.html">ISelfUser</a>) is the bot user the client is currently logged in as.</li>
+<li>An <strong>User</strong> (<a class="xref" href="../../api/Discord.IUser.html">IUser</a>) can be any of the above.</li>
+</ul>
+<h2 id="interactions">Interactions</h2>
+<p><img src="images/IInteraction.png" alt="IInteractionChart"></p>
+<ul>
+<li>A <strong>Slash command</strong> (<a class="xref" href="../../api/Discord.ISlashCommandInteraction.html">ISlashCommandInteraction</a>) is an application command executed in the text box, with provided parameters.</li>
+<li>A <strong>Message Command</strong> (<a class="xref" href="../../api/Discord.IMessageCommandInteraction.html">IMessageCommandInteraction</a>) is an application command targeting a message.</li>
+<li>An <strong>User Command</strong> (<a class="xref" href="../../api/Discord.IUserCommandInteraction.html">IUserCommandInteraction</a>) is an application command targeting a user.</li>
+<li>An <strong>Application Command</strong> (<a class="xref" href="../../api/Discord.IApplicationCommandInteraction.html">IApplicationCommandInteraction</a>) is any of the above.</li>
+<li>A <strong>Message component</strong> (<a class="xref" href="../../api/Discord.IMessageComponent.html">IMessageComponent</a>) is the interaction of a button being clicked/dropdown option(s) entered.</li>
+<li>An <strong>Autocomplete Interaction</strong> (<a class="xref" href="../../api/Discord.IAutocompleteInteraction.html">IAutocompleteinteraction</a>) is an interaction that has been automatically completed.</li>
+<li>An <strong>Interaction</strong> (<a class="xref" href="../../api/Discord.IDiscordInteraction.html">IDiscordInteraction</a>) is any of the above.</li>
+</ul>
+<h2 id="other-types">Other types:</h2>
+<h3 id="emoji">Emoji</h3>
+<ul>
+<li>An <strong>Emote</strong> (<a class="xref" href="../../api/Discord.Emote.html">Emote</a>) is a custom emote from a guild.
+<ul>
+<li>Example: <code>&lt;:dotnet:232902710280716288&gt;</code></li>
+</ul>
+</li>
+<li>An <strong>Emoji</strong> (<a class="xref" href="../../api/Discord.Emoji.html">Emoji</a>) is a Unicode emoji.
+<ul>
+<li>Example: <code>👍</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="stickers">Stickers</h3>
+<ul>
+<li>A <strong>Sticker</strong> (<a class="xref" href="../../api/Discord.ISticker.html">ISticker</a>) is a standard Discord sticker.</li>
+<li>A <strong>Custom Sticker</strong> (<a class="xref" href="../../api/Discord.ICustomSticker.html">ICustomSticker</a>) is a Guild-unique sticker.</li>
+</ul>
+<h3 id="activity">Activity</h3>
+<ul>
+<li>A <strong>Game</strong> (<a class="xref" href="../../api/Discord.Game.html">Game</a>) refers to a user's game activity.</li>
+<li>A <strong>Rich Presence</strong> (<a class="xref" href="../../api/Discord.RichGame.html">RichGame</a>) refers to a user's detailed
+gameplay status.
+<ul>
+<li>Visit <a href="https://discord.com/developers/docs/rich-presence/best-practices">Rich Presence Intro</a> on Discord docs for more info.</li>
+</ul>
+</li>
+<li>A <strong>Streaming Status</strong> (<a class="xref" href="../../api/Discord.StreamingGame.html">StreamingGame</a>) refers to user's activity
+for streaming on services such as Twitch.</li>
+<li>A <strong>Spotify Status</strong> (<a class="xref" href="../../api/Discord.SpotifyGame.html">SpotifyGame</a>) (2.0+) refers to a user's
+activity for listening to a song on Spotify.</li>
+</ul>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/entities/glossary.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

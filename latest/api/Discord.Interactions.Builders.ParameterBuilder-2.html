@@ -1,0 +1,774 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParameterBuilder&lt;TInfo, TBuilder&gt;
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParameterBuilder&lt;TInfo, TBuilder&gt;
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_Interactions_Builders_ParameterBuilder_2.md&amp;value=---%0Auid%3A%20Discord.Interactions.Builders.ParameterBuilder%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.Interactions.Builders.ParameterBuilder`2">
+
+
+
+  <h1 id="Discord_Interactions_Builders_ParameterBuilder_2" data-uid="Discord.Interactions.Builders.ParameterBuilder`2" class="text-break">
+    Class ParameterBuilder&lt;TInfo, TBuilder&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.Interactions.html">Interactions</a>.<a class="xref" href="Discord.Interactions.Builders.html">Builders</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.Interactions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the base builder class for creating <a class="xref" href="Discord.Interactions.IParameterInfo.html">IParameterInfo</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ParameterBuilder&lt;TInfo, TBuilder&gt; : IParameterBuilder where TInfo : class, IParameterInfo where TBuilder : ParameterBuilder&lt;TInfo, TBuilder&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInfo</code></dt>
+    <dd><p>The <a class="xref" href="Discord.Interactions.IParameterInfo.html">IParameterInfo</a> this builder yields when built.</p>
+</dd>
+    <dt><code>TBuilder</code></dt>
+    <dd><p>Inherited <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html">ParameterBuilder&lt;TInfo, TBuilder&gt;</a> type.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ParameterBuilder&lt;TInfo, TBuilder&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.Builders.IParameterBuilder.html">IParameterBuilder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.Builders.CommandParameterBuilder.html">CommandParameterBuilder</a></div>
+      <div><a class="xref" href="Discord.Interactions.Builders.ComponentCommandParameterBuilder.html">ComponentCommandParameterBuilder</a></div>
+      <div><a class="xref" href="Discord.Interactions.Builders.ModalCommandParameterBuilder.html">ModalCommandParameterBuilder</a></div>
+      <div><a class="xref" href="Discord.Interactions.Builders.SlashCommandParameterBuilder.html">SlashCommandParameterBuilder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2__ctor_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.#ctor*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2__ctor_Discord_Interactions_Builders_ICommandBuilder_System_String_System_Type_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.#ctor(Discord.Interactions.Builders.ICommandBuilder,System.String,System.Type)">
+  ParameterBuilder(ICommandBuilder, string, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ParameterBuilder(ICommandBuilder command, string name, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="Discord.Interactions.Builders.ICommandBuilder.html">ICommandBuilder</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_Attributes_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Attributes*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_Attributes" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Attributes">
+  Attributes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the attributes of this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;Attribute&gt; Attributes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_Command_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Command*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_Command" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Command">
+  Command
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent command of this parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandBuilder Command { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.Builders.ICommandBuilder.html">ICommandBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_DefaultValue_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.DefaultValue*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_DefaultValue" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.DefaultValue">
+  DefaultValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default value of this parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object DefaultValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_Instance_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Instance*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_Instance" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Instance">
+  Instance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TBuilder Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_IsParameterArray_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.IsParameterArray*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_IsParameterArray" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.IsParameterArray">
+  IsParameterArray
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/params">params</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsParameterArray { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_IsRequired_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.IsRequired*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_IsRequired" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.IsRequired">
+  IsRequired
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this parameter is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRequired { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_Name_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Name*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_Name" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of this parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_ParameterType_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.ParameterType*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_ParameterType" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.ParameterType">
+  ParameterType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of this parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ParameterType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_Preconditions_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Preconditions*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_Preconditions" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.Preconditions">
+  Preconditions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the preconditions of this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;ParameterPreconditionAttribute&gt; Preconditions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Interactions.ParameterPreconditionAttribute.html">ParameterPreconditionAttribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_AddAttributes_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.AddAttributes*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_AddAttributes_System_Attribute___" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.AddAttributes(System.Attribute[])">
+  AddAttributes(params Attribute[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds attributes to <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Attributes">Attributes</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder AddAttributes(params Attribute[] attributes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attributes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>[]</dt>
+    <dd><p>New attributes to be added to <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Attributes">Attributes</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_AddPreconditions_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.AddPreconditions*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_AddPreconditions_Discord_Interactions_ParameterPreconditionAttribute___" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.AddPreconditions(Discord.Interactions.ParameterPreconditionAttribute[])">
+  AddPreconditions(params ParameterPreconditionAttribute[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds preconditions to <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Preconditions">Preconditions</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder AddPreconditions(params ParameterPreconditionAttribute[] attributes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attributes</code> <a class="xref" href="Discord.Interactions.ParameterPreconditionAttribute.html">ParameterPreconditionAttribute</a>[]</dt>
+    <dd><p>New attributes to be added to <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Preconditions">Preconditions</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_SetDefaultValue_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetDefaultValue*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_SetDefaultValue_System_Object_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetDefaultValue(System.Object)">
+  SetDefaultValue(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_DefaultValue">DefaultValue</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder SetDefaultValue(object defaultValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_DefaultValue">DefaultValue</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_SetParameterType_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetParameterType*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_SetParameterType_System_Type_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetParameterType(System.Type)">
+  SetParameterType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_ParameterType">ParameterType</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder SetParameterType(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_ParameterType">ParameterType</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_SetRequired_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetRequired*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_SetRequired_System_Boolean_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.SetRequired(System.Boolean)">
+  SetRequired(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_IsRequired">IsRequired</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder SetRequired(bool isRequired)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isRequired</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_IsRequired">IsRequired</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_ParameterBuilder_2_WithName_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.WithName*"></a>
+
+  <h3 id="Discord_Interactions_Builders_ParameterBuilder_2_WithName_System_String_" data-uid="Discord.Interactions.Builders.ParameterBuilder`2.WithName(System.String)">
+  WithName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Name">Name</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TBuilder WithName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.ParameterBuilder-2.html#Discord_Interactions_Builders_ParameterBuilder_2_Name">Name</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Interactions/Builders/Parameters/ParameterBuilder.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

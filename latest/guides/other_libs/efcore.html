@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>EFCore | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="EFCore | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/other_libs/efcore.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.OtherLibs.EFCore">
+<h1 id="entity-framework-core">Entity Framework Core</h1>
+
+<p>In this guide we will set up EFCore with a PostgreSQL database. Information on other databases will be at the bottom of this page.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A simple bot with dependency injection configured</li>
+<li>A running PostgreSQL instance</li>
+<li><a href="https://docs.microsoft.com/en-us/ef/core/cli/dotnet#installing-the-tools">EFCore CLI tools</a></li>
+</ul>
+<h2 id="downloading-the-required-packages">Downloading the required packages</h2>
+<p>You can install the following packages through your IDE or go to the nuget link to grab the dotnet cli command.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Microsoft.EntityFrameworkCore</code></td>
+<td><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore">link</a></td>
+</tr>
+<tr>
+<td><code>Npgsql.EntityFrameworkCore.PostgreSQL</code></td>
+<td><a href="https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL">link</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuring-the-dbcontext">Configuring the DbContext</h2>
+<p>To use EFCore, you need a DbContext to access everything in your database. The DbContext will look like this. Here is an example entity to show you how you can add more entities yourself later on.</p>
+<pre><code class="lang-csharp" name="DBContext Sample">// ApplicationDbContext.cs
+using Microsoft.EntityFrameworkCore;
+
+public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt; options) : base(options)
+    {
+
+    }
+
+    public DbSet&lt;UserEntity&gt; Users { get; set; } = null!;
+}
+
+// UserEntity.cs
+public class UserEntity
+{
+    public ulong Id { get; set; }
+    public string Name { get; set; }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To learn more about creating the EFCore model, visit the following <a href="https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli#create-the-model">link</a></p>
+</div>
+<h2 id="adding-the-dbcontext-to-your-dependency-injection-container">Adding the DbContext to your Dependency Injection container</h2>
+<p>To add your newly created DbContext to your Dependency Injection container, simply use the extension method provided by EFCore to add the context to your container. It should look something like this</p>
+<pre><code class="lang-csharp" name="DBContext Dependency Injection">private static ServiceProvider ConfigureServices()
+{
+    return new ServiceCollection()
+        .AddDbContext&lt;ApplicationDbContext&gt;(
+          options =&gt; options.UseNpgsql(&quot;Your connection string&quot;)
+        )
+        [...]
+        .BuildServiceProvider();
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can find out how to get your connection string <a href="https://www.connectionstrings.com/npgsql/standard/">here</a></p>
+</div>
+<h2 id="migrations">Migrations</h2>
+<p>Before you can start using your DbContext, you have to migrate the changes you've made in your code to your actual database.
+To learn more about migrations, visit the official Microsoft documentation <a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli">here</a></p>
+<h2 id="using-the-dbcontext">Using the DbContext</h2>
+<p>You can now use the DbContext wherever you can inject it. Here's an example on injecting it into an interaction command module.</p>
+<pre><code class="lang-csharp" name="DBContext injected into interaction module">using Discord;
+
+public class SampleModule : InteractionModuleBase&lt;SocketInteractionContext&gt;
+{
+    private readonly ApplicationDbContext _db;
+
+    public SampleModule(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+
+    [SlashCommand(&quot;sample&quot;, &quot;sample&quot;)]
+    public async Task Sample()
+    {
+        // Do stuff with your injected DbContext
+        var user = _db.Users.FirstOrDefault(x =&gt; x.Id == Context.User.Id);
+
+        ...
+  }
+}
+</code></pre><h2 id="using-a-different-database-provider">Using a different database provider</h2>
+<p>Here's a couple of popular database providers for EFCore and links to tutorials on how to set them up. The only thing that usually changes is the provider inside of your <code>DbContextOptions</code></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL</td>
+<td><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core-example.html">link</a></td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td><a href="https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli">link</a></td>
+</tr>
+</tbody>
+</table>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/other_libs/efcore.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

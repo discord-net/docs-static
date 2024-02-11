@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started with Components | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started with Components | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/message-components/intro.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../public/main.js'
+    import { init } from './../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.MessageComponents.Intro">
+<h1 id="message-components">Message Components</h1>
+
+<p>Message components are a framework for adding interactive elements to a message your app or bot sends. They're accessible, customizable, and easy to use.</p>
+<h2 id="what-is-a-component">What is a Component</h2>
+<p>Components are a new parameter you can use when sending messages with your bot. There are currently 2 different types of components you can use: Buttons and Select Menus.</p>
+<h2 id="creating-components">Creating components</h2>
+<p>Lets create a simple component that has a button. First thing we need is a way to trigger the message, this can be done via commands or simply a ready event. Lets make a command that triggers our button message.</p>
+<pre><code class="lang-cs">[Command(&quot;spawner&quot;)]
+public async Task Spawn()
+{
+    // Reply with some components
+}
+</code></pre>
+<p>We now have our command, but we need to actually send the buttons with the command. To do that, lets look at the <code>ComponentBuilder</code> class:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FromMessage</code></td>
+<td>Creates a new builder from a message.</td>
+</tr>
+<tr>
+<td><code>FromComponents</code></td>
+<td>Creates a new builder from the provided list of components.</td>
+</tr>
+<tr>
+<td><code>WithSelectMenu</code></td>
+<td>Adds a <code>SelectMenuBuilder</code> to the <code>ComponentBuilder</code> at the specific row.</td>
+</tr>
+<tr>
+<td><code>WithButton</code></td>
+<td>Adds a <code>ButtonBuilder</code> to the <code>ComponentBuilder</code> at the specific row.</td>
+</tr>
+<tr>
+<td><code>Build</code></td>
+<td>Builds this builder into a <code>MessageComponent</code> used to send your components.</td>
+</tr>
+</tbody>
+</table>
+<p>We see that we can use the <code>WithButton</code> function so lets do that. looking at its parameters it takes:</p>
+<ul>
+<li><code>label</code> - The display text of the button.</li>
+<li><code>customId</code> - The custom id of the button, this is whats sent by discord when your button is clicked.</li>
+<li><code>style</code> - The discord defined style of the button.</li>
+<li><code>emote</code> - An emote to be displayed with the button.</li>
+<li><code>url</code> - The url of the button if its a link button.</li>
+<li><code>disabled</code> - Whether or not the button is disabled.</li>
+<li><code>row</code> - The row the button will occupy.</li>
+</ul>
+<p>Since were just making a busic button, we dont have to specify anything else besides the label and custom id.</p>
+<pre><code class="lang-cs">var builder = new ComponentBuilder()
+    .WithButton(&quot;label&quot;, &quot;custom-id&quot;);
+</code></pre>
+<p>Lets add this to our command:</p>
+<pre><code class="lang-cs">[Command(&quot;spawner&quot;)]
+public async Task Spawn()
+{
+    var builder = new ComponentBuilder()
+        .WithButton(&quot;label&quot;, &quot;custom-id&quot;);
+
+    await ReplyAsync(&quot;Here is a button!&quot;, components: builder.Build());
+}
+</code></pre>
+<p><img src="images/image1.png" alt=""></p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/message-components/intro.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

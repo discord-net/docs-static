@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Using DI in Interaction &amp; Command Frameworks | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Using DI in Interaction &amp; Command Frameworks | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/dependency_injection/services.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.DI.Services">
+<h1 id="di-in-the-interaction---command-service">DI in the Interaction- &amp; Command Service</h1>
+
+<p>For both the Interaction- and Command Service modules, DI is quite straight-forward to use.</p>
+<p>You can inject any service into modules without the modules having to be registered to the provider.
+Discord.Net resolves your dependencies internally.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>The way DI is used in the Interaction- &amp; Command Service are nearly identical, except for one detail:
+<a class="xref" href="../int_framework/intro.html#resolving-module-dependencies">Resolving Module Dependencies</a></p>
+</div>
+<h2 id="registering-the-service">Registering the Service</h2>
+<p>Thanks to earlier described behavior of allowing already registered members as parameters of the available ctors,
+The socket client &amp; configuration will automatically be acknowledged and the XService(client, config) overload will be used.</p>
+<pre><code class="lang-csharp" name="Service Registration">static IServiceProvider CreateServices()
+{
+    var config = new DiscordSocketConfig()
+    {
+        //...
+    };
+
+    // X represents either Interaction or Command, as it functions the exact same for both types.
+    var servConfig = new XServiceConfig()
+    {
+        //...
+    }
+
+    var collection = new ServiceCollection()
+        .AddSingleton(config)
+        .AddSingleton&lt;DiscordSocketClient&gt;()
+        .AddSingleton(servConfig)
+        .AddSingleton&lt;XService&gt;();
+
+    return collection.BuildServiceProvider();
+}
+</code></pre><h2 id="usage-in-modules">Usage in modules</h2>
+<p>In the constructor of your module, any parameters will be filled in by
+the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> that you've passed.</p>
+<p>Any publicly settable properties will also be filled in the same
+manner.</p>
+<pre><code class="lang-csharp" name="Module Injection">public class MyModule : InteractionModuleBase
+{
+    private readonly MyService _service;
+
+    public MyModule(MyService service)
+    {
+        _service = service;
+    }
+
+    [SlashCommand(&quot;things&quot;, &quot;Shows things&quot;)]
+    public async Task ThingsAsync()
+    {
+        var str = string.Join(&quot;\n&quot;, _service.Things)
+        await RespondAsync(str);
+    }
+}
+</code></pre>
+<p>If you accept <code>Command/InteractionService</code> or <code>IServiceProvider</code> as a parameter in your constructor or as an injectable property,
+these entries will be filled by the <code>Command/InteractionService</code> that the module is loaded from and the <code>IServiceProvider</code> that is passed into it respectively.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Annotating a property with a [DontInjectAttribute] attribute will
+prevent the property from being injected.</p>
+</div>
+<h2 id="services">Services</h2>
+<p>Because modules are transient of nature and will reinstantiate on every request,
+it is suggested to create a singleton service behind it to hold values across multiple command executions.</p>
+<pre><code class="lang-csharp" name="Services">public class MyService
+{
+    public List&lt;string&gt; Things { get; }
+
+    public MyService()
+    {
+        Things = new();
+    }
+}
+</code></pre></article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/dependency_injection/services.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1579 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SocketMessage
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SocketMessage
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_WebSocket_SocketMessage.md&amp;value=---%0Auid%3A%20Discord.WebSocket.SocketMessage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.WebSocket.SocketMessage">
+
+
+
+  <h1 id="Discord_WebSocket_SocketMessage" data-uid="Discord.WebSocket.SocketMessage" class="text-break">
+    Class SocketMessage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.WebSocket.html">WebSocket</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.WebSocket.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a WebSocket-based message.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SocketMessage : SocketEntity&lt;ulong&gt;, IMessage, ISnowflakeEntity, IEntity&lt;ulong&gt;, IDeletable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketEntity-1.html">SocketEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><span class="xref">SocketMessage</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.IMessage.html">IMessage</a></div>
+      <div><a class="xref" href="Discord.ISnowflakeEntity.html">ISnowflakeEntity</a></div>
+      <div><a class="xref" href="Discord.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><a class="xref" href="Discord.IDeletable.html">IDeletable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.WebSocket.SocketSystemMessage.html">SocketSystemMessage</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketUserMessage.html">SocketUserMessage</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketEntity-1.html#Discord_WebSocket_SocketEntity_1_Id">SocketEntity&lt;ulong&gt;.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Discord.MessageExtensions.html#Discord_MessageExtensions_GetJumpUrl_Discord_IMessage_">MessageExtensions.GetJumpUrl(IMessage)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_WebSocket_SocketMessage_Activity_" data-uid="Discord.WebSocket.SocketMessage.Activity*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Activity" data-uid="Discord.WebSocket.SocketMessage.Activity">
+  Activity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the activity associated with a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageActivity Activity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageActivity.html">MessageActivity</a></dt>
+    <dd><p>A message's activity, if any is associated.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_Activity_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sent with Rich Presence-related chat embeds. This often refers to activity that requires end-user's
+interaction, such as a Spotify Invite activity.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Application_" data-uid="Discord.WebSocket.SocketMessage.Application*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Application" data-uid="Discord.WebSocket.SocketMessage.Application">
+  Application
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the application associated with a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageApplication Application { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageApplication.html">MessageApplication</a></dt>
+    <dd><p>A message's application, if any is associated.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_Application_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sent with Rich-Presence-related chat embeds.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Attachments_" data-uid="Discord.WebSocket.SocketMessage.Attachments*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Attachments" data-uid="Discord.WebSocket.SocketMessage.Attachments">
+  Attachments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all attachments included in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;Attachment&gt; Attachments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Attachment.html">Attachment</a>&gt;</dt>
+    <dd><p>Collection of attachments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Author_" data-uid="Discord.WebSocket.SocketMessage.Author*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Author" data-uid="Discord.WebSocket.SocketMessage.Author">
+  Author
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the author of this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketUser Author { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketUser.html">SocketUser</a></dt>
+    <dd><p>A WebSocket-based user object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Channel_" data-uid="Discord.WebSocket.SocketMessage.Channel*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Channel" data-uid="Discord.WebSocket.SocketMessage.Channel">
+  Channel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the source channel of the message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISocketMessageChannel Channel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a></dt>
+    <dd><p>A WebSocket-based message channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_CleanContent_" data-uid="Discord.WebSocket.SocketMessage.CleanContent*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_CleanContent" data-uid="Discord.WebSocket.SocketMessage.CleanContent">
+  CleanContent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the clean content for this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CleanContent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that contains the body of the message stripped of mentions, markdown, emojis and pings; note that this field may be empty if there is an embed.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_CleanContent_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be empty if the privileged <a class="xref" href="Discord.GatewayIntents.html#Discord_GatewayIntents_MessageContent">MessageContent</a> is disabled.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Components_" data-uid="Discord.WebSocket.SocketMessage.Components*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Components" data-uid="Discord.WebSocket.SocketMessage.Components">
+  Components
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;ActionRowComponent&gt; Components { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.ActionRowComponent.html">ActionRowComponent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Content_" data-uid="Discord.WebSocket.SocketMessage.Content*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Content" data-uid="Discord.WebSocket.SocketMessage.Content">
+  Content
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content for this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Content { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that contains the body of the message; note that this field may be empty if there is an embed.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_Content_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be empty if the privileged <a class="xref" href="Discord.GatewayIntents.html#Discord_GatewayIntents_MessageContent">MessageContent</a> is disabled.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_CreatedAt_" data-uid="Discord.WebSocket.SocketMessage.CreatedAt*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_CreatedAt" data-uid="Discord.WebSocket.SocketMessage.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets when the snowflake was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset CreatedAt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a> representing when the entity was first created.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_EditedTimestamp_" data-uid="Discord.WebSocket.SocketMessage.EditedTimestamp*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_EditedTimestamp" data-uid="Discord.WebSocket.SocketMessage.EditedTimestamp">
+  EditedTimestamp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the time of this message's last edit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DateTimeOffset? EditedTimestamp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd><p>Time of when the message was last edited; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the message is never edited.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Embeds_" data-uid="Discord.WebSocket.SocketMessage.Embeds*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Embeds" data-uid="Discord.WebSocket.SocketMessage.Embeds">
+  Embeds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all embeds included in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;Embed&gt; Embeds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Embed.html">Embed</a>&gt;</dt>
+    <dd><p>Collection of embed objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Flags_" data-uid="Discord.WebSocket.SocketMessage.Flags*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Flags" data-uid="Discord.WebSocket.SocketMessage.Flags">
+  Flags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the flags related to this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageFlags? Flags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageFlags.html">MessageFlags</a>?</dt>
+    <dd><p>A message's flags, if any is associated.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_Flags_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value is determined by bitwise OR-ing <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> values together.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Interaction_" data-uid="Discord.WebSocket.SocketMessage.Interaction*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Interaction" data-uid="Discord.WebSocket.SocketMessage.Interaction">
+  Interaction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interaction this message is a response to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageInteraction&lt;SocketUser&gt; Interaction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageInteraction-1.html">MessageInteraction</a>&lt;<a class="xref" href="Discord.WebSocket.SocketUser.html">SocketUser</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_IsPinned_" data-uid="Discord.WebSocket.SocketMessage.IsPinned*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_IsPinned" data-uid="Discord.WebSocket.SocketMessage.IsPinned">
+  IsPinned
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value that indicates whether this message is pinned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsPinned { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this message was added to its channel's pinned messages; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_IsSuppressed_" data-uid="Discord.WebSocket.SocketMessage.IsSuppressed*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_IsSuppressed" data-uid="Discord.WebSocket.SocketMessage.IsSuppressed">
+  IsSuppressed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value that indicates whether or not this message's embeds are suppressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsSuppressed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the embeds in this message have been suppressed (made invisible); otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_IsTTS_" data-uid="Discord.WebSocket.SocketMessage.IsTTS*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_IsTTS" data-uid="Discord.WebSocket.SocketMessage.IsTTS">
+  IsTTS
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value that indicates whether this message was meant to be read-aloud by Discord.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsTTS { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this message was sent as a text-to-speech message; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_MentionedChannels_" data-uid="Discord.WebSocket.SocketMessage.MentionedChannels*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_MentionedChannels" data-uid="Discord.WebSocket.SocketMessage.MentionedChannels">
+  MentionedChannels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the channels mentioned in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;SocketGuildChannel&gt; MentionedChannels { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a>&gt;</dt>
+    <dd><p>Collection of WebSocket-based guild channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_MentionedEveryone_" data-uid="Discord.WebSocket.SocketMessage.MentionedEveryone*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_MentionedEveryone" data-uid="Discord.WebSocket.SocketMessage.MentionedEveryone">
+  MentionedEveryone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value that indicates whether this message mentioned everyone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool MentionedEveryone { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this message mentioned everyone; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_MentionedRoles_" data-uid="Discord.WebSocket.SocketMessage.MentionedRoles*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_MentionedRoles" data-uid="Discord.WebSocket.SocketMessage.MentionedRoles">
+  MentionedRoles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the roles mentioned in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;SocketRole&gt; MentionedRoles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketRole.html">SocketRole</a>&gt;</dt>
+    <dd><p>Collection of WebSocket-based roles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_MentionedUsers_" data-uid="Discord.WebSocket.SocketMessage.MentionedUsers*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_MentionedUsers" data-uid="Discord.WebSocket.SocketMessage.MentionedUsers">
+  MentionedUsers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the users mentioned in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;SocketUser&gt; MentionedUsers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketUser.html">SocketUser</a>&gt;</dt>
+    <dd><p>Collection of WebSocket-based users.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Reactions_" data-uid="Discord.WebSocket.SocketMessage.Reactions*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Reactions" data-uid="Discord.WebSocket.SocketMessage.Reactions">
+  Reactions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all reactions included in this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;IEmote, ReactionMetadata&gt; Reactions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="Discord.IEmote.html">IEmote</a>, <a class="xref" href="Discord.ReactionMetadata.html">ReactionMetadata</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Reference_" data-uid="Discord.WebSocket.SocketMessage.Reference*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Reference" data-uid="Discord.WebSocket.SocketMessage.Reference">
+  Reference
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the original message if it is a crosspost, channel follow add, pin, or reply message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageReference Reference { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>A message's reference, if any is associated.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_Reference_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sent with cross-posted messages, meaning they were published from news channels
+and received by subscriber channels, channel follow adds, pins, and message replies.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_RoleSubscriptionData_" data-uid="Discord.WebSocket.SocketMessage.RoleSubscriptionData*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_RoleSubscriptionData" data-uid="Discord.WebSocket.SocketMessage.RoleSubscriptionData">
+  RoleSubscriptionData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the data of the role subscription purchase or renewal that prompted this <a class="xref" href="Discord.MessageType.html#Discord_MessageType_RoleSubscriptionPurchase">RoleSubscriptionPurchase</a> message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageRoleSubscriptionData RoleSubscriptionData { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageRoleSubscriptionData.html">MessageRoleSubscriptionData</a></dt>
+    <dd><p>A <a class="xref" href="Discord.MessageRoleSubscriptionData.html">MessageRoleSubscriptionData</a> if the message is a role subscription purchase message; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Source_" data-uid="Discord.WebSocket.SocketMessage.Source*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Source" data-uid="Discord.WebSocket.SocketMessage.Source">
+  Source
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the source type of this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageSource Source { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageSource.html">MessageSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Stickers_" data-uid="Discord.WebSocket.SocketMessage.Stickers*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Stickers" data-uid="Discord.WebSocket.SocketMessage.Stickers">
+  Stickers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;SocketSticker&gt; Stickers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketSticker.html">SocketSticker</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Tags_" data-uid="Discord.WebSocket.SocketMessage.Tags*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Tags" data-uid="Discord.WebSocket.SocketMessage.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all tags included in this message's content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;ITag&gt; Tags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.ITag.html">ITag</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Thread_" data-uid="Discord.WebSocket.SocketMessage.Thread*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Thread" data-uid="Discord.WebSocket.SocketMessage.Thread">
+  Thread
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the thread that was started from this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketThreadChannel Thread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketThreadChannel.html">SocketThreadChannel</a></dt>
+    <dd><p>An <a class="xref" href="Discord.IThreadChannel.html">IThreadChannel</a> object if this message has thread attached; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Timestamp_" data-uid="Discord.WebSocket.SocketMessage.Timestamp*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Timestamp" data-uid="Discord.WebSocket.SocketMessage.Timestamp">
+  Timestamp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the time this message was sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset Timestamp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd><p>Time of when the message was sent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_Type_" data-uid="Discord.WebSocket.SocketMessage.Type*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_Type" data-uid="Discord.WebSocket.SocketMessage.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MessageType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.MessageType.html">MessageType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_WebSocket_SocketMessage_AddReactionAsync_" data-uid="Discord.WebSocket.SocketMessage.AddReactionAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_AddReactionAsync_Discord_IEmote_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)">
+  AddReactionAsync(IEmote, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a reaction to this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task AddReactionAsync(IEmote emote, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>emote</code> <a class="xref" href="Discord.IEmote.html">IEmote</a></dt>
+    <dd><p>The emoji used to react to this message.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation for adding a reaction to this message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_AddReactionAsync_Discord_IEmote_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example adds the reaction, <code>💕</code>, to the message.</p>
+<pre>
+  <code class="lang-cs">await msg.AddReactionAsync(new Emoji("\U0001f495"));</code>
+</pre>
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.IEmote.html">IEmote</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_WebSocket_SocketMessage_DeleteAsync_" data-uid="Discord.WebSocket.SocketMessage.DeleteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_DeleteAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.DeleteAsync(Discord.RequestOptions)">
+  DeleteAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes this object and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_GetReactionUsersAsync_" data-uid="Discord.WebSocket.SocketMessage.GetReactionUsersAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_GetReactionUsersAsync_Discord_IEmote_System_Int32_Discord_RequestOptions_Discord_ReactionType_" data-uid="Discord.WebSocket.SocketMessage.GetReactionUsersAsync(Discord.IEmote,System.Int32,Discord.RequestOptions,Discord.ReactionType)">
+  GetReactionUsersAsync(IEmote, int, RequestOptions, ReactionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all users that reacted to a message with a given emote.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IReadOnlyCollection&lt;IUser&gt;&gt; GetReactionUsersAsync(IEmote emote, int limit, RequestOptions options = null, ReactionType type = ReactionType.Normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>emote</code> <a class="xref" href="Discord.IEmote.html">IEmote</a></dt>
+    <dd></dd>
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of users to request.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="Discord.ReactionType.html">ReactionType</a></dt>
+    <dd><p>The type of the reaction you wish to get users for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.IUser.html">IUser</a>&gt;&gt;</dt>
+    <dd><p>Paged collection of users.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_GetReactionUsersAsync_Discord_IEmote_System_Int32_Discord_RequestOptions_Discord_ReactionType__examples">Examples</h4>
+  <p>The following example gets the users that have reacted with the emoji <code>💕</code> to the message.</p>
+<pre>
+  <code class="lang-cs">var emoji = new Emoji("\U0001f495");
+                                                                                                                                                      var reactedUsers = await message.GetReactionUsersAsync(emoji, 100).FlattenAsync();</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_GetReactionUsersAsync_Discord_IEmote_System_Int32_Discord_RequestOptions_Discord_ReactionType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><div class="IMPORTANT">
+  <h5>important</h5>
+  <p>
+            The returned collection is an asynchronous enumerable object; one must call 
+            <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the users as a
+            collection.
+        </p>
+</div>
+<div class="WARNING">
+  <h5>warning</h5>
+  <p>
+            Do not fetch too many users at once! This may cause unwanted preemptive rate limit or even actual
+            rate limit, causing your bot to freeze!
+        </p>
+</div>
+        This method will attempt to fetch the number of reactions specified under <code class="paramref">limit</code>. 
+        The library will attempt to split up the requests according to your <code class="paramref">limit</code> and 
+        <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUserReactionsPerBatch">MaxUserReactionsPerBatch</a>. In other words, should the user request 500 reactions,
+        and the <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUserReactionsPerBatch">MaxUserReactionsPerBatch</a> constant is <code>100</code>, the request will
+        be split into 5 individual requests; thus returning 5 individual asynchronous responses, hence the need
+        of flattening.
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_RemoveAllReactionsAsync_" data-uid="Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_RemoveAllReactionsAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.RemoveAllReactionsAsync(Discord.RequestOptions)">
+  RemoveAllReactionsAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all reactions from this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveAllReactionsAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_RemoveAllReactionsForEmoteAsync_" data-uid="Discord.WebSocket.SocketMessage.RemoveAllReactionsForEmoteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_RemoveAllReactionsForEmoteAsync_Discord_IEmote_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.RemoveAllReactionsForEmoteAsync(Discord.IEmote,Discord.RequestOptions)">
+  RemoveAllReactionsForEmoteAsync(IEmote, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all reactions with a specific emoji from this message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveAllReactionsForEmoteAsync(IEmote emote, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>emote</code> <a class="xref" href="Discord.IEmote.html">IEmote</a></dt>
+    <dd><p>The emoji used to react to this message.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_" data-uid="Discord.WebSocket.SocketMessage.RemoveReactionAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_Discord_IEmote_Discord_IUser_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,Discord.IUser,Discord.RequestOptions)">
+  RemoveReactionAsync(IEmote, IUser, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a reaction from message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveReactionAsync(IEmote emote, IUser user, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>emote</code> <a class="xref" href="Discord.IEmote.html">IEmote</a></dt>
+    <dd><p>The emoji used to react to this message.</p>
+</dd>
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The user that added the emoji.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation for removing a reaction to this message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_Discord_IEmote_Discord_IUser_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example removes the reaction, <code>💕</code>, added by the message author from the message.</p>
+<pre>
+  <code class="lang-cs">await msg.RemoveReactionAsync(new Emoji("\U0001f495"), msg.Author);</code>
+</pre>
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.IEmote.html">IEmote</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_" data-uid="Discord.WebSocket.SocketMessage.RemoveReactionAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_Discord_IEmote_System_UInt64_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketMessage.RemoveReactionAsync(Discord.IEmote,System.UInt64,Discord.RequestOptions)">
+  RemoveReactionAsync(IEmote, ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a reaction from message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveReactionAsync(IEmote emote, ulong userId, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>emote</code> <a class="xref" href="Discord.IEmote.html">IEmote</a></dt>
+    <dd><p>The emoji used to react to this message.</p>
+</dd>
+    <dt><code>userId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The ID of the user that added the emoji.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation for removing a reaction to this message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketMessage_RemoveReactionAsync_Discord_IEmote_System_UInt64_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example removes the reaction, <code>💕</code>, added by the user with ID 84291986575613952 from the message.</p>
+<pre>
+  <code class="lang-cs">await msg.RemoveReactionAsync(new Emoji("\U0001f495"), 84291986575613952);</code>
+</pre>
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.IEmote.html">IEmote</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_WebSocket_SocketMessage_ToString_" data-uid="Discord.WebSocket.SocketMessage.ToString*"></a>
+
+  <h3 id="Discord_WebSocket_SocketMessage_ToString" data-uid="Discord.WebSocket.SocketMessage.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content of the message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Content of the message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Messages/SocketMessage.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

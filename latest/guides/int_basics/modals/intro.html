@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started with Modals | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started with Modals | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/modals/intro.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../public/main.js'
+    import { init } from './../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.Modals.Intro">
+<h1 id="modals">Modals</h1>
+
+<h2 id="getting-started-with-modals">Getting started with modals</h2>
+<p>This guide will show you how to use modals and give a few examples of
+valid use cases. If your question is not covered by this guide ask in the
+<a href="https://discord.gg/dnet">Discord.Net Discord Server</a>.</p>
+<h3 id="what-is-a-modal">What is a modal?</h3>
+<p>Modals are forms bots can send when responding to interactions. Modals
+are sent to Discord as an array of message components and converted
+into the form layout by user's clients. Modals are required to have a
+custom id, title, and at least one component.</p>
+<p><img src="images/image2.png" alt="Screenshot of a modal"></p>
+<p>When users submit modals, your client fires the ModalSubmitted event.
+You can get the components of the modal from the <code>Data.Components</code> property
+on the SocketModal:</p>
+<p><img src="images/image1.png" alt="Screenshot of modal data"></p>
+<h3 id="using-modals">Using modals</h3>
+<p>Lets create a simple modal with an entry field for users to
+tell us their favorite food. We can start by creating a slash
+command that will respond with the modal.</p>
+<pre><code class="lang-cs">[SlashCommand(&quot;food&quot;, &quot;Tell us about your favorite food!&quot;)]
+public async Task FoodPreference()
+{
+    // send a modal
+}
+</code></pre>
+<p>Now that we have our command set up, we need to build a modal.
+We can use the aptly named <code>ModalBuilder</code> for that:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WithTitle</code></td>
+<td>Sets the modal's title.</td>
+</tr>
+<tr>
+<td><code>WithCustomId</code></td>
+<td>Sets the modal's custom id.</td>
+</tr>
+<tr>
+<td><code>AddTextInput</code></td>
+<td>Adds a <code>TextInputBuilder</code> to the modal.</td>
+</tr>
+<tr>
+<td><code>AddComponents</code></td>
+<td>Adds multiple components to the modal.</td>
+</tr>
+<tr>
+<td><code>Build</code></td>
+<td>Builds the <code>ModalBuilder</code> into a <code>Modal</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>We know we need to add a text input to the modal, so let's look at that
+method's parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>Sets the input's label.</td>
+</tr>
+<tr>
+<td><code>customId</code></td>
+<td>Sets the input's custom id.</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Sets the input's style.</td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td>Sets the input's placeholder.</td>
+</tr>
+<tr>
+<td><code>minLength</code></td>
+<td>Sets the minimum input length.</td>
+</tr>
+<tr>
+<td><code>maxLength</code></td>
+<td>Sets the maximum input length.</td>
+</tr>
+<tr>
+<td><code>required</code></td>
+<td>Sets whether or not the modal is required.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>Sets the input's default value.</td>
+</tr>
+</tbody>
+</table>
+<p>To make a basic text input we would only need to set the <code>label</code> and
+<code>customId</code>, but in this example we will also use the <code>placeholder</code>
+parameter. Next we can build our modal:</p>
+<pre><code class="lang-cs">var mb = new ModalBuilder()
+    .WithTitle(&quot;Fav Food&quot;)
+    .WithCustomId(&quot;food_menu&quot;)
+    .AddTextInput(&quot;What??&quot;, &quot;food_name&quot;, placeholder:&quot;Pizza&quot;)
+    .AddTextInput(&quot;Why??&quot;, &quot;food_reason&quot;, TextInputStyle.Paragraph, 
+        &quot;Kus it's so tasty&quot;);
+</code></pre>
+<p>Now that we have a ModalBuilder we can update our command to respond
+with the modal.</p>
+<pre><code class="lang-cs">[SlashCommand(&quot;food&quot;, &quot;Tell us about your favorite food!&quot;)]
+public async Task FoodPreference()
+{
+    var mb = new ModalBuilder()
+    .WithTitle(&quot;Fav Food&quot;)
+    .WithCustomId(&quot;food_menu&quot;)
+    .AddTextInput(&quot;What??&quot;, &quot;food_name&quot;, placeholder:&quot;Pizza&quot;)
+    .AddTextInput(&quot;Why??&quot;, &quot;food_reason&quot;, TextInputStyle.Paragraph, 
+        &quot;Kus it's so tasty&quot;);
+    
+    await Context.Interaction.RespondWithModalAsync(mb.Build());
+}
+</code></pre>
+<p>When we run the command, our modal should pop up:</p>
+<p><img src="images/image3.png" alt="screenshot of the above modal"></p>
+<h3 id="respond-to-modals">Respond to modals</h3>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Modals can not be sent when responding to a modal.</p>
+</div>
+<p>Once a user has submitted the modal, we need to let everyone know what
+their favorite food is. We can start by hooking a task to the client's
+<code>ModalSubmitted</code> event.</p>
+<pre><code class="lang-cs">_client.ModalSubmitted += async modal =&gt;
+{
+    // Get the values of components.
+    List&lt;SocketMessageComponentData&gt; components =
+        modal.Data.Components.ToList();
+    string food = components
+        .First(x =&gt; x.CustomId == &quot;food_name&quot;).Value;
+    string reason = components
+        .First(x =&gt; x.CustomId == &quot;food_reason&quot;).Value;
+
+    // Build the message to send.
+    string message = &quot;hey @everyone; I just learned &quot; + 
+        $&quot;{modal.User.Mention}'s favorite food is &quot; +
+        $&quot;{food} because {reason}.&quot;;
+
+    // Specify the AllowedMentions so we don't actually ping everyone.
+    AllowedMentions mentions = new AllowedMentions();
+    mentions.AllowedTypes = AllowedMentionTypes.Users;
+
+    // Respond to the modal.
+    await modal.RespondAsync(message, allowedMentions:mentions);
+}
+</code></pre>
+<p>Now responding to the modal should inform everyone of our tasty
+choices.</p>
+<p><img src="images/image4.png" alt="Response of the modal submitted event"></p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/modals/intro.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

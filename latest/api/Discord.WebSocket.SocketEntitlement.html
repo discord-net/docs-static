@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SocketEntitlement
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SocketEntitlement
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_WebSocket_SocketEntitlement.md&amp;value=---%0Auid%3A%20Discord.WebSocket.SocketEntitlement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.WebSocket.SocketEntitlement">
+
+
+
+  <h1 id="Discord_WebSocket_SocketEntitlement" data-uid="Discord.WebSocket.SocketEntitlement" class="text-break">
+    Class SocketEntitlement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.WebSocket.html">WebSocket</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.WebSocket.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SocketEntitlement : SocketEntity&lt;ulong&gt;, IEntitlement, ISnowflakeEntity, IEntity&lt;ulong&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketEntity-1.html">SocketEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><span class="xref">SocketEntitlement</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.IEntitlement.html">IEntitlement</a></div>
+      <div><a class="xref" href="Discord.ISnowflakeEntity.html">ISnowflakeEntity</a></div>
+      <div><a class="xref" href="Discord.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketEntity-1.html#Discord_WebSocket_SocketEntity_1_Id">SocketEntity&lt;ulong&gt;.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_ApplicationId_" data-uid="Discord.WebSocket.SocketEntitlement.ApplicationId*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_ApplicationId" data-uid="Discord.WebSocket.SocketEntitlement.ApplicationId">
+  ApplicationId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the ID of the parent application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong ApplicationId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_CreatedAt_" data-uid="Discord.WebSocket.SocketEntitlement.CreatedAt*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_CreatedAt" data-uid="Discord.WebSocket.SocketEntitlement.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets when the snowflake was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset CreatedAt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a> representing when the entity was first created.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_EndsAt_" data-uid="Discord.WebSocket.SocketEntitlement.EndsAt*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_EndsAt" data-uid="Discord.WebSocket.SocketEntitlement.EndsAt">
+  EndsAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the end date at which the entitlement is no longer valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? EndsAt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketEntitlement_EndsAt_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when using test entitlements.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_Guild_" data-uid="Discord.WebSocket.SocketEntitlement.Guild*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_Guild" data-uid="Discord.WebSocket.SocketEntitlement.Guild">
+  Guild
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the ID of the guild that is granted access to the entitlement's SKU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cacheable&lt;SocketGuild, RestGuild, IGuild, ulong&gt;? Guild { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Cacheable-4.html">Cacheable</a>&lt;<a class="xref" href="Discord.WebSocket.SocketGuild.html">SocketGuild</a>, <a class="xref" href="Discord.Rest.RestGuild.html">RestGuild</a>, <a class="xref" href="Discord.IGuild.html">IGuild</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketEntitlement_Guild_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the entitlement is for a user.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_IsConsumed_" data-uid="Discord.WebSocket.SocketEntitlement.IsConsumed*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_IsConsumed" data-uid="Discord.WebSocket.SocketEntitlement.IsConsumed">
+  IsConsumed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this entitlement has been consumed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConsumed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketEntitlement_IsConsumed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Not applicable for App Subscriptions.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_SkuId_" data-uid="Discord.WebSocket.SocketEntitlement.SkuId*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_SkuId" data-uid="Discord.WebSocket.SocketEntitlement.SkuId">
+  SkuId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the ID of the SKU this entitlement is for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong SkuId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_StartsAt_" data-uid="Discord.WebSocket.SocketEntitlement.StartsAt*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_StartsAt" data-uid="Discord.WebSocket.SocketEntitlement.StartsAt">
+  StartsAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the start date at which the entitlement is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? StartsAt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketEntitlement_StartsAt_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when using test entitlements.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_Type_" data-uid="Discord.WebSocket.SocketEntitlement.Type*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_Type" data-uid="Discord.WebSocket.SocketEntitlement.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the entitlement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EntitlementType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.EntitlementType.html">EntitlementType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketEntitlement_User_" data-uid="Discord.WebSocket.SocketEntitlement.User*"></a>
+
+  <h3 id="Discord_WebSocket_SocketEntitlement_User" data-uid="Discord.WebSocket.SocketEntitlement.User">
+  User
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the ID of the user that is granted access to the entitlement's SKU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cacheable&lt;SocketUser, RestUser, IUser, ulong&gt;? User { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Cacheable-4.html">Cacheable</a>&lt;<a class="xref" href="Discord.WebSocket.SocketUser.html">SocketUser</a>, <a class="xref" href="Discord.Rest.RestUser.html">RestUser</a>, <a class="xref" href="Discord.IUser.html">IUser</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketEntitlement_User_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the entitlement is for a guild.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/AppSubscriptions/SocketEntitlement.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

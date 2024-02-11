@@ -1,0 +1,2004 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SocketThreadChannel
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SocketThreadChannel
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_WebSocket_SocketThreadChannel.md&amp;value=---%0Auid%3A%20Discord.WebSocket.SocketThreadChannel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.WebSocket.SocketThreadChannel">
+
+
+
+  <h1 id="Discord_WebSocket_SocketThreadChannel" data-uid="Discord.WebSocket.SocketThreadChannel" class="text-break">
+    Class SocketThreadChannel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.WebSocket.html">WebSocket</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.WebSocket.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a thread channel inside of a guild.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SocketThreadChannel : SocketTextChannel, ISocketMessageChannel, IThreadChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IIntegrationChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity&lt;ulong&gt;, IDeletable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketEntity-1.html">SocketEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a></div>
+      <div><a class="xref" href="Discord.WebSocket.SocketTextChannel.html">SocketTextChannel</a></div>
+      <div><span class="xref">SocketThreadChannel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a></div>
+      <div><a class="xref" href="Discord.IThreadChannel.html">IThreadChannel</a></div>
+      <div><a class="xref" href="Discord.ITextChannel.html">ITextChannel</a></div>
+      <div><a class="xref" href="Discord.IMessageChannel.html">IMessageChannel</a></div>
+      <div><a class="xref" href="Discord.IMentionable.html">IMentionable</a></div>
+      <div><a class="xref" href="Discord.INestedChannel.html">INestedChannel</a></div>
+      <div><a class="xref" href="Discord.IIntegrationChannel.html">IIntegrationChannel</a></div>
+      <div><a class="xref" href="Discord.IGuildChannel.html">IGuildChannel</a></div>
+      <div><a class="xref" href="Discord.IChannel.html">IChannel</a></div>
+      <div><a class="xref" href="Discord.ISnowflakeEntity.html">ISnowflakeEntity</a></div>
+      <div><a class="xref" href="Discord.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><a class="xref" href="Discord.IDeletable.html">IDeletable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_Topic">SocketTextChannel.Topic</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SlowModeInterval">SocketTextChannel.SlowModeInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_CategoryId">SocketTextChannel.CategoryId</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DefaultSlowModeInterval">SocketTextChannel.DefaultSlowModeInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_Category">SocketTextChannel.Category</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_IsNsfw">SocketTextChannel.IsNsfw</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DefaultArchiveDuration">SocketTextChannel.DefaultArchiveDuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_Mention">SocketTextChannel.Mention</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_CachedMessages">SocketTextChannel.CachedMessages</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_Threads">SocketTextChannel.Threads</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_CreateThreadAsync_System_String_Discord_ThreadType_Discord_ThreadArchiveDuration_Discord_IMessage_System_Nullable_System_Boolean__System_Nullable_System_Int32__Discord_RequestOptions_">SocketTextChannel.CreateThreadAsync(string, ThreadType, ThreadArchiveDuration, IMessage, bool?, int?, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetCachedMessage_System_UInt64_">SocketTextChannel.GetCachedMessage(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetMessageAsync_System_UInt64_Discord_RequestOptions_">SocketTextChannel.GetMessageAsync(ulong, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetMessagesAsync_System_Int32_Discord_RequestOptions_">SocketTextChannel.GetMessagesAsync(int, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetMessagesAsync_System_UInt64_Discord_Direction_System_Int32_Discord_RequestOptions_">SocketTextChannel.GetMessagesAsync(ulong, Direction, int, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetMessagesAsync_Discord_IMessage_Discord_Direction_System_Int32_Discord_RequestOptions_">SocketTextChannel.GetMessagesAsync(IMessage, Direction, int, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetCachedMessages_System_Int32_">SocketTextChannel.GetCachedMessages(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetCachedMessages_System_UInt64_Discord_Direction_System_Int32_">SocketTextChannel.GetCachedMessages(ulong, Direction, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetCachedMessages_Discord_IMessage_Discord_Direction_System_Int32_">SocketTextChannel.GetCachedMessages(IMessage, Direction, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_GetPinnedMessagesAsync_Discord_RequestOptions_">SocketTextChannel.GetPinnedMessagesAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SendMessageAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SocketTextChannel.SendMessageAsync(string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SocketTextChannel.SendFileAsync(string, string, bool, Embed, RequestOptions, bool, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SocketTextChannel.SendFileAsync(Stream, string, string, bool, Embed, RequestOptions, bool, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SendFileAsync_Discord_FileAttachment_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SocketTextChannel.SendFileAsync(FileAttachment, string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_SendFilesAsync_System_Collections_Generic_IEnumerable_Discord_FileAttachment__System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SocketTextChannel.SendFilesAsync(IEnumerable&lt;FileAttachment&gt;, string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_Discord_IMessage__Discord_RequestOptions_">SocketTextChannel.DeleteMessagesAsync(IEnumerable&lt;IMessage&gt;, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_System_UInt64__Discord_RequestOptions_">SocketTextChannel.DeleteMessagesAsync(IEnumerable&lt;ulong&gt;, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_ModifyMessageAsync_System_UInt64_System_Action_Discord_MessageProperties__Discord_RequestOptions_">SocketTextChannel.ModifyMessageAsync(ulong, Action&lt;MessageProperties&gt;, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DeleteMessageAsync_System_UInt64_Discord_RequestOptions_">SocketTextChannel.DeleteMessageAsync(ulong, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_DeleteMessageAsync_Discord_IMessage_Discord_RequestOptions_">SocketTextChannel.DeleteMessageAsync(IMessage, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_TriggerTypingAsync_Discord_RequestOptions_">SocketTextChannel.TriggerTypingAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_EnterTypingState_Discord_RequestOptions_">SocketTextChannel.EnterTypingState(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketTextChannel.html#Discord_WebSocket_SocketTextChannel_CreateInviteToApplicationAsync_Discord_DefaultApplications_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_">SocketTextChannel.CreateInviteToApplicationAsync(DefaultApplications, int?, int?, bool, bool, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_Guild">SocketGuildChannel.Guild</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_Name">SocketGuildChannel.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_Position">SocketGuildChannel.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_Flags">SocketGuildChannel.Flags</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_ModifyAsync_System_Action_Discord_GuildChannelProperties__Discord_RequestOptions_">SocketGuildChannel.ModifyAsync(Action&lt;GuildChannelProperties&gt;, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_DeleteAsync_Discord_RequestOptions_">SocketGuildChannel.DeleteAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html#Discord_WebSocket_SocketGuildChannel_ToString">SocketGuildChannel.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.WebSocket.SocketEntity-1.html#Discord_WebSocket_SocketEntity_1_Id">SocketEntity&lt;ulong&gt;.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Discord.ChannelExtensions.html#Discord_ChannelExtensions_GetChannelType_Discord_IChannel_">ChannelExtensions.GetChannelType(IChannel)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_AppliedTags_" data-uid="Discord.WebSocket.SocketThreadChannel.AppliedTags*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_AppliedTags" data-uid="Discord.WebSocket.SocketThreadChannel.AppliedTags">
+  AppliedTags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets ids of tags applied to a forum thread</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;ulong&gt; AppliedTags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_AppliedTags_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This property is only available on forum threads.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_ArchiveTimestamp_" data-uid="Discord.WebSocket.SocketThreadChannel.ArchiveTimestamp*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_ArchiveTimestamp" data-uid="Discord.WebSocket.SocketThreadChannel.ArchiveTimestamp">
+  ArchiveTimestamp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the timestamp when the thread's archive status was last changed, used for calculating recent activity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset ArchiveTimestamp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_AutoArchiveDuration_" data-uid="Discord.WebSocket.SocketThreadChannel.AutoArchiveDuration*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_AutoArchiveDuration" data-uid="Discord.WebSocket.SocketThreadChannel.AutoArchiveDuration">
+  AutoArchiveDuration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the duration of time before the thread is automatically archived after no activity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadArchiveDuration AutoArchiveDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ThreadArchiveDuration.html">ThreadArchiveDuration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CreatedAt_" data-uid="Discord.WebSocket.SocketThreadChannel.CreatedAt*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CreatedAt" data-uid="Discord.WebSocket.SocketThreadChannel.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets when the thread was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DateTimeOffset CreatedAt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreatedAt_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This property is only populated for threads created after 2022-01-09, hence the default date of this
+property will be that date.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CurrentUser_" data-uid="Discord.WebSocket.SocketThreadChannel.CurrentUser*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CurrentUser" data-uid="Discord.WebSocket.SocketThreadChannel.CurrentUser">
+  CurrentUser
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current users within this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketThreadUser CurrentUser { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketThreadUser.html">SocketThreadUser</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_HasJoined_" data-uid="Discord.WebSocket.SocketThreadChannel.HasJoined*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_HasJoined" data-uid="Discord.WebSocket.SocketThreadChannel.HasJoined">
+  HasJoined
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether or not the current user has joined this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasJoined { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_IsArchived_" data-uid="Discord.WebSocket.SocketThreadChannel.IsArchived*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_IsArchived" data-uid="Discord.WebSocket.SocketThreadChannel.IsArchived">
+  IsArchived
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether or not the current thread is archived.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsArchived { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_IsInvitable_" data-uid="Discord.WebSocket.SocketThreadChannel.IsInvitable*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_IsInvitable" data-uid="Discord.WebSocket.SocketThreadChannel.IsInvitable">
+  IsInvitable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether non-moderators can add other non-moderators to a thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsInvitable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_IsInvitable_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This property is only available on private threads.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_IsLocked_" data-uid="Discord.WebSocket.SocketThreadChannel.IsLocked*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_IsLocked" data-uid="Discord.WebSocket.SocketThreadChannel.IsLocked">
+  IsLocked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether or not the current thread is locked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLocked { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_IsPrivateThread_" data-uid="Discord.WebSocket.SocketThreadChannel.IsPrivateThread*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_IsPrivateThread" data-uid="Discord.WebSocket.SocketThreadChannel.IsPrivateThread">
+  IsPrivateThread
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this thread is private, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPrivateThread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_MemberCount_" data-uid="Discord.WebSocket.SocketThreadChannel.MemberCount*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_MemberCount" data-uid="Discord.WebSocket.SocketThreadChannel.MemberCount">
+  MemberCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an approximate count of users in a thread, stops counting after 50.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MemberCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_MessageCount_" data-uid="Discord.WebSocket.SocketThreadChannel.MessageCount*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_MessageCount" data-uid="Discord.WebSocket.SocketThreadChannel.MessageCount">
+  MessageCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an approximate count of messages in a thread, stops counting after 50.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MessageCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_Owner_" data-uid="Discord.WebSocket.SocketThreadChannel.Owner*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_Owner" data-uid="Discord.WebSocket.SocketThreadChannel.Owner">
+  Owner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the owner of the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketThreadUser Owner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketThreadUser.html">SocketThreadUser</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_ParentChannel_" data-uid="Discord.WebSocket.SocketThreadChannel.ParentChannel*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_ParentChannel" data-uid="Discord.WebSocket.SocketThreadChannel.ParentChannel">
+  ParentChannel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent channel this thread resides in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketGuildChannel ParentChannel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_PermissionOverwrites_" data-uid="Discord.WebSocket.SocketThreadChannel.PermissionOverwrites*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_PermissionOverwrites" data-uid="Discord.WebSocket.SocketThreadChannel.PermissionOverwrites">
+  PermissionOverwrites
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of permission overwrites for this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyCollection&lt;Overwrite&gt; PermissionOverwrites { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Overwrite.html">Overwrite</a>&gt;</dt>
+    <dd><p>A collection of overwrites associated with this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_PermissionOverwrites_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_Type_" data-uid="Discord.WebSocket.SocketThreadChannel.Type*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_Type" data-uid="Discord.WebSocket.SocketThreadChannel.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the current thread channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ThreadType.html">ThreadType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_Users_" data-uid="Discord.WebSocket.SocketThreadChannel.Users*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_Users" data-uid="Discord.WebSocket.SocketThreadChannel.Users">
+  Users
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of cached users within this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;SocketThreadUser&gt; Users { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketThreadUser.html">SocketThreadUser</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.AddPermissionOverwriteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_Discord_IRole_Discord_OverwritePermissions_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.AddPermissionOverwriteAsync(Discord.IRole,Discord.OverwritePermissions,Discord.RequestOptions)">
+  AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds or updates the permission overwrite for the given role.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task AddPermissionOverwriteAsync(IRole role, OverwritePermissions permissions, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="Discord.IRole.html">IRole</a></dt>
+    <dd><p>The role to add the overwrite to.</p>
+</dd>
+    <dt><code>permissions</code> <a class="xref" href="Discord.OverwritePermissions.html">OverwritePermissions</a></dt>
+    <dd><p>The overwrite to add to the role.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous permission operation for adding the specified permissions to the channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_Discord_IRole_Discord_OverwritePermissions_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.AddPermissionOverwriteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_Discord_IUser_Discord_OverwritePermissions_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.AddPermissionOverwriteAsync(Discord.IUser,Discord.OverwritePermissions,Discord.RequestOptions)">
+  AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds or updates the permission overwrite for the given user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task AddPermissionOverwriteAsync(IUser user, OverwritePermissions permissions, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The user to add the overwrite to.</p>
+</dd>
+    <dt><code>permissions</code> <a class="xref" href="Discord.OverwritePermissions.html">OverwritePermissions</a></dt>
+    <dd><p>The overwrite to add to the user.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous permission operation for adding the specified permissions to the channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_AddPermissionOverwriteAsync_Discord_IUser_Discord_OverwritePermissions_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_AddUserAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.AddUserAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_AddUserAsync_Discord_IGuildUser_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.AddUserAsync(Discord.IGuildUser,Discord.RequestOptions)">
+  AddUserAsync(IGuildUser, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a user to this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task AddUserAsync(IGuildUser user, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IGuildUser.html">IGuildUser</a></dt>
+    <dd><p>The <a class="xref" href="Discord.IGuildUser.html">IGuildUser</a> to add.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation of adding a member to a thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CreateInviteAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CreateInviteAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteAsync(int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IInviteMetadata&gt; CreateInviteAsync(int? maxAge = 86400, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateInviteAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example creates a new invite to this channel; the invite lasts for 12 hours and can only
+        be used 3 times throughout its lifespan.</p>
+<pre>
+  <code class="lang-cs">await guildChannel.CreateInviteAsync(maxAge: 43200, maxUses: 3);</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateInviteAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CreateInviteToApplicationAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteToApplicationAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CreateInviteToApplicationAsync_System_UInt64_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteToApplicationAsync(System.UInt64,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteToApplicationAsync(ulong, int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IInviteMetadata&gt; CreateInviteToApplicationAsync(ulong applicationId, int? maxAge, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>applicationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The id of the embedded application to open for this invite.</p>
+</dd>
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateInviteToApplicationAsync_System_UInt64_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CreateInviteToStreamAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteToStreamAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CreateInviteToStreamAsync_Discord_IUser_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateInviteToStreamAsync(Discord.IUser,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteToStreamAsync(IUser, int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IInviteMetadata&gt; CreateInviteToStreamAsync(IUser user, int? maxAge, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The id of the user whose stream to display for this invite.</p>
+</dd>
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateInviteToStreamAsync_Discord_IUser_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example creates a new invite to this channel; the invite lasts for 12 hours and can only
+        be used 3 times throughout its lifespan.</p>
+<pre>
+  <code class="lang-cs">await guildChannel.CreateInviteAsync(maxAge: 43200, maxUses: 3);</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateInviteToStreamAsync_Discord_IUser_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_CreateWebhookAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateWebhookAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_CreateWebhookAsync_System_String_System_IO_Stream_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)">
+  CreateWebhookAsync(string, Stream, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a webhook in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;RestWebhook&gt; CreateWebhookAsync(string name, Stream avatar = null, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the webhook.</p>
+</dd>
+    <dt><code>avatar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The avatar of the webhook.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous creation operation. The task result contains the newly created
+webhook.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_CreateWebhookAsync_System_String_System_IO_Stream_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_DownloadUsersAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.DownloadUsersAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_DownloadUsersAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.DownloadUsersAsync(Discord.RequestOptions)">
+  DownloadUsersAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Downloads all users that have access to this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DownloadUsersAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous download operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetActiveThreadsAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.GetActiveThreadsAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetActiveThreadsAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.GetActiveThreadsAsync(Discord.RequestOptions)">
+  GetActiveThreadsAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of active threads within this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IReadOnlyCollection&lt;RestThreadChannel&gt;&gt; GetActiveThreadsAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestThreadChannel.html">RestThreadChannel</a>&gt;&gt;</dt>
+    <dd><p>A task that represents an asynchronous get operation for retrieving the threads. The task result contains
+a collection of active threads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>This method is not supported in threads.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetInvitesAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.GetInvitesAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetInvitesAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.GetInvitesAsync(Discord.RequestOptions)">
+  GetInvitesAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of all invites to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IReadOnlyCollection&lt;IInviteMetadata&gt;&gt; GetInvitesAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a read-only collection
+of invite metadata that are created for this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetInvitesAsync_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example gets all of the invites that have been created in this channel and selects the
+        most used invite.</p>
+<pre>
+  <code class="lang-cs">var invites = await channel.GetInvitesAsync();
+                             if (invites.Count == 0) return;
+                             var invite = invites.OrderByDescending(x =&gt; x.Uses).FirstOrDefault();</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetInvitesAsync_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_" data-uid="Discord.WebSocket.SocketThreadChannel.GetPermissionOverwrite*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_Discord_IRole_" data-uid="Discord.WebSocket.SocketThreadChannel.GetPermissionOverwrite(Discord.IRole)">
+  GetPermissionOverwrite(IRole)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the permission overwrite for a specific role.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override OverwritePermissions? GetPermissionOverwrite(IRole role)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="Discord.IRole.html">IRole</a></dt>
+    <dd><p>The role to get the overwrite from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.OverwritePermissions.html">OverwritePermissions</a>?</dt>
+    <dd><p>An overwrite object for the targeted role; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_Discord_IRole__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_" data-uid="Discord.WebSocket.SocketThreadChannel.GetPermissionOverwrite*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_Discord_IUser_" data-uid="Discord.WebSocket.SocketThreadChannel.GetPermissionOverwrite(Discord.IUser)">
+  GetPermissionOverwrite(IUser)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the permission overwrite for a specific user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override OverwritePermissions? GetPermissionOverwrite(IUser user)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The user to get the overwrite from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.OverwritePermissions.html">OverwritePermissions</a>?</dt>
+    <dd><p>An overwrite object for the targeted user; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetPermissionOverwrite_Discord_IUser__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetUser_" data-uid="Discord.WebSocket.SocketThreadChannel.GetUser*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetUser_System_UInt64_" data-uid="Discord.WebSocket.SocketThreadChannel.GetUser(System.UInt64)">
+  GetUser(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SocketThreadUser GetUser(ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.WebSocket.SocketThreadUser.html">SocketThreadUser</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetUsersAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.GetUsersAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetUsersAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.GetUsersAsync(Discord.RequestOptions)">
+  GetUsersAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all users inside this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IReadOnlyCollection&lt;SocketThreadUser&gt;&gt; GetUsersAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.WebSocket.SocketThreadUser.html">SocketThreadUser</a>&gt;&gt;</dt>
+    <dd><p>A task representing the download operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetUsersAsync_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If all users are not downloaded then this method will call <a class="xref" href="Discord.WebSocket.SocketThreadChannel.html#Discord_WebSocket_SocketThreadChannel_DownloadUsersAsync_Discord_RequestOptions_">DownloadUsersAsync(RequestOptions)</a> and return the result.</p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetWebhookAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.GetWebhookAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetWebhookAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.GetWebhookAsync(System.UInt64,Discord.RequestOptions)">
+  GetWebhookAsync(ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a webhook available in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;RestWebhook&gt; GetWebhookAsync(ulong id, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The identifier of the webhook.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a webhook associated
+with the identifier; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the webhook is not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetWebhookAsync_System_UInt64_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_GetWebhooksAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.GetWebhooksAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_GetWebhooksAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.GetWebhooksAsync(Discord.RequestOptions)">
+  GetWebhooksAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the webhooks available in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;IReadOnlyCollection&lt;RestWebhook&gt;&gt; GetWebhooksAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a read-only collection
+of webhooks that is available in this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_GetWebhooksAsync_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_JoinAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.JoinAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_JoinAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.JoinAsync(Discord.RequestOptions)">
+  JoinAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Joins the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task JoinAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous join operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_LeaveAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.LeaveAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_LeaveAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.LeaveAsync(Discord.RequestOptions)">
+  LeaveAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Leaves the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task LeaveAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous leave operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_ModifyAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.ModifyAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_ModifyAsync_System_Action_Discord_TextChannelProperties__Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)">
+  ModifyAsync(Action&lt;TextChannelProperties&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L351"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modifies this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task ModifyAsync(Action&lt;TextChannelProperties&gt; func, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Discord.TextChannelProperties.html">TextChannelProperties</a>&gt;</dt>
+    <dd><p>The delegate containing the properties to modify the channel with.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous modification operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.TextChannelProperties.html">TextChannelProperties</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_ModifyAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.ModifyAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_ModifyAsync_System_Action_Discord_ThreadChannelProperties__Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.ModifyAsync(System.Action{Discord.ThreadChannelProperties},Discord.RequestOptions)">
+  ModifyAsync(Action&lt;ThreadChannelProperties&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modifies this thread channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ModifyAsync(Action&lt;ThreadChannelProperties&gt; func, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Discord.ThreadChannelProperties.html">ThreadChannelProperties</a>&gt;</dt>
+    <dd><p>The delegate containing the properties to modify the channel with.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous modification operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.ThreadChannelProperties.html">ThreadChannelProperties</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.RemovePermissionOverwriteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_Discord_IRole_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.RemovePermissionOverwriteAsync(Discord.IRole,Discord.RequestOptions)">
+  RemovePermissionOverwriteAsync(IRole, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the permission overwrite for the given role, if one exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task RemovePermissionOverwriteAsync(IRole role, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="Discord.IRole.html">IRole</a></dt>
+    <dd><p>The role to remove the overwrite from.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation for removing the specified permissions from the channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_Discord_IRole_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.RemovePermissionOverwriteAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_Discord_IUser_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.RemovePermissionOverwriteAsync(Discord.IUser,Discord.RequestOptions)">
+  RemovePermissionOverwriteAsync(IUser, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the permission overwrite for the given user, if one exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task RemovePermissionOverwriteAsync(IUser user, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The user to remove the overwrite from.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation for removing the specified permissions from the channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_RemovePermissionOverwriteAsync_Discord_IUser_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_RemoveUserAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.RemoveUserAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_RemoveUserAsync_Discord_IGuildUser_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.RemoveUserAsync(Discord.IGuildUser,Discord.RequestOptions)">
+  RemoveUserAsync(IGuildUser, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a user from this thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveUserAsync(IGuildUser user, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IGuildUser.html">IGuildUser</a></dt>
+    <dd><p>The <a class="xref" href="Discord.IGuildUser.html">IGuildUser</a> to remove from this thread.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation of removing a user from this thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_WebSocket_SocketThreadChannel_SyncPermissionsAsync_" data-uid="Discord.WebSocket.SocketThreadChannel.SyncPermissionsAsync*"></a>
+
+  <h3 id="Discord_WebSocket_SocketThreadChannel_SyncPermissionsAsync_Discord_RequestOptions_" data-uid="Discord.WebSocket.SocketThreadChannel.SyncPermissionsAsync(Discord.RequestOptions)">
+  SyncPermissionsAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Syncs the permissions of this nested channel with its parent's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task SyncPermissionsAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation for syncing channel permissions with its parent's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_WebSocket_SocketThreadChannel_SyncPermissionsAsync_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><b>This method is not supported in threads.</b></p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.WebSocket/Entities/Channels/SocketThreadChannel.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

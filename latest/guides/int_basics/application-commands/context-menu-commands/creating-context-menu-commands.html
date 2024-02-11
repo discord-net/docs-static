@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Creating Context Commands | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Creating Context Commands | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/application-commands/context-menu-commands/creating-context-menu-commands.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../../public/main.js'
+    import { init } from './../../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.ContextCommands.Creating">
+<h1 id="creating-context-menu-commands">Creating context menu commands.</h1>
+
+<p>There are two kinds of Context Menu Commands: User Commands and Message Commands.
+Each of these have a Global and Guild variant.
+Global menu commands are available for every guild that adds your app. An individual app's global commands are also available in DMs if that app has a bot that shares a mutual guild with the user.</p>
+<p>Guild commands are specific to the guild you specify when making them. Guild commands are not available in DMs. Command names are unique per application within each scope (global and guild). That means:</p>
+<ul>
+<li>Your app cannot have two global commands with the same name</li>
+<li>Your app cannot have two guild commands within the same name on the same guild</li>
+<li>Your app can have a global and guild command with the same name</li>
+<li>Multiple apps can have commands with the same names</li>
+</ul>
+<p>[!IMPORTANT]</p>
+<blockquote>
+<p>Apps can have a maximum of 5 global context menu commands,
+and an additional 5 guild-specific context menu commands per guild.</p>
+</blockquote>
+<h2 id="usercommandbuilder">UserCommandBuilder</h2>
+<p>The context menu user command builder will help you create user commands. The builder has these available fields and methods:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>The name of this context menu command.</td>
+</tr>
+<tr>
+<td>WithName</td>
+<td>Function</td>
+<td>Sets the field name.</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Function</td>
+<td>Builds the builder into the appropriate <code>UserCommandProperties</code> class used to make Menu commands</td>
+</tr>
+</tbody>
+</table>
+<h2 id="messagecommandbuilder">MessageCommandBuilder</h2>
+<p>The context menu message command builder will help you create message commands. The builder has these available fields and methods:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>The name of this context menu command.</td>
+</tr>
+<tr>
+<td>WithName</td>
+<td>Function</td>
+<td>Sets the field name.</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Function</td>
+<td>Builds the builder into the appropriate <code>MessageCommandProperties</code> class used to make Menu commands</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Context Menu command names can be upper and lowercase, and use spaces.
+They cannot be registered pre-ready.</p>
+</div>
+<p>Let's use the user command builder to make a global and guild command.</p>
+<pre><code class="lang-cs">// Let's hook the ready event for creating our commands in.
+client.Ready += Client_Ready;
+
+...
+
+public async Task Client_Ready()
+{
+    // Let's build a guild command! We're going to need a guild so lets just put that in a variable.
+    var guild = client.GetGuild(guildId);
+
+    // Next, lets create our user and message command builder. This is like the embed builder but for context menu commands.
+    var guildUserCommand = new UserCommandBuilder();
+	var guildMessageCommand = new MessageCommandBuilder();
+
+    // Note: Names have to be all lowercase and match the regular expression ^[\w -]{3,32}$
+    guildUserCommand.WithName(&quot;Guild User Command&quot;);
+	guildMessageCommand.WithName(&quot;Guild Message Command&quot;);
+
+    // Descriptions are not used with User and Message commands
+    //guildCommand.WithDescription(&quot;&quot;);
+
+    // Let's do our global commands
+    var globalUserCommand = new UserCommandBuilder();
+    globalUserCommand.WithName(&quot;Global User Command&quot;);
+	var globalMessageCommand = new MessageCommandBuilder();
+	globalMessageCommand.WithName(&quot;Global Message Command&quot;);
+
+
+    try
+    {
+        // Now that we have our builder, we can call the BulkOverwriteApplicationCommandAsync to make our context commands. Note: this will overwrite all your previous commands with this array.
+        await guild.BulkOverwriteApplicationCommandAsync(new ApplicationCommandProperties[]
+        {
+            guildUserCommand.Build(),
+            guildMessageCommand.Build()
+        });
+
+        // With global commands we dont need the guild.
+        await client.BulkOverwriteGlobalApplicationCommandsAsync(new ApplicationCommandProperties[]
+        {
+            globalUserCommand.Build(),
+            globalMessageCommand.Build()
+        });
+    }
+    catch(ApplicationCommandException exception)
+    {
+        // If our command was invalid, we should catch an ApplicationCommandException. This exception contains the path of the error as well as the error message. You can serialize the Error field in the exception to get a visual of where your error is.
+        var json = JsonConvert.SerializeObject(exception.Error, Formatting.Indented);
+
+        // You can send this error somewhere or just print it to the console, for this example we're just going to print it.
+        Console.WriteLine(json);
+    }
+}
+
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Application commands only need to be created once. They do <em>not</em> have to be
+'created' on every startup or connection.
+The example simple shows creating them in the ready event
+as it's simpler than creating normal bot commands to register application commands.</p>
+</div>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/application-commands/context-menu-commands/creating-context-menu-commands.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

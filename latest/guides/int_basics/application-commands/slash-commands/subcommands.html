@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sub Commands | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sub Commands | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/application-commands/slash-commands/subcommands.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../../public/main.js'
+    import { init } from './../../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.SlashCommands.SubCommand">
+<h1 id="subcommands">Subcommands</h1>
+
+<p>Subcommands allow you to have multiple commands available in a single command. They can be useful for representing sub options for a command. For example: A settings command. Let's first look at some limitations with subcommands set by discord.</p>
+<ul>
+<li>An app can have up to 25 subcommand groups on a top-level command</li>
+<li>An app can have up to 25 subcommands within a subcommand group</li>
+<li>commands can have up to 25 <code>options</code></li>
+<li>options can have up to 25 <code>choices</code></li>
+</ul>
+<pre><code>VALID
+
+command
+|
+|__ subcommand
+|
+|__ subcommand
+
+----
+
+command
+|
+|__ subcommand-group
+    |
+    |__ subcommand
+|
+|__ subcommand-group
+    |
+    |__ subcommand
+
+
+-------
+
+INVALID
+
+
+command
+|
+|__ subcommand-group
+    |
+    |__ subcommand-group
+|
+|__ subcommand-group
+    |
+    |__ subcommand-group
+
+----
+
+INVALID
+
+command
+|
+|__ subcommand
+    |
+    |__ subcommand-group
+|
+|__ subcommand
+    |
+    |__ subcommand-group
+</code></pre>
+<p>Let's write a settings command that can change 3 fields in our bot.</p>
+<pre><code class="lang-cs">public string FieldA { get; set; } = &quot;test&quot;;
+public int FieldB { get; set; } = 10;
+public bool FieldC { get; set; } = true;
+
+public async Task Client_Ready()
+{
+    ulong guildId = 848176216011046962;
+
+    var guildCommand = new SlashCommandBuilder()
+        .WithName(&quot;settings&quot;)
+        .WithDescription(&quot;Changes some settings within the bot.&quot;)
+        .AddOption(new SlashCommandOptionBuilder()
+            .WithName(&quot;field-a&quot;)
+            .WithDescription(&quot;Gets or sets the field A&quot;)
+            .WithType(ApplicationCommandOptionType.SubCommandGroup)
+            .AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;set&quot;)
+                .WithDescription(&quot;Sets the field A&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+                .AddOption(&quot;value&quot;, ApplicationCommandOptionType.String, &quot;the value to set the field&quot;, isRequired: true)
+            ).AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;get&quot;)
+                .WithDescription(&quot;Gets the value of field A.&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+            )
+        ).AddOption(new SlashCommandOptionBuilder()
+            .WithName(&quot;field-b&quot;)
+            .WithDescription(&quot;Gets or sets the field B&quot;)
+            .WithType(ApplicationCommandOptionType.SubCommandGroup)
+            .AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;set&quot;)
+                .WithDescription(&quot;Sets the field B&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+                .AddOption(&quot;value&quot;, ApplicationCommandOptionType.Integer, &quot;the value to set the fie to.&quot;, isRequired: true)
+            ).AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;get&quot;)
+                .WithDescription(&quot;Gets the value of field B.&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+            )
+        ).AddOption(new SlashCommandOptionBuilder()
+            .WithName(&quot;field-c&quot;)
+            .WithDescription(&quot;Gets or sets the field C&quot;)
+            .WithType(ApplicationCommandOptionType.SubCommandGroup)
+            .AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;set&quot;)
+                .WithDescription(&quot;Sets the field C&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+                .AddOption(&quot;value&quot;, ApplicationCommandOptionType.Boolean, &quot;the value to set the fie to.&quot;, isRequired: true)
+            ).AddOption(new SlashCommandOptionBuilder()
+                .WithName(&quot;get&quot;)
+                .WithDescription(&quot;Gets the value of field C.&quot;)
+                .WithType(ApplicationCommandOptionType.SubCommand)
+            )
+        );
+
+    try
+    {
+        await client.Rest.CreateGuildCommand(guildCommand.Build(), guildId);
+    }
+    catch(ApplicationCommandException exception)
+    {
+        var json = JsonConvert.SerializeObject(exception.Error, Formatting.Indented);
+        Console.WriteLine(json);
+    }
+}
+</code></pre>
+<p>All that code generates a command that looks like this:
+<img src="images/settings1.png" alt="settings"></p>
+<p>Now that we have our command made, we need to handle the multiple options with this command. So lets add this into our handler:</p>
+<pre><code class="lang-cs">private async Task SlashCommandHandler(SocketSlashCommand command)
+{
+    // Let's add a switch statement for the command name so we can handle multiple commands in one event.
+    switch(command.Data.Name)
+    {
+        case &quot;list-roles&quot;:
+            await HandleListRoleCommand(command);
+            break;
+        case &quot;settings&quot;:
+            await HandleSettingsCommand(command);
+            break;
+    }
+}
+
+private async Task HandleSettingsCommand(SocketSlashCommand command)
+{
+    // First lets extract our variables
+    var fieldName = command.Data.Options.First().Name;
+    var getOrSet = command.Data.Options.First().Options.First().Name;
+    // Since there is no value on a get command, we use the ? operator because &quot;Options&quot; can be null.
+    var value = command.Data.Options.First().Options.First().Options?.FirstOrDefault().Value;
+
+    switch (fieldName)
+    {
+        case &quot;field-a&quot;:
+            {
+                if(getOrSet == &quot;get&quot;)
+                {
+                    await command.RespondAsync($&quot;The value of `field-a` is `{FieldA}`&quot;);
+                }
+                else if (getOrSet == &quot;set&quot;)
+                {
+                    this.FieldA = (string)value;
+                    await command.RespondAsync($&quot;`field-a` has been set to `{FieldA}`&quot;);
+                }
+            }
+            break;
+        case &quot;field-b&quot;:
+            {
+                if (getOrSet == &quot;get&quot;)
+                {
+                    await command.RespondAsync($&quot;The value of `field-b` is `{FieldB}`&quot;);
+                }
+                else if (getOrSet == &quot;set&quot;)
+                {
+                    this.FieldB = (int)value;
+                    await command.RespondAsync($&quot;`field-b` has been set to `{FieldB}`&quot;);
+                }
+            }
+            break;
+        case &quot;field-c&quot;:
+            {
+                if (getOrSet == &quot;get&quot;)
+                {
+                    await command.RespondAsync($&quot;The value of `field-c` is `{FieldC}`&quot;);
+                }
+                else if (getOrSet == &quot;set&quot;)
+                {
+                    this.FieldC = (bool)value;
+                    await command.RespondAsync($&quot;`field-c` has been set to `{FieldC}`&quot;);
+                }
+            }
+            break;
+    }
+}
+
+</code></pre>
+<p>Now, let's try this out! Running the 3 get commands seems to get the default values we set.</p>
+<p><img src="images/settings2.png" alt="settings get"></p>
+<p>Now let's try changing each to a different value.</p>
+<p><img src="images/settings3.png" alt="settings set"></p>
+<p>That has worked! Next, let't look at choices in commands.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/guides/int_basics/application-commands/slash-commands/subcommands.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

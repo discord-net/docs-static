@@ -1,0 +1,2308 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RestTextChannel
+ | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RestTextChannel
+ | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/2841/merge/apiSpec/new?filename=Discord_Rest_RestTextChannel.md&amp;value=---%0Auid%3A%20Discord.Rest.RestTextChannel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.Rest.RestTextChannel">
+
+
+
+  <h1 id="Discord_Rest_RestTextChannel" data-uid="Discord.Rest.RestTextChannel" class="text-break">
+    Class RestTextChannel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.Rest.html">Rest</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.Rest.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a REST-based channel in a guild that can send and receive messages.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RestTextChannel : RestGuildChannel, IUpdateable, IRestMessageChannel, ITextChannel, IMessageChannel, IMentionable, INestedChannel, IIntegrationChannel, IGuildChannel, IChannel, ISnowflakeEntity, IEntity&lt;ulong&gt;, IDeletable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Discord.Rest.RestEntity-1.html">RestEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><a class="xref" href="Discord.Rest.RestChannel.html">RestChannel</a></div>
+      <div><a class="xref" href="Discord.Rest.RestGuildChannel.html">RestGuildChannel</a></div>
+      <div><span class="xref">RestTextChannel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.IUpdateable.html">IUpdateable</a></div>
+      <div><a class="xref" href="Discord.Rest.IRestMessageChannel.html">IRestMessageChannel</a></div>
+      <div><a class="xref" href="Discord.ITextChannel.html">ITextChannel</a></div>
+      <div><a class="xref" href="Discord.IMessageChannel.html">IMessageChannel</a></div>
+      <div><a class="xref" href="Discord.IMentionable.html">IMentionable</a></div>
+      <div><a class="xref" href="Discord.INestedChannel.html">INestedChannel</a></div>
+      <div><a class="xref" href="Discord.IIntegrationChannel.html">IIntegrationChannel</a></div>
+      <div><a class="xref" href="Discord.IGuildChannel.html">IGuildChannel</a></div>
+      <div><a class="xref" href="Discord.IChannel.html">IChannel</a></div>
+      <div><a class="xref" href="Discord.ISnowflakeEntity.html">ISnowflakeEntity</a></div>
+      <div><a class="xref" href="Discord.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</div>
+      <div><a class="xref" href="Discord.IDeletable.html">IDeletable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Rest.RestNewsChannel.html">RestNewsChannel</a></div>
+      <div><a class="xref" href="Discord.Rest.RestThreadChannel.html">RestThreadChannel</a></div>
+      <div><a class="xref" href="Discord.Rest.RestVoiceChannel.html">RestVoiceChannel</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_PermissionOverwrites">RestGuildChannel.PermissionOverwrites</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_Name">RestGuildChannel.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_Position">RestGuildChannel.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_GuildId">RestGuildChannel.GuildId</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_Flags">RestGuildChannel.Flags</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_UpdateAsync_Discord_RequestOptions_">RestGuildChannel.UpdateAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_ModifyAsync_System_Action_Discord_GuildChannelProperties__Discord_RequestOptions_">RestGuildChannel.ModifyAsync(Action&lt;GuildChannelProperties&gt;, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_DeleteAsync_Discord_RequestOptions_">RestGuildChannel.DeleteAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_GetPermissionOverwrite_Discord_IUser_">RestGuildChannel.GetPermissionOverwrite(IUser)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_GetPermissionOverwrite_Discord_IRole_">RestGuildChannel.GetPermissionOverwrite(IRole)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_AddPermissionOverwriteAsync_Discord_IUser_Discord_OverwritePermissions_Discord_RequestOptions_">RestGuildChannel.AddPermissionOverwriteAsync(IUser, OverwritePermissions, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_AddPermissionOverwriteAsync_Discord_IRole_Discord_OverwritePermissions_Discord_RequestOptions_">RestGuildChannel.AddPermissionOverwriteAsync(IRole, OverwritePermissions, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_RemovePermissionOverwriteAsync_Discord_IUser_Discord_RequestOptions_">RestGuildChannel.RemovePermissionOverwriteAsync(IUser, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_RemovePermissionOverwriteAsync_Discord_IRole_Discord_RequestOptions_">RestGuildChannel.RemovePermissionOverwriteAsync(IRole, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestGuildChannel.html#Discord_Rest_RestGuildChannel_ToString">RestGuildChannel.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestChannel.html#Discord_Rest_RestChannel_CreatedAt">RestChannel.CreatedAt</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Rest.RestEntity-1.html#Discord_Rest_RestEntity_1_Id">RestEntity&lt;ulong&gt;.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Discord.ChannelExtensions.html#Discord_ChannelExtensions_GetChannelType_Discord_IChannel_">ChannelExtensions.GetChannelType(IChannel)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_Rest_RestTextChannel_CategoryId_" data-uid="Discord.Rest.RestTextChannel.CategoryId*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CategoryId" data-uid="Discord.Rest.RestTextChannel.CategoryId">
+  CategoryId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent (category) ID of this channel in the guild's channel list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong? CategoryId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>?</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a> representing the snowflake identifier of the parent of this channel;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DefaultArchiveDuration_" data-uid="Discord.Rest.RestTextChannel.DefaultArchiveDuration*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DefaultArchiveDuration" data-uid="Discord.Rest.RestTextChannel.DefaultArchiveDuration">
+  DefaultArchiveDuration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default auto-archive duration for client-created threads in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadArchiveDuration DefaultArchiveDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ThreadArchiveDuration.html">ThreadArchiveDuration</a></dt>
+    <dd><p>The default auto-archive duration for thread creation in this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_DefaultArchiveDuration_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value of this property does not affect API thread creation, it will not respect this value.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DefaultSlowModeInterval_" data-uid="Discord.Rest.RestTextChannel.DefaultSlowModeInterval*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DefaultSlowModeInterval" data-uid="Discord.Rest.RestTextChannel.DefaultSlowModeInterval">
+  DefaultSlowModeInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current default slow-mode delay for threads in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultSlowModeInterval { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> representing the time in seconds required before the user can send another
+message; <code>0</code> if disabled.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_IsNsfw_" data-uid="Discord.Rest.RestTextChannel.IsNsfw*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_IsNsfw" data-uid="Discord.Rest.RestTextChannel.IsNsfw">
+  IsNsfw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the channel is NSFW.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsNsfw { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the channel has the NSFW flag enabled; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_Mention_" data-uid="Discord.Rest.RestTextChannel.Mention*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_Mention" data-uid="Discord.Rest.RestTextChannel.Mention">
+  Mention
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a special string used to mention this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Mention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that is recognized by Discord as a mention (e.g. &lt;@168693960628371456&gt;).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SlowModeInterval_" data-uid="Discord.Rest.RestTextChannel.SlowModeInterval*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SlowModeInterval" data-uid="Discord.Rest.RestTextChannel.SlowModeInterval">
+  SlowModeInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current slow-mode delay for this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int SlowModeInterval { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> representing the time in seconds required before the user can send another
+message; <code>0</code> if disabled.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_Topic_" data-uid="Discord.Rest.RestTextChannel.Topic*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_Topic" data-uid="Discord.Rest.RestTextChannel.Topic">
+  Topic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current topic for this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Topic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representing the topic set in the channel; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateInviteAsync_" data-uid="Discord.Rest.RestTextChannel.CreateInviteAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateInviteAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateInviteAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteAsync(int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IInviteMetadata&gt; CreateInviteAsync(int? maxAge = 86400, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_CreateInviteAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example creates a new invite to this channel; the invite lasts for 12 hours and can only
+        be used 3 times throughout its lifespan.</p>
+<pre>
+  <code class="lang-cs">await guildChannel.CreateInviteAsync(maxAge: 43200, maxUses: 3);</code>
+</pre>
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateInviteToApplicationAsync_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToApplicationAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateInviteToApplicationAsync_Discord_DefaultApplications_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToApplicationAsync(Discord.DefaultApplications,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteToApplicationAsync(DefaultApplications, int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IInviteMetadata&gt; CreateInviteToApplicationAsync(DefaultApplications application, int? maxAge = 86400, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="Discord.DefaultApplications.html">DefaultApplications</a></dt>
+    <dd><p>The application to open for this invite.</p>
+</dd>
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateInviteToApplicationAsync_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToApplicationAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateInviteToApplicationAsync_System_UInt64_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToApplicationAsync(System.UInt64,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteToApplicationAsync(ulong, int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IInviteMetadata&gt; CreateInviteToApplicationAsync(ulong applicationId, int? maxAge = 86400, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>applicationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The id of the embedded application to open for this invite.</p>
+</dd>
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateInviteToStreamAsync_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToStreamAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateInviteToStreamAsync_Discord_IUser_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateInviteToStreamAsync(Discord.IUser,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,Discord.RequestOptions)">
+  CreateInviteToStreamAsync(IUser, int?, int?, bool, bool, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new invite to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IInviteMetadata&gt; CreateInviteToStreamAsync(IUser user, int? maxAge, int? maxUses = null, bool isTemporary = false, bool isUnique = false, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>user</code> <a class="xref" href="Discord.IUser.html">IUser</a></dt>
+    <dd><p>The id of the user whose stream to display for this invite.</p>
+</dd>
+    <dt><code>maxAge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The time (in seconds) until the invite expires. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to never expire.</p>
+</dd>
+    <dt><code>maxUses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max amount of times this invite may be used. Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to have unlimited uses.</p>
+</dd>
+    <dt><code>isTemporary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the user accepting this invite will be kicked from the guild after closing their client.</p>
+</dd>
+    <dt><code>isUnique</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, don't try to reuse a similar invite (useful for creating many unique one time use invites).</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous invite creation operation. The task result contains an invite
+metadata object containing information for the created invite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_CreateInviteToStreamAsync_Discord_IUser_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Boolean_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example creates a new invite to this channel; the invite lasts for 12 hours and can only
+        be used 3 times throughout its lifespan.</p>
+<pre>
+  <code class="lang-cs">await guildChannel.CreateInviteAsync(maxAge: 43200, maxUses: 3);</code>
+</pre>
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateThreadAsync_" data-uid="Discord.Rest.RestTextChannel.CreateThreadAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateThreadAsync_System_String_Discord_ThreadType_Discord_ThreadArchiveDuration_Discord_IMessage_System_Nullable_System_Boolean__System_Nullable_System_Int32__Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateThreadAsync(System.String,Discord.ThreadType,Discord.ThreadArchiveDuration,Discord.IMessage,System.Nullable{System.Boolean},System.Nullable{System.Int32},Discord.RequestOptions)">
+  CreateThreadAsync(string, ThreadType, ThreadArchiveDuration, IMessage, bool?, int?, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a thread within this <a class="xref" href="Discord.ITextChannel.html">ITextChannel</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestThreadChannel&gt; CreateThreadAsync(string name, ThreadType type = ThreadType.PublicThread, ThreadArchiveDuration autoArchiveDuration = ThreadArchiveDuration.OneDay, IMessage message = null, bool? invitable = null, int? slowmode = null, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the thread.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="Discord.ThreadType.html">ThreadType</a></dt>
+    <dd><p>The type of the thread.</p>
+<p>
+    <b>Note: </b>This parameter is not used if the <code class="paramref">message</code> parameter is not specified.
+</p>
+</dd>
+    <dt><code>autoArchiveDuration</code> <a class="xref" href="Discord.ThreadArchiveDuration.html">ThreadArchiveDuration</a></dt>
+    <dd><p>The duration on which this thread archives after.</p>
+</dd>
+    <dt><code>message</code> <a class="xref" href="Discord.IMessage.html">IMessage</a></dt>
+    <dd><p>The message which to start the thread from.</p>
+</dd>
+    <dt><code>invitable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+    <dt><code>slowmode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestThreadChannel.html">RestThreadChannel</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous create operation. The task result contains a <a class="xref" href="Discord.IThreadChannel.html">IThreadChannel</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_CreateThreadAsync_System_String_Discord_ThreadType_Discord_ThreadArchiveDuration_Discord_IMessage_System_Nullable_System_Boolean__System_Nullable_System_Int32__Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When <code class="paramref">message</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> the thread type will be based off of the
+channel its created in. When called on a <a class="xref" href="Discord.ITextChannel.html">ITextChannel</a>, it creates a <a class="xref" href="Discord.ThreadType.html#Discord_ThreadType_PublicThread">PublicThread</a>.
+When called on a <a class="xref" href="Discord.INewsChannel.html">INewsChannel</a>, it creates a <a class="xref" href="Discord.ThreadType.html#Discord_ThreadType_NewsThread">NewsThread</a>. The id of the created
+thread will be the same as the id of the message, and as such a message can only have a
+single thread created from it.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_CreateWebhookAsync_" data-uid="Discord.Rest.RestTextChannel.CreateWebhookAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_CreateWebhookAsync_System_String_System_IO_Stream_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.CreateWebhookAsync(System.String,System.IO.Stream,Discord.RequestOptions)">
+  CreateWebhookAsync(string, Stream, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a webhook in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestWebhook&gt; CreateWebhookAsync(string name, Stream avatar = null, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the webhook.</p>
+</dd>
+    <dt><code>avatar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The avatar of the webhook.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous creation operation. The task result contains the newly created
+webhook.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DeleteMessageAsync_" data-uid="Discord.Rest.RestTextChannel.DeleteMessageAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DeleteMessageAsync_Discord_IMessage_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.DeleteMessageAsync(Discord.IMessage,Discord.RequestOptions)">
+  DeleteMessageAsync(IMessage, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a message based on the provided message in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task DeleteMessageAsync(IMessage message, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="Discord.IMessage.html">IMessage</a></dt>
+    <dd><p>The message that would be removed.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DeleteMessageAsync_" data-uid="Discord.Rest.RestTextChannel.DeleteMessageAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DeleteMessageAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.DeleteMessageAsync(System.UInt64,Discord.RequestOptions)">
+  DeleteMessageAsync(ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task DeleteMessageAsync(ulong messageId, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The snowflake identifier of the message that would be removed.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.DeleteMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_Discord_IMessage__Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{Discord.IMessage},Discord.RequestOptions)">
+  DeleteMessagesAsync(IEnumerable&lt;IMessage&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bulk-deletes multiple messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task DeleteMessagesAsync(IEnumerable&lt;IMessage&gt; messages, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Discord.IMessage.html">IMessage</a>&gt;</dt>
+    <dd><p>The messages to be bulk-deleted.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous bulk-removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_Discord_IMessage__Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example gets 250 messages from the channel and deletes them.</p>
+<pre>
+  <code class="lang-cs">var messages = await textChannel.GetMessagesAsync(250).FlattenAsync();
+                                                                                                        await textChannel.DeleteMessagesAsync(messages);</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_Discord_IMessage__Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to remove the messages specified in bulk.</p>
+<div class="IMPORTANT"><h5>important</h5><p>
+    Due to the limitation set by Discord, this method can only remove messages that are posted within 14 days!
+</p></div>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.DeleteMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_System_UInt64__Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.DeleteMessagesAsync(System.Collections.Generic.IEnumerable{System.UInt64},Discord.RequestOptions)">
+  DeleteMessagesAsync(IEnumerable&lt;ulong&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bulk-deletes multiple messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task DeleteMessagesAsync(IEnumerable&lt;ulong&gt; messageIds, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageIds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</dt>
+    <dd><p>The snowflake identifier of the messages to be bulk-deleted.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous bulk-removal operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_DeleteMessagesAsync_System_Collections_Generic_IEnumerable_System_UInt64__Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to remove the messages specified in bulk.</p>
+<div class="IMPORTANT"><h5>important</h5><p>
+    Due to the limitation set by Discord, this method can only remove messages that are posted within 14 days!
+</p></div>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_EnterTypingState_" data-uid="Discord.Rest.RestTextChannel.EnterTypingState*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_EnterTypingState_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.EnterTypingState(Discord.RequestOptions)">
+  EnterTypingState(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Continuously broadcasts the &quot;user is typing&quot; message to all users in this channel until the returned
+object is disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IDisposable EnterTypingState(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd><p>A disposable object that, upon its disposal, will stop the client from broadcasting its typing state in
+this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_EnterTypingState_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example keeps the client in the typing state until <code>LongRunningAsync</code> has finished.</p>
+<pre>
+  <code class="lang-cs">using (channel.EnterTypingState())
+                                                                                                                                                                 await LongRunningAsync();</code>
+</pre>
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetActiveThreadsAsync_" data-uid="Discord.Rest.RestTextChannel.GetActiveThreadsAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetActiveThreadsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetActiveThreadsAsync(Discord.RequestOptions)">
+  GetActiveThreadsAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of active threads within this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IReadOnlyCollection&lt;RestThreadChannel&gt;&gt; GetActiveThreadsAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestThreadChannel.html">RestThreadChannel</a>&gt;&gt;</dt>
+    <dd><p>A task that represents an asynchronous get operation for retrieving the threads. The task result contains
+a collection of active threads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetCategoryAsync_" data-uid="Discord.Rest.RestTextChannel.GetCategoryAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetCategoryAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetCategoryAsync(Discord.RequestOptions)">
+  GetCategoryAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent (category) channel of this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;ICategoryChannel&gt; GetCategoryAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.ICategoryChannel.html">ICategoryChannel</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains the category channel
+representing the parent of this channel; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetInvitesAsync_" data-uid="Discord.Rest.RestTextChannel.GetInvitesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetInvitesAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetInvitesAsync(Discord.RequestOptions)">
+  GetInvitesAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of all invites to this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IReadOnlyCollection&lt;IInviteMetadata&gt;&gt; GetInvitesAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.IInviteMetadata.html">IInviteMetadata</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a read-only collection
+of invite metadata that are created for this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetInvitesAsync_Discord_RequestOptions__examples">Examples</h4>
+  <p>The following example gets all of the invites that have been created in this channel and selects the
+        most used invite.</p>
+<pre>
+  <code class="lang-cs">var invites = await channel.GetInvitesAsync();
+                             if (invites.Count == 0) return;
+                             var invite = invites.OrderByDescending(x =&gt; x.Uses).FirstOrDefault();</code>
+</pre>
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetMessageAsync_" data-uid="Discord.Rest.RestTextChannel.GetMessageAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetMessageAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetMessageAsync(System.UInt64,Discord.RequestOptions)">
+  GetMessageAsync(ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a message from this message channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestMessage&gt; GetMessageAsync(ulong id, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The snowflake identifier of the message.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestMessage.html">RestMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous get operation for retrieving the message. The task result contains
+the retrieved message; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no message is found with the specified identifier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetMessageAsync_System_UInt64_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method follows the same behavior as described in <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_GetMessageAsync_System_UInt64_Discord_CacheMode_Discord_RequestOptions_">GetMessageAsync(ulong, CacheMode, RequestOptions)</a>.
+Please visit its documentation for more details on this method.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetMessagesAsync_Discord_IMessage_Discord_Direction_System_Int32_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync(Discord.IMessage,Discord.Direction,System.Int32,Discord.RequestOptions)">
+  GetMessagesAsync(IMessage, Direction, int, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of messages in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncEnumerable&lt;IReadOnlyCollection&lt;RestMessage&gt;&gt; GetMessagesAsync(IMessage fromMessage, Direction dir, int limit = 100, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromMessage</code> <a class="xref" href="Discord.IMessage.html">IMessage</a></dt>
+    <dd><p>The starting message to get the messages from.</p>
+</dd>
+    <dt><code>dir</code> <a class="xref" href="Discord.Direction.html">Direction</a></dt>
+    <dd><p>The direction of the messages to be gotten from.</p>
+</dd>
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numbers of message to be gotten from.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestMessage.html">RestMessage</a>&gt;&gt;</dt>
+    <dd><p>Paged collection of messages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetMessagesAsync_Discord_IMessage_Discord_Direction_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method follows the same behavior as described in <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_GetMessagesAsync_Discord_IMessage_Discord_Direction_System_Int32_Discord_CacheMode_Discord_RequestOptions_">GetMessagesAsync(IMessage, Direction, int, CacheMode, RequestOptions)</a>.
+Please visit its documentation for more details on this method.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetMessagesAsync_System_Int32_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync(System.Int32,Discord.RequestOptions)">
+  GetMessagesAsync(int, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the last N messages from this message channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncEnumerable&lt;IReadOnlyCollection&lt;RestMessage&gt;&gt; GetMessagesAsync(int limit = 100, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numbers of message to be gotten from.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestMessage.html">RestMessage</a>&gt;&gt;</dt>
+    <dd><p>Paged collection of messages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetMessagesAsync_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method follows the same behavior as described in <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_GetMessagesAsync_System_Int32_Discord_CacheMode_Discord_RequestOptions_">GetMessagesAsync(int, CacheMode, RequestOptions)</a>.
+Please visit its documentation for more details on this method.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetMessagesAsync_System_UInt64_Discord_Direction_System_Int32_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetMessagesAsync(System.UInt64,Discord.Direction,System.Int32,Discord.RequestOptions)">
+  GetMessagesAsync(ulong, Direction, int, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of messages in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncEnumerable&lt;IReadOnlyCollection&lt;RestMessage&gt;&gt; GetMessagesAsync(ulong fromMessageId, Direction dir, int limit = 100, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromMessageId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The ID of the starting message to get the messages from.</p>
+</dd>
+    <dt><code>dir</code> <a class="xref" href="Discord.Direction.html">Direction</a></dt>
+    <dd><p>The direction of the messages to be gotten from.</p>
+</dd>
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numbers of message to be gotten from.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestMessage.html">RestMessage</a>&gt;&gt;</dt>
+    <dd><p>Paged collection of messages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetMessagesAsync_System_UInt64_Discord_Direction_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method follows the same behavior as described in <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_GetMessagesAsync_System_UInt64_Discord_Direction_System_Int32_Discord_CacheMode_Discord_RequestOptions_">GetMessagesAsync(ulong, Direction, int, CacheMode, RequestOptions)</a>.
+Please visit its documentation for more details on this method.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetPinnedMessagesAsync_" data-uid="Discord.Rest.RestTextChannel.GetPinnedMessagesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetPinnedMessagesAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetPinnedMessagesAsync(Discord.RequestOptions)">
+  GetPinnedMessagesAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of pinned messages in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IReadOnlyCollection&lt;RestMessage&gt;&gt; GetPinnedMessagesAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestMessage.html">RestMessage</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation for retrieving pinned messages in this channel.
+The task result contains a collection of messages found in the pinned messages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_GetPinnedMessagesAsync_Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method follows the same behavior as described in <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_GetPinnedMessagesAsync_Discord_RequestOptions_">GetPinnedMessagesAsync(RequestOptions)</a>.
+Please visit its documentation for more details on this method.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetUserAsync_" data-uid="Discord.Rest.RestTextChannel.GetUserAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetUserAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetUserAsync(System.UInt64,Discord.RequestOptions)">
+  GetUserAsync(ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a user in this channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;RestGuildUser&gt; GetUserAsync(ulong id, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The snowflake identifier of the user.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestGuildUser.html">RestGuildUser</a>&gt;</dt>
+    <dd><p>A task representing the asynchronous get operation. The task result contains a guild user object that
+represents the user; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Resolving permissions requires the parent guild to be downloaded.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetUsersAsync_" data-uid="Discord.Rest.RestTextChannel.GetUsersAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetUsersAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetUsersAsync(Discord.RequestOptions)">
+  GetUsersAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of users that are able to view the channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IReadOnlyCollection&lt;RestGuildUser&gt;&gt; GetUsersAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestGuildUser.html">RestGuildUser</a>&gt;&gt;</dt>
+    <dd><p>A paged collection containing a collection of guild users that can access this channel. Flattening the
+paginated response into a collection of users with
+<a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> is required if you wish to access the users.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Resolving permissions requires the parent guild to be downloaded.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetWebhookAsync_" data-uid="Discord.Rest.RestTextChannel.GetWebhookAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetWebhookAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetWebhookAsync(System.UInt64,Discord.RequestOptions)">
+  GetWebhookAsync(ulong, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a webhook available in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestWebhook&gt; GetWebhookAsync(ulong id, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The identifier of the webhook.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a webhook associated
+with the identifier; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the webhook is not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_GetWebhooksAsync_" data-uid="Discord.Rest.RestTextChannel.GetWebhooksAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_GetWebhooksAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.GetWebhooksAsync(Discord.RequestOptions)">
+  GetWebhooksAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the webhooks available in this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IReadOnlyCollection&lt;RestWebhook&gt;&gt; GetWebhooksAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Rest.RestWebhook.html">RestWebhook</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous get operation. The task result contains a read-only collection
+of webhooks that is available in this channel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_ModifyAsync_" data-uid="Discord.Rest.RestTextChannel.ModifyAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_ModifyAsync_System_Action_Discord_TextChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.ModifyAsync(System.Action{Discord.TextChannelProperties},Discord.RequestOptions)">
+  ModifyAsync(Action&lt;TextChannelProperties&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modifies this text channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task ModifyAsync(Action&lt;TextChannelProperties&gt; func, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Discord.TextChannelProperties.html">TextChannelProperties</a>&gt;</dt>
+    <dd><p>The delegate containing the properties to modify the channel with.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous modification operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Discord.TextChannelProperties.html">TextChannelProperties</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="Discord_Rest_RestTextChannel_ModifyMessageAsync_" data-uid="Discord.Rest.RestTextChannel.ModifyMessageAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_ModifyMessageAsync_System_UInt64_System_Action_Discord_MessageProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.ModifyMessageAsync(System.UInt64,System.Action{Discord.MessageProperties},Discord.RequestOptions)">
+  ModifyMessageAsync(ulong, Action&lt;MessageProperties&gt;, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modifies a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IUserMessage&gt; ModifyMessageAsync(ulong messageId, Action&lt;MessageProperties&gt; func, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The snowflake identifier of the message that would be changed.</p>
+</dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Discord.MessageProperties.html">MessageProperties</a>&gt;</dt>
+    <dd><p>A delegate containing the properties to modify the message with.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.IUserMessage.html">IUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous modification operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_ModifyMessageAsync_System_UInt64_System_Action_Discord_MessageProperties__Discord_RequestOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method modifies this message with the specified properties. To see an example of this
+method and what properties are available, please refer to <a class="xref" href="Discord.MessageProperties.html">MessageProperties</a>.</p>
+</div>
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SendFileAsync_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SendFileAsync_Discord_FileAttachment_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync(Discord.FileAttachment,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  SendFileAsync(FileAttachment, string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a file to this message channel with an optional caption.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestUserMessage&gt; SendFileAsync(FileAttachment attachment, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attachment</code> <a class="xref" href="Discord.FileAttachment.html">FileAttachment</a></dt>
+    <dd><p>The attachment containing the file and description.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The message to be sent.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message should be read aloud by Discord or not.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>The <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a><a class="xref" href="Discord.Embed.html">Embed</a> to be sent.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the message <code class="paramref">text</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the file.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>A message flag to be applied to the sent message, only <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> is permitted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestUserMessage.html">RestUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous send operation for delivering the message. The task result
+contains the sent message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFileAsync_Discord_FileAttachment_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method sends a file as if you are uploading an attachment directly from your Discord client.</p>
+<div class="NOTE"><h5>note</h5><p>
+    If you wish to upload an image and have it embedded in a <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a> embed,
+    you may upload the file and refer to the file with "attachment://filename.ext" in the
+    <a class="xref" href="Discord.EmbedBuilder.html#Discord_EmbedBuilder_ImageUrl">ImageUrl</a>. See the example section for its usage.
+</p></div>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Message content is too long, length must be less or equal to <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxMessageSize">MaxMessageSize</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The only valid <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> are <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>, <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SendFileAsync_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  SendFileAsync(Stream, string, string, bool, Embed, RequestOptions, bool, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a file to this message channel with an optional caption.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestUserMessage&gt; SendFileAsync(Stream stream, string filename, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a> of the file to be sent.</p>
+</dd>
+    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the attachment.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The message to be sent.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message should be read aloud by Discord or not.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>The <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a><a class="xref" href="Discord.Embed.html">Embed</a> to be sent.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>isSpoiler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message attachment should be hidden as a spoiler.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the message <code class="paramref">text</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the file.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>A message flag to be applied to the sent message, only <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> is permitted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestUserMessage.html">RestUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous send operation for delivering the message. The task result
+contains the sent message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
+  <p>The following example uploads a streamed image that will be called <code>b1nzy.jpg</code> embedded inside a
+        rich embed to the channel.</p>
+<pre>
+  <code class="lang-cs">using (var b1nzyStream = await httpClient.GetStreamAsync("https://example.com/b1nzy"))
+                                          await channel.SendFileAsync(b1nzyStream, "b1nzy.jpg",
+                                              embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method sends a file as if you are uploading an attachment directly from your Discord client.</p>
+<div class="NOTE"><h5>note</h5><p>
+    If you wish to upload an image and have it embedded in a <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a> embed,
+    you may upload the file and refer to the file with "attachment://filename.ext" in the
+    <a class="xref" href="Discord.EmbedBuilder.html#Discord_EmbedBuilder_ImageUrl">ImageUrl</a>. See the example section for its usage.
+</p></div>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Message content is too long, length must be less or equal to <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxMessageSize">MaxMessageSize</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The only valid <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> are <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>, <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SendFileAsync_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Rest.RestTextChannel.SendFileAsync(System.String,System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,System.Boolean,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  SendFileAsync(string, string, bool, Embed, RequestOptions, bool, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a file to this message channel with an optional caption.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestUserMessage&gt; SendFileAsync(string filePath, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, bool isSpoiler = false, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path of the file.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The message to be sent.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message should be read aloud by Discord or not.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>The <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a><a class="xref" href="Discord.Embed.html">Embed</a> to be sent.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>isSpoiler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message attachment should be hidden as a spoiler.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the message <code class="paramref">text</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the file.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>A message flag to be applied to the sent message, only <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> is permitted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestUserMessage.html">RestUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous send operation for delivering the message. The task result
+contains the sent message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
+  <p>The following example uploads a local file called <code>wumpus.txt</code> along with the text
+        <code>good discord boi</code> to the channel.</p>
+<pre>
+  <code class="lang-cs">await channel.SendFileAsync("wumpus.txt", "good discord boi");</code>
+</pre>
+<p>The following example uploads a local image called <code>b1nzy.jpg</code> embedded inside a rich embed to the
+        channel.</p>
+<pre>
+  <code class="lang-cs">await channel.SendFileAsync("b1nzy.jpg",
+                        embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code>
+</pre>
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method sends a file as if you are uploading an attachment directly from your Discord client.</p>
+<div class="NOTE"><h5>note</h5><p>
+    If you wish to upload an image and have it embedded in a <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a> embed,
+    you may upload the file and refer to the file with "attachment://filename.ext" in the
+    <a class="xref" href="Discord.EmbedBuilder.html#Discord_EmbedBuilder_ImageUrl">ImageUrl</a>. See the example section for its usage.
+</p></div>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">filePath</code> is a zero-length string, contains only white space, or contains one or more
+invalid characters as defined by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.path.getinvalidpathchars">GetInvalidPathChars()</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">filePath</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.pathtoolongexception">PathTooLongException</a></dt>
+    <dd><p>The specified path, file name, or both exceed the system-defined maximum length. For example, on
+Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260
+characters.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception">DirectoryNotFoundException</a></dt>
+    <dd><p>The specified path is invalid, (for example, it is on an unmapped drive).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p><code class="paramref">filePath</code> specified a directory.-or- The caller does not have the required permission.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></dt>
+    <dd><p>The file specified in <code class="paramref">filePath</code> was not found.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p><code class="paramref">filePath</code> is in an invalid format.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>An I/O error occurred while opening the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Message content is too long, length must be less or equal to <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxMessageSize">MaxMessageSize</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The only valid <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> are <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>, <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SendFilesAsync_" data-uid="Discord.Rest.RestTextChannel.SendFilesAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SendFilesAsync_System_Collections_Generic_IEnumerable_Discord_FileAttachment__System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Rest.RestTextChannel.SendFilesAsync(System.Collections.Generic.IEnumerable{Discord.FileAttachment},System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  SendFilesAsync(IEnumerable&lt;FileAttachment&gt;, string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a collection of files to this message channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestUserMessage&gt; SendFilesAsync(IEnumerable&lt;FileAttachment&gt; attachments, string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attachments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Discord.FileAttachment.html">FileAttachment</a>&gt;</dt>
+    <dd><p>A collection of attachments to upload.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The message to be sent.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the message should be read aloud by Discord or not.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>The <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a><a class="xref" href="Discord.Embed.html">Embed</a> to be sent.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the message <code class="paramref">text</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the file.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>A message flag to be applied to the sent message, only <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> is permitted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestUserMessage.html">RestUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous send operation for delivering the message. The task result
+contains the sent message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendFilesAsync_System_Collections_Generic_IEnumerable_Discord_FileAttachment__System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method sends files as if you are uploading attachments directly from your Discord client.</p>
+<div class="NOTE"><h5>note</h5><p>
+    If you wish to upload an image and have it embedded in a <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a> embed,
+    you may upload the file and refer to the file with "attachment://filename.ext" in the
+    <a class="xref" href="Discord.EmbedBuilder.html#Discord_EmbedBuilder_ImageUrl">ImageUrl</a>. See the example section for its usage.
+</p></div>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Message content is too long, length must be less or equal to <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxMessageSize">MaxMessageSize</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The only valid <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> are <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>, <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SendMessageAsync_" data-uid="Discord.Rest.RestTextChannel.SendMessageAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SendMessageAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_" data-uid="Discord.Rest.RestTextChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags)">
+  SendMessageAsync(string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a message to this message channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RestUserMessage&gt; SendMessageAsync(string text = null, bool isTTS = false, Embed embed = null, RequestOptions options = null, AllowedMentions allowedMentions = null, MessageReference messageReference = null, MessageComponent components = null, ISticker[] stickers = null, Embed[] embeds = null, MessageFlags flags = MessageFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The message to be sent.</p>
+</dd>
+    <dt><code>isTTS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Determines whether the message should be read aloud by Discord or not.</p>
+</dd>
+    <dt><code>embed</code> <a class="xref" href="Discord.Embed.html">Embed</a></dt>
+    <dd><p>The <a class="xref" href="Discord.EmbedType.html#Discord_EmbedType_Rich">Rich</a><a class="xref" href="Discord.Embed.html">Embed</a> to be sent.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+    <dt><code>allowedMentions</code> <a class="xref" href="Discord.AllowedMentions.html">AllowedMentions</a></dt>
+    <dd><p>Specifies if notifications are sent for mentioned users and roles in the message <code class="paramref">text</code>.
+If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, all mentioned roles and users will be notified.</p>
+</dd>
+    <dt><code>messageReference</code> <a class="xref" href="Discord.MessageReference.html">MessageReference</a></dt>
+    <dd><p>The message references to be included. Used to reply to specific messages.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="Discord.MessageComponent.html">MessageComponent</a></dt>
+    <dd><p>The message components to be included with this message. Used for interactions.</p>
+</dd>
+    <dt><code>stickers</code> <a class="xref" href="Discord.ISticker.html">ISticker</a>[]</dt>
+    <dd><p>A collection of stickers to send with the message.</p>
+</dd>
+    <dt><code>embeds</code> <a class="xref" href="Discord.Embed.html">Embed</a>[]</dt>
+    <dd><p>A array of <a class="xref" href="Discord.Embed.html">Embed</a>s to send with this response. Max 10.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a></dt>
+    <dd><p>A message flag to be applied to the sent message, only <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>
+and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> is permitted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Rest.RestUserMessage.html">RestUserMessage</a>&gt;</dt>
+    <dd><p>A task that represents an asynchronous send operation for delivering the message. The task result
+contains the sent message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Rest_RestTextChannel_SendMessageAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
+  <p>The following example sends a message with the current system time in RFC 1123 format to the channel and
+        deletes itself after 5 seconds.</p>
+<pre>
+  <code class="lang-cs">var message = await channel.SendMessageAsync(DateTimeOffset.UtcNow.ToString("R"));
+                                           await Task.Delay(TimeSpan.FromSeconds(5))
+                                               .ContinueWith(x =&gt; message.DeleteAsync());</code>
+</pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Message content is too long, length must be less or equal to <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxMessageSize">MaxMessageSize</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The only valid <a class="xref" href="Discord.MessageFlags.html">MessageFlags</a> are <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressEmbeds">SuppressEmbeds</a>, <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_SuppressNotification">SuppressNotification</a> and <a class="xref" href="Discord.MessageFlags.html#Discord_MessageFlags_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Discord_Rest_RestTextChannel_SyncPermissionsAsync_" data-uid="Discord.Rest.RestTextChannel.SyncPermissionsAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_SyncPermissionsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.SyncPermissionsAsync(Discord.RequestOptions)">
+  SyncPermissionsAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Syncs the permissions of this nested channel with its parent's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SyncPermissionsAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation for syncing channel permissions with its parent's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Rest_RestTextChannel_TriggerTypingAsync_" data-uid="Discord.Rest.RestTextChannel.TriggerTypingAsync*"></a>
+
+  <h3 id="Discord_Rest_RestTextChannel_TriggerTypingAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestTextChannel.TriggerTypingAsync(Discord.RequestOptions)">
+  TriggerTypingAsync(RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Broadcasts the &quot;user is typing&quot; message to all users in this channel, lasting 10 seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task TriggerTypingAsync(RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation that triggers the broadcast.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/src/Discord.Net.Rest/Entities/Channels/RestTextChannel.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>General Questions about Text Commands | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="General Questions about Text Commands | Discord.Net Documentation ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/faq/text_commands/general.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FAQ.TextCommands.General">
+<h1 id="chat-command-related-questions">Chat Command-related Questions</h1>
+
+<p>In the following section, you will find commonly asked questions and
+answered regarding general command usage when using <a class="xref" href="../../api/Discord.Commands.html">Discord.Commands</a>.</p>
+<h2 id="how-can-i-restrict-some-of-my-commands-so-only-specific-users-can-execute-them">How can I restrict some of my commands so only specific users can execute them?</h2>
+<p>You can use the built-in <code>RequireUserPermission</code> precondition, which allows you to
+restrict the command based on the user's current permissions in the
+guild or channel (<em>e.g., <code>GuildPermission.Administrator</code>,
+<code>ChannelPermission.ManageMessages</code></em>).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>There are many more preconditions to use, including being able to make some yourself.
+Precondition documentation is covered <a class="xref" href="../../guides/text_commands/preconditions.html">here</a></p>
+</div>
+<h2 id="why-am-i-getting-an-error-about-assemblygetentryassembly">Why am I getting an error about <code>Assembly.GetEntryAssembly</code>?</h2>
+<p>You may be confusing <a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_AddModulesAsync_">AddModulesAsync</a>
+with <a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_AddModuleAsync_">AddModuleAsync</a>. The former
+is used to add modules via the assembly, while the latter is used to
+add a single module.</p>
+<h2 id="what-does-remainder-do-in-the-command-signature">What does [Remainder] do in the command signature?</h2>
+<p>The <a class="xref" href="../../api/Discord.Commands.RemainderAttribute.html">RemainderAttribute</a> leaves the string unparsed, meaning you
+do not have to add quotes around the text for the text to be
+recognized as a single object. Please note that if your method has
+multiple parameters, the remainder attribute can only be applied to
+the last parameter.</p>
+<pre><code class="lang-csharp" name="Remainder">//	Input: 
+//		!echo Coffee Cake
+
+//	Output:
+//		Coffee Cake
+[Command(&quot;echo&quot;)]
+public Task EchoRemainderAsync([Remainder]string text) =&gt; ReplyAsync(text);  
+
+//	Output:
+//		CommandError.BadArgCount
+[Command(&quot;echo-hassle&quot;)]
+public Task EchoAsync(string text) =&gt; ReplyAsync(text);
+
+//	The message would be seen as having multiple parameters, 
+//	while the method only accepts one. 
+//	Wrapping the message in quotes solves this.
+//	This way, the system knows the entire message is to be parsed as a 
+//	single String.
+//	e.g., 
+//		!echo &quot;Coffee Cake&quot;
+</code></pre><h2 id="discordnet-keeps-saying-that-a-messagereceived-handler-is-blocking-the-gateway-what-should-i-do">Discord.Net keeps saying that a <code>MessageReceived</code> handler is blocking the gateway, what should I do?</h2>
+<p>By default, the library warns the user about any long-running event
+handler that persists for <strong>more than 3 seconds</strong>. Any event
+handlers that are run on the same thread as the gateway task, the task
+in charge of keeping the connection alive, may block the processing of
+heartbeat, and thus terminating the connection.</p>
+<p>In this case, the library detects that a <code>MessageReceived</code>
+event handler is blocking the gateway thread. This warning is
+typically associated with the command handler as it listens for that
+particular event. If the command handler is blocking the thread, then
+this <strong>might</strong> mean that you have a long-running command.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In rare cases, runtime errors can also cause blockage, usually
+associated with Mono, which is not supported by this library.</p>
+</div>
+<p>To prevent a long-running command from blocking the gateway
+thread, a flag called <a class="xref" href="../../api/Discord.Commands.RunMode.html">RunMode</a> is explicitly designed to resolve
+this issue.</p>
+<p>There are 2 main <code>RunMode</code>s.</p>
+<ol>
+<li><code>RunMode.Sync</code></li>
+<li><code>RunMode.Async</code></li>
+</ol>
+<p><code>Sync</code> is the default behavior and makes the command to be run on the
+same thread as the gateway one. <code>Async</code> will spin the task off to a
+different thread from the gateway one.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>While specifying <code>RunMode.Async</code> allows the command to be spun off
+to a different thread, keep in mind that by doing so, there will be
+<strong>potentially unwanted consequences</strong>. Before applying this flag,
+please consider whether it is necessary to do so.</p>
+<p>Further details regarding <code>RunMode.Async</code> can be found below.</p>
+</div>
+<p>You can set the <code>RunMode</code> either by specifying it individually via
+the <code>CommandAttribute</code> or by setting the global default with
+the <a class="xref" href="../../api/Discord.Commands.CommandServiceConfig.html#Discord_Commands_CommandServiceConfig_DefaultRunMode">DefaultRunMode</a> flag under <code>CommandServiceConfig</code>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_cmdattrib" role="tab" aria-controls="tabpanel_1_cmdattrib" data-tab="cmdattrib" tabindex="0" aria-selected="true">CommandAttribute</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_cmdconfig" role="tab" aria-controls="tabpanel_1_cmdconfig" data-tab="cmdconfig" tabindex="-1">CommandServiceConfig</a>
+</li>
+</ul>
+<section id="tabpanel_1_cmdattrib" role="tabpanel" data-tab="cmdattrib">
+<pre><code class="lang-csharp" name="Command Attribute">[Command(&quot;process&quot;, RunMode = RunMode.Async)]
+public async Task ProcessAsync(string input)
+{
+    // Does heavy calculation here.
+    await Task.Delay(TimeSpan.FromMinute(1));
+    await ReplyAsync(input);
+}
+</code></pre></section>
+<section id="tabpanel_1_cmdconfig" role="tabpanel" data-tab="cmdconfig" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-csharp" name="Command Service Config">public class Setup
+{
+    private readonly CommandService _command;
+    
+    public Setup()
+    {
+        var config = new CommandServiceConfig{ DefaultRunMode = RunMode.Async };
+        _command = new CommandService(config);
+    }
+}
+</code></pre></section>
+</div>
+<hr>
+<h2 id="how-does-runmodeasync-work-and-why-is-discordnet-not-using-it-by-default">How does <code>RunMode.Async</code> work, and why is Discord.Net <em>not</em> using it by default?</h2>
+<p><code>RunMode.Async</code> works by spawning a new <code>Task</code> with an unawaited
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.run">Task.Run</a>, essentially making the task that is used to invoke the
+command task to be finished on a different thread. This design means
+that <a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_ExecuteAsync_">ExecuteAsync</a> will be forced to return a successful
+<a class="xref" href="../../api/Discord.Commands.ExecuteResult.html">ExecuteResult</a> regardless of the actual execution result.</p>
+<p>The following are the known caveats with <code>RunMode.Async</code>,</p>
+<ol>
+<li>You can potentially introduce a race condition.</li>
+<li>Unnecessary overhead caused by the <a href="https://www.red-gate.com/simple-talk/dotnet/net-tools/c-async-what-is-it-and-how-does-it-work/">async state machine</a>.</li>
+<li><a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_ExecuteAsync_">ExecuteAsync</a> will immediately return <a class="xref" href="../../api/Discord.Commands.ExecuteResult.html">ExecuteResult</a> instead of
+other result types (this is particularly important for those who wish
+to utilize <a class="xref" href="../../api/Discord.Commands.RuntimeResult.html">RuntimeResult</a> in 2.0).</li>
+<li>Exceptions are swallowed in the <code>ExecuteAsync</code> result.</li>
+</ol>
+<p>However, there are ways to remedy some of these.</p>
+<p>For #3, in Discord.Net 2.0, the library introduces a new event called
+<a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_CommandExecuted">CommandService.CommandExecuted</a>, which is raised whenever the command is executed.
+This event will be raised regardless of
+the <code>RunMode</code> type and will return the appropriate execution result
+and the associated <a class="xref" href="../../api/Discord.Commands.CommandInfo.html">CommandInfo</a> if applicable.</p>
+<p>For #4, exceptions are caught in <a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_Log">CommandService.Log</a> event under
+<a class="xref" href="../../api/Discord.LogMessage.html#Discord_LogMessage_Exception_">LogMessage.Exception</a> as <a class="xref" href="../../api/Discord.Commands.CommandException.html">CommandException</a> and in the
+<a class="xref" href="../../api/Discord.Commands.CommandService.html#Discord_Commands_CommandService_CommandExecuted">CommandService.CommandExecuted</a> event under the <a class="xref" href="../../api/Discord.Commands.IResult.html">IResult</a> as
+<a class="xref" href="../../api/Discord.Commands.ExecuteResult.html#Discord_Commands_ExecuteResult_Exception_">ExecuteResult.Exception</a>.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/2841/merge/docs/faq/text_commands/general.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.0 (the poggers update)
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
