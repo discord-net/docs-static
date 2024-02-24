@@ -102,6 +102,10 @@ from; typically the same directory as your csproj).</p>
 <p><strong>For Windows users, precompiled binaries are available for your convenience <a href="https://github.com/discord-net/Discord.Net/tree/dev/voice-natives">here</a>.</strong></p>
 <p><strong>For Linux users, you will need to compile <a href="https://download.libsodium.org/libsodium/releases/">Sodium</a> and <a href="http://downloads.xiph.org/releases/opus/">Opus</a> from source, or install them from your package manager.</strong></p>
 <h2 id="joining-a-channel">Joining a Channel</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>GatewayIntents.GuildVoiceStates</code> and <code>GatewayIntents.Guilds</code> intents are required to connect to a voice channel</p>
+</div>
 <p>Joining a channel is the first step to sending audio, and will return
 an <a class="xref" href="../../api/Discord.Audio.IAudioClient.html">IAudioClient</a> to send data with.</p>
 <p>To join a channel, simply await <a class="xref" href="../../api/Discord.IAudioChannel.html#Discord_IAudioChannel_ConnectAsync_">ConnectAsync</a> on any instance of an
