@@ -604,8 +604,8 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 
   <a id="Discord_WebSocket_SocketVoiceChannel_ConnectAsync_" data-uid="Discord.WebSocket.SocketVoiceChannel.ConnectAsync*"></a>
 
-  <h3 id="Discord_WebSocket_SocketVoiceChannel_ConnectAsync_System_Boolean_System_Boolean_System_Boolean_" data-uid="Discord.WebSocket.SocketVoiceChannel.ConnectAsync(System.Boolean,System.Boolean,System.Boolean)">
-  ConnectAsync(bool, bool, bool)
+  <h3 id="Discord_WebSocket_SocketVoiceChannel_ConnectAsync_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="Discord.WebSocket.SocketVoiceChannel.ConnectAsync(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+  ConnectAsync(bool, bool, bool, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.WebSocket/Entities/Channels/SocketVoiceChannel.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -614,7 +614,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IAudioClient&gt; ConnectAsync(bool selfDeaf = false, bool selfMute = false, bool external = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IAudioClient&gt; ConnectAsync(bool selfDeaf = false, bool selfMute = false, bool external = false, bool disconnect = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -627,6 +627,9 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 </dd>
     <dt><code>external</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Determines whether the audio client is an external one or not.</p>
+</dd>
+    <dt><code>disconnect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Determines whether the client should send a disconnect call before sending the new voice state.</p>
 </dd>
   </dl>
 

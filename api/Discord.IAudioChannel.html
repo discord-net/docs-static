@@ -188,9 +188,9 @@ Interface IAudioChannel  <a class="header-action link-secondary" title="View sou
 
   <a id="Discord_IAudioChannel_ConnectAsync_" data-uid="Discord.IAudioChannel.ConnectAsync*"></a>
 
-  <h3 id="Discord_IAudioChannel_ConnectAsync_System_Boolean_System_Boolean_System_Boolean_" data-uid="Discord.IAudioChannel.ConnectAsync(System.Boolean,System.Boolean,System.Boolean)">
-  ConnectAsync(bool, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_IAudioChannel_ConnectAsync_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="Discord.IAudioChannel.ConnectAsync(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+  ConnectAsync(bool, bool, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Connects to this audio channel.</p>
@@ -198,7 +198,7 @@ Interface IAudioChannel  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IAudioClient&gt; ConnectAsync(bool selfDeaf = false, bool selfMute = false, bool external = false)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IAudioClient&gt; ConnectAsync(bool selfDeaf = false, bool selfMute = false, bool external = false, bool disconnect = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -211,6 +211,9 @@ Interface IAudioChannel  <a class="header-action link-secondary" title="View sou
 </dd>
     <dt><code>external</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Determines whether the audio client is an external one or not.</p>
+</dd>
+    <dt><code>disconnect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Determines whether the client should send a disconnect call before sending the new voice state.</p>
 </dd>
   </dl>
 
@@ -236,7 +239,7 @@ Interface IAudioChannel  <a class="header-action link-secondary" title="View sou
 
   <h3 id="Discord_IAudioChannel_DisconnectAsync" data-uid="Discord.IAudioChannel.DisconnectAsync">
   DisconnectAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Disconnects from this audio channel.</p>
@@ -269,7 +272,7 @@ Interface IAudioChannel  <a class="header-action link-secondary" title="View sou
 
   <h3 id="Discord_IAudioChannel_ModifyAsync_System_Action_Discord_AudioChannelProperties__Discord_RequestOptions_" data-uid="Discord.IAudioChannel.ModifyAsync(System.Action{Discord.AudioChannelProperties},Discord.RequestOptions)">
   ModifyAsync(Action&lt;AudioChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Channels/IAudioChannel.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Modifies this audio channel.</p>

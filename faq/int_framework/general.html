@@ -119,16 +119,21 @@ Ideally, use pattern matching to make sure its the type of interaction you are e
 <p>Further documentation on pattern matching can be found <a class="xref" href="../../guides/entities/casting.html">here</a>.</p>
 </div>
 <h2 id="my-interaction-commands-are-not-showing-up">My interaction commands are not showing up?</h2>
-<p>If you registered your commands globally, it can take up to 1 hour for them to register.
-Did you register a guild command (should be instant), or waited more than an hour and still don't have them show up?</p>
 <ul>
 <li><p>Try to check for any errors in the console, there is a good chance something might have been thrown.</p>
 </li>
+<li>
+<ul>
+<li>Make sure you have setup logging. If you use <code>InteractionService</code> hook into <a class="xref" href="../../api/Discord.Interactions.InteractionService.html#Discord_Interactions_InteractionService_Log"><code>InteractionService.Log</code></a>) event</li>
+</ul>
+</li>
 <li><p>Register your commands after the Ready event in the client. The client is not configured to register commands before this moment.</p>
 </li>
-<li><p>Check if no bad form exception is thrown; If so, refer to the above question.</p>
+<li><p>Check if no bad form exception is thrown;</p>
 </li>
 <li><p>Do you have the application commands scope checked when adding your bot to guilds?</p>
+</li>
+<li><p>Try reloading your Discord client. On desktop it's done with <code>Ctrl+R</code> key combo.</p>
 </li>
 </ul>
 <h2 id="do-i-need-to-create-commands-on-startup">Do I need to create commands on startup?</h2>
