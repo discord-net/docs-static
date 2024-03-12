@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How to handle permissions. | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How to handle permissions. | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/permissions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="This page covers everything to know about setting up permissions for Slash &amp; context commands."><meta property="og:title" content="How to handle permissions. | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.IntFw.Perms">
+<h1 id="permissions">Permissions</h1>
+
+<p>This page covers everything to know about setting up permissions for Slash &amp; context commands.</p>
+<p>Application command (Slash, User &amp; Message) permissions are set up at creation.
+When you add your commands to a guild or globally, the permissions will be set up from the attributes you defined.</p>
+<p>Commands that are added will only show up for members that meet the required permissions.
+There is no further internal handling, as Discord deals with this on its own.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Permissions can only be configured at top level commands. Not in subcommands.</p>
+</div>
+<h2 id="disallowing-commands-in-dm">Disallowing commands in DM</h2>
+<p>Commands can be blocked from being executed in DM if a guild is required to execute them in as followed:</p>
+<pre><code class="lang-csharp" name="no-DM permission">[EnabledInDm(false)]
+[SlashCommand(&quot;ban&quot;, &quot;Bans a user in this guild&quot;)]
+public async Task BanAsync(...)
+{
+    ...
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>This attribute only works on global-level commands. Commands that are registered in guilds alone do not have a need for it.</p>
+</div>
+<h2 id="server-permissions">Server permissions</h2>
+<p>As previously shown, a command like ban can be blocked from being executed inside DMs,
+as there are no members to ban inside of a DM. However, for a command like this,
+we'll also want to make block it from being used by members that do not have the <a class="xref" href="../../api/Discord.GuildPermission.html">permissions</a>.
+To do this, we can use the <code>DefaultMemberPermissions</code> attribute:</p>
+<pre><code class="lang-csharp" name="Server permissions">[EnabledInDm(false)]
+[DefaultMemberPermissions(GuildPermission.BanMembers)]
+[SlashCommand(&quot;ban&quot;, &quot;Bans a user in this guild&quot;)]
+public async Task BanAsync(...)
+{
+    ...
+}
+</code></pre><h3 id="stacking-permissions">Stacking permissions</h3>
+<p>If you want a user to have multiple <a class="xref" href="../../api/Discord.GuildPermission.html">permissions</a> in order to execute a command, you can use the <code>|</code> operator, just like with setting up intents:</p>
+<pre><code class="lang-csharp" name="Permission stacking">[DefaultMemberPermissions(GuildPermission.SendMessages | GuildPermission.ViewChannels)]
+[SlashCommand(&quot;ping&quot;, &quot;Pong!&quot;)]
+public async Task Ping()
+    =&gt; await RespondAsync(&quot;pong&quot;);
+</code></pre><h3 id="nesting-permissions">Nesting permissions</h3>
+<p>Alternatively, permissions can also be nested.
+It will look for all uses of <code>DefaultMemberPermissions</code> up until the highest level class.
+The <code>EnabledInDm</code> attribute can be defined at top level as well,
+and will be set up for all of the commands &amp; nested modules inside this class.</p>
+<pre><code class="lang-csharp" name="Permission stacking">[EnabledInDm(true)]
+[DefaultMemberPermissions(GuildPermission.ViewChannels)]
+public class Module : InteractionModuleBase&lt;SocketInteractionContext&gt;
+{
+    [DefaultMemberPermissions(GuildPermission.SendMessages)]
+    public class NestedModule : InteractionModuleBase&lt;SocketInteractionContext&gt;
+    {
+        // While looking for more permissions, it has found 'ViewChannels' and 'SendMessages'. The result of this lookup will be:
+        // ViewChannels + SendMessages + ManageMessages.
+        // If these together are not found for target user, the command will not show up for them.
+        [DefaultMemberPermissions(GuildPermission.ManageMessages)]
+        [SlashCommand(&quot;ping&quot;, &quot;Pong!&quot;)]
+        public async Task Ping()
+            =&gt; await RespondAsync(&quot;pong&quot;);
+    }
+}
+</code></pre>
+<p>The amount of nesting you can do is realistically endless.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the nested class is marked with <code>Group</code>, as required for setting up subcommands, this example will not work.
+As mentioned before, subcommands cannot have seperate permissions from the top level command.</p>
+</div>
+<h3 id="nsfw-commands">NSFW Commands</h3>
+<p>Commands can be limited to only age restricted channels and DMs:</p>
+<pre><code class="lang-csharp" name="Nsfw-Permissions">[NsfwCommand(true)]
+[SlashCommand(&quot;beautiful-code&quot;, &quot;Get an image of perfect code&quot;)]
+public async Task BeautifulCodeAsync(...)
+{
+    ...
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/permissions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interactions | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interactions | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/int_framework/general.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="This chapter mostly refers to interactions in general,
+and will include questions that are common among users of the Interaction Framework
+as well ..."><meta property="og:title" content="Interactions | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FAQ.Interactions.General">
+<h1 id="interaction-basics">Interaction basics</h1>
+
+<p>This chapter mostly refers to interactions in general,
+and will include questions that are common among users of the Interaction Framework
+as well as users that register and handle commands manually.</p>
+<h2 id="whats-the-difference-between-respondasync-deferasync-and-followupasync">What's the difference between RespondAsync, DeferAsync and FollowupAsync?</h2>
+<p>The difference between these 3 functions is in how you handle the command response.
+<a class="xref" href="../../api/Discord.IDiscordInteraction.html">RespondAsync</a> and
+<a class="xref" href="../../api/Discord.IDiscordInteraction.html">DeferAsync</a> let the API know you have successfully received the command. This is also called 'acknowledging' a command.
+DeferAsync will not send out a response, RespondAsync will.
+<a class="xref" href="../../api/Discord.IDiscordInteraction.html">FollowupAsync</a> follows up on successful acknowledgement.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If you have not acknowledged the command FollowupAsync will not work! the interaction has not been responded to, so you cannot follow it up!</p>
+</div>
+<h2 id="im-getting-systemtimeoutexception-cannot-respond-to-an-interaction-after-3-seconds">Im getting System.TimeoutException: 'Cannot respond to an interaction after 3 seconds!'</h2>
+<p>This happens because your computer's clock is out of sync or you're trying to respond after 3 seconds.
+If your clock is out of sync and you can't fix it, you can set the <code>UseInteractionSnowflakeDate</code> to false in the [DiscordSocketConfig].</p>
+<pre><code class="lang-csharp" name="Interaction Sync">DiscordSocketConfig config = new()
+{
+    UseInteractionSnowflakeDate = false
+};
+
+DiscordSocketclient client = new(config);
+</code></pre><h2 id="how-do-i-use-this--interaction-specific-methodproperty">How do I use this * interaction specific method/property?</h2>
+<p>If your interaction context holds a down-casted version of the interaction object, you need to up-cast it.
+Ideally, use pattern matching to make sure its the type of interaction you are expecting it to be.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Further documentation on pattern matching can be found <a class="xref" href="../../guides/entities/casting.html">here</a>.</p>
+</div>
+<h2 id="my-interaction-commands-are-not-showing-up">My interaction commands are not showing up?</h2>
+<ul>
+<li><p>Try to check for any errors in the console, there is a good chance something might have been thrown.</p>
+</li>
+<li>
+<ul>
+<li>Make sure you have setup logging. If you use <code>InteractionService</code> hook into <a class="xref" href="../../api/Discord.Interactions.InteractionService.html#Discord_Interactions_InteractionService_Log"><code>InteractionService.Log</code></a>) event</li>
+</ul>
+</li>
+<li><p>Register your commands after the Ready event in the client. The client is not configured to register commands before this moment.</p>
+</li>
+<li><p>Check if no bad form exception is thrown;</p>
+</li>
+<li><p>Do you have the application commands scope checked when adding your bot to guilds?</p>
+</li>
+<li><p>Try reloading your Discord client. On desktop it's done with <code>Ctrl+R</code> key combo.</p>
+</li>
+</ul>
+<h2 id="do-i-need-to-create-commands-on-startup">Do I need to create commands on startup?</h2>
+<p>If you are registering your commands for the first time, it is required to create them once.
+After this, commands will exist indefinitely until you overwrite them.
+Overwriting is only required if you make changes to existing commands, or add new ones.</p>
+<h2 id="i-cant-see-all-of-my-usermessage-commands-why">I can't see all of my user/message commands, why?</h2>
+<p>Message and user commands have a limit of 5 per guild, and another 5 globally.
+If you have more than 5 guild-only message commands being registered, no more than 5 will actually show up.
+You can get up to 10 entries to show if you register 5 per guild, and another 5 globally.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/int_framework/general.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

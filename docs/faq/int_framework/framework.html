@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interaction Framework | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interaction Framework | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/int_framework/framework.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="Common misconceptions and questions about the Interaction Framework."><meta property="og:title" content="Interaction Framework | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FAQ.Interactions.Framework">
+<h1 id="the-interaction-framework">The Interaction Framework</h1>
+
+<p>Common misconceptions and questions about the Interaction Framework.</p>
+<h2 id="how-can-i-restrict-some-of-my-commands-so-only-specific-users-can-execute-them">How can I restrict some of my commands so only specific users can execute them?</h2>
+<p>Based on how you want to implement the restrictions, you can use the
+built-in <code>RequireUserPermission</code> precondition, which allows you to
+restrict the command based on the user's current permissions in the
+guild or channel (<em>e.g., <code>GuildPermission.Administrator</code>,
+<code>ChannelPermission.ManageMessages</code></em>).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>There are many more preconditions to use, including being able to make some yourself.
+Examples on self-made preconditions can be found
+<a href="https://github.com/discord-net/Discord.Net/blob/dev/samples/InteractionFramework/Attributes/RequireOwnerAttribute.cs">here</a></p>
+</div>
+<h2 id="why-do-preconditions-not-hide-my-commands">Why do preconditions not hide my commands?</h2>
+<p>In the current permission design by Discord,
+it is not very straight forward to limit vision of slash/context commands to users.
+If you want to hide commands, you should take a look at the commands' <code>DefaultPermissions</code> parameter.</p>
+<h2 id="module-dependencies-arent-getting-populated-by-property-injection">Module dependencies aren't getting populated by Property Injection?</h2>
+<p>Make sure the properties are publicly accessible and publicly settable.</p>
+<pre><code class="lang-csharp" name="Property Injection">public class MyModule
+{
+    // Intended.
+    public InteractionService Service { get; set; }
+
+    // Will not work. A private setter cannot be accessed by the serviceprovider.
+    private InteractionService Service { get; private set; }
+}
+</code></pre><h2 id="interactionserviceexecuteasync-always-returns-a-successful-result-how-do-i-access-the-failed-command-execution-results"><code>InteractionService.ExecuteAsync()</code> always returns a successful result, how do i access the failed command execution results?</h2>
+<p>If you are using <code>RunMode.Async</code> you need to setup your post-execution pipeline around
+<code>..Executed</code> events exposed by the Interaction Service.</p>
+<h2 id="how-do-i-check-if-the-executing-user-has--permission">How do I check if the executing user has * permission?</h2>
+<p>Refer to the <a class="xref" href="../../guides/int_framework/preconditions.html">documentation about preconditions</a></p>
+<h2 id="how-do-i-send-the-http-response-from-inside-the-command-modules">How do I send the HTTP Response from inside the command modules.</h2>
+<p>Set the <code>RestResponseCallback</code> property of [InteractionServiceConfig] with a delegate for handling HTTP Responses and use
+<code>RestInteractionModuleBase</code> to create your command modules. <code>RespondWithModalAsync()</code>, <code>RespondAsync()</code> and <code>DeferAsync()</code> methods of this module base will use the
+<code>RestResponseCallback</code> to create interaction responses.</p>
+<h2 id="is-there-a-cleaner-way-of-creating-parameter-choices-other-than-using-choice">Is there a cleaner way of creating parameter choices other than using <code>[Choice]</code>?</h2>
+<p>The default <code>enum</code> <a class="xref" href="../../api/Discord.Interactions.TypeConverter.html">TypeConverter</a> of the Interaction Service will
+automatically register <code>enum</code>s as multiple choice options.</p>
+<h2 id="how-do-i-add-an-optional-enum-parameter-but-make-the-default-value-not-visible-to-the-user">How do I add an optional <code>enum</code> parameter but make the default value not visible to the user?</h2>
+<p>The default <code>enum</code> <a class="xref" href="../../api/Discord.Interactions.TypeConverter.html">TypeConverter</a> of the Interaction Service comes with <code>[Hide]</code> attribute that
+can be used to prevent certain enum values from getting registered.</p>
+<h2 id="how-does-the-interactionservice-determine-the-generic-typeconverter-to-use-for-a-parameter-type">How does the InteractionService determine the generic TypeConverter to use for a parameter type?</h2>
+<p>It compares the <em>target base type</em> key of the
+<a class="xref" href="../../api/Discord.Interactions.TypeConverter.html">TypeConverter</a> and chooses the one that sits highest on the inheritance hierarchy.</p>
+<p>[Interactions FAQ]: xref: FAQ.Basics.Interactions
+[InteractionServiceConfig]: xref:Discord.Interactions.InteractionServiceConfig</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/int_framework/framework.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

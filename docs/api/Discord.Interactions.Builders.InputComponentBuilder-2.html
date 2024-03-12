@@ -1,0 +1,867 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InputComponentBuilder&lt;TInfo, TBuilder&gt; | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InputComponentBuilder&lt;TInfo, TBuilder&gt; | Discord.Net Documentation ">
+      
+      <meta name="description" content="Represents the base builder class for creating .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/dev/apiSpec/new?filename=Discord_Interactions_Builders_InputComponentBuilder_2.md&amp;value=---%0Auid%3A%20Discord.Interactions.Builders.InputComponentBuilder%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="Represents the base builder class for creating InputComponentInfo."><meta property="og:title" content="Class InputComponentBuilder&lt;TInfo, TBuilder&gt; | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.Interactions.Builders.InputComponentBuilder`2">
+
+
+
+  <h1 id="Discord_Interactions_Builders_InputComponentBuilder_2" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2" class="text-break">
+Class InputComponentBuilder&lt;TInfo, TBuilder&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.Interactions.html">Interactions</a>.<a class="xref" href="Discord.Interactions.Builders.html">Builders</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.Interactions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the base builder class for creating <a class="xref" href="Discord.Interactions.InputComponentInfo.html">InputComponentInfo</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class InputComponentBuilder&lt;TInfo, TBuilder&gt; : IInputComponentBuilder where TInfo : InputComponentInfo where TBuilder : InputComponentBuilder&lt;TInfo, TBuilder&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInfo</code></dt>
+    <dd><p>The <a class="xref" href="Discord.Interactions.InputComponentInfo.html">InputComponentInfo</a> this builder yields when built.</p>
+</dd>
+    <dt><code>TBuilder</code></dt>
+    <dd><p>Inherited <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html">InputComponentBuilder&lt;TInfo, TBuilder&gt;</a> type.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">InputComponentBuilder&lt;TInfo, TBuilder&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.Builders.IInputComponentBuilder.html">IInputComponentBuilder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.Builders.TextInputComponentBuilder.html">TextInputComponentBuilder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2__ctor_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.#ctor*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2__ctor_Discord_Interactions_Builders_ModalBuilder_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.#ctor(Discord.Interactions.Builders.ModalBuilder)">
+  InputComponentBuilder(ModalBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an instance of <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html">InputComponentBuilder&lt;TInfo, TBuilder&gt;</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InputComponentBuilder(ModalBuilder modal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>modal</code> <a class="xref" href="Discord.Interactions.Builders.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>Parent modal of this input component.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_Attributes_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Attributes*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_Attributes" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Attributes">
+  Attributes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the attributes of this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;Attribute&gt; Attributes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_ComponentType_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.ComponentType*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_ComponentType" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.ComponentType">
+  ComponentType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the component type of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentType ComponentType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ComponentType.html">ComponentType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_CustomId_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.CustomId*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_CustomId" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.CustomId">
+  CustomId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the custom id of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CustomId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_DefaultValue_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.DefaultValue*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_DefaultValue" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.DefaultValue">
+  DefaultValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default value of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object DefaultValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_Instance_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Instance*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_Instance" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Instance">
+  Instance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TBuilder Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_IsRequired_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.IsRequired*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_IsRequired" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.IsRequired">
+  IsRequired
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this input component is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRequired { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_Label_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Label*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_Label" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Label">
+  Label
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the label of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Label { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_Modal_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Modal*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_Modal" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Modal">
+  Modal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent modal of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder Modal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.Builders.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_PropertyInfo_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.PropertyInfo*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_PropertyInfo" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.PropertyInfo">
+  PropertyInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the <a class="xref" href="Discord.Interactions.Builders.IInputComponentBuilder.html#Discord_Interactions_Builders_IInputComponentBuilder_PropertyInfo">PropertyInfo</a> of this component's property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyInfo PropertyInfo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_Type_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Type*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_Type" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the reference type of this input component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_TypeConverter_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.TypeConverter*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_TypeConverter" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.TypeConverter">
+  TypeConverter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the <a class="xref" href="Discord.Interactions.ComponentTypeConverter.html">ComponentTypeConverter</a> assigned to this input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentTypeConverter TypeConverter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.ComponentTypeConverter.html">ComponentTypeConverter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_SetDefaultValue_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.SetDefaultValue*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_SetDefaultValue_System_Object_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.SetDefaultValue(System.Object)">
+  SetDefaultValue(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_DefaultValue">DefaultValue</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetDefaultValue(object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_DefaultValue">DefaultValue</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_SetIsRequired_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.SetIsRequired*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_SetIsRequired_System_Boolean_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.SetIsRequired(System.Boolean)">
+  SetIsRequired(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_IsRequired">IsRequired</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetIsRequired(bool isRequired)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isRequired</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_IsRequired">IsRequired</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_WithAttributes_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithAttributes*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_WithAttributes_System_Attribute___" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithAttributes(System.Attribute[])">
+  WithAttributes(params Attribute[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds attributes to <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Attributes">Attributes</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder WithAttributes(params Attribute[] attributes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attributes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>[]</dt>
+    <dd><p>New attributes to be added to <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Attributes">Attributes</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_WithComponentType_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithComponentType*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_WithComponentType_Discord_ComponentType_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithComponentType(Discord.ComponentType)">
+  WithComponentType(ComponentType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_ComponentType">ComponentType</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder WithComponentType(ComponentType componentType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>componentType</code> <a class="xref" href="Discord.ComponentType.html">ComponentType</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_ComponentType">ComponentType</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_WithCustomId_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithCustomId*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_WithCustomId_System_String_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithCustomId(System.String)">
+  WithCustomId(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_CustomId">CustomId</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder WithCustomId(string customId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_CustomId">CustomId</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_WithLabel_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithLabel*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_WithLabel_System_String_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithLabel(System.String)">
+  WithLabel(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Label">Label</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder WithLabel(string label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Label">Label</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_Builders_InputComponentBuilder_2_WithType_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithType*"></a>
+
+  <h3 id="Discord_Interactions_Builders_InputComponentBuilder_2_WithType_System_Type_" data-uid="Discord.Interactions.Builders.InputComponentBuilder`2.WithType(System.Type)">
+  WithType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Type">Type</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder WithType(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>New value of the <a class="xref" href="Discord.Interactions.Builders.InputComponentBuilder-2.html#Discord_Interactions_Builders_InputComponentBuilder_2_Type">Type</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TBuilder</span></dt>
+    <dd><p>The builder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Builders/Modals/Inputs/InputComponentBuilder.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

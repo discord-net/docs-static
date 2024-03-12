@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Post-Command execution | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Post-Command execution | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/post-execution.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="Interaction Service uses IResult to provide information about the state of command execution.
+These can be used to log internal exceptions or provi..."><meta property="og:title" content="Post-Command execution | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.IntFw.PostExecution">
+<h1 id="post-execution-logic">Post-Execution Logic</h1>
+
+<p>Interaction Service uses <a class="xref" href="../../api/Discord.Interactions.IResult.html">IResult</a> to provide information about the state of command execution.
+These can be used to log internal exceptions or provide some insight to the command user.</p>
+<p>If you are running your commands using <code>RunMode.Sync</code> these command results can be retrieved from
+the return value of <a class="xref" href="../../api/Discord.Interactions.InteractionService.html#Discord_Interactions_InteractionService_ExecuteCommandAsync_">InteractionService.ExecuteCommandAsync</a> method or by
+registering delegates to Interaction Service events.</p>
+<p>If you are using the <code>RunMode.Async</code> to run your commands,
+you must use the Interaction Service events to get the execution results. When using <code>RunMode.Async</code>,
+<a class="xref" href="../../api/Discord.Interactions.InteractionService.html#Discord_Interactions_InteractionService_ExecuteCommandAsync_">InteractionService.ExecuteCommandAsync</a> will always return a successful result.</p>
+<h2 id="results">Results</h2>
+<p>Interaction Result come in a handful of different flavours:</p>
+<ol>
+<li><a class="xref" href="../../api/Discord.AutocompleteResult.html">AutocompletionResult</a>: returned by Autocompleters</li>
+<li><a class="xref" href="../../api/Discord.Interactions.ExecuteResult.html">ExecuteResult</a>: contains the result of method body execution process</li>
+<li><a class="xref" href="../../api/Discord.Interactions.PreconditionGroupResult.html">PreconditionGroupResult</a>: returned by Precondition groups</li>
+<li><a class="xref" href="../../api/Discord.Interactions.PreconditionResult.html">PreconditionResult</a>: returned by preconditions</li>
+<li><a class="xref" href="../../api/Discord.Interactions.RuntimeResult.html">RuntimeResult</a>: a user implementable result for returning user defined results</li>
+<li><a class="xref" href="../../api/Discord.Interactions.SearchResult-1.html">SearchResult</a>: returned by command lookup map</li>
+<li><a class="xref" href="../../api/Discord.Interactions.TypeConverterResult.html">TypeConverterResult</a>: returned by TypeConverters</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can either use the <a class="xref" href="../../api/Discord.Interactions.IResult.html#Discord_Interactions_IResult_Error_">IResult.Error</a> property of an Interaction result or create type check for the
+aforementioned result types to branch out your post-execution logic to handle different situations.</p>
+</div>
+<h2 id="commandexecuted-events">CommandExecuted Events</h2>
+<p>Every time a command gets executed, Interaction Service raises a <code>CommandExecuted</code> event.
+These events can be used to create a post-execution pipeline.</p>
+<pre><code class="lang-csharp" name="Error Review">interactionService.SlashCommandExecuted += SlashCommandExecuted;
+
+async Task SlashCommandExecuted(SlashCommandInfo arg1, Discord.IInteractionContext arg2, IResult arg3)
+{
+    if (!arg3.IsSuccess)
+    {
+        switch (arg3.Error)
+        {
+            case InteractionCommandError.UnmetPrecondition:
+                await arg2.Interaction.RespondAsync($&quot;Unmet Precondition: {arg3.ErrorReason}&quot;);
+                break;
+            case InteractionCommandError.UnknownCommand:
+                await arg2.Interaction.RespondAsync(&quot;Unknown command&quot;);
+                break;
+            case InteractionCommandError.BadArgs:
+                await arg2.Interaction.RespondAsync(&quot;Invalid number or arguments&quot;);
+                break;
+            case InteractionCommandError.Exception:
+                await arg2.Interaction.RespondAsync($&quot;Command exception: {arg3.ErrorReason}&quot;);
+                break;
+            case InteractionCommandError.Unsuccessful:
+                await arg2.Interaction.RespondAsync(&quot;Command could not be executed&quot;);
+                break;
+            default:
+                break;
+        }
+    }
+}
+</code></pre><h2 id="log-event">Log Event</h2>
+<p>InteractionService regularly outputs information about the occuring events to keep the developer informed.</p>
+<h2 id="runtime-result">Runtime Result</h2>
+<p>Interaction commands allow you to return <code>Task&lt;RuntimeResult&gt;</code> to pass on additional information about the command execution
+process back to your post-execution logic.</p>
+<p>Custom <a class="xref" href="../../api/Discord.Interactions.RuntimeResult.html">RuntimeResult</a> classes can be created by inheriting the base <a class="xref" href="../../api/Discord.Interactions.RuntimeResult.html">RuntimeResult</a> class.</p>
+<p>If command execution process reaches the method body of the command and no exceptions are thrown during
+the execution of the method body, <a class="xref" href="../../api/Discord.Interactions.RuntimeResult.html">RuntimeResult</a> returned by your command will be accessible by casting/type-checking the
+<a class="xref" href="../../api/Discord.Interactions.IResult.html">IResult</a> parameter of the <code>CommandExecuted</code> event delegate.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/post-execution.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

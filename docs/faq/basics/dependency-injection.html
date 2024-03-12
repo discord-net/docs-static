@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Questions about Dependency Injection. | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Questions about Dependency Injection. | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/basics/dependency-injection.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="In the following section, you will find common questions and answers
+to utilizing dependency injection with Discord.Commands and Discord.Interactio..."><meta property="og:title" content="Questions about Dependency Injection. | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FAQ.Basics.DI">
+<h1 id="dependency-injection-related-questions">Dependency-injection-related Questions</h1>
+
+<p>In the following section, you will find common questions and answers
+to utilizing dependency injection with <a class="xref" href="../../api/Discord.Commands.html">Discord.Commands</a> and <a class="xref" href="../../api/Discord.Interactions.html">Discord.Interactions</a>, as well as
+common troubleshooting steps regarding DI.</p>
+<h2 id="what-is-a-service-why-does-my-module-not-hold-any-data-after-execution">What is a service? Why does my module not hold any data after execution?</h2>
+<p>In Discord.Net, modules are created similarly to ASP.NET, meaning
+that they have a transient nature; modules are spawned whenever a
+request is received, and are killed from memory when the execution
+finishes. In other words, you cannot store persistent
+data inside a module. Consider using a service if you wish to
+workaround this.</p>
+<p>Service is often used to hold data externally so that they persist
+throughout execution. Think of it like a chest that holds
+whatever you throw at it that won't be affected by anything unless
+you want it to. Note that you should also learn Microsoft's
+implementation of <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection">Dependency Injection</a> (<a href="https://www.youtube.com/watch?v=QtDTfn8YxXg">video</a>) before proceeding.</p>
+<p>A brief example of service and dependency injection can be seen below.</p>
+<pre><code class="lang-csharp" name="DI">public class MyService
+{
+    public string MyCoolString { get; set; }
+}
+public class Setup
+{
+    public IServiceProvider BuildProvider() =&gt; 
+            new ServiceCollection()
+            .AddSingleton&lt;MyService&gt;()
+            .BuildServiceProvider();
+}
+public class MyModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+    // Inject via public settable prop
+    public MyService MyService { get; set; }
+    
+    // ...or via the module's constructor
+
+    // private readonly MyService _myService;
+    // public MyModule (MyService myService) =&gt; _myService = myService;
+    
+    [Command(&quot;string&quot;)]
+    public Task GetOrSetStringAsync(string input)
+    {
+        if (string.IsNullOrEmpty(_myService.MyCoolString)) _myService.MyCoolString = input;
+        return ReplyAsync(_myService.MyCoolString);
+    }
+}
+</code></pre><h2 id="why-is-my-commandinteraction-service-complaining-about-a-missing-dependency">Why is my Command/Interaction Service complaining about a missing dependency?</h2>
+<p>If you encounter an error similar to <code>Failed to create MyModule, dependency MyExternalDependency was not found.</code>, you may have
+forgotten to add the external dependency to the dependency container.</p>
+<p>For example, if your module, <code>MyModule</code>, requests a <code>DatabaseService</code>
+in its constructor, the <code>DatabaseService</code> must be present in the
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> when registering <code>MyModule</code>.</p>
+<pre><code class="lang-csharp" name="Missing Dependencies">public class MyModule : ModuleBase&lt;SocketCommandContext&gt;
+{
+    private readonly DatabaseService _dbService;
+    public MyModule(DatabaseService dbService)
+        =&gt; _dbService = dbService;
+}
+public class CommandHandler
+{
+    private readonly CommandService _commands;
+    private readonly IServiceProvider _services;
+    public CommandHandler(DiscordSocketClient client)
+    {
+        _services = new ServiceCollection()
+            .AddSingleton&lt;CommandService&gt;()
+            .AddSingleton(client)
+            // We are missing DatabaseService!
+            .BuildServiceProvider();
+    }
+    public async Task RegisterCommandsAsync()
+    {
+        // ...
+        // The method fails here because DatabaseService is a required
+        // dependency and cannot be resolved by the dependency
+        // injection service at runtime since the service is not
+        // registered in this instance of _services.
+        await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+        // ...
+
+        // The same approach applies to the interaction service.
+        // Make sure to resolve these issues!
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/basics/dependency-injection.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

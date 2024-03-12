@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Injection | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Injection | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/dependency_injection/injection.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="You can inject registered services into any class that is registered to the IServiceProvider.
+This can be done through property or constructor."><meta property="og:title" content="Injection | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.DI.Injection">
+<h1 id="injecting-instances-within-the-provider">Injecting instances within the provider</h1>
+
+<p>You can inject registered services into any class that is registered to the <code>IServiceProvider</code>.
+This can be done through property or constructor.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>As mentioned above, the dependency <em>and</em> the target class have to be registered in order for the serviceprovider to resolve it.</p>
+</div>
+<h2 id="injecting-through-a-constructor">Injecting through a constructor</h2>
+<p>Services can be injected from the constructor of the class.
+This is the preferred approach, because it automatically locks the readonly field in place with the provided service and isn't accessible outside of the class.</p>
+<pre><code class="lang-csharp" name="Constructor Injection">public class ClientHandler
+{
+    private readonly DiscordSocketClient _client;
+
+    public ClientHandler(DiscordSocketClient client)
+    {
+        _client = client;
+    }
+
+    public async Task ConfigureAsync()
+    {
+        //...
+    }
+}
+</code></pre><h2 id="injecting-through-properties">Injecting through properties</h2>
+<p>Injecting through properties is also allowed as follows.</p>
+<pre><code class="lang-csharp" name="Property Injection">public class ClientHandler
+{
+    public DiscordSocketClient Client { get; set; }
+
+    public async Task ConfigureAsync()
+    {
+        //...
+    }
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dependency Injection will not resolve missing services in property injection, and it will not pick a constructor instead.
+If a publicly accessible property is attempted to be injected and its service is missing, the application will throw an error.</p>
+</div>
+<h2 id="using-the-provider-itself">Using the provider itself</h2>
+<p>You can also access the provider reference itself from injecting it into a class. There are multiple use cases for this:</p>
+<ul>
+<li>Allowing libraries (Like Discord.Net) to access your provider internally.</li>
+<li>Injecting optional dependencies.</li>
+<li>Calling methods on the provider itself if necessary, this is often done for creating scopes.</li>
+</ul>
+<pre><code class="lang-csharp" name="Provider Injection">public class UtilizingProvider
+{
+    private readonly IServiceProvider _provider;
+    private readonly AnyService _service;
+
+    // This service is allowed to be null because it is only populated if the service is actually available in the provider.
+    private readonly AnyOtherService? _otherService;
+
+    // This constructor injects only the service provider,
+    // and uses it to populate the other dependencies.
+    public UtilizingProvider(IServiceProvider provider)
+    {
+        _provider = provider;
+        _service = provider.GetRequiredService&lt;AnyService&gt;();
+        _otherService = provider.GetService&lt;AnyOtherService&gt;();
+    }
+
+    // This constructor injects the service provider, and AnyService,
+    // making sure that AnyService is not null without having to call GetRequiredService
+    public UtilizingProvider(IServiceProvider provider, AnyService service)
+    {
+        _provider = provider;
+        _service = service;
+        _otherService = provider.GetService&lt;AnyOtherService&gt;();
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It is important to keep in mind that the provider will pick the 'biggest' available constructor.
+If you choose to introduce multiple constructors,
+keep in mind that services missing from one constructor may have the provider pick another one that <em>is</em> available instead of throwing an exception.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/dependency_injection/injection.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

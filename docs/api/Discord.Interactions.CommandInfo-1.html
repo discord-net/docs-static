@@ -1,0 +1,857 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CommandInfo&lt;TParameter&gt; | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CommandInfo&lt;TParameter&gt; | Discord.Net Documentation ">
+      
+      <meta name="description" content="The base information class for  commands.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/dev/apiSpec/new?filename=Discord_Interactions_CommandInfo_1.md&amp;value=---%0Auid%3A%20Discord.Interactions.CommandInfo%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="The base information class for InteractionService commands."><meta property="og:title" content="Class CommandInfo&lt;TParameter&gt; | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Discord.Interactions.CommandInfo`1">
+
+
+
+  <h1 id="Discord_Interactions_CommandInfo_1" data-uid="Discord.Interactions.CommandInfo`1" class="text-break">
+Class CommandInfo&lt;TParameter&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Discord.html">Discord</a>.<a class="xref" href="Discord.Interactions.html">Interactions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Discord.Net.Interactions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base information class for <a class="xref" href="Discord.Interactions.InteractionService.html">InteractionService</a> commands.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CommandInfo&lt;TParameter&gt; : ICommandInfo where TParameter : class, IParameterInfo</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TParameter</code></dt>
+    <dd><p>The type of <a class="xref" href="Discord.Interactions.IParameterInfo.html">IParameterInfo</a> that is used by this command type.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CommandInfo&lt;TParameter&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.ICommandInfo.html">ICommandInfo</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Discord.Interactions.AutocompleteCommandInfo.html">AutocompleteCommandInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.ComponentCommandInfo.html">ComponentCommandInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.ContextCommandInfo.html">ContextCommandInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.ModalCommandInfo.html">ModalCommandInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.SlashCommandInfo.html">SlashCommandInfo</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Discord_Interactions_CommandInfo_1_Attributes_" data-uid="Discord.Interactions.CommandInfo`1.Attributes*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_Attributes" data-uid="Discord.Interactions.CommandInfo`1.Attributes">
+  Attributes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the attributes of this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;Attribute&gt; Attributes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_CommandService_" data-uid="Discord.Interactions.CommandInfo`1.CommandService*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_CommandService" data-uid="Discord.Interactions.CommandInfo`1.CommandService">
+  CommandService
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the the underlying command service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InteractionService CommandService { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.InteractionService.html">InteractionService</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_IgnoreGroupNames_" data-uid="Discord.Interactions.CommandInfo`1.IgnoreGroupNames*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_IgnoreGroupNames" data-uid="Discord.Interactions.CommandInfo`1.IgnoreGroupNames">
+  IgnoreGroupNames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this command will be registered and executed as a standalone command, unaffected by the <a class="xref" href="Discord.Interactions.GroupAttribute.html">GroupAttribute</a>s of
+of the commands parents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IgnoreGroupNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_IsTopLevelCommand_" data-uid="Discord.Interactions.CommandInfo`1.IsTopLevelCommand*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_IsTopLevelCommand" data-uid="Discord.Interactions.CommandInfo`1.IsTopLevelCommand">
+  IsTopLevelCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this command is a top level command and none of its parents have a <a class="xref" href="Discord.Interactions.GroupAttribute.html">GroupAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTopLevelCommand { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_MethodName_" data-uid="Discord.Interactions.CommandInfo`1.MethodName*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_MethodName" data-uid="Discord.Interactions.CommandInfo`1.MethodName">
+  MethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of the command handler method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string MethodName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_Module_" data-uid="Discord.Interactions.CommandInfo`1.Module*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_Module" data-uid="Discord.Interactions.CommandInfo`1.Module">
+  Module
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the module that the method belongs to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModuleInfo Module { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.ModuleInfo.html">ModuleInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_Name_" data-uid="Discord.Interactions.CommandInfo`1.Name*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_Name" data-uid="Discord.Interactions.CommandInfo`1.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_Parameters_" data-uid="Discord.Interactions.CommandInfo`1.Parameters*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_Parameters" data-uid="Discord.Interactions.CommandInfo`1.Parameters">
+  Parameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the parameters of this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IReadOnlyList&lt;TParameter&gt; Parameters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TParameter&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_Preconditions_" data-uid="Discord.Interactions.CommandInfo`1.Preconditions*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_Preconditions" data-uid="Discord.Interactions.CommandInfo`1.Preconditions">
+  Preconditions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of the preconditions of this command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;PreconditionAttribute&gt; Preconditions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Discord.Interactions.PreconditionAttribute.html">PreconditionAttribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_RunMode_" data-uid="Discord.Interactions.CommandInfo`1.RunMode*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_RunMode" data-uid="Discord.Interactions.CommandInfo`1.RunMode">
+  RunMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the run mode this command gets executed with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RunMode RunMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.Interactions.RunMode.html">RunMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_SupportsWildCards_" data-uid="Discord.Interactions.CommandInfo`1.SupportsWildCards*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_SupportsWildCards" data-uid="Discord.Interactions.CommandInfo`1.SupportsWildCards">
+  SupportsWildCards
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this command supports wild card patterns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool SupportsWildCards { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_TreatNameAsRegex_" data-uid="Discord.Interactions.CommandInfo`1.TreatNameAsRegex*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_TreatNameAsRegex" data-uid="Discord.Interactions.CommandInfo`1.TreatNameAsRegex">
+  TreatNameAsRegex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TreatNameAsRegex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Interactions_CommandInfo_1_CheckPreconditionsAsync_" data-uid="Discord.Interactions.CommandInfo`1.CheckPreconditionsAsync*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_CheckPreconditionsAsync_Discord_IInteractionContext_System_IServiceProvider_" data-uid="Discord.Interactions.CommandInfo`1.CheckPreconditionsAsync(Discord.IInteractionContext,System.IServiceProvider)">
+  CheckPreconditionsAsync(IInteractionContext, IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if an execution context meets the command precondition requirements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;PreconditionResult&gt; CheckPreconditionsAsync(IInteractionContext context, IServiceProvider services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd></dd>
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Interactions.PreconditionResult.html">PreconditionResult</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_ExecuteAsync_" data-uid="Discord.Interactions.CommandInfo`1.ExecuteAsync*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_ExecuteAsync_Discord_IInteractionContext_System_IServiceProvider_" data-uid="Discord.Interactions.CommandInfo`1.ExecuteAsync(Discord.IInteractionContext,System.IServiceProvider)">
+  ExecuteAsync(IInteractionContext, IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes the command with the provided context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;IResult&gt; ExecuteAsync(IInteractionContext context, IServiceProvider services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd><p>The execution context.</p>
+</dd>
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd><p>Dependencies that will be used to create the module instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Interactions.IResult.html">IResult</a>&gt;</dt>
+    <dd><p>A task representing the execution process. The task result contains the execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_GetLogString_" data-uid="Discord.Interactions.CommandInfo`1.GetLogString*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_GetLogString_Discord_IInteractionContext_" data-uid="Discord.Interactions.CommandInfo`1.GetLogString(Discord.IInteractionContext)">
+  GetLogString(IInteractionContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string GetLogString(IInteractionContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_InvokeEventAndReturn_" data-uid="Discord.Interactions.CommandInfo`1.InvokeEventAndReturn*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_InvokeEventAndReturn__1_Discord_IInteractionContext___0_" data-uid="Discord.Interactions.CommandInfo`1.InvokeEventAndReturn``1(Discord.IInteractionContext,``0)">
+  InvokeEventAndReturn&lt;T&gt;(IInteractionContext, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;T&gt; InvokeEventAndReturn&lt;T&gt;(IInteractionContext context, T result) where T : IResult</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_InvokeModuleEvent_" data-uid="Discord.Interactions.CommandInfo`1.InvokeModuleEvent*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_InvokeModuleEvent_Discord_IInteractionContext_Discord_Interactions_IResult_" data-uid="Discord.Interactions.CommandInfo`1.InvokeModuleEvent(Discord.IInteractionContext,Discord.Interactions.IResult)">
+  InvokeModuleEvent(IInteractionContext, IResult)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task InvokeModuleEvent(IInteractionContext context, IResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="Discord.Interactions.IResult.html">IResult</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_ParseArgumentsAsync_" data-uid="Discord.Interactions.CommandInfo`1.ParseArgumentsAsync*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_ParseArgumentsAsync_Discord_IInteractionContext_System_IServiceProvider_" data-uid="Discord.Interactions.CommandInfo`1.ParseArgumentsAsync(Discord.IInteractionContext,System.IServiceProvider)">
+  ParseArgumentsAsync(IInteractionContext, IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task&lt;IResult&gt; ParseArgumentsAsync(IInteractionContext context, IServiceProvider services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Discord.IInteractionContext.html">IInteractionContext</a></dt>
+    <dd></dd>
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.Interactions.IResult.html">IResult</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_Interactions_CommandInfo_1_ToString_" data-uid="Discord.Interactions.CommandInfo`1.ToString*"></a>
+
+  <h3 id="Discord_Interactions_CommandInfo_1_ToString" data-uid="Discord.Interactions.CommandInfo`1.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Interactions/Info/Commands/CommandInfo.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Beginner Questions / How to Get Started | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Beginner Questions / How to Get Started | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/basics/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="In this following section, you will find commonly asked questions and
+answers about how to get started with Discord.Net, as well as basic
+introduct..."><meta property="og:title" content="Beginner Questions / How to Get Started | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FAQ.Basics.GetStarted">
+<h1 id="basic-concepts--getting-started">Basic Concepts / Getting Started</h1>
+
+<p>In this following section, you will find commonly asked questions and
+answers about how to get started with Discord.Net, as well as basic
+introduction to the Discord API ecosystem.</p>
+<h2 id="how-do-i-add-my-bot-to-my-serverguild">How do I add my bot to my server/guild?</h2>
+<p>Inviting your bot can be done by using the OAuth2 url generator provided by the <a href="https://discord.com/developers/applications/">Discord Developer Portal</a>.</p>
+<p>Permissions can be granted by selecting the <code>bot</code> scope in the scopes section.</p>
+<p><img src="images/scopes.png" alt="Scopes"></p>
+<p>A permissions tab will appear below the scope selection,
+from which you can pick any permissions your bot may require to function.
+When invited, the role this bot is granted will include these permissions.
+If you grant no permissions, no role will be created for your bot upon invitation as there is no need for one.</p>
+<p><img src="images/permissions.png" alt="Permissions"></p>
+<p>When done selecting permissions, you can use the link below in your browser to invite the bot
+to servers where you have the <code>Manage Server</code> permission.</p>
+<p><img src="images/link.png" alt="Invite"></p>
+<p>If you are planning to play around with slash/context commands,
+make sure to check the <code>application commands</code> scope before inviting your bot!</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You do not have to kick and reinvite your bot to update permissions/scopes later on.
+Simply reusing the invite link with provided scopes/perms will update it accordingly.</p>
+</div>
+<h2 id="what-is-a-token">What is a token?</h2>
+<p>A token is a credential used to log into an account. This information
+should be kept <strong>private</strong> and for your eyes only. Anyone with your
+token can log into your account. This risk applies to both user
+and bot accounts. That also means that you should <strong>never</strong> hardcode
+your token or add it into source control, as your identity may be
+stolen by scrape bots on the internet that scours through
+constantly to obtain a token.</p>
+<h2 id="what-is-a-clientuserobject-id">What is a client/user/object ID?</h2>
+<p>Each user and object on Discord has its own snowflake ID generated
+based on various conditions.</p>
+<p><img src="images/snowflake.png" alt="Snowflake Generation"></p>
+<p>Anyone can see the ID; it is public. It is merely used to
+identify an object in the Discord ecosystem. Many things in the
+Discord ecosystem require an ID to retrieve or identify the said
+object.</p>
+<p>There are 2 common ways to obtain the said ID.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_dev-mode" role="tab" aria-controls="tabpanel_1_dev-mode" data-tab="dev-mode" tabindex="0" aria-selected="true">Discord Developer Mode</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_escape-char" role="tab" aria-controls="tabpanel_1_escape-char" data-tab="escape-char" tabindex="-1">Escape Character</a>
+</li>
+</ul>
+<section id="tabpanel_1_dev-mode" role="tabpanel" data-tab="dev-mode">
+
+<p>By enabling the developer mode you can right click on most objects
+to obtain their snowflake IDs (please note that this may not apply to
+all objects, such as role IDs, or DM channel IDs).</p>
+<p><img src="images/dev-mode.png" alt="Developer Mode"></p>
+</section>
+<section id="tabpanel_1_escape-char" role="tabpanel" data-tab="escape-char" aria-hidden="true" hidden="hidden">
+
+<p>You can escape an object by using <code>\</code> in front the object in the
+Discord client. For example, when you do <code>\@Example#1234</code> in chat,
+it will return the user ID of the aforementioned user.</p>
+<p><img src="images/mention-escape.png" alt="Escaping mentions"></p>
+</section>
+</div>
+<h2 id="how-do-i-get-the-role-id">How do I get the role ID?</h2>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Right-clicking on the role and copying the ID will <strong>not</strong> work.
+This will only copy the message ID.</p>
+</div>
+<p>Several common ways to do this:</p>
+<ol>
+<li>(Easiest) Right click on the role either in the Server Settings
+or in the user's role list.
+<img src="images/role-copy.png" alt="Roles"></li>
+<li>Make the role mentionable and mention the role, and escape it
+using the <code>\</code> character in front.</li>
+<li>Inspect the roles collection within the guild via your debugger.</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/faq/basics/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

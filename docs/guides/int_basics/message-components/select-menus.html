@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Select Menus | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Select Menus | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_basics/message-components/select-menus.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  <meta property="og:description" content="Select menus allow users to select from a range of options, this can be quite useful with configuration commands etc."><meta property="og:title" content="Select Menus | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <script type="module" src="./../../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../marketing/logo/SVG/Logomark Purple.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.MessageComponents.SelectMenus">
+<h1 id="select-menus">Select menus</h1>
+
+<p>Select menus allow users to select from a range of options, this can be quite useful with configuration commands etc.</p>
+<h2 id="creating-a-select-menu">Creating a select menu</h2>
+<p>We can use a <code>SelectMenuBuilder</code> to create our menu.</p>
+<pre><code class="lang-cs">var menuBuilder = new SelectMenuBuilder()
+    .WithPlaceholder(&quot;Select an option&quot;)
+    .WithCustomId(&quot;menu-1&quot;)
+    .WithMinValues(1)
+    .WithMaxValues(1)
+    .AddOption(&quot;Option A&quot;, &quot;opt-a&quot;, &quot;Option B is lying!&quot;)
+    .AddOption(&quot;Option B&quot;, &quot;opt-b&quot;, &quot;Option A is telling the truth!&quot;);
+
+var builder = new ComponentBuilder()
+    .WithSelectMenu(menuBuilder);
+</code></pre>
+<p>Lets add this to a command:</p>
+<pre><code class="lang-cs">[Command(&quot;spawner&quot;)]
+public async Task Spawn()
+{
+    var menuBuilder = new SelectMenuBuilder()
+        .WithPlaceholder(&quot;Select an option&quot;)
+        .WithCustomId(&quot;menu-1&quot;)
+        .WithMinValues(1)
+        .WithMaxValues(1)
+        .AddOption(&quot;Option A&quot;, &quot;opt-a&quot;, &quot;Option B is lying!&quot;)
+        .AddOption(&quot;Option B&quot;, &quot;opt-b&quot;, &quot;Option A is telling the truth!&quot;);
+
+    var builder = new ComponentBuilder()
+        .WithSelectMenu(menuBuilder);
+
+    await ReplyAsync(&quot;Whos really lying?&quot;, components: builder.Build());
+}
+</code></pre>
+<p>Running this produces this result:</p>
+<p><img src="images/image4.png" alt=""></p>
+<p>And opening the menu we see:</p>
+<p><img src="images/image5.png" alt=""></p>
+<p>Lets handle the selection of an option, We can hook the <code>SelectMenuExecuted</code> event to handle our select menu:</p>
+<pre><code class="lang-cs">client.SelectMenuExecuted += MyMenuHandler;
+</code></pre>
+<p>The <code>SelectMenuExecuted</code> also supplies a <code>SocketMessageComponent</code> argument, we can confirm that its a select menu by checking the <code>ComponentType</code> inside of the data field if we need, but the library will do that for us and only execute our handler if its a select menu.</p>
+<p>The values that the user has selected will be inside of the <code>Values</code> collection in the Data field. we can list all of them back to the user for this example.</p>
+<pre><code class="lang-cs">public async Task MyMenuHandler(SocketMessageComponent arg)
+{
+    var text = string.Join(&quot;, &quot;, arg.Data.Values);
+    await arg.RespondAsync($&quot;You have selected {text}&quot;);
+}
+</code></pre>
+<p>Running this produces this result:</p>
+<p><img src="images/image6.png" alt=""></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_basics/message-components/select-menus.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.13.1
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
