@@ -105,8 +105,8 @@ Command modules are responsible for executing the Interaction handlers and provi
 A new module instance is created before a command execution starts then it will be disposed right after the method returns.</p>
 <p>Every module class must:</p>
 <ul>
-<li>be public</li>
-<li>inherit <a class="xref" href="../../api/Discord.Interactions.InteractionModuleBase.html">InteractionModuleBase</a></li>
+<li>Be public</li>
+<li>Inherit from <a class="xref" href="../../api/Discord.Interactions.InteractionModuleBase.html">InteractionModuleBase</a></li>
 </ul>
 <p>Optionally you can override the included :</p>
 <ul>
@@ -174,7 +174,7 @@ A new module instance is created before a command execution starts then it will 
 </table>
 <div class="NOTE">
 <h5>Note</h5>
-<p>a <code>TypeConverter</code> that is capable of parsing type in question must be registered to the <a class="xref" href="../../api/Discord.Interactions.InteractionService.html">InteractionService</a> instance.
+<p>A <code>TypeConverter</code> that is capable of parsing type in question must be registered to the <a class="xref" href="../../api/Discord.Interactions.InteractionService.html">InteractionService</a> instance.
 You should avoid using long running code in your command module.
 Depending on your setup, long running code may block the Gateway thread of your bot, interrupting its connection to Discord.</p>
 </div>
@@ -207,22 +207,58 @@ By default, your methods can feature the following parameter types:</p>
 <li><code>sbyte</code>, <code>byte</code></li>
 <li><code>int16</code>, <code>int32</code>, <code>int64</code></li>
 <li><code>uint16</code>, <code>uint32</code>, <code>uint64</code></li>
-<li><code>enum</code> (Values are registered as multiple choice options and are enforced by Discord. Use the <code>[Hide]</code> attribute on enum values to prevent them from getting registered.)</li>
+<li><code>enum</code></li>
 <li><code>DateTime</code></li>
 <li><code>TimeSpan</code></li>
 </ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Enum values are registered as multiple choice options and are enforced by Discord. Use the <code>[Hide]</code> attribute on enum values to prevent them from getting registered.</p>
+</div>
 <hr>
-<p>*<em>You can use more specialized implementations of <a class="xref" href="../../api/Discord.IChannel.html">IChannel</a> to restrict the allowed channel types for a channel type option.</em>
-| interface           | Channel Type                  |
-|---------------------|-------------------------------|
-| <code>IStageChannel</code>     | Stage Channels                |
-| <code>IVoiceChannel</code>     | Voice Channels                |
-| <code>IDMChannel</code>        | DM Channels                   |
-| <code>IGroupChannel</code>     | Group Channels                |
-| <code>ICategoryChannel</code> | Category Channels             |
-| <code>INewsChannel</code>      | News Channels                 |
-| <code>IThreadChannel</code>    | Public, Private, News Threads |
-| <code>ITextChannel</code>      | Text Channels                 |</p>
+<p><strong>You can use more specialized implementations of <a class="xref" href="../../api/Discord.IChannel.html">IChannel</a> to restrict the allowed channel types for a channel type option.</strong></p>
+<table>
+<thead>
+<tr>
+<th>interface</th>
+<th>Channel Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IStageChannel</code></td>
+<td>Stage Channels</td>
+</tr>
+<tr>
+<td><code>IVoiceChannel</code></td>
+<td>Voice Channels</td>
+</tr>
+<tr>
+<td><code>IDMChannel</code></td>
+<td>DM Channels</td>
+</tr>
+<tr>
+<td><code>IGroupChannel</code></td>
+<td>Group Channels</td>
+</tr>
+<tr>
+<td><code>ICategoryChannel</code></td>
+<td>Category Channels</td>
+</tr>
+<tr>
+<td><code>INewsChannel</code></td>
+<td>News Channels</td>
+</tr>
+<tr>
+<td><code>IThreadChannel</code></td>
+<td>Public, Private, News Threads</td>
+</tr>
+<tr>
+<td><code>ITextChannel</code></td>
+<td>Text Channels</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h4 id="optional-parameters">Optional Parameters</h4>
 <p>Parameters with default values (ie. <code>int count = 0</code>) will be displayed as optional parameters on Discord Client.</p>
