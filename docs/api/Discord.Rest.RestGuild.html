@@ -7,7 +7,7 @@
       <meta name="title" content="Class RestGuild | Discord.Net Documentation ">
       
       <meta name="description" content="Represents a REST-based guild/server.">
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="../favicon.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
-            
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="Discord.Net">
+            Discord.Net
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -1925,7 +1925,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_AddGuildUserAsync_System_UInt64_System_String_System_Action_Discord_AddGuildUserProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.AddGuildUserAsync(System.UInt64,System.String,System.Action{Discord.AddGuildUserProperties},Discord.RequestOptions)">
   AddGuildUserAsync(ulong, string, Action&lt;AddGuildUserProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L916"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L920"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1963,11 +1963,56 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
 
 
+  <a id="Discord_Rest_RestGuild_BulkBanAsync_" data-uid="Discord.Rest.RestGuild.BulkBanAsync*"></a>
+
+  <h3 id="Discord_Rest_RestGuild_BulkBanAsync_System_Collections_Generic_IEnumerable_System_UInt64__System_Nullable_System_Int32__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.BulkBanAsync(System.Collections.Generic.IEnumerable{System.UInt64},System.Nullable{System.Int32},Discord.RequestOptions)">
+  BulkBanAsync(IEnumerable&lt;ulong&gt;, int?, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a bulk ban on the specified users.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;BulkBanResult&gt; BulkBanAsync(IEnumerable&lt;ulong&gt; userIds, int? deleteMessageSeconds = null, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userIds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</dt>
+    <dd><p>A collection of user ids to ban.</p>
+</dd>
+    <dt><code>deleteMessageSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The number of seconds to delete messages for. Max 604800.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.BulkBanResult.html">BulkBanResult</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous creation operation. The task result contains a <a class="xref" href="Discord.BulkBanResult.html">BulkBanResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Discord_Rest_RestGuild_BulkOverwriteApplicationCommandsAsync_" data-uid="Discord.Rest.RestGuild.BulkOverwriteApplicationCommandsAsync*"></a>
 
   <h3 id="Discord_Rest_RestGuild_BulkOverwriteApplicationCommandsAsync_Discord_ApplicationCommandProperties___Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.BulkOverwriteApplicationCommandsAsync(Discord.ApplicationCommandProperties[],Discord.RequestOptions)">
   BulkOverwriteApplicationCommandsAsync(ApplicationCommandProperties[], RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1068"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1072"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Overwrites the application commands within this guild.</p>
@@ -2009,7 +2054,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_CreateApplicationCommandAsync_Discord_ApplicationCommandProperties_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateApplicationCommandAsync(Discord.ApplicationCommandProperties,Discord.RequestOptions)">
   CreateApplicationCommandAsync(ApplicationCommandProperties, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1054"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1058"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates an application command within this guild.</p>
@@ -2051,7 +2096,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_CreateAutoModRuleAsync_System_Action_Discord_AutoModRuleProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateAutoModRuleAsync(System.Action{Discord.AutoModRuleProperties},Discord.RequestOptions)">
   CreateAutoModRuleAsync(Action&lt;AutoModRuleProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1301"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1305"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new auto moderation rule.</p>
@@ -2091,7 +2136,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_CreateCategoryChannelAsync_System_String_System_Action_Discord_GuildChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateCategoryChannelAsync(System.String,System.Action{Discord.GuildChannelProperties},Discord.RequestOptions)">
   CreateCategoryChannelAsync(string, Action&lt;GuildChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L791"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L795"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a category channel with the provided name.</p>
@@ -2142,7 +2187,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_CreateEmoteAsync_System_String_Discord_Image_Discord_Optional_System_Collections_Generic_IEnumerable_Discord_IRole___Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateEmoteAsync(System.String,Discord.Image,Discord.Optional{System.Collections.Generic.IEnumerable{Discord.IRole}},Discord.RequestOptions)">
   CreateEmoteAsync(string, Image, Optional&lt;IEnumerable&lt;IRole&gt;&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1094"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1098"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Discord.GuildEmote.html">GuildEmote</a> in this guild.</p>
@@ -2190,7 +2235,7 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
 
   <h3 id="Discord_Rest_RestGuild_CreateEventAsync_System_String_System_DateTimeOffset_Discord_GuildScheduledEventType_Discord_GuildScheduledEventPrivacyLevel_System_String_System_Nullable_System_DateTimeOffset__System_Nullable_System_UInt64__System_String_System_Nullable_Discord_Image__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateEventAsync(System.String,System.DateTimeOffset,Discord.GuildScheduledEventType,Discord.GuildScheduledEventPrivacyLevel,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.UInt64},System.String,System.Nullable{Discord.Image},Discord.RequestOptions)">
   CreateEventAsync(string, DateTimeOffset, GuildScheduledEventType, GuildScheduledEventPrivacyLevel, string, DateTimeOffset?, ulong?, string, Image?, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1268"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1272"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates an event within this guild.</p>
@@ -2260,7 +2305,7 @@ in order to use this property.
 
   <h3 id="Discord_Rest_RestGuild_CreateForumChannelAsync_System_String_System_Action_Discord_ForumChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateForumChannelAsync(System.String,System.Action{Discord.ForumChannelProperties},Discord.RequestOptions)">
   CreateForumChannelAsync(string, Action&lt;ForumChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L804"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L808"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new forum channel with the provided name.</p>
@@ -2311,7 +2356,7 @@ in order to use this property.
 
   <h3 id="Discord_Rest_RestGuild_CreateMediaChannelAsync_System_String_System_Action_Discord_ForumChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateMediaChannelAsync(System.String,System.Action{Discord.ForumChannelProperties},Discord.RequestOptions)">
   CreateMediaChannelAsync(string, Action&lt;ForumChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L817"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L821"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new media channel in this guild.</p>
@@ -2357,7 +2402,7 @@ media channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateNewsChannelAsync_System_String_System_Action_Discord_TextChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateNewsChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)">
   CreateNewsChannelAsync(string, Action&lt;TextChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L754"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L758"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new announcement channel in this guild.</p>
@@ -2406,7 +2451,7 @@ announcement channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateRoleAsync_System_String_System_Nullable_Discord_GuildPermissions__System_Nullable_Discord_Color__System_Boolean_System_Boolean_Discord_RequestOptions_System_Nullable_Discord_Image__Discord_Emoji_" data-uid="Discord.Rest.RestGuild.CreateRoleAsync(System.String,System.Nullable{Discord.GuildPermissions},System.Nullable{Discord.Color},System.Boolean,System.Boolean,Discord.RequestOptions,System.Nullable{Discord.Image},Discord.Emoji)">
   CreateRoleAsync(string, GuildPermissions?, Color?, bool, bool, RequestOptions, Image?, Emoji)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L891"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L895"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new role with the provided name.</p>
@@ -2467,7 +2512,7 @@ role.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateStageChannelAsync_System_String_System_Action_Discord_VoiceChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateStageChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)">
   CreateStageChannelAsync(string, Action&lt;VoiceChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L779"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L783"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new stage channel in this guild.</p>
@@ -2513,7 +2558,7 @@ stage channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateStickerAsync_System_String_Discord_Image_System_Collections_Generic_IEnumerable_System_String__System_String_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateStickerAsync(System.String,Discord.Image,System.Collections.Generic.IEnumerable{System.String},System.String,Discord.RequestOptions)">
   CreateStickerAsync(string, Image, IEnumerable&lt;string&gt;, string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new sticker in this guild.</p>
@@ -2564,7 +2609,7 @@ stage channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateStickerAsync_System_String_System_IO_Stream_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateStickerAsync(System.String,System.IO.Stream,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,Discord.RequestOptions)">
   CreateStickerAsync(string, Stream, string, IEnumerable&lt;string&gt;, string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new sticker in this guild</p>
@@ -2618,7 +2663,7 @@ stage channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateStickerAsync_System_String_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateStickerAsync(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,Discord.RequestOptions)">
   CreateStickerAsync(string, string, IEnumerable&lt;string&gt;, string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new sticker in this guild</p>
@@ -2669,7 +2714,7 @@ stage channel.</p>
 
   <h3 id="Discord_Rest_RestGuild_CreateTextChannelAsync_System_String_System_Action_Discord_TextChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateTextChannelAsync(System.String,System.Action{Discord.TextChannelProperties},Discord.RequestOptions)">
   CreateTextChannelAsync(string, Action&lt;TextChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L750"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L754"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new text channel in this guild.</p>
@@ -2726,7 +2771,7 @@ await Context.Guild.CreateTextChannelAsync(name, x =&gt;
 
   <h3 id="Discord_Rest_RestGuild_CreateVoiceChannelAsync_System_String_System_Action_Discord_VoiceChannelProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.CreateVoiceChannelAsync(System.String,System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)">
   CreateVoiceChannelAsync(string, Action&lt;VoiceChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L767"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L771"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a voice channel with the provided name.</p>
@@ -2815,7 +2860,7 @@ await Context.Guild.CreateTextChannelAsync(name, x =&gt;
 
   <h3 id="Discord_Rest_RestGuild_DeleteEmoteAsync_Discord_GuildEmote_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.DeleteEmoteAsync(Discord.GuildEmote,Discord.RequestOptions)">
   DeleteEmoteAsync(GuildEmote, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes an existing <a class="xref" href="Discord.GuildEmote.html">GuildEmote</a> from this guild.</p>
@@ -2857,7 +2902,7 @@ await Context.Guild.CreateTextChannelAsync(name, x =&gt;
 
   <h3 id="Discord_Rest_RestGuild_DeleteIntegrationAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.DeleteIntegrationAsync(System.UInt64,Discord.RequestOptions)">
   DeleteIntegrationAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L835"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L839"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -2934,7 +2979,7 @@ await Context.Guild.CreateTextChannelAsync(name, x =&gt;
 
   <h3 id="Discord_Rest_RestGuild_DeleteStickerAsync_Discord_Rest_CustomSticker_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.DeleteStickerAsync(Discord.Rest.CustomSticker,Discord.RequestOptions)">
   DeleteStickerAsync(CustomSticker, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1219"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1223"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes a sticker within this guild.</p>
@@ -2976,7 +3021,7 @@ await Context.Guild.CreateTextChannelAsync(name, x =&gt;
 
   <h3 id="Discord_Rest_RestGuild_GetAFKChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetAFKChannelAsync(Discord.RequestOptions)">
   GetAFKChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L625"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L629"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the AFK voice channel in this guild.</p>
@@ -3016,7 +3061,7 @@ AFK users will be moved to after they have idled for too long; <a href="https://
 
   <h3 id="Discord_Rest_RestGuild_GetApplicationCommandAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetApplicationCommandAsync(System.UInt64,Discord.RequestOptions)">
   GetApplicationCommandAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1043"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1047"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an application command within this guild with the specified id.</p>
@@ -3059,7 +3104,7 @@ if found, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-
 
   <h3 id="Discord_Rest_RestGuild_GetApplicationCommandsAsync_System_Boolean_System_String_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetApplicationCommandsAsync(System.Boolean,System.String,Discord.RequestOptions)">
   GetApplicationCommandsAsync(bool, string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1031"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1035"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets this guilds slash commands</p>
@@ -3105,7 +3150,7 @@ of application commands found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetAuditLogsAsync_System_Int32_Discord_RequestOptions_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_Discord_ActionType__System_Nullable_System_UInt64__" data-uid="Discord.Rest.RestGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType},System.Nullable{System.UInt64})">
   GetAuditLogsAsync(int, RequestOptions, ulong?, ulong?, ActionType?, ulong?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L991"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L995"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the specified number of audit log entries for this guild.</p>
@@ -3160,7 +3205,7 @@ of the requested audit log entries.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetAutoModRuleAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetAutoModRuleAsync(System.UInt64,Discord.RequestOptions)">
   GetAutoModRuleAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1291"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single rule configured in a guild. Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the rule was not found.</p>
@@ -3200,7 +3245,7 @@ of the requested audit log entries.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetAutoModRulesAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetAutoModRulesAsync(Discord.RequestOptions)">
   GetAutoModRulesAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1294"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1298"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get a list of all rules currently configured for the guild.</p>
@@ -3513,7 +3558,7 @@ contains the user information and the reason for the ban; <a href="https://learn
 
   <h3 id="Discord_Rest_RestGuild_GetCategoryChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetCategoryChannelsAsync(Discord.RequestOptions)">
   GetCategoryChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L611"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L615"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all category channels in this guild.</p>
@@ -3553,7 +3598,7 @@ category channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L431"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a channel in this guild.</p>
@@ -3596,7 +3641,7 @@ associated with the specified <code class="paramref">id</code>; <a href="https:/
 
   <h3 id="Discord_Rest_RestGuild_GetChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetChannelsAsync(Discord.RequestOptions)">
   GetChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L419"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all channels in this guild.</p>
@@ -3636,7 +3681,7 @@ generic channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetCurrentUserAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetCurrentUserAsync(Discord.RequestOptions)">
   GetCurrentUserAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L942"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L946"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the current user for this guild.</p>
@@ -3676,7 +3721,7 @@ user within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetDefaultChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetDefaultChannelAsync(Discord.RequestOptions)">
   GetDefaultChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L644"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L648"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the first viewable text channel in this guild.</p>
@@ -3716,7 +3761,7 @@ channel in this guild; <a href="https://learn.microsoft.com/dotnet/csharp/langua
 
   <h3 id="Discord_Rest_RestGuild_GetEmoteAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetEmoteAsync(System.UInt64,Discord.RequestOptions)">
   GetEmoteAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1091"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1095"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a specific emote from this guild.</p>
@@ -3759,7 +3804,7 @@ specified <code class="paramref">id</code>; <a href="https://learn.microsoft.com
 
   <h3 id="Discord_Rest_RestGuild_GetEmotesAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetEmotesAsync(Discord.RequestOptions)">
   GetEmotesAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1088"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1092"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of emotes from this guild.</p>
@@ -3799,7 +3844,7 @@ of emotes found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetEventAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetEventAsync(System.UInt64,Discord.RequestOptions)">
   GetEventAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1233"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1237"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an event within this guild.</p>
@@ -3841,7 +3886,7 @@ of emotes found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetEventsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetEventsAsync(Discord.RequestOptions)">
   GetEventsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1243"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1247"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets all active events within this guild.</p>
@@ -3880,7 +3925,7 @@ of emotes found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetForumChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetForumChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetForumChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L468"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L472"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a forum channel in this guild.</p>
@@ -3923,7 +3968,7 @@ associated with the specified <code class="paramref">id</code>; <a href="https:/
 
   <h3 id="Discord_Rest_RestGuild_GetForumChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetForumChannelsAsync(Discord.RequestOptions)">
   GetForumChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L482"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L486"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all forum channels in this guild.</p>
@@ -3963,7 +4008,7 @@ forum channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetIntegrationsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetIntegrationsAsync(Discord.RequestOptions)">
   GetIntegrationsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L833"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L837"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -3999,7 +4044,7 @@ forum channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetInvitesAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetInvitesAsync(Discord.RequestOptions)">
   GetInvitesAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L848"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L852"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all invites in this guild.</p>
@@ -4039,7 +4084,7 @@ invite metadata, each representing information for an invite found within this g
 
   <h3 id="Discord_Rest_RestGuild_GetMediaChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetMediaChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetMediaChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L501"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a media channel in this guild.</p>
@@ -4082,7 +4127,7 @@ associated with the specified <code class="paramref">id</code>; <a href="https:/
 
   <h3 id="Discord_Rest_RestGuild_GetMediaChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetMediaChannelsAsync(Discord.RequestOptions)">
   GetMediaChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L515"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all media channels in this guild.</p>
@@ -4122,7 +4167,7 @@ media channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetOnboardingAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetOnboardingAsync(Discord.RequestOptions)">
   GetOnboardingAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1314"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1318"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the onboarding object configured for the guild.</p>
@@ -4160,7 +4205,7 @@ media channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetOwnerAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetOwnerAsync(Discord.RequestOptions)">
   GetOwnerAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L952"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L956"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the owner of this guild.</p>
@@ -4199,7 +4244,7 @@ media channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetPublicUpdatesChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetPublicUpdatesChannelAsync(Discord.RequestOptions)">
   GetPublicUpdatesChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L716"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L720"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the text channel where admins and moderators of Community guilds receive notices from Discord.</p>
@@ -4239,7 +4284,7 @@ admins and moderators of Community guilds receive notices from Discord; <a href=
 
   <h3 id="Discord_Rest_RestGuild_GetRole_System_UInt64_" data-uid="Discord.Rest.RestGuild.GetRole(System.UInt64)">
   GetRole(ulong)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L869"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L873"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a role in this guild.</p>
@@ -4278,7 +4323,7 @@ admins and moderators of Community guilds receive notices from Discord; <a href=
 
   <h3 id="Discord_Rest_RestGuild_GetRulesChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetRulesChannelAsync(Discord.RequestOptions)">
   GetRulesChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L697"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L701"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the text channel where Community guilds can display rules and/or guidelines.</p>
@@ -4407,7 +4452,7 @@ slash commands created by the current user.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetStageChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetStageChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetStageChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L583"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L587"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a stage channel in this guild</p>
@@ -4450,7 +4495,7 @@ with the specified <code class="paramref">id</code>; <a href="https://learn.micr
 
   <h3 id="Discord_Rest_RestGuild_GetStageChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetStageChannelsAsync(Discord.RequestOptions)">
   GetStageChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L601"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all stage channels in this guild.</p>
@@ -4490,7 +4535,7 @@ stage channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetStickerAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetStickerAsync(System.UInt64,Discord.RequestOptions)">
   GetStickerAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1177"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a specific sticker within this guild.</p>
@@ -4533,7 +4578,7 @@ specified <code class="paramref">id</code>; <a href="https://learn.microsoft.com
 
   <h3 id="Discord_Rest_RestGuild_GetStickersAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetStickersAsync(Discord.RequestOptions)">
   GetStickersAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1198"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all stickers within this guild.</p>
@@ -4573,7 +4618,7 @@ of stickers found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetSystemChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetSystemChannelAsync(Discord.RequestOptions)">
   GetSystemChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L678"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L682"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the text channel where guild notices such as welcome messages and boost events are posted.</p>
@@ -4613,7 +4658,7 @@ where guild notices such as welcome messages and boost events are post; <a href=
 
   <h3 id="Discord_Rest_RestGuild_GetTextChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetTextChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetTextChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L443"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a text channel in this guild.</p>
@@ -4656,7 +4701,7 @@ associated with the specified <code class="paramref">id</code>; <a href="https:/
 
   <h3 id="Discord_Rest_RestGuild_GetTextChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetTextChannelsAsync(Discord.RequestOptions)">
   GetTextChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L457"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all text channels in this guild.</p>
@@ -4696,7 +4741,7 @@ message channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetThreadChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetThreadChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetThreadChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L526"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L530"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a thread channel in this guild.</p>
@@ -4739,7 +4784,7 @@ with the specified <code class="paramref">id</code>; <a href="https://learn.micr
 
   <h3 id="Discord_Rest_RestGuild_GetThreadChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetThreadChannelsAsync(Discord.RequestOptions)">
   GetThreadChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L540"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L544"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all thread in this guild.</p>
@@ -4779,7 +4824,7 @@ threads found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetUserAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetUserAsync(System.UInt64,Discord.RequestOptions)">
   GetUserAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L931"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L935"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a user from this guild.</p>
@@ -4825,7 +4870,7 @@ associated with the specified <code class="paramref">id</code>; <a href="https:/
 
   <h3 id="Discord_Rest_RestGuild_GetUsersAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetUsersAsync(Discord.RequestOptions)">
   GetUsersAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L912"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L916"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all users in this guild.</p>
@@ -4868,7 +4913,7 @@ users found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetVanityInviteAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetVanityInviteAsync(Discord.RequestOptions)">
   GetVanityInviteAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L857"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L861"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the vanity invite URL of this guild.</p>
@@ -4907,7 +4952,7 @@ users found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetVoiceChannelAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetVoiceChannelAsync(System.UInt64,Discord.RequestOptions)">
   GetVoiceChannelAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L555"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L559"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a voice channel in this guild.</p>
@@ -4950,7 +4995,7 @@ with the specified <code class="paramref">id</code>; <a href="https://learn.micr
 
   <h3 id="Discord_Rest_RestGuild_GetVoiceChannelsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetVoiceChannelsAsync(Discord.RequestOptions)">
   GetVoiceChannelsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L573"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all voice channels in this guild.</p>
@@ -4990,7 +5035,7 @@ voice channels found within this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetVoiceRegionsAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetVoiceRegionsAsync(Discord.RequestOptions)">
   GetVoiceRegionsAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L828"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L832"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all the voice regions this guild can access.</p>
@@ -5030,7 +5075,7 @@ voice regions the guild can access.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetWebhookAsync_System_UInt64_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetWebhookAsync(System.UInt64,Discord.RequestOptions)">
   GetWebhookAsync(ulong, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1005"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1009"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a webhook found within this guild.</p>
@@ -5073,7 +5118,7 @@ specified <code class="paramref">id</code>; <a href="https://learn.microsoft.com
 
   <h3 id="Discord_Rest_RestGuild_GetWebhooksAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetWebhooksAsync(Discord.RequestOptions)">
   GetWebhooksAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1016"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1020"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of all webhook from this guild.</p>
@@ -5113,7 +5158,7 @@ of webhooks found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetWelcomeScreenAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetWelcomeScreenAsync(Discord.RequestOptions)">
   GetWelcomeScreenAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1713"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1717"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the welcome screen of the guild. Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the welcome channel is not set.</p>
@@ -5151,7 +5196,7 @@ of webhooks found within the guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_GetWidgetChannelAsync_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.GetWidgetChannelAsync(Discord.RequestOptions)">
   GetWidgetChannelAsync(RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L662"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L666"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the widget channel (i.e. the channel set in the guild's widget settings) in this guild.</p>
@@ -5284,7 +5329,7 @@ within the server's widget settings; <a href="https://learn.microsoft.com/dotnet
 
   <h3 id="Discord_Rest_RestGuild_ModifyEmoteAsync_Discord_GuildEmote_System_Action_Discord_EmoteProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.ModifyEmoteAsync(Discord.GuildEmote,System.Action{Discord.EmoteProperties},Discord.RequestOptions)">
   ModifyEmoteAsync(GuildEmote, Action&lt;EmoteProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1098"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1102"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Modifies an existing <a class="xref" href="Discord.GuildEmote.html">GuildEmote</a> in this guild.</p>
@@ -5376,7 +5421,7 @@ emote.</p>
 
   <h3 id="Discord_Rest_RestGuild_ModifyOnboardingAsync_System_Action_Discord_GuildOnboardingProperties__Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.ModifyOnboardingAsync(System.Action{Discord.GuildOnboardingProperties},Discord.RequestOptions)">
   ModifyOnboardingAsync(Action&lt;GuildOnboardingProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1322"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1326"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Modifies the onboarding object configured for the guild.</p>
@@ -5416,7 +5461,7 @@ emote.</p>
 
   <h3 id="Discord_Rest_RestGuild_ModifyWelcomeScreenAsync_System_Boolean_Discord_WelcomeScreenChannelProperties___System_String_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.ModifyWelcomeScreenAsync(System.Boolean,Discord.WelcomeScreenChannelProperties[],System.String,Discord.RequestOptions)">
   ModifyWelcomeScreenAsync(bool, WelcomeScreenChannelProperties[], string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1717"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1721"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Modifies the welcome screen of the guild. Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if welcome screen is removed.</p>
@@ -5508,7 +5553,7 @@ emote.</p>
 
   <h3 id="Discord_Rest_RestGuild_MoveAsync_Discord_IGuildUser_Discord_IVoiceChannel_" data-uid="Discord.Rest.RestGuild.MoveAsync(Discord.IGuildUser,Discord.IVoiceChannel)">
   MoveAsync(IGuildUser, IVoiceChannel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves the user to the voice channel.</p>
@@ -5550,7 +5595,7 @@ emote.</p>
 
   <h3 id="Discord_Rest_RestGuild_PruneUsersAsync_System_Int32_System_Boolean_Discord_RequestOptions_System_Collections_Generic_IEnumerable_System_UInt64__" data-uid="Discord.Rest.RestGuild.PruneUsersAsync(System.Int32,System.Boolean,Discord.RequestOptions,System.Collections.Generic.IEnumerable{System.UInt64})">
   PruneUsersAsync(int, bool, RequestOptions, IEnumerable&lt;ulong&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L956"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L960"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Prunes inactive users.</p>
@@ -5782,7 +5827,7 @@ be or has been removed from this guild.</p>
 
   <h3 id="Discord_Rest_RestGuild_SearchUsersAsync_System_String_System_Int32_Discord_RequestOptions_" data-uid="Discord.Rest.RestGuild.SearchUsersAsync(System.String,System.Int32,Discord.RequestOptions)">
   SearchUsersAsync(string, int, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L973"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L977"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of users in this guild that the name or nickname starts with the
@@ -5832,7 +5877,7 @@ users that the name or nickname starts with the provided <a class="xref" href="h
 
   <h3 id="Discord_Rest_RestGuild_ToString" data-uid="Discord.Rest.RestGuild.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1082"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Rest/Entities/Guilds/RestGuild.cs/#L1086"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the name of the guild.</p>

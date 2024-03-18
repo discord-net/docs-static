@@ -7,7 +7,7 @@
       <meta name="title" content="Interface IGuild | Discord.Net Documentation ">
       
       <meta name="description" content="Represents a generic guild/server.">
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="../favicon.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="">
-            
+            <img id="logo" class="svg" src="../marketing/logo/SVG/Logomark Purple.svg" alt="Discord.Net">
+            Discord.Net
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -1981,6 +1981,51 @@ within the widget settings of this guild; <a href="https://learn.microsoft.com/d
   <h4 class="section" id="Discord_IGuild_AddGuildUserAsync_System_UInt64_System_String_System_Action_Discord_AddGuildUserProperties__Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method requires you have an OAuth2 access token for the user, requested with the guilds.join scope, and that the bot have the MANAGE_INVITES permission in the guild.</p>
 </div>
+
+
+
+
+  <a id="Discord_IGuild_BulkBanAsync_" data-uid="Discord.IGuild.BulkBanAsync*"></a>
+
+  <h3 id="Discord_IGuild_BulkBanAsync_System_Collections_Generic_IEnumerable_System_UInt64__System_Nullable_System_Int32__Discord_RequestOptions_" data-uid="Discord.IGuild.BulkBanAsync(System.Collections.Generic.IEnumerable{System.UInt64},System.Nullable{System.Int32},Discord.RequestOptions)">
+  BulkBanAsync(IEnumerable&lt;ulong&gt;, int?, RequestOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Guilds/IGuild.cs/#L1431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a bulk ban on the specified users.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BulkBanResult&gt; BulkBanAsync(IEnumerable&lt;ulong&gt; userIds, int? deleteMessageSeconds = null, RequestOptions options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userIds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>&gt;</dt>
+    <dd><p>A collection of user ids to ban.</p>
+</dd>
+    <dt><code>deleteMessageSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The number of seconds to delete messages for. Max 604800.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Discord.RequestOptions.html">RequestOptions</a></dt>
+    <dd><p>The options to be used when sending the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Discord.BulkBanResult.html">BulkBanResult</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous creation operation. The task result contains a <a class="xref" href="Discord.BulkBanResult.html">BulkBanResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 
