@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/intro.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.14.0/docs/guides/int_framework/intro.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -353,7 +353,11 @@ public async Task CreateVector(int x, int y, int z)
 <li>Type's only public constuctor.</li>
 </ol>
 <h4 id="dm-permissions">DM Permissions</h4>
-<p>You can use the [EnabledInDmAttribute] to configure whether a globally-scoped top level command should be enabled in Dms or not. Only works on top level commands.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><a class="xref" href="../../api/Discord.Interactions.EnabledInDmAttribute.html">EnabledInDmAttribute</a> is being deprecated in favor of <a href="xref:Discord.Interactions.CommandContextTypesAttribute">CommandContextTypes</a> attribute.</p>
+</div>
+<p>You can use the <a class="xref" href="../../api/Discord.Interactions.EnabledInDmAttribute.html">EnabledInDmAttribute</a> to configure whether a globally-scoped top level command should be enabled in Dms or not. Only works on top level commands.</p>
 <h4 id="default-member-permissions">Default Member Permissions</h4>
 <p>[DefaultMemberPermissionsAttribute] can be used when creating a command to set the permissions a user must have to use the command. Permission overwrites can be configured from the Integrations page of Guild Settings. [DefaultMemberPermissionsAttribute] cumulatively propagates down the class hierarchy until it reaches a top level command. This attribute can be only used on top level commands and will not work on commands that are nested in command groups.</p>
 <h2 id="user-commands">User Commands</h2>
@@ -729,11 +733,32 @@ delegate can be used to create HTTP responses from a deserialized json object st
     }
 }
 </code></pre>
+<h2 id="user-apps">User Apps</h2>
+<p>User apps are the kind of Discord applications that are installed onto a user instead of a guild, thus making commands usable anywhere on Discord. Note that only users who have installed the application will see the commands. This sample shows you how to create a simple user install command.</p>
+<pre><code class="lang-csharp" name="Registering Commands Example">
+// This parameteres can be configured on the module level
+// Set supported command context types to Bot DMs and Private Channels (regular DM &amp; GDM)
+[CommandContextType(InteractionContextType.BotDm, InteractionContextType.PrivateChannel)]
+// Set supported integration installation type to User Install
+[IntegrationType(ApplicationIntegrationType.UserInstall)]
+public class CommandModule() : InteractionModuleBase&lt;SocketInteractionContext&gt;
+{
+    [SlashCommand(&quot;test&quot;, &quot;Just a test command&quot;)]
+    public async Task TestCommand()
+        =&gt; await RespondAsync(&quot;Hello There&quot;);
 
+    // But can also be overridden on the command level
+    [CommandContextType(InteractionContextType.BotDm, InteractionContextType.PrivateChannel, InteractionContextType.Guild)]
+    [IntegrationType(ApplicationIntegrationType.GuildInstall)]
+    [SlashCommand(&quot;echo&quot;, &quot;Echo the input&quot;)]
+    public async Task EchoCommand(string input)
+        =&gt; await RespondAsync($&quot;You said: {input}&quot;);
+}
+</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/intro.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.14.0/docs/guides/int_framework/intro.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -750,7 +775,7 @@ delegate can be used to create HTTP responses from a deserialized json object st
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2024 3.13.1
+          Discord.Net © 2015-2024 3.14.0
         </div>
       </div>
     </footer>
