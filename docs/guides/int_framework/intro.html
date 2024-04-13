@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="The Interaction Service provides an attribute based framework for creating Discord Interaction handlers."><meta property="og:title" content="Introduction to the Interaction Service | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -199,7 +199,7 @@ By default, your methods can feature the following parameter types:</p>
 <li>Implementations of <a class="xref" href="../../api/Discord.IChannel.html">IChannel</a></li>
 <li>Implementations of <a class="xref" href="../../api/Discord.IRole.html">IRole</a></li>
 <li>Implementations of <a class="xref" href="../../api/Discord.IMentionable.html">IMentionable</a></li>
-<li>Implementations of [IAttachment]</li>
+<li>Implementations of <a class="xref" href="../../api/Discord.IAttachment.html">IAttachment</a></li>
 <li><code>string</code></li>
 <li><code>float</code>, <code>double</code>, <code>decimal</code></li>
 <li><code>bool</code></li>
@@ -355,11 +355,11 @@ public async Task CreateVector(int x, int y, int z)
 <h4 id="dm-permissions">DM Permissions</h4>
 <div class="WARNING">
 <h5>Warning</h5>
-<p><a class="xref" href="../../api/Discord.Interactions.EnabledInDmAttribute.html">EnabledInDmAttribute</a> is being deprecated in favor of <a href="xref:Discord.Interactions.CommandContextTypesAttribute">CommandContextTypes</a> attribute.</p>
+<p><a class="xref" href="../../api/Discord.Interactions.EnabledInDmAttribute.html">EnabledInDmAttribute</a> is being deprecated in favor of <a class="xref" href="../../api/Discord.Interactions.CommandContextTypeAttribute.html">CommandContextType</a> attribute.</p>
 </div>
 <p>You can use the <a class="xref" href="../../api/Discord.Interactions.EnabledInDmAttribute.html">EnabledInDmAttribute</a> to configure whether a globally-scoped top level command should be enabled in Dms or not. Only works on top level commands.</p>
 <h4 id="default-member-permissions">Default Member Permissions</h4>
-<p>[DefaultMemberPermissionsAttribute] can be used when creating a command to set the permissions a user must have to use the command. Permission overwrites can be configured from the Integrations page of Guild Settings. [DefaultMemberPermissionsAttribute] cumulatively propagates down the class hierarchy until it reaches a top level command. This attribute can be only used on top level commands and will not work on commands that are nested in command groups.</p>
+<p><a class="xref" href="../../api/Discord.Interactions.DefaultMemberPermissionsAttribute.html">DefaultMemberPermissionsAttribute</a> can be used when creating a command to set the permissions a user must have to use the command. Permission overwrites can be configured from the Integrations page of Guild Settings. <a class="xref" href="../../api/Discord.Interactions.DefaultMemberPermissionsAttribute.html">DefaultMemberPermissionsAttribute</a> cumulatively propagates down the class hierarchy until it reaches a top level command. This attribute can be only used on top level commands and will not work on commands that are nested in command groups.</p>
 <h2 id="user-commands">User Commands</h2>
 <p>A valid User Command must have the following structure:</p>
 <pre><code class="lang-csharp" name="User Command">[UserCommand(&quot;Say Hello&quot;)]
@@ -509,7 +509,7 @@ to prevent performance issues.</p>
 <p>Every command module provides its commands with an execution context.
 This context property includes general information about the underlying interaction that triggered the command execution.
 The base command context.</p>
-<p>You can design your modules to work with different implementation types of [IInteractionContext].
+<p>You can design your modules to work with different implementation types of <a class="xref" href="../../api/Discord.IInteractionContext.html">IInteractionContext</a>.
 To achieve this, make sure your module classes inherit from the generic variant of the <a class="xref" href="../../api/Discord.Interactions.InteractionModuleBase.html">InteractionModuleBase</a>.</p>
 <div class="NOTE">
 <h5>Note</h5>
@@ -517,18 +517,18 @@ To achieve this, make sure your module classes inherit from the generic variant 
 </div>
 <p>The <a class="xref" href="../../api/Discord.Interactions.InteractionService.html">InteractionService</a> ships with 4 different kinds of <a class="xref" href="../../api/Discord.Interactions.InteractionContext.html">InteractionContext</a>:</p>
 <ol>
-<li><a class="xref" href="../../api/Discord.Interactions.InteractionContext.html">InteractionContext</a>]: A bare-bones execution context consisting of only implementation neutral interfaces</li>
+<li><a class="xref" href="../../api/Discord.Interactions.InteractionContext.html">InteractionContext</a>: A bare-bones execution context consisting of only implementation neutral interfaces</li>
 <li><a class="xref" href="../../api/Discord.Interactions.SocketInteractionContext.html">SocketInteractionContext</a>: An execution context for use with <a class="xref" href="../../api/Discord.WebSocket.DiscordSocketClient.html">DiscordSocketClient</a>. Socket entities are exposed in this context without the need of casting them.</li>
-<li><a class="xref" href="../../api/Discord.Interactions.ShardedInteractionContext.html">ShardedInteractionContext</a>: [DiscordShardedClient] variant of the <a class="xref" href="../../api/Discord.Interactions.SocketInteractionContext.html">SocketInteractionContext</a></li>
+<li><a class="xref" href="../../api/Discord.Interactions.ShardedInteractionContext.html">ShardedInteractionContext</a>: <a class="xref" href="../../api/Discord.WebSocket.DiscordShardedClient.html">DiscordShardedClient</a> variant of the <a class="xref" href="../../api/Discord.Interactions.SocketInteractionContext.html">SocketInteractionContext</a></li>
 <li><a class="xref" href="../../api/Discord.Rest.RestInteractionContext.html">RestInteractionContext</a>: An execution context designed to be used with a <a class="xref" href="../../api/Discord.Rest.DiscordRestClient.html">DiscordRestClient</a> and webhook based interactions pattern</li>
 </ol>
-<p>You can create custom Interaction Contexts by implementing the [IInteractionContext] interface.</p>
+<p>You can create custom Interaction Contexts by implementing the <a class="xref" href="../../api/Discord.IInteractionContext.html">IInteractionContext</a> interface.</p>
 <p>One problem with using the concrete type InteractionContexts is that you cannot access the information that is specific to different interaction types without casting. Concrete type interaction contexts are great for creating shared interaction modules but you can also use the generic variants of the built-in interaction contexts to create interaction specific interaction modules.</p>
-<blockquote>
-<p>[!INFO]
-Message component interactions have access to a special method called <code>UpdateAsync()</code> to update the body of the method the interaction originated from.
+<div class="NOTE">
+<h5>Note</h5>
+<p>Message component interactions have access to a special method called <code>UpdateAsync()</code> to update the body of the method the interaction originated from.
 Normally this wouldn't be accessible without casting the <code>Context.Interaction</code>.</p>
-</blockquote>
+</div>
 <pre><code class="lang-csharp" name="Context Example">discordClient.ButtonExecuted += async (interaction) =&gt; 
 {
     var ctx = new SocketInteractionContext&lt;SocketMessageComponent&gt;(discordClient, interaction);
@@ -632,7 +632,7 @@ This behaviour can be configured by changing the <code>RunMode</code> property o
 <div class="WARNING">
 <h5>Warning</h5>
 <p>In the example above, no form of post-execution is presented.
-Please carefully read the [Post Execution Documentation] for the best approach in resolving the result based on your <code>RunMode</code>.</p>
+Please carefully read the <a class="xref" href="post-execution.html">Post-Execution Documentation</a> for the best approach in resolving the result based on your <code>RunMode</code>.</p>
 </div>
 <p>You can also configure the way <a class="xref" href="../../api/Discord.Interactions.InteractionService.html">InteractionService</a> executes the commands.
 By default, commands are executed using <code>ConstructorInfo.Invoke()</code> to create module instances and

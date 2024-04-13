@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a generic channel."><meta property="og:title" content="Interface IChannel | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -261,15 +261,15 @@ represents the found user; <a href="https://learn.microsoft.com/dotnet/csharp/la
 
   <h4 class="section" id="Discord_IChannel_GetUsersAsync_Discord_CacheMode_Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="IMPORTANT"><h5>important</h5><p>
-    The returned collection is an asynchronous enumerable object; one must call
-    <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
-    collection.
-</p></div>
-This method will attempt to fetch all users that is able to view this channel or is currently in this channel.
-The library will attempt to split up the requests according to and <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUsersPerBatch">MaxUsersPerBatch</a>.
-In other words, if there are 3000 users, and the <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUsersPerBatch">MaxUsersPerBatch</a> constant
-is <code>1000</code>, the request will be split into 3 individual requests; thus returning 53individual asynchronous
-responses, hence the need of flattening.
+        The returned collection is an asynchronous enumerable object; one must call
+        <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
+        collection.
+    </p></div>
+    This method will attempt to fetch all users that is able to view this channel or is currently in this channel.
+    The library will attempt to split up the requests according to and <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUsersPerBatch">MaxUsersPerBatch</a>.
+    In other words, if there are 3000 users, and the <a class="xref" href="Discord.DiscordConfig.html#Discord_DiscordConfig_MaxUsersPerBatch">MaxUsersPerBatch</a> constant
+    is <code>1000</code>, the request will be split into 3 individual requests; thus returning 53individual asynchronous
+    responses, hence the need of flattening.
 </div>
 
 

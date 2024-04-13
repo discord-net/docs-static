@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents the base of a WebSocket-based Discord client."><meta property="og:title" content="Class BaseSocketClient | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -931,8 +931,7 @@ found.</p>
     Sometimes a user may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> due to Discord not sending offline users in large guilds
     (i.e. guild with 100+ members) actively. To download users on startup and to see more information
     about this subject, see <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html#Discord_WebSocket_DiscordSocketConfig_AlwaysDownloadUsers">AlwaysDownloadUsers</a>.
-</p></div>
-<div class="NOTE"><h5>note</h5><p>
+</p></div><div class="NOTE"><h5>note</h5><p>
     This method does not attempt to fetch users that the logged-in user does not have access to (i.e.
     users who don't share mutual guild(s) with the current user). If you wish to get a user that you do
     not have access to, consider using the REST implementation of
@@ -984,8 +983,7 @@ found.</p>
     Sometimes a user may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> due to Discord not sending offline users in large guilds
     (i.e. guild with 100+ members) actively. To download users on startup and to see more information
     about this subject, see <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html#Discord_WebSocket_DiscordSocketConfig_AlwaysDownloadUsers">AlwaysDownloadUsers</a>.
-</p></div>
-<div class="NOTE"><h5>note</h5><p>
+</p></div><div class="NOTE"><h5>note</h5><p>
     This method does not attempt to fetch users that the logged-in user does not have access to (i.e.
     users who don't share mutual guild(s) with the current user). If you wish to get a user that you do
     not have access to, consider using the REST implementation of
@@ -1117,12 +1115,10 @@ voice region is not found.</p>
   <div class="markdown level1 remarks"><p>This method sets the <code class="paramref">activity</code> of the user.</p>
 <div class="NOTE"><h5>note</h5><p>
     Discord will only accept setting of name and the type of activity.
-</p></div>
-<div class="WARNING"><h5>warning</h5><p>
+</p></div><div class="WARNING"><h5>warning</h5><p>
     Bot accounts cannot set <a class="xref" href="Discord.ActivityType.html#Discord_ActivityType_CustomStatus">CustomStatus</a> as their activity
     type and it will have no effect.
-</p></div>
-<div class="WARNING"><h5>warning</h5><p>
+</p></div><div class="WARNING"><h5>warning</h5><p>
     Rich Presence cannot be set via this method or client. Rich Presence is strictly limited to RPC
     clients only.
 </p></div>
@@ -1213,9 +1209,9 @@ voice region is not found.</p>
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_SetGameAsync_System_String_System_String_Discord_ActivityType__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="WARNING"><h5>warning</h5><p>
-    Bot accounts cannot set <a class="xref" href="Discord.ActivityType.html#Discord_ActivityType_CustomStatus">CustomStatus</a> as their activity
-    type and it will have no effect.
-</p></div>
+        Bot accounts cannot set <a class="xref" href="Discord.ActivityType.html#Discord_ActivityType_CustomStatus">CustomStatus</a> as their activity
+        type and it will have no effect.
+    </p></div>
 </div>
 
 
@@ -1366,14 +1362,14 @@ voice region is not found.</p>
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ApplicationCommandCreated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an application command is created. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
-</p>
+         This event is fired when an application command is created. The event handler must return a
+         <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
+     </p>
 <p>
-    The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
-</p>
+         The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
+     </p>
 <div class="NOTE"><h5>note</h5><p>
-    <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
+  <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
 </p></div>
 </div>
 
@@ -1409,14 +1405,14 @@ voice region is not found.</p>
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ApplicationCommandDeleted_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an application command is deleted. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
-</p>
+        This event is fired when an application command is deleted. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
+    </p>
 <p>
-    The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
-</p>
+        The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
+    </p>
 <div class="NOTE"><h5>note</h5><p>
-    <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
+  <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
 </p></div>
 </div>
 
@@ -1452,14 +1448,14 @@ voice region is not found.</p>
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ApplicationCommandUpdated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an application command is updated. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
-</p>
+        This event is fired when an application command is updated. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> as its parameter.
+    </p>
 <p>
-    The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
-</p>
+        The command that was deleted will be passed into the <a class="xref" href="Discord.WebSocket.SocketApplicationCommand.html">SocketApplicationCommand</a> parameter.
+    </p>
 <div class="NOTE"><h5>note</h5><p>
-    <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
+  <b>This event is an undocumented discord event and may break at any time, its not recommended to rely on this event</b>
 </p></div>
 </div>
 
@@ -1724,14 +1720,14 @@ public Task HandleChannelCreated(SocketChannel channel)
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ChannelCreated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a generic channel has been created. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameter.
-</p>
+        This event is fired when a generic channel has been created. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameter.
+    </p>
 <p>
-    The newly created channel is passed into the event handler parameter. The given channel type may
-    include, but not limited to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category);
-    see the derived classes of <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
-</p>
+        The newly created channel is passed into the event handler parameter. The given channel type may
+        include, but not limited to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category);
+        see the derived classes of <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
+    </p>
 </div>
 
 
@@ -1778,14 +1774,14 @@ public Task HandleChannelDestroyed(SocketChannel channel)
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ChannelDestroyed_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a generic channel has been destroyed. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameter.
-</p>
+        This event is fired when a generic channel has been destroyed. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameter.
+    </p>
 <p>
-    The destroyed channel is passed into the event handler parameter. The given channel type may
-    include, but not limited to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category);
-    see the derived classes of <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
-</p>
+        The destroyed channel is passed into the event handler parameter. The given channel type may
+        include, but not limited to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category);
+        see the derived classes of <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
+    </p>
 </div>
 
 
@@ -1834,15 +1830,15 @@ public Task HandleChannelRename(SocketChannel beforeChannel, SocketChannel after
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ChannelUpdated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a generic channel has been updated. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept 2 <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameters.
-</p>
+        This event is fired when a generic channel has been updated. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept 2 <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> as its parameters.
+    </p>
 <p>
-    The original (prior to update) channel is passed into the first <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a>, while
-    the updated channel is passed into the second. The given channel type may include, but not limited
-    to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category); see the derived classes of
-    <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
-</p>
+        The original (prior to update) channel is passed into the first <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a>, while
+        the updated channel is passed into the second. The given channel type may include, but not limited
+        to, Private Channels (DM, Group), Guild Channels (Text, Voice, Category); see the derived classes of
+        <a class="xref" href="Discord.WebSocket.SocketChannel.html">SocketChannel</a> for more details.
+    </p>
 </div>
 
 
@@ -2588,12 +2584,12 @@ public Task HandleChannelRename(SocketChannel beforeChannel, SocketChannel after
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_InteractionCreated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an interaction is created. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketInteraction.html">SocketInteraction</a> as its parameter.
-</p>
+        This event is fired when an interaction is created. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketInteraction.html">SocketInteraction</a> as its parameter.
+    </p>
 <p>
-    The interaction created will be passed into the <a class="xref" href="Discord.WebSocket.SocketInteraction.html">SocketInteraction</a> parameter.
-</p>
+        The interaction created will be passed into the <a class="xref" href="Discord.WebSocket.SocketInteraction.html">SocketInteraction</a> parameter.
+    </p>
 </div>
 
 
@@ -2628,12 +2624,12 @@ public Task HandleChannelRename(SocketChannel beforeChannel, SocketChannel after
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_InviteCreated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an invite is created. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketInvite.html">SocketInvite</a> as its parameter.
-</p>
+        This event is fired when an invite is created. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketInvite.html">SocketInvite</a> as its parameter.
+    </p>
 <p>
-    The invite created will be passed into the <a class="xref" href="Discord.WebSocket.SocketInvite.html">SocketInvite</a> parameter.
-</p>
+        The invite created will be passed into the <a class="xref" href="Discord.WebSocket.SocketInvite.html">SocketInvite</a> parameter.
+    </p>
 </div>
 
 
@@ -2668,16 +2664,16 @@ public Task HandleChannelRename(SocketChannel beforeChannel, SocketChannel after
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_InviteDeleted_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when an invite is deleted. The event handler must return
-    a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a> and
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> as its parameter.
-</p>
+        This event is fired when an invite is deleted. The event handler must return
+        a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a> and
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> as its parameter.
+    </p>
 <p>
-    The channel where this invite was created will be passed into the <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a> parameter.
-</p>
+        The channel where this invite was created will be passed into the <a class="xref" href="Discord.WebSocket.SocketGuildChannel.html">SocketGuildChannel</a> parameter.
+    </p>
 <p>
-    The code of the deleted invite will be passed into the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> parameter.
-</p>
+        The code of the deleted invite will be passed into the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> parameter.
+    </p>
 </div>
 
 
@@ -2823,25 +2819,25 @@ public async Task HandleMessageDelete(Cacheable&lt;IMessage, ulong&gt; cachedMes
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_MessageDeleted_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a message is deleted. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> and
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
-</p>
+        This event is fired when a message is deleted. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> and
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
+    </p>
 <p>
-    <div class="IMPORTANT"><h5>important</h5><p>
-        It is not possible to retrieve the message via
-        <a class="xref" href="Discord.Cacheable-2.html#Discord_Cacheable_2_DownloadAsync">DownloadAsync()</a>; the message cannot be retrieved by Discord
-        after the message has been deleted.
-    </p></div>
-    If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
-    <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the deleted message; otherwise, in event
-    that the message cannot be retrieved, the snowflake ID of the message is preserved in the
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
-
+  <div class="IMPORTANT"><h5>important</h5><p>
+            It is not possible to retrieve the message via
+            <a class="xref" href="Discord.Cacheable-2.html#Discord_Cacheable_2_DownloadAsync">DownloadAsync()</a>; the message cannot be retrieved by Discord
+            after the message has been deleted.
+        </p></div>
+        If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
+        <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the deleted message; otherwise, in event
+        that the message cannot be retrieved, the snowflake ID of the message is preserved in the
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
+    
 <p>
-    The source channel of the removed message will be passed into the
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
-</p>
+        The source channel of the removed message will be passed into the
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
+    </p>
 </div>
 
 
@@ -2897,15 +2893,15 @@ return Task.CompletedTask;
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_MessageReceived_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a message is received. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> as its parameter.
-</p>
+        This event is fired when a message is received. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> as its parameter.
+    </p>
 <p>
-    The message that is sent to the client is passed into the event handler parameter as
-    <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a>. This message may be a system message (i.e.
-    <a class="xref" href="Discord.WebSocket.SocketSystemMessage.html">SocketSystemMessage</a>) or a user message (i.e. <a class="xref" href="Discord.WebSocket.SocketUserMessage.html">SocketUserMessage</a>. See the
-    derived classes of <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> for more details.
-</p>
+        The message that is sent to the client is passed into the event handler parameter as
+        <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a>. This message may be a system message (i.e.
+        <a class="xref" href="Discord.WebSocket.SocketSystemMessage.html">SocketSystemMessage</a>) or a user message (i.e. <a class="xref" href="Discord.WebSocket.SocketUserMessage.html">SocketUserMessage</a>. See the
+        derived classes of <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> for more details.
+    </p>
 </div>
 
 
@@ -2940,23 +2936,23 @@ return Task.CompletedTask;
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_MessageUpdated_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a message is updated. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a>, <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a>,
-    and <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
-</p>
+        This event is fired when a message is updated. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a>, <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a>,
+        and <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
+    </p>
 <p>
-    If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
-    <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the original message; otherwise, in event
-    that the message cannot be retrieved, the snowflake ID of the message is preserved in the
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
-</p>
+        If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
+        <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the original message; otherwise, in event
+        that the message cannot be retrieved, the snowflake ID of the message is preserved in the
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
+    </p>
 <p>
-    The updated message will be passed into the <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> parameter.
-</p>
+        The updated message will be passed into the <a class="xref" href="Discord.WebSocket.SocketMessage.html">SocketMessage</a> parameter.
+    </p>
 <p>
-    The source channel of the updated message will be passed into the
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
-</p>
+        The source channel of the updated message will be passed into the
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
+    </p>
 </div>
 
 
@@ -2991,28 +2987,28 @@ return Task.CompletedTask;
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_MessagesBulkDeleted_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="NOTE"><h5>note</h5><p>
-    The <a class="xref" href="Discord.WebSocket.BaseSocketClient.html#Discord_WebSocket_BaseSocketClient_MessageDeleted">MessageDeleted</a> event will not be fired for individual messages contained in this event.
-</p></div>
-<p>
-    This event is fired when multiple messages are bulk deleted. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a> and
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
-</p>
-<p>
-    <div class="IMPORTANT"><h5>important</h5><p>
-        It is not possible to retrieve the message via
-        <a class="xref" href="Discord.Cacheable-2.html#Discord_Cacheable_2_DownloadAsync">DownloadAsync()</a>; the message cannot be retrieved by Discord
-        after the message has been deleted.
+        The <a class="xref" href="Discord.WebSocket.BaseSocketClient.html#Discord_WebSocket_BaseSocketClient_MessageDeleted">MessageDeleted</a> event will not be fired for individual messages contained in this event.
     </p></div>
-    If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
-    <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the deleted message; otherwise, in event
-    that the message cannot be retrieved, the snowflake ID of the message is preserved in the
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
-
 <p>
-    The source channel of the removed message will be passed into the
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
-</p>
+        This event is fired when multiple messages are bulk deleted. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a> and
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> as its parameters.
+    </p>
+<p>
+  <div class="IMPORTANT"><h5>important</h5><p>
+            It is not possible to retrieve the message via
+            <a class="xref" href="Discord.Cacheable-2.html#Discord_Cacheable_2_DownloadAsync">DownloadAsync()</a>; the message cannot be retrieved by Discord
+            after the message has been deleted.
+        </p></div>
+        If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
+        <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the deleted message; otherwise, in event
+        that the message cannot be retrieved, the snowflake ID of the message is preserved in the
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
+    
+<p>
+        The source channel of the removed message will be passed into the
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
+    </p>
 </div>
 
 
@@ -3122,28 +3118,28 @@ public async Task HandleReactionAddedAsync(Cacheable&lt;IUserMessage, ulong&gt; 
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ReactionAdded_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when a reaction is added to a user message. The event handler must return a
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a>, an
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a>, and a <a class="xref" href="Discord.WebSocket.SocketReaction.html">SocketReaction</a> as its parameter.
-</p>
+        This event is fired when a reaction is added to a user message. The event handler must return a
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a>, an
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a>, and a <a class="xref" href="Discord.WebSocket.SocketReaction.html">SocketReaction</a> as its parameter.
+    </p>
 <p>
-    If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
-    <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the original message; otherwise, in event
-    that the message cannot be retrieved, the snowflake ID of the message is preserved in the
-    <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
-</p>
+        If caching is enabled via <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html">DiscordSocketConfig</a>, the
+        <a class="xref" href="Discord.Cacheable-2.html">Cacheable&lt;TEntity, TId&gt;</a> entity will contain the original message; otherwise, in event
+        that the message cannot be retrieved, the snowflake ID of the message is preserved in the
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>.
+    </p>
 <p>
-    The source channel of the reaction addition will be passed into the
-    <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
-</p>
+        The source channel of the reaction addition will be passed into the
+        <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
+    </p>
 <p>
-    The reaction that was added will be passed into the <a class="xref" href="Discord.WebSocket.SocketReaction.html">SocketReaction</a> parameter.
-</p>
+        The reaction that was added will be passed into the <a class="xref" href="Discord.WebSocket.SocketReaction.html">SocketReaction</a> parameter.
+    </p>
 <div class="NOTE"><h5>note</h5><p>
-    When fetching the reaction from this event, a user may not be provided under
-    <a class="xref" href="Discord.WebSocket.SocketReaction.html#Discord_WebSocket_SocketReaction_User">User</a>. Please see the documentation of the property for more
-    information.
-</p></div>
+        When fetching the reaction from this event, a user may not be provided under
+        <a class="xref" href="Discord.WebSocket.SocketReaction.html#Discord_WebSocket_SocketReaction_User">User</a>. Please see the documentation of the property for more
+        information.
+    </p></div>
 </div>
 
 
@@ -3240,16 +3236,16 @@ public async Task HandleReactionAddedAsync(Cacheable&lt;IUserMessage, ulong&gt; 
 
   <h4 class="section" id="Discord_WebSocket_BaseSocketClient_ReactionsRemovedForEmote_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This event is fired when all reactions to a message with a specific emote are removed.
-    The event handler must return a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> and
-    a <a class="xref" href="Discord.IEmote.html">IEmote</a> as its parameters.
-</p>
+        This event is fired when all reactions to a message with a specific emote are removed.
+        The event handler must return a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> and accept a <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> and
+        a <a class="xref" href="Discord.IEmote.html">IEmote</a> as its parameters.
+    </p>
 <p>
-    The channel where this message was sent will be passed into the <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
-</p>
+        The channel where this message was sent will be passed into the <a class="xref" href="Discord.WebSocket.ISocketMessageChannel.html">ISocketMessageChannel</a> parameter.
+    </p>
 <p>
-    The emoji that all reactions had and were removed will be passed into the <a class="xref" href="Discord.IEmote.html">IEmote</a> parameter.
-</p>
+        The emoji that all reactions had and were removed will be passed into the <a class="xref" href="Discord.IEmote.html">IEmote</a> parameter.
+    </p>
 </div>
 
 

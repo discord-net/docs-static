@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Provides a framework for building Discord commands."><meta property="og:title" content="Class CommandService | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -162,16 +162,16 @@ Class CommandService  <a class="header-action link-secondary" title="View source
 
   <h2 id="Discord_Commands_CommandService_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-    The service provides a framework for building Discord commands both dynamically via runtime builders or
-    statically via compile-time modules. To create a command module at compile-time, see
-    <a class="xref" href="Discord.Commands.ModuleBase.html">ModuleBase</a> (most common); otherwise, see <a class="xref" href="Discord.Commands.Builders.ModuleBuilder.html">ModuleBuilder</a>.
-</p>
+        The service provides a framework for building Discord commands both dynamically via runtime builders or
+        statically via compile-time modules. To create a command module at compile-time, see
+        <a class="xref" href="Discord.Commands.ModuleBase.html">ModuleBase</a> (most common); otherwise, see <a class="xref" href="Discord.Commands.Builders.ModuleBuilder.html">ModuleBuilder</a>.
+    </p>
 <p>
-    This service also provides several events for monitoring command usages; such as
-    <a class="xref" href="Discord.Commands.CommandService.html#Discord_Commands_CommandService_Log">Log</a> for any command-related log events, and
-    <a class="xref" href="Discord.Commands.CommandService.html#Discord_Commands_CommandService_CommandExecuted">CommandExecuted</a> for information about commands that have
-    been successfully executed.
-</p>
+        This service also provides several events for monitoring command usages; such as
+        <a class="xref" href="Discord.Commands.CommandService.html#Discord_Commands_CommandService_Log">Log</a> for any command-related log events, and
+        <a class="xref" href="Discord.Commands.CommandService.html#Discord_Commands_CommandService_CommandExecuted">CommandExecuted</a> for information about commands that have
+        been successfully executed.
+    </p>
 </div>
 
 

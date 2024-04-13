@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a custom sticker within a guild."><meta property="og:title" content="Interface ICustomSticker | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -310,8 +310,7 @@ Interface ICustomSticker  <a class="header-action link-secondary" title="View so
   <h4 class="section" id="Discord_ICustomSticker_ModifyAsync_System_Action_Discord_StickerProperties__Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method modifies this sticker with the specified properties. To see an example of this
 method and what properties are available, please refer to <a class="xref" href="Discord.StickerProperties.html">StickerProperties</a>.
-<br>
-<br>
+<br><br>
 The bot needs the MANAGE_EMOJIS_AND_STICKERS permission within the guild in order to modify stickers.</p>
 </div>
 

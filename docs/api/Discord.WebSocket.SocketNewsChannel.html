@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a WebSocket-based news channel in a guild that has the same properties as a SocketTextChannel."><meta property="og:title" content="Class SocketNewsChannel | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -354,8 +354,8 @@ Class SocketNewsChannel  <a class="header-action link-secondary" title="View sou
 
   <h2 id="Discord_WebSocket_SocketNewsChannel_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><div class="WARNING"><h5>warning</h5><p>
-    The <a class="xref" href="Discord.WebSocket.SocketNewsChannel.html#Discord_WebSocket_SocketNewsChannel_SlowModeInterval">SlowModeInterval</a> property is not supported for news channels.
-</p></div>
+        The <a class="xref" href="Discord.WebSocket.SocketNewsChannel.html#Discord_WebSocket_SocketNewsChannel_SlowModeInterval">SlowModeInterval</a> property is not supported for news channels.
+    </p></div>
 </div>
 
 
@@ -395,8 +395,8 @@ message; <code>0</code> if disabled.</p>
 
   <h4 class="section" id="Discord_WebSocket_SocketNewsChannel_SlowModeInterval_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="IMPORTANT"><h5>important</h5><p>
-This property is not supported by this type. Attempting to use this property will result in a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
-</p></div>
+    This property is not supported by this type. Attempting to use this property will result in a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
+    </p></div>
 </div>
 
 

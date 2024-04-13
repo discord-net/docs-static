@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a generic guild user."><meta property="og:title" content="Interface IGuildUser | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -923,8 +923,8 @@ implementation, only a collection of identifiers can be retrieved instead of the
 
   <h4 class="section" id="Discord_IGuildUser_GetGuildAvatarUrl_Discord_ImageFormat_System_UInt16__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="TIP"><h5>tip</h5><p>
-    If you wish to retrieve the display avatar for this user, consider using <a class="xref" href="Discord.IUser.html#Discord_IUser_GetDisplayAvatarUrl_Discord_ImageFormat_System_UInt16_">GetDisplayAvatarUrl(ImageFormat, ushort)</a>.
-</p></div>
+        If you wish to retrieve the display avatar for this user, consider using <a class="xref" href="Discord.IUser.html#Discord_IUser_GetDisplayAvatarUrl_Discord_ImageFormat_System_UInt16_">GetDisplayAvatarUrl(ImageFormat, ushort)</a>.
+    </p></div>
 </div>
 
 
@@ -966,9 +966,8 @@ specified channel.</p>
 
 
   <h4 class="section" id="Discord_IGuildUser_GetPermissions_Discord_IGuildChannel__examples">Examples</h4>
-  <pre><code>&lt;p&gt;The following example checks if the current user has the ability to send a message with attachment in
-this channel; if so, uploads a file via &lt;xref href=&quot;Discord.IMessageChannel.SendFileAsync(System.String%2cSystem.String%2cSystem.Boolean%2cDiscord.Embed%2cDiscord.RequestOptions%2cSystem.Boolean%2cDiscord.AllowedMentions%2cDiscord.MessageReference%2cDiscord.MessageComponent%2cDiscord.ISticker%5b%5d%2cDiscord.Embed%5b%5d%2cDiscord.MessageFlags)&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt;.&lt;/p&gt;
-</code></pre>
+  <p>The following example checks if the current user has the ability to send a message with attachment in
+    this channel; if so, uploads a file via <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_">SendFileAsync(string, string, bool, Embed, RequestOptions, bool, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags)</a>.</p>
 <pre><code class="lang-cs">if (currentUser?.GetPermissions(targetChannel)?.AttachFiles)
     await targetChannel.SendFileAsync("fortnite.png");</code></pre>
 

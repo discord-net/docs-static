@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a generic guild/server."><meta property="og:title" content="Interface IGuild | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -388,9 +388,9 @@ and moved into the AFK voice channel.</p>
 
   <h4 class="section" id="Discord_IGuild_Available_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="NOTE"><h5>note</h5><p>
-    This property only applies to a WebSocket-based client.
-</p></div>
-This boolean is used to determine if the guild is currently connected to the WebSocket and is ready to be used/accessed.
+        This property only applies to a WebSocket-based client.
+    </p></div>
+    This boolean is used to determine if the guild is currently connected to the WebSocket and is ready to be used/accessed.
 </div>
 
 
@@ -3575,14 +3575,14 @@ contains the user information and the reason for the ban; <a href="https://learn
 
   <h4 class="section" id="Discord_IGuild_GetBansAsync_Discord_IUser_Discord_Direction_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="IMPORTANT"><h5>important</h5><p>
-    The returned collection is an asynchronous enumerable object; one must call
-    <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
-    collection.
-</p></div>
+        The returned collection is an asynchronous enumerable object; one must call
+        <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
+        collection.
+    </p></div>
 <div class="WARNING"><h5>warning</h5><p>
-    Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
-    rate limit, causing your bot to freeze!
-</p></div>
+        Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
+        rate limit, causing your bot to freeze!
+    </p></div>
 </div>
 
 
@@ -3628,14 +3628,14 @@ contains the user information and the reason for the ban; <a href="https://learn
 
   <h4 class="section" id="Discord_IGuild_GetBansAsync_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="IMPORTANT"><h5>important</h5><p>
-    The returned collection is an asynchronous enumerable object; one must call
-    <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
-    collection.
-</p></div>
+        The returned collection is an asynchronous enumerable object; one must call
+        <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
+        collection.
+    </p></div>
 <div class="WARNING"><h5>warning</h5><p>
-    Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
-    rate limit, causing your bot to freeze!
-</p></div>
+        Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
+        rate limit, causing your bot to freeze!
+    </p></div>
 </div>
 
 
@@ -3687,14 +3687,14 @@ contains the user information and the reason for the ban; <a href="https://learn
 
   <h4 class="section" id="Discord_IGuild_GetBansAsync_System_UInt64_Discord_Direction_System_Int32_Discord_RequestOptions__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><div class="IMPORTANT"><h5>important</h5><p>
-    The returned collection is an asynchronous enumerable object; one must call
-    <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
-    collection.
-</p></div>
+        The returned collection is an asynchronous enumerable object; one must call
+        <a class="xref" href="Discord.AsyncEnumerableExtensions.html#Discord_AsyncEnumerableExtensions_FlattenAsync__1_System_Collections_Generic_IAsyncEnumerable_System_Collections_Generic_IEnumerable___0___">FlattenAsync&lt;T&gt;(IAsyncEnumerable&lt;IEnumerable&lt;T&gt;&gt;)</a> to access the individual messages as a
+        collection.
+    </p></div>
 <div class="WARNING"><h5>warning</h5><p>
-    Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
-    rate limit, causing your bot to freeze!
-</p></div>
+        Do not fetch too many bans at once! This may cause unwanted preemptive rate limit or even actual
+        rate limit, causing your bot to freeze!
+    </p></div>
 </div>
 
 
@@ -5767,12 +5767,12 @@ be or has been removed from this guild.</p>
 
   <h4 class="section" id="Discord_IGuild_PruneUsersAsync_System_Int32_System_Boolean_Discord_RequestOptions_System_Collections_Generic_IEnumerable_System_UInt64___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    This method removes all users that have not logged on in the provided number of <code class="paramref">days</code>.
-</p>
+        This method removes all users that have not logged on in the provided number of <code class="paramref">days</code>.
+    </p>
 <p>
-    If <code class="paramref">simulate</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this method will only return the number of users that
-    would be removed without kicking the users.
-</p>
+        If <code class="paramref">simulate</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this method will only return the number of users that
+        would be removed without kicking the users.
+    </p>
 </div>
 
 

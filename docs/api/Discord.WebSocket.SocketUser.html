@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a WebSocket-based user."><meta property="og:title" content="Class SocketUser | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -771,21 +771,19 @@ contains the DM channel associated with this user.</p>
 
   <h4 class="section" id="Discord_WebSocket_SocketUser_CreateDMChannelAsync_Discord_RequestOptions__examples">Examples</h4>
   <p>The following example attempts to send a direct message to the target user and logs the incident should
-        it fail.</p>
-<pre>
-  <code class="lang-cs">public async Task MessageUserAsync(IUser user)
-                    {
-                        var channel = await user.CreateDMChannelAsync();
-                        try
-                        {
-                            await channel.SendMessageAsync("Awesome stuff!");
-                        }
-                        catch (Discord.Net.HttpException ex) when (ex.HttpCode == HttpStatusCode.Forbidden)
-                        {
-                            Console.WriteLine($"Boo, I cannot message {user}.");
-                        }
-                    }</code>
-</pre>
+    it fail.</p>
+<pre><code class="lang-cs">public async Task MessageUserAsync(IUser user)
+{
+    var channel = await user.CreateDMChannelAsync();
+    try
+    {
+        await channel.SendMessageAsync("Awesome stuff!");
+    }
+    catch (Discord.Net.HttpException ex) when (ex.HttpCode == HttpStatusCode.Forbidden)
+    {
+        Console.WriteLine($"Boo, I cannot message {user}.");
+    }
+}</code></pre>
 
 
   <h4 class="section" id="Discord_WebSocket_SocketUser_CreateDMChannelAsync_Discord_RequestOptions__remarks">Remarks</h4>
@@ -876,19 +874,14 @@ contains the DM channel associated with this user.</p>
 
   <h4 class="section" id="Discord_WebSocket_SocketUser_GetAvatarUrl_Discord_ImageFormat_System_UInt16__examples">Examples</h4>
   <p>The following example attempts to retrieve the user's current avatar and send it to a channel; if one is
-            not set, a default avatar for this user will be returned instead.</p>
-<pre>
-  <code class="lang-cs"></code>
-</pre>
+        not set, a default avatar for this user will be returned instead.</p>
+<pre><code class="lang-cs"></code></pre>
 
 
   <h4 class="section" id="Discord_WebSocket_SocketUser_GetAvatarUrl_Discord_ImageFormat_System_UInt16__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><div class="TIP">
-  <h5>tip</h5>
-  <p>
-            If you wish to retrieve the display avatar for this user, consider using <a class="xref" href="Discord.IUser.html#Discord_IUser_GetDisplayAvatarUrl_Discord_ImageFormat_System_UInt16_">GetDisplayAvatarUrl(ImageFormat, ushort)</a>.
-        </p>
-</div>
+  <div class="markdown level1 remarks"><div class="TIP"><h5>tip</h5><p>
+        If you wish to retrieve the display avatar for this user, consider using <a class="xref" href="Discord.IUser.html#Discord_IUser_GetDisplayAvatarUrl_Discord_ImageFormat_System_UInt16_">GetDisplayAvatarUrl(ImageFormat, ushort)</a>.
+    </p></div>
 </div>
 
 

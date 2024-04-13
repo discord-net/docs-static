@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a configuration class for DiscordSocketClient."><meta property="og:title" content="Class DiscordSocketConfig | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -397,30 +397,30 @@ This will make all default stickers have the type of <a class="xref" href="Disco
 
   <h4 class="section" id="Discord_WebSocket_DiscordSocketConfig_AlwaysDownloadUsers_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-    By default, the Discord gateway will only send offline members if a guild has less than a certain number
-    of members (determined by <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html#Discord_WebSocket_DiscordSocketConfig_LargeThreshold">LargeThreshold</a> in this library). This behavior is why
-    sometimes a user may be missing from the WebSocket cache for collections such as
-    <a class="xref" href="Discord.WebSocket.SocketGuild.html#Discord_WebSocket_SocketGuild_Users">Users</a>.
-</p>
+        By default, the Discord gateway will only send offline members if a guild has less than a certain number
+        of members (determined by <a class="xref" href="Discord.WebSocket.DiscordSocketConfig.html#Discord_WebSocket_DiscordSocketConfig_LargeThreshold">LargeThreshold</a> in this library). This behavior is why
+        sometimes a user may be missing from the WebSocket cache for collections such as
+        <a class="xref" href="Discord.WebSocket.SocketGuild.html#Discord_WebSocket_SocketGuild_Users">Users</a>.
+    </p>
 <p>
-    This property ensures that whenever a guild becomes available (determined by
-    <a class="xref" href="Discord.WebSocket.BaseSocketClient.html#Discord_WebSocket_BaseSocketClient_GuildAvailable">GuildAvailable</a>), incomplete user chunks will be
-    downloaded to the WebSocket cache.
-</p>
+        This property ensures that whenever a guild becomes available (determined by
+        <a class="xref" href="Discord.WebSocket.BaseSocketClient.html#Discord_WebSocket_BaseSocketClient_GuildAvailable">GuildAvailable</a>), incomplete user chunks will be
+        downloaded to the WebSocket cache.
+    </p>
 <p>
-    For more information, please see
-    <a href="https://discord.com/developers/docs/topics/gateway#request-guild-members">Request Guild Members</a>
-    on the official Discord API documentation.
-</p>
+        For more information, please see
+        <a href="https://discord.com/developers/docs/topics/gateway#request-guild-members">Request Guild Members</a>
+        on the official Discord API documentation.
+    </p>
 <div class="NOTE"><h5>note</h5><p>
-    Please note that it can be difficult to fill the cache completely on large guilds depending on the
-    traffic. If you are using the command system, the default user TypeReader may fail to find the user
-    due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider
-    overriding the TypeReader and use
-    <a class="xref" href="Discord.Rest.DiscordRestClient.html#Discord_Rest_DiscordRestClient_GetUserAsync_System_UInt64_Discord_RequestOptions_">GetUserAsync(ulong, RequestOptions)</a>
-    or <a class="xref" href="Discord.Rest.DiscordRestClient.html#Discord_Rest_DiscordRestClient_GetGuildUserAsync_System_UInt64_System_UInt64_Discord_RequestOptions_">GetGuildUserAsync(ulong, ulong, RequestOptions)</a>
-    as a backup.
-</p></div>
+        Please note that it can be difficult to fill the cache completely on large guilds depending on the
+        traffic. If you are using the command system, the default user TypeReader may fail to find the user
+        due to this issue. This may be resolved at v3 of the library. Until then, you may want to consider
+        overriding the TypeReader and use
+        <a class="xref" href="Discord.Rest.DiscordRestClient.html#Discord_Rest_DiscordRestClient_GetUserAsync_System_UInt64_Discord_RequestOptions_">GetUserAsync(ulong, RequestOptions)</a>
+        or <a class="xref" href="Discord.Rest.DiscordRestClient.html#Discord_Rest_DiscordRestClient_GetGuildUserAsync_System_UInt64_System_UInt64_Discord_RequestOptions_">GetGuildUserAsync(ulong, ulong, RequestOptions)</a>
+        as a backup.
+    </p></div>
 </div>
 
 

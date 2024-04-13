@@ -29,17 +29,17 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
-  <meta property="og:description" content="[Autocompleters] provide a similar pattern to TypeConverters.
-[Autocompleters] are cached, singleton services and they are used by the
-Interaction ..."><meta property="og:title" content="Command Autocompletion | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
 
-  <script type="module" src="./../../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
 
+  <meta property="og:description" content="AutocompleteHandlers provide a similar pattern to TypeConverters.
+AutocompleteHandlers are cached, singleton services and they are used by the
+Inte..."><meta property="og:title" content="Command Autocompletion | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -89,10 +89,10 @@ Interaction ..."><meta property="og:title" content="Command Autocompletion | Dis
         <article data-uid="Guides.IntFw.AutoCompletion">
 <h1 id="autocompletehandlers">AutocompleteHandlers</h1>
 
-<p>[Autocompleters] provide a similar pattern to TypeConverters.
-[Autocompleters] are cached, singleton services and they are used by the
+<p><a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a>s provide a similar pattern to TypeConverters.
+<a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a>s are cached, singleton services and they are used by the
 Interaction Service to handle Autocomplete Interactions targeted to a specific Slash Command parameter.</p>
-<p>To start using AutocompleteHandlers, use the <code>[AutocompleteAttribute(Type type)]</code> overload of the [AutocompleteAttribute].
+<p>To start using AutocompleteHandlers, use the <code>[AutocompleteAttribute(Type type)]</code> overload of the <a class="xref" href="../../api/Discord.Interactions.AutocompleteAttribute.html">AutocompleteAttribute</a>.
 This will dynamically link the parameter to the <a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a> type.</p>
 <p>AutocompleteHandlers raise the <code>AutocompleteHandlerExecuted</code> event on execution. This event can be also used to create a post-execution logic, just like the <code>*CommandExecuted</code> events.</p>
 <h2 id="creating-autocompletehandlers">Creating AutocompleteHandlers</h2>
@@ -131,14 +131,13 @@ you to display custom error messages. This result type will be directly returned
 <p>AutocompleteHandler dependencies are resolved using the same dependency injection
 pattern as the Interaction Modules.
 Property injection and constructor injection are both valid ways to get service dependencies.</p>
-<p>Because [AutocompleterHandlers] are constructed at service startup,
+<p>Because <a class="xref" href="../../api/Discord.Interactions.AutocompleteHandler.html">AutocompleteHandler</a>s are constructed at service startup,
 class dependencies are resolved only once.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>If you need to access per-request dependencies you can use the
 IServiceProvider parameter of the <code>GenerateSuggestionsAsync()</code> method.</p>
 </div>
-<p>[AutoCompleteAttribute]:</p>
 
 </article>
 

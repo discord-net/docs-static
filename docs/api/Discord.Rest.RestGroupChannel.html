@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   <meta property="og:description" content="Represents a REST-based group-message channel."><meta property="og:title" content="Class RestGroupChannel | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -437,10 +437,8 @@ this channel.</p>
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_EnterTypingState_Discord_RequestOptions__examples">Examples</h4>
   <p>The following example keeps the client in the typing state until <code>LongRunningAsync</code> has finished.</p>
-<pre>
-  <code class="lang-cs">using (channel.EnterTypingState())
-                                                                                                                                                                 await LongRunningAsync();</code>
-</pre>
+<pre><code class="lang-cs">using (channel.EnterTypingState())
+    await LongRunningAsync();</code></pre>
 
 
 
@@ -974,12 +972,10 @@ contains the sent message.</p>
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
   <p>The following example uploads a streamed image that will be called <code>b1nzy.jpg</code> embedded inside a
-        rich embed to the channel.</p>
-<pre>
-  <code class="lang-cs">using (var b1nzyStream = await httpClient.GetStreamAsync("https://example.com/b1nzy"))
-                                          await channel.SendFileAsync(b1nzyStream, "b1nzy.jpg",
-                                              embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code>
-</pre>
+    rich embed to the channel.</p>
+<pre><code class="lang-cs">using (var b1nzyStream = await httpClient.GetStreamAsync("https://example.com/b1nzy"))
+    await channel.SendFileAsync(b1nzyStream, "b1nzy.jpg",
+        embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code></pre>
 
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_SendFileAsync_System_IO_Stream_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
@@ -1074,16 +1070,12 @@ contains the sent message.</p>
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
   <p>The following example uploads a local file called <code>wumpus.txt</code> along with the text
-        <code>good discord boi</code> to the channel.</p>
-<pre>
-  <code class="lang-cs">await channel.SendFileAsync("wumpus.txt", "good discord boi");</code>
-</pre>
+    <code>good discord boi</code> to the channel.</p>
+<pre><code class="lang-cs">await channel.SendFileAsync("wumpus.txt", "good discord boi");</code></pre>
 <p>The following example uploads a local image called <code>b1nzy.jpg</code> embedded inside a rich embed to the
-        channel.</p>
-<pre>
-  <code class="lang-cs">await channel.SendFileAsync("b1nzy.jpg",
-                        embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code>
-</pre>
+    channel.</p>
+<pre><code class="lang-cs">await channel.SendFileAsync("b1nzy.jpg",
+    embed: new EmbedBuilder { ImageUrl = "attachment://b1nzy.jpg" }.Build());</code></pre>
 
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_SendFileAsync_System_String_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_System_Boolean_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__remarks">Remarks</h4>
@@ -1288,12 +1280,10 @@ contains the sent message.</p>
 
   <h4 class="section" id="Discord_Rest_RestGroupChannel_SendMessageAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags__examples">Examples</h4>
   <p>The following example sends a message with the current system time in RFC 1123 format to the channel and
-        deletes itself after 5 seconds.</p>
-<pre>
-  <code class="lang-cs">var message = await channel.SendMessageAsync(DateTimeOffset.UtcNow.ToString("R"));
-                                           await Task.Delay(TimeSpan.FromSeconds(5))
-                                               .ContinueWith(x =&gt; message.DeleteAsync());</code>
-</pre>
+    deletes itself after 5 seconds.</p>
+<pre><code class="lang-cs">var message = await channel.SendMessageAsync(DateTimeOffset.UtcNow.ToString("R"));
+await Task.Delay(TimeSpan.FromSeconds(5))
+    .ContinueWith(x =&gt; message.DeleteAsync());</code></pre>
 
 
 
