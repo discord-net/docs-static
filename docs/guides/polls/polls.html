@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Polls | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Polls | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/polls/polls.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  <meta property="og:description" content="Polls are..."><meta property="og:title" content="Polls | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="Discord.Net">
+            Discord.Net
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.Polls">
+<h1 id="polls-in-discordnet">Polls in Discord.Net</h1>
+
+<p>Polls are... Polls!</p>
+<p><img src="images/poll.png" alt="example poll"></p>
+<p>This guide will explain how to use polls in your applications.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To get contents of polls sent by users other than your bot you need to enable <code>GatewayIntent.MessageContent</code> intent.</p>
+</div>
+<h2 id="creating-polls">Creating polls</h2>
+<p>A poll is part of a message; to send one you need to pass a <a class="xref" href="../../api/Discord.PollProperties.html">PollProperties</a> object into the <code>poll</code> parameter of any method that can be used to send messages. (ex. <code>SendMessageAsync</code>, <code>RespondAsync</code>, etc)</p>
+<pre><code class="lang-csharp" name="Creating polls">
+// Create a poll
+var poll = new PollProperties
+{
+    // Set the question
+    Question = new ()
+    {   // Text of the question
+        Text = &quot;Discord.Net is awesome!&quot;
+    },
+    // Set the duration of the poll in hours
+    Duration = 69,
+    // Add answers to the poll
+    // You can add from 1 to 10 answers
+    Answers = [
+        // An answer can consist of text and an emoji
+        new PollMediaProperties
+        {   // Text for the answer
+            Text = &quot;Yes!&quot;,
+            // Emoji for the answer
+            // Can be a custom emoji or unicode one
+            // Remember that bot must be in the guild where the custom emoji is
+            Emoji = Emote.Parse(&quot;&lt;:wires:1214532316999974962&gt;&quot;)
+        },
+        // Or just text
+        new PollMediaProperties
+        {
+            Text = &quot;Of course!&quot;,
+        }
+        ],
+    // You can allow users to select multiple answers
+    // By default, it's set to false
+    AllowMultiselect = true,
+    // Also you can set the layout of the poll
+    // By default, it's set to Default
+    // At this time, it's the only available layout type
+    LayoutType = PollLayout.Default
+};
+
+// Send the poll to the text channel
+await textChannel.SendMessageAsync(poll: poll);
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Due to limitations of the Discord API it's not possible to send attachments in a messages with a poll.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It is not possible to modify polls after them being created.</p>
+</div>
+<h2 id="managing-polls">Managing polls</h2>
+<h3 id="ending-polls">Ending polls</h3>
+<p>You can expire polls early by calling <code>EndPollAsync</code> on an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> with a poll.</p>
+<pre><code class="lang-csharp" name="Ending polls">// Get a message with a poll
+var message = await channel.GetMessageAsync(id) as IUserMessage;
+// End the poll
+await message.EndPollAsync();
+</code></pre><h3 id="getting-poll-answer-voters">Getting poll answer voters</h3>
+<p>To get voters for a specific answer call <code>GetPollAnswerVotersAsync(answerId)</code> on an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> with a poll.</p>
+<pre><code class="lang-csharp" name="Getting poll answer voters">// Get the id of the first answer in the poll
+var answerId = message.Poll.Answers.First().AnswerId;
+// Get the list of voters who voted for the first answer
+var voters = await message.GetPollAnswerVotersAsync(answerId).FlattenAsync();
+</code></pre><h3 id="retrieving-poll-results">Retrieving poll results</h3>
+<p>You can get results of a poll by simply getting an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> and checking the <code>IUserMessage.Poll.Results</code> property. Alteratively you can check the results on a <code>MessageUpdated</code> gateway event.</p>
+<h2 id="gateway-events">Gateway events</h2>
+<h3 id="poll-votes">Poll votes</h3>
+<p>You can receive information about poll votes live using following events:</p>
+<ul>
+<li><code>PollVoteAdded</code></li>
+<li><code>PollVoteRemoved</code></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These events are only sent if the client has <code>GatewayIntents.GuildMessagePolls</code> or <code>GatewayIntents.DirectMessagePolls</code> intents enabled. It will receive events for polls in guild or dm channels respectively.</p>
+</div>
+<h3 id="poll-expiry">Poll expiry</h3>
+<p>On poll expiry the <code>MessageUpdated</code> event is fired.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/polls/polls.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2024 3.15.0
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
