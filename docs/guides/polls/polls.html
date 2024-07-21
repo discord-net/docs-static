@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.15.2/docs/guides/polls/polls.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.15.3/docs/guides/polls/polls.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -139,27 +139,27 @@ await textChannel.SendMessageAsync(poll: poll);
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Due to limitations of the Discord API it's not possible to send attachments in a messages with a poll.</p>
+<p>Due to limitations set by the Discord API, it's not possible to send both an attachment and a poll in the same message.</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>It is not possible to modify polls after them being created.</p>
+<p>It is not possible to modify polls after they are created.</p>
 </div>
 <h2 id="managing-polls">Managing polls</h2>
 <h3 id="ending-polls">Ending polls</h3>
-<p>You can expire polls early by calling <code>EndPollAsync</code> on an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> with a poll.</p>
+<p>You can end a poll early by calling <code>EndPollAsync</code> on an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> that has a poll.</p>
 <pre><code class="lang-csharp" name="Ending polls">// Get a message with a poll
 var message = await channel.GetMessageAsync(id) as IUserMessage;
 // End the poll
 await message.EndPollAsync();
-</code></pre><h3 id="getting-poll-answer-voters">Getting poll answer voters</h3>
+</code></pre><h3 id="getting-a-poll-answers-voters">Getting a poll answer's voters</h3>
 <p>To get voters for a specific answer call <code>GetPollAnswerVotersAsync(answerId)</code> on an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> with a poll.</p>
 <pre><code class="lang-csharp" name="Getting poll answer voters">// Get the id of the first answer in the poll
 var answerId = message.Poll.Answers.First().AnswerId;
 // Get the list of voters who voted for the first answer
 var voters = await message.GetPollAnswerVotersAsync(answerId).FlattenAsync();
 </code></pre><h3 id="retrieving-poll-results">Retrieving poll results</h3>
-<p>You can get results of a poll by simply getting an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> and checking the <code>IUserMessage.Poll.Results</code> property. Alteratively you can check the results on a <code>MessageUpdated</code> gateway event.</p>
+<p>You can get results of a poll by simply getting an <a class="xref" href="../../api/Discord.IUserMessage.html">IUserMessage</a> and checking the <code>IUserMessage.Poll.Results</code> property. Alternatively, you can check the results on a <code>MessageUpdated</code> gateway event.</p>
 <h2 id="gateway-events">Gateway events</h2>
 <h3 id="poll-votes">Poll votes</h3>
 <p>You can receive information about poll votes live using following events:</p>
@@ -169,7 +169,7 @@ var voters = await message.GetPollAnswerVotersAsync(answerId).FlattenAsync();
 </ul>
 <div class="NOTE">
 <h5>Note</h5>
-<p>These events are only sent if the client has <code>GatewayIntents.GuildMessagePolls</code> or <code>GatewayIntents.DirectMessagePolls</code> intents enabled. It will receive events for polls in guild or dm channels respectively.</p>
+<p>These events are only sent if the client has the <code>GatewayIntents.GuildMessagePolls</code> or <code>GatewayIntents.DirectMessagePolls</code> intents enabled. It will receive events for polls in guild or DM channels respectively.</p>
 </div>
 <h3 id="poll-expiry">Poll expiry</h3>
 <p>On poll expiry the <code>MessageUpdated</code> event is fired.</p>
@@ -177,7 +177,7 @@ var voters = await message.GetPollAnswerVotersAsync(answerId).FlattenAsync();
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.15.2/docs/guides/polls/polls.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.15.3/docs/guides/polls/polls.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -194,7 +194,7 @@ var voters = await message.GetPollAnswerVotersAsync(answerId).FlattenAsync();
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2024 3.15.2
+          Discord.Net © 2015-2024 3.15.3
         </div>
       </div>
     </footer>
