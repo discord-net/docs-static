@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -151,9 +151,9 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
 
   <a id="Discord_FileAttachment__ctor_" data-uid="Discord.FileAttachment.#ctor*"></a>
 
-  <h3 id="Discord_FileAttachment__ctor_System_IO_Stream_System_String_System_String_System_Boolean_System_Boolean_" data-uid="Discord.FileAttachment.#ctor(System.IO.Stream,System.String,System.String,System.Boolean,System.Boolean)">
-  FileAttachment(Stream, string, string, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_FileAttachment__ctor_System_IO_Stream_System_String_System_String_System_Boolean_System_Boolean_System_Nullable_System_Double__System_Byte___" data-uid="Discord.FileAttachment.#ctor(System.IO.Stream,System.String,System.String,System.Boolean,System.Boolean,System.Nullable{System.Double},System.Byte[])">
+  FileAttachment(Stream, string, string, bool, bool, double?, byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a file attachment from a stream.</p>
@@ -161,7 +161,7 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileAttachment(Stream stream, string fileName, string description = null, bool isSpoiler = false, bool isThumbnail = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public FileAttachment(Stream stream, string fileName, string description = null, bool isSpoiler = false, bool isThumbnail = false, double? durationSeconds = null, byte[] waveform = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -181,6 +181,10 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
     <dt><code>isThumbnail</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Whether or not this attachment should be a thumbnail for a media channel post.</p>
 </dd>
+    <dt><code>durationSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+    <dt><code>waveform</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
   </dl>
 
 
@@ -196,9 +200,9 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
 
   <a id="Discord_FileAttachment__ctor_" data-uid="Discord.FileAttachment.#ctor*"></a>
 
-  <h3 id="Discord_FileAttachment__ctor_System_String_System_String_System_String_System_Boolean_System_Boolean_" data-uid="Discord.FileAttachment.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean)">
-  FileAttachment(string, string, string, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_FileAttachment__ctor_System_String_System_String_System_String_System_Boolean_System_Boolean_System_Nullable_System_Double__System_Byte___" data-uid="Discord.FileAttachment.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Nullable{System.Double},System.Byte[])">
+  FileAttachment(string, string, string, bool, bool, double?, byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create the file attachment from a file path.</p>
@@ -206,7 +210,7 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileAttachment(string path, string fileName = null, string description = null, bool isSpoiler = false, bool isThumbnail = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public FileAttachment(string path, string fileName = null, string description = null, bool isSpoiler = false, bool isThumbnail = false, double? durationSeconds = null, byte[] waveform = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -226,6 +230,10 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
     <dt><code>isThumbnail</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Whether or not this attachment should be a thumbnail for a media channel post.</p>
 </dd>
+    <dt><code>durationSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+    <dt><code>waveform</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
   </dl>
 
 
@@ -235,7 +243,7 @@ Struct FileAttachment  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <h4 class="section" id="Discord_FileAttachment__ctor_System_String_System_String_System_String_System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <h4 class="section" id="Discord_FileAttachment__ctor_System_String_System_String_System_String_System_Boolean_System_Boolean_System_Nullable_System_Double__System_Byte____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This file path is NOT validated and is passed directly into a
 <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.file.openread">OpenRead(string)</a>.</p>
 </div>
@@ -299,6 +307,38 @@ characters.</p>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Discord_FileAttachment_DurationSeconds_" data-uid="Discord.FileAttachment.DurationSeconds*"></a>
+
+  <h3 id="Discord_FileAttachment_DurationSeconds" data-uid="Discord.FileAttachment.DurationSeconds">
+  DurationSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the duration of a voice message. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the attachment is not a voice message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? DurationSeconds { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
     <dd></dd>
   </dl>
 
@@ -409,7 +449,7 @@ characters.</p>
 
   <h3 id="Discord_FileAttachment_Stream" data-uid="Discord.FileAttachment.Stream">
   Stream
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the stream containing the file content.</p>
@@ -437,6 +477,38 @@ characters.</p>
 
 
 
+  <a id="Discord_FileAttachment_Waveform_" data-uid="Discord.FileAttachment.Waveform*"></a>
+
+  <h3 id="Discord_FileAttachment_Waveform" data-uid="Discord.FileAttachment.Waveform">
+  Waveform
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets bytearray representing a sampled waveform. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the attachment is not a voice message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] Waveform { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -445,7 +517,7 @@ characters.</p>
 
   <h3 id="Discord_FileAttachment_Dispose" data-uid="Discord.FileAttachment.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/dev/src/Discord.Net.Core/Entities/Messages/FileAttachment.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -488,7 +560,7 @@ characters.</p>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2024 3.16.0
+          Discord.Net © 2015-2024 3.17.0
         </div>
       </div>
     </footer>
