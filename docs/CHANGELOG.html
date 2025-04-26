@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.17.2/CHANGELOG.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.17.3/CHANGELOG.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -73,12 +73,31 @@
         <article data-uid="">
 <h1 id="changelog">Changelog</h1>
 
-<h2 id="3172---2025-03-09">[3.17.2] - 2025-03-09</h2>
+<h2 id="3173---2025-04-26">[3.17.3] - 2025-04-26</h2>
 <h3 id="added">Added</h3>
+<ul>
+<li>#3088 Add handler for unknown Discord dispatch events (9b79f0b)</li>
+<li>#3090 Per file attachement size limits (649f52b)</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>#3084 Fixed type reader/converter parsing exception (88cfbe5)</li>
+<li>#3091 Fixed modals with value type properties (a8523c5)</li>
+<li>#3094 Fix WriteSilentFramesAsync sending a partial frame at first (2da25f3)</li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul>
+<li>#3081 add missing gif sticker format (6f623a6)</li>
+<li>#3087 Add size in CDN.GetGuildSplashUrl (fb90701)</li>
+<li>#3092 Improved exception messages of builders (cce6274)</li>
+<li>#3096 Refactor MentionedUsers in the SocketMessage (0c3e7a8)</li>
+</ul>
+<h2 id="3172---2025-03-09">[3.17.2] - 2025-03-09</h2>
+<h3 id="added-1">Added</h3>
 <ul>
 <li>#3074 Add <code>excludeDeleted</code> argument to <code>GetEntitlementsAsync</code> (9c9407b)</li>
 </ul>
-<h3 id="fixed">Fixed</h3>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>#3063 <code>SocketApplicationCommand</code> missing <code>GuildId</code> (c625f5f)</li>
 <li>#3064 Correct empty value exception (6e7b3c2)</li>
@@ -88,30 +107,30 @@
 <li>#3073 SocketGuild.GetApplicationCommandAsync was fetching global commands (aa66928)</li>
 <li>#3078 Add <code>EmptyServiceScope</code> (54e8416)</li>
 </ul>
-<h3 id="misc">Misc</h3>
+<h3 id="misc-1">Misc</h3>
 <ul>
 <li>#3075 Make Make GetShardFor(ulong guildId) &amp; DiscordShardedClient.GetUserAsync() public (41ad6ac)</li>
 <li>#3061 yeet <code>FluentAssertions</code> (52c2f0d)</li>
 </ul>
 <h2 id="3171---2025-01-19">[3.17.1] - 2025-01-19</h2>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li>#3056 Add IAutomodRule.MentionRaidProtectionEnabled (0e9caf3)</li>
 <li>#3052 Added Header and Subtext to the Format class (0174745)</li>
 </ul>
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 <ul>
 <li>#3057 Use 8.0.x dependencies for net6 support (50aa278)</li>
 <li>#3049 <code>Task.Delay(0)</code> =&gt; <code>Task.CompletedTask</code> (b5f5df0)</li>
 <li>#3014 An AddSlashCommand overload should be AddAutocompleteCommand in ModuleBuilder (35e8122)</li>
 <li>#3053 <code>DiscordSocketClient.GetEntitlementsAsync</code> requiring unused <code>BaseDiscordClient</code> parameter (d828cd8)</li>
 </ul>
-<h3 id="misc-1">Misc</h3>
+<h3 id="misc-2">Misc</h3>
 <ul>
 <li>#3046 Refactor &amp; update member search v2 (36439b6)</li>
 </ul>
 <h2 id="3170---2024-12-20">[3.17.0] - 2024-12-20</h2>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li><p>#3025 Build with .NET 9 SDK (164a289)</p>
 </li>
@@ -130,7 +149,7 @@
 <li><p>#3017 Add support for keyed services. (3017f6b)</p>
 </li>
 </ul>
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 <ul>
 <li>#2974 rest client add webporxy config, keep the processing logic with WebSocketProvider (292f8c4)</li>
 <li>#3008 fix webhook ctor (433bdc2)</li>
@@ -141,7 +160,7 @@
 <li>#3031 Interaction Service failing to create scopes with some DI providers (a884ad1)</li>
 <li>#3030 NRE on thread member creation without a guild user in the payload (96a8327)</li>
 </ul>
-<h3 id="misc-2">Misc</h3>
+<h3 id="misc-3">Misc</h3>
 <ul>
 <li>#3021 Expose channel type property on <code>IChannel</code> (8b92969)</li>
 <li>#3006 Add missing permissions (6b92cc2)</li>
@@ -151,7 +170,7 @@
 <li>#3038 Clamp cache size (438e31e)</li>
 </ul>
 <h2 id="3160---2024-09-14">[3.16.0] - 2024-09-14</h2>
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 <ul>
 <li>#2918 Message Forwards (c4d90cd)</li>
 <li>#2976 New interactions precondition attribute that supports app commands (1f252a3)</li>
@@ -162,11 +181,11 @@
 <li>#2989 Add GetRoleAsync (466b491)</li>
 <li>#2986 Add StickFormat gif and animated guild icon (2aaa0fd)</li>
 </ul>
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 <ul>
 <li>#3001 StackOverflow in sharded clients (c53aac3)</li>
 </ul>
-<h3 id="misc-3">Misc</h3>
+<h3 id="misc-4">Misc</h3>
 <ul>
 <li>#2979 Create a (Discord)Color using a string (bc84b94)</li>
 <li>#2991 Minor optimization + make sure top level components are action rows (623a457)</li>
@@ -174,14 +193,14 @@
 <li>#2999 Option to dump gw payloads on errors (b87ec6e)</li>
 </ul>
 <h2 id="3153---2024-07-21">[3.15.3] - 2024-07-21</h2>
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 <ul>
 <li>#2963 Application Emojis (26bb789)</li>
 <li>[EXPERIMENTAL] #2931 Member search v2 (e18915a)</li>
 <li>#2952 add <code>IsAvailable</code> to <code>GuildEmote</code> (cb79f04)</li>
 <li>#2965 Add team member <code>Role</code> property (6e531a2)</li>
 </ul>
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 <ul>
 <li>#2958 crash when poll is null in RestMessageComponent (24c7605)</li>
 <li>#2962 incomplete validation when ChannelFlags.RequireTag is true (f5fdfb2)</li>
@@ -189,7 +208,7 @@
 <li>#2959 Fix automod related events in the sharded client (8b6be64)</li>
 <li>#2966 Fix <code>CustomSticker.DeleteAsync()</code> (359f6db)</li>
 </ul>
-<h3 id="misc-4">Misc</h3>
+<h3 id="misc-5">Misc</h3>
 <ul>
 <li>#2951 Update for the breaking change discord has made + v3 is cringe (8afea2c)</li>
 <li>#2953 longer polls (ae49794)</li>
@@ -203,7 +222,7 @@
 <li>fix <code>Emote</code> constructor related issues</li>
 </ul>
 <h2 id="3151---2024-06-18">[3.15.1] - 2024-06-18</h2>
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 <ul>
 <li>#2927 Add missing PollProperties (a59f4ba)</li>
 <li>#2942 Add purchase notification (9d92435)</li>
@@ -212,14 +231,14 @@
 <li>#2933 Premium Buttons (531b5eb)</li>
 <li>#2941 Add UseExternalApps permission (f7f29d5)</li>
 </ul>
-<h3 id="misc-5">Misc</h3>
+<h3 id="misc-6">Misc</h3>
 <ul>
 <li>#2936 Public constructor for Emote (3be72a8)</li>
 <li>#2935 Generic autocomplete (35b102a)</li>
 <li>#2929 Enable nuget debug symbols. (aa424f6)</li>
 </ul>
 <h2 id="3150---2024-05-12">[3.15.0] - 2024-05-12</h2>
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 <ul>
 <li>#2902 Polls (476ec06)</li>
 <li>#2898 Guild bans with seconds prune period (d1da2a0)</li>
@@ -229,7 +248,7 @@
 <li>#2919 More store stuff (f9086d3)</li>
 <li>#2920 Add <code>SocketInteraction.InteractionChannel</code> (3054505)</li>
 </ul>
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 <ul>
 <li>#2910 RestDMChannel relies on recipient (13ea566)</li>
 <li>#2911 Don't rely on Guild for id (397a887)</li>
@@ -237,7 +256,7 @@
 <li>#2922 NRE with rest interactions &amp; no api call (again) (83fdc89)</li>
 <li>#2924 Fix null error when using a <code>SelectMenuBuilder</code> constructor (93cb71a)</li>
 </ul>
-<h3 id="misc-6">Misc</h3>
+<h3 id="misc-7">Misc</h3>
 <ul>
 <li>#2905 Remove analyzer project &amp; resolve some build warnings (7aab366)</li>
 <li>#2913 Replace generic exceptions. (54d2fe5)</li>
@@ -246,12 +265,12 @@
 <li>#2915 Improve bulk bans (f85bf9a)</li>
 </ul>
 <h2 id="3141---2024-03-19">[3.14.1] - 2024-03-19</h2>
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 <ul>
 <li>Version number contains commit hash</li>
 </ul>
 <h2 id="3140---2024-03-19">[3.14.0] - 2024-03-19</h2>
-<h3 id="added-7">Added</h3>
+<h3 id="added-8">Added</h3>
 <ul>
 <li>#2849 Allow setting channel topic to null when creating channels (7c96844)</li>
 <li>#2832 Add Icon size parameter to <code>GetGuildIconUrl</code> CDN method (eb5678a)</li>
@@ -263,7 +282,7 @@
 <li>#2873 Voice reconnection and resuming (09680c5)</li>
 <li>#2879 Support setting banner on bot profiles (d0c0a56)</li>
 </ul>
-<h3 id="fixed-7">Fixed</h3>
+<h3 id="fixed-8">Fixed</h3>
 <ul>
 <li>#2866 Allow switching voice channels without disconnecting (external clients only) (5a62ba1)</li>
 <li>#2857 Receiving voice packets (use system-assigned port) (1a16f4d)</li>
@@ -272,7 +291,7 @@
 <li>Incorrect ConnectionState of a DiscordSocketClient casted to IDiscordClient/BaseSocketClient (955fae0)</li>
 <li>#2867 <code>InteractionService.AddModulesXAsync</code> command duplication (2787db3)</li>
 </ul>
-<h3 id="misc-7">Misc</h3>
+<h3 id="misc-8">Misc</h3>
 <ul>
 <li>#2806 Update library dependencies (bfc8dc2)</li>
 <li>#2847 Remove some redundant notes &amp; small updates (d0e9c8b)</li>
@@ -280,7 +299,7 @@
 <li>#2869 Fix optional param being non-optional (fa51f0a)</li>
 </ul>
 <h2 id="3131---2024-02-11">[3.13.1] - 2024-02-11</h2>
-<h3 id="added-8">Added</h3>
+<h3 id="added-9">Added</h3>
 <ul>
 <li>#2804 Add Incident actions message types (178ff58)</li>
 <li>#2805 Add <code>AppliedTags</code> to <code>DiscordWebhookClient.SendXAsync</code> (d382e5c)</li>
@@ -289,14 +308,14 @@
 <li>#2827 <code>44</code> (Add message type 44) (541571c)</li>
 <li>#2837 Allow creating announcement channels (f1777de)</li>
 </ul>
-<h3 id="fixed-8">Fixed</h3>
+<h3 id="fixed-9">Fixed</h3>
 <ul>
 <li>#2801 Add null check in <code>SelectMenuBuilder</code> (b18cc31)</li>
 <li>#2813 Incorrect json model for Guild Scheduled Events (de4b6b9)</li>
 <li>#2800 Warning about missing intents not being logged (8227d70)</li>
 <li>#2818 <code>GetEventCoverImageUrl</code> throwing NRE in case event cover image is null (138e18c)</li>
 </ul>
-<h3 id="misc-8">Misc</h3>
+<h3 id="misc-9">Misc</h3>
 <ul>
 <li>#2807 Incorrect xmldoc (d234db7)</li>
 <li>#2823 Update sample projects &amp; samples in docs (e2e8c0f)</li>
@@ -305,7 +324,7 @@
 <li>#2835 Additional select menu option validations (4d7e384)</li>
 </ul>
 <h2 id="3130---2023-11-18">[3.13.0] - 2023-11-18</h2>
-<h3 id="added-9">Added</h3>
+<h3 id="added-10">Added</h3>
 <ul>
 <li>#2707 Added Super reactions support (9fd5c6c)</li>
 <li>#2725 Added Media channel support (e3cd340)</li>
@@ -323,7 +342,7 @@
 <li>#2792 Added create roles with icons (b45b774)</li>
 <li>#2796 Added clips support (poggers) (89bebc3)</li>
 </ul>
-<h3 id="fixed-9">Fixed</h3>
+<h3 id="fixed-10">Fixed</h3>
 <ul>
 <li>#2758 Fixed Slash Command Localizations lost after AddCommandsToGuildAsync and deleteMissing = false (8d5022a)</li>
 <li>#2759 Fixed missing null checks in <code>RoleConnectionProperties</code> (ab3b30d)</li>
@@ -333,7 +352,7 @@
 <li>#2774 Fixed some IDiscordClient methods are not properly implemented in clients (8baf913)</li>
 <li>#2789 Fixed multiline values in short TextInputs (33e8340)</li>
 </ul>
-<h3 id="misc-9">Misc</h3>
+<h3 id="misc-10">Misc</h3>
 <ul>
 <li>#2739 Remove some unnecessary async/await (86655a8)</li>
 <li>#2754 Replace Moq with NSubstitute for Mocking in GuildHelperTests (b988a18)</li>
@@ -341,7 +360,7 @@
 <li>#2771 Extract <code>GetDisplayAvatarUrl</code> in <code>IUser</code> (b1787d8)</li>
 </ul>
 <h2 id="3120---2023-08-10">[3.12.0] - 2023-08-10</h2>
-<h3 id="added-10">Added</h3>
+<h3 id="added-11">Added</h3>
 <ul>
 <li>#2644 Added <code>ComponentBuilder</code> component removal methods. (d5d7378)</li>
 <li>#2668 Added a method for sending silent audio frames on <code>OpusEncodeStream</code>. (59094d2)</li>
@@ -352,7 +371,7 @@
 <li>#2730 Added new <code>ModifyCurrentApplication</code> features (166d40f)</li>
 <li>#2749 Added support for setting custom status (b2820d5)</li>
 </ul>
-<h3 id="fixed-10">Fixed</h3>
+<h3 id="fixed-11">Fixed</h3>
 <ul>
 <li>#2711 Fixed modifying guild resets preferred locale (12c50f2)</li>
 <li>#2713 Fixed some <code>ReplyAsync</code> methods missing <code>MessageFlags</code> parameter. (56769cb)</li>
@@ -363,7 +382,7 @@
 <li>#2745 Fixed <code>GetMessagesAsync</code> with <code>Direction.After</code> not working as expected (c922497)</li>
 </ul>
 <h2 id="3110---2023-6-27">[3.11.0] - 2023-6-27</h2>
-<h3 id="added-11">Added</h3>
+<h3 id="added-12">Added</h3>
 <ul>
 <li>#2616 Added guild Onboarding support (3a8f76c)</li>
 <li>#2627 Added <code>Audit Log Created</code> gateway event support (dff6a57)</li>
@@ -376,7 +395,7 @@
 <li>#2620 Added support for filtering audit log entries by after id (529fe3d)</li>
 <li>#2622 Added default thread ratelimit in guild text channels (f9c8530)</li>
 </ul>
-<h3 id="fixed-11">Fixed</h3>
+<h3 id="fixed-12">Fixed</h3>
 <ul>
 <li>#2628 Allow creating stickers with no description (c950106)</li>
 <li>#2682 Fixed missing <code>JsonProperty</code> attributes in params for modifying automod rules (9df4438)</li>
@@ -392,7 +411,7 @@
 <li>#2647 Fixed <code>ChannelPermissions.All()</code> exception on forums (6265dd5)</li>
 <li>#2642 Enforce rate limits on 429s (69cce5b)</li>
 </ul>
-<h3 id="misc-10">Misc</h3>
+<h3 id="misc-11">Misc</h3>
 <ul>
 <li>#2601 Add missing json error (a8ae1e9)</li>
 <li>#2609 Refactor <code>SendMessageAsync</code> &amp; <code>SendFile(s)Async</code> methods &amp; modify webhook message attachments (898ee56)</li>
@@ -401,7 +420,7 @@
 <li>#2670 Disable FEC in OPUS (2be9b00)</li>
 </ul>
 <h2 id="3100---2023-03-27">[3.10.0] - 2023-03-27</h2>
-<h3 id="added-12">Added</h3>
+<h3 id="added-13">Added</h3>
 <ul>
 <li>#2507 Added selects v2 support (48fb1b5)</li>
 <li>#2509 Added <code>SendFileAsync</code> to <code>UserExtensions</code> (25cfb88)</li>
@@ -437,7 +456,7 @@
 <li>#2613 Added AutoMod custom block message (709364a)</li>
 <li>#2615 Added missing invite properties (abfa8d1)</li>
 </ul>
-<h3 id="fixed-12">Fixed</h3>
+<h3 id="fixed-13">Fixed</h3>
 <ul>
 <li>#2483 Fixed an NRE when event was changed from in channel to external or vice versa (493f604)</li>
 <li>#2526 Fixed <code>GetActiveThreadsAsync</code> &amp; add it to <code>ITextChannel</code> (bd2f719)</li>
@@ -451,7 +470,7 @@
 <li>#2600 Fixed gateway deadlock (0c27395)</li>
 <li>#2606 Fixed AutoMod action executed event message being null (7b321af)</li>
 </ul>
-<h3 id="misc-11">Misc</h3>
+<h3 id="misc-12">Misc</h3>
 <ul>
 <li>#2542 Resolve inconsistencies with components (f224eb0)</li>
 <li>#2546 Argument handling with thread tags(c67642a)</li>
@@ -462,7 +481,7 @@
 <li>#2617 Update IP discovery to send 74 bytes (66e6329)</li>
 </ul>
 <h2 id="390---2022-12-23">[3.9.0] - 2022-12-23</h2>
-<h3 id="added-13">Added</h3>
+<h3 id="added-14">Added</h3>
 <ul>
 <li>#2469 Add missing properties in forum &amp; thread channels (01ae904)</li>
 <li>#2501 Add new discord stuff (ed38635)</li>
@@ -472,7 +491,7 @@
 <li>#2528 Implement wildcard lenght quantifiers, TreatAsRegex property and solve catastrpohic backtracking (25cfb88)</li>
 <li>#2531 Add Age restricted (NSFW) application commands support (60956c7)</li>
 </ul>
-<h3 id="fixed-13">Fixed</h3>
+<h3 id="fixed-14">Fixed</h3>
 <ul>
 <li>#2500 Fix duplicated members of DiscordErrorCode (6712ef4)</li>
 <li>#2468 Fix TimestampTag being sadge (bc89d3c)</li>
@@ -481,7 +500,7 @@
 <li>#2526 Fix <code>GetActiveThreadsAsync</code> &amp; add it to <code>ITextChannel</code> (bd2f719)</li>
 <li>#2535 Fix deploy.yml (20d8fdf)</li>
 </ul>
-<h3 id="misc-12">Misc</h3>
+<h3 id="misc-13">Misc</h3>
 <ul>
 <li>#2471 Update samples to use <code>MessageContent</code> intent &amp; update <code>v2 =&gt; v3 guide</code> (a4d34f6)</li>
 <li>#2505 Update events.cs (ea039b8)</li>
@@ -490,12 +509,12 @@
 <li>#2534 Fully qualify SlashCommandBuilder namespace ( 3b107c2)</li>
 </ul>
 <h2 id="381---2022-09-12">[3.8.1] - 2022-09-12</h2>
-<h3 id="added-14">Added</h3>
+<h3 id="added-15">Added</h3>
 <ul>
 <li>#2437 Added scheduled event types to AuditLog ActionTypes (fca9c6b)</li>
 <li>#2423 Added support for resume gateway url (d4c533a)</li>
 </ul>
-<h3 id="fixed-14">Fixed</h3>
+<h3 id="fixed-15">Fixed</h3>
 <ul>
 <li>#2443 Fixed typos of word length (adf012d)</li>
 <li>#2438 Fixed http query symbol in ModifyWebhookMessageAsync (0aa381d)</li>
@@ -505,7 +524,7 @@
 <li>#2453 Fixed NRE on SlashCommandBuilder.Build method (5073afa)</li>
 <li>#2457 Fixed typo in SlashCommandBuilder.AddNameLocalizationMethod (1b01fed)</li>
 </ul>
-<h3 id="misc-13">Misc</h3>
+<h3 id="misc-14">Misc</h3>
 <ul>
 <li>#2462 Add additional checks for gateway event warnings (b45b152)</li>
 <li>#2448 Bump to Discord API V10 (fbc5ad4)</li>
@@ -514,7 +533,7 @@
 <li>#2333 Update package logo (2b86a79)</li>
 </ul>
 <h2 id="380---2022-08-27">[3.8.0] - 2022-08-27</h2>
-<h3 id="added-15">Added</h3>
+<h3 id="added-16">Added</h3>
 <ul>
 <li>#2384 Added support for the WEBHOOKS_UPDATED event (010e8e8)</li>
 <li>#2370 Add async callbacks for IModuleBase (503fa75)</li>
@@ -525,7 +544,7 @@
 <li>#2359 Added support for creating lottie stickers (32b03c8)</li>
 <li>#2395 Added App Command localization support and <code>ILocalizationManager</code> to IF (39bbd29)</li>
 </ul>
-<h3 id="fixed-15">Fixed</h3>
+<h3 id="fixed-16">Fixed</h3>
 <ul>
 <li>#2425 Fix missing Fact attribute in ColorTests (92215b1)</li>
 <li>#2424 Fix IGuild.GetBansAsync() (b7b7964)</li>
@@ -537,7 +556,7 @@
 <li>#2404 Fix range of issues presented by 3rd party analyzer (902326d)</li>
 <li>#2409 Removes GroupContext from requirecontext (b0b8167)</li>
 </ul>
-<h3 id="misc-14">Misc</h3>
+<h3 id="misc-15">Misc</h3>
 <ul>
 <li>#2366 Fixed typo in ChannelUpdatedEvent's documentation (cfd2662)</li>
 <li>#2408 Fix sharding sample throwing at appcommand registration (519deda)</li>
@@ -554,29 +573,29 @@
 <li>#2406 Labs deprecation &amp; readme/docs edits (bf493ea)</li>
 </ul>
 <h2 id="372---2022-06-02">[3.7.2] - 2022-06-02</h2>
-<h3 id="added-16">Added</h3>
+<h3 id="added-17">Added</h3>
 <ul>
 <li>#2328 Add method overloads to InteractionService (0fad3e8)</li>
 <li>#2336 Add support for attachments on interaction response type 7 (35db22e)</li>
 <li>#2338 AddOptions no longer has an uneeded restriction, added AddOptions to SlashCommandOptionBuilder (3a37f89)</li>
 </ul>
-<h3 id="fixed-16">Fixed</h3>
+<h3 id="fixed-17">Fixed</h3>
 <ul>
 <li>#2342 Disable TIV restrictions for rollout of TIV (7adf516)</li>
 </ul>
 <h2 id="371---2022-05-27">[3.7.1] - 2022-05-27</h2>
-<h3 id="added-17">Added</h3>
+<h3 id="added-18">Added</h3>
 <ul>
 <li>#2325 Add missing interaction properties (d3a693a)</li>
 <li>#2330 Add better call control in ParseHttpInteraction (a890de9)</li>
 </ul>
-<h3 id="fixed-17">Fixed</h3>
+<h3 id="fixed-18">Fixed</h3>
 <ul>
 <li>#2329 Voice perms not retaining text perms. (712a4ae)</li>
 <li>#2331 NRE with Cacheable.DownloadAsync() (e1f9b76)</li>
 </ul>
 <h2 id="370---2022-05-24">[3.7.0] - 2022-05-24</h2>
-<h3 id="added-18">Added</h3>
+<h3 id="added-19">Added</h3>
 <ul>
 <li>#2269 Text-In-Voice (23656e8)</li>
 <li>#2281 Optional API calling to RestInteraction (a24dde4)</li>
@@ -589,7 +608,7 @@
 <li>#2307 Add Nullable ComponentTypeConverter and TypeReader (6fbd396)</li>
 <li>#2316 Forum channels (7a07fd6)</li>
 </ul>
-<h3 id="fixed-18">Fixed</h3>
+<h3 id="fixed-19">Fixed</h3>
 <ul>
 <li>#2290 Possible NRE in Sanitize (20ffa64)</li>
 <li>#2293 Application commands are disabled to everyone except admins by default (b465d60)</li>
@@ -599,34 +618,34 @@
 <li>#2320 NRE with bot scope and user parameters (88f6168)</li>
 </ul>
 <h2 id="361---2022-04-30">[3.6.1] - 2022-04-30</h2>
-<h3 id="added-19">Added</h3>
+<h3 id="added-20">Added</h3>
 <ul>
 <li>#2272 add 50080 Error code (503e720)</li>
 </ul>
-<h3 id="fixed-19">Fixed</h3>
+<h3 id="fixed-20">Fixed</h3>
 <ul>
 <li>#2267 Permissions v2 Invalid Operation Exception (a8f6075)</li>
 <li>#2271 null user on interaction without bot scope (f2bb55e)</li>
 <li>#2274 Implement fix for Custom Id Segments NRE (0d74c5c)</li>
 </ul>
-<h3 id="misc-15">Misc</h3>
+<h3 id="misc-16">Misc</h3>
 <ul>
 <li>3.6.0 (27226f0)</li>
 </ul>
 <h2 id="360---2022-04-28">[3.6.0] - 2022-04-28</h2>
-<h3 id="added-20">Added</h3>
+<h3 id="added-21">Added</h3>
 <ul>
 <li>#2136 Passing CustomId matches into contexts (4ce1801)</li>
 <li>#2222 V2 Permissions (d98b3cc)</li>
 </ul>
-<h3 id="fixed-20">Fixed</h3>
+<h3 id="fixed-21">Fixed</h3>
 <ul>
 <li>#2260 Guarding against empty descriptions in <code>SlashCommandBuilder</code>/<code>SlashCommandOptionBuilder</code> (0554ac2)</li>
 <li>#2248 Fix SocketGuild not returning the AudioClient (daba58c)</li>
 <li>#2254 Fix browser property (275b833)</li>
 </ul>
 <h2 id="350---2022-04-05">[3.5.0] - 2022-04-05</h2>
-<h3 id="added-21">Added</h3>
+<h3 id="added-22">Added</h3>
 <ul>
 <li>#2204 Added config option for bidirectional formatting of usernames (e38104b)</li>
 <li>#2210 Add a way to remove type readers from the interaction/command service. (7339945)</li>
@@ -636,7 +655,7 @@
 <li>#2226 Add an action delegate parameter to <code>RespondWithModalAsync&lt;T&gt;()</code> for modifying the modal (d2118f0)</li>
 <li>#2227 Add RespondWithModal methods to RestInteractinModuleBase (1c680db)</li>
 </ul>
-<h3 id="fixed-21">Fixed</h3>
+<h3 id="fixed-22">Fixed</h3>
 <ul>
 <li>#2168 Fix Integration model from GuildIntegration and added INTEGRATION gateway events (305d7f9)</li>
 <li>#2187 Fix modal response failing (d656722)</li>
@@ -646,7 +665,7 @@
 <li>#2225 Fix GuildMemberUpdated cacheable <code>before</code> entity being incorrect (bfd0d9b)</li>
 <li>#2217 Fix gateway interactions not running without bot scope. (8522447)</li>
 </ul>
-<h3 id="misc-16">Misc</h3>
+<h3 id="misc-17">Misc</h3>
 <ul>
 <li>#2193 Update GuildMemberUpdated comment regarding presence (82473bc)</li>
 <li>#2206 Fixed typo (c286b99)</li>
@@ -654,14 +673,14 @@
 <li>#2228 Correct minor typo (d1cf1bf)</li>
 </ul>
 <h2 id="341---2022-03-9">[3.4.1] - 2022-03-9</h2>
-<h3 id="added-22">Added</h3>
+<h3 id="added-23">Added</h3>
 <ul>
 <li>#2169 Component TypeConverters and CustomID TypeReaders (fb4250b)</li>
 <li>#2180 Attachment description and content type (765c0c5)</li>
 <li>#2162 Add configuration toggle to suppress Unknown dispatch warnings (1ba96d6)</li>
 <li>#2178 Add 10065 Error code (cc6918d)</li>
 </ul>
-<h3 id="fixed-22">Fixed</h3>
+<h3 id="fixed-23">Fixed</h3>
 <ul>
 <li>#2179 Logging out sharded client throws (24b7bb5)</li>
 <li>#2182 Thread owner always returns null (25aaa49)</li>
@@ -669,7 +688,7 @@
 <li>#2181 Fix ambiguous reference for creating roles (f8ec3c7)</li>
 </ul>
 <h2 id="340---2022-3-2">[3.4.0] - 2022-3-2</h2>
-<h3 id="added-23">Added</h3>
+<h3 id="added-24">Added</h3>
 <ul>
 <li>#2146 Add FromDateTimeOffset in TimestampTag (553055b)</li>
 <li>#2062 Add return statement to precondition handling (3e52fab)</li>
@@ -681,29 +700,29 @@
 <li>#2155 Add Interaction Service Complex Parameters (9ba64f6)</li>
 <li>#2156 Add Display name support for enum type converter (c800674)</li>
 </ul>
-<h3 id="fixed-23">Fixed</h3>
+<h3 id="fixed-24">Fixed</h3>
 <ul>
 <li>#2117 Fix stream access exception when ratelimited (a1cfa41)</li>
 <li>#2128 Fix context menu comand message type (f601e9b)</li>
 <li>#2135 Fix NRE when ratelimmited requests don't return a body (b95b942)</li>
 <li>#2154 Fix usage of CacheMode.AllowDownload in channels (b3370c3)</li>
 </ul>
-<h3 id="misc-17">Misc</h3>
+<h3 id="misc-18">Misc</h3>
 <ul>
 <li>#2149 Clarify Users property on SocketGuildChannel (5594739)</li>
 <li>#2157 Enforce valid button styles (507a18d)</li>
 </ul>
 <h2 id="332---2022-02-16">[3.3.2] - 2022-02-16</h2>
-<h3 id="fixed-24">Fixed</h3>
+<h3 id="fixed-25">Fixed</h3>
 <ul>
 <li>#2116 Fix null rest client in shards</li>
 </ul>
 <h2 id="331---2022-02-16">[3.3.1] - 2022-02-16</h2>
-<h3 id="added-24">Added</h3>
+<h3 id="added-25">Added</h3>
 <ul>
 <li>#2107 Add DisplayName property to IGuildUser. (abfba3c)</li>
 </ul>
-<h3 id="fixed-25">Fixed</h3>
+<h3 id="fixed-26">Fixed</h3>
 <ul>
 <li>#2110 Fix incorrect ratelimit handles for 429's (b2598d3)</li>
 <li>#2094 Fix ToString() on CommandInfo (01735c8)</li>
@@ -712,17 +731,17 @@
 <li>#2108 Fix being unable to modify AllowedMentions with no embeds set. (169d54f)</li>
 <li>#2109 Fix unused creation of REST clients for DiscordShardedClient shards. (6039378)</li>
 </ul>
-<h3 id="misc-18">Misc</h3>
+<h3 id="misc-19">Misc</h3>
 <ul>
 <li>#2099 Update interaction summaries (503d32a)</li>
 </ul>
 <h2 id="330---2022-02-09">[3.3.0] - 2022-02-09</h2>
-<h3 id="added-25">Added</h3>
+<h3 id="added-26">Added</h3>
 <ul>
 <li>#2087 Add modals (c8f175e)</li>
 <li>#2088 Add support for slash command attachment type (33efd89)</li>
 </ul>
-<h3 id="fixed-26">Fixed</h3>
+<h3 id="fixed-27">Fixed</h3>
 <ul>
 <li>#2091 Fix modifying attachments on interactions and extend the module base (97e54e1)</li>
 <li>#2076 Fix rest message components cannot pass through execute method (b45aebf)</li>
@@ -731,17 +750,17 @@
 <li>#2089 Fix guild feature enum (d142710)</li>
 <li>#2090 Fix attempts to fetch channels in interactions (6290f75)</li>
 </ul>
-<h3 id="misc-19">Misc</h3>
+<h3 id="misc-20">Misc</h3>
 <ul>
 <li>#1713 Simplify code in DiscordComparers (43b20bc)</li>
 <li>#2079 Add IEnumerable collection parameters instead of arrays for MessageExtensions (75e94fe)</li>
 </ul>
 <h2 id="321---2022-01-30">[3.2.1] - 2022-01-30</h2>
-<h3 id="added-26">Added</h3>
+<h3 id="added-27">Added</h3>
 <ul>
 <li>#2055 Add IThreadUser interface (3475bd8)</li>
 </ul>
-<h3 id="fixed-27">Fixed</h3>
+<h3 id="fixed-28">Fixed</h3>
 <ul>
 <li>#2030 Fix logging a TaskCanceledException out of users control (82f3879)</li>
 <li>#2064 Fix markdown formatting in Glossary (f525131)</li>
@@ -750,12 +769,12 @@
 <li>#2072 Fix thread member download on create (09eb9fa)</li>
 <li>#2063 Fix stream position not being zero when uploading files (6dada66)</li>
 </ul>
-<h3 id="misc-20">Misc</h3>
+<h3 id="misc-21">Misc</h3>
 <ul>
 <li>#2059 Update HttpException to display inner-errors on the HttpException.Message for better debugging (5773b8e)</li>
 </ul>
 <h2 id="320---2022-01-15">[3.2.0] - 2022-01-15</h2>
-<h3 id="added-27">Added</h3>
+<h3 id="added-28">Added</h3>
 <ul>
 <li>#2015 Add user-built AddCommand overloads to ModuleBuilder (68e3bed)</li>
 <li>#2016 Add Construct Method to InteractionModuleBase and Fix NRE on User-Built Module Creation (4ed4718)</li>
@@ -766,7 +785,7 @@
 <li>#2040 Add user locale &amp; guild locale in interactions (2731e20)</li>
 <li>#2041 Add search methods to InteractionService (9a52d05)</li>
 </ul>
-<h3 id="fixed-28">Fixed</h3>
+<h3 id="fixed-29">Fixed</h3>
 <ul>
 <li>#1562 Fix OperationCancelledException and add IAsyncEnumerable to wait without thread blocking (cd36bb8)</li>
 <li>#2014 Fix InteractionContext.Guild (944a0de)</li>
@@ -779,14 +798,14 @@
 <li>#2045 Fix argument null exception on Message Create (a07531f)</li>
 <li>#2046 Fix ThreadMember null ref in constructor (bcd5fa4)</li>
 </ul>
-<h3 id="misc-21">Misc</h3>
+<h3 id="misc-22">Misc</h3>
 <ul>
 <li>#2018 Match argument defaults with IDiscordInteraction on SocketInteraction (093e548)</li>
 <li>#2024 Remove .ToLower from group name registration (9594ccc)</li>
 <li>#2042 Move gateway intents warning to ready event (3633929)</li>
 </ul>
 <h2 id="310---2021-12-24">[3.1.0] - 2021-12-24</h2>
-<h3 id="added-28">Added</h3>
+<h3 id="added-29">Added</h3>
 <ul>
 <li>#1996 Add nullable type converter to Interaction service (ccc365e)</li>
 <li>#1998 Add before and after execute async (9f124b2)</li>
@@ -794,7 +813,7 @@
 <li>#2002 Add RTCRegion to voice channels (2a416a3)</li>
 <li>#2003 Add Guilduser timeouts and MODERATE_MEMBERS permission (144741e)</li>
 </ul>
-<h3 id="fixed-29">Fixed</h3>
+<h3 id="fixed-30">Fixed</h3>
 <ul>
 <li>#1976 fix guild scheduled events update (8daa0b6)</li>
 <li>#1977 fix thread member nre (5d43fe6)</li>
@@ -806,13 +825,13 @@
 <li>#1999 Fix SocketGuildUser being changed to SocketGlobalUser in UserLeft (5446bfe)</li>
 <li>Fix voice codes namespace (768a0a9)</li>
 </ul>
-<h3 id="misc-22">Misc</h3>
+<h3 id="misc-23">Misc</h3>
 <ul>
 <li>#1994 Make HasResponded public and add it to IDiscordInteraction (1fbcbb8)</li>
 <li>#1997 Make module service scopes optional (cb1aad3)</li>
 </ul>
 <h2 id="300---2021-12-13">[3.0.0] - 2021-12-13</h2>
-<h3 id="added-29">Added</h3>
+<h3 id="added-30">Added</h3>
 <ul>
 <li>#1152 Add characters commonly use in links to Sanitize (b9274d1)</li>
 <li>#1518 Add default nullable enum typereader (f7a07ae)</li>
@@ -856,7 +875,7 @@
 <li>#1950 Add custom setter to Group property of ModuleBuilder to automatically invoke AddAliases (ba656e9)</li>
 <li>#1958 Add Discord.Interactions framework (aa6bb5e)</li>
 </ul>
-<h3 id="fixed-30">Fixed</h3>
+<h3 id="fixed-31">Fixed</h3>
 <ul>
 <li>#1832 Grab correct Uses value for vanity urls (8ed8714)</li>
 <li>#1849 Remove obsolete methods and properties (70aab6c)</li>
@@ -880,7 +899,7 @@
 <li>#1946 Fix NRE when adding parameters in ModuleBuilders (143ca6d)</li>
 <li>#1947 ShardedClient's CurrentUser interface property being null (d5f5ae1)</li>
 </ul>
-<h3 id="misc-23">Misc</h3>
+<h3 id="misc-24">Misc</h3>
 <ul>
 <li>#1852 Internal change to GetOrCreateUser (dfaaa21)</li>
 <li>#1923 Make Hierarchy a IGuildUser property (933ea42)</li>
@@ -888,7 +907,7 @@
 <li>#1923 Removed error log for gateway reconnects (933ea42)</li>
 </ul>
 <h2 id="240---2021-05-22">[2.4.0] - 2021-05-22</h2>
-<h3 id="added-30">Added</h3>
+<h3 id="added-31">Added</h3>
 <ul>
 <li>#1726 Add stickers (91a9063)</li>
 <li>#1753 Webhook message edit &amp; delete functionality (f67cd8e)</li>
@@ -899,18 +918,18 @@
 <li>#1830 Add ModifyMessageAsync to IMessageChannel (365a848)</li>
 <li>#1844 Add Discord Certified Moderator user flag (4b8d444)</li>
 </ul>
-<h3 id="fixed-31">Fixed</h3>
+<h3 id="fixed-32">Fixed</h3>
 <ul>
 <li>#1486 Add type reader when entity type reader exists (c46daaa)</li>
 <li>#1835 Cached message emoji cleanup at MESSAGE_REACTION_REMOVE_EMOJI (8afef82)</li>
 </ul>
-<h3 id="misc-24">Misc</h3>
+<h3 id="misc-25">Misc</h3>
 <ul>
 <li>#1778 Remove URI check from EmbedBuilder (25b04c4)</li>
 <li>#1800 Fix spelling in SnowflakeUtils.FromSnowflake (6aff419)</li>
 </ul>
 <h2 id="231---2021-03-10">[2.3.1] - 2021-03-10</h2>
-<h3 id="fixed-32">Fixed</h3>
+<h3 id="fixed-33">Fixed</h3>
 <ul>
 <li>#1761 Deadlock in DiscordShardedClient when Ready is never received (73e5cc2)</li>
 <li>#1773 Private methods aren't added as commands (0fc713a)</li>
@@ -919,12 +938,12 @@
 <li>#1791 Update Webhook ChannelId from model change (d2518db)</li>
 <li>#1794 Audit log UserId can be null (d41aeee)</li>
 </ul>
-<h3 id="misc-25">Misc</h3>
+<h3 id="misc-26">Misc</h3>
 <ul>
 <li>#1774 Add remark regarding CustomStatus as the activity (51b7afe)</li>
 </ul>
 <h2 id="230---2021-01-28">[2.3.0] - 2021-01-28</h2>
-<h3 id="added-31">Added</h3>
+<h3 id="added-32">Added</h3>
 <ul>
 <li>#1491 Add INVITE_CREATE and INVITE_DELETE events (1ab670b)</li>
 <li>#1520 Support reading multiple activities (421a0c1)</li>
@@ -949,7 +968,7 @@
 <li>#1731 Add GuildUser IsPending property (8b25c9b)</li>
 <li>#1690 Add max bitrate value to SocketGuild (aacfea0)</li>
 </ul>
-<h3 id="fixed-33">Fixed</h3>
+<h3 id="fixed-34">Fixed</h3>
 <ul>
 <li>#1244 Missing AddReactions permission for DM channels. (e40ca4a)</li>
 <li>#1469 unsupported property causes an exception (468f826)</li>
@@ -992,7 +1011,7 @@
 <li>IMessage.Embeds docs remarks (a4d32d3)</li>
 <li>Missing MessageReference when sending files (2095701)</li>
 </ul>
-<h3 id="misc-26">Misc</h3>
+<h3 id="misc-27">Misc</h3>
 <ul>
 <li>#1545 MutualGuilds optimization (323a677)</li>
 <li>#1551 Update webhook regex to support discord.com (7585789)</li>
@@ -1018,7 +1037,7 @@
 <li>Move bulk deletes remarks from <summary> to <remarks> (62539f0)</remarks></summary></li>
 </ul>
 <h2 id="220---2020-04-16">[2.2.0] - 2020-04-16</h2>
-<h3 id="added-32">Added</h3>
+<h3 id="added-33">Added</h3>
 <ul>
 <li>#1247 Implement Client Status Support (9da11b4)</li>
 <li>#1310 id overload for RemoveReactionAsync (c88b1da)</li>
@@ -1041,7 +1060,7 @@
 <li>#1432 Add ability to modify the banner for guilds (d734ce0)</li>
 <li>suppress messages (cd28892)</li>
 </ul>
-<h3 id="fixed-34">Fixed</h3>
+<h3 id="fixed-35">Fixed</h3>
 <ul>
 <li>#1318 #1314 Don't parse tags within code blocks (c977f2e)</li>
 <li>#1333 Remove null coalescing on ToEmbedBuilder Color (120c0f7)</li>
@@ -1063,7 +1082,7 @@
 <li>#1417 fix #1415 Re-add support for overwrite permissions for news channels (e627f07)</li>
 <li>use millisecond precision by default (bcb3534)</li>
 </ul>
-<h3 id="misc-27">Misc</h3>
+<h3 id="misc-28">Misc</h3>
 <ul>
 <li>#1290 Split Unit and Integration tests into separate projects (a797be9)</li>
 <li>#1328 Fix #1327 Color.ToString returns wrong value (1e8aa08)</li>
@@ -1096,7 +1115,7 @@
 <li>feature (40844b9)</li>
 </ul>
 <h2 id="211---2019-06-08">[2.1.1] - 2019-06-08</h2>
-<h3 id="fixed-35">Fixed</h3>
+<h3 id="fixed-36">Fixed</h3>
 <ul>
 <li>#994: Remainder parameters now ignore character escaping, as there is no reason to escape characters here (2e95c49)</li>
 <li>#1316: <code>Emote.Equals</code> now pays no respect to the Name property, since Discord's API does not care about an emote's name (abf3e90)</li>
@@ -1111,13 +1130,13 @@
 <li>#1313: <code>IMessage.Tags</code> now includes the EveryoneRole on @everyone and @here mentions (1f55f01)</li>
 <li>#1320: The maximum value for setting slow-mode has been updated to 6 hours, per the new API limit (4433ca7)</li>
 </ul>
-<h3 id="misc-28">Misc</h3>
+<h3 id="misc-29">Misc</h3>
 <ul>
 <li>This library's compatibility with Semantic Versioning has been clarified. Please see the README (4d7de17)</li>
 <li>The depency on System.Interactive.Async has been bumped to <code>3.2.0</code> (3e65e03)</li>
 </ul>
 <h2 id="210---2019-05-18">[2.1.0] - 2019-05-18</h2>
-<h3 id="added-33">Added</h3>
+<h3 id="added-34">Added</h3>
 <ul>
 <li>#1236: Bulk deletes (for messages) may now be accessed via the <code>MessagesBulkDeleted</code> event (dec353e)</li>
 <li>#1240: OAuth applications utilizing the <code>guilds.join</code> scope may now add users to guilds through any client (1356ea9)</li>
@@ -1133,7 +1152,7 @@
 <ul>
 <li>#1294: The <code>IGuildUser</code> overload of <code>EmbedBuilder.WithAuthor</code> no longer exists (b52b54d)</li>
 </ul>
-<h3 id="fixed-36">Fixed</h3>
+<h3 id="fixed-37">Fixed</h3>
 <ul>
 <li>#1256: Fetching audit logs no longer raises null reference exceptions when a webhook has been deleted (049b014)</li>
 <li>#1268: Null reference exceptions on <code>MESSAGE_CREATE</code> concerning partial member objects no longer occur (377622b)</li>
@@ -1146,7 +1165,7 @@
 <ul>
 <li>#1305: Token validation will fail when tokens contain whitespace (bb61efa)</li>
 </ul>
-<h3 id="misc-29">Misc</h3>
+<h3 id="misc-30">Misc</h3>
 <ul>
 <li>#1241: Added documentation samples for Webhooks (655a006)</li>
 <li>#1243: Happy new year 🎉 (0275f7d)</li>
@@ -1158,19 +1177,19 @@
 <li>IDisposableAnalyzers should now be a development dependency (8003ac8)</li>
 </ul>
 <h2 id="201---2019-01-04">[2.0.1] - 2019-01-04</h2>
-<h3 id="fixed-37">Fixed</h3>
+<h3 id="fixed-38">Fixed</h3>
 <ul>
 <li>#1226: Only escape the closing quotation mark of non-remainder strings (65b8c09)</li>
 <li>Commands with async RunModes will now propagate exceptions up to CommandExecuted (497918e)</li>
 </ul>
-<h3 id="misc-30">Misc</h3>
+<h3 id="misc-31">Misc</h3>
 <ul>
 <li>#1225: Commands sample no longer hooks the log event twice (552f34c)</li>
 <li>#1227: The logo on the docs index page should scale responsively (d39bf6e)</li>
 <li>#1230: Replaced precondition sample on docs (feed4fd)</li>
 </ul>
 <h2 id="200---2018-12-28">[2.0.0] - 2018-12-28</h2>
-<h3 id="added-34">Added</h3>
+<h3 id="added-35">Added</h3>
 <ul>
 <li>#747: <code>CommandService</code> now has a <code>CommandExecuted</code> event (e991715)</li>
 <li>#765: Parameters may have a name specified via <code>NameAttribute</code> (9c81ab9)</li>
@@ -1224,7 +1243,7 @@
 <li>Added markdown format for URLs (f005af3)</li>
 <li>Reactions can now be added to messages in bulk (5421df1)</li>
 </ul>
-<h3 id="fixed-38">Fixed</h3>
+<h3 id="fixed-39">Fixed</h3>
 <ul>
 <li>#742: <code>DiscordShardedClient#GetGuildFor</code> will now direct null guilds to Shard 0 (d5e9d6f)</li>
 <li>#743: Various issues with permissions and inheritance of permissions (f996338)</li>
@@ -1315,7 +1334,7 @@
 <li>#958: Remove support for user tokens (2fd4f56)</li>
 <li>User logins (including selfbots) are no longer supported (fc5adca)</li>
 </ul>
-<h3 id="misc-31">Misc</h3>
+<h3 id="misc-32">Misc</h3>
 <ul>
 <li>#786: Unit tests for the Color structure (22b969c)</li>
 <li>#828: We now include a contributing guide (cd82a0f)</li>
@@ -1337,12 +1356,12 @@
 <li>Fixed documentation layout for the logo (bafdce4)</li>
 </ul>
 <h2 id="102---2017-09-09">[1.0.2] - 2017-09-09</h2>
-<h3 id="fixed-39">Fixed</h3>
+<h3 id="fixed-40">Fixed</h3>
 <ul>
 <li>Guilds utilizing Channel Categories will no longer crash bots on the <code>READY</code> event.</li>
 </ul>
 <h2 id="101---2017-07-05">[1.0.1] - 2017-07-05</h2>
-<h3 id="fixed-40">Fixed</h3>
+<h3 id="fixed-41">Fixed</h3>
 <ul>
 <li>#732: Fixed parameter preconditions not being loaded from class-based modules (b6dcc9e)</li>
 <li>#726: Fixed CalculateScore throwing an ArgumentException for missing parameters (7597cf5)</li>
@@ -1357,7 +1376,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.17.2/CHANGELOG.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.17.3/CHANGELOG.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -1374,7 +1393,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.17.2
+          Discord.Net © 2015-2025 3.17.3
         </div>
       </div>
     </footer>
