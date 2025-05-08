@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.17.4/apiSpec/new?filename=Discord_TextInputBuilder.md&amp;value=---%0Auid%3A%20Discord.TextInputBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.18.0-beta.1/apiSpec/new?filename=Discord_TextInputBuilder.md&amp;value=---%0Auid%3A%20Discord.TextInputBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Discord_TextInputBuilder" data-uid="Discord.TextInputBuilder" class="text-break">
-Class TextInputBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class TextInputBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TextInputBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public class TextInputBuilder : IInteractableComponentBuilder, IMessageComponentBuilder</code></pre>
   </div>
 
 
@@ -116,6 +116,13 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Discord.IInteractableComponentBuilder.html">IInteractableComponentBuilder</a></div>
+      <div><a class="xref" href="Discord.IMessageComponentBuilder.html">IMessageComponentBuilder</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -144,6 +151,13 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Discord.ComponentBuilderExtensions.html#Discord_ComponentBuilderExtensions_WithId__1___0_System_Nullable_System_Int32__">ComponentBuilderExtensions.WithId&lt;BuilderT&gt;(BuilderT, int?)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -157,7 +171,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder__ctor" data-uid="Discord.TextInputBuilder.#ctor">
   TextInputBuilder()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new instance of a <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
@@ -182,9 +196,9 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <a id="Discord_TextInputBuilder__ctor_" data-uid="Discord.TextInputBuilder.#ctor*"></a>
 
-  <h3 id="Discord_TextInputBuilder__ctor_System_String_System_String_Discord_TextInputStyle_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_" data-uid="Discord.TextInputBuilder.#ctor(System.String,System.String,Discord.TextInputStyle,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.String)">
-  TextInputBuilder(string, string, TextInputStyle, string, int?, int?, bool?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_TextInputBuilder__ctor_System_String_System_String_Discord_TextInputStyle_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_System_Nullable_System_Int32__" data-uid="Discord.TextInputBuilder.#ctor(System.String,System.String,Discord.TextInputStyle,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32})">
+  TextInputBuilder(string, string, TextInputStyle, string, int?, int?, bool?, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new instance of a <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
@@ -192,7 +206,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TextInputBuilder(string label, string customId, TextInputStyle style = TextInputStyle.Short, string placeholder = null, int? minLength = null, int? maxLength = null, bool? required = null, string value = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TextInputBuilder(string label, string customId, TextInputStyle style = TextInputStyle.Short, string placeholder = null, int? minLength = null, int? maxLength = null, bool? required = null, string value = null, int? id = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -220,6 +234,8 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 </dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
   </dl>
 
 
@@ -240,7 +256,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_LargestMaxLength" data-uid="Discord.TextInputBuilder.LargestMaxLength">
   LargestMaxLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -270,7 +286,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_MaxPlaceholderLength" data-uid="Discord.TextInputBuilder.MaxPlaceholderLength">
   MaxPlaceholderLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The max length of a <a class="xref" href="Discord.TextInputComponent.html#Discord_TextInputComponent_Placeholder">Placeholder</a>.</p>
@@ -306,7 +322,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_CustomId" data-uid="Discord.TextInputBuilder.CustomId">
   CustomId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the custom id of the current text input.</p>
@@ -343,11 +359,43 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
 
 
+  <a id="Discord_TextInputBuilder_Id_" data-uid="Discord.TextInputBuilder.Id*"></a>
+
+  <h3 id="Discord_TextInputBuilder_Id" data-uid="Discord.TextInputBuilder.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the id for the component. An autoincremented id will be assigned if not set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Discord_TextInputBuilder_Label_" data-uid="Discord.TextInputBuilder.Label*"></a>
 
   <h3 id="Discord_TextInputBuilder_Label" data-uid="Discord.TextInputBuilder.Label">
   Label
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the label of the current text input.</p>
@@ -379,7 +427,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_MaxLength" data-uid="Discord.TextInputBuilder.MaxLength">
   MaxLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the maximum length of the current text input.</p>
@@ -423,7 +471,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_MinLength" data-uid="Discord.TextInputBuilder.MinLength">
   MinLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the minimum length of the current text input.</p>
@@ -467,7 +515,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_Placeholder" data-uid="Discord.TextInputBuilder.Placeholder">
   Placeholder
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the placeholder of the current text input.</p>
@@ -505,7 +553,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_Required" data-uid="Discord.TextInputBuilder.Required">
   Required
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets whether the user is required to input text.</p>
@@ -537,7 +585,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_Style" data-uid="Discord.TextInputBuilder.Style">
   Style
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the style of the current text input.</p>
@@ -565,11 +613,43 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
 
 
+  <a id="Discord_TextInputBuilder_Type_" data-uid="Discord.TextInputBuilder.Type*"></a>
+
+  <h3 id="Discord_TextInputBuilder_Type" data-uid="Discord.TextInputBuilder.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ComponentType.html">ComponentType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Discord_TextInputBuilder_Value_" data-uid="Discord.TextInputBuilder.Value*"></a>
 
   <h3 id="Discord_TextInputBuilder_Value" data-uid="Discord.TextInputBuilder.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the default value of the text input.</p>
@@ -617,7 +697,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_Build" data-uid="Discord.TextInputBuilder.Build">
   Build()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L260"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -648,7 +728,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithCustomId_System_String_" data-uid="Discord.TextInputBuilder.WithCustomId(System.String)">
   WithCustomId(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the custom id of the current builder.</p>
@@ -687,7 +767,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithLabel_System_String_" data-uid="Discord.TextInputBuilder.WithLabel(System.String)">
   WithLabel(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the label of the current builder.</p>
@@ -726,7 +806,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithMaxLength_System_Int32_" data-uid="Discord.TextInputBuilder.WithMaxLength(System.Int32)">
   WithMaxLength(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the maximum length of the current builder.</p>
@@ -765,7 +845,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithMinLength_System_Int32_" data-uid="Discord.TextInputBuilder.WithMinLength(System.Int32)">
   WithMinLength(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L232"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the minimum length of the current builder.</p>
@@ -804,7 +884,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithPlaceholder_System_String_" data-uid="Discord.TextInputBuilder.WithPlaceholder(System.String)">
   WithPlaceholder(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L210"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the placeholder of the current builder.</p>
@@ -843,7 +923,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithRequired_System_Boolean_" data-uid="Discord.TextInputBuilder.WithRequired(System.Boolean)">
   WithRequired(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L254"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the required value of the current builder.</p>
@@ -882,7 +962,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithStyle_Discord_TextInputStyle_" data-uid="Discord.TextInputBuilder.WithStyle(Discord.TextInputStyle)">
   WithStyle(TextInputStyle)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L188"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the style of the current builder.</p>
@@ -921,7 +1001,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Discord_TextInputBuilder_WithValue_System_String_" data-uid="Discord.TextInputBuilder.WithValue(System.String)">
   WithValue(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the value of the current builder.</p>
@@ -960,7 +1040,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.17.4/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.18.0-beta.1/src/Discord.Net.Core/Entities/Interactions/MessageComponents/Builders/TextInputBuilder.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 
@@ -976,7 +1056,7 @@ Class TextInputBuilder  <a class="header-action link-secondary" title="View sour
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.17.4
+          Discord.Net © 2015-2025 3.18.0
         </div>
       </div>
     </footer>
