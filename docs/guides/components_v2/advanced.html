@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Create Components V2 | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Create Components V2 | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/components_v2/advanced.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  <meta property="og:description" content="As denoted in Intro, This framework supports a lot of component types."><meta property="og:title" content="Create Components V2 | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="Discord.Net">
+            Discord.Net
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.ComponentsV2.Advanced">
+<h1 id="component-types">Component types</h1>
+
+<p>As denoted in <a class="xref" href="intro.html">Intro</a>, This framework supports a lot of component types.</p>
+<p>A full list of components available:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Components V2 only (flag)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Action Row</td>
+<td>Container to display a row of interactive components</td>
+<td>No</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Button</td>
+<td>Button object</td>
+<td>No</td>
+</tr>
+<tr>
+<td>3</td>
+<td>String Select</td>
+<td>Select menu for picking from defined text options</td>
+<td>No</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Text Input</td>
+<td>Text input object</td>
+<td>No</td>
+</tr>
+<tr>
+<td>5</td>
+<td>User Select</td>
+<td>Select menu for users</td>
+<td>No</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Role Select</td>
+<td>Select menu for roles</td>
+<td>No</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mentionable Select</td>
+<td>Select menu for mentionables (users and roles)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Channel Select</td>
+<td>Select menu for channels</td>
+<td>No</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Section</td>
+<td>Container to display text alongside an accessory component</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Text Display</td>
+<td>Markdown text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Thumbnail</td>
+<td>Small image that can be used as an accessory</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Media Gallery</td>
+<td>Display images and other media</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>13</td>
+<td>File</td>
+<td>Displays an attached file</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Separator</td>
+<td>Component to add vertical padding between other components</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Container</td>
+<td>Container that visually groups a set of components</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>All components have an id field (generated by default) and must be unique within the message. Generation of ids won't use another id that exists in the message if you have one defined for another component. Sending components with an id of <code>0</code> is allowed but will be treated as empty and replaced by the API. You may want to manually assign one if you want to later identify a component this way. Some (interactive) components can be identified using a <code>customId</code> instead, which is a unique string (max 100 chars).</p>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#action-row">Action Row</a></strong></p>
+<p>The <code>ActionRow</code> component is a parent that contains either</p>
+<ul>
+<li>1 to 5 <code>Buttons</code></li>
+<li>1 <code>TextInput</code></li>
+<li>1 of (<code>StringSelect</code>, <code>UserSelect</code>, <code>RoleSelect</code>, <code>MentionableSelect</code>, <code>ChannelSelect</code>)</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#button">Button</a></strong></p>
+<ul>
+<li>Must be inside an <code>ActionRow</code> or in the accessory field of a <code>Section</code></li>
+<li>Non-link and non-premium buttons must have a custom_id, and cannot have a url or a sku_id.</li>
+<li>Link buttons must have a url, and cannot have a custom_id</li>
+<li>Link buttons do not send an interaction to your app when clicked</li>
+<li>Premium buttons must contain a sku_id, and cannot have a custom_id, label, url, or emoji.</li>
+<li>Premium buttons do not send an interaction to your app when clicked</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#string-select">String Select</a></strong> (also other Select variants)</p>
+<ul>
+<li>Must be inside an <code>ActionRow</code></li>
+<li>1 to 25 <code>options</code></li>
+<li>Placeholder (if specified, up to 150 chars)</li>
+</ul>
+<p>It supports multi-select. If you want to use this functionality, you must set <code>min_values</code> (0 - 25) and <code>max_values</code> (1 - 25).</p>
+<p>For all select options:</p>
+<ul>
+<li>Label, value and optionally the description may not exceed <code>100</code> chars</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#text-input">Text Input</a></strong></p>
+<ul>
+<li>Must be inside an <code>ActionRow</code> in a <code>Modal</code></li>
+<li>Label has a max length of <code>45</code></li>
+</ul>
+<p>By default it will accept up to <code>4000</code> characters (this is also the maximum). You can change this using the <code>min_values</code> and <code>max_values</code></p>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#section">Section</a></strong></p>
+<p>A parent component, this allows you to put <code>TextDisplays</code> (1 - 3) next to eachother. It includes an accessory field, which can be used to display a <code>Thumbnail</code> or <code>Button</code>.</p>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#text-display">Text Display</a></strong></p>
+<p>Just text lol. (With markdown support, just like a regular user; up to 4000 characters)</p>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#thumbnail">Thumbnail</a></strong></p>
+<p>A small image (to use in a <code>Section</code>).</p>
+<ul>
+<li>Optionally has a description of max <code>1024</code> chars</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#media-gallery">Media Gallery</a></strong></p>
+<p>A component used to display up to <code>10</code> images.</p>
+<ul>
+<li>Each image can have a description of max <code>1024</code> chars</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#file">File</a></strong></p>
+<p>Used to send a single file. Only supports the <code>attachment://</code> protocol.</p>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#separator">Separator</a></strong></p>
+<p>Just something to put space between components (Y axis).</p>
+<ul>
+<li>Spacing can be set to either <code>1</code> (small space) or <code>2</code> (large space)</li>
+<li>Visibility can be toggled too. (<code>IsDivider</code>)</li>
+</ul>
+<p><strong><a href="https://discord.com/developers/docs/components/reference#container">Container</a></strong></p>
+<p>A parent component with a side bar of customisable colour (like embeds).</p>
+<p>In Discord.NET, you typically use these components in conjunction with a <code>ComponentBuilderV2</code>. The V2 specific components can be added to the builder using the <code>WithX</code> fluent/chain methods whereas the other supported components are mostly children of <code>ActionRows</code> and can be added as a component array like used below. You need to know what components can be added to which component though to prevent errors (this is why the above sections exist). If your component structure is wrong, Discord.NET will throw an exception.</p>
+<p>This example offers some more insight on how to use them. Below is a component with <code>TextDisplay</code>, <code>MediaGallery</code> and <code>ActionRow</code> (with <code>Buttons</code> or <code>SelectMenu</code>).</p>
+<p><img src="images/interaction-response.png" alt=""></p>
+<h2 id="code">Code</h2>
+<p>Some code will not be included here as it is not relevant to this framework. If you want to see the full code, it is <a href="https://github.com/Adrigorithm/Adribot/">here</a>.</p>
+<p>The main component container generation method:</p>
+<pre><code class="lang-csharp" name="ComponentBuilderV2 Sample">private static ComponentBuilderV2 BuildComponentUnsafe(Recipe recipe, Units units = Units.Si)
+{
+    StringBuilder ingredients = new($&quot;## Ingredients{Environment.NewLine}&quot;);
+    StringBuilder instructions = new($&quot;## Instructions{Environment.NewLine}&quot;);
+    ButtonBuilder servingsModalButton = new ButtonBuilder()
+    .WithCustomId(RecipeServingsModal)
+    .WithLabel(&quot;Set servings&quot;)
+    .WithStyle(ButtonStyle.Primary);
+
+    foreach (RecipeIngredient recipeIngredient in recipe.RecipeIngredients)
+    {
+        ingredients.Append($&quot;`{recipeIngredient.Quantity} {recipeIngredient.Unit.ToSymbol()}` {recipeIngredient.Ingredient.Name} &quot;);
+
+        if (recipeIngredient.Optional)
+            ingredients.AppendLine(&quot;[Optional]&quot;);
+        else
+            ingredients.Append(Environment.NewLine);
+    }
+
+    for (var i = 0; i &lt; recipe.Instruction.Length; i++)
+        instructions.AppendLine($&quot;`{i + 1}.` {recipe.Instruction[i]}{Environment.NewLine}&quot;);
+
+    return new ComponentBuilderV2()
+    .WithTextDisplay($&quot;# {recipe.Name}&quot;, RecipeNameDisplay)
+    .WithTextDisplay($&quot;-# {recipe.Servings} servings&quot;, RecipeServingsDisplay)
+    .WithMediaGallery([
+        &quot;https://cdn.discordapp.com/attachments/964253122547552349/1336440069892083712/7Q3S.gif?ex=67a3d04e&amp;is=67a27ece&amp;hm=059c9d28466f43a50c4b450ca26fc01298a2080356421d8524384bf67ea8f3ab&amp;&quot;
+    ])
+    .WithActionRow([servingsModalButton])
+    .WithTextDisplay(ingredients.ToString())
+    .WithTextDisplay($&quot;&quot;&quot;
+    ## Oven Settings
+    Mode: `{recipe.OvenMode.ToHumanReadable()}`
+    Temperature: `{recipe.Temperature.Convert(Unit.Temperature, Units.Si, units)} {units.ToSymbol()}`
+    &quot;&quot;&quot;)
+    .WithActionRow([
+        new SelectMenuBuilder(
+            RecipeUnitInput,
+            options:[
+                new SelectMenuOptionBuilder(
+                    &quot;Metric&quot;,
+                    &quot;1&quot;,
+                    isDefault: units == Units.Metric),
+                    new SelectMenuOptionBuilder(
+                        &quot;Imperial&quot;,
+                        &quot;2&quot;,
+                        isDefault: units == Units.Imperial),
+                        new SelectMenuOptionBuilder(
+                            &quot;Kelvin&quot;,
+                            &quot;0&quot;,
+                            isDefault: units == Units.Si)
+            ],
+            id: RecipeUnitSelectMenu
+        )
+    ])
+    .WithTextDisplay(instructions.ToString());
+}
+</code></pre><h2 id="interactions">Interactions</h2>
+<p>The button triggers the following modal</p>
+<p><img src="images/modal.png" alt=""></p>
+<pre><code class="lang-csharp" name="Modal Sample">private static ModalBuilder CreateServingsModal(short servings)
+{
+    TextInputBuilder? textInput = new TextInputBuilder()
+    .WithCustomId(RecipeServingsInput)
+    .WithLabel(&quot;Servings&quot;)
+    .WithValue(servings.ToString())
+    .WithMinLength(1)
+    .WithMaxLength(3)
+    .WithStyle(TextInputStyle.Short);
+
+    return new ModalBuilder()
+    .WithCustomId(RecipeServingsButton)
+    .WithTitle(&quot;Set Servings&quot;)
+    .AddTextInput(textInput);
+}
+</code></pre>
+<p>Interactions used by this message:</p>
+<pre><code class="lang-csharp" name="Interaction Sample">private async Task ClientOnInteractionCreatedAsync(SocketInteraction arg)
+{
+    switch (arg)
+    {
+        case SocketMessageComponent component:
+            switch (component.Data.CustomId)
+            {
+                // SET SERVINGS BUTTON CLICKED
+                case RecipeServingsModal:
+                    var servings = short.Parse(component.Message.Components.FindComponentById&lt;TextDisplayComponent&gt;(RecipeServingsDisplay).Content.Split(' ')[1]);
+
+                    await component.RespondWithModalAsync(CreateServingsModal(servings).Build());
+
+                    break;
+
+                    // ITEM IN COMBOXBOX CHANGED
+                case RecipeUnitInput:
+                    SelectMenuComponent selectedItem = component.Message.Components.FindComponentById&lt;SelectMenuComponent&gt;(RecipeUnitSelectMenu);
+                    var unitValue = short.Parse(component.Data.Values.First());
+                    var recipeName = component.Message.Components.FindComponentById&lt;TextDisplayComponent&gt;(RecipeNameDisplay).Content[2..];
+                    Recipe recipe = _recipes.First(r =&gt; r.Name == recipeName);
+                    Recipe recipe0 = recipe.Clone();
+                    var unit = (Units)Enum.ToObject(typeof(Units), unitValue);
+
+                    ComponentBuilderV2 newComponentContainer = BuildComponentUnsafe(recipe0, unit);
+
+                    await component.UpdateAsync(m =&gt; m.Components = newComponentContainer.Build());
+
+                    break;
+                default:
+                    // Ununsed here
+            }
+
+            break;
+
+            // MODAL SUBMIT
+                case SocketModal modal:
+                    if (modal.Data.CustomId == RecipeServingsButton)
+                    {
+                        var success = short.TryParse(modal.Data.Components.First(c =&gt; c.CustomId == RecipeServingsInput).Value, out var servings);
+
+                        if (!success || servings &lt;= 0)
+                            break;
+
+                        Recipe recipe = _recipes.First(r =&gt; r.Name == modal.Message.Components.FindComponentById&lt;TextDisplayComponent&gt;(RecipeNameDisplay).Content[2..]);
+                        Recipe? recipe0 = recipe.Clone();
+
+                        recipe0.ChangeServings(servings, true);
+
+                        ComponentBuilderV2 newComponentContainer = BuildComponentUnsafe(recipe0);
+
+                        await modal.UpdateAsync(m =&gt; m.Components = newComponentContainer.Build());
+                    }
+
+                    break;
+                default:
+                    return;
+    }
+}
+</code></pre>
+<p>After the <strong>SET SERVINGS</strong> modal is submitted (or the COMBOXBOX is changed) the UI is updated:</p>
+<p><img src="images/updated-ingredients.png" alt=""></p>
+<p><img src="images/updated-oven.png" alt=""></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common issues</h3>
+<ul>
+<li>Your interaction may not work if you use components v2 using <code>ModifyAsync</code>/<code>UpdateAsync</code>/..., if that is the case you must set the MessageFlags.ComponentsV2 flag on the message as mentioned in <a class="xref" href="../breakings/v3.18.html">CV2_Flag</a>.</li>
+<li>Currently there may be some rare instances where the flag may not be set even when it should, as per <a class="xref" href="../breakings/v3.18.html">CV2_Flag</a>. An example is when more than 5 action rows are used. This might get fixed later though. You should set it manually in this case (You can identify this using method described below).</li>
+</ul>
+<p>If you run into any trouble (appliction not responding when sending components), a debugger is (like usually) a useful tool to have at your disposal. More specifically within this context: dnet will do some checks before sending the component configuration to discord, so on building the component array, you can check for errors thrown. If this does not help, setting a breakpoint on the line that sends your component to discord (ModifyAsync/RespondAsync/...) and stepping to the next line (within 3 seconds of triggering it) may yield a more specific error returned by Discord itself.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/components_v2/advanced.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2025 3.18.0
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
