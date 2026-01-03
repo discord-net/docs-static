@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.18.0/apiSpec/new?filename=Discord_Interactions_InputComponentInfo.md&amp;value=---%0Auid%3A%20Discord.Interactions.InputComponentInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.19.0-beta.1/apiSpec/new?filename=Discord_Interactions_InputComponentInfo.md&amp;value=---%0Auid%3A%20Discord.Interactions.InputComponentInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Discord_Interactions_InputComponentInfo" data-uid="Discord.Interactions.InputComponentInfo" class="text-break">
-Class InputComponentInfo  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class InputComponentInfo  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class InputComponentInfo</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class InputComponentInfo : ModalComponentInfo</code></pre>
   </div>
 
 
@@ -112,6 +112,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Discord.Interactions.ModalComponentInfo.html">ModalComponentInfo</a></div>
       <div><span class="xref">InputComponentInfo</span></div>
     </dd>
   </dl>
@@ -120,6 +121,9 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="Discord.Interactions.FileUploadComponentInfo.html">FileUploadComponentInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.SelectMenuComponentInfo.html">SelectMenuComponentInfo</a></div>
+      <div><a class="xref" href="Discord.Interactions.SnowflakeSelectComponentInfo.html">SnowflakeSelectComponentInfo</a></div>
       <div><a class="xref" href="Discord.Interactions.TextInputComponentInfo.html">TextInputComponentInfo</a></div>
     </dd>
   </dl>
@@ -127,6 +131,24 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_Modal">ModalComponentInfo.Modal</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_ComponentType">ModalComponentInfo.ComponentType</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_Type">ModalComponentInfo.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_PropertyInfo">ModalComponentInfo.PropertyInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_DefaultValue">ModalComponentInfo.DefaultValue</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.Interactions.ModalComponentInfo.html#Discord_Interactions_ModalComponentInfo_Attributes">ModalComponentInfo.Attributes</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -155,116 +177,15 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
 
 
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="Discord_Interactions_InputComponentInfo__ctor_" data-uid="Discord.Interactions.InputComponentInfo.#ctor*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo__ctor_Discord_Interactions_Builders_IInputComponentBuilder_Discord_Interactions_ModalInfo_" data-uid="Discord.Interactions.InputComponentInfo.#ctor(Discord.Interactions.Builders.IInputComponentBuilder,Discord.Interactions.ModalInfo)">
-  InputComponentInfo(IInputComponentBuilder, ModalInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L67"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected InputComponentInfo(IInputComponentBuilder builder, ModalInfo modal)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>builder</code> <a class="xref" href="Discord.Interactions.Builders.IInputComponentBuilder.html">IInputComponentBuilder</a></dt>
-    <dd></dd>
-    <dt><code>modal</code> <a class="xref" href="Discord.Interactions.ModalInfo.html">ModalInfo</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="properties">Properties
 </h2>
-
-
-  <a id="Discord_Interactions_InputComponentInfo_Attributes_" data-uid="Discord.Interactions.InputComponentInfo.Attributes*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo_Attributes" data-uid="Discord.Interactions.InputComponentInfo.Attributes">
-  Attributes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L65"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets a collection of the attributes of this command.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;Attribute&gt; Attributes { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Discord_Interactions_InputComponentInfo_ComponentType_" data-uid="Discord.Interactions.InputComponentInfo.ComponentType*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo_ComponentType" data-uid="Discord.Interactions.InputComponentInfo.ComponentType">
-  ComponentType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L40"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the type of this component.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ComponentType ComponentType { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Discord.ComponentType.html">ComponentType</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
 
 
   <a id="Discord_Interactions_InputComponentInfo_CustomId_" data-uid="Discord.Interactions.InputComponentInfo.CustomId*"></a>
 
   <h3 id="Discord_Interactions_InputComponentInfo_CustomId" data-uid="Discord.Interactions.InputComponentInfo.CustomId">
   CustomId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the custom id of this component.</p>
@@ -292,19 +213,19 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
 
 
-  <a id="Discord_Interactions_InputComponentInfo_DefaultValue_" data-uid="Discord.Interactions.InputComponentInfo.DefaultValue*"></a>
+  <a id="Discord_Interactions_InputComponentInfo_Description_" data-uid="Discord.Interactions.InputComponentInfo.Description*"></a>
 
-  <h3 id="Discord_Interactions_InputComponentInfo_DefaultValue" data-uid="Discord.Interactions.InputComponentInfo.DefaultValue">
-  DefaultValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_Interactions_InputComponentInfo_Description" data-uid="Discord.Interactions.InputComponentInfo.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the default value of this component.</p>
+  <div class="markdown level1 summary"><p>Gets the description of this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object DefaultValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Description { get; }</code></pre>
   </div>
 
 
@@ -313,7 +234,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -328,7 +249,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
   <h3 id="Discord_Interactions_InputComponentInfo_IsRequired" data-uid="Discord.Interactions.InputComponentInfo.IsRequired">
   IsRequired
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets whether or not this component requires a user input.</p>
@@ -360,7 +281,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
   <h3 id="Discord_Interactions_InputComponentInfo_Label" data-uid="Discord.Interactions.InputComponentInfo.Label">
   Label
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the label of this component.</p>
@@ -388,115 +309,19 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
 
 
-  <a id="Discord_Interactions_InputComponentInfo_Modal_" data-uid="Discord.Interactions.InputComponentInfo.Modal*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo_Modal" data-uid="Discord.Interactions.InputComponentInfo.Modal">
-  Modal
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L20"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the parent modal of this component.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModalInfo Modal { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Discord.Interactions.ModalInfo.html">ModalInfo</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Discord_Interactions_InputComponentInfo_PropertyInfo_" data-uid="Discord.Interactions.InputComponentInfo.PropertyInfo*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo_PropertyInfo" data-uid="Discord.Interactions.InputComponentInfo.PropertyInfo">
-  PropertyInfo
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the property linked to this component.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PropertyInfo PropertyInfo { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Discord_Interactions_InputComponentInfo_Type_" data-uid="Discord.Interactions.InputComponentInfo.Type*"></a>
-
-  <h3 id="Discord_Interactions_InputComponentInfo_Type" data-uid="Discord.Interactions.InputComponentInfo.Type">
-  Type
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L45"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the reference type of this component.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type Type { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="Discord_Interactions_InputComponentInfo_TypeConverter_" data-uid="Discord.Interactions.InputComponentInfo.TypeConverter*"></a>
 
   <h3 id="Discord_Interactions_InputComponentInfo_TypeConverter" data-uid="Discord.Interactions.InputComponentInfo.TypeConverter">
   TypeConverter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Discord.Interactions.ComponentTypeConverter.html">ComponentTypeConverter</a> assigned to this component.</p>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Discord.Interactions.ModalComponentTypeConverter.html">ModalComponentTypeConverter</a> assigned to this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ComponentTypeConverter TypeConverter { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ModalComponentTypeConverter TypeConverter { get; }</code></pre>
   </div>
 
 
@@ -505,7 +330,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Discord.Interactions.ComponentTypeConverter.html">ComponentTypeConverter</a></dt>
+    <dt><a class="xref" href="Discord.Interactions.ModalComponentTypeConverter.html">ModalComponentTypeConverter</a></dt>
     <dd></dd>
   </dl>
 
@@ -520,7 +345,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/Info/InputComponents/InputComponentInfo.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Info/Components/InputComponentInfo.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 
@@ -536,7 +361,7 @@ Class InputComponentInfo  <a class="header-action link-secondary" title="View so
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.18.0
+          Discord.Net © 2015-2026 3.19.0
         </div>
       </div>
     </footer>

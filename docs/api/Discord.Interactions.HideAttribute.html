@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.18.0/apiSpec/new?filename=Discord_Interactions_HideAttribute.md&amp;value=---%0Auid%3A%20Discord.Interactions.HideAttribute%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.19.0-beta.1/apiSpec/new?filename=Discord_Interactions_HideAttribute.md&amp;value=---%0Auid%3A%20Discord.Interactions.HideAttribute%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Discord_Interactions_HideAttribute" data-uid="Discord.Interactions.HideAttribute" class="text-break">
-Class HideAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/TypeConverters/SlashCommands/EnumConverter.cs/#L53"><i class="bi bi-code-slash"></i></a>
+Class HideAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Attributes/HideAttribute.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -103,7 +103,7 @@ Class HideAttribute  <a class="header-action link-secondary" title="View source"
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
-public sealed class HideAttribute : Attribute</code></pre>
+public class HideAttribute : Attribute</code></pre>
   </div>
 
 
@@ -241,6 +241,9 @@ public sealed class HideAttribute : Attribute</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
@@ -252,15 +255,61 @@ public sealed class HideAttribute : Attribute</code></pre>
 
 
   <h2 id="Discord_Interactions_HideAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>This attribute must be used along with the default <span class="xref">Discord.Interactions.EnumConverter&lt;T&gt;</span></p>
+  <div class="markdown level0 remarks"><p>This attribute must be used along with the default <span class="xref">Discord.Interactions.EnumConverter&lt;T&gt;</span> and <span class="xref">Discord.Interactions.DefaultEntityTypeConverter&lt;T&gt;</span>.</p>
 </div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Discord_Interactions_HideAttribute_Predicate_" data-uid="Discord.Interactions.HideAttribute.Predicate*"></a>
+
+  <h3 id="Discord_Interactions_HideAttribute_Predicate_Discord_IDiscordInteraction_" data-uid="Discord.Interactions.HideAttribute.Predicate(Discord.IDiscordInteraction)">
+  Predicate(IDiscordInteraction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Attributes/HideAttribute.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Can be optionally implemented by inherited types to conditionally hide an enum value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Predicate(IDiscordInteraction interaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interaction</code> <a class="xref" href="Discord.IDiscordInteraction.html">IDiscordInteraction</a></dt>
+    <dd><p>Interaction that <a class="xref" href="Discord.Interactions.IDiscordInteractionExtentions.html#Discord_Interactions_IDiscordInteractionExtentions_RespondWithModalAsync__1_Discord_IDiscordInteraction_System_String___0_Discord_RequestOptions_System_Action_Discord_ModalBuilder__">RespondWithModalAsync&lt;T&gt;(IDiscordInteraction, string, T, RequestOptions, Action&lt;ModalBuilder&gt;)</a> is called on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the attribute should be active and hide the value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Discord_Interactions_HideAttribute_Predicate_Discord_IDiscordInteraction__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only runs on prior to modal construction. For slash command parameters, this method is ignored.</p>
+</div>
+
+
 
 
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Interactions/TypeConverters/SlashCommands/EnumConverter.cs/#L53" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Interactions/Attributes/HideAttribute.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 
@@ -276,7 +325,7 @@ public sealed class HideAttribute : Attribute</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.18.0
+          Discord.Net © 2015-2026 3.19.0
         </div>
       </div>
     </footer>

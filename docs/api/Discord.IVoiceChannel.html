@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.18.0/apiSpec/new?filename=Discord_IVoiceChannel.md&amp;value=---%0Auid%3A%20Discord.IVoiceChannel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.19.0-beta.1/apiSpec/new?filename=Discord_IVoiceChannel.md&amp;value=---%0Auid%3A%20Discord.IVoiceChannel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Discord_IVoiceChannel" data-uid="Discord.IVoiceChannel" class="text-break">
-Interface IVoiceChannel  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Interface IVoiceChannel  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Interface IVoiceChannel  <a class="header-action link-secondary" title="View sou
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IVoiceChannel : ITextChannel, IMessageChannel, IMentionable, INestedChannel, IIntegrationChannel, IGuildChannel, IDeletable, IAudioChannel, IChannel, ISnowflakeEntity, IEntity&lt;ulong&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IVoiceChannel : ITextChannel, IMessageChannel, IMentionable, INestedChannel, IIntegrationChannel, IGuildChannel, IDeletable, IThreadContainerChannel, IAudioChannel, IChannel, ISnowflakeEntity, IEntity&lt;ulong&gt;</code></pre>
   </div>
 
 
@@ -140,9 +140,6 @@ Interface IVoiceChannel  <a class="header-action link-secondary" title="View sou
     </div>
     <div>
       <a class="xref" href="Discord.ITextChannel.html#Discord_ITextChannel_CreateThreadAsync_System_String_Discord_ThreadType_Discord_ThreadArchiveDuration_Discord_IMessage_System_Nullable_System_Boolean__System_Nullable_System_Int32__Discord_RequestOptions_">ITextChannel.CreateThreadAsync(string, ThreadType, ThreadArchiveDuration, IMessage, bool?, int?, RequestOptions)</a>
-    </div>
-    <div>
-      <a class="xref" href="Discord.ITextChannel.html#Discord_ITextChannel_GetActiveThreadsAsync_Discord_RequestOptions_">ITextChannel.GetActiveThreadsAsync(RequestOptions)</a>
     </div>
     <div>
       <a class="xref" href="Discord.IMessageChannel.html#Discord_IMessageChannel_SendMessageAsync_System_String_System_Boolean_Discord_Embed_Discord_RequestOptions_Discord_AllowedMentions_Discord_MessageReference_Discord_MessageComponent_Discord_ISticker___Discord_Embed___Discord_MessageFlags_Discord_PollProperties_">IMessageChannel.SendMessageAsync(string, bool, Embed, RequestOptions, AllowedMentions, MessageReference, MessageComponent, ISticker[], Embed[], MessageFlags, PollProperties)</a>
@@ -271,6 +268,18 @@ Interface IVoiceChannel  <a class="header-action link-secondary" title="View sou
       <a class="xref" href="Discord.IDeletable.html#Discord_IDeletable_DeleteAsync_Discord_RequestOptions_">IDeletable.DeleteAsync(RequestOptions)</a>
     </div>
     <div>
+      <a class="xref" href="Discord.IThreadContainerChannel.html#Discord_IThreadContainerChannel_GetActiveThreadsAsync_Discord_RequestOptions_">IThreadContainerChannel.GetActiveThreadsAsync(RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.IThreadContainerChannel.html#Discord_IThreadContainerChannel_GetPublicArchivedThreadsAsync_System_Nullable_System_Int32__System_Nullable_System_DateTimeOffset__Discord_RequestOptions_">IThreadContainerChannel.GetPublicArchivedThreadsAsync(int?, DateTimeOffset?, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.IThreadContainerChannel.html#Discord_IThreadContainerChannel_GetPrivateArchivedThreadsAsync_System_Nullable_System_Int32__System_Nullable_System_DateTimeOffset__Discord_RequestOptions_">IThreadContainerChannel.GetPrivateArchivedThreadsAsync(int?, DateTimeOffset?, RequestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Discord.IThreadContainerChannel.html#Discord_IThreadContainerChannel_GetJoinedPrivateArchivedThreadsAsync_System_Nullable_System_Int32__System_Nullable_System_DateTimeOffset__Discord_RequestOptions_">IThreadContainerChannel.GetJoinedPrivateArchivedThreadsAsync(int?, DateTimeOffset?, RequestOptions)</a>
+    </div>
+    <div>
       <a class="xref" href="Discord.IAudioChannel.html#Discord_IAudioChannel_RTCRegion">IAudioChannel.RTCRegion</a>
     </div>
     <div>
@@ -316,7 +325,7 @@ Interface IVoiceChannel  <a class="header-action link-secondary" title="View sou
 
   <h3 id="Discord_IVoiceChannel_Bitrate" data-uid="Discord.IVoiceChannel.Bitrate">
   Bitrate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the bit-rate that the clients in this voice channel are requested to use.</p>
@@ -350,7 +359,7 @@ client(s) to use.</p>
 
   <h3 id="Discord_IVoiceChannel_UserLimit" data-uid="Discord.IVoiceChannel.UserLimit">
   UserLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the max number of users allowed to be connected to this channel at once.</p>
@@ -384,7 +393,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 
   <h3 id="Discord_IVoiceChannel_VideoQualityMode" data-uid="Discord.IVoiceChannel.VideoQualityMode">
   VideoQualityMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the video quality mode for this channel.</p>
@@ -420,7 +429,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 
   <h3 id="Discord_IVoiceChannel_ModifyAsync_System_Action_Discord_VoiceChannelProperties__Discord_RequestOptions_" data-uid="Discord.IVoiceChannel.ModifyAsync(System.Action{Discord.VoiceChannelProperties},Discord.RequestOptions)">
   ModifyAsync(Action&lt;VoiceChannelProperties&gt;, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Modifies this voice channel.</p>
@@ -468,7 +477,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 
   <h3 id="Discord_IVoiceChannel_SetStatusAsync_System_String_Discord_RequestOptions_" data-uid="Discord.IVoiceChannel.SetStatusAsync(System.String,Discord.RequestOptions)">
   SetStatusAsync(string, RequestOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the voice channel status in the current channel.</p>
@@ -510,7 +519,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Channels/IVoiceChannel.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 
@@ -526,7 +535,7 @@ channel at once; <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.18.0
+          Discord.Net © 2015-2026 3.19.0
         </div>
       </div>
     </footer>

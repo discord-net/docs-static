@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.18.0/apiSpec/new?filename=Discord_ModalBuilder.md&amp;value=---%0Auid%3A%20Discord.ModalBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/new/3.19.0-beta.1/apiSpec/new?filename=Discord_ModalBuilder.md&amp;value=---%0Auid%3A%20Discord.ModalBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Discord_ModalBuilder" data-uid="Discord.ModalBuilder" class="text-break">
-Class ModalBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class ModalBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -157,10 +157,11 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder__ctor" data-uid="Discord.ModalBuilder.#ctor">
   ModalBuilder()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new and empty <a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -183,7 +184,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder__ctor_System_String_System_String_Discord_ModalComponentBuilder_" data-uid="Discord.ModalBuilder.#ctor(System.String,System.String,Discord.ModalComponentBuilder)">
   ModalBuilder(string, string, ModalComponentBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a>.</p>
@@ -215,12 +216,84 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <h4 class="section">Exceptions</h4>
+
+
+
+  <a id="Discord_ModalBuilder__ctor_" data-uid="Discord.ModalBuilder.#ctor*"></a>
+
+  <h3 id="Discord_ModalBuilder__ctor_System_String_System_String_System_Collections_Generic_IEnumerable_Discord_IMessageComponentBuilder__" data-uid="Discord.ModalBuilder.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{Discord.IMessageComponentBuilder})">
+  ModalBuilder(string, string, params IEnumerable&lt;IMessageComponentBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder(string title, string customId, params IEnumerable&lt;IMessageComponentBuilder&gt; components)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
-    <dd><p>Only TextInputComponents are allowed.</p>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The modal's title.</p>
+</dd>
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The modal's customId.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Discord.IMessageComponentBuilder.html">IMessageComponentBuilder</a>&gt;</dt>
+    <dd><p>The modal's components.</p>
 </dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder__ctor_" data-uid="Discord.ModalBuilder.#ctor*"></a>
+
+  <h3 id="Discord_ModalBuilder__ctor_System_String_System_String_System_Collections_Generic_IEnumerable_Discord_IMessageComponent__" data-uid="Discord.ModalBuilder.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{Discord.IMessageComponent})">
+  ModalBuilder(string, string, params IEnumerable&lt;IMessageComponent&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder(string title, string customId, params IEnumerable&lt;IMessageComponent&gt; components)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The modal's title.</p>
+</dd>
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The modal's customId.</p>
+</dd>
+    <dt><code>components</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Discord.IMessageComponent.html">IMessageComponent</a>&gt;</dt>
+    <dd><p>The modal's components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -232,7 +305,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_Components" data-uid="Discord.ModalBuilder.Components">
   Components
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the components of the current modal.</p>
@@ -264,7 +337,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_CustomId" data-uid="Discord.ModalBuilder.CustomId">
   CustomId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the custom ID of the current modal.</p>
@@ -296,7 +369,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_Title" data-uid="Discord.ModalBuilder.Title">
   Title
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the title of the current modal.</p>
@@ -330,9 +403,9 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <a id="Discord_ModalBuilder_AddComponents_" data-uid="Discord.ModalBuilder.AddComponents*"></a>
 
-  <h3 id="Discord_ModalBuilder_AddComponents_System_Collections_Generic_List_Discord_IMessageComponent__System_Int32_" data-uid="Discord.ModalBuilder.AddComponents(System.Collections.Generic.List{Discord.IMessageComponent},System.Int32)">
-  AddComponents(List&lt;IMessageComponent&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_ModalBuilder_AddComponents_System_Collections_Generic_IEnumerable_Discord_IMessageComponentBuilder__" data-uid="Discord.ModalBuilder.AddComponents(System.Collections.Generic.IEnumerable{Discord.IMessageComponentBuilder})">
+  AddComponents(params IEnumerable&lt;IMessageComponentBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L283"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds multiple components to the current builder.</p>
@@ -340,7 +413,47 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModalBuilder AddComponents(List&lt;IMessageComponent&gt; components, int row)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddComponents(params IEnumerable&lt;IMessageComponentBuilder&gt; components)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>components</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Discord.IMessageComponentBuilder.html">IMessageComponentBuilder</a>&gt;</dt>
+    <dd><p>The components to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current builder</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddComponents_" data-uid="Discord.ModalBuilder.AddComponents*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddComponents_System_Collections_Generic_List_Discord_IMessageComponent__System_Int32_" data-uid="Discord.ModalBuilder.AddComponents(System.Collections.Generic.List{Discord.IMessageComponent},System.Int32)">
+  AddComponents(List&lt;IMessageComponent&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds multiple components to the current builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Modal components no longer have rows&quot;, false)]
+public ModalBuilder AddComponents(List&lt;IMessageComponent&gt; components, int row)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -369,11 +482,417 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <a id="Discord_ModalBuilder_AddFileUpload_" data-uid="Discord.ModalBuilder.AddFileUpload*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddFileUpload_System_String_Discord_FileUploadComponentBuilder_System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddFileUpload(System.String,Discord.FileUploadComponentBuilder,System.String,System.Nullable{System.Int32})">
+  AddFileUpload(string, FileUploadComponentBuilder, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> with the provided
+<a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a> to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddFileUpload(string label, FileUploadComponentBuilder fileUpload, string description = null, int? labelId = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The label around the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>fileUpload</code> <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a></dt>
+    <dd><p>The file upload to add.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description around the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>labelId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> wrapping the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddFileUpload_" data-uid="Discord.ModalBuilder.AddFileUpload*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddFileUpload_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_System_Nullable_System_Int32__System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddFileUpload(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32})">
+  AddFileUpload(string, string, int?, int?, bool, int?, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> with a <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>
+to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddFileUpload(string label, string customId, int? minValues = null, int? maxValues = null, bool isRequired = true, int? id = null, string description = null, int? labelId = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The label around the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom id of the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>minValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The min values of the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>maxValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The max values of the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>isRequired</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a> is required.</p>
+</dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description around the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+    <dt><code>labelId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> wrapping the <a class="xref" href="Discord.FileUploadComponentBuilder.html">FileUploadComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddLabel_" data-uid="Discord.ModalBuilder.AddLabel*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddLabel_Discord_LabelBuilder_" data-uid="Discord.ModalBuilder.AddLabel(Discord.LabelBuilder)">
+  AddLabel(LabelBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddLabel(LabelBuilder label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a></dt>
+    <dd><p>The <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddLabel_" data-uid="Discord.ModalBuilder.AddLabel*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddLabel_System_String_Discord_IMessageComponentBuilder_System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddLabel(System.String,Discord.IMessageComponentBuilder,System.String,System.Nullable{System.Int32})">
+  AddLabel(string, IMessageComponentBuilder, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddLabel(string label, IMessageComponentBuilder component, string description = null, int? id = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The label of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a>.</p>
+</dd>
+    <dt><code>component</code> <a class="xref" href="Discord.IMessageComponentBuilder.html">IMessageComponentBuilder</a></dt>
+    <dd><p>The component of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a>.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a>.</p>
+</dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddSelectMenu_" data-uid="Discord.ModalBuilder.AddSelectMenu*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddSelectMenu_System_String_Discord_SelectMenuBuilder_System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddSelectMenu(System.String,Discord.SelectMenuBuilder,System.String,System.Nullable{System.Int32})">
+  AddSelectMenu(string, SelectMenuBuilder, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> with the provided <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a> to
+the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddSelectMenu(string label, SelectMenuBuilder menu, string description = null, int? labelId = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The label around the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>menu</code> <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a></dt>
+    <dd><p>The menu to add.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description around the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>labelId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> wrapping the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddSelectMenu_" data-uid="Discord.ModalBuilder.AddSelectMenu*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddSelectMenu_System_String_System_String_System_Collections_Generic_List_Discord_SelectMenuOptionBuilder__System_String_System_Int32_System_Int32_System_Boolean_System_Boolean_Discord_ComponentType_Discord_ChannelType___Discord_SelectMenuDefaultValue___System_Nullable_System_Int32__System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddSelectMenu(System.String,System.String,System.Collections.Generic.List{Discord.SelectMenuOptionBuilder},System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,Discord.ComponentType,Discord.ChannelType[],Discord.SelectMenuDefaultValue[],System.Nullable{System.Int32},System.String,System.Nullable{System.Int32})">
+  AddSelectMenu(string, string, List&lt;SelectMenuOptionBuilder&gt;, string, int, int, bool, bool, ComponentType, ChannelType[], SelectMenuDefaultValue[], int?, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> containing a <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a> to the
+current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddSelectMenu(string label, string customId, List&lt;SelectMenuOptionBuilder&gt; options = null, string placeholder = null, int minValues = 1, int maxValues = 1, bool required = true, bool disabled = false, ComponentType type = ComponentType.SelectMenu, ChannelType[] channelTypes = null, SelectMenuDefaultValue[] defaultValues = null, int? id = null, string description = null, int? labelId = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The label around the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom id of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Discord.SelectMenuOptionBuilder.html">SelectMenuOptionBuilder</a>&gt;</dt>
+    <dd><p>The options of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>placeholder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The placeholder of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>minValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The min values of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>maxValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The max values of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>required</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a> is required to be answered.</p>
+</dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a> is disabled.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="Discord.ComponentType.html">ComponentType</a></dt>
+    <dd><p>The type of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>channelTypes</code> <a class="xref" href="Discord.ChannelType.html">ChannelType</a>[]</dt>
+    <dd><p>The channel types of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>defaultValues</code> <a class="xref" href="Discord.SelectMenuDefaultValue.html">SelectMenuDefaultValue</a>[]</dt>
+    <dd><p>The default values of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description around the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+    <dt><code>labelId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> wrapping the <a class="xref" href="Discord.SelectMenuBuilder.html">SelectMenuBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddTextDisplay_" data-uid="Discord.ModalBuilder.AddTextDisplay*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddTextDisplay_Discord_TextDisplayBuilder_" data-uid="Discord.ModalBuilder.AddTextDisplay(Discord.TextDisplayBuilder)">
+  AddTextDisplay(TextDisplayBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a> to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddTextDisplay(TextDisplayBuilder textDisplay)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textDisplay</code> <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a></dt>
+    <dd><p>The <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a> to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_AddTextDisplay_" data-uid="Discord.ModalBuilder.AddTextDisplay*"></a>
+
+  <h3 id="Discord_ModalBuilder_AddTextDisplay_System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddTextDisplay(System.String,System.Nullable{System.Int32})">
+  AddTextDisplay(string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a> to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddTextDisplay(string content, int? id = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>content</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The content of the <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a>.</p>
+</dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.TextDisplayBuilder.html">TextDisplayBuilder</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Discord_ModalBuilder_AddTextInput_" data-uid="Discord.ModalBuilder.AddTextInput*"></a>
 
   <h3 id="Discord_ModalBuilder_AddTextInput_Discord_TextInputBuilder_System_Int32_" data-uid="Discord.ModalBuilder.AddTextInput(Discord.TextInputBuilder,System.Int32)">
   AddTextInput(TextInputBuilder, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a component to the current builder.</p>
@@ -381,7 +900,8 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModalBuilder AddTextInput(TextInputBuilder component, int row = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Modal components no longer have rows&quot;, false)]
+public ModalBuilder AddTextInput(TextInputBuilder component, int row)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -413,49 +933,61 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <a id="Discord_ModalBuilder_AddTextInput_" data-uid="Discord.ModalBuilder.AddTextInput*"></a>
 
-  <h3 id="Discord_ModalBuilder_AddTextInput_System_String_System_String_Discord_TextInputStyle_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_" data-uid="Discord.ModalBuilder.AddTextInput(System.String,System.String,Discord.TextInputStyle,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.String)">
-  AddTextInput(string, string, TextInputStyle, string, int?, int?, bool?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Discord_ModalBuilder_AddTextInput_System_String_System_String_Discord_TextInputStyle_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_System_Nullable_System_Int32__System_String_System_Nullable_System_Int32__" data-uid="Discord.ModalBuilder.AddTextInput(System.String,System.String,Discord.TextInputStyle,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32})">
+  AddTextInput(string, string, TextInputStyle, string, int?, int?, bool?, string, int?, string, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a> to the current builder.</p>
+  <div class="markdown level1 summary"><p>Constructs and adds a <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> with a <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>
+to the current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModalBuilder AddTextInput(string label, string customId, TextInputStyle style = TextInputStyle.Short, string placeholder = &quot;&quot;, int? minLength = null, int? maxLength = null, bool? required = null, string value = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModalBuilder AddTextInput(string label, string customId, TextInputStyle style = TextInputStyle.Short, string placeholder = null, int? minLength = null, int? maxLength = null, bool? required = null, string value = null, int? id = null, string description = null, int? labelId = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The input's label.</p>
+    <dd><p>The label around the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The input's custom id.</p>
+    <dd><p>The custom id of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>style</code> <a class="xref" href="Discord.TextInputStyle.html">TextInputStyle</a></dt>
-    <dd><p>The input's style.</p>
+    <dd><p>The style of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>placeholder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The input's placeholder text.</p>
+    <dd><p>The placeholder of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>minLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
-    <dd><p>The input's minimum length.</p>
+    <dd><p>The min length of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>maxLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
-    <dd><p>The input's maximum length.</p>
+    <dd><p>The max length of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
 </dd>
     <dt><code>required</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
-    <dd></dd>
+    <dd><p>Whether the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a> is required.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The value of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
+</dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description around the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
+</dd>
+    <dt><code>labelId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The id of the <a class="xref" href="Discord.LabelBuilder.html">LabelBuilder</a> wrapping the <a class="xref" href="Discord.TextInputBuilder.html">TextInputBuilder</a>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Discord.ModalBuilder.html">ModalBuilder</a></dt>
-    <dd><p>The current builder.</p>
+    <dd><p>The current <a class="xref" href="Discord.ModalComponentBuilder.html">ModalComponentBuilder</a>.</p>
 </dd>
   </dl>
 
@@ -473,7 +1005,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_Build" data-uid="Discord.ModalBuilder.Build">
   Build()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L448"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Builds this builder into a <a class="xref" href="Discord.Modal.html">Modal</a>.</p>
@@ -516,9 +1048,48 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <a id="Discord_ModalBuilder_GetComponent_" data-uid="Discord.ModalBuilder.GetComponent*"></a>
 
+  <h3 id="Discord_ModalBuilder_GetComponent_System_String_" data-uid="Discord.ModalBuilder.GetComponent(System.String)">
+  GetComponent(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Discord.IInteractableComponentBuilder.html">IInteractableComponentBuilder</a> by the specified <code class="paramref">customId</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IInteractableComponentBuilder GetComponent(string customId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>customId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The <a class="xref" href="Discord.IInteractableComponentBuilder.html#Discord_IInteractableComponentBuilder_CustomId">CustomId</a> of the component to get.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Discord.IInteractableComponentBuilder.html">IInteractableComponentBuilder</a></dt>
+    <dd><p>The component that was found, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Discord_ModalBuilder_GetComponent_" data-uid="Discord.ModalBuilder.GetComponent*"></a>
+
   <h3 id="Discord_ModalBuilder_GetComponent__1_System_String_" data-uid="Discord.ModalBuilder.GetComponent``1(System.String)">
   GetComponent&lt;TMessageComponentBuilder&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L312"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <code class="typeparamref">TMessageComponentBuilder</code> by the specified <code class="paramref">customId</code>.</p>
@@ -539,7 +1110,8 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">TMessageComponentBuilder</span></dt>
-    <dd><p>The component of type <code class="typeparamref">TMessageComponentBuilder</code> that was found, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> otherwise.</p>
+    <dd><p>The component of type <code class="typeparamref">TMessageComponentBuilder</code> that was found,
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -563,7 +1135,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_RemoveComponent_System_String_" data-uid="Discord.ModalBuilder.RemoveComponent(System.String)">
   RemoveComponent(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L390"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes a component from this builder by the specified <code class="paramref">customId</code>.</p>
@@ -602,7 +1174,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_RemoveComponentsOfType_Discord_ComponentType_" data-uid="Discord.ModalBuilder.RemoveComponentsOfType(Discord.ComponentType)">
   RemoveComponentsOfType(ComponentType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L431"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes all components of the given <code class="paramref">type</code> from this builder.</p>
@@ -641,7 +1213,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_UpdateTextInput_System_String_System_Action_Discord_TextInputBuilder__" data-uid="Discord.ModalBuilder.UpdateTextInput(System.String,System.Action{Discord.TextInputBuilder})">
   UpdateTextInput(string, Action&lt;TextInputBuilder&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L350"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Updates a <a class="xref" href="Discord.TextInputComponent.html">TextInputComponent</a> by the specified <code class="paramref">customId</code>.</p>
@@ -689,7 +1261,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_UpdateTextInput_System_String_System_Object_" data-uid="Discord.ModalBuilder.UpdateTextInput(System.String,System.Object)">
   UpdateTextInput(string, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L379"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Updates the value of a <a class="xref" href="Discord.TextInputComponent.html">TextInputComponent</a> by the specified <code class="paramref">customId</code>.</p>
@@ -731,7 +1303,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_WithCustomId_System_String_" data-uid="Discord.ModalBuilder.WithCustomId(System.String)">
   WithCustomId(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L102"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the custom id of the current modal.</p>
@@ -770,7 +1342,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Discord_ModalBuilder_WithTitle_System_String_" data-uid="Discord.ModalBuilder.WithTitle(System.String)">
   WithTitle(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the title of the current modal.</p>
@@ -809,7 +1381,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.18.0/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.19.0-beta.1/src/Discord.Net.Core/Entities/Interactions/Modals/ModalBuilder.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 
@@ -825,7 +1397,7 @@ Class ModalBuilder  <a class="header-action link-secondary" title="View source" 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2025 3.18.0
+          Discord.Net © 2015-2026 3.19.0
         </div>
       </div>
     </footer>
