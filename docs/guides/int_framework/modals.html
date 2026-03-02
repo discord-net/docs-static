@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Modals in Interaction Service | Discord.Net Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modals in Interaction Service | Discord.Net Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.19.0/docs/guides/int_framework/modals.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  <meta property="og:description" content="The interaction service provides a set of tools which can be used to create and handle modals."><meta property="og:title" content="Modals in Interaction Service | Discord.Net Documentation "><meta property="og:site_name" content="Discord.Net Docs"><meta name="theme-color" content="#995EA7"><meta property="og:image" content="https://raw.githubusercontent.com/Discord-Net/Discord.Net/dev/docs/marketing/logo/PackageLogo.png"></head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../marketing/logo/SVG/Logomark Purple.svg" alt="Discord.Net">
+            Discord.Net
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Guides.IntFw.Modals">
+<h1 id="modals">Modals</h1>
+
+<p>The interaction service provides a set of tools which can be used to create and handle modals. Modals are a type of interactive component that can be used to gather input from users in a structured way.</p>
+<p>In the Interaction Framework modals can be defined using a class that inherits <code>IModal</code>. <code>ModalBuilder</code> can be still used to create modals programmatically, but using <code>IModal</code> is the recommended way.</p>
+<p>The title of the modal is set by implementing the <code>Title</code> property of the <code>IModal</code> interface.</p>
+<pre><code class="lang-csharp" name="Example modal">public class ExampleModal : IModal
+{
+    public string Title = &quot;Example Modal&quot;;
+
+    // other modal components
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you are using Modals in the interaction service it is <strong>highly
+recommended</strong> that you enable <code>PreCompiledLambdas</code> in your config
+to prevent performance issues.</p>
+</div>
+<h2 id="responding-with-a-modal">Responding with a modal</h2>
+<p>To respond to an interaction with a modal, you can use the <code>RespondWithModalAsync&lt;TModal&gt;</code> method provided by the interaction context. This method takes a generic parameter <code>TModal</code>, which should be a class that implements the <code>IModal</code> interface.
+Additionally, the method can take an instance of <code>TModal</code> to pre-fill the modal with data (or alter the title).</p>
+<pre><code class="lang-csharp">await RespondWithModalAsync&lt;ExampleModal&gt;(&quot;example-modal-custom-id&quot;);
+</code></pre>
+<h2 id="handling-modal-submissions">Handling modal submissions</h2>
+<p>To handle a modal you need to create a method in your interaction module and annotate it with the <code>ModalInteraction</code> attribute. The method's last parameter must be of type <code>TModal</code>, where <code>TModal</code> is the class that implements the <code>IModal</code> interface. Simitar to <code>ComponentInteraction</code> methods, parts of the custom ID can be defined with a wildcard character and extracted using method parameters.</p>
+<pre><code class="lang-csharp">[ModalInteraction(&quot;example-modal-custom-id&quot;)]
+public async Task HandleExampleModal(ExampleModal modal)
+{
+    // Handle the modal submission
+}
+</code></pre>
+<h2 id="input-names">Input names</h2>
+<p>Modal components can be annotated with a description using the <code>InputLabel</code> attribute. If no label is provided, the property name will be used as the label.</p>
+<pre><code class="lang-csharp">[InputLabel(&quot;Component label&quot;, &quot;Some description&quot;)]
+</code></pre>
+<p><img src="images/modals/component-label.png" alt="Label example"></p>
+<h2 id="required-inputs">Required inputs</h2>
+<p>Modal components are required by default. To make a component optional, you can use the <code>RequiredInput</code> attribute with the boolean parameter set to <code>false</code>.</p>
+<pre><code class="lang-csharp">[RequiredInput(false)]
+</code></pre>
+<h2 id="supported-components">Supported components</h2>
+<p>Modals currently support the following components:</p>
+<ul>
+<li><a href="#text-input">Text Input</a></li>
+<li>Select Menus (Dropdowns)
+<ul>
+<li><a href="#text-selects">Text selects</a></li>
+<li><a href="#user--role--mentionable-and-channel-selects">User selects</a></li>
+<li><a href="#user--role--mentionable-and-channel-selects">Role selects</a></li>
+<li><a href="#user--role--mentionable-and-channel-selects">Mentionable selects</a></li>
+<li><a href="#user--role--mentionable-and-channel-selects">Channel selects</a></li>
+</ul>
+</li>
+<li><a href="#file-uploads">File Uploads</a></li>
+<li>[Text Display](#text-display</li>
+</ul>
+<h2 id="text-input">Text Input</h2>
+<p>Text inputs allow users to input text data into a modal. They can be configured with various options such as placeholder text, minimum and maximum length, and whether the input is required. Text inputs can be single-line or paragraph style.</p>
+<p><img src="images/modals/text-input.png" alt="Text input"></p>
+<h2 id="select-menus">Select Menus</h2>
+<p>Select menus allow users to select one or more options from a dropdown list.</p>
+<h3 id="text-selects">Text Selects</h3>
+<p>Text selects allow users to select one or more options from a predefined list of text options.
+The select menu is defined using the <code>ModalSelectMenu</code> attribute. The attribute can be used on a property of type <code>string</code>, <code>string[]</code> or an <code>enum</code> (annotated with <code>[Flags]</code> for multi-selects).
+In string selects, the default Modal TypeConverter discovers the most suitable TypeReader registered in the active <code>InteractionService</code> instance and converts <code>string</code> values to the underlying CLR type of the array property using that TypeReader. Out of the box, you can use any <code>IConvertible</code> array as the backing field of a Text Select component.
+In the case of <code>string</code>,  <code>string[]</code> or any other array, the options must be provided using the <code>ModalSelectMenuOption</code> attribute.</p>
+<pre><code class="lang-csharp">[ModalSelectMenu(&quot;custom-id&quot;)]
+[ModalSelectMenuOption(&quot;label1&quot;, &quot;Value1&quot;, &quot;Some description 1&quot;)]
+[ModalSelectMenuOption(&quot;label2&quot;, &quot;Value2&quot;, &quot;Some description 2&quot;)]
+public string[] TextSelectMenu { get; set; }
+</code></pre>
+<p><img src="images/modals/text-select.png" alt="Text select">
+In case of <code>enum</code>, the enum values are automatically converted into options. <code>Hide</code> attribute can be used to declaratively remove options from the select menu. Custom attributes can be created by inheriting the <code>Hide</code> attribute and overriding the <code>Predicate</code> method to apply the attribute selectively during runtime.</p>
+<p>Option properties (like description, isDefault, and emote) can be configured by adding a <code>SelectMenuOption</code> attribute to the enum fields. Emote property accepts identifier strings for both unicode emojis and discord emotes.</p>
+<p>Enum selects are the recommended way of implementing select menus in modals. It provides a reusable and type-safe way of accepting user inputs, as it is also possible to create generic modal classes and swap select menus in-and-out by simply changing the generic parameter on instantiation.</p>
+<h3 id="user-role-mentionable-and-channel-selects">User, Role, Mentionable and Channel Selects</h3>
+<p>User, Role, Mentionable and Channel selects allow users to select one or more entities of a specific type from a prefilled select menu.
+<code>ModalUserSelect</code>, <code>ModalRoleSelect</code>, <code>ModalMentionableSelect</code> and <code>ModalChannelSelect</code> attributes can be used on properties of type <code>IUser</code>, <code>IRole</code>, <code>IMentionable</code>, <code>IChannel</code>, or any other implementation of the aforementioned interfaces(as long as the received entity type can be up-cast into it) for single-selects, or arrays of respective types for multi-selects.</p>
+<pre><code class="lang-csharp" name="Example modal">[ModalUserSelect(&quot;user-select-id&quot;)]
+public IUser[] SelectedUsers { get; set; }
+
+[ModalChannelSelect(&quot;channel-select-id&quot;)]
+public IChannel[] SelectedChannels { get; set; }
+
+[ModalRoleSelect(&quot;role-select-id&quot;)]
+public IRole[] SelectedRoles { get; set; }
+
+[ModalMentionableSelect(&quot;mentionable-select-id&quot;)]
+public IMentionable[] SelectedMentionables { get; set; }
+</code></pre>
+<p><img src="images/modals/prefilled-selects.png" alt="Prefilled selects">
+For Channel selects in particular, the property type (if single entity), or the underlying type of the array can be used to restrict the type of channels available to the user. Implementations like <code>IStageChannel</code>, <code>IVoiceChannel</code>, <code>IDMChannel</code>, <code>IGroupChannel</code>, <code>ICategoryChannel</code>, <code>INewsChannel</code>, <code>IThreadChannel</code>, <code>ITextChannel</code>, <code>IMediaChannel</code>, or <code>IForumChannel</code> can be used.</p>
+<p>Additionally for Channel Select components, channel type constraints can be defined by annotating the property with a <code>ChannelTypes</code> attribute.</p>
+<h2 id="file-uploads">File Uploads</h2>
+<p>File upload components allow users to upload files as part of their modal submission. A single file upload can take up to 10 attachments. The size limit for the uploaded files is determined by Discord's limits for the current context (e.g., server boost level, user's nitro status).
+The file upload component is defined using the <code>ModalFileUpload</code> attribute. The attribute can be used on a property of type <code>IAttachment</code> or <code>IAttachment[]</code>.</p>
+<pre><code class="lang-csharp">[ModalFileUpload(&quot;file-upload-id&quot;, maxValues: 5)]
+public IAttachment[] FileUploads { get; set; }
+</code></pre>
+<p><img src="images/modals/file-upload.png" alt="File upload"></p>
+<h2 id="text-display">Text Display</h2>
+<p>Text display components allow you to display read-only text within a modal. This can be useful for providing instructions or additional information to users. The text can be formatted using Markdown syntax.</p>
+<p>The text display component is defined using the <code>ModalTextDisplay</code> attribute. The attribute can be used on a property of type <code>string</code>. The value of the property will be displayed as read-only text in the modal. In the case the property is <code>null</code>, the value provided in the attribute's optional <code>content</code> parameter will be used as a fallback.</p>
+<pre><code class="lang-csharp">    [ModalTextDisplay(content: &quot;Fallback content&quot;)]
+    public string? TextDisplay { get; set; } = &quot;&quot;&quot;
+                                              # Text display!
+                                              Hello there!
+                                              -# wires
+                                              &quot;&quot;&quot;;
+</code></pre>
+<p><img src="images/modals/text-display.png" alt="Text display"></p>
+<h2 id="modal-typeconverters">Modal TypeConverters</h2>
+<p>Modal TypeConverters use the same principle as Slash Command TypeConverters and Component TypeConverters to convert CLR type values to and from API entities and values. They are assigned to modal component properties by their respective CLR types (with the exception being Text Display components). Every default behaviour mentioned in this document regarding value conversions and property values can be overridden by implementing custom generic or concrete Modal TypeConverters by inheriting <code>ModalComponentTypeConverter</code> class and registering the TypeConveter to the <code>InteractionService</code> instance in use. <code>WriteAsync</code> method is invoked after the regular the component building flow is done executing with the component builder instance being used.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.19.0/docs/guides/int_framework/modals.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Discord.Net © 2015-2026 3.19.0
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
