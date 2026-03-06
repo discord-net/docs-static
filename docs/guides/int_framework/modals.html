@@ -139,7 +139,7 @@ public async Task HandleExampleModal(ExampleModal modal)
 </ul>
 </li>
 <li><a href="#file-uploads">File Uploads</a></li>
-<li>[Text Display](#text-display</li>
+<li><a href="#text-display">Text Display</a></li>
 </ul>
 <h2 id="text-input">Text Input</h2>
 <p>Text inputs allow users to input text data into a modal. They can be configured with various options such as placeholder text, minimum and maximum length, and whether the input is required. Text inputs can be single-line or paragraph style.</p>
@@ -156,8 +156,8 @@ In the case of <code>string</code>,  <code>string[]</code> or any other array, t
 [ModalSelectMenuOption(&quot;label2&quot;, &quot;Value2&quot;, &quot;Some description 2&quot;)]
 public string[] TextSelectMenu { get; set; }
 </code></pre>
-<p><img src="images/modals/text-select.png" alt="Text select">
-In case of <code>enum</code>, the enum values are automatically converted into options. <code>Hide</code> attribute can be used to declaratively remove options from the select menu. Custom attributes can be created by inheriting the <code>Hide</code> attribute and overriding the <code>Predicate</code> method to apply the attribute selectively during runtime.</p>
+<p><img src="images/modals/text-select.png" alt="Text select"></p>
+<p>In case of <code>enum</code>, the enum values are automatically converted into options. <code>Hide</code> attribute can be used to declaratively remove options from the select menu. Custom attributes can be created by inheriting the <code>Hide</code> attribute and overriding the <code>Predicate</code> method to apply the attribute selectively during runtime.</p>
 <p>Option properties (like description, isDefault, and emote) can be configured by adding a <code>SelectMenuOption</code> attribute to the enum fields. Emote property accepts identifier strings for both unicode emojis and discord emotes.</p>
 <p>Enum selects are the recommended way of implementing select menus in modals. It provides a reusable and type-safe way of accepting user inputs, as it is also possible to create generic modal classes and swap select menus in-and-out by simply changing the generic parameter on instantiation.</p>
 <h3 id="user-role-mentionable-and-channel-selects">User, Role, Mentionable and Channel Selects</h3>
@@ -175,8 +175,8 @@ public IRole[] SelectedRoles { get; set; }
 [ModalMentionableSelect(&quot;mentionable-select-id&quot;)]
 public IMentionable[] SelectedMentionables { get; set; }
 </code></pre>
-<p><img src="images/modals/prefilled-selects.png" alt="Prefilled selects">
-For Channel selects in particular, the property type (if single entity), or the underlying type of the array can be used to restrict the type of channels available to the user. Implementations like <code>IStageChannel</code>, <code>IVoiceChannel</code>, <code>IDMChannel</code>, <code>IGroupChannel</code>, <code>ICategoryChannel</code>, <code>INewsChannel</code>, <code>IThreadChannel</code>, <code>ITextChannel</code>, <code>IMediaChannel</code>, or <code>IForumChannel</code> can be used.</p>
+<p><img src="images/modals/prefilled-selects.png" alt="Prefilled selects"></p>
+<p>For Channel selects in particular, the property type (if single entity), or the underlying type of the array can be used to restrict the type of channels available to the user. Implementations like <code>IStageChannel</code>, <code>IVoiceChannel</code>, <code>IDMChannel</code>, <code>IGroupChannel</code>, <code>ICategoryChannel</code>, <code>INewsChannel</code>, <code>IThreadChannel</code>, <code>ITextChannel</code>, <code>IMediaChannel</code>, or <code>IForumChannel</code> can be used.</p>
 <p>Additionally for Channel Select components, channel type constraints can be defined by annotating the property with a <code>ChannelTypes</code> attribute.</p>
 <h2 id="file-uploads">File Uploads</h2>
 <p>File upload components allow users to upload files as part of their modal submission. A single file upload can take up to 10 attachments. The size limit for the uploaded files is determined by Discord's limits for the current context (e.g., server boost level, user's nitro status).
