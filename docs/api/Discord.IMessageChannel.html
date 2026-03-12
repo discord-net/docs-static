@@ -531,17 +531,17 @@ beginning of the channel and prints them to the console.</p>
     // too many requests at once.
     if (messageCount &gt; 1000)
         throw new InvalidOperationException("Too many messages requested.");
+<pre><code>// Setting fromMessageId to 0 will make Discord
+// default to the first message in channel.
+var messages = await channel.GetMessagesAsync(
+        0, Direction.After, messageCount)
+    .FlattenAsync();
 
-    // Setting fromMessageId to 0 will make Discord
-    // default to the first message in channel.
-    var messages = await channel.GetMessagesAsync(
-            0, Direction.After, messageCount)
-        .FlattenAsync();
-
-    // Print message content
-    foreach (var message in messages)
-        Console.WriteLine($"{message.Author} posted '{message.Content}' at {message.CreatedAt}.");
-}</code></pre>
+// Print message content
+foreach (var message in messages)
+    Console.WriteLine($&quot;{message.Author} posted '{message.Content}' at {message.CreatedAt}.&quot;);
+</code></pre>
+<p>}</p></code></pre>
 
 
   <h4 class="section" id="Discord_IMessageChannel_GetMessagesAsync_System_UInt64_Discord_Direction_System_Int32_Discord_CacheMode_Discord_RequestOptions__remarks">Remarks</h4>
@@ -1146,7 +1146,7 @@ await Task.Delay(TimeSpan.FromSeconds(5))
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2026 3.19.0
+          Discord.Net © 2015-2026 3.19.1
         </div>
       </div>
     </footer>
