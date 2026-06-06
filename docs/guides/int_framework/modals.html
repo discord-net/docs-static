@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/modals.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.20.0/docs/guides/int_framework/modals.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -100,7 +100,7 @@
 <div class="NOTE">
 <h5>Note</h5>
 <p>If you are using Modals in the interaction service it is <strong>highly
-recommended</strong> that you enable <code>PreCompiledLambdas</code> in your config
+recommended</strong> that you enable <code>InteractionServiceConfig.UseCompiledLambda</code>
 to prevent performance issues.</p>
 </div>
 <h2 id="responding-with-a-modal">Responding with a modal</h2>
@@ -139,6 +139,9 @@ public async Task HandleExampleModal(ExampleModal modal)
 </ul>
 </li>
 <li><a href="#file-uploads">File Uploads</a></li>
+<li><a href="#checkboxes">Checkboxes</a></li>
+<li><a href="#checkbox-groups">Checkbox groups</a></li>
+<li><a href="#radio-groups">Radio groups</a></li>
 <li><a href="#text-display">Text Display</a></li>
 </ul>
 <h2 id="text-input">Text Input</h2>
@@ -157,9 +160,8 @@ In the case of <code>string</code>,  <code>string[]</code> or any other array, t
 public string[] TextSelectMenu { get; set; }
 </code></pre>
 <p><img src="images/modals/text-select.png" alt="Text select"></p>
-<p>In case of <code>enum</code>, the enum values are automatically converted into options. <code>Hide</code> attribute can be used to declaratively remove options from the select menu. Custom attributes can be created by inheriting the <code>Hide</code> attribute and overriding the <code>Predicate</code> method to apply the attribute selectively during runtime.</p>
-<p>Option properties (like description, isDefault, and emote) can be configured by adding a <code>SelectMenuOption</code> attribute to the enum fields. Emote property accepts identifier strings for both unicode emojis and discord emotes.</p>
-<p>Enum selects are the recommended way of implementing select menus in modals. It provides a reusable and type-safe way of accepting user inputs, as it is also possible to create generic modal classes and swap select menus in-and-out by simply changing the generic parameter on instantiation.</p>
+<p><code>enum</code> based select menus work similarly to the string selects, but the options are automatically generated based on the enum fields. For more information about using enums as select menu backing fields and configuring their options, refer to the <a href="#enum-options">Enum options</a> section below.
+Enum selects are the recommended way of implementing select menus in modals. It provides a reusable and type-safe way of accepting user inputs, as it is also possible to create generic modal classes and swap select menus in-and-out by simply changing the generic parameter on instantiation.</p>
 <h3 id="user-role-mentionable-and-channel-selects">User, Role, Mentionable and Channel Selects</h3>
 <p>User, Role, Mentionable and Channel selects allow users to select one or more entities of a specific type from a prefilled select menu.
 <code>ModalUserSelect</code>, <code>ModalRoleSelect</code>, <code>ModalMentionableSelect</code> and <code>ModalChannelSelect</code> attributes can be used on properties of type <code>IUser</code>, <code>IRole</code>, <code>IMentionable</code>, <code>IChannel</code>, or any other implementation of the aforementioned interfaces(as long as the received entity type can be up-cast into it) for single-selects, or arrays of respective types for multi-selects.</p>
@@ -196,13 +198,60 @@ public IAttachment[] FileUploads { get; set; }
                                               &quot;&quot;&quot;;
 </code></pre>
 <p><img src="images/modals/text-display.png" alt="Text display"></p>
+<h2 id="checkboxes">Checkboxes</h2>
+<p>Checkbox component allows users to add a boolean input to their modal. It is defined using the <code>ModalCheckbox</code> attribute. The attribute can be used on a property of type <code>bool</code> for a single checkbox, or <code>bool[]</code> for a group of checkboxes.</p>
+<pre><code class="lang-csharp">    [ModalCheckbox(&quot;checkbox-id&quot;)]
+    public bool CheckBox { get; set; } = true;
+</code></pre>
+<p><img src="images/modals/checkbox.png" alt="Checkbox"></p>
+<h2 id="checkbox-groups">Checkbox groups</h2>
+<p>Checkbox group component allows users to select multiple options from a group of options. It is defined using the <code>ModalCheckboxGroup</code> attribute. Similarly to <a href="#select-menus">select menus</a>, the attribute can be used on a property with options defined by <code>ModalCheckboxGroupOption</code> attributes, or on an <code>enum</code> property with options defined by the enum fields. For more information about the latter refer to the <a href="#enum-options">Enum options</a> section below.</p>
+<pre><code class="lang-csharp">    [ModalCheckboxGroup(&quot;checkbox-group-id&quot;)]
+    [ModalCheckboxGroupOption(&quot;Option1&quot;, &quot;value1&quot;, &quot;Description1&quot;)]
+    [ModalCheckboxGroupOption(&quot;Option2&quot;, &quot;value2&quot;, &quot;Description2&quot;)]
+    [ModalCheckboxGroupOption(&quot;Option3&quot;, &quot;value3&quot;, &quot;Description3&quot;)]
+    public string[] CheckboxGroup { get; set; } = [];
+</code></pre>
+<p><img src="images/modals/checkbox-group.png" alt="Checkbox group"></p>
+<h2 id="radio-groups">Radio groups</h2>
+<p>Radio group component allows users to select one option from a group of options. It is defined using the <code>ModalRadioGroup</code> attribute. Similarly to <a href="#select-menus">select menus</a> and <a href="#checkbox-groups">checkbox groups</a>, attribute can be used on a property with options defined by <code>ModalRadioGroupOption</code> attributes, or on an <code>enum</code> property with options defined by the enum fields. For more information about the latter refer to the <a href="#enum-options">Enum options</a> section below.</p>
+<pre><code class="lang-csharp">    [ModalRadioGroup(&quot;radio-group-id&quot;)]
+    [ModalRadioGroupOption(&quot;Option1&quot;, &quot;value1&quot;, &quot;Description1&quot;)]
+    [ModalRadioGroupOption(&quot;Option2&quot;, &quot;value2&quot;, &quot;Description2&quot;)]
+    [ModalRadioGroupOption(&quot;Option3&quot;, &quot;value3&quot;, &quot;Description3&quot;)]
+    public string RadioGroup { get; set; }
+</code></pre>
+<p><img src="images/modals/radio-group.png" alt="Radio group"></p>
 <h2 id="modal-typeconverters">Modal TypeConverters</h2>
 <p>Modal TypeConverters use the same principle as Slash Command TypeConverters and Component TypeConverters to convert CLR type values to and from API entities and values. They are assigned to modal component properties by their respective CLR types (with the exception being Text Display components). Every default behaviour mentioned in this document regarding value conversions and property values can be overridden by implementing custom generic or concrete Modal TypeConverters by inheriting <code>ModalComponentTypeConverter</code> class and registering the TypeConveter to the <code>InteractionService</code> instance in use. <code>WriteAsync</code> method is invoked after the regular the component building flow is done executing with the component builder instance being used.</p>
+<h2 id="enum-options">Enum options</h2>
+<p>When using <code>enum</code> properties for <a href="#text-selects">select menus</a>, <a href="#checkbox-groups">checkbox groups</a> or <a href="#radio-groups">radio groups</a>, the options are automatically generated based on the enum fields. The <code>EnumOption</code> attribute can be used to configure option properties such as description, default value and <code>Emote</code> for select menu options.</p>
+<p>The <code>Hide</code> attribute and its derivatives can be used to conditionally hide options based on runtime logic. Custom attributes can be created by inheriting the <code>Hide</code> attribute and overriding the <code>Predicate</code> method to apply the attribute selectively during runtime.</p>
+<p><code>ChoiceDisplay</code> attribute can be used to set the label of the option to a custom value instead of the enum field name.</p>
+<pre><code>    public enum ModalEnum
+    {
+        [EnumOption(Description = &quot;Some description 1&quot;)]
+        Value1 = 1 &lt;&lt; 0,
+
+        [EnumOption(Description = &quot;Some description 2&quot;, IsDefault = true)]
+        Value2 = 1 &lt;&lt; 1,
+
+        [EnumOption(Description = &quot;Some description 3&quot;, Emote = &quot;🦫&quot;)]
+        Value3 = 1 &lt;&lt; 2,
+
+        [EnumOption(Description = &quot;Some description 69&quot;)]
+        [ChoiceDisplay(&quot;Value 42&quot;)]
+        Value69 = 1 &lt;&lt; 3,
+
+        [Hide]
+        SuperSecretOption = 1 &lt;&lt; 31,
+    }
+</code></pre>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/dev/docs/guides/int_framework/modals.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.20.0/docs/guides/int_framework/modals.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -219,7 +268,7 @@ public IAttachment[] FileUploads { get; set; }
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2026 3.19.1
+          Discord.Net © 2015-2026 3.20.0
         </div>
       </div>
     </footer>
