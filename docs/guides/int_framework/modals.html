@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.20.1/docs/guides/int_framework/modals.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/discord-net/Discord.Net/blob/3.20.2/docs/guides/int_framework/modals.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -182,8 +182,12 @@ public IMentionable[] SelectedMentionables { get; set; }
 <p>Additionally for Channel Select components, channel type constraints can be defined by annotating the property with a <code>ChannelTypes</code> attribute.</p>
 <h2 id="file-uploads">File Uploads</h2>
 <p>File upload components allow users to upload files as part of their modal submission. A single file upload can take up to 10 attachments. The size limit for the uploaded files is determined by Discord's limits for the current context (e.g., server boost level, user's nitro status).
-The file upload component is defined using the <code>ModalFileUpload</code> attribute. The attribute can be used on a property of type <code>IAttachment</code> or <code>IAttachment[]</code>.</p>
+The file upload component is defined using the <code>ModalFileUpload</code> attribute. The attribute can be used on a property of type <code>IAttachment</code> or <code>IAttachment[]</code>.
+Up to 10 file extension filters can be defined for a file upload component using the <code>ModalFileType</code> attribute. The attribute can be used on the same property as the <code>ModalFileUpload</code> attribute. The filters can be defined using either file extensions (e.g., <code>.jpg</code>, <code>.png</code>, <code>.mp4</code>) or predefined sets of file types (e.g., <code>image</code>, <code>video</code>, <code>audio</code>). If no filters are defined, all file types will be accepted.</p>
 <pre><code class="lang-csharp">[ModalFileUpload(&quot;file-upload-id&quot;, maxValues: 5)]
+[ModalFileType(&quot;image&quot;)]
+[ModalFileType(&quot;video&quot;)]
+[ModalFileType(&quot;.avi&quot;)]
 public IAttachment[] FileUploads { get; set; }
 </code></pre>
 <p><img src="images/modals/file-upload.png" alt="File upload"></p>
@@ -251,7 +255,7 @@ public IAttachment[] FileUploads { get; set; }
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/discord-net/Discord.Net/blob/3.20.1/docs/guides/int_framework/modals.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/discord-net/Discord.Net/blob/3.20.2/docs/guides/int_framework/modals.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -268,7 +272,7 @@ public IAttachment[] FileUploads { get; set; }
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          Discord.Net © 2015-2026 3.20.1
+          Discord.Net © 2015-2026 3.20.2
         </div>
       </div>
     </footer>
